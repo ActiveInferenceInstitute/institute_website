@@ -1,0 +1,56 @@
+{
+  "slug": "programs",
+  "title": "Programs",
+  "subtitle": "Structured ways to contribute, learn, partner, mentor, fund, and steward open work.",
+  "sourceRange": "Pages 58-85",
+  "lede": "Institute programs turn interest into participation through volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, and open source pathways.",
+  "sections": [
+    {
+      "heading": "Volunteer",
+      "body": "Volunteering is the broadest on-ramp for participation. The source describes active and documented participation in learning groups and projects, with room for people to contribute according to available time, background, and skills."
+    },
+    {
+      "heading": "Internship and Mentorship",
+      "body": "Internships and mentorship provide more structured engagement. These pathways help participants learn by contributing to projects, public artifacts, educational materials, research workflows, and community operations."
+    },
+    {
+      "heading": "Fellows",
+      "body": "The Fellowship pathway supports contributors who provide regular progress reports and develop research, applications, or public resources aligned with the Institute and ecosystem."
+    },
+    {
+      "heading": "Partnership and Philanthropy",
+      "body": "Partners and donors support shared research, public education, infrastructure, and project development. The PDF frames partnership as a practical exchange of time, attention, expertise, funding, and institutional support."
+    },
+    {
+      "heading": "Open Source",
+      "body": "Open source is treated as an ecosystem support function: publish reusable work, improve project infrastructure, and make shared technical resources discoverable."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Volunteer",
+      "text": "Contribute to learning groups, project support, operations, writing, analysis, or media."
+    },
+    {
+      "title": "Internship",
+      "text": "Join a structured contribution pathway with learning, documentation, and project practice."
+    },
+    {
+      "title": "Mentorship",
+      "text": "Support participant development and project continuity."
+    },
+    {
+      "title": "Fellowship",
+      "text": "Develop research or applied work with regular reporting and public outputs."
+    },
+    {
+      "title": "Partnership",
+      "text": "Align organizations, funders, and collaborators around concrete shared work."
+    },
+    {
+      "title": "Philanthropy",
+      "text": "Support public education, research infrastructure, events, and ecosystem stewardship."
+    }
+  ],
+  "order": 4
+}

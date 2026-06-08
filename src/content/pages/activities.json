@@ -1,0 +1,52 @@
+{
+  "slug": "activities",
+  "title": "Activities",
+  "subtitle": "Recurring public meetings, project sessions, learning groups, streams, and community events.",
+  "sourceRange": "Pages 1-10 and 141-166",
+  "lede": "Activities are the Institute's live participation surface: learning groups, model streams, project meetings, public media, and recurring updates.",
+  "sections": [
+    {
+      "heading": "Open Participation",
+      "body": "The PDF invites people to drop in to activities when it works for them. Activities are paired with public channels and project pages so participants can move between synchronous meetings and asynchronous contribution."
+    },
+    {
+      "heading": "Learning Sessions",
+      "body": "Recurring learning activities include textbook groups, RxInfer.jl sessions, Fundamentals of Active Inference, seasonal schools, and course-oriented work."
+    },
+    {
+      "heading": "Media and Production",
+      "body": "The public archive includes livestreams, podcasts, model streams, guest streams, symposium material, and audio-visual production work."
+    },
+    {
+      "heading": "Project Sessions",
+      "body": "Activities connect directly to Institute Projects and Ecosystem Projects, including project meetings, preparation workflows, measurement/reporting, and presentation opportunities."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Textbook Group",
+      "text": "Collaborative study of core Active Inference material."
+    },
+    {
+      "title": "ModelStream",
+      "text": "Public sessions around modeling and applied examples."
+    },
+    {
+      "title": "Project meetings",
+      "text": "Working sessions for Institute and ecosystem projects."
+    },
+    {
+      "title": "Symposium",
+      "text": "Applied Active Inference presentations and sponsor pathways."
+    },
+    {
+      "title": "Podcasts",
+      "text": "Conversational Active Inference Insights and related media."
+    },
+    {
+      "title": "Weekly updates",
+      "text": "Recurring public orientation and progress communication."
+    }
+  ],
+  "order": 3
+}

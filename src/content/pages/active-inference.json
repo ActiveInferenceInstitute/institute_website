@@ -1,0 +1,44 @@
+{
+  "slug": "active-inference",
+  "title": "Active Inference",
+  "subtitle": "A framework for understanding perception, action, learning, cognition, and adaptive systems.",
+  "sourceRange": "Pages 15-21 and 181-185",
+  "lede": "The source PDF introduces Active Inference as the central scientific and practical framework around which the Institute organizes education, research, applications, and ecosystem support.",
+  "sections": [
+    {
+      "heading": "What Active Inference Provides",
+      "body": "Active Inference connects perception, action, uncertainty, and model-based adaptation. The Institute's public material presents it as a shared framework for scientific inquiry, engineering practice, education, and collective sensemaking."
+    },
+    {
+      "heading": "How to Approach the Field",
+      "body": "The PDF directs newcomers to the living document, the Start page, livestreams, podcasts, textbook groups, readings, and implementations. This site separates those entry points into stable public pages while keeping source-page references visible."
+    },
+    {
+      "heading": "Implementations",
+      "body": "Implementation pathways include RxInfer.jl, PyMDP, SPM, and symbolic cognitive robotics. These tools support modeling, simulation, inference, and applied experimentation."
+    },
+    {
+      "heading": "Applications",
+      "body": "Active Inference appears across domains including biology, neuroscience, mental health, robotics, education, economics, physics, social systems, logistics, DeSci, and scientific method."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Framework",
+      "text": "A shared language for perception, action, uncertainty, and adaptive systems."
+    },
+    {
+      "title": "Learning path",
+      "text": "Textbook groups, courses, streams, podcasts, readings, and source documents."
+    },
+    {
+      "title": "Practice",
+      "text": "Software implementations, model-building, project work, and applied examples."
+    },
+    {
+      "title": "Ecosystem",
+      "text": "A broad community applying the framework across scientific and practical domains."
+    }
+  ],
+  "order": 2
+}

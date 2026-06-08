@@ -1,0 +1,48 @@
+{
+  "slug": "ecosystem",
+  "title": "Ecosystem",
+  "subtitle": "A broad Active Inference ecosystem spanning scientific domains, technical implementations, social systems, and applied fields.",
+  "sourceRange": "Pages 167-199",
+  "lede": "The Active Inference ecosystem includes challenge areas, user segments, information architecture, organizations, projects, and domains of application.",
+  "sections": [
+    {
+      "heading": "Priorities and Challenge Areas",
+      "body": "The source material frames ecosystem development around structure, growth, cyber and cognitive security, information flows, and organizations facing problems that may be addressed by Active Inference."
+    },
+    {
+      "heading": "Domains of Application",
+      "body": "The PDF maps Active Inference across biology, neuroscience, mental health, bioregional modeling, category theory, computation, economics, education, philosophy, physics, robotics, legal, social, logistics, scientific method, and DeSci."
+    },
+    {
+      "heading": "Ecosystem Support",
+      "body": "Ecosystem support includes public communication, learning infrastructure, project visibility, partner pathways, research resources, and shared open source tooling."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Biology and Neuroscience",
+      "text": "Modeling living systems, cognition, behavior, and theoretical neurobiology."
+    },
+    {
+      "title": "Mental Health",
+      "text": "Belief updating, clinical modeling, and therapeutic-relevant theory."
+    },
+    {
+      "title": "Bioregional Modeling",
+      "text": "Ecological, agricultural, soil, and geospatial applications."
+    },
+    {
+      "title": "Computation",
+      "text": "Software implementations, agent models, notations, and knowledge infrastructure."
+    },
+    {
+      "title": "Social Systems",
+      "text": "Group cognition, institutions, coordination, and social science."
+    },
+    {
+      "title": "DeSci",
+      "text": "Decentralized science, epistemic commons, and open collaboration structures."
+    }
+  ],
+  "order": 7
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "label": "About",
+    "href": "about.html"
+  },
+  {
+    "label": "Active Inference",
+    "href": "active-inference.html"
+  },
+  {
+    "label": "Activities",
+    "href": "activities.html"
+  },
+  {
+    "label": "Programs",
+    "href": "programs.html"
+  },
+  {
+    "label": "Projects",
+    "href": "projects.html"
+  },
+  {
+    "label": "Learning",
+    "href": "learning.html"
+  },
+  {
+    "label": "Ecosystem",
+    "href": "ecosystem.html"
+  },
+  {
+    "label": "Get Involved",
+    "href": "get-involved.html"
+  },
+  {
+    "label": "Source Atlas",
+    "href": "atlas/"
+  }
+]

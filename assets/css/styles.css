@@ -190,7 +190,8 @@ img {
 }
 
 .hero-actions,
-.footer-links {
+.footer-links,
+.social-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
@@ -243,6 +244,30 @@ img {
 }
 
 .metrics-band span {
+  color: var(--muted);
+}
+
+.manifest-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.manifest-summary div {
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.manifest-summary strong {
+  display: block;
+  color: var(--deep);
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.manifest-summary span {
   color: var(--muted);
 }
 
@@ -507,6 +532,60 @@ img {
   text-decoration: none;
 }
 
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 10px 26px rgba(18, 35, 42, 0.06);
+}
+
+.source-table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+}
+
+.source-table th,
+.source-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.source-table th {
+  color: var(--deep);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.source-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.7rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.status-pill.ok {
+  background: #e4f4ef;
+  color: #17634b;
+}
+
+.status-pill.warn {
+  background: #fff0d6;
+  color: #73521c;
+}
+
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -526,7 +605,13 @@ img {
   justify-content: flex-end;
 }
 
-.footer-links a {
+.social-links {
+  max-width: 320px;
+  justify-content: flex-end;
+}
+
+.footer-links a,
+.social-links a {
   color: #f7d88b;
 }
 
@@ -553,6 +638,7 @@ img {
   }
 
   .metrics-band,
+  .manifest-summary,
   .feature-layout,
   .card-grid,
   .source-grid,

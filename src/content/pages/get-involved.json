@@ -1,0 +1,44 @@
+{
+  "slug": "get-involved",
+  "title": "Get Involved",
+  "subtitle": "Join the public channels, participate in activities, contribute to projects, or support the Institute.",
+  "sourceRange": "Pages 1-10 and 205-211",
+  "lede": "All backgrounds, time zones, and familiarity levels are welcome. Start with public channels, attend activities, and choose a contribution pathway that fits your context.",
+  "sections": [
+    {
+      "heading": "Join the Conversation",
+      "body": "Discord is the main public chat surface identified in the PDF. You can also follow public channels on YouTube, X, Bluesky, Podbean, Facebook, and LinkedIn."
+    },
+    {
+      "heading": "Attend Activities",
+      "body": "The source highlights weekly and project-specific activities, including textbook groups, learning sessions, model streams, and project meetings. Drop in when your schedule allows."
+    },
+    {
+      "heading": "Choose a Pathway",
+      "body": "Volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, open source, and project proposal pathways provide progressively structured ways to participate."
+    },
+    {
+      "heading": "Contact",
+      "body": "For questions about activities or the Institute, use the public contact email: blanket@activeinference.institute."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Start with Discord",
+      "text": "Join text and voice conversations with the community."
+    },
+    {
+      "title": "Watch and listen",
+      "text": "Use the public video and podcast archive to orient yourself."
+    },
+    {
+      "title": "Join an activity",
+      "text": "Attend a learning group or project meeting when possible."
+    },
+    {
+      "title": "Propose or support a project",
+      "text": "Use preparation and measurement workflows to make work visible."
+    }
+  ],
+  "order": 8
+}

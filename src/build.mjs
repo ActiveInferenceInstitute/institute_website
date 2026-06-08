@@ -4,11 +4,29 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const contentDir = path.join(root, "src", "content");
-const siteData = JSON.parse(fs.readFileSync(path.join(contentDir, "site-data.json"), "utf8"));
-const pdfData = JSON.parse(fs.readFileSync(path.join(contentDir, "pdf-pages.json"), "utf8"));
 
 const out = (...parts) => path.join(root, ...parts);
 const ensure = (dir) => fs.mkdirSync(dir, { recursive: true });
+
+function loadJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(contentDir, relativePath), "utf8"));
+}
+
+const pages = fs
+  .readdirSync(path.join(contentDir, "pages"))
+  .filter((file) => file.endsWith(".json"))
+  .map((file) => loadJson(path.join("pages", file)))
+  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0) || a.slug.localeCompare(b.slug));
+
+const siteData = {
+  site: loadJson("site.json"),
+  navigation: loadJson("navigation.json"),
+  social: loadJson("social.json"),
+  metrics: loadJson("metrics.json"),
+  liveSources: loadJson("live-sources.json"),
+  pages,
+};
+const pdfData = loadJson("pdf-pages.json");
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -23,6 +41,17 @@ function relPrefix(currentPath) {
   return currentPath.includes("/") ? "../" : "";
 }
 
+function absoluteUrl(filePath = "") {
+  const baseUrl = siteData.site.baseUrl.endsWith("/") ? siteData.site.baseUrl : `${siteData.site.baseUrl}/`;
+  let clean = String(filePath).replace(/^\/+/, "");
+  if (clean === "index.html") {
+    clean = "";
+  } else if (clean.endsWith("/index.html")) {
+    clean = clean.slice(0, -"index.html".length);
+  }
+  return new URL(clean, baseUrl).toString();
+}
+
 function nav(prefix = "") {
   const items = siteData.navigation
     .map((item) => `<a href="${prefix}${item.href}">${escapeHtml(item.label)}</a>`)
@@ -33,14 +62,25 @@ function nav(prefix = "") {
 function layout({ title, description, currentPath, body, extraHead = "", bodyClass = "" }) {
   const prefix = relPrefix(currentPath);
   const pageTitle = title === siteData.site.name ? title : `${title} | ${siteData.site.name}`;
+  const pageDescription = description || siteData.site.description;
+  const canonicalUrl = absoluteUrl(currentPath);
+  const previewImage = absoluteUrl("assets/img/source-page-001.png");
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(pageTitle)}</title>
-  <meta name="description" content="${escapeHtml(description || siteData.site.description)}">
+  <meta name="description" content="${escapeHtml(pageDescription)}">
   <meta name="theme-color" content="#11383f">
+  <link rel="canonical" href="${escapeHtml(canonicalUrl)}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="${escapeHtml(siteData.site.name)}">
+  <meta property="og:title" content="${escapeHtml(pageTitle)}">
+  <meta property="og:description" content="${escapeHtml(pageDescription)}">
+  <meta property="og:url" content="${escapeHtml(canonicalUrl)}">
+  <meta property="og:image" content="${escapeHtml(previewImage)}">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="${prefix}assets/css/styles.css">
   ${extraHead}
 </head>
@@ -68,6 +108,10 @@ function layout({ title, description, currentPath, body, extraHead = "", bodyCla
       <a href="mailto:${escapeHtml(siteData.site.email)}">${escapeHtml(siteData.site.email)}</a>
       <a href="${prefix}${siteData.site.sourcePdf}">Source PDF</a>
       <a href="${prefix}atlas/">Source Atlas</a>
+      <a href="${prefix}source.html">Source Manifest</a>
+    </div>
+    <div class="social-links" aria-label="Verified public links">
+      ${siteData.social.map((item) => `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>`).join("")}
     </div>
   </footer>
   <script src="${prefix}assets/js/site.js" defer></script>
@@ -76,11 +120,16 @@ function layout({ title, description, currentPath, body, extraHead = "", bodyCla
 }
 
 function sectionHeading({ eyebrow, title, text }) {
-  return `<div class="section-heading">
-    ${eyebrow ? `<p class="eyebrow">${escapeHtml(eyebrow)}</p>` : ""}
-    <h2>${escapeHtml(title)}</h2>
-    ${text ? `<p>${escapeHtml(text)}</p>` : ""}
-  </div>`;
+  const parts = ['<div class="section-heading">'];
+  if (eyebrow) {
+    parts.push(`    <p class="eyebrow">${escapeHtml(eyebrow)}</p>`);
+  }
+  parts.push(`    <h2>${escapeHtml(title)}</h2>`);
+  if (text) {
+    parts.push(`    <p>${escapeHtml(text)}</p>`);
+  }
+  parts.push("  </div>");
+  return parts.join("\n");
 }
 
 function cardGrid(cards = []) {
@@ -323,19 +372,65 @@ function sourcePage(page) {
 }
 
 function sourceManifest() {
+  const liveSources = siteData.liveSources.sources || [];
+  const verifiedCount = liveSources.filter((source) => source.ok).length;
+  const knownUnavailableCount = liveSources.filter((source) => !source.ok).length;
+  const sourceRows = liveSources
+    .map((source) => {
+      const finalUrl = source.finalUrl || source.url;
+      const statusText = source.ok
+        ? `Verified ${source.statusCode}`
+        : `Not promoted ${source.statusCode || "unavailable"}`;
+      const label = source.ok
+        ? `<a href="${escapeHtml(finalUrl)}">${escapeHtml(source.label)}</a>`
+        : `<span>${escapeHtml(source.label)}</span>`;
+      return `<tr>
+        <td>${label}</td>
+        <td>${escapeHtml(source.category)}</td>
+        <td><span class="status-pill ${source.ok ? "ok" : "warn"}">${escapeHtml(statusText)}</span></td>
+        <td>${escapeHtml(source.sourceBasis)}</td>
+      </tr>`;
+    })
+    .join("");
   const body = `
   <section class="page-hero compact">
     <p class="eyebrow">Source and maintenance</p>
     <h1>How this website is built</h1>
-    <p>The website separates curated public pages from generated source coverage. This makes the public narrative readable while keeping the PDF traceable.</p>
+    <p>The website separates curated public pages from generated source coverage. This makes the public narrative readable while keeping the PDF traceable and volatile public links explicit.</p>
+  </section>
+  <section class="content-band">
+    ${sectionHeading({
+      eyebrow: "Accuracy policy",
+      title: "PDF + Live source contract",
+      text: siteData.liveSources.policy || siteData.site.accuracyPolicy,
+    })}
+    <div class="manifest-summary">
+      <div><strong>${pdfData.source.reportedPages}</strong><span>PDF pages reported</span></div>
+      <div><strong>${pdfData.source.extractedPages}</strong><span>PDF pages extracted</span></div>
+      <div><strong>${verifiedCount}</strong><span>Live sources verified</span></div>
+      <div><strong>${knownUnavailableCount}</strong><span>Known unavailable, not promoted</span></div>
+    </div>
+    <p class="source-range">Live-source checks last ran ${escapeHtml(siteData.liveSources.lastCheckedAt)}. PDF-derived institutional summaries remain source-backed unless a reachable public source clearly updates a volatile detail.</p>
   </section>
   <section class="content-band">
     ${cardGrid([
-      { title: "Curated pages", text: "Edited public pages live in src/content/site-data.json." },
+      { title: "Curated pages", text: "Edited public pages live in src/content/pages/*.json." },
+      { title: "Shared site data", text: "Navigation, metrics, social links, site metadata, and live-source checks live in split JSON files under src/content/." },
       { title: "Source atlas", text: "scripts/extract_pdf.py extracts all PDF pages into src/content/pdf-pages.json." },
       { title: "Static generator", text: "src/build.mjs renders the root HTML files and atlas pages for GitHub Pages." },
       { title: "No runtime framework", text: "The site is plain HTML, CSS, and JavaScript for durability and simple hosting." },
     ])}
+  </section>
+  <section class="content-band muted">
+    ${sectionHeading({ eyebrow: "Live verification", title: "Checked public sources" })}
+    <div class="table-wrap">
+      <table class="source-table">
+        <thead>
+          <tr><th>Source</th><th>Category</th><th>Status</th><th>Basis</th></tr>
+        </thead>
+        <tbody>${sourceRows}</tbody>
+      </table>
+    </div>
   </section>`;
   return layout({
     title: "Source Manifest",
@@ -370,7 +465,7 @@ function build() {
   );
   writeFile(
     "robots.txt",
-    `User-agent: *\nAllow: /\nSitemap: https://activeinferenceinstitute.github.io/institute_website/sitemap.xml\n`,
+    `User-agent: *\nAllow: /\nSitemap: ${absoluteUrl("sitemap.xml")}\n`,
   );
   const urls = [
     "index.html",
@@ -382,7 +477,7 @@ function build() {
   writeFile(
     "sitemap.xml",
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
-      .map((url) => `  <url><loc>https://activeinferenceinstitute.github.io/institute_website/${url}</loc></url>`)
+      .map((url) => `  <url><loc>${absoluteUrl(url)}</loc></url>`)
       .join("\n")}\n</urlset>\n`,
   );
   console.log(`Built ${urls.length} public pages plus 404.html`);

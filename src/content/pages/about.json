@@ -1,0 +1,40 @@
+{
+  "slug": "about",
+  "title": "About the Institute",
+  "subtitle": "A public-interest institution for Active Inference education, research, and applications.",
+  "sourceRange": "Pages 11-57",
+  "lede": "The Active Inference Institute is a participatory Open Science institute dedicated to improving the accessibility, rigor, and applicability of the Active Inference framework.",
+  "sections": [
+    {
+      "heading": "Purpose",
+      "body": "AII supports education, research, training, and applications related to Active Inference. The Institute welcomes all backgrounds, time zones, and familiarity levels, and organizes the ecosystem through programs, projects, public media, research resources, and governance structures."
+    },
+    {
+      "heading": "Mission, Vision, Values, and Principles",
+      "body": "The source material emphasizes integrity, open learning, responsible conduct, professional development, excellence in research, and practical service. The public website presents these as an operating stance: make Active Inference more accessible, rigorous, and applicable while supporting ethical collaboration."
+    },
+    {
+      "heading": "Institute Structure",
+      "body": "The Institute is represented through a Board of Directors, Officers, Scientific Advisory Board, Members, organizational units, project groups, learning groups, and public communication channels. The structure is meant to support both stable stewardship and flexible participation."
+    },
+    {
+      "heading": "Information Management",
+      "body": "The PDF identifies Discord, Coda, newsletters, public video and podcast channels, and project pages as working information surfaces. This website refactors that information into stable public pages while preserving the source atlas for traceability."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Open participation",
+      "text": "The Institute is designed for people who arrive with different time zones, skills, and familiarity levels."
+    },
+    {
+      "title": "Public knowledge",
+      "text": "Livestreams, podcasts, readings, projects, and educational groups create reusable learning material."
+    },
+    {
+      "title": "Applied rigor",
+      "text": "The Institute connects theoretical foundations with applied projects, tools, symposia, and ecosystem support."
+    }
+  ],
+  "order": 1
+}
