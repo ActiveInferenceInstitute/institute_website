@@ -3,7 +3,7 @@
 This repository contains the canonical GitHub Pages website for public Active Inference Institute information.
 
 - Canonical repository: <https://github.com/ActiveInferenceInstitute/institute_website>
-- Public site: <https://activeinferenceinstitute.github.io/institute_website/>
+- GitHub Pages URL after branch-based Pages is enabled: <https://activeinferenceinstitute.github.io/institute_website/>
 
 The site is source-driven:
 
@@ -30,7 +30,7 @@ Then open `http://127.0.0.1:4173/`.
 
 ## GitHub Pages
 
-GitHub Pages is branch-based: deploy from the `main` branch at repository root (`/`). Keep `.nojekyll` in place so generated static assets and atlas pages are served directly.
+GitHub Pages is branch-based: deploy from the `main` branch at repository root (`/`). Keep `.nojekyll` in place so generated static assets and atlas pages are served directly. Repository settings must point Pages to `main` / `/`.
 
 ## Source Contract
 
