@@ -16,7 +16,7 @@
           "sourceId": "discord"
         },
         {
-          "label": "Welcome workspace",
+          "label": "Welcome shortlink",
           "sourceId": "shortlink-welcome"
         }
       ]
@@ -48,11 +48,11 @@
       "primaryHref": "learning.html#core-readings",
       "links": [
         {
-          "label": "Ontology workspace",
+          "label": "Active Inference Ontology shortlink",
           "sourceId": "shortlink-ontology"
         },
         {
-          "label": "Wave Hypothesis",
+          "label": "Wave Hypothesis shortlink",
           "sourceId": "shortlink-wave-hypothesis"
         },
         {
@@ -72,7 +72,7 @@
           "sourceId": "github-org"
         },
         {
-          "label": "RxInfer group",
+          "label": "RxInfer learning group",
           "sourceId": "shortlink-rxinfer"
         },
         {
@@ -88,15 +88,15 @@
       "primaryHref": "get-involved.html",
       "links": [
         {
-          "label": "Project preparation",
+          "label": "Project Preparation shortlink",
           "sourceId": "shortlink-prepare"
         },
         {
-          "label": "Volunteer",
+          "label": "Volunteer pathway",
           "sourceId": "official-volunteer"
         },
         {
-          "label": "Mentorship",
+          "label": "Mentorship pathway",
           "sourceId": "shortlink-mentorship"
         }
       ]
@@ -116,7 +116,7 @@
           "sourceId": "official-partnership"
         },
         {
-          "label": "Fellows",
+          "label": "Fellows pathway",
           "sourceId": "shortlink-fellows"
         }
       ]

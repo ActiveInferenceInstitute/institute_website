@@ -93,13 +93,12 @@ def live_urls() -> set[str]:
     for source in manifest.get("sources", []):
         if not source.get("ok"):
             continue
-        for key in ("url", "finalUrl"):
-            value = source.get(key)
-            if value:
-                clean = value.rstrip("/")
-                urls.add(value)
-                urls.add(clean)
-                urls.add(f"{clean}/")
+        value = source.get("url")
+        if value:
+            clean = value.rstrip("/")
+            urls.add(value)
+            urls.add(clean)
+            urls.add(f"{clean}/")
     return urls
 
 
@@ -160,6 +159,9 @@ def check_security() -> int:
             if href.startswith("mailto:") or href.startswith("#") or local_url(href):
                 continue
             if not external_url(href):
+                continue
+            if "coda.io" in href.lower():
+                errors.append(f"{relative}: direct Coda anchor is not allowed: {href}")
                 continue
             if href not in allowed_live_urls and href.rstrip("/") not in allowed_live_urls:
                 errors.append(f"{relative}: external anchor is not backed by live-sources.json: {href}")

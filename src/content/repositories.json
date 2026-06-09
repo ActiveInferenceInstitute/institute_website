@@ -736,8 +736,8 @@
         "repository",
         "jupyter-notebook"
       ],
-      "summary": "Working/Exploring branch for GEN-24 project https://coda.io/d/Active-Blockference_dIvNESFmyj6/GEN-24_su2DYdSx#_luRI0xVN",
-      "description": "Working/Exploring branch for GEN-24 project https://coda.io/d/Active-Blockference_dIvNESFmyj6/GEN-24_su2DYdSx#_luRI0xVN",
+      "summary": "GEN-24 project repository for active inference and Active Blockference exploration.",
+      "description": "GEN-24 project repository for active inference and Active Blockference exploration.",
       "language": "Jupyter Notebook",
       "stars": 1,
       "updatedAt": "2024-10-27T12:28:29Z",

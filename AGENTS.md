@@ -48,6 +48,8 @@ Generated public files should be limited to:
 
 Use `src/content/live-sources.json` as the canonical registry for volatile public URLs. Public resources, social links, page actions, section links, card links, official pages, and repository links should reference public destinations by `sourceId` whenever possible.
 
+Do not render direct resolved Coda destinations in public pages. When an official `*.activeinference.institute` shortlink redirects to Coda, render the shortlink from `live-sources.json:url`; keep the resolved target only in `finalUrl` for verification.
+
 The content model is split into registries:
 
 - `src/content/resources.json` for curated resources, filter types, groups, and audiences.
@@ -88,6 +90,7 @@ Every rendered external URL should resolve from `src/content/live-sources.json`.
 - The repository view must sort locally by updated date, stars, language, and group.
 - The global directory must index every curated page, page section, resource group, official page, official shortlink, verified external link, and public repository.
 - Static security must stay simple: local scripts/styles only, CSP and referrer meta tags present, no forms or embedded frames, no inline event handlers, and external anchors backed by `src/content/live-sources.json`.
+- External public links should render only internal GitHub Pages links, official Institute domains or shortlinks, GitHub repositories/pages, papers and research records, media/social/donation/contact links, or other verified public resources.
 
 ## Verification Gates
 

@@ -252,7 +252,7 @@
         "research",
         "ecosystem"
       ],
-      "summary": "Living public map of the Institute, ecosystem, activities, and conceptual context.",
+      "summary": "Public ecosystem shortlink for Institute context, projects, activities, and conceptual maps.",
       "relatedSlugs": [
         "about",
         "ecosystem"
@@ -325,7 +325,7 @@
         "media",
         "video"
       ],
-      "summary": "Index of public videos and podcasts for browsing by format and topic.",
+      "summary": "Public videos and podcasts shortlink for browsing recordings by format and topic.",
       "relatedSlugs": [
         "activities",
         "learning"
@@ -541,7 +541,7 @@
         "fellowship",
         "program"
       ],
-      "summary": "Public Fellows workspace for structured Institute participation.",
+      "summary": "Public Fellows pathway for structured Institute participation.",
       "relatedSlugs": [
         "programs",
         "get-involved"
@@ -559,7 +559,7 @@
         "mentorship",
         "program"
       ],
-      "summary": "Public mentorship workspace for guided participation and learning.",
+      "summary": "Public mentorship pathway for guided participation and learning.",
       "relatedSlugs": [
         "programs",
         "get-involved",
@@ -578,7 +578,7 @@
         "project",
         "preparation"
       ],
-      "summary": "Project Preparation workspace for making proposed work legible and actionable.",
+      "summary": "Public Project Preparation shortlink for making proposed work legible and actionable.",
       "relatedSlugs": [
         "projects",
         "programs"
@@ -596,7 +596,7 @@
         "project",
         "measurement"
       ],
-      "summary": "Project Measurement workspace for tracking public project progress and outputs.",
+      "summary": "Public project measurement shortlink for reporting progress and outputs.",
       "relatedSlugs": [
         "projects",
         "ecosystem"
@@ -615,7 +615,7 @@
         "learning",
         "implementation"
       ],
-      "summary": "RxInfer learning-group workspace for implementation-oriented Active Inference work.",
+      "summary": "Public RxInfer learning-group shortlink for implementation-oriented Active Inference work.",
       "relatedSlugs": [
         "learning",
         "projects",
@@ -635,7 +635,7 @@
         "research",
         "knowledge"
       ],
-      "summary": "Active Inference Ontology workspace for shared conceptual infrastructure.",
+      "summary": "Public Active Inference Ontology shortlink for shared conceptual infrastructure.",
       "relatedSlugs": [
         "ecosystem",
         "projects",
@@ -673,7 +673,7 @@
         "strategy",
         "institute"
       ],
-      "summary": "Public Strategy workspace for institutional orientation and planning context.",
+      "summary": "Public Strategy shortlink for institutional orientation and planning context.",
       "relatedSlugs": [
         "about",
         "ecosystem"

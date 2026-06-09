@@ -35,6 +35,14 @@ RESOURCE_FILTER_IDS = {
 REQUIRED_SOURCE_IDS = {
     "official-activeinference-org",
     "start-docs",
+    "ecosystem",
+    "official-activities-shortlink",
+    "official-intern",
+    "official-measure",
+    "official-projects-shortlink",
+    "official-symposium-shortlink",
+    "official-textbook-group-shortlink",
+    "official-volunteer",
     "shortlink-2025",
     "shortlink-bod",
     "shortlink-fellows",
@@ -47,6 +55,8 @@ REQUIRED_SOURCE_IDS = {
     "shortlink-strategy",
     "shortlink-wave-hypothesis",
     "shortlink-welcome",
+    "video",
+    "weekly",
 }
 REQUIRED_AUDIENCE_PATHWAYS = {
     "newcomer",
@@ -151,13 +161,20 @@ def live_source_urls(manifest: dict) -> set[str]:
     for item in manifest.get("sources", []):
         if not item.get("ok"):
             continue
-        for key in ("url", "finalUrl"):
-            value = item.get(key)
-            if value:
-                urls.add(value)
-                urls.add(value.rstrip("/"))
-                urls.add(f"{value.rstrip('/')}/")
+        value = item.get("url")
+        if value:
+            urls.add(value)
+            urls.add(value.rstrip("/"))
+            urls.add(f"{value.rstrip('/')}/")
     return urls
+
+
+def live_source_url_by_id(manifest: dict) -> dict[str, str]:
+    return {
+        item["id"]: item["url"]
+        for item in manifest.get("sources", [])
+        if item.get("ok") and item.get("id") and item.get("url")
+    }
 
 
 def generated_public_files(root: Path) -> list[Path]:
@@ -206,6 +223,11 @@ def live_manifest(root: Path) -> dict:
     return load_json(root / "src" / "content" / "live-sources.json")
 
 
+def url_variants(url: str) -> set[str]:
+    clean = url.rstrip("/")
+    return {url, clean, f"{clean}/"}
+
+
 def check_no_obsolete_public_artifacts(root: Path, errors: list[str]) -> None:
     for relative in OBSOLETE_PATHS:
         if (root / relative).exists():
@@ -240,6 +262,9 @@ def check_content_model(root: Path, errors: list[str]) -> None:
         source = next(item for item in manifest.get("sources", []) if item["id"] == source_id)
         if not source.get("ok"):
             errors.append(f"required source {source_id} is not promoted as reachable")
+    for source in manifest.get("sources", []):
+        if source.get("ok") and "coda.io" in source.get("url", "").lower():
+            errors.append(f"live-sources.json public url may not point directly to Coda: {source['id']}")
 
     resources = load_json(root / "src" / "content" / "resources.json")
     official_pages = load_json(root / "src" / "content" / "official-pages.json")
@@ -255,6 +280,11 @@ def check_content_model(root: Path, errors: list[str]) -> None:
         errors.append("resources.json must define resource entries")
     if not official_pages.get("pages"):
         errors.append("official-pages.json must define official page entries")
+    for path in (root / "src" / "content").glob("*.json"):
+        if path.name == "live-sources.json":
+            continue
+        if "coda.io" in path.read_text(encoding="utf-8").lower():
+            errors.append(f"{path.relative_to(root)} may not contain direct Coda URLs; use live-sources.json finalUrl only")
     shortlinks = [item for item in official_pages.get("pages", []) if item.get("shortlink") and item.get("promoted") is not False]
     if len(shortlinks) < 12:
         errors.append(f"official-pages.json expected at least 12 promoted official shortlinks, found {len(shortlinks)}")
@@ -410,8 +440,10 @@ def check_resource_directory(root: Path, errors: list[str]) -> None:
 
     official_pages = load_json(root / "src" / "content" / "official-pages.json").get("pages", [])
     repositories = load_json(root / "src" / "content" / "repositories.json").get("repositories", [])
+    source_urls = live_source_url_by_id(live_manifest(root))
     for item in official_pages:
-        if item.get("promoted") is not False and (item.get("finalUrl") or item.get("url")) not in hrefs:
+        expected_url = source_urls.get(item.get("sourceId", ""))
+        if item.get("promoted") is not False and (not expected_url or (expected_url not in hrefs and expected_url.rstrip("/") not in hrefs)):
             errors.append(f"resources.html missing official page {item.get('sourceId')}")
     for repo in repositories:
         if repo.get("promoted") is not False and repo.get("url") not in hrefs:
@@ -447,8 +479,10 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
 
     official_pages = load_json(root / "src" / "content" / "official-pages.json").get("pages", [])
     repositories = load_json(root / "src" / "content" / "repositories.json").get("repositories", [])
+    source_urls = live_source_url_by_id(live_manifest(root))
     for item in official_pages:
-        if item.get("promoted") is not False and (item.get("finalUrl") or item.get("url")) not in hrefs:
+        expected_url = source_urls.get(item.get("sourceId", ""))
+        if item.get("promoted") is not False and (not expected_url or (expected_url not in hrefs and expected_url.rstrip("/") not in hrefs)):
             errors.append(f"directory.html missing official page {item.get('sourceId')}")
     for repo in repositories:
         if repo.get("promoted") is not False and repo.get("url") not in hrefs:
@@ -522,6 +556,28 @@ def check_stale_references(root: Path, errors: list[str]) -> None:
                 errors.append(f"{path.relative_to(root)} contains obsolete public reference matching {pattern}")
 
 
+def check_no_public_coda_links(root: Path, errors: list[str]) -> None:
+    public_paths = [
+        *generated_html_files(root),
+        root / "assets" / "css" / "styles.css",
+        root / "assets" / "js" / "site.js",
+        root / "robots.txt",
+        root / "sitemap.xml",
+        root / "README.md",
+        root / "AGENTS.md",
+    ]
+    for path in public_paths:
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        lower = text.lower()
+        if "https://coda.io" in lower or "http://coda.io" in lower:
+            errors.append(f"{path.relative_to(root)} contains a direct Coda URL")
+        if path.suffix == ".html":
+            if "coda.io" in lower or "coda " in lower or "workspace" in lower:
+                errors.append(f"{path.relative_to(root)} contains visible Coda/workspace wording")
+
+
 def check_template_external_urls(root: Path, errors: list[str]) -> None:
     build_text = (root / "src" / "build.mjs").read_text(encoding="utf-8")
     external_urls = [
@@ -545,6 +601,7 @@ def check_site_contract(root: Path) -> int:
     check_canonical_outputs(root, errors)
     check_external_anchors(root, errors)
     check_stale_references(root, errors)
+    check_no_public_coda_links(root, errors)
     check_template_external_urls(root, errors)
 
     if errors:

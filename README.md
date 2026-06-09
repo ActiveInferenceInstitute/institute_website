@@ -27,6 +27,8 @@ The public site must not expose input artifacts, drafting screenshots, generated
 
 Volatile public links are centralized in `src/content/live-sources.json`. Templates should resolve public channels, official pages, and repositories by `sourceId` instead of hardcoding repeated external URLs.
 
+Visitor-facing links must not point directly at resolved Coda destinations. If an official `*.activeinference.institute` shortlink redirects to a Coda page, render the shortlink and keep the resolved destination only as verification metadata in `live-sources.json`.
+
 ## Architecture
 
 ```text
@@ -78,7 +80,7 @@ Public resources are split by purpose:
 - `src/content/official-pages.json` contains reachable official site pages, `activeinference.org`, `activeinference.institute`, START, and official shortlinks.
 - `src/content/repositories.json` contains all reachable public `ActiveInferenceInstitute` repositories.
 - `src/content/audience-pathways.json` contains homepage routes for visitor intent.
-- `src/content/live-sources.json` remains the canonical registry for external URLs and verification status.
+- `src/content/live-sources.json` remains the canonical registry for external URLs and verification status. Its `url` field is the public display URL; `finalUrl` records redirect verification only and is never rendered.
 
 Rendered resources use stable fields: `sourceId`, `type`, `category`, `audience`, `tags`, `summary`, `relatedSlugs`, `priority`, and `promoted`.
 
@@ -142,3 +144,4 @@ Before pushing, confirm:
 - The repository view must support local sorting by updated date, stars, language, and group.
 - The global directory must index every curated page, page section, resource group, official page, official shortlink, verified external link, and public repository.
 - Static security must remain simple: local scripts/styles only, CSP and referrer meta tags present, no forms, no embedded frames, and external anchors backed by `src/content/live-sources.json`.
+- External public links should render only internal GitHub Pages links, official Institute domains or shortlinks, GitHub repositories/pages, papers and research records, media/social/donation/contact links, or other verified public resources.

@@ -48,7 +48,7 @@
     },
     {
       "id": "ecosystem",
-      "label": "Institute and ecosystem living document",
+      "label": "Ecosystem shortlink",
       "category": "Research",
       "url": "https://ecosystem.activeinference.institute/",
       "sourceBasis": "Public ecosystem reference destination verified from the Institute resource inventory.",
@@ -201,8 +201,8 @@
       "checkedAt": "2026-06-09T02:35:05Z"
     },
     {
-      "id": "official-activities-coda",
-      "label": "Activities directory",
+      "id": "official-activities-shortlink",
+      "label": "Activities shortlink",
       "category": "Activities",
       "url": "https://activities.activeinference.institute/",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
@@ -290,7 +290,7 @@
     },
     {
       "id": "official-intern",
-      "label": "Intern pathway",
+      "label": "Internship pathway",
       "category": "Participate",
       "url": "https://intern.activeinference.institute",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
@@ -334,7 +334,7 @@
     },
     {
       "id": "official-measure",
-      "label": "Project measurement",
+      "label": "Project Measurement shortlink",
       "category": "Projects",
       "url": "https://measure.activeinference.institute",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
@@ -388,8 +388,8 @@
       "checkedAt": "2026-06-09T01:59:33Z"
     },
     {
-      "id": "official-projects-coda",
-      "label": "Projects directory",
+      "id": "official-projects-shortlink",
+      "label": "Projects shortlink",
       "category": "Projects",
       "url": "https://projects.activeinference.institute",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
@@ -465,7 +465,7 @@
       "checkedAt": "2026-06-09T01:59:33Z"
     },
     {
-      "id": "official-symposium-coda",
+      "id": "official-symposium-shortlink",
       "label": "Applied Active Inference Symposium",
       "category": "Activities",
       "url": "https://symposium.activeinference.institute/",
@@ -498,8 +498,8 @@
       "checkedAt": "2026-06-09T01:59:33Z"
     },
     {
-      "id": "official-textbook-group-coda",
-      "label": "Textbook Group workspace",
+      "id": "official-textbook-group-shortlink",
+      "label": "Textbook Group shortlink",
       "category": "Learning",
       "url": "https://textbook-group.activeinference.institute/",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
@@ -1236,7 +1236,7 @@
     },
     {
       "id": "shortlink-2025",
-      "label": "2025 planning workspace",
+      "label": "2025 planning shortlink",
       "category": "Activities",
       "url": "https://2025.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
@@ -1247,7 +1247,7 @@
     },
     {
       "id": "shortlink-bod",
-      "label": "Board of Directors workspace",
+      "label": "Board of Directors shortlink",
       "category": "Governance",
       "url": "https://bod.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
@@ -1258,7 +1258,7 @@
     },
     {
       "id": "shortlink-fellows",
-      "label": "Fellows workspace",
+      "label": "Fellows pathway",
       "category": "Participate",
       "url": "https://fellows.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
@@ -1269,7 +1269,7 @@
     },
     {
       "id": "shortlink-mentorship",
-      "label": "Mentorship workspace",
+      "label": "Mentorship pathway",
       "category": "Participate",
       "url": "https://mentorship.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
@@ -1291,7 +1291,7 @@
     },
     {
       "id": "shortlink-ontology",
-      "label": "Active Inference Ontology workspace",
+      "label": "Active Inference Ontology shortlink",
       "category": "Research",
       "url": "https://ontology.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
@@ -1302,7 +1302,7 @@
     },
     {
       "id": "shortlink-prepare",
-      "label": "Project Preparation workspace",
+      "label": "Project Preparation shortlink",
       "category": "Projects",
       "url": "https://prepare.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
@@ -1313,7 +1313,7 @@
     },
     {
       "id": "shortlink-rxinfer",
-      "label": "RxInfer learning group workspace",
+      "label": "RxInfer learning group",
       "category": "Learning",
       "url": "https://rxinfer.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
@@ -1324,7 +1324,7 @@
     },
     {
       "id": "shortlink-sab",
-      "label": "Scientific Advisory Board workspace",
+      "label": "Scientific Advisory Board shortlink",
       "category": "Governance",
       "url": "https://sab.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
@@ -1335,7 +1335,7 @@
     },
     {
       "id": "shortlink-strategy",
-      "label": "Strategy workspace",
+      "label": "Strategy shortlink",
       "category": "Institute",
       "url": "https://strategy.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
@@ -1346,7 +1346,7 @@
     },
     {
       "id": "shortlink-wave-hypothesis",
-      "label": "Wave Hypothesis workspace",
+      "label": "Wave Hypothesis shortlink",
       "category": "Research",
       "url": "https://wave-hypothesis.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
@@ -1357,7 +1357,7 @@
     },
     {
       "id": "shortlink-welcome",
-      "label": "Welcome workspace",
+      "label": "Welcome shortlink",
       "category": "Institute",
       "url": "https://welcome.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
@@ -1401,7 +1401,7 @@
     },
     {
       "id": "video",
-      "label": "Videos and podcasts index",
+      "label": "Videos and podcasts shortlink",
       "category": "Media",
       "url": "https://video.activeinference.institute/",
       "sourceBasis": "Public media index verified from the Institute resource inventory.",

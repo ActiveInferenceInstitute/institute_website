@@ -80,6 +80,10 @@ function sourceFor(id) {
   return source && source.ok ? source : null;
 }
 
+function publicHrefForSource(source) {
+  return source.url;
+}
+
 function resolveLink(link) {
   if (!link) {
     return null;
@@ -91,7 +95,7 @@ function resolveLink(link) {
     }
     return {
       label: link.label || source.label,
-      href: source.finalUrl || source.url,
+      href: publicHrefForSource(source),
       meta: source.category,
       external: true,
     };
@@ -450,7 +454,7 @@ function normalizeResource(resource, sourceKind) {
     audienceLabel: audienceById.get(audience)?.label || audience,
     tags,
     label: resource.title || resource.name || source.label,
-    href: source.finalUrl || source.url,
+    href: publicHrefForSource(source),
     summary: resource.summary || resource.description || source.label,
   };
 }
