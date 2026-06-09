@@ -1,10 +1,10 @@
 [
   {
     "value": "501(c)(3)",
-    "label": "educational nonprofit"
+    "label": "volunteer-led nonprofit"
   },
   {
-    "value": "116",
+    "value": "130",
     "label": "verified public links"
   },
   {
@@ -12,7 +12,11 @@
     "label": "public repositories indexed"
   },
   {
-    "value": "Open Science",
-    "label": "participatory operating model"
+    "value": "2,000+",
+    "label": "community members"
+  },
+  {
+    "value": "700+",
+    "label": "livestreams and recordings"
   }
 ]

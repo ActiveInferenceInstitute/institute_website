@@ -170,12 +170,31 @@
   ],
   "resources": [
     {
+      "sourceId": "official-activeinference-org",
+      "type": "official",
+      "category": "institute",
+      "audience": "newcomer",
+      "tags": [
+        "official",
+        "overview",
+        "mission"
+      ],
+      "summary": "Current public landing page for the Institute, including mission, vision, open-science framing, and the Get Started pathway.",
+      "relatedSlugs": [
+        "about",
+        "get-involved",
+        "ecosystem"
+      ],
+      "priority": 0,
+      "promoted": true,
+      "featured": true
+    },
+    {
       "sourceId": "discord",
       "type": "community",
       "category": "community",
       "audience": "newcomer",
       "tags": [
-        "community",
         "community",
         "discord"
       ],
@@ -195,7 +214,6 @@
       "audience": "newcomer",
       "tags": [
         "community",
-        "community",
         "weekly"
       ],
       "summary": "Recurring public update surface for activity orientation and current work.",
@@ -213,7 +231,6 @@
       "category": "learning",
       "audience": "learner",
       "tags": [
-        "learning",
         "learning",
         "start-repo"
       ],
@@ -233,7 +250,6 @@
       "audience": "researcher",
       "tags": [
         "research",
-        "research",
         "ecosystem"
       ],
       "summary": "Living public map of the Institute, ecosystem, activities, and conceptual context.",
@@ -246,12 +262,30 @@
       "featured": true
     },
     {
+      "sourceId": "start-docs",
+      "type": "learning",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "start-repo",
+        "learning",
+        "curriculum"
+      ],
+      "summary": "Public START documentation site for tailored Active Inference learning and curriculum generation.",
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 4,
+      "promoted": true,
+      "featured": true
+    },
+    {
       "sourceId": "youtube",
       "type": "media",
       "category": "media",
       "audience": "newcomer",
       "tags": [
-        "media",
         "media",
         "youtube"
       ],
@@ -271,7 +305,6 @@
       "audience": "newcomer",
       "tags": [
         "media",
-        "media",
         "youtube-handle"
       ],
       "summary": "Direct handle for the public YouTube presence.",
@@ -289,7 +322,6 @@
       "category": "media",
       "audience": "newcomer",
       "tags": [
-        "media",
         "media",
         "video"
       ],
@@ -309,7 +341,6 @@
       "audience": "newcomer",
       "tags": [
         "media",
-        "media",
         "podbean"
       ],
       "summary": "Podcast destination for Active Inference conversations and interviews.",
@@ -327,7 +358,6 @@
       "category": "projects",
       "audience": "developer",
       "tags": [
-        "projects",
         "projects",
         "github-org"
       ],
@@ -347,7 +377,6 @@
       "audience": "developer",
       "tags": [
         "projects",
-        "projects",
         "active-inferants"
       ],
       "summary": "Project repository for multiagent Active Inference modeling work.",
@@ -365,7 +394,6 @@
       "category": "projects",
       "audience": "developer",
       "tags": [
-        "projects",
         "projects",
         "gnn"
       ],
@@ -385,7 +413,6 @@
       "audience": "developer",
       "tags": [
         "projects",
-        "projects",
         "geo-infer"
       ],
       "summary": "Geospatial modeling repository connected to ecological and bioregional applications.",
@@ -403,7 +430,6 @@
       "category": "research",
       "audience": "researcher",
       "tags": [
-        "research",
         "research",
         "journal"
       ],
@@ -423,7 +449,6 @@
       "audience": "supporter",
       "tags": [
         "support",
-        "support",
         "donate"
       ],
       "summary": "Donation pathway for supporting public education, events, infrastructure, and stewardship.",
@@ -441,7 +466,6 @@
       "category": "social",
       "audience": "newcomer",
       "tags": [
-        "social",
         "social",
         "x"
       ],
@@ -461,7 +485,6 @@
       "audience": "newcomer",
       "tags": [
         "social",
-        "social",
         "bluesky"
       ],
       "summary": "Public social profile for community updates.",
@@ -479,7 +502,6 @@
       "category": "social",
       "audience": "newcomer",
       "tags": [
-        "social",
         "social",
         "facebook"
       ],
@@ -499,7 +521,6 @@
       "audience": "newcomer",
       "tags": [
         "social",
-        "social",
         "linkedin"
       ],
       "summary": "Public organization profile for professional updates.",
@@ -508,6 +529,156 @@
         "programs"
       ],
       "priority": 18,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "shortlink-fellows",
+      "type": "official",
+      "category": "participation",
+      "audience": "contributor",
+      "tags": [
+        "fellowship",
+        "program"
+      ],
+      "summary": "Public Fellows workspace for structured Institute participation.",
+      "relatedSlugs": [
+        "programs",
+        "get-involved"
+      ],
+      "priority": 24,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "shortlink-mentorship",
+      "type": "official",
+      "category": "participation",
+      "audience": "contributor",
+      "tags": [
+        "mentorship",
+        "program"
+      ],
+      "summary": "Public mentorship workspace for guided participation and learning.",
+      "relatedSlugs": [
+        "programs",
+        "get-involved",
+        "learning"
+      ],
+      "priority": 25,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "shortlink-prepare",
+      "type": "official",
+      "category": "projects",
+      "audience": "contributor",
+      "tags": [
+        "project",
+        "preparation"
+      ],
+      "summary": "Project Preparation workspace for making proposed work legible and actionable.",
+      "relatedSlugs": [
+        "projects",
+        "programs"
+      ],
+      "priority": 26,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "official-measure",
+      "type": "official",
+      "category": "projects",
+      "audience": "contributor",
+      "tags": [
+        "project",
+        "measurement"
+      ],
+      "summary": "Project Measurement workspace for tracking public project progress and outputs.",
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 27,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "shortlink-rxinfer",
+      "type": "learning",
+      "category": "learning",
+      "audience": "developer",
+      "tags": [
+        "rxinfer",
+        "learning",
+        "implementation"
+      ],
+      "summary": "RxInfer learning-group workspace for implementation-oriented Active Inference work.",
+      "relatedSlugs": [
+        "learning",
+        "projects",
+        "active-inference"
+      ],
+      "priority": 28,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "shortlink-ontology",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "ontology",
+        "research",
+        "knowledge"
+      ],
+      "summary": "Active Inference Ontology workspace for shared conceptual infrastructure.",
+      "relatedSlugs": [
+        "ecosystem",
+        "projects",
+        "learning"
+      ],
+      "priority": 29,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "shortlink-obsidian",
+      "type": "learning",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "obsidian",
+        "knowledge",
+        "active-inference"
+      ],
+      "summary": "Published Active Inference knowledge base for concept-level orientation.",
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 30,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "shortlink-strategy",
+      "type": "official",
+      "category": "institute",
+      "audience": "newcomer",
+      "tags": [
+        "strategy",
+        "institute"
+      ],
+      "summary": "Public Strategy workspace for institutional orientation and planning context.",
+      "relatedSlugs": [
+        "about",
+        "ecosystem"
+      ],
+      "priority": 31,
       "promoted": true,
       "featured": false
     },
@@ -803,5 +974,23 @@
       "promoted": false,
       "featured": false
     }
+  ],
+  "popularTags": [
+    "active-inference",
+    "community",
+    "learning",
+    "research",
+    "projects",
+    "repository",
+    "python",
+    "fep",
+    "ontology",
+    "rxinfer",
+    "textbook",
+    "symposium",
+    "volunteer",
+    "mentorship",
+    "strategy",
+    "obsidian"
   ]
 }

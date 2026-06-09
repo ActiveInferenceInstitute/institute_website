@@ -55,6 +55,9 @@ const resourceTag = document.querySelector("#resource-tag");
 const resourceCount = document.querySelector("#resource-count");
 const resourceCards = [...document.querySelectorAll(".resource-card[data-category]")];
 const categoryCounts = [...document.querySelectorAll("[data-category-count]")];
+const tagButtons = [...document.querySelectorAll("[data-tag-filter]")];
+const repoSort = document.querySelector("#repo-sort");
+const repositoryList = document.querySelector("[data-repository-list]");
 
 function cardMatchesFilters(card, filters) {
   const tags = (card.dataset.tags || "").split(/\s+/).filter(Boolean);
@@ -71,6 +74,12 @@ function updateCategoryCounts() {
     const category = count.dataset.categoryCount;
     const visible = resourceCards.filter((card) => card.dataset.category === category && !card.hidden).length;
     count.textContent = `${visible} ${visible === 1 ? "resource" : "resources"} shown in this group`;
+  }
+}
+
+function syncTagButtons(value = "") {
+  for (const button of tagButtons) {
+    button.setAttribute("aria-pressed", String((button.dataset.tagFilter || "") === value));
   }
 }
 
@@ -98,12 +107,49 @@ function updateResourceFilters() {
   if (resourceCount) {
     resourceCount.textContent = `${visible} ${visible === 1 ? "resource" : "resources"} shown`;
   }
+  syncTagButtons(filters.tag);
   updateCategoryCounts();
+}
+
+function sortRepositories() {
+  if (!repositoryList || !repoSort) {
+    return;
+  }
+  const cards = [...repositoryList.querySelectorAll("[data-repo-card]")];
+  const mode = repoSort.value;
+  cards.sort((a, b) => {
+    if (mode === "stars") {
+      return Number(b.dataset.repoStars || 0) - Number(a.dataset.repoStars || 0) || a.dataset.repoLabel.localeCompare(b.dataset.repoLabel);
+    }
+    if (mode === "language") {
+      return (a.dataset.repoLanguage || "").localeCompare(b.dataset.repoLanguage || "") || a.dataset.repoLabel.localeCompare(b.dataset.repoLabel);
+    }
+    if (mode === "category") {
+      return (a.dataset.repoCategory || "").localeCompare(b.dataset.repoCategory || "") || a.dataset.repoLabel.localeCompare(b.dataset.repoLabel);
+    }
+    return (b.dataset.repoUpdated || "").localeCompare(a.dataset.repoUpdated || "") || a.dataset.repoLabel.localeCompare(b.dataset.repoLabel);
+  });
+  for (const card of cards) {
+    repositoryList.append(card);
+  }
 }
 
 resourceSearch?.addEventListener("input", updateResourceFilters);
 resourceType?.addEventListener("change", updateResourceFilters);
 resourceCategory?.addEventListener("change", updateResourceFilters);
 resourceAudience?.addEventListener("change", updateResourceFilters);
-resourceTag?.addEventListener("change", updateResourceFilters);
+resourceTag?.addEventListener("change", () => {
+  syncTagButtons(resourceTag.value);
+  updateResourceFilters();
+});
+for (const button of tagButtons) {
+  button.addEventListener("click", () => {
+    if (resourceTag) {
+      resourceTag.value = button.dataset.tagFilter || "";
+    }
+    updateResourceFilters();
+  });
+}
+repoSort?.addEventListener("change", sortRepositories);
 updateResourceFilters();
+sortRepositories();

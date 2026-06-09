@@ -27,6 +27,7 @@ const siteData = {
   resources: loadJson("resources.json"),
   officialPages: loadJson("official-pages.json"),
   repositories: loadJson("repositories.json"),
+  audiencePathways: loadJson("audience-pathways.json"),
   pages,
 };
 
@@ -163,6 +164,16 @@ function linkChips(links = []) {
     .join("")}</div>`;
 }
 
+function linkList(links = []) {
+  const resolved = resolveLinks(links);
+  if (!resolved.length) {
+    return "";
+  }
+  return `<div class="mini-links">${resolved
+    .map((link) => `<a href="${escapeHtml(link.href)}"${linkAttrs(link.href)}>${escapeHtml(link.label)}</a>`)
+    .join("")}</div>`;
+}
+
 function cspContent() {
   return [
     "default-src 'self'",
@@ -285,6 +296,7 @@ function pageGuide(page) {
       </div>
       <nav aria-label="${escapeHtml(page.title)} page sections">
         ${sectionLinks}
+        <a href="#next-actions">Best next actions</a>
         <a href="#key-surfaces">Key surfaces</a>
         <a href="#resources">Related resources</a>
         <a href="#official-pages">Official pages</a>
@@ -314,6 +326,59 @@ function relatedPages(page) {
       </a>`,
     )
     .join("")}</div>`;
+}
+
+function audiencePathwaySection() {
+  const pathways = siteData.audiencePathways.pathways || [];
+  if (!pathways.length) {
+    return "";
+  }
+  return `<section class="content-band" id="audience-pathways">
+    ${sectionHeading({
+      eyebrow: "Audience pathways",
+      title: "Choose the next useful step",
+      text: "These routes organize the same public resource map by visitor intent so people do not need to understand the whole Institute before finding a practical next action.",
+    })}
+    <div class="pathway-grid">
+      ${pathways
+        .map((pathway) => `<article class="pathway-card">
+          <span>${escapeHtml(pathway.label)}</span>
+          <h3>${escapeHtml(pathway.title || pathway.label)}</h3>
+          <p>${escapeHtml(pathway.summary)}</p>
+          <a class="button secondary" href="${escapeHtml(pathway.primaryHref)}">${escapeHtml(pathway.actionLabel || "Open pathway")}</a>
+          ${linkList(pathway.links)}
+        </article>`)
+        .join("")}
+    </div>
+  </section>`;
+}
+
+function bestNextActions(page) {
+  const primary = resolveLinks(page.primaryActions || []).slice(0, 3);
+  const groups = page.resourceGroups || [];
+  const related = relatedSlugsForPage(page)
+    .map((slug) => pageBySlug.get(slug))
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((relatedPage) => ({
+      label: relatedPage.title,
+      href: slugToHref(relatedPage.slug),
+    }));
+  const resourceLinks = [
+    groups[0] ? { label: "Filtered resources", href: `resources.html#${groups[0]}` } : { label: "All resources", href: "resources.html" },
+    { label: "Global directory", href: "directory.html" },
+  ];
+  const actions = [...primary, ...resourceLinks, ...related];
+  return `<section class="content-band next-action-band" id="next-actions">
+    <div class="next-action-panel">
+      <div>
+        <p class="eyebrow">Best next actions</p>
+        <h2>${escapeHtml(page.title)} pathway</h2>
+        <p>Start with the highest-signal public links for this page, then continue through the related resource and directory views.</p>
+      </div>
+      ${linkChips(actions)}
+    </div>
+  </section>`;
 }
 
 function recordMatchesPage(record, page) {
@@ -352,6 +417,18 @@ function allResourceEntries() {
   );
 }
 
+function uniqueEntries(entries = []) {
+  const seen = new Set();
+  return entries.filter((entry) => {
+    const key = entry.sourceId || entry.href;
+    if (seen.has(key)) {
+      return false;
+    }
+    seen.add(key);
+    return true;
+  });
+}
+
 function normalizeResource(resource, sourceKind) {
   const source = sourceFor(resource.sourceId);
   if (!source) {
@@ -382,12 +459,20 @@ function entriesForPage(page, entries, limit = 8) {
   return entries.filter((entry) => recordMatchesPage(entry, page)).slice(0, limit);
 }
 
-function resourceCards(resources = [], { compact = false } = {}) {
+function resourceBadge(resource) {
+  const parts = [resource.typeLabel].filter(Boolean);
+  if (resource.categoryLabel && resource.categoryLabel !== resource.typeLabel) {
+    parts.push(resource.categoryLabel);
+  }
+  return parts.join(" / ");
+}
+
+function resourceCards(resources = [], { compact = false, filterable = true, sortable = false, wrapperAttrs = "" } = {}) {
   if (!resources.length) {
     return '<p class="lede">No public resources are assigned here yet. Use the global directory for the full verified list.</p>';
   }
   const className = compact ? "resource-grid compact-grid" : "resource-grid";
-  return `<div class="${className}">${resources
+  return `<div class="${className}"${wrapperAttrs}>${resources
     .map((resource) => {
       const related = (resource.relatedSlugs || [])
         .map((slug) => pageBySlug.get(slug))
@@ -412,9 +497,16 @@ function resourceCards(resources = [], { compact = false } = {}) {
         resource.sourceKind === "repository"
           ? `<p class="resource-meta">${escapeHtml(resource.language || "Unspecified")} / ${Number(resource.stars || 0)} stars / updated ${escapeHtml((resource.updatedAt || "").slice(0, 10))}</p>`
           : "";
-      return `<article class="resource-card" data-type="${escapeHtml(resource.type)}" data-category="${escapeHtml(resource.category)}" data-audience="${escapeHtml(resource.audience)}" data-tags="${escapeHtml(resource.tags.join(" "))}" data-search="${escapeHtml(search)}">
-        <span>${escapeHtml(resource.typeLabel)} / ${escapeHtml(resource.categoryLabel)}</span>
+      const filterAttrs = filterable
+        ? ` data-type="${escapeHtml(resource.type)}" data-category="${escapeHtml(resource.category)}" data-audience="${escapeHtml(resource.audience)}" data-tags="${escapeHtml(resource.tags.join(" "))}" data-search="${escapeHtml(search)}"`
+        : "";
+      const sortAttrs = sortable
+        ? ` data-repo-card data-repo-label="${escapeHtml(resource.label.toLowerCase())}" data-repo-stars="${Number(resource.stars || 0)}" data-repo-updated="${escapeHtml(resource.updatedAt || "")}" data-repo-language="${escapeHtml((resource.language || "Unspecified").toLowerCase())}" data-repo-category="${escapeHtml(resource.categoryLabel.toLowerCase())}"`
+        : "";
+      return `<article class="resource-card"${filterAttrs}${sortAttrs}>
+        <span class="resource-kicker">${escapeHtml(resourceBadge(resource))}</span>
         <h3><a href="${escapeHtml(resource.href)}"${linkAttrs(resource.href)}>${escapeHtml(resource.label)}</a></h3>
+        <p class="resource-audience">Audience: ${escapeHtml(resource.audienceLabel)}</p>
         <p>${escapeHtml(resource.summary)}</p>
         ${repoMeta}
         ${tagList}
@@ -452,7 +544,7 @@ function homePage() {
   const projectPage = siteData.pages.find((page) => page.slug === "projects");
   const learningPage = siteData.pages.find((page) => page.slug === "learning");
   const ecosystemPage = siteData.pages.find((page) => page.slug === "ecosystem");
-  const featuredResources = allResourceEntries().filter((resource) => resource.featured || resource.priority <= 12).slice(0, 10);
+  const featuredResources = uniqueEntries(allResourceEntries().filter((resource) => resource.featured || resource.priority <= 12)).slice(0, 12);
   const body = `
   <section class="hero">
     <div class="hero-inner">
@@ -493,6 +585,8 @@ function homePage() {
     </div>
   </section>
 
+  ${audiencePathwaySection()}
+
   <section class="content-band muted">
     ${sectionHeading({ eyebrow: "Core areas", title: "How the public work is organized" })}
     ${cardGrid([
@@ -507,7 +601,7 @@ function homePage() {
 
   <section class="content-band">
     ${sectionHeading({ eyebrow: "Featured resources", title: "Verified public entry points", text: "These resources are checked through the public link registry and grouped by visitor need." })}
-    ${resourceCards(featuredResources)}
+    ${resourceCards(featuredResources, { filterable: false })}
   </section>`;
   return layout({
     title: siteData.site.name,
@@ -531,6 +625,7 @@ function publicPage(page) {
     ${actionButtons(page.primaryActions)}
   </section>
   ${pageGuide(page)}
+  ${bestNextActions(page)}
   <section class="content-band">
     <p class="lede">${escapeHtml(page.lede)}</p>
     <div class="article-stack">
@@ -584,8 +679,22 @@ function resourcesPage() {
   const types = siteData.resources.types || [];
   const audiences = siteData.resources.audiences || [];
   const resources = allResourceEntries();
-  const tags = [...new Set(resources.flatMap((resource) => resource.tags || []))].sort();
-  const tagOptions = tags.map((tag) => `<option value="${escapeHtml(tag)}">${escapeHtml(tag)}</option>`).join("");
+  const curated = normalizedCuratedResources();
+  const official = normalizedOfficialPages();
+  const repositories = normalizedRepositories();
+  const shortlinks = official.filter((resource) => resource.shortlink);
+  const popularTags = siteData.resources.popularTags || [...new Set(resources.flatMap((resource) => resource.tags || []))].sort().slice(0, 16);
+  const tagOptions = popularTags.map((tag) => `<option value="${escapeHtml(tag)}">${escapeHtml(tag)}</option>`).join("");
+  const tagButtons = popularTags
+    .map((tag) => `<button type="button" data-tag-filter="${escapeHtml(tag)}" aria-pressed="false">${escapeHtml(tag)}</button>`)
+    .join("");
+  const featured = uniqueEntries(resources.filter((resource) => resource.featured || resource.priority <= 16)).slice(0, 16);
+  const learningResearch = resources
+    .filter((resource) => ["learning", "research", "tools"].includes(resource.category) || ["learner", "researcher"].includes(resource.audience))
+    .slice(0, 24);
+  const participation = resources
+    .filter((resource) => ["community", "participation", "support", "social"].includes(resource.category) || ["contributor", "supporter"].includes(resource.audience))
+    .slice(0, 24);
   const categoryNav = categories
     .map((category) => {
       const count = resources.filter((resource) => resource.category === category.id).length;
@@ -609,6 +718,55 @@ function resourcesPage() {
     <h1>Resources</h1>
     <p>Find verified public links for official pages, community, learning, media, projects, research, support, social channels, and repositories.</p>
   </section>
+  <section class="content-band" id="resource-views">
+    ${sectionHeading({ eyebrow: "Resource views", title: "Use the directory by intent", text: "Start with a focused view, then use the full directory when you need precise filtering across every rendered resource." })}
+    ${cardGrid([
+      { title: `Featured (${featured.length})`, text: "High-signal public entry points for first-time visitors and frequent contributors.", links: [{ label: "Open featured", href: "#featured" }] },
+      { title: `Official pages (${official.length})`, text: "Reachable official Institute pages, domains, programs, and public subdomains.", links: [{ label: "Open official pages", href: "#official-pages" }] },
+      { title: `Repositories (${repositories.length})`, text: "All reachable public ActiveInferenceInstitute repositories with metadata and sort controls.", links: [{ label: "Open repositories", href: "#repositories-view" }] },
+      { title: `Learning / Research (${learningResearch.length})`, text: "START, education, textbook, research, ontology, and technical learning references.", links: [{ label: "Open learning and research", href: "#learning-research" }] },
+      { title: `Participation (${participation.length})`, text: "Community, contribution, mentorship, volunteer, support, and social routes.", links: [{ label: "Open participation", href: "#participation-view" }] },
+      { title: `Full directory (${resources.length})`, text: "Search and filter every rendered resource by type, group, audience, and popular tags.", links: [{ label: "Open full directory", href: "#full-directory" }] },
+    ])}
+  </section>
+  <section class="content-band muted" id="featured">
+    ${sectionHeading({ eyebrow: "Featured", title: "High-signal public entry points" })}
+    ${resourceCards(featured, { filterable: false })}
+  </section>
+  <section class="content-band" id="official-pages">
+    ${sectionHeading({ eyebrow: "Official pages", title: "Official Institute web surfaces", text: "These are official pages, subdomains, and public program surfaces that resolve through the verified live-source registry." })}
+    ${resourceCards(official, { compact: true, filterable: false })}
+  </section>
+  <section class="content-band muted" id="official-shortlinks">
+    ${sectionHeading({ eyebrow: "Official shortlinks", title: "Compact public subdomain map", text: "Shortlinks route visitors into official program, governance, learning, preparation, and knowledge-base spaces." })}
+    ${resourceCards(shortlinks, { compact: true, filterable: false })}
+  </section>
+  <section class="content-band" id="repositories-view">
+    ${sectionHeading({ eyebrow: "Repositories", title: "Public GitHub repositories", text: "Sort the public repository view without external scripts or runtime services." })}
+    <div class="section-controls">
+      <label>
+        <span>Sort repositories</span>
+        <select id="repo-sort">
+          <option value="updated">Recently updated</option>
+          <option value="stars">Most starred</option>
+          <option value="language">Language</option>
+          <option value="category">Group</option>
+        </select>
+      </label>
+      <p>${repositories.length} public repositories indexed</p>
+    </div>
+    ${resourceCards(repositories, { compact: true, filterable: false, sortable: true, wrapperAttrs: ' id="repository-list" data-repository-list' })}
+  </section>
+  <section class="content-band muted" id="learning-research">
+    ${sectionHeading({ eyebrow: "Learning / Research", title: "Study, research, and technical reference pathways" })}
+    ${resourceCards(learningResearch, { filterable: false })}
+  </section>
+  <section class="content-band" id="participation-view">
+    ${sectionHeading({ eyebrow: "Participation", title: "Community, contribution, and support pathways" })}
+    ${resourceCards(participation, { filterable: false })}
+  </section>
+  <section class="content-band muted" id="full-directory">
+    ${sectionHeading({ eyebrow: "Full directory", title: "Search and filter every rendered resource" })}
   <section class="content-band page-index-band">
     <div class="resource-tools" aria-label="Resource filters">
       <label>
@@ -637,18 +795,23 @@ function resourcesPage() {
         </select>
       </label>
       <label>
-        <span>Tag</span>
+        <span>Popular tag</span>
         <select id="resource-tag">
-          <option value="">All tags</option>
+          <option value="">All popular tags</option>
           ${tagOptions}
         </select>
       </label>
       <p id="resource-count" class="result-count" aria-live="polite">${resources.length} resources shown</p>
     </div>
+    <div class="tag-filter-chips" aria-label="Popular tag filters">
+      <button type="button" data-tag-filter="" aria-pressed="true">All tags</button>
+      ${tagButtons}
+    </div>
     <nav class="category-nav" aria-label="Resource groups">${categoryNav}</nav>
   </section>
   <section class="content-band">
     ${grouped}
+  </section>
   </section>`;
   return layout({
     title: "Resources",
@@ -663,6 +826,7 @@ function directoryPage() {
   const repositories = normalizedRepositories();
   const resources = allResourceEntries();
   const publicPages = siteData.pages;
+  const shortlinks = official.filter((item) => item.shortlink);
   const officialColumns = [
     { label: "Official page", render: (item) => `<a href="${escapeHtml(item.href)}"${linkAttrs(item.href)}>${escapeHtml(item.label)}</a>` },
     { label: "Group", render: (item) => escapeHtml(item.categoryLabel) },
@@ -671,6 +835,7 @@ function directoryPage() {
   ];
   const repoColumns = [
     { label: "Repository", render: (item) => `<a href="${escapeHtml(item.href)}"${linkAttrs(item.href)}>${escapeHtml(item.label)}</a>` },
+    { label: "Group", render: (item) => escapeHtml(item.categoryLabel) },
     { label: "Language", render: (item) => escapeHtml(item.language || "Unspecified") },
     { label: "Stars", render: (item) => String(Number(item.stars || 0)) },
     { label: "Updated", render: (item) => escapeHtml((item.updatedAt || "").slice(0, 10)) },
@@ -693,6 +858,7 @@ function directoryPage() {
     <div><strong>${publicPages.length}</strong><span>curated public pages</span></div>
     <div><strong>${resources.length}</strong><span>rendered verified resources</span></div>
     <div><strong>${official.length}</strong><span>official public pages</span></div>
+    <div><strong>${shortlinks.length}</strong><span>official shortlinks</span></div>
     <div><strong>${repositories.length}</strong><span>public repositories</span></div>
   </section>
   <section class="content-band" id="site-pages">
@@ -719,11 +885,15 @@ function directoryPage() {
     ${sectionHeading({ eyebrow: "Official pages", title: `${official.length} official Institute surfaces` })}
     <div class="table-wrap"><table class="directory-table"><thead><tr>${tableHead(officialColumns)}</tr></thead><tbody>${tableRows(official, officialColumns)}</tbody></table></div>
   </section>
-  <section class="content-band muted" id="repositories">
+  <section class="content-band muted" id="official-shortlinks">
+    ${sectionHeading({ eyebrow: "Official shortlinks", title: `${shortlinks.length} compact official destinations` })}
+    <div class="table-wrap"><table class="directory-table"><thead><tr>${tableHead(officialColumns)}</tr></thead><tbody>${tableRows(shortlinks, officialColumns)}</tbody></table></div>
+  </section>
+  <section class="content-band" id="repositories">
     ${sectionHeading({ eyebrow: "Repositories", title: `${repositories.length} public repositories` })}
     <div class="table-wrap"><table class="directory-table"><thead><tr>${tableHead(repoColumns)}</tr></thead><tbody>${tableRows(repositories, repoColumns)}</tbody></table></div>
   </section>
-  <section class="content-band" id="verified-links">
+  <section class="content-band muted" id="verified-links">
     ${sectionHeading({ eyebrow: "Verified links", title: "Rendered external link index" })}
     <div class="table-wrap"><table class="directory-table"><thead><tr>${tableHead(linkColumns)}</tr></thead><tbody>${tableRows(resources, linkColumns)}</tbody></table></div>
   </section>`;

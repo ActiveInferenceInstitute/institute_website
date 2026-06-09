@@ -3,6 +3,31 @@
   "checkedAt": "2026-06-09T01:59:33Z",
   "pages": [
     {
+      "sourceId": "official-activeinference-org",
+      "title": "ActiveInference.org landing page",
+      "url": "https://activeinference.org/",
+      "finalUrl": "https://activeinference.org/",
+      "type": "official",
+      "group": "Institute",
+      "category": "institute",
+      "audience": "newcomer",
+      "tags": [
+        "official",
+        "mission",
+        "overview"
+      ],
+      "summary": "Current public Institute landing page with mission, vision, nonprofit status, community metrics, and Get Started pathway.",
+      "relatedSlugs": [
+        "about",
+        "get-involved",
+        "ecosystem"
+      ],
+      "priority": 0,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
       "sourceId": "official-home",
       "title": "Institute website",
       "url": "https://www.activeinference.institute/",
@@ -430,6 +455,30 @@
       "ok": true
     },
     {
+      "sourceId": "start-docs",
+      "title": "START documentation site",
+      "url": "https://activeinferenceinstitute.github.io/Start/",
+      "finalUrl": "https://activeinferenceinstitute.github.io/Start/",
+      "type": "official",
+      "group": "Learning",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "curriculum",
+        "start-repo"
+      ],
+      "summary": "Public documentation for START, a tailored Active Inference research and training system.",
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 18,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
       "sourceId": "official-participation",
       "title": "Participation",
       "url": "https://www.activeinference.institute/participation",
@@ -736,6 +785,295 @@
       "promoted": true,
       "statusCode": 200,
       "ok": true
+    },
+    {
+      "sourceId": "shortlink-2025",
+      "title": "2025 planning workspace",
+      "url": "https://2025.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/2025_suU7m2sH",
+      "type": "official",
+      "group": "Activities",
+      "category": "community",
+      "audience": "contributor",
+      "tags": [
+        "2025",
+        "planning",
+        "updates"
+      ],
+      "summary": "Public 2025 planning workspace.",
+      "relatedSlugs": [
+        "activities",
+        "programs"
+      ],
+      "priority": 60,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-bod",
+      "title": "Board of Directors workspace",
+      "url": "https://bod.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Board-of-Directors_suS4blHI",
+      "type": "official",
+      "group": "Governance",
+      "category": "governance",
+      "audience": "governance",
+      "tags": [
+        "board",
+        "governance"
+      ],
+      "summary": "Public Board of Directors workspace.",
+      "relatedSlugs": [
+        "about"
+      ],
+      "priority": 61,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-fellows",
+      "title": "Fellows workspace",
+      "url": "https://fellows.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Fellows_suv1j5ks?search=fellow",
+      "type": "official",
+      "group": "Participation",
+      "category": "participation",
+      "audience": "contributor",
+      "tags": [
+        "fellowship",
+        "program"
+      ],
+      "summary": "Public Fellows workspace.",
+      "relatedSlugs": [
+        "programs",
+        "get-involved"
+      ],
+      "priority": 62,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-mentorship",
+      "title": "Mentorship workspace",
+      "url": "https://mentorship.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Mentorship_suWWweFC",
+      "type": "official",
+      "group": "Participation",
+      "category": "participation",
+      "audience": "contributor",
+      "tags": [
+        "mentorship",
+        "program"
+      ],
+      "summary": "Public mentorship workspace.",
+      "relatedSlugs": [
+        "programs",
+        "learning"
+      ],
+      "priority": 63,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-obsidian",
+      "title": "Active Inference knowledge base",
+      "url": "https://obsidian.activeinference.institute",
+      "finalUrl": "https://publish.obsidian.md/active-inference/knowledge_base/cognitive/active_inference",
+      "type": "official",
+      "group": "Learning",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "obsidian",
+        "knowledge",
+        "active-inference"
+      ],
+      "summary": "Published Active Inference knowledge base.",
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 64,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-ontology",
+      "title": "Active Inference Ontology workspace",
+      "url": "https://ontology.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Active-Inference-Ontology_sufhqYmn",
+      "type": "official",
+      "group": "Research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "ontology",
+        "research"
+      ],
+      "summary": "Public Active Inference Ontology workspace.",
+      "relatedSlugs": [
+        "ecosystem",
+        "projects"
+      ],
+      "priority": 65,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-prepare",
+      "title": "Project Preparation workspace",
+      "url": "https://prepare.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Project-Preparation_suTySzz2",
+      "type": "official",
+      "group": "Projects",
+      "category": "projects",
+      "audience": "contributor",
+      "tags": [
+        "project",
+        "preparation"
+      ],
+      "summary": "Public Project Preparation workspace.",
+      "relatedSlugs": [
+        "projects",
+        "programs"
+      ],
+      "priority": 66,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-rxinfer",
+      "title": "RxInfer learning group workspace",
+      "url": "https://rxinfer.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/RxInfer-jl-Learning-Group_suJd6RDh",
+      "type": "official",
+      "group": "Learning",
+      "category": "learning",
+      "audience": "developer",
+      "tags": [
+        "rxinfer",
+        "implementation"
+      ],
+      "summary": "Public RxInfer learning-group workspace.",
+      "relatedSlugs": [
+        "learning",
+        "projects"
+      ],
+      "priority": 67,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-sab",
+      "title": "Scientific Advisory Board workspace",
+      "url": "https://sab.activeinference.institute",
+      "finalUrl": "https://coda.io/d/_do5M5iYau8H/Scientific-Advisory-Board_suO9uId5",
+      "type": "official",
+      "group": "Governance",
+      "category": "governance",
+      "audience": "researcher",
+      "tags": [
+        "advisory",
+        "research"
+      ],
+      "summary": "Public Scientific Advisory Board workspace.",
+      "relatedSlugs": [
+        "about",
+        "learning"
+      ],
+      "priority": 68,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-strategy",
+      "title": "Strategy workspace",
+      "url": "https://strategy.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Strategy_suaCQ15d",
+      "type": "official",
+      "group": "Institute",
+      "category": "institute",
+      "audience": "newcomer",
+      "tags": [
+        "strategy",
+        "institute"
+      ],
+      "summary": "Public Strategy workspace.",
+      "relatedSlugs": [
+        "about",
+        "ecosystem"
+      ],
+      "priority": 69,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-wave-hypothesis",
+      "title": "Wave Hypothesis workspace",
+      "url": "https://wave-hypothesis.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Wave-Hypothesis_su2F9AEf",
+      "type": "official",
+      "group": "Research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "wave-hypothesis",
+        "research"
+      ],
+      "summary": "Public Wave Hypothesis workspace.",
+      "relatedSlugs": [
+        "ecosystem",
+        "learning"
+      ],
+      "priority": 70,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-welcome",
+      "title": "Welcome workspace",
+      "url": "https://welcome.activeinference.institute",
+      "finalUrl": "https://coda.io/d/_do5M5iYau8H/Welcome_sufA676j",
+      "type": "official",
+      "group": "Institute",
+      "category": "institute",
+      "audience": "newcomer",
+      "tags": [
+        "welcome",
+        "overview"
+      ],
+      "summary": "Public Welcome workspace.",
+      "relatedSlugs": [
+        "about",
+        "get-involved"
+      ],
+      "priority": 71,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true,
+      "shortlink": true
     }
   ]
 }

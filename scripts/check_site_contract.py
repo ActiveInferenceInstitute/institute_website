@@ -16,6 +16,7 @@ CONTENT_DIR = PROJECT_ROOT / "src" / "content"
 CANONICAL_BASE = "https://activeinferenceinstitute.github.io/institute_website/"
 ALLOWED_TEMPLATE_EXTERNAL_URLS = {"http://www.sitemaps.org/schemas/sitemap/0.9"}
 CURATED_SECTION_IDS = {
+    "next-actions",
     "key-surfaces",
     "resources",
     "official-pages",
@@ -29,6 +30,41 @@ RESOURCE_FILTER_IDS = {
     "resource-audience",
     "resource-tag",
     "resource-count",
+    "repo-sort",
+}
+REQUIRED_SOURCE_IDS = {
+    "official-activeinference-org",
+    "start-docs",
+    "shortlink-2025",
+    "shortlink-bod",
+    "shortlink-fellows",
+    "shortlink-mentorship",
+    "shortlink-obsidian",
+    "shortlink-ontology",
+    "shortlink-prepare",
+    "shortlink-rxinfer",
+    "shortlink-sab",
+    "shortlink-strategy",
+    "shortlink-wave-hypothesis",
+    "shortlink-welcome",
+}
+REQUIRED_AUDIENCE_PATHWAYS = {
+    "newcomer",
+    "learner",
+    "researcher",
+    "developer",
+    "contributor",
+    "partner-supporter",
+}
+RESOURCE_VIEW_IDS = {
+    "resource-views",
+    "featured",
+    "official-pages",
+    "official-shortlinks",
+    "repositories-view",
+    "learning-research",
+    "participation-view",
+    "full-directory",
 }
 OBSOLETE_PATHS = [
     "atlas",
@@ -197,10 +233,18 @@ def check_content_model(root: Path, errors: list[str]) -> None:
     if duplicate_ids:
         errors.append(f"live-sources.json contains duplicate ids: {duplicate_ids}")
     live_id_set = set(live_ids)
+    missing_required_sources = REQUIRED_SOURCE_IDS - live_id_set
+    if missing_required_sources:
+        errors.append(f"live-sources.json missing required official sources: {sorted(missing_required_sources)}")
+    for source_id in REQUIRED_SOURCE_IDS & live_id_set:
+        source = next(item for item in manifest.get("sources", []) if item["id"] == source_id)
+        if not source.get("ok"):
+            errors.append(f"required source {source_id} is not promoted as reachable")
 
     resources = load_json(root / "src" / "content" / "resources.json")
     official_pages = load_json(root / "src" / "content" / "official-pages.json")
     repositories = load_json(root / "src" / "content" / "repositories.json")
+    audience_pathways = load_json(root / "src" / "content" / "audience-pathways.json")
     resource_categories = {item["id"] for item in resources.get("categories", [])}
     type_ids = {item["id"] for item in resources.get("types", [])}
     audience_ids = {item["id"] for item in resources.get("audiences", [])}
@@ -211,8 +255,23 @@ def check_content_model(root: Path, errors: list[str]) -> None:
         errors.append("resources.json must define resource entries")
     if not official_pages.get("pages"):
         errors.append("official-pages.json must define official page entries")
+    shortlinks = [item for item in official_pages.get("pages", []) if item.get("shortlink") and item.get("promoted") is not False]
+    if len(shortlinks) < 12:
+        errors.append(f"official-pages.json expected at least 12 promoted official shortlinks, found {len(shortlinks)}")
     if len(repositories.get("repositories", [])) != 52:
         errors.append(f"repositories.json expected 52 public repositories, found {len(repositories.get('repositories', []))}")
+    popular_tags = resources.get("popularTags", [])
+    if len(popular_tags) > 18 or not {"active-inference", "learning", "research", "projects", "repository"}.issubset(popular_tags):
+        errors.append("resources.json popularTags must stay short and include high-signal filter tags")
+    pathway_ids = {item.get("id") for item in audience_pathways.get("pathways", [])}
+    if pathway_ids != REQUIRED_AUDIENCE_PATHWAYS:
+        errors.append(f"audience-pathways.json expected {sorted(REQUIRED_AUDIENCE_PATHWAYS)}, found {sorted(pathway_ids)}")
+    for pathway in audience_pathways.get("pathways", []):
+        if not pathway.get("primaryHref") or not pathway.get("links"):
+            errors.append(f"audience pathway {pathway.get('id')} must define a destination and verified links")
+        for source_id in collect_source_ids(pathway):
+            if source_id not in live_id_set:
+                errors.append(f"audience pathway {pathway.get('id')} references missing live source id: {source_id}")
 
     registry_sets = [
         ("resources.json", resources.get("resources", [])),
@@ -272,11 +331,17 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
 
         if "On this page" not in html:
             errors.append(f"{slug}: missing page-local guide label")
-        if not {"#resources", "#official-pages", "#repositories", "#related-pages"}.issubset(set(hrefs)):
-            errors.append(f"{slug}: page guide does not link to resources, official pages, repositories, and related sections")
+        if not {"#next-actions", "#resources", "#official-pages", "#repositories", "#related-pages"}.issubset(set(hrefs)):
+            errors.append(f"{slug}: page guide does not link to next actions, resources, official pages, repositories, and related sections")
         missing_ids = CURATED_SECTION_IDS - info.ids
         if missing_ids:
             errors.append(f"{slug}: missing section ids {sorted(missing_ids)}")
+
+        next_actions = section_between(html, 'id="next-actions"', 'class="content-band"')
+        if 'href="resources.html' not in next_actions or 'href="directory.html"' not in next_actions:
+            errors.append(f"{slug}: best next actions must link to resources and directory")
+        if not re.search(r'href="https?://', next_actions):
+            errors.append(f"{slug}: best next actions lacks a verified external action")
 
         related_section = section_between(html, 'id="related-pages"', 'class="pager page-pager"')
         if not any(f'href="{href}"' in related_section for href in page_hrefs - {f"{slug}.html"}):
@@ -306,6 +371,9 @@ def check_resource_directory(root: Path, errors: list[str]) -> None:
     html = resources_html.read_text(encoding="utf-8")
     info = parse_html(resources_html)
     hrefs = {href for href, _class_name in info.anchors}
+    missing_view_ids = RESOURCE_VIEW_IDS - info.ids
+    if missing_view_ids:
+        errors.append(f"resources.html missing resource view ids {sorted(missing_view_ids)}")
     missing_filter_ids = RESOURCE_FILTER_IDS - info.ids
     if missing_filter_ids:
         errors.append(f"resources.html missing filter ids {sorted(missing_filter_ids)}")
@@ -317,8 +385,25 @@ def check_resource_directory(root: Path, errors: list[str]) -> None:
             errors.append(f"resources.html missing resource filter attribute {required_attr}")
     if 'class="resource-card"' not in html and " resource-card" not in html:
         errors.append("resources.html does not render resource cards")
+    for duplicate_badge in ("Community / Community", "Research / Research", "Learning / Learning", "Official page / Official page"):
+        if duplicate_badge in html:
+            errors.append(f"resources.html contains duplicate low-value badge {duplicate_badge!r}")
+    if "data-tag-filter" not in html:
+        errors.append("resources.html missing popular tag chip filters")
+    if "data-repository-list" not in html or "data-repo-card" not in html:
+        errors.append("resources.html missing repository sorting data attributes")
 
-    categories = load_json(root / "src" / "content" / "resources.json").get("categories", [])
+    resources_model = load_json(root / "src" / "content" / "resources.json")
+    popular_tags = resources_model.get("popularTags", [])
+    tag_select = section_between(html, '<select id="resource-tag">', "</select>")
+    option_count = tag_select.count("<option")
+    if option_count > len(popular_tags) + 1:
+        errors.append("resources.html tag select should expose only popular tags plus the all-tags option")
+    for tag in popular_tags:
+        if f'data-tag-filter="{tag}"' not in html or f'<option value="{tag}">' not in tag_select:
+            errors.append(f"resources.html missing popular tag filter {tag}")
+
+    categories = resources_model.get("categories", [])
     missing = [category["id"] for category in categories if category["id"] not in info.ids]
     if missing:
         errors.append(f"resources.html missing category anchors {missing}")
@@ -341,7 +426,7 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
     html = directory_html.read_text(encoding="utf-8")
     info = parse_html(directory_html)
     hrefs = {href for href, _class_name in info.anchors}
-    for required_id in ("site-pages", "resource-groups", "official-pages", "repositories", "verified-links"):
+    for required_id in ("site-pages", "resource-groups", "official-pages", "official-shortlinks", "repositories", "verified-links"):
         if required_id not in info.ids:
             errors.append(f"directory.html missing {required_id}")
 
@@ -469,7 +554,7 @@ def check_site_contract(root: Path) -> int:
         return 1
 
     print(
-        "Site contract passed: expanded resource hub, global directory, official pages, repositories, verified links, canonical URLs, and dark/red theme."
+        "Site contract passed: audience pathways, resource views, official shortlinks, repositories, verified links, canonical URLs, and dark/red theme."
     )
     return 0
 

@@ -6,12 +6,12 @@
   "lede": "Active Inference is the central scientific and practical framework around which the Institute organizes education, research, applications, and ecosystem support.",
   "primaryActions": [
     {
-      "label": "Start learning",
-      "href": "learning.html"
+      "label": "Watch introduction",
+      "sourceId": "youtube"
     },
     {
-      "label": "Open Start repository",
-      "sourceId": "start-repo"
+      "label": "Open knowledge base",
+      "sourceId": "shortlink-obsidian"
     }
   ],
   "resourceGroups": [
@@ -114,6 +114,10 @@
     "start-repo",
     "youtube",
     "video",
-    "github-org"
+    "github-org",
+    "official-activeinference-org",
+    "shortlink-obsidian",
+    "shortlink-wave-hypothesis",
+    "shortlink-rxinfer"
   ]
 }

@@ -6,18 +6,19 @@
   "lede": "Institute programs turn interest into participation through volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, and open-source pathways.",
   "primaryActions": [
     {
-      "label": "Get involved",
-      "href": "get-involved.html"
+      "label": "Explore fellowship",
+      "sourceId": "shortlink-fellows"
     },
     {
-      "label": "Support the Institute",
-      "sourceId": "donate"
+      "label": "Open mentorship",
+      "sourceId": "shortlink-mentorship"
     }
   ],
   "resourceGroups": [
     "community",
     "support",
-    "projects"
+    "projects",
+    "participation"
   ],
   "sections": [
     {
@@ -110,6 +111,10 @@
     "donate",
     "discord",
     "weekly",
-    "github-org"
+    "github-org",
+    "shortlink-fellows",
+    "shortlink-mentorship",
+    "shortlink-prepare",
+    "shortlink-strategy"
   ]
 }

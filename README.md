@@ -17,6 +17,7 @@ This site helps visitors quickly find:
 - Which activities, programs, and projects are public entry points.
 - How to join, contribute, follow, or support the Institute.
 - Verified public resources, official web surfaces, public repositories, channels, and media links.
+- Audience-specific pathways for newcomers, learners, researchers, developers, contributors, partners, and supporters.
 
 The site is intentionally a static GitHub Pages build: no runtime framework, no server dependency, and no client-side requirement beyond the small navigation and resource-filter script.
 
@@ -41,6 +42,7 @@ Volatile public links are centralized in `src/content/live-sources.json`. Templa
 │       ├── resources.json        # Public resource directory model
 │       ├── official-pages.json   # Official site pages and public subdomains
 │       ├── repositories.json     # Public ActiveInferenceInstitute repositories
+│       ├── audience-pathways.json # Homepage visitor pathways
 │       └── pages/*.json          # Curated public guide pages
 ├── assets/
 │   ├── css/styles.css            # Dark charcoal theme with red accents
@@ -73,8 +75,9 @@ Curated pages live in `src/content/pages/*.json`. Each page should define:
 Public resources are split by purpose:
 
 - `src/content/resources.json` contains curated cross-channel resources and filter taxonomies.
-- `src/content/official-pages.json` contains reachable official site pages and public subdomains.
+- `src/content/official-pages.json` contains reachable official site pages, `activeinference.org`, `activeinference.institute`, START, and official shortlinks.
 - `src/content/repositories.json` contains all reachable public `ActiveInferenceInstitute` repositories.
+- `src/content/audience-pathways.json` contains homepage routes for visitor intent.
 - `src/content/live-sources.json` remains the canonical registry for external URLs and verification status.
 
 Rendered resources use stable fields: `sourceId`, `type`, `category`, `audience`, `tags`, `summary`, `relatedSlugs`, `priority`, and `promoted`.
@@ -133,6 +136,9 @@ Before pushing, confirm:
 - Red is the only accent color.
 - Dropdown navigation must work by click, keyboard focus, and mobile disclosure.
 - Every curated page must include local section navigation, related internal pages, and verified external resources.
-- The resource directory must support search plus type, group, audience, and tag filtering.
-- The global directory must index every curated page, page section, resource group, official page, verified external link, and public repository.
+- The home page must include audience pathways for newcomer, learner, researcher, developer, contributor, and partner/supporter visitors.
+- The resource directory must include focused views for Featured, Official pages, Official shortlinks, Repositories, Learning/Research, Participation, and the Full Directory.
+- The full resource directory must support search plus type, group, audience, and popular-tag filtering without a huge tag dropdown.
+- The repository view must support local sorting by updated date, stars, language, and group.
+- The global directory must index every curated page, page section, resource group, official page, official shortlink, verified external link, and public repository.
 - Static security must remain simple: local scripts/styles only, CSP and referrer meta tags present, no forms, no embedded frames, and external anchors backed by `src/content/live-sources.json`.

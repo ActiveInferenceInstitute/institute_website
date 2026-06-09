@@ -3,21 +3,23 @@
   "title": "About the Institute",
   "subtitle": "A public-interest institution for Active Inference education, research, and applications.",
   "audience": "Visitors who want a fast institutional orientation.",
-  "lede": "The Active Inference Institute is a participatory open science institute dedicated to improving the accessibility, rigor, and applicability of the Active Inference framework.",
+  "lede": "The Active Inference Institute is a volunteer-led 501(c)(3) open science nonprofit making Active Inference known, taught, and applied across science, engineering, and practical domains.",
   "primaryActions": [
     {
-      "label": "Join the community",
-      "sourceId": "discord"
+      "label": "Open current landing page",
+      "sourceId": "official-activeinference-org"
     },
     {
-      "label": "Browse resources",
-      "href": "resources.html"
+      "label": "Read strategy",
+      "sourceId": "shortlink-strategy"
     }
   ],
   "resourceGroups": [
     "community",
     "research",
-    "projects"
+    "projects",
+    "institute",
+    "governance"
   ],
   "sections": [
     {
@@ -101,6 +103,11 @@
     "ecosystem",
     "weekly",
     "discord",
-    "github-org"
+    "github-org",
+    "official-activeinference-org",
+    "shortlink-strategy",
+    "shortlink-welcome",
+    "shortlink-bod",
+    "shortlink-sab"
   ]
 }

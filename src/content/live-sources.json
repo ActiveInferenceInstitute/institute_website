@@ -1,5 +1,5 @@
 {
-  "lastCheckedAt": "2026-06-09T01:59:33Z",
+  "lastCheckedAt": "2026-06-09T02:35:05Z",
   "policy": "Public resource hub: visitor-facing summaries are maintained in the content registries, and volatile public links are checked through this manifest before publication. Only reachable public resources are promoted in rendered pages.",
   "sources": [
     {
@@ -188,6 +188,17 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-09T01:59:33Z"
+    },
+    {
+      "id": "official-activeinference-org",
+      "label": "ActiveInference.org landing page",
+      "category": "Institute",
+      "url": "https://activeinference.org/",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://activeinference.org/",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
     },
     {
       "id": "official-activities-coda",
@@ -1222,6 +1233,149 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-09T01:59:33Z"
+    },
+    {
+      "id": "shortlink-2025",
+      "label": "2025 planning workspace",
+      "category": "Activities",
+      "url": "https://2025.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/2025_suU7m2sH",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "shortlink-bod",
+      "label": "Board of Directors workspace",
+      "category": "Governance",
+      "url": "https://bod.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Board-of-Directors_suS4blHI",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "shortlink-fellows",
+      "label": "Fellows workspace",
+      "category": "Participate",
+      "url": "https://fellows.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Fellows_suv1j5ks?search=fellow",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "shortlink-mentorship",
+      "label": "Mentorship workspace",
+      "category": "Participate",
+      "url": "https://mentorship.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Mentorship_suWWweFC",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "shortlink-obsidian",
+      "label": "Active Inference knowledge base",
+      "category": "Learning",
+      "url": "https://obsidian.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://publish.obsidian.md/active-inference/knowledge_base/cognitive/active_inference",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "shortlink-ontology",
+      "label": "Active Inference Ontology workspace",
+      "category": "Research",
+      "url": "https://ontology.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Active-Inference-Ontology_sufhqYmn",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "shortlink-prepare",
+      "label": "Project Preparation workspace",
+      "category": "Projects",
+      "url": "https://prepare.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Project-Preparation_suTySzz2",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "shortlink-rxinfer",
+      "label": "RxInfer learning group workspace",
+      "category": "Learning",
+      "url": "https://rxinfer.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/RxInfer-jl-Learning-Group_suJd6RDh",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "shortlink-sab",
+      "label": "Scientific Advisory Board workspace",
+      "category": "Governance",
+      "url": "https://sab.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://coda.io/d/_do5M5iYau8H/Scientific-Advisory-Board_suO9uId5",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "shortlink-strategy",
+      "label": "Strategy workspace",
+      "category": "Institute",
+      "url": "https://strategy.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Strategy_suaCQ15d",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "shortlink-wave-hypothesis",
+      "label": "Wave Hypothesis workspace",
+      "category": "Research",
+      "url": "https://wave-hypothesis.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Wave-Hypothesis_su2F9AEf",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "shortlink-welcome",
+      "label": "Welcome workspace",
+      "category": "Institute",
+      "url": "https://welcome.activeinference.institute",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://coda.io/d/_do5M5iYau8H/Welcome_sufA676j",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
+    },
+    {
+      "id": "start-docs",
+      "label": "START documentation site",
+      "category": "Learning",
+      "url": "https://activeinferenceinstitute.github.io/Start/",
+      "sourceBasis": "Public URL verified directly.",
+      "finalUrl": "https://activeinferenceinstitute.github.io/Start/",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T02:35:05Z"
     },
     {
       "id": "start-pages-unavailable",

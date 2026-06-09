@@ -1,0 +1,125 @@
+{
+  "description": "Audience-specific routes through the public Institute resource hub.",
+  "pathways": [
+    {
+      "id": "newcomer",
+      "label": "Newcomer",
+      "summary": "Understand what the Institute is, watch an introduction, and join the public community.",
+      "primaryHref": "about.html",
+      "links": [
+        {
+          "label": "Current landing page",
+          "sourceId": "official-activeinference-org"
+        },
+        {
+          "label": "Join Discord",
+          "sourceId": "discord"
+        },
+        {
+          "label": "Welcome workspace",
+          "sourceId": "shortlink-welcome"
+        }
+      ]
+    },
+    {
+      "id": "learner",
+      "label": "Learner",
+      "summary": "Start with the START docs, knowledge base, videos, courses, and textbook-oriented groups.",
+      "primaryHref": "learning.html",
+      "links": [
+        {
+          "label": "START docs",
+          "sourceId": "start-docs"
+        },
+        {
+          "label": "Knowledge base",
+          "sourceId": "shortlink-obsidian"
+        },
+        {
+          "label": "YouTube",
+          "sourceId": "youtube"
+        }
+      ]
+    },
+    {
+      "id": "researcher",
+      "label": "Researcher",
+      "summary": "Move from conceptual references to ontology, metaanalysis, research records, and open questions.",
+      "primaryHref": "learning.html#core-readings",
+      "links": [
+        {
+          "label": "Ontology workspace",
+          "sourceId": "shortlink-ontology"
+        },
+        {
+          "label": "Wave Hypothesis",
+          "sourceId": "shortlink-wave-hypothesis"
+        },
+        {
+          "label": "Metaanalysis repo",
+          "sourceId": "repo-act-inf-metaanalysis"
+        }
+      ]
+    },
+    {
+      "id": "developer",
+      "label": "Developer",
+      "summary": "Find implementation repos, RxInfer work, GNN, pymdp, and project preparation surfaces.",
+      "primaryHref": "projects.html#repositories",
+      "links": [
+        {
+          "label": "GitHub organization",
+          "sourceId": "github-org"
+        },
+        {
+          "label": "RxInfer group",
+          "sourceId": "shortlink-rxinfer"
+        },
+        {
+          "label": "GNN repo",
+          "sourceId": "repo-generalizednotationnotation"
+        }
+      ]
+    },
+    {
+      "id": "contributor",
+      "label": "Contributor",
+      "summary": "Join activities, prepare a project, volunteer, or enter a structured program pathway.",
+      "primaryHref": "get-involved.html",
+      "links": [
+        {
+          "label": "Project preparation",
+          "sourceId": "shortlink-prepare"
+        },
+        {
+          "label": "Volunteer",
+          "sourceId": "official-volunteer"
+        },
+        {
+          "label": "Mentorship",
+          "sourceId": "shortlink-mentorship"
+        }
+      ]
+    },
+    {
+      "id": "partner-supporter",
+      "label": "Partner / Supporter",
+      "summary": "Use partnership, support, donation, and fellowship pathways to help sustain public work.",
+      "primaryHref": "programs.html#partnership-and-philanthropy",
+      "links": [
+        {
+          "label": "Donate",
+          "sourceId": "donate"
+        },
+        {
+          "label": "Partnership",
+          "sourceId": "official-partnership"
+        },
+        {
+          "label": "Fellows",
+          "sourceId": "shortlink-fellows"
+        }
+      ]
+    }
+  ]
+}

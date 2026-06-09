@@ -41,7 +41,7 @@
         "knowledge",
         "tex"
       ],
-      "summary": "A computational meta-analysis of the Active Inference literature. An automated LLM pipeline extracts assertions from 849 papers across theory, tools, and domains, structuring them as nanopublications. By mapping these into a citation-weighted knowledge graph, this project provides a reproducible, living review of hypothesis-level consensus.",
+      "summary": "Computational meta-analysis of Active Inference literature with nanopublication and knowledge-graph outputs.",
       "description": "A computational meta-analysis of the Active Inference literature. An automated LLM pipeline extracts assertions from 849 papers across theory, tools, and domains, structuring them as nanopublications. By mapping these into a citation-weighted knowledge graph, this project provides a reproducible, living review of hypothesis-level consensus.",
       "language": "TeX",
       "stars": 4,
@@ -119,7 +119,7 @@
         "knowledge",
         "unclassified"
       ],
-      "summary": "Public Active_Inference_Ontology repository in the ActiveInferenceInstitute GitHub namespace.",
+      "summary": "Ontology-oriented repository for shared Active Inference concepts and decentralized science knowledge infrastructure.",
       "description": "",
       "language": "Unspecified",
       "stars": 14,
@@ -145,7 +145,7 @@
         "repository",
         "jupyter-notebook"
       ],
-      "summary": "Public ActiveBlockference repository in the ActiveInferenceInstitute GitHub namespace.",
+      "summary": "Notebook-based applied Active Inference work connected to blockchain-adjacent and generative modeling examples.",
       "description": "",
       "language": "Jupyter Notebook",
       "stars": 33,
@@ -171,7 +171,7 @@
         "repository",
         "python"
       ],
-      "summary": "Active Inference models of/for Ants",
+      "summary": "Python models and materials for ant-inspired multiagent Active Inference.",
       "description": "Active Inference models of/for Ants",
       "language": "Python",
       "stars": 29,
@@ -249,7 +249,7 @@
         "knowledge",
         "html"
       ],
-      "summary": "Content of the Active Inference Journal",
+      "summary": "Public content repository for the Active Inference Journal and related publication infrastructure.",
       "description": "Content of the Active Inference Journal",
       "language": "HTML",
       "stars": 43,
@@ -428,7 +428,7 @@
         "knowledge",
         "python"
       ],
-      "summary": "CEREBRUM: Case-Enabled Reasoning Engine with Bayesian Representations for Unified Modeling",
+      "summary": "Case-enabled Bayesian reasoning engine for unified modeling and cognitive representations.",
       "description": "CEREBRUM: Case-Enabled Reasoning Engine with Bayesian Representations for Unified Modeling",
       "language": "Python",
       "stars": 13,
@@ -453,7 +453,7 @@
         "repository",
         "python"
       ],
-      "summary": "Public cognitive repository in the ActiveInferenceInstitute GitHub namespace.",
+      "summary": "Python codebase for cognitive and Active Inference-oriented modeling work.",
       "description": "",
       "language": "Python",
       "stars": 18,
@@ -479,7 +479,7 @@
         "implementation",
         "html"
       ],
-      "summary": "Courses for learning Active Inference",
+      "summary": "Public course materials for learning Active Inference.",
       "description": "Courses for learning Active Inference",
       "language": "HTML",
       "stars": 10,
@@ -685,7 +685,7 @@
         "implementation",
         "python"
       ],
-      "summary": "Unofficial repo for materials and code related to \"Fundamentals of Active Inference\" (Namjoshi 2026). ",
+      "summary": "Materials and code for Fundamentals of Active Inference learning work.",
       "description": "Unofficial repo for materials and code related to \"Fundamentals of Active Inference\" (Namjoshi 2026). ",
       "language": "Python",
       "stars": 19,
@@ -787,7 +787,7 @@
         "repository",
         "pkl"
       ],
-      "summary": "Public GeneralizedNotationNotation repository in the ActiveInferenceInstitute GitHub namespace.",
+      "summary": "Generalized Notation Notation project for text-based model specification and communication.",
       "description": "",
       "language": "Pkl",
       "stars": 24,
@@ -865,7 +865,7 @@
         "repository",
         "html"
       ],
-      "summary": "Public GEO-INFER repository in the ActiveInferenceInstitute GitHub namespace.",
+      "summary": "Geospatial Active Inference and ecological/bioregional modeling work.",
       "description": "",
       "language": "HTML",
       "stars": 11,
@@ -992,7 +992,7 @@
         "knowledge",
         "html"
       ],
-      "summary": "Utilities and Documentation for creating contents for the Active Inference Journal",
+      "summary": "Utilities and documentation for producing Active Inference Journal content.",
       "description": "Utilities and Documentation for creating contents for the Active Inference Journal",
       "language": "HTML",
       "stars": 11,
@@ -1018,7 +1018,7 @@
         "repository",
         "jupyter-notebook"
       ],
-      "summary": "Public Knowledge-Engineering repository in the ActiveInferenceInstitute GitHub namespace.",
+      "summary": "Knowledge engineering notebooks and infrastructure for public Institute projects.",
       "description": "",
       "language": "Jupyter Notebook",
       "stars": 5,
@@ -1251,7 +1251,7 @@
         "implementation",
         "python"
       ],
-      "summary": "Public Start repository in the ActiveInferenceInstitute GitHub namespace.",
+      "summary": "START repository for scalable, tailored Active Inference research and training.",
       "description": "",
       "language": "Python",
       "stars": 5,
@@ -1277,7 +1277,7 @@
         "repository",
         "python"
       ],
-      "summary": "Public Symposium repository in the ActiveInferenceInstitute GitHub namespace.",
+      "summary": "Public repository supporting Applied Active Inference Symposium materials and workflows.",
       "description": "",
       "language": "Python",
       "stars": 12,

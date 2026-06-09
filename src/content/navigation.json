@@ -13,6 +13,14 @@
       {
         "label": "Global Directory",
         "href": "directory.html"
+      },
+      {
+        "label": "Current Landing Page",
+        "href": "resources.html#official-pages"
+      },
+      {
+        "label": "Official Shortlinks",
+        "href": "resources.html#official-shortlinks"
       }
     ]
   },
@@ -33,6 +41,10 @@
       },
       {
         "label": "Learning Resources",
+        "href": "resources.html#learning"
+      },
+      {
+        "label": "START Docs",
         "href": "resources.html#learning"
       }
     ]
@@ -89,6 +101,10 @@
       {
         "label": "Research References",
         "href": "resources.html#research"
+      },
+      {
+        "label": "Audience Pathways",
+        "href": "index.html#audience-pathways"
       }
     ]
   }

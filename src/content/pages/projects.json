@@ -6,12 +6,12 @@
   "lede": "Projects convert shared ideas into repositories, research outputs, learning infrastructure, media, events, and applied work.",
   "primaryActions": [
     {
-      "label": "Browse repositories",
-      "sourceId": "github-org"
+      "label": "Prepare a project",
+      "sourceId": "shortlink-prepare"
     },
     {
-      "label": "Open project resources",
-      "href": "resources.html#projects"
+      "label": "Browse repositories",
+      "sourceId": "github-org"
     }
   ],
   "resourceGroups": [
@@ -175,6 +175,11 @@
     "gnn",
     "geo-infer",
     "journal",
-    "start-repo"
+    "start-repo",
+    "shortlink-prepare",
+    "official-measure",
+    "shortlink-ontology",
+    "shortlink-rxinfer",
+    "shortlink-wave-hypothesis"
   ]
 }

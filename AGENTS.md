@@ -29,7 +29,7 @@ The site is static:
 - `src/build.mjs` renders all public HTML and crawler files.
 - `src/content/*.json` and `src/content/pages/*.json` are the content sources.
 - `assets/css/styles.css` defines the dark charcoal design system.
-- `assets/js/site.js` handles navigation disclosure and resource filtering.
+- `assets/js/site.js` handles navigation disclosure, resource filtering, popular tag chips, and repository sorting.
 - Generated root files are committed because GitHub Pages serves from `main` at repository root.
 
 Generated public files should be limited to:
@@ -51,8 +51,9 @@ Use `src/content/live-sources.json` as the canonical registry for volatile publi
 The content model is split into registries:
 
 - `src/content/resources.json` for curated resources, filter types, groups, and audiences.
-- `src/content/official-pages.json` for reachable official Institute pages and public subdomains.
+- `src/content/official-pages.json` for reachable official Institute pages, `activeinference.org`, START, and public shortlinks/subdomains.
 - `src/content/repositories.json` for reachable public `ActiveInferenceInstitute` repositories.
+- `src/content/audience-pathways.json` for homepage visitor routes.
 - `src/content/live-sources.json` for URL, status, and last-check data.
 
 Curated page JSON files must include:
@@ -81,7 +82,11 @@ Every rendered external URL should resolve from `src/content/live-sources.json`.
   - related repositories
   - verified public resources
 - The resource directory must remain searchable and filterable by search, type, group, audience, and tag.
-- The global directory must index every curated page, page section, resource group, official page, verified external link, and public repository.
+- The home page must expose audience pathways for newcomers, learners, researchers, developers, contributors, and partners/supporters.
+- The resource directory must separate Featured, Official pages, Official shortlinks, Repositories, Learning/Research, Participation, and Full Directory views.
+- The Full Directory filters should use popular tag chips/select options, not an exhaustive noisy tag list.
+- The repository view must sort locally by updated date, stars, language, and group.
+- The global directory must index every curated page, page section, resource group, official page, official shortlink, verified external link, and public repository.
 - Static security must stay simple: local scripts/styles only, CSP and referrer meta tags present, no forms or embedded frames, no inline event handlers, and external anchors backed by `src/content/live-sources.json`.
 
 ## Verification Gates

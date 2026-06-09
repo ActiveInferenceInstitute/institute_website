@@ -115,6 +115,10 @@
     "github-org",
     "geo-infer",
     "active-inferants",
-    "gnn"
+    "gnn",
+    "official-activeinference-org",
+    "shortlink-strategy",
+    "shortlink-ontology",
+    "shortlink-wave-hypothesis"
   ]
 }

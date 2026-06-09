@@ -6,18 +6,19 @@
   "lede": "Learning resources point newcomers and experienced participants toward living references, livestreams, Active Inference Insights, textbook groups, readings, code implementations, and domain-specific courses.",
   "primaryActions": [
     {
-      "label": "Open Start repository",
-      "sourceId": "start-repo"
+      "label": "Start learning",
+      "sourceId": "start-docs"
     },
     {
-      "label": "Watch public videos",
-      "sourceId": "youtube"
+      "label": "Open knowledge base",
+      "sourceId": "shortlink-obsidian"
     }
   ],
   "resourceGroups": [
     "learning",
     "media",
-    "research"
+    "research",
+    "tools"
   ],
   "sections": [
     {
@@ -147,6 +148,10 @@
     "video",
     "podbean",
     "weekly",
-    "github-org"
+    "github-org",
+    "official-activeinference-org",
+    "start-docs",
+    "shortlink-obsidian",
+    "shortlink-rxinfer"
   ]
 }

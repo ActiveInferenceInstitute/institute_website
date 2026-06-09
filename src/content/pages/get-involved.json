@@ -6,12 +6,12 @@
   "lede": "All backgrounds, time zones, and familiarity levels are welcome. Start with public channels, attend activities, and choose a contribution pathway that fits your context.",
   "primaryActions": [
     {
-      "label": "Join Discord",
-      "sourceId": "discord"
+      "label": "Get started",
+      "sourceId": "official-activeinference-org"
     },
     {
-      "label": "Donate",
-      "sourceId": "donate"
+      "label": "Join Discord",
+      "sourceId": "discord"
     }
   ],
   "resourceGroups": [
@@ -145,6 +145,10 @@
     "bluesky",
     "podbean",
     "facebook",
-    "linkedin"
+    "linkedin",
+    "official-activeinference-org",
+    "shortlink-welcome",
+    "shortlink-fellows",
+    "shortlink-mentorship"
   ]
 }

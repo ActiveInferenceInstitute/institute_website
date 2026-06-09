@@ -20,11 +20,15 @@
 }
 
 html {
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
   line-height: 1.55;
@@ -263,7 +267,7 @@ select:focus-visible {
 
 .metrics-band {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background: var(--surface);
@@ -272,6 +276,7 @@ select:focus-visible {
 .metrics-band div {
   padding: clamp(1.1rem, 3vw, 2rem);
   border-right: 1px solid var(--line);
+  border-bottom: 1px solid transparent;
 }
 
 .metrics-band div:last-child {
@@ -449,6 +454,67 @@ select:focus-visible {
   color: var(--muted);
 }
 
+.pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.pathway-card {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.pathway-card > span,
+.resource-kicker {
+  color: var(--red);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.pathway-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.pathway-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.next-action-band {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+  background: #070707;
+  border-bottom: 1px solid var(--line);
+}
+
+.next-action-panel {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.55fr) 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.next-action-panel h2,
+.next-action-panel p {
+  margin: 0;
+}
+
+.next-action-panel p:not(.eyebrow) {
+  color: var(--muted);
+}
+
 .card-grid,
 .resource-grid {
   display: grid;
@@ -500,14 +566,9 @@ select:focus-visible {
   text-decoration: none;
 }
 
-.resource-card span {
+.resource-card > span {
   display: block;
   margin-bottom: 0.45rem;
-  color: var(--red);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0;
-  text-transform: uppercase;
 }
 
 .resource-card h3 a {
@@ -521,6 +582,12 @@ select:focus-visible {
 }
 
 .resource-meta {
+  color: var(--soft);
+  font-size: 0.86rem;
+}
+
+.resource-audience {
+  margin: 0 0 0.45rem;
   color: var(--soft);
   font-size: 0.86rem;
 }
@@ -590,6 +657,41 @@ select:focus-visible {
   background: var(--surface);
 }
 
+.section-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.section-controls label {
+  display: grid;
+  gap: 0.35rem;
+  min-width: min(280px, 100%);
+  font-weight: 750;
+}
+
+.section-controls select {
+  min-height: 2.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.85rem;
+  background: var(--surface-strong);
+  color: var(--ink);
+  font: inherit;
+}
+
+.section-controls p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .resource-tools label {
   display: grid;
   gap: 0.35rem;
@@ -612,6 +714,32 @@ select:focus-visible {
   color: var(--muted);
   margin: 0;
   white-space: nowrap;
+}
+
+.tag-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 1rem;
+}
+
+.tag-filter-chips button {
+  min-height: 2.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.45rem 0.65rem;
+  background: var(--surface-strong);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tag-filter-chips button:hover,
+.tag-filter-chips button[aria-pressed="true"] {
+  border-color: var(--red);
+  color: #ffffff;
+  background: var(--red-deep);
 }
 
 .category-count {
@@ -769,6 +897,8 @@ select:focus-visible {
   .feature-layout,
   .card-grid,
   .directory-list,
+  .pathway-grid,
+  .next-action-panel,
   .resource-grid,
   .resource-tools {
     grid-template-columns: 1fr;
