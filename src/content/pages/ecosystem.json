@@ -7,15 +7,39 @@
   "sections": [
     {
       "heading": "Priorities and Challenge Areas",
-      "body": "The source material frames ecosystem development around structure, growth, cyber and cognitive security, information flows, and organizations facing problems that may be addressed by Active Inference."
+      "body": "The source material frames ecosystem development around structure, growth, cyber and cognitive security, information flows, and organizations facing problems that may be addressed by Active Inference.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
     },
     {
       "heading": "Domains of Application",
-      "body": "The PDF maps Active Inference across biology, neuroscience, mental health, bioregional modeling, category theory, computation, economics, education, philosophy, physics, robotics, legal, social, logistics, scientific method, and DeSci."
+      "body": "The PDF maps Active Inference across biology, neuroscience, mental health, bioregional modeling, category theory, computation, economics, education, philosophy, physics, robotics, legal, social, logistics, scientific method, and DeSci.",
+      "links": [
+        {
+          "sourceId": "geo-infer"
+        },
+        {
+          "sourceId": "active-inferants"
+        },
+        {
+          "sourceId": "gnn"
+        }
+      ]
     },
     {
       "heading": "Ecosystem Support",
-      "body": "Ecosystem support includes public communication, learning infrastructure, project visibility, partner pathways, research resources, and shared open source tooling."
+      "body": "Ecosystem support includes public communication, learning infrastructure, project visibility, partner pathways, research resources, and shared open source tooling.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        },
+        {
+          "sourceId": "weekly"
+        }
+      ]
     }
   ],
   "cards": [
@@ -29,11 +53,27 @@
     },
     {
       "title": "Bioregional Modeling",
-      "text": "Ecological, agricultural, soil, and geospatial applications."
+      "text": "Ecological, agricultural, soil, and geospatial applications.",
+      "links": [
+        {
+          "sourceId": "geo-infer"
+        }
+      ]
     },
     {
       "title": "Computation",
-      "text": "Software implementations, agent models, notations, and knowledge infrastructure."
+      "text": "Software implementations, agent models, notations, and knowledge infrastructure.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        },
+        {
+          "sourceId": "gnn"
+        },
+        {
+          "sourceId": "active-inferants"
+        }
+      ]
     },
     {
       "title": "Social Systems",
@@ -41,8 +81,25 @@
     },
     {
       "title": "DeSci",
-      "text": "Decentralized science, epistemic commons, and open collaboration structures."
+      "text": "Decentralized science, epistemic commons, and open collaboration structures.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
     }
   ],
-  "order": 7
+  "order": 7,
+  "relatedSlugs": [
+    "active-inference",
+    "projects",
+    "about"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "github-org",
+    "geo-infer",
+    "active-inferants",
+    "gnn"
+  ]
 }

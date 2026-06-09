@@ -7,38 +7,127 @@
   "sections": [
     {
       "heading": "Join the Conversation",
-      "body": "Discord is the main public chat surface identified in the PDF. You can also follow public channels on YouTube, X, Bluesky, Podbean, Facebook, and LinkedIn."
+      "body": "Discord is the main public chat surface identified in the PDF. You can also follow public channels on YouTube, X, Bluesky, Podbean, Facebook, and LinkedIn.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "x"
+        },
+        {
+          "sourceId": "bluesky"
+        },
+        {
+          "sourceId": "podbean"
+        },
+        {
+          "sourceId": "facebook"
+        },
+        {
+          "sourceId": "linkedin"
+        }
+      ]
     },
     {
       "heading": "Attend Activities",
-      "body": "The source highlights weekly and project-specific activities, including textbook groups, learning sessions, model streams, and project meetings. Drop in when your schedule allows."
+      "body": "The source highlights weekly and project-specific activities, including textbook groups, learning sessions, model streams, and project meetings. Drop in when your schedule allows.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        },
+        {
+          "sourceId": "youtube"
+        }
+      ]
     },
     {
       "heading": "Choose a Pathway",
-      "body": "Volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, open source, and project proposal pathways provide progressively structured ways to participate."
+      "body": "Volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, open source, and project proposal pathways provide progressively structured ways to participate.",
+      "links": [
+        {
+          "sourceId": "donate"
+        },
+        {
+          "sourceId": "github-org"
+        }
+      ]
     },
     {
       "heading": "Contact",
-      "body": "For questions about activities or the Institute, use the public contact email: blanket@activeinference.institute."
+      "body": "For questions about activities or the Institute, use the public contact email: blanket@activeinference.institute.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
     }
   ],
   "cards": [
     {
       "title": "Start with Discord",
-      "text": "Join text and voice conversations with the community."
+      "text": "Join text and voice conversations with the community.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
     },
     {
       "title": "Watch and listen",
-      "text": "Use the public video and podcast archive to orient yourself."
+      "text": "Use the public video and podcast archive to orient yourself.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "video"
+        },
+        {
+          "sourceId": "podbean"
+        }
+      ]
     },
     {
       "title": "Join an activity",
-      "text": "Attend a learning group or project meeting when possible."
+      "text": "Attend a learning group or project meeting when possible.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        }
+      ]
     },
     {
       "title": "Propose or support a project",
-      "text": "Use preparation and measurement workflows to make work visible."
+      "text": "Use preparation and measurement workflows to make work visible.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        },
+        {
+          "sourceId": "donate"
+        }
+      ]
     }
   ],
-  "order": 8
+  "order": 8,
+  "relatedSlugs": [
+    "about",
+    "activities",
+    "programs"
+  ],
+  "externalSourceIds": [
+    "discord",
+    "donate",
+    "weekly",
+    "youtube",
+    "x",
+    "bluesky",
+    "podbean",
+    "facebook",
+    "linkedin"
+  ]
 }

@@ -11,15 +11,42 @@
     },
     {
       "heading": "How to Approach the Field",
-      "body": "The PDF directs newcomers to the living document, the Start page, livestreams, podcasts, textbook groups, readings, and implementations. This site separates those entry points into stable public pages while keeping source-page references visible."
+      "body": "The PDF directs newcomers to the living document, the Start page, livestreams, podcasts, textbook groups, readings, and implementations. This site separates those entry points into stable public pages while keeping source-page references visible.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        },
+        {
+          "sourceId": "start-repo"
+        },
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "video"
+        }
+      ]
     },
     {
       "heading": "Implementations",
-      "body": "Implementation pathways include RxInfer.jl, PyMDP, SPM, and symbolic cognitive robotics. These tools support modeling, simulation, inference, and applied experimentation."
+      "body": "Implementation pathways include RxInfer.jl, PyMDP, SPM, and symbolic cognitive robotics. These tools support modeling, simulation, inference, and applied experimentation.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
     },
     {
       "heading": "Applications",
-      "body": "Active Inference appears across domains including biology, neuroscience, mental health, robotics, education, economics, physics, social systems, logistics, DeSci, and scientific method."
+      "body": "Active Inference appears across domains including biology, neuroscience, mental health, robotics, education, economics, physics, social systems, logistics, DeSci, and scientific method.",
+      "links": [
+        {
+          "sourceId": "geo-infer"
+        },
+        {
+          "sourceId": "active-inferants"
+        }
+      ]
     }
   ],
   "cards": [
@@ -29,16 +56,49 @@
     },
     {
       "title": "Learning path",
-      "text": "Textbook groups, courses, streams, podcasts, readings, and source documents."
+      "text": "Textbook groups, courses, streams, podcasts, readings, and source documents.",
+      "links": [
+        {
+          "sourceId": "start-repo"
+        },
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "video"
+        }
+      ]
     },
     {
       "title": "Practice",
-      "text": "Software implementations, model-building, project work, and applied examples."
+      "text": "Software implementations, model-building, project work, and applied examples.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
     },
     {
       "title": "Ecosystem",
-      "text": "A broad community applying the framework across scientific and practical domains."
+      "text": "A broad community applying the framework across scientific and practical domains.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
     }
   ],
-  "order": 2
+  "order": 2,
+  "relatedSlugs": [
+    "learning",
+    "projects",
+    "ecosystem"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "start-repo",
+    "youtube",
+    "video",
+    "github-org"
+  ]
 }

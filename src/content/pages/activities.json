@@ -7,29 +7,74 @@
   "sections": [
     {
       "heading": "Open Participation",
-      "body": "The PDF invites people to drop in to activities when it works for them. Activities are paired with public channels and project pages so participants can move between synchronous meetings and asynchronous contribution."
+      "body": "The PDF invites people to drop in to activities when it works for them. Activities are paired with public channels and project pages so participants can move between synchronous meetings and asynchronous contribution.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "sourceId": "weekly"
+        }
+      ]
     },
     {
       "heading": "Learning Sessions",
-      "body": "Recurring learning activities include textbook groups, RxInfer.jl sessions, Fundamentals of Active Inference, seasonal schools, and course-oriented work."
+      "body": "Recurring learning activities include textbook groups, RxInfer.jl sessions, Fundamentals of Active Inference, seasonal schools, and course-oriented work.",
+      "links": [
+        {
+          "sourceId": "start-repo"
+        },
+        {
+          "sourceId": "weekly"
+        }
+      ]
     },
     {
       "heading": "Media and Production",
-      "body": "The public archive includes livestreams, podcasts, model streams, guest streams, symposium material, and audio-visual production work."
+      "body": "The public archive includes livestreams, podcasts, model streams, guest streams, symposium material, and audio-visual production work.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "video"
+        },
+        {
+          "sourceId": "podbean"
+        }
+      ]
     },
     {
       "heading": "Project Sessions",
-      "body": "Activities connect directly to Institute Projects and Ecosystem Projects, including project meetings, preparation workflows, measurement/reporting, and presentation opportunities."
+      "body": "Activities connect directly to Institute Projects and Ecosystem Projects, including project meetings, preparation workflows, measurement/reporting, and presentation opportunities.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
     }
   ],
   "cards": [
     {
       "title": "Textbook Group",
-      "text": "Collaborative study of core Active Inference material."
+      "text": "Collaborative study of core Active Inference material.",
+      "links": [
+        {
+          "sourceId": "start-repo"
+        }
+      ]
     },
     {
       "title": "ModelStream",
-      "text": "Public sessions around modeling and applied examples."
+      "text": "Public sessions around modeling and applied examples.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "video"
+        }
+      ]
     },
     {
       "title": "Project meetings",
@@ -41,12 +86,38 @@
     },
     {
       "title": "Podcasts",
-      "text": "Conversational Active Inference Insights and related media."
+      "text": "Conversational Active Inference Insights and related media.",
+      "links": [
+        {
+          "sourceId": "podbean"
+        },
+        {
+          "sourceId": "youtube"
+        }
+      ]
     },
     {
       "title": "Weekly updates",
-      "text": "Recurring public orientation and progress communication."
+      "text": "Recurring public orientation and progress communication.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        }
+      ]
     }
   ],
-  "order": 3
+  "order": 3,
+  "relatedSlugs": [
+    "programs",
+    "learning",
+    "get-involved"
+  ],
+  "externalSourceIds": [
+    "discord",
+    "weekly",
+    "youtube",
+    "youtube-handle",
+    "video",
+    "podbean"
+  ]
 }

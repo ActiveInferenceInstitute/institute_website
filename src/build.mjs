@@ -27,6 +27,8 @@ const siteData = {
   pages,
 };
 const pdfData = loadJson("pdf-pages.json");
+const liveSourceById = new Map((siteData.liveSources.sources || []).map((source) => [source.id, source]));
+const pageBySlug = new Map(siteData.pages.map((page) => [page.slug, page]));
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -36,6 +38,12 @@ const escapeHtml = (value = "") =>
     .replaceAll('"', "&quot;");
 
 const slugToHref = (slug) => (slug === "index" ? "index.html" : `${slug}.html`);
+
+const slugifyAnchor = (value = "") =>
+  String(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
 function relPrefix(currentPath) {
   return currentPath.includes("/") ? "../" : "";
@@ -59,6 +67,63 @@ function nav(prefix = "") {
   return `<nav class="nav" aria-label="Primary">${items}</nav>`;
 }
 
+function resolveLinks(links = []) {
+  return links
+    .map((link) => {
+      if (link.sourceId) {
+        const source = liveSourceById.get(link.sourceId);
+        if (!source || !source.ok) {
+          return null;
+        }
+        return {
+          label: link.label || source.label,
+          href: source.finalUrl || source.url,
+          meta: source.category,
+        };
+      }
+      if (link.href && link.label) {
+        return link;
+      }
+      return null;
+    })
+    .filter(Boolean);
+}
+
+function linkChips(links = []) {
+  const resolved = resolveLinks(links);
+  if (!resolved.length) {
+    return "";
+  }
+  return `<div class="link-chips">${resolved
+    .map(
+      (link) => `<a href="${escapeHtml(link.href)}">
+        <span>${escapeHtml(link.label)}</span>
+        ${link.meta ? `<em>${escapeHtml(link.meta)}</em>` : ""}
+      </a>`,
+    )
+    .join("")}</div>`;
+}
+
+function pageGuide(page) {
+  const sectionLinks = page.sections
+    .map((section) => `<a href="#${escapeHtml(slugifyAnchor(section.heading))}">${escapeHtml(section.heading)}</a>`)
+    .join("");
+  return `<section class="content-band page-index-band">
+    <div class="page-index">
+      <div>
+        <p class="eyebrow">On this page</p>
+        <h2>${escapeHtml(page.title)} guide</h2>
+      </div>
+      <nav aria-label="${escapeHtml(page.title)} page sections">
+        ${sectionLinks}
+        <a href="#source-coverage">Source coverage</a>
+        <a href="#verified-links">Verified links</a>
+        <a href="#related-pages">Related pages</a>
+      </nav>
+    </div>
+  </section>`;
+}
+
 function layout({ title, description, currentPath, body, extraHead = "", bodyClass = "" }) {
   const prefix = relPrefix(currentPath);
   const pageTitle = title === siteData.site.name ? title : `${title} | ${siteData.site.name}`;
@@ -72,7 +137,7 @@ function layout({ title, description, currentPath, body, extraHead = "", bodyCla
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(pageTitle)}</title>
   <meta name="description" content="${escapeHtml(pageDescription)}">
-  <meta name="theme-color" content="#11383f">
+  <meta name="theme-color" content="#050505">
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="${escapeHtml(siteData.site.name)}">
@@ -134,17 +199,64 @@ function sectionHeading({ eyebrow, title, text }) {
 
 function cardGrid(cards = []) {
   return `<div class="card-grid">${cards
-    .map(
-      (card) => `<article class="info-card">
+    .map((card) => {
+      const links = linkChips(card.links);
+      return `<article class="info-card">
         <h3>${escapeHtml(card.title)}</h3>
-        <p>${escapeHtml(card.text)}</p>
-      </article>`,
-    )
+        <p>${escapeHtml(card.text)}</p>${links ? `\n        ${links}` : ""}
+      </article>`;
+    })
     .join("")}</div>`;
 }
 
 function sourceLinks(range) {
-  return `<p class="source-range">Source coverage: ${escapeHtml(range)}. See the <a href="atlas/">page-by-page source atlas</a>.</p>`;
+  return `<p class="source-range">Source coverage: <a href="#source-coverage">${escapeHtml(range)}</a>. Browse the <a href="atlas/">page-by-page Source Atlas</a>.</p>`;
+}
+
+function relatedSlugsForPage(page) {
+  if (Array.isArray(page.relatedSlugs) && page.relatedSlugs.length) {
+    return page.relatedSlugs;
+  }
+  const index = siteData.pages.findIndex((candidate) => candidate.slug === page.slug);
+  return [siteData.pages[index - 1]?.slug, siteData.pages[index + 1]?.slug].filter(Boolean);
+}
+
+function relatedPages(page) {
+  const related = relatedSlugsForPage(page).map((slug) => pageBySlug.get(slug)).filter(Boolean);
+  return `<div class="source-grid compact-grid">${related
+    .map(
+      (relatedPage) => `<a class="source-card" href="${slugToHref(relatedPage.slug)}">
+        <span>${escapeHtml(relatedPage.sourceRange)}</span>
+        <strong>${escapeHtml(relatedPage.title)}</strong>
+        <p>${escapeHtml(relatedPage.lede)}</p>
+      </a>`,
+    )
+    .join("")}</div>`;
+}
+
+function verifiedExternalLinks(page) {
+  const links = resolveLinks((page.externalSourceIds || []).map((sourceId) => ({ sourceId })));
+  if (!links.length) {
+    return '<p class="lede">No live external links are assigned to this page yet. Use the Source Manifest for the complete verified list.</p>';
+  }
+  return `<div class="external-grid">${links
+    .map(
+      (link) => `<a class="external-card" href="${escapeHtml(link.href)}">
+        <span>${escapeHtml(link.meta || "Verified source")}</span>
+        <strong>${escapeHtml(link.label)}</strong>
+      </a>`,
+    )
+    .join("")}</div>`;
+}
+
+function publicPagePager(page) {
+  const index = siteData.pages.findIndex((candidate) => candidate.slug === page.slug);
+  const prev = siteData.pages[index - 1];
+  const next = siteData.pages[index + 1];
+  return `<nav class="pager page-pager" aria-label="${escapeHtml(page.title)} adjacent pages">
+    ${prev ? `<a href="${slugToHref(prev.slug)}">Previous: ${escapeHtml(prev.title)}</a>` : "<span></span>"}
+    ${next ? `<a href="${slugToHref(next.slug)}">Next: ${escapeHtml(next.title)}</a>` : "<span></span>"}
+  </nav>`;
 }
 
 function homePage() {
@@ -234,17 +346,19 @@ function publicPage(page) {
     <h1>${escapeHtml(page.title)}</h1>
     <p>${escapeHtml(page.subtitle)}</p>
   </section>
+  ${pageGuide(page)}
   <section class="content-band">
     <p class="lede">${escapeHtml(page.lede)}</p>
     ${sourceLinks(page.sourceRange)}
     <div class="article-stack">
       ${page.sections
-        .map(
-          (section) => `<article class="article-block">
+        .map((section) => {
+          const links = linkChips(section.links);
+          return `<article class="article-block" id="${escapeHtml(slugifyAnchor(section.heading))}">
             <h2>${escapeHtml(section.heading)}</h2>
-            <p>${escapeHtml(section.body)}</p>
-          </article>`,
-        )
+            <p>${escapeHtml(section.body)}</p>${links ? `\n            ${links}` : ""}
+          </article>`;
+        })
         .join("")}
     </div>
   </section>
@@ -252,10 +366,19 @@ function publicPage(page) {
     ${sectionHeading({ eyebrow: "Key surfaces", title: `${page.title} at a glance` })}
     ${cardGrid(page.cards)}
   </section>
-  <section class="content-band">
-    ${sectionHeading({ eyebrow: "Traceability", title: "Related source pages" })}
+  <section class="content-band" id="source-coverage">
+    ${sectionHeading({ eyebrow: "Source coverage", title: "PDF traceability", text: `This page is summarized from ${page.sourceRange}. Use these source pages and the full atlas to audit the public summary.` })}
     ${relatedSourcePages(page.sourceRange)}
-  </section>`;
+  </section>
+  <section class="content-band muted" id="verified-links">
+    ${sectionHeading({ eyebrow: "Verified external links", title: "Public resources and repositories", text: "These links resolve through the live-source manifest, so volatile destinations stay centralized and auditable." })}
+    ${verifiedExternalLinks(page)}
+  </section>
+  <section class="content-band" id="related-pages">
+    ${sectionHeading({ eyebrow: "Related pages", title: "Continue through the site" })}
+    ${relatedPages(page)}
+  </section>
+  ${publicPagePager(page)}`;
   return layout({
     title: page.title,
     description: page.lede,

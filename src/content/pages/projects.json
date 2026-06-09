@@ -7,15 +7,48 @@
   "sections": [
     {
       "heading": "Project Lifecycle",
-      "body": "Projects are prepared through a proposal process and measured through reporting updates from the Active Inference ecosystem. The public site organizes the project surface around clear titles, missions, outputs, and source-page references."
+      "body": "Projects are prepared through a proposal process and measured through reporting updates from the Active Inference ecosystem. The public site organizes the project surface around clear titles, missions, outputs, and source-page references.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        },
+        {
+          "sourceId": "weekly"
+        }
+      ]
     },
     {
       "heading": "Institute Projects",
-      "body": "Institute projects include recurring research, education, production, ontology, knowledge engineering, software, symposium, and learning-group efforts. They provide internal continuity and public-facing outputs."
+      "body": "Institute projects include recurring research, education, production, ontology, knowledge engineering, software, symposium, and learning-group efforts. They provide internal continuity and public-facing outputs.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        },
+        {
+          "sourceId": "journal"
+        },
+        {
+          "sourceId": "active-inferants"
+        },
+        {
+          "sourceId": "gnn"
+        },
+        {
+          "sourceId": "geo-infer"
+        }
+      ]
     },
     {
       "heading": "Ecosystem Projects",
-      "body": "Ecosystem projects are broader community initiatives, including theoretical, applied, domain-specific, and infrastructure efforts that connect Active Inference to external research and practice."
+      "body": "Ecosystem projects are broader community initiatives, including theoretical, applied, domain-specific, and infrastructure efforts that connect Active Inference to external research and practice.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        },
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
     }
   ],
   "cards": [
@@ -29,11 +62,21 @@
     },
     {
       "title": "Active InferAnts",
-      "text": "Multiagent modeling work linked to prior code and papers."
+      "text": "Multiagent modeling work linked to prior code and papers.",
+      "links": [
+        {
+          "sourceId": "active-inferants"
+        }
+      ]
     },
     {
       "title": "Active Inference Journal",
-      "text": "A publication-oriented knowledge and research channel."
+      "text": "A publication-oriented knowledge and research channel.",
+      "links": [
+        {
+          "sourceId": "journal"
+        }
+      ]
     },
     {
       "title": "Active Inference Ontology",
@@ -57,28 +100,66 @@
     },
     {
       "title": "Fundamentals of Active Inference",
-      "text": "A textbook and learning-group pathway for core concepts."
+      "text": "A textbook and learning-group pathway for core concepts.",
+      "links": [
+        {
+          "sourceId": "start-repo"
+        }
+      ]
     },
     {
       "title": "Generalized Notation Notation",
-      "text": "A text-based notation project for communicating models."
+      "text": "A text-based notation project for communicating models.",
+      "links": [
+        {
+          "sourceId": "gnn"
+        }
+      ]
     },
     {
       "title": "GEO-INFER",
-      "text": "Geospatial modeling and active inference techniques."
+      "text": "Geospatial modeling and active inference techniques.",
+      "links": [
+        {
+          "sourceId": "geo-infer"
+        }
+      ]
     },
     {
       "title": "Knowledge Engineering",
-      "text": "Public frontend, literature meta-analysis, and organizational knowledge infrastructure."
+      "text": "Public frontend, literature meta-analysis, and organizational knowledge infrastructure.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
     },
     {
       "title": "RxInfer.jl Learning Group",
-      "text": "Learning and development around RxInfer.jl examples and applications."
+      "text": "Learning and development around RxInfer.jl examples and applications.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
     },
     {
       "title": "Theoretical Neurobiology",
       "text": "Support for theoretical neurobiology conversations and model development."
     }
   ],
-  "order": 5
+  "order": 5,
+  "relatedSlugs": [
+    "learning",
+    "ecosystem",
+    "programs"
+  ],
+  "externalSourceIds": [
+    "github-org",
+    "active-inferants",
+    "gnn",
+    "geo-infer",
+    "journal",
+    "start-repo"
+  ]
 }

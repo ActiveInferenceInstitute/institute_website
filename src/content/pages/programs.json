@@ -7,7 +7,15 @@
   "sections": [
     {
       "heading": "Volunteer",
-      "body": "Volunteering is the broadest on-ramp for participation. The source describes active and documented participation in learning groups and projects, with room for people to contribute according to available time, background, and skills."
+      "body": "Volunteering is the broadest on-ramp for participation. The source describes active and documented participation in learning groups and projects, with room for people to contribute according to available time, background, and skills.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "sourceId": "weekly"
+        }
+      ]
     },
     {
       "heading": "Internship and Mentorship",
@@ -19,17 +27,32 @@
     },
     {
       "heading": "Partnership and Philanthropy",
-      "body": "Partners and donors support shared research, public education, infrastructure, and project development. The PDF frames partnership as a practical exchange of time, attention, expertise, funding, and institutional support."
+      "body": "Partners and donors support shared research, public education, infrastructure, and project development. The PDF frames partnership as a practical exchange of time, attention, expertise, funding, and institutional support.",
+      "links": [
+        {
+          "sourceId": "donate"
+        }
+      ]
     },
     {
       "heading": "Open Source",
-      "body": "Open source is treated as an ecosystem support function: publish reusable work, improve project infrastructure, and make shared technical resources discoverable."
+      "body": "Open source is treated as an ecosystem support function: publish reusable work, improve project infrastructure, and make shared technical resources discoverable.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
     }
   ],
   "cards": [
     {
       "title": "Volunteer",
-      "text": "Contribute to learning groups, project support, operations, writing, analysis, or media."
+      "text": "Contribute to learning groups, project support, operations, writing, analysis, or media.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
     },
     {
       "title": "Internship",
@@ -45,12 +68,33 @@
     },
     {
       "title": "Partnership",
-      "text": "Align organizations, funders, and collaborators around concrete shared work."
+      "text": "Align organizations, funders, and collaborators around concrete shared work.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        }
+      ]
     },
     {
       "title": "Philanthropy",
-      "text": "Support public education, research infrastructure, events, and ecosystem stewardship."
+      "text": "Support public education, research infrastructure, events, and ecosystem stewardship.",
+      "links": [
+        {
+          "sourceId": "donate"
+        }
+      ]
     }
   ],
-  "order": 4
+  "order": 4,
+  "relatedSlugs": [
+    "get-involved",
+    "projects",
+    "about"
+  ],
+  "externalSourceIds": [
+    "donate",
+    "discord",
+    "weekly",
+    "github-org"
+  ]
 }

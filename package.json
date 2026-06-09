@@ -7,9 +7,10 @@
   "scripts": {
     "extract": "python3 scripts/extract_pdf.py /Users/4d/Downloads/AII.pdf",
     "build": "node src/build.mjs",
-    "check": "node --check src/build.mjs && python3 -m py_compile scripts/extract_pdf.py scripts/check_internal_links.py scripts/check_live_sources.py",
+    "check": "node --check src/build.mjs && python3 -m py_compile scripts/extract_pdf.py scripts/check_internal_links.py scripts/check_live_sources.py scripts/check_site_contract.py && npm run check:site",
     "check:links": "python3 scripts/check_internal_links.py",
-    "check:sources": "python3 scripts/check_live_sources.py src/content/live-sources.json"
+    "check:sources": "python3 scripts/check_live_sources.py src/content/live-sources.json",
+    "check:site": "python3 scripts/check_site_contract.py"
   },
   "engines": {
     "node": ">=20"

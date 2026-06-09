@@ -7,46 +7,131 @@
   "sections": [
     {
       "heading": "How to Start",
-      "body": "Begin with the living document, the Start page, public livestreams, podcasts, and learning groups. The website gives a stable public map, while the Discord and recurring events provide synchronous participation."
+      "body": "Begin with the living document, the Start page, public livestreams, podcasts, and learning groups. The website gives a stable public map, while the Discord and recurring events provide synchronous participation.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        },
+        {
+          "sourceId": "start-repo"
+        },
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "video"
+        },
+        {
+          "sourceId": "discord"
+        }
+      ]
     },
     {
       "heading": "Core Readings",
-      "body": "The PDF references the 2022 textbook by Thomas Parr, Giovanni Pezzulo, and Karl J. Friston; Maxwell Ramstead's 2023 precis; Jared Tumiel's Spinning Up in Active Inference; Beren Millidge's paper repository; and work on Active Inference ontology and teams."
+      "body": "The PDF references the 2022 textbook by Thomas Parr, Giovanni Pezzulo, and Karl J. Friston; Maxwell Ramstead's 2023 precis; Jared Tumiel's Spinning Up in Active Inference; Beren Millidge's paper repository; and work on Active Inference ontology and teams.",
+      "links": [
+        {
+          "sourceId": "start-repo"
+        }
+      ]
     },
     {
       "heading": "Courses and Groups",
-      "body": "Learning surfaces include Fundamentals of Active Inference, Textbook Group, Social Science course, Physics course, RxInfer.jl learning group, Seasonal School, and theoretical neurobiology conversations."
+      "body": "Learning surfaces include Fundamentals of Active Inference, Textbook Group, Social Science course, Physics course, RxInfer.jl learning group, Seasonal School, and theoretical neurobiology conversations.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        },
+        {
+          "sourceId": "youtube"
+        }
+      ]
     },
     {
       "heading": "Implementations",
-      "body": "The source identifies implementations including RxInfer.jl, PyMDP, SPM, and symbolic cognitive robotics. These support practical modeling and experimentation."
+      "body": "The source identifies implementations including RxInfer.jl, PyMDP, SPM, and symbolic cognitive robotics. These support practical modeling and experimentation.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
     }
   ],
   "cards": [
     {
       "title": "Textbook Group",
-      "text": "A collaborative path through Active Inference foundations."
+      "text": "A collaborative path through Active Inference foundations.",
+      "links": [
+        {
+          "sourceId": "start-repo"
+        }
+      ]
     },
     {
       "title": "Livestreams",
-      "text": "Public updates, seminars, model streams, guest streams, and educational recordings."
+      "text": "Public updates, seminars, model streams, guest streams, and educational recordings.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "video"
+        }
+      ]
     },
     {
       "title": "Active Inference Insights",
-      "text": "Conversational podcast material available through public media channels."
+      "text": "Conversational podcast material available through public media channels.",
+      "links": [
+        {
+          "sourceId": "podbean"
+        },
+        {
+          "sourceId": "youtube"
+        }
+      ]
     },
     {
       "title": "Research Resources",
-      "text": "References, repositories, papers, ontologies, and implementation links."
+      "text": "References, repositories, papers, ontologies, and implementation links.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
     },
     {
       "title": "Tech Tree",
-      "text": "A structured learning map for concepts, methods, and applications."
+      "text": "A structured learning map for concepts, methods, and applications.",
+      "links": [
+        {
+          "sourceId": "start-repo"
+        }
+      ]
     },
     {
       "title": "Implementations",
-      "text": "RxInfer.jl, PyMDP, SPM, and symbolic cognitive robotics."
+      "text": "RxInfer.jl, PyMDP, SPM, and symbolic cognitive robotics.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
     }
   ],
-  "order": 6
+  "order": 6,
+  "relatedSlugs": [
+    "active-inference",
+    "activities",
+    "projects"
+  ],
+  "externalSourceIds": [
+    "start-repo",
+    "youtube",
+    "youtube-handle",
+    "video",
+    "podbean",
+    "weekly",
+    "github-org"
+  ]
 }

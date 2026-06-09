@@ -7,7 +7,15 @@
   "sections": [
     {
       "heading": "Purpose",
-      "body": "AII supports education, research, training, and applications related to Active Inference. The Institute welcomes all backgrounds, time zones, and familiarity levels, and organizes the ecosystem through programs, projects, public media, research resources, and governance structures."
+      "body": "AII supports education, research, training, and applications related to Active Inference. The Institute welcomes all backgrounds, time zones, and familiarity levels, and organizes the ecosystem through programs, projects, public media, research resources, and governance structures.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        },
+        {
+          "sourceId": "discord"
+        }
+      ]
     },
     {
       "heading": "Mission, Vision, Values, and Principles",
@@ -19,22 +27,65 @@
     },
     {
       "heading": "Information Management",
-      "body": "The PDF identifies Discord, Coda, newsletters, public video and podcast channels, and project pages as working information surfaces. This website refactors that information into stable public pages while preserving the source atlas for traceability."
+      "body": "The PDF identifies Discord, Coda, newsletters, public video and podcast channels, and project pages as working information surfaces. This website refactors that information into stable public pages while preserving the source atlas for traceability.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        },
+        {
+          "sourceId": "video"
+        },
+        {
+          "sourceId": "github-org"
+        }
+      ]
     }
   ],
   "cards": [
     {
       "title": "Open participation",
-      "text": "The Institute is designed for people who arrive with different time zones, skills, and familiarity levels."
+      "text": "The Institute is designed for people who arrive with different time zones, skills, and familiarity levels.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
     },
     {
       "title": "Public knowledge",
-      "text": "Livestreams, podcasts, readings, projects, and educational groups create reusable learning material."
+      "text": "Livestreams, podcasts, readings, projects, and educational groups create reusable learning material.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "video"
+        },
+        {
+          "sourceId": "podbean"
+        }
+      ]
     },
     {
       "title": "Applied rigor",
-      "text": "The Institute connects theoretical foundations with applied projects, tools, symposia, and ecosystem support."
+      "text": "The Institute connects theoretical foundations with applied projects, tools, symposia, and ecosystem support.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
     }
   ],
-  "order": 1
+  "order": 1,
+  "relatedSlugs": [
+    "active-inference",
+    "programs",
+    "get-involved"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "weekly",
+    "discord",
+    "github-org"
+  ]
 }
