@@ -1,0 +1,110 @@
+{
+  "description": "Public-safe project summaries derived from InstituteOS project registry.",
+  "records": [
+    {
+      "activeTaskCount": 2,
+      "category": "grant",
+      "id": "grant-writing-example",
+      "policyCount": 3,
+      "processCount": 2,
+      "publicRoles": [
+        {
+          "name": "Daniel Friedman",
+          "role": "Responsible"
+        },
+        {
+          "name": "Board of Directors",
+          "role": "Accountable"
+        }
+      ],
+      "relatedSlugs": [
+        "projects",
+        "programs",
+        "get-involved"
+      ],
+      "status": "Draft",
+      "summary": "Template-style project record tying financial and QA policies to the grant application processes. Use as a pattern for real opportunities.",
+      "taskCount": 3,
+      "title": "Example grant writing effort"
+    },
+    {
+      "activeTaskCount": 2,
+      "category": "grant",
+      "id": "strategic-grant-scoping",
+      "policyCount": 2,
+      "processCount": 1,
+      "publicRoles": [
+        {
+          "name": "Daniel Friedman",
+          "role": "Accountable"
+        },
+        {
+          "name": "ReInference Director",
+          "role": "Responsible"
+        }
+      ],
+      "relatedSlugs": [
+        "projects",
+        "programs",
+        "get-involved"
+      ],
+      "status": "Active",
+      "summary": "Supporting the development and proposal of new projects engaging with the Institute. Alignment with Institute goals to enable formal submission.",
+      "taskCount": 2,
+      "title": "Strategic Grant Scoping & Preparation"
+    },
+    {
+      "activeTaskCount": 1,
+      "category": "operations",
+      "id": "institute-impact-measurement",
+      "policyCount": 2,
+      "processCount": 1,
+      "publicRoles": [
+        {
+          "name": "Board Secretary",
+          "role": "Accountable"
+        },
+        {
+          "name": "Compliance Officer",
+          "role": "Responsible"
+        }
+      ],
+      "relatedSlugs": [
+        "projects",
+        "about",
+        "ecosystem"
+      ],
+      "status": "Active",
+      "summary": "Tracking and reporting progress on Institute projects and activities. Establishing metrics and documenting outcomes for transparency.",
+      "taskCount": 2,
+      "title": "Institute Impact Measurement & Reporting"
+    },
+    {
+      "activeTaskCount": 2,
+      "category": "research",
+      "id": "active-inference-textbook",
+      "policyCount": 2,
+      "processCount": 1,
+      "publicRoles": [
+        {
+          "name": "EduActive Director",
+          "role": "Accountable"
+        },
+        {
+          "name": "ReInference Director",
+          "role": "Responsible"
+        }
+      ],
+      "relatedSlugs": [
+        "projects",
+        "learning",
+        "active-inference"
+      ],
+      "status": "Active",
+      "summary": "Working group dedicated to creating and refining educational materials on Active Inference. Drafting chapters and preparing for publication.",
+      "taskCount": 2,
+      "title": "Active Inference Textbook Development"
+    }
+  ],
+  "source": "instituteos/library/registries/projects.json"
+}

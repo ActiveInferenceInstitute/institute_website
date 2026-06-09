@@ -14,6 +14,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CONTENT_DIR = PROJECT_ROOT / "src" / "content"
 EXCLUDED_PARTS = {".git", ".cache", "node_modules", "__pycache__", "src", "scripts"}
 DISALLOWED_TAGS = {"form", "iframe", "object", "embed"}
+ALLOWED_INSTITUTEOS_ASSETS = {"ActInferServe.png", "Dark_ActInfServe.png"}
 REQUIRED_CSP_DIRECTIVES = {
     "default-src 'self'",
     "script-src 'self'",
@@ -35,6 +36,7 @@ class StaticHtmlParser(HTMLParser):
         self.links: list[dict[str, str]] = []
         self.metas: list[dict[str, str]] = []
         self.scripts: list[dict[str, str]] = []
+        self.images: list[dict[str, str]] = []
         self.tags: list[tuple[str, dict[str, str]]] = []
         self.inline_script_chunks: list[str] = []
         self._inside_script = False
@@ -53,6 +55,8 @@ class StaticHtmlParser(HTMLParser):
             self.scripts.append(attrs_dict)
             self._inside_script = True
             self._current_script_has_src = bool(attrs_dict.get("src"))
+        elif tag.lower() == "img":
+            self.images.append(attrs_dict)
 
     def handle_endtag(self, tag: str) -> None:
         if tag.lower() == "script":
@@ -106,6 +110,13 @@ def check_security() -> int:
     errors: list[str] = []
     allowed_live_urls = live_urls()
     html_files = generated_html_files()
+    instituteos_asset_dir = PROJECT_ROOT / "assets" / "img" / "instituteos"
+    if instituteos_asset_dir.exists():
+        disk_assets = {path.name for path in instituteos_asset_dir.iterdir() if path.is_file()}
+        if disk_assets != ALLOWED_INSTITUTEOS_ASSETS:
+            errors.append(
+                f"assets/img/instituteos must contain only brand assets {sorted(ALLOWED_INSTITUTEOS_ASSETS)}, found {sorted(disk_assets)}"
+            )
     if not html_files:
         errors.append("no generated HTML files found")
 
@@ -147,6 +158,17 @@ def check_security() -> int:
             src = script.get("src", "")
             if src and not local_url(src):
                 errors.append(f"{relative}: external script is not allowed: {src}")
+
+        for image in parser.images:
+            src = image.get("src", "")
+            if src and not local_url(src) and not src.startswith("data:"):
+                errors.append(f"{relative}: external image is not allowed: {src}")
+            if src.startswith("assets/img/instituteos/"):
+                filename = Path(src).name
+                if filename not in ALLOWED_INSTITUTEOS_ASSETS:
+                    errors.append(f"{relative}: InstituteOS image is not an approved brand asset: {src}")
+            if not image.get("alt"):
+                errors.append(f"{relative}: image missing alt text: {src}")
 
         for link in parser.links:
             rel = link.get("rel", "").lower()

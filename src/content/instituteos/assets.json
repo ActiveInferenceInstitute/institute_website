@@ -1,0 +1,22 @@
+{
+  "description": "Brand-only assets copied from InstituteOS for the public website.",
+  "records": [
+    {
+      "alt": "Active Inference Institute Act Infer Serve mark",
+      "filename": "ActInferServe.png",
+      "id": "act-infer-serve-light",
+      "path": "assets/img/instituteos/ActInferServe.png",
+      "source": "instituteos/library/assets/ActInferServe.png",
+      "theme": "light"
+    },
+    {
+      "alt": "Active Inference Institute Act Infer Serve dark mark",
+      "filename": "Dark_ActInfServe.png",
+      "id": "act-infer-serve-dark",
+      "path": "assets/img/instituteos/Dark_ActInfServe.png",
+      "source": "instituteos/library/assets/Dark_ActInfServe.png",
+      "theme": "dark"
+    }
+  ],
+  "source": "instituteos/library/assets"
+}

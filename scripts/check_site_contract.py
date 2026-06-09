@@ -32,6 +32,28 @@ RESOURCE_FILTER_IDS = {
     "resource-count",
     "repo-sort",
 }
+KNOWLEDGE_TABLE_IDS = {
+    "people-table": "people",
+    "projects-table": "projects",
+    "ideas-table": "ideas",
+    "ontology-table": "ontology",
+}
+KNOWLEDGE_FILTER_IDS = {
+    "knowledge-search",
+    "knowledge-kind",
+    "knowledge-count",
+}
+PRIVATE_INSTITUTEOS_KEYS = {
+    "contacts",
+    "interactions",
+    "address",
+    "notes",
+    "email",
+    "phone",
+    "slack",
+    "primary_contact",
+}
+ALLOWED_INSTITUTEOS_ASSETS = {"ActInferServe.png", "Dark_ActInfServe.png"}
 REQUIRED_SOURCE_IDS = {
     "official-activeinference-org",
     "start-docs",
@@ -223,6 +245,17 @@ def live_manifest(root: Path) -> dict:
     return load_json(root / "src" / "content" / "live-sources.json")
 
 
+def instituteos_data(root: Path) -> dict[str, dict]:
+    base = root / "src" / "content" / "instituteos"
+    return {
+        "people": load_json(base / "people.json"),
+        "projects": load_json(base / "projects.json"),
+        "ideas": load_json(base / "ideas.json"),
+        "ontology": load_json(base / "ontology.json"),
+        "assets": load_json(base / "assets.json"),
+    }
+
+
 def url_variants(url: str) -> set[str]:
     clean = url.rstrip("/")
     return {url, clean, f"{clean}/"}
@@ -338,6 +371,39 @@ def check_content_model(root: Path, errors: list[str]) -> None:
             if source_id not in live_id_set:
                 errors.append(f"{slug}: references missing live source id: {source_id}")
 
+    data = instituteos_data(root)
+    expected_lengths = {
+        "people": 12,
+        "projects": 4,
+        "ideas": 30,
+    }
+    for key, expected in expected_lengths.items():
+        actual = len(data[key].get("records", []))
+        if actual != expected:
+            errors.append(f"src/content/instituteos/{key}.json expected {expected} records, found {actual}")
+    if len(data["ontology"].get("trees", [])) != 2:
+        errors.append("src/content/instituteos/ontology.json expected 2 trees")
+    if len(data["ontology"].get("edges", [])) != 33:
+        errors.append(f"src/content/instituteos/ontology.json expected 33 edges, found {len(data['ontology'].get('edges', []))}")
+
+    for label, payload in data.items():
+        serialized = json.dumps(payload, ensure_ascii=False).lower()
+        for blocked in PRIVATE_INSTITUTEOS_KEYS:
+            if f'"{blocked}"' in serialized:
+                errors.append(f"src/content/instituteos/{label}.json contains private field {blocked}")
+        for blocked_text in ("coda.io", "workspace", "source atlas", "source manifest", "aii.pdf", "dashboard screenshot"):
+            if blocked_text in serialized:
+                errors.append(f"src/content/instituteos/{label}.json contains blocked public term {blocked_text!r}")
+
+    asset_records = data["assets"].get("records", [])
+    asset_filenames = {item.get("filename") for item in asset_records}
+    if asset_filenames != ALLOWED_INSTITUTEOS_ASSETS:
+        errors.append(f"assets.json must list only brand assets {sorted(ALLOWED_INSTITUTEOS_ASSETS)}, found {sorted(asset_filenames)}")
+    asset_dir = root / "assets" / "img" / "instituteos"
+    disk_assets = {path.name for path in asset_dir.glob("*") if path.is_file()}
+    if disk_assets != ALLOWED_INSTITUTEOS_ASSETS:
+        errors.append(f"assets/img/instituteos must contain only {sorted(ALLOWED_INSTITUTEOS_ASSETS)}, found {sorted(disk_assets)}")
+
 
 def check_curated_pages(root: Path, errors: list[str]) -> None:
     pages_dir = root / "src" / "content" / "pages"
@@ -450,6 +516,60 @@ def check_resource_directory(root: Path, errors: list[str]) -> None:
             errors.append(f"resources.html missing repository {repo.get('fullName', repo.get('name'))}")
 
 
+def check_knowledge_page(root: Path, errors: list[str]) -> None:
+    html_path = root / "knowledge.html"
+    if not html_path.exists():
+        errors.append("knowledge.html is missing")
+        return
+    html = html_path.read_text(encoding="utf-8")
+    info = parse_html(html_path)
+    hrefs = {href for href, _class_name in info.anchors}
+    data = instituteos_data(root)
+
+    missing_table_ids = set(KNOWLEDGE_TABLE_IDS) - info.ids
+    if missing_table_ids:
+        errors.append(f"knowledge.html missing table section ids {sorted(missing_table_ids)}")
+    missing_filter_ids = KNOWLEDGE_FILTER_IDS - info.ids
+    if missing_filter_ids:
+        errors.append(f"knowledge.html missing filter ids {sorted(missing_filter_ids)}")
+    if 'id="knowledge-count"' not in html or 'aria-live="polite"' not in html:
+        errors.append("knowledge.html knowledge-count must announce filter updates with aria-live=polite")
+    if html.count("<caption>") < 4:
+        errors.append("knowledge.html must render captions for people, projects, ideas, and ontology tables")
+    if html.count("<thead>") < 4 or html.count('scope="row"') < 4:
+        errors.append("knowledge.html tables must include table heads and row headers")
+    for required in ("data-knowledge-row", "data-knowledge-kind", "data-knowledge-search"):
+        if required not in html:
+            errors.append(f"knowledge.html missing {required}")
+
+    row_counts = {"people": 0, "projects": 0, "ideas": 0, "ontology": 0}
+    for _tag, attrs in info.start_tags:
+        kind = attrs.get("data-knowledge-kind")
+        if kind in row_counts:
+            row_counts[kind] += 1
+    expected_counts = {
+        "people": len(data["people"].get("records", [])),
+        "projects": len(data["projects"].get("records", [])),
+        "ideas": len(data["ideas"].get("records", [])),
+        "ontology": len(data["ontology"].get("edges", [])),
+    }
+    if row_counts != expected_counts:
+        errors.append(f"knowledge.html row counts {row_counts} do not match sanitized registries {expected_counts}")
+
+    expected_anchor_ids = [
+        *(f"person-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["people"].get("records", [])),
+        *(f"project-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["projects"].get("records", [])),
+        *(f"idea-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ideas"].get("records", [])),
+        *(f"ontology-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ontology"].get("edges", [])),
+    ]
+    for anchor_id in expected_anchor_ids:
+        if anchor_id not in info.ids:
+            errors.append(f"knowledge.html missing row anchor #{anchor_id}")
+    for required_href in {"resources.html", "directory.html#instituteos-tables", "projects.html#knowledge-preview", "learning.html#knowledge-preview"}:
+        if required_href not in hrefs:
+            errors.append(f"knowledge.html missing internal signpost {required_href}")
+
+
 def check_directory_page(root: Path, errors: list[str]) -> None:
     directory_html = root / "directory.html"
     if not directory_html.exists():
@@ -457,8 +577,8 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
         return
     html = directory_html.read_text(encoding="utf-8")
     info = parse_html(directory_html)
-    hrefs = {href for href, _class_name in info.anchors}
-    for required_id in ("site-pages", "resource-groups", "official-pages", "official-shortlinks", "repositories", "verified-links"):
+    directory_hrefs = {href for href, _class_name in info.anchors}
+    for required_id in ("site-pages", "resource-groups", "official-pages", "official-shortlinks", "repositories", "verified-links", "instituteos-tables"):
         if required_id not in info.ids:
             errors.append(f"directory.html missing {required_id}")
 
@@ -468,6 +588,8 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
         hrefs = {href for href, _class_name in parse_html(html_path).anchors}
         if "directory.html" not in hrefs and not any(href.startswith("directory.html#") for href in hrefs):
             errors.append(f"{html_path.relative_to(root)} does not link to directory.html")
+        if html_path.name != "knowledge.html" and "knowledge.html" not in hrefs and not any(href.startswith("knowledge.html#") for href in hrefs):
+            errors.append(f"{html_path.relative_to(root)} does not link to knowledge.html")
 
     pages = [load_json(path) for path in sorted((root / "src" / "content" / "pages").glob("*.json"))]
     for page in pages:
@@ -482,11 +604,22 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
     source_urls = live_source_url_by_id(live_manifest(root))
     for item in official_pages:
         expected_url = source_urls.get(item.get("sourceId", ""))
-        if item.get("promoted") is not False and (not expected_url or (expected_url not in hrefs and expected_url.rstrip("/") not in hrefs)):
+        if item.get("promoted") is not False and (not expected_url or (expected_url not in directory_hrefs and expected_url.rstrip("/") not in directory_hrefs)):
             errors.append(f"directory.html missing official page {item.get('sourceId')}")
     for repo in repositories:
-        if repo.get("promoted") is not False and repo.get("url") not in hrefs:
+        if repo.get("promoted") is not False and repo.get("url") not in directory_hrefs:
             errors.append(f"directory.html missing repository {repo.get('fullName', repo.get('name'))}")
+
+    data = instituteos_data(root)
+    expected_row_links = [
+        *(f"knowledge.html#person-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["people"].get("records", [])),
+        *(f"knowledge.html#project-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["projects"].get("records", [])),
+        *(f"knowledge.html#idea-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ideas"].get("records", [])),
+        *(f"knowledge.html#ontology-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ontology"].get("edges", [])),
+    ]
+    for href in expected_row_links:
+        if href not in html:
+            errors.append(f"directory.html missing Knowledge Map row link {href}")
 
 
 def check_navigation(root: Path, errors: list[str]) -> None:
@@ -512,6 +645,8 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
         errors.append("sitemap.xml does not include the canonical root URL")
     if f"<loc>{CANONICAL_BASE}directory.html</loc>" not in sitemap:
         errors.append("sitemap.xml does not include directory.html")
+    if f"<loc>{CANONICAL_BASE}knowledge.html</loc>" not in sitemap:
+        errors.append("sitemap.xml does not include knowledge.html")
     for obsolete in ("source.html", "assets/source", "atlas"):
         if obsolete in sitemap:
             errors.append(f"sitemap.xml contains obsolete entry {obsolete}")
@@ -596,6 +731,7 @@ def check_site_contract(root: Path) -> int:
     check_content_model(root, errors)
     check_curated_pages(root, errors)
     check_resource_directory(root, errors)
+    check_knowledge_page(root, errors)
     check_directory_page(root, errors)
     check_navigation(root, errors)
     check_canonical_outputs(root, errors)
@@ -611,7 +747,7 @@ def check_site_contract(root: Path) -> int:
         return 1
 
     print(
-        "Site contract passed: audience pathways, resource views, official shortlinks, repositories, verified links, canonical URLs, and dark/red theme."
+        "Site contract passed: Knowledge Map, audience pathways, resource views, official shortlinks, repositories, verified links, canonical URLs, and dark/red theme."
     )
     return 0
 

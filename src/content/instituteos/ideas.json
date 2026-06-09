@@ -1,0 +1,602 @@
+{
+  "description": "Deduplicated public concept, method, tool, value, and publication rows from InstituteOS tech trees.",
+  "records": [
+    {
+      "id": "action",
+      "label": "Action as Active Inference",
+      "maturity": "Established",
+      "nodeType": "application",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "Action as the process of changing the world to fulfill predictions, minimizing free energy by acting on the environment rather than updating beliefs.",
+      "tags": [
+        "action",
+        "embodied",
+        "motor"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "learning",
+      "label": "Learning as Model Update",
+      "maturity": "Established",
+      "nodeType": "application",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "Learning as the slow update of generative model parameters to minimize long-term free energy, encompassing synaptic plasticity and structure learning.",
+      "tags": [
+        "learning",
+        "model-update",
+        "plasticity"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "perception",
+      "label": "Perception as Inference",
+      "maturity": "Established",
+      "nodeType": "application",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "Perception understood as Bayesian inference — updating internal generative models to explain away prediction errors from sensory input.",
+      "tags": [
+        "inference",
+        "perception",
+        "sensory"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "active-inference",
+      "label": "Active Inference",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "The process theory derived from the Free Energy Principle: agents act to fulfill predictions and minimize expected free energy through perception and action.",
+      "tags": [
+        "active-inference",
+        "process-theory"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "allostasis",
+      "label": "Allostasis",
+      "maturity": "Advanced",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "Predictive homeostasis — anticipatory regulation that adjusts setpoints based on expected future demands rather than reacting to deviations.",
+      "tags": [
+        "anticipatory",
+        "predictive",
+        "regulation"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "autopoiesis",
+      "label": "Autopoiesis",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "Self-producing systems as defined by Maturana and Varela — living systems that continuously produce and maintain themselves.",
+      "tags": [
+        "maturana",
+        "self-production",
+        "varela"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "entropy",
+      "label": "Entropy",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "A measure of uncertainty or disorder in a probability distribution, connecting information theory to thermodynamics.",
+      "tags": [
+        "disorder",
+        "entropy",
+        "uncertainty"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "expected-free-energy",
+      "label": "Expected Free Energy",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "The objective function for policy selection in active inference, combining epistemic (information-seeking) and pragmatic (goal-seeking) drives.",
+      "tags": [
+        "efe",
+        "epistemic",
+        "policy-selection",
+        "pragmatic"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "free-energy-principle",
+      "label": "Free Energy Principle",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "Karl Friston's unifying theory proposing that all adaptive systems minimize variational free energy to maintain their structural and functional integrity.",
+      "tags": [
+        "fep",
+        "friston",
+        "variational"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "fep-core",
+      "label": "Free Energy Principle (Core)",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "The core statement: any system that persists must minimize variational free energy, an upper bound on surprisal, through perception and action.",
+      "tags": [
+        "core",
+        "fep",
+        "variational"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "generative-models",
+      "label": "Generative Models",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "Probabilistic models specifying how observed data is generated from latent causes, central to both inference and learning under the FEP.",
+      "tags": [
+        "generative",
+        "latent",
+        "probabilistic"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "homeostasis",
+      "label": "Homeostasis",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "The maintenance of biological stability through regulatory feedback — keeping internal variables within viable bounds.",
+      "tags": [
+        "biological",
+        "regulation",
+        "stability"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "markov-blankets",
+      "label": "Markov Blankets",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "Statistical boundaries that separate internal states from external states, defining the interface through which a system interacts with its environment.",
+      "tags": [
+        "boundary",
+        "markov-blanket",
+        "pearl"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "perception-action-loop",
+      "label": "Perception-Action Loop",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "The bidirectional sensorimotor cycle through which agents continuously update beliefs (perception) and act on the world (action).",
+      "tags": [
+        "embodied",
+        "loop",
+        "sensorimotor"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "precision-weighting",
+      "label": "Precision Weighting",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "Attention as the optimization of precision (inverse variance) on prediction errors, modulating the influence of sensory vs. prior information.",
+      "tags": [
+        "attention",
+        "precision",
+        "prediction-error"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "predictive-processing",
+      "label": "Predictive Processing",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "The brain as a prediction machine — Helmholtz, Clark, and Friston's framework where perception is hypothesis testing against sensory input.",
+      "tags": [
+        "clark",
+        "helmholtz",
+        "prediction"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "self-organization",
+      "label": "Self-Organization",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "The emergence of order and structure without external direction, explained under FEP as free energy minimization at the system level.",
+      "tags": [
+        "complexity",
+        "emergence",
+        "order"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "surprise-minimization",
+      "label": "Surprise Minimization",
+      "maturity": "Established",
+      "nodeType": "concept",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "The principle that adaptive systems minimize surprisal (negative log-evidence) to maintain their existence within expected states.",
+      "tags": [
+        "log-evidence",
+        "surprisal",
+        "surprise"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "bayesian-inference",
+      "label": "Bayesian Inference",
+      "maturity": "Established",
+      "nodeType": "method",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "projects"
+      ],
+      "summary": "Inference via Bayes' theorem — updating prior beliefs with likelihoods from observed data to obtain posterior distributions.",
+      "tags": [
+        "bayes",
+        "posterior",
+        "prior"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "policy-selection",
+      "label": "Policy Selection",
+      "maturity": "Established",
+      "nodeType": "method",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "projects"
+      ],
+      "summary": "Action selection via minimization of expected free energy over candidate policies, balancing exploration and exploitation.",
+      "tags": [
+        "action",
+        "decision",
+        "policy"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "variational-bayes",
+      "label": "Variational Bayes",
+      "maturity": "Established",
+      "nodeType": "method",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "projects"
+      ],
+      "summary": "Approximate Bayesian inference via optimization of the evidence lower bound (ELBO), converting intractable integration into tractable optimization.",
+      "tags": [
+        "bayes",
+        "elbo",
+        "variational"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "karl-friston",
+      "label": "Karl Friston",
+      "maturity": "Established",
+      "nodeType": "person",
+      "relatedSlugs": [
+        "about",
+        "ecosystem"
+      ],
+      "summary": "Originator of the Free Energy Principle and Active Inference framework; Professor at University College London.",
+      "tags": [
+        "friston",
+        "neuroscience",
+        "ucl"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "consciousness-theories",
+      "label": "Consciousness Theories",
+      "maturity": "Emerging",
+      "nodeType": "research_area",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "Higher-order and global cognitive access theories of consciousness, explored through the lens of free energy minimization and self-modeling.",
+      "tags": [
+        "consciousness",
+        "global-access",
+        "higher-order"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "information-theory",
+      "label": "Information Theory",
+      "maturity": "Established",
+      "nodeType": "research_area",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "Shannon entropy and mutual information — the mathematical foundations for quantifying uncertainty and information content.",
+      "tags": [
+        "entropy",
+        "information",
+        "shannon"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "statistical-mechanics",
+      "label": "Statistical Mechanics",
+      "maturity": "Established",
+      "nodeType": "research_area",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "ecosystem"
+      ],
+      "summary": "The thermodynamics of many-particle systems, providing the formalism for free energy, partition functions, and ensemble behavior.",
+      "tags": [
+        "boltzmann",
+        "gibbs",
+        "thermodynamics"
+      ],
+      "trees": [
+        "Free Energy Principle"
+      ]
+    },
+    {
+      "id": "rxinfer",
+      "label": "RxInfer.jl",
+      "maturity": "Emerging",
+      "nodeType": "tool",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "projects"
+      ],
+      "summary": "Julia-based reactive message passing library for scalable Bayesian inference and active inference agent design.",
+      "tags": [
+        "julia",
+        "message-passing",
+        "reactive"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "pymdp",
+      "label": "pymdp",
+      "maturity": "Emerging",
+      "nodeType": "tool",
+      "relatedSlugs": [
+        "active-inference",
+        "learning",
+        "projects"
+      ],
+      "summary": "Python library for simulating active inference agents using partially observable Markov decision processes (POMDPs).",
+      "tags": [
+        "pomdp",
+        "python",
+        "simulation"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "accessibility-value",
+      "label": "Accessibility",
+      "maturity": "Established",
+      "nodeType": "value",
+      "relatedSlugs": [
+        "about",
+        "ecosystem"
+      ],
+      "summary": "Institute value: making Active Inference Institute research and education accessible to diverse global communities.",
+      "tags": [
+        "accessibility",
+        "institute",
+        "value"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "applicability-value",
+      "label": "Real-World Applicability",
+      "maturity": "Established",
+      "nodeType": "value",
+      "relatedSlugs": [
+        "about",
+        "ecosystem"
+      ],
+      "summary": "Institute value: ensuring research translates into real-world applications that benefit individuals and communities.",
+      "tags": [
+        "applicability",
+        "institute",
+        "value"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    },
+    {
+      "id": "rigor-value",
+      "label": "Scientific Rigor",
+      "maturity": "Established",
+      "nodeType": "value",
+      "relatedSlugs": [
+        "about",
+        "ecosystem"
+      ],
+      "summary": "Institute value: maintaining high standards of scientific rigor in all research and educational outputs.",
+      "tags": [
+        "institute",
+        "rigor",
+        "value"
+      ],
+      "trees": [
+        "Active Inference"
+      ]
+    }
+  ],
+  "source": "instituteos/library/registries/tech_trees.json"
+}

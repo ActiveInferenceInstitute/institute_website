@@ -18,6 +18,7 @@ This site helps visitors quickly find:
 - How to join, contribute, follow, or support the Institute.
 - Verified public resources, official web surfaces, public repositories, channels, and media links.
 - Audience-specific pathways for newcomers, learners, researchers, developers, contributors, partners, and supporters.
+- Structured public tables for Institute roles, projects, ideas, and ontology relationships derived from InstituteOS.
 
 The site is intentionally a static GitHub Pages build: no runtime framework, no server dependency, and no client-side requirement beyond the small navigation and resource-filter script.
 
@@ -28,6 +29,8 @@ The public site must not expose input artifacts, drafting screenshots, generated
 Volatile public links are centralized in `src/content/live-sources.json`. Templates should resolve public channels, official pages, and repositories by `sourceId` instead of hardcoding repeated external URLs.
 
 Visitor-facing links must not point directly at resolved Coda destinations. If an official `*.activeinference.institute` shortlink redirects to a Coda page, render the shortlink and keep the resolved destination only as verification metadata in `live-sources.json`.
+
+InstituteOS data may be injected only through the public sync script. The sync output is intentionally sanitized: it may include public names, role labels, project summaries, concept nodes, relationship rows, and count-level governance coverage, but it must exclude private operational fields, raw task detail, and internal UI captures.
 
 ## Architecture
 
@@ -44,12 +47,14 @@ Visitor-facing links must not point directly at resolved Coda destinations. If a
 │       ├── resources.json        # Public resource directory model
 │       ├── official-pages.json   # Official site pages and public subdomains
 │       ├── repositories.json     # Public ActiveInferenceInstitute repositories
+│       ├── instituteos/*.json    # Sanitized InstituteOS public tables
 │       ├── audience-pathways.json # Homepage visitor pathways
 │       └── pages/*.json          # Curated public guide pages
 ├── assets/
 │   ├── css/styles.css            # Dark charcoal theme with red accents
 │   └── js/site.js                # Navigation disclosure and resource filters
 ├── scripts/
+│   ├── sync_instituteos_public_data.py # Sanitized InstituteOS data injection
 │   ├── check_internal_links.py   # Local HTML and asset link checker
 │   ├── check_live_sources.py     # External-link verifier
 │   ├── check_site_contract.py    # Public resource-hub contract checker
@@ -57,6 +62,7 @@ Visitor-facing links must not point directly at resolved Coda destinations. If a
 ├── index.html                    # Generated public root
 ├── resources.html                # Generated searchable resource directory
 ├── directory.html                # Generated global index
+├── knowledge.html                # Generated InstituteOS public Knowledge Map
 ├── *.html                        # Generated curated pages
 ├── robots.txt                    # Generated crawler policy
 ├── sitemap.xml                   # Generated canonical sitemap
@@ -80,9 +86,26 @@ Public resources are split by purpose:
 - `src/content/official-pages.json` contains reachable official site pages, `activeinference.org`, `activeinference.institute`, START, and official shortlinks.
 - `src/content/repositories.json` contains all reachable public `ActiveInferenceInstitute` repositories.
 - `src/content/audience-pathways.json` contains homepage routes for visitor intent.
+- `src/content/instituteos/*.json` contains sanitized public tables generated from the sibling InstituteOS repository.
 - `src/content/live-sources.json` remains the canonical registry for external URLs and verification status. Its `url` field is the public display URL; `finalUrl` records redirect verification only and is never rendered.
 
 Rendered resources use stable fields: `sourceId`, `type`, `category`, `audience`, `tags`, `summary`, `relatedSlugs`, `priority`, and `promoted`.
+
+## InstituteOS Injection
+
+The public Knowledge Map is generated from the sibling repository at `/Users/4d/Documents/GitHub/instituteos` by default:
+
+```bash
+npm run sync:instituteos
+```
+
+Check that injected files are current without rewriting them:
+
+```bash
+npm run check:instituteos
+```
+
+The sync creates `src/content/instituteos/people.json`, `projects.json`, `ideas.json`, `ontology.json`, and `assets.json`, plus brand-only images under `assets/img/instituteos/`. Only `ActInferServe.png` and `Dark_ActInfServe.png` are copied. Do not copy InstituteOS working documents, demos, recordings, or internal UI captures into the public website.
 
 ## Local Workflow
 
@@ -102,6 +125,7 @@ Run the local release gates:
 
 ```bash
 npm run check
+npm run check:instituteos
 npm run check:links
 npm run check:sources
 npm run check:site
@@ -124,6 +148,7 @@ GitHub Pages is configured to serve from `main` at the repository root. A releas
 Before pushing, confirm:
 
 - `npm run build` has refreshed generated HTML, `robots.txt`, and `sitemap.xml`.
+- `npm run check:instituteos` confirms sanitized InstituteOS tables and brand assets are current.
 - `npm run check` passes.
 - `npm run check:links` passes.
 - `npm run check:sources` passes or has been intentionally refreshed with reachable public links.
@@ -143,5 +168,6 @@ Before pushing, confirm:
 - The full resource directory must support search plus type, group, audience, and popular-tag filtering without a huge tag dropdown.
 - The repository view must support local sorting by updated date, stars, language, and group.
 - The global directory must index every curated page, page section, resource group, official page, official shortlink, verified external link, and public repository.
+- The Knowledge Map must expose searchable/filterable structured tables for public people/roles, projects, ideas, and ontology relationships, with Directory links to every table and row anchor.
 - Static security must remain simple: local scripts/styles only, CSP and referrer meta tags present, no forms, no embedded frames, and external anchors backed by `src/content/live-sources.json`.
 - External public links should render only internal GitHub Pages links, official Institute domains or shortlinks, GitHub repositories/pages, papers and research records, media/social/donation/contact links, or other verified public resources.

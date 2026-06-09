@@ -1,0 +1,204 @@
+{
+  "description": "Public-safe people and role summaries derived from InstituteOS entities.",
+  "records": [
+    {
+      "id": "daniel-friedman",
+      "name": "Daniel Friedman",
+      "organizationId": "active-inference-institute",
+      "organizationName": "Active Inference Institute, Inc.",
+      "policyCount": 23,
+      "relatedSlugs": [
+        "about",
+        "programs"
+      ],
+      "roleGroup": "Governance",
+      "roles": [
+        "President",
+        "Treasurer",
+        "Board Member",
+        "Officer"
+      ],
+      "title": "President & Treasurer"
+    },
+    {
+      "id": "board-vice-president",
+      "name": "Vice President",
+      "organizationId": "active-inference-institute",
+      "organizationName": "Active Inference Institute, Inc.",
+      "policyCount": 4,
+      "relatedSlugs": [
+        "about",
+        "programs"
+      ],
+      "roleGroup": "Governance",
+      "roles": [
+        "Vice President",
+        "Officer",
+        "Board Member"
+      ],
+      "title": "Vice President"
+    },
+    {
+      "id": "board-secretary",
+      "name": "Board Secretary",
+      "organizationId": "active-inference-institute",
+      "organizationName": "Active Inference Institute, Inc.",
+      "policyCount": 4,
+      "relatedSlugs": [
+        "about",
+        "programs"
+      ],
+      "roleGroup": "Officer",
+      "roles": [
+        "Secretary",
+        "Officer"
+      ],
+      "title": "Secretary"
+    },
+    {
+      "id": "compliance-officer",
+      "name": "Compliance Officer",
+      "organizationId": "administrative-unit",
+      "organizationName": "Administrative Unit",
+      "policyCount": 21,
+      "relatedSlugs": [
+        "about",
+        "programs"
+      ],
+      "roleGroup": "Officer",
+      "roles": [
+        "Compliance Officer"
+      ],
+      "title": "Compliance Officer"
+    },
+    {
+      "id": "data-protection-officer",
+      "name": "Data Protection Officer",
+      "organizationId": "administrative-unit",
+      "organizationName": "Administrative Unit",
+      "policyCount": 11,
+      "relatedSlugs": [
+        "about",
+        "programs"
+      ],
+      "roleGroup": "Officer",
+      "roles": [
+        "Data Protection Officer"
+      ],
+      "title": "Data Protection Officer (DPO)"
+    },
+    {
+      "id": "communications-lead",
+      "name": "Communications Lead",
+      "organizationId": "active-inference-institute",
+      "organizationName": "Active Inference Institute, Inc.",
+      "policyCount": 9,
+      "relatedSlugs": [
+        "about",
+        "projects"
+      ],
+      "roleGroup": "Operations",
+      "roles": [
+        "Communications Lead"
+      ],
+      "title": "Marketing & Communications Lead"
+    },
+    {
+      "id": "esg-coordinator",
+      "name": "ESG Coordinator",
+      "organizationId": "active-inference-institute",
+      "organizationName": "Active Inference Institute, Inc.",
+      "policyCount": 4,
+      "relatedSlugs": [
+        "about",
+        "projects"
+      ],
+      "roleGroup": "Operations",
+      "roles": [
+        "ESG Coordinator"
+      ],
+      "title": "Environmental, Social & Governance Coordinator"
+    },
+    {
+      "id": "hr-lead",
+      "name": "HR Lead",
+      "organizationId": "administrative-unit",
+      "organizationName": "Administrative Unit",
+      "policyCount": 18,
+      "relatedSlugs": [
+        "about",
+        "projects"
+      ],
+      "roleGroup": "Operations",
+      "roles": [
+        "HR Lead"
+      ],
+      "title": "Human Resources Lead"
+    },
+    {
+      "id": "it-security-lead",
+      "name": "IT Security Lead",
+      "organizationId": "administrative-unit",
+      "organizationName": "Administrative Unit",
+      "policyCount": 12,
+      "relatedSlugs": [
+        "about",
+        "projects"
+      ],
+      "roleGroup": "Operations",
+      "roles": [
+        "IT Security Lead"
+      ],
+      "title": "IT Security Lead"
+    },
+    {
+      "id": "procurement-manager",
+      "name": "Procurement Manager",
+      "organizationId": "administrative-unit",
+      "organizationName": "Administrative Unit",
+      "policyCount": 5,
+      "relatedSlugs": [
+        "about",
+        "projects"
+      ],
+      "roleGroup": "Operations",
+      "roles": [
+        "Procurement Manager"
+      ],
+      "title": "Procurement & Vendor Manager"
+    },
+    {
+      "id": "eduactive-director",
+      "name": "EduActive Director",
+      "organizationId": "eduactive",
+      "organizationName": "EduActive",
+      "policyCount": 4,
+      "relatedSlugs": [
+        "about",
+        "programs"
+      ],
+      "roleGroup": "Program leadership",
+      "roles": [
+        "Program Director"
+      ],
+      "title": "Director, EduActive"
+    },
+    {
+      "id": "reinference-director",
+      "name": "ReInference Director",
+      "organizationId": "reinference",
+      "organizationName": "ReInference",
+      "policyCount": 6,
+      "relatedSlugs": [
+        "about",
+        "programs"
+      ],
+      "roleGroup": "Program leadership",
+      "roles": [
+        "Program Director"
+      ],
+      "title": "Director, ReInference"
+    }
+  ],
+  "source": "instituteos/library/registries/entities.json"
+}

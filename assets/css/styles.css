@@ -657,6 +657,32 @@ select:focus-visible {
   background: var(--surface);
 }
 
+.knowledge-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 320px);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: end;
+}
+
+.knowledge-brand-image {
+  width: min(320px, 100%);
+  justify-self: end;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.knowledge-tools {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(180px, 0.35fr) max-content;
+  gap: 1rem;
+  align-items: end;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
 .section-controls {
   display: flex;
   flex-wrap: wrap;
@@ -692,14 +718,17 @@ select:focus-visible {
   color: var(--muted);
 }
 
-.resource-tools label {
+.resource-tools label,
+.knowledge-tools label {
   display: grid;
   gap: 0.35rem;
   font-weight: 750;
 }
 
 .resource-tools input,
-.resource-tools select {
+.resource-tools select,
+.knowledge-tools input,
+.knowledge-tools select {
   width: 100%;
   min-height: 2.8rem;
   border: 1px solid var(--line);
@@ -791,6 +820,15 @@ select:focus-visible {
   border-collapse: collapse;
 }
 
+.directory-table caption {
+  padding: 0.85rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-strong);
+  color: var(--soft);
+  font-weight: 750;
+  text-align: left;
+}
+
 .directory-table th,
 .directory-table td {
   padding: 0.8rem 0.9rem;
@@ -799,10 +837,16 @@ select:focus-visible {
   vertical-align: top;
 }
 
-.directory-table th {
+.directory-table thead th {
   background: var(--surface-strong);
   color: var(--ink);
   font-size: 0.84rem;
+}
+
+.directory-table tbody th {
+  color: var(--ink);
+  font-weight: 750;
+  text-align: left;
 }
 
 .directory-table tr:last-child td {
@@ -895,13 +939,19 @@ select:focus-visible {
   .metrics-band,
   .page-index,
   .feature-layout,
+  .knowledge-hero-layout,
   .card-grid,
   .directory-list,
   .pathway-grid,
   .next-action-panel,
   .resource-grid,
-  .resource-tools {
+  .resource-tools,
+  .knowledge-tools {
     grid-template-columns: 1fr;
+  }
+
+  .knowledge-brand-image {
+    justify-self: start;
   }
 
   .result-count {

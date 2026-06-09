@@ -58,6 +58,11 @@ const categoryCounts = [...document.querySelectorAll("[data-category-count]")];
 const tagButtons = [...document.querySelectorAll("[data-tag-filter]")];
 const repoSort = document.querySelector("#repo-sort");
 const repositoryList = document.querySelector("[data-repository-list]");
+const knowledgeSearch = document.querySelector("#knowledge-search");
+const knowledgeKind = document.querySelector("#knowledge-kind");
+const knowledgeCount = document.querySelector("#knowledge-count");
+const knowledgeRows = [...document.querySelectorAll("[data-knowledge-row]")];
+const knowledgeSectionCounts = [...document.querySelectorAll("[data-knowledge-count]")];
 
 function cardMatchesFilters(card, filters) {
   const tags = (card.dataset.tags || "").split(/\s+/).filter(Boolean);
@@ -134,6 +139,43 @@ function sortRepositories() {
   }
 }
 
+function updateKnowledgeFilters() {
+  if (!knowledgeRows.length) {
+    return;
+  }
+  const query = (knowledgeSearch?.value || "").trim().toLowerCase();
+  const kind = knowledgeKind?.value || "";
+  let visible = 0;
+
+  for (const row of knowledgeRows) {
+    const matchesQuery = !query || (row.dataset.knowledgeSearch || "").includes(query);
+    const matchesKind = !kind || row.dataset.knowledgeKind === kind;
+    const show = matchesQuery && matchesKind;
+    row.hidden = !show;
+    if (show) {
+      visible += 1;
+    }
+  }
+
+  if (knowledgeCount) {
+    knowledgeCount.textContent = `${visible} ${visible === 1 ? "row" : "rows"} shown`;
+  }
+
+  for (const count of knowledgeSectionCounts) {
+    const section = count.closest("section");
+    const sectionRows = [...(section?.querySelectorAll("[data-knowledge-row]") || [])];
+    const visibleRows = sectionRows.filter((row) => !row.hidden).length;
+    const label = count.dataset.knowledgeCount || "rows";
+    const sectionLabel = {
+      "people-table": "people",
+      "projects-table": "projects",
+      "ideas-table": "ideas",
+      "ontology-table": "relationships",
+    }[label] || "rows";
+    count.textContent = `${visibleRows} ${sectionLabel} shown`;
+  }
+}
+
 resourceSearch?.addEventListener("input", updateResourceFilters);
 resourceType?.addEventListener("change", updateResourceFilters);
 resourceCategory?.addEventListener("change", updateResourceFilters);
@@ -151,5 +193,8 @@ for (const button of tagButtons) {
   });
 }
 repoSort?.addEventListener("change", sortRepositories);
+knowledgeSearch?.addEventListener("input", updateKnowledgeFilters);
+knowledgeKind?.addEventListener("change", updateKnowledgeFilters);
 updateResourceFilters();
 sortRepositories();
+updateKnowledgeFilters();
