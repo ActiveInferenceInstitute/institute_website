@@ -40,6 +40,88 @@ PRIVATE_KEYS = {
     "linkedin",
     "primary_contact",
 }
+PUBLIC_GITHUB_PEOPLE = [
+    {
+        "id": "github-docxology",
+        "name": "Daniel Ari Friedman",
+        "login": "docxology",
+        "sourceId": "person-docxology",
+        "publicRole": "Public GitHub contributor",
+        "repositories": ["CEREBRUM", "GeneralizedNotationNotation", "GEO-INFER", "institute_website"],
+        "contributionSummary": "Public GitHub profile connected to multiple ActiveInferenceInstitute open-source repositories.",
+        "relatedSlugs": ["projects", "learning", "ecosystem"],
+    },
+    {
+        "id": "github-bazookamanph",
+        "name": "BazookamanPH",
+        "login": "BazookamanPH",
+        "sourceId": "person-bazookamanph",
+        "publicRole": "Public GitHub contributor",
+        "repositories": ["ActiveInferenceJournal"],
+        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+        "relatedSlugs": ["projects", "learning"],
+    },
+    {
+        "id": "github-hollygrimm",
+        "name": "Holly Grimm",
+        "login": "hollygrimm",
+        "sourceId": "person-hollygrimm",
+        "publicRole": "Public GitHub contributor",
+        "repositories": ["ActiveInferenceJournal"],
+        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+        "relatedSlugs": ["projects", "learning", "ecosystem"],
+    },
+    {
+        "id": "github-ana-magdalena",
+        "name": "Ana-Magdalena",
+        "login": "Ana-Magdalena",
+        "sourceId": "person-ana-magdalena",
+        "publicRole": "Public GitHub contributor",
+        "repositories": ["ActiveInferenceJournal"],
+        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+        "relatedSlugs": ["projects", "learning"],
+    },
+    {
+        "id": "github-thebuttskie",
+        "name": "TheButtskie",
+        "login": "TheButtskie",
+        "sourceId": "person-thebuttskie",
+        "publicRole": "Public GitHub contributor",
+        "repositories": ["ActiveInferenceJournal"],
+        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+        "relatedSlugs": ["projects", "learning"],
+    },
+    {
+        "id": "github-jeffschulman",
+        "name": "jeffschulman",
+        "login": "jeffschulman",
+        "sourceId": "person-jeffschulman",
+        "publicRole": "Public GitHub contributor",
+        "repositories": ["ActiveInferenceJournal"],
+        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+        "relatedSlugs": ["projects", "learning"],
+    },
+    {
+        "id": "github-turfus",
+        "name": "turfus",
+        "login": "turfus",
+        "sourceId": "person-turfus",
+        "publicRole": "Public GitHub contributor",
+        "repositories": ["ActiveInferenceJournal"],
+        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+        "relatedSlugs": ["projects", "learning"],
+    },
+    {
+        "id": "github-mlflumic",
+        "name": "mlflumic",
+        "login": "mlflumic",
+        "sourceId": "person-mlflumic",
+        "publicRole": "Public GitHub contributor",
+        "repositories": ["ActiveInferenceJournal"],
+        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+        "relatedSlugs": ["projects", "learning"],
+    },
+]
 
 
 @dataclass(frozen=True)
@@ -79,16 +161,6 @@ def title_case_token(value: str) -> str:
     return public_text(value.replace("_", " ").replace("-", " ")).title()
 
 
-def related_slugs_for_project(category: str) -> list[str]:
-    if category == "research":
-        return ["projects", "learning", "active-inference"]
-    if category == "grant":
-        return ["projects", "programs", "get-involved"]
-    if category == "operations":
-        return ["projects", "about", "ecosystem"]
-    return ["projects", "ecosystem"]
-
-
 def related_slugs_for_node(node_type: str, tags: list[str]) -> list[str]:
     tag_set = set(tags)
     if node_type in {"method", "tool"} or {"implementation", "julia", "python"} & tag_set:
@@ -98,87 +170,45 @@ def related_slugs_for_node(node_type: str, tags: list[str]) -> list[str]:
     return ["active-inference", "learning", "ecosystem"]
 
 
-def public_role_group(roles: list[str]) -> str:
-    lowered = {role.lower() for role in roles}
-    if any("board" in role for role in lowered):
-        return "Governance"
-    if any("director" in role for role in lowered):
-        return "Program leadership"
-    if any("officer" in role or "president" in role or "treasurer" in role for role in lowered):
-        return "Officer"
-    if any("lead" in role or "manager" in role or "coordinator" in role for role in lowered):
-        return "Operations"
-    return "Public role"
-
-
-def sanitize_people(entities_data: dict[str, Any]) -> dict[str, Any]:
-    entities = entities_data.get("entities", [])
-    org_names = {
-        entity["id"]: entity["name"]
-        for entity in entities
-        if entity.get("entity_type") == "organization" and entity.get("id") and entity.get("name")
-    }
-    people = []
-    for entity in entities:
-        if entity.get("entity_type") != "person":
-            continue
-        roles = [public_text(role) for role in entity.get("roles", []) if public_text(role)]
-        people.append(
-            {
-                "id": entity["id"],
-                "name": public_text(entity.get("name")),
-                "title": public_text(entity.get("title")),
-                "roleGroup": public_role_group(roles),
-                "roles": roles,
-                "organizationId": entity.get("org_id") or "",
-                "organizationName": public_text(org_names.get(entity.get("org_id"), "")),
-                "policyCount": len(entity.get("policy_links", [])),
-                "relatedSlugs": ["about", "programs"] if public_role_group(roles) != "Operations" else ["about", "projects"],
-            }
-        )
-    people.sort(key=lambda item: (item["roleGroup"], item["name"]))
+def sanitize_people() -> dict[str, Any]:
+    people = sorted(PUBLIC_GITHUB_PEOPLE, key=lambda item: item["login"].lower())
     return {
-        "description": "Public-safe people and role summaries derived from InstituteOS entities.",
-        "source": "instituteos/library/registries/entities.json",
+        "description": "Public GitHub people visible through public ActiveInferenceInstitute repository metadata.",
+        "source": "public GitHub profiles and repository contributor listings checked 2026-06-09",
         "records": people,
     }
 
 
-def sanitize_projects(projects_data: dict[str, Any], entities_data: dict[str, Any]) -> dict[str, Any]:
-    entities = {entity["id"]: entity for entity in entities_data.get("entities", []) if entity.get("id")}
+def sanitize_projects(repositories_data: dict[str, Any]) -> dict[str, Any]:
     projects = []
-    for project in projects_data.get("projects", []):
-        role_names = []
-        for link in project.get("linked_entities", []):
-            entity = entities.get(link.get("entity_id"))
-            if not entity:
-                continue
-            role_names.append(
-                {
-                    "name": public_text(entity.get("name")),
-                    "role": title_case_token(link.get("role", "")),
-                }
-            )
-        tasks = project.get("tasks", [])
+    for repo in repositories_data.get("repositories", []):
+        if repo.get("promoted") is False:
+            continue
         projects.append(
             {
-                "id": project["id"],
-                "title": public_text(project.get("title")),
-                "category": project.get("category", "other"),
-                "status": title_case_token(project.get("status", "draft")),
-                "summary": public_text(project.get("description")),
-                "publicRoles": role_names,
-                "policyCount": len(project.get("linked_policies", [])),
-                "processCount": len(project.get("linked_processes", [])),
-                "taskCount": len(tasks),
-                "activeTaskCount": len([task for task in tasks if task.get("status") in {"todo", "in_progress"}]),
-                "relatedSlugs": related_slugs_for_project(project.get("category", "other")),
+                "id": repo.get("sourceId", repo.get("name")),
+                "title": public_text(repo.get("name")),
+                "fullName": public_text(repo.get("fullName")),
+                "sourceId": repo.get("sourceId"),
+                "url": repo.get("url"),
+                "category": repo.get("category", "projects"),
+                "audience": repo.get("audience", "developer"),
+                "projectFamily": repo.get("projectFamily") or title_case_token(repo.get("category", "projects")),
+                "repoType": repo.get("repoType") or "Open source repository",
+                "language": repo.get("language") or "Unspecified",
+                "stars": int(repo.get("stars") or 0),
+                "updatedAt": repo.get("updatedAt") or "",
+                "docsUrl": repo.get("docsUrl") or "",
+                "docsSourceId": repo.get("docsSourceId") or "",
+                "summary": public_text(repo.get("summary") or repo.get("description")),
+                "tags": [public_text(tag) for tag in repo.get("tags", []) if public_text(tag)],
+                "relatedSlugs": repo.get("relatedSlugs", ["projects"]),
             }
         )
-    projects.sort(key=lambda item: (item["category"], item["title"]))
+    projects.sort(key=lambda item: (-item["stars"], item["title"].lower()))
     return {
-        "description": "Public-safe project summaries derived from InstituteOS project registry.",
-        "source": "instituteos/library/registries/projects.json",
+        "description": "Public open-source project rows derived from ActiveInferenceInstitute repositories.",
+        "source": "src/content/repositories.json",
         "records": projects,
     }
 
@@ -229,8 +259,6 @@ def sanitize_ontology(tech_tree_data: dict[str, Any]) -> dict[str, Any]:
                 "nodeCount": len(tree.get("nodes", [])),
                 "edgeCount": len(tree.get("edges", [])),
                 "linkedProjectCount": len(tree.get("linked_projects", [])),
-                "linkedEntityCount": len(tree.get("linked_entities", [])),
-                "linkedPolicyCount": len(tree.get("linked_policies", [])),
             }
         )
         for edge in tree.get("edges", []):
@@ -301,13 +329,12 @@ def validate_public_payload(data: Any, path: str) -> None:
 
 
 def build_results(instituteos_root: Path) -> list[SyncResult]:
-    entities_data = load_json(instituteos_root / "library" / "registries" / "entities.json")
-    projects_data = load_json(instituteos_root / "library" / "registries" / "projects.json")
+    repositories_data = load_json(PROJECT_ROOT / "src" / "content" / "repositories.json")
     tech_tree_data = load_json(instituteos_root / "library" / "registries" / "tech_trees.json")
 
     payloads = {
-        "people.json": sanitize_people(entities_data),
-        "projects.json": sanitize_projects(projects_data, entities_data),
+        "people.json": sanitize_people(),
+        "projects.json": sanitize_projects(repositories_data),
         "ideas.json": sanitize_ideas(tech_tree_data),
         "ontology.json": sanitize_ontology(tech_tree_data),
     }

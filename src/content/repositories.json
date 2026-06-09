@@ -26,7 +26,11 @@
         "ecosystem"
       ],
       "priority": 100,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-act-inf-metaanalysis",
@@ -52,7 +56,11 @@
         "ecosystem"
       ],
       "priority": 101,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Research/content repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-actinf-rxinfer",
@@ -78,7 +86,11 @@
         "active-inference"
       ],
       "priority": 102,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Project materials repository",
+      "docsUrl": "https://rxinfer.activeinference.institute",
+      "docsSourceId": "shortlink-rxinfer"
     },
     {
       "sourceId": "repo-action-oriented",
@@ -104,7 +116,11 @@
         "active-inference"
       ],
       "priority": 103,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-active-inference-ontology",
@@ -130,7 +146,11 @@
         "ecosystem"
       ],
       "priority": 104,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-activeblockference",
@@ -156,7 +176,11 @@
         "ecosystem"
       ],
       "priority": 105,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Notebook repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-activeinferants",
@@ -182,7 +206,11 @@
         "ecosystem"
       ],
       "priority": 106,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-activeinferencecategorytheory",
@@ -208,7 +236,11 @@
         "ecosystem"
       ],
       "priority": 107,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-activeinferenceimplementations",
@@ -234,7 +266,11 @@
         "active-inference"
       ],
       "priority": 108,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Notebook repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-activeinferencejournal",
@@ -260,7 +296,11 @@
         "ecosystem"
       ],
       "priority": 109,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Research/content repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-aeos",
@@ -286,7 +326,11 @@
         "ecosystem"
       ],
       "priority": 110,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-aii-org",
@@ -311,7 +355,11 @@
         "about"
       ],
       "priority": 111,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Public web infrastructure",
+      "repoType": "Documentation/site repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-ants",
@@ -337,7 +385,11 @@
         "ecosystem"
       ],
       "priority": 112,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-atlas",
@@ -362,7 +414,11 @@
         "ecosystem"
       ],
       "priority": 113,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-biofirm",
@@ -388,7 +444,11 @@
         "ecosystem"
       ],
       "priority": 114,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-bots",
@@ -413,7 +473,11 @@
         "ecosystem"
       ],
       "priority": 115,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-cerebrum",
@@ -439,7 +503,11 @@
         "ecosystem"
       ],
       "priority": 116,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-cognitive",
@@ -464,7 +532,11 @@
         "ecosystem"
       ],
       "priority": 117,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-courses",
@@ -490,7 +562,11 @@
         "active-inference"
       ],
       "priority": 118,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Documentation/site repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-deepactiveinference",
@@ -516,7 +592,11 @@
         "ecosystem"
       ],
       "priority": 119,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-entropix",
@@ -541,7 +621,11 @@
         "ecosystem"
       ],
       "priority": 120,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-fabric",
@@ -567,7 +651,11 @@
         "ecosystem"
       ],
       "priority": 121,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-fep-active-inference-papers",
@@ -593,7 +681,11 @@
         "ecosystem"
       ],
       "priority": 122,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-fep-lean",
@@ -619,7 +711,11 @@
         "ecosystem"
       ],
       "priority": 123,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-feps",
@@ -645,7 +741,11 @@
         "ecosystem"
       ],
       "priority": 124,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-flowise",
@@ -670,7 +770,11 @@
         "ecosystem"
       ],
       "priority": 125,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-fundamentals",
@@ -696,7 +800,11 @@
         "active-inference"
       ],
       "priority": 126,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-garden-of-iris",
@@ -721,7 +829,11 @@
         "ecosystem"
       ],
       "priority": 127,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-gen24",
@@ -747,7 +859,11 @@
         "ecosystem"
       ],
       "priority": 128,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Notebook repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-gen25",
@@ -772,7 +888,11 @@
         "ecosystem"
       ],
       "priority": 129,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-generalizednotationnotation",
@@ -798,7 +918,11 @@
         "ecosystem"
       ],
       "priority": 130,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-generative-agents",
@@ -824,7 +948,11 @@
         "ecosystem"
       ],
       "priority": 131,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-genesis",
@@ -850,7 +978,11 @@
         "active-inference"
       ],
       "priority": 132,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-geo-infer",
@@ -876,7 +1008,11 @@
         "ecosystem"
       ],
       "priority": 133,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Documentation/site repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-gnn",
@@ -902,7 +1038,11 @@
         "ecosystem"
       ],
       "priority": 134,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-institute-website",
@@ -927,7 +1067,11 @@
         "about"
       ],
       "priority": 135,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Public web infrastructure",
+      "repoType": "Documentation/site repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-isss",
@@ -952,7 +1096,11 @@
         "ecosystem"
       ],
       "priority": 136,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-jock-lang",
@@ -977,7 +1125,11 @@
         "ecosystem"
       ],
       "priority": 137,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-journal-utilities",
@@ -1003,7 +1155,11 @@
         "ecosystem"
       ],
       "priority": 138,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Research/content repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-knowledge-engineering",
@@ -1029,7 +1185,11 @@
         "ecosystem"
       ],
       "priority": 139,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Notebook repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-metta",
@@ -1055,7 +1215,11 @@
         "active-inference"
       ],
       "priority": 140,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-noorg",
@@ -1080,7 +1244,11 @@
         "ecosystem"
       ],
       "priority": 141,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Documentation/site repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-parr-et-al-2022-actinf-textbook",
@@ -1106,7 +1274,11 @@
         "active-inference"
       ],
       "priority": 142,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-policy-entanglement",
@@ -1132,7 +1304,11 @@
         "ecosystem"
       ],
       "priority": 143,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-pymcp",
@@ -1158,7 +1334,11 @@
         "active-inference"
       ],
       "priority": 144,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-pymdp",
@@ -1184,7 +1364,11 @@
         "active-inference"
       ],
       "priority": 145,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-research-discovery-engine",
@@ -1210,7 +1394,11 @@
         "ecosystem"
       ],
       "priority": 146,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Documentation/site repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-rl-inference",
@@ -1236,7 +1424,11 @@
         "active-inference"
       ],
       "priority": 147,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-start",
@@ -1262,7 +1454,11 @@
         "active-inference"
       ],
       "priority": 148,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Learning and implementations",
+      "repoType": "Code repository",
+      "docsUrl": "https://activeinferenceinstitute.github.io/Start/",
+      "docsSourceId": "start-docs"
     },
     {
       "sourceId": "repo-symposium",
@@ -1288,7 +1484,11 @@
         "ecosystem"
       ],
       "priority": 149,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Code repository",
+      "docsUrl": "https://symposium.activeinference.institute/",
+      "docsSourceId": "official-symposium-shortlink"
     },
     {
       "sourceId": "repo-topp",
@@ -1314,7 +1514,11 @@
         "ecosystem"
       ],
       "priority": 150,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     },
     {
       "sourceId": "repo-ultralink",
@@ -1339,7 +1543,11 @@
         "ecosystem"
       ],
       "priority": 151,
-      "promoted": true
+      "promoted": true,
+      "projectFamily": "Open-source projects",
+      "repoType": "Project materials repository",
+      "docsUrl": "",
+      "docsSourceId": ""
     }
   ]
 }

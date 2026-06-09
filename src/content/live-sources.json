@@ -212,17 +212,6 @@
       "checkedAt": "2026-06-09T01:59:33Z"
     },
     {
-      "id": "official-board",
-      "label": "Board of Directors",
-      "category": "Governance",
-      "url": "https://www.activeinference.institute/board-of-directors",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/board-of-directors",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
       "id": "official-courses",
       "label": "Courses",
       "category": "Learning",
@@ -355,17 +344,6 @@
       "checkedAt": "2026-06-09T01:59:33Z"
     },
     {
-      "id": "official-officers",
-      "label": "Officers",
-      "category": "Governance",
-      "url": "https://www.activeinference.institute/officers",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/officers",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
       "id": "official-participation",
       "label": "Participation",
       "category": "Participate",
@@ -427,17 +405,6 @@
       "url": "https://www.activeinference.institute/rxinfer",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "finalUrl": "https://www.activeinference.institute/rxinfer",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-scientific-advisory-board",
-      "label": "Scientific Advisory Board",
-      "category": "Governance",
-      "url": "https://www.activeinference.institute/scientific-advisory-board",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/scientific-advisory-board",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-09T01:59:33Z"
@@ -1246,17 +1213,6 @@
       "checkedAt": "2026-06-09T02:35:05Z"
     },
     {
-      "id": "shortlink-bod",
-      "label": "Board of Directors shortlink",
-      "category": "Governance",
-      "url": "https://bod.activeinference.institute",
-      "sourceBasis": "Public URL verified directly.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Board-of-Directors_suS4blHI",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
-    },
-    {
       "id": "shortlink-fellows",
       "label": "Fellows pathway",
       "category": "Participate",
@@ -1318,17 +1274,6 @@
       "url": "https://rxinfer.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
       "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/RxInfer-jl-Learning-Group_suJd6RDh",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
-    },
-    {
-      "id": "shortlink-sab",
-      "label": "Scientific Advisory Board shortlink",
-      "category": "Governance",
-      "url": "https://sab.activeinference.institute",
-      "sourceBasis": "Public URL verified directly.",
-      "finalUrl": "https://coda.io/d/_do5M5iYau8H/Scientific-Advisory-Board_suO9uId5",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-09T02:35:05Z"
@@ -1453,6 +1398,94 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-08T21:23:29Z"
+    },
+    {
+      "id": "person-docxology",
+      "label": "Daniel Ari Friedman GitHub profile",
+      "category": "People",
+      "url": "https://github.com/docxology",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "finalUrl": "https://github.com/docxology",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T15:00:00Z"
+    },
+    {
+      "id": "person-bazookamanph",
+      "label": "BazookamanPH GitHub profile",
+      "category": "People",
+      "url": "https://github.com/BazookamanPH",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "finalUrl": "https://github.com/BazookamanPH",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T15:00:00Z"
+    },
+    {
+      "id": "person-hollygrimm",
+      "label": "Holly Grimm GitHub profile",
+      "category": "People",
+      "url": "https://github.com/hollygrimm",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "finalUrl": "https://github.com/hollygrimm",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T15:00:00Z"
+    },
+    {
+      "id": "person-ana-magdalena",
+      "label": "Ana-Magdalena GitHub profile",
+      "category": "People",
+      "url": "https://github.com/Ana-Magdalena",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "finalUrl": "https://github.com/Ana-Magdalena",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T15:00:00Z"
+    },
+    {
+      "id": "person-thebuttskie",
+      "label": "TheButtskie GitHub profile",
+      "category": "People",
+      "url": "https://github.com/TheButtskie",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "finalUrl": "https://github.com/TheButtskie",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T15:00:00Z"
+    },
+    {
+      "id": "person-jeffschulman",
+      "label": "jeffschulman GitHub profile",
+      "category": "People",
+      "url": "https://github.com/jeffschulman",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "finalUrl": "https://github.com/jeffschulman",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T15:00:00Z"
+    },
+    {
+      "id": "person-turfus",
+      "label": "turfus GitHub profile",
+      "category": "People",
+      "url": "https://github.com/turfus",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "finalUrl": "https://github.com/turfus",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T15:00:00Z"
+    },
+    {
+      "id": "person-mlflumic",
+      "label": "mlflumic GitHub profile",
+      "category": "People",
+      "url": "https://github.com/mlflumic",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "finalUrl": "https://github.com/mlflumic",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-09T15:00:00Z"
     }
   ]
 }

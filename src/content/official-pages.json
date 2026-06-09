@@ -64,64 +64,6 @@
       "promoted": true
     },
     {
-      "sourceId": "official-board",
-      "title": "Board of Directors",
-      "type": "official",
-      "group": "Governance",
-      "category": "governance",
-      "audience": "governance",
-      "tags": [
-        "official",
-        "governance",
-        "board"
-      ],
-      "summary": "Official Board of Directors page.",
-      "relatedSlugs": [
-        "about"
-      ],
-      "priority": 3,
-      "promoted": true
-    },
-    {
-      "sourceId": "official-officers",
-      "title": "Officers",
-      "type": "official",
-      "group": "Governance",
-      "category": "governance",
-      "audience": "governance",
-      "tags": [
-        "official",
-        "governance",
-        "officers"
-      ],
-      "summary": "Official officers page.",
-      "relatedSlugs": [
-        "about"
-      ],
-      "priority": 4,
-      "promoted": true
-    },
-    {
-      "sourceId": "official-scientific-advisory-board",
-      "title": "Scientific Advisory Board",
-      "type": "official",
-      "group": "Governance",
-      "category": "governance",
-      "audience": "researcher",
-      "tags": [
-        "official",
-        "governance",
-        "research"
-      ],
-      "summary": "Official Scientific Advisory Board page.",
-      "relatedSlugs": [
-        "about",
-        "learning"
-      ],
-      "priority": 5,
-      "promoted": true
-    },
-    {
       "sourceId": "official-history",
       "title": "History",
       "type": "official",
@@ -673,25 +615,6 @@
       "shortlink": true
     },
     {
-      "sourceId": "shortlink-bod",
-      "title": "Board of Directors shortlink",
-      "type": "official",
-      "group": "Governance",
-      "category": "governance",
-      "audience": "governance",
-      "tags": [
-        "board",
-        "governance"
-      ],
-      "summary": "Public Board of Directors shortlink.",
-      "relatedSlugs": [
-        "about"
-      ],
-      "priority": 61,
-      "promoted": true,
-      "shortlink": true
-    },
-    {
       "sourceId": "shortlink-fellows",
       "title": "Fellows pathway",
       "type": "official",
@@ -809,26 +732,6 @@
         "projects"
       ],
       "priority": 67,
-      "promoted": true,
-      "shortlink": true
-    },
-    {
-      "sourceId": "shortlink-sab",
-      "title": "Scientific Advisory Board shortlink",
-      "type": "official",
-      "group": "Governance",
-      "category": "governance",
-      "audience": "researcher",
-      "tags": [
-        "advisory",
-        "research"
-      ],
-      "summary": "Public Scientific Advisory Board shortlink.",
-      "relatedSlugs": [
-        "about",
-        "learning"
-      ],
-      "priority": 68,
       "promoted": true,
       "shortlink": true
     },

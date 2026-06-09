@@ -45,14 +45,6 @@
       ]
     },
     {
-      "id": "governance",
-      "label": "Governance",
-      "description": "Board, officer, advisory, history, and institutional stewardship pages.",
-      "relatedSlugs": [
-        "about"
-      ]
-    },
-    {
       "id": "institute",
       "label": "Institute",
       "description": "Official institutional context and website surfaces.",
@@ -154,10 +146,6 @@
     {
       "id": "researcher",
       "label": "Researcher"
-    },
-    {
-      "id": "governance",
-      "label": "Governance"
     },
     {
       "id": "partner",

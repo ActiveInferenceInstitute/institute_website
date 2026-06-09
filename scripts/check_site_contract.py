@@ -37,6 +37,7 @@ KNOWLEDGE_TABLE_IDS = {
     "projects-table": "projects",
     "ideas-table": "ideas",
     "ontology-table": "ontology",
+    "research-table": "research",
 }
 KNOWLEDGE_FILTER_IDS = {
     "knowledge-search",
@@ -52,6 +53,21 @@ PRIVATE_INSTITUTEOS_KEYS = {
     "phone",
     "slack",
     "primary_contact",
+    "policyCount",
+    "processCount",
+    "activeTaskCount",
+    "taskCount",
+    "publicRoles",
+    "organizationId",
+    "organizationName",
+    "roleGroup",
+}
+BLOCKED_GOVERNANCE_SOURCE_IDS = {
+    "official-board",
+    "official-officers",
+    "official-scientific-advisory-board",
+    "shortlink-bod",
+    "shortlink-sab",
 }
 ALLOWED_INSTITUTEOS_ASSETS = {"ActInferServe.png", "Dark_ActInfServe.png"}
 REQUIRED_SOURCE_IDS = {
@@ -66,14 +82,12 @@ REQUIRED_SOURCE_IDS = {
     "official-textbook-group-shortlink",
     "official-volunteer",
     "shortlink-2025",
-    "shortlink-bod",
     "shortlink-fellows",
     "shortlink-mentorship",
     "shortlink-obsidian",
     "shortlink-ontology",
     "shortlink-prepare",
     "shortlink-rxinfer",
-    "shortlink-sab",
     "shortlink-strategy",
     "shortlink-wave-hypothesis",
     "shortlink-welcome",
@@ -256,6 +270,18 @@ def instituteos_data(root: Path) -> dict[str, dict]:
     }
 
 
+def research_resource_records(root: Path) -> list[dict]:
+    resources = load_json(root / "src" / "content" / "resources.json").get("resources", [])
+    live = {source["id"]: source for source in live_manifest(root).get("sources", [])}
+    return [
+        record
+        for record in resources
+        if record.get("promoted") is not False
+        and (record.get("type") == "research" or record.get("category") == "research")
+        and live.get(record.get("sourceId"), {}).get("ok")
+    ]
+
+
 def url_variants(url: str) -> set[str]:
     clean = url.rstrip("/")
     return {url, clean, f"{clean}/"}
@@ -298,6 +324,10 @@ def check_content_model(root: Path, errors: list[str]) -> None:
     for source in manifest.get("sources", []):
         if source.get("ok") and "coda.io" in source.get("url", "").lower():
             errors.append(f"live-sources.json public url may not point directly to Coda: {source['id']}")
+        if source.get("id") in BLOCKED_GOVERNANCE_SOURCE_IDS:
+            errors.append(f"live-sources.json still contains blocked governance source id: {source.get('id')}")
+        if source.get("category") == "Governance":
+            errors.append(f"live-sources.json still promotes Governance category: {source.get('id')}")
 
     resources = load_json(root / "src" / "content" / "resources.json")
     official_pages = load_json(root / "src" / "content" / "official-pages.json")
@@ -309,6 +339,10 @@ def check_content_model(root: Path, errors: list[str]) -> None:
 
     if not resource_categories:
         errors.append("resources.json must define resource categories")
+    if "governance" in resource_categories:
+        errors.append("resources.json must not expose a governance category")
+    if "governance" in audience_ids:
+        errors.append("resources.json must not expose a governance audience")
     if not resources.get("resources"):
         errors.append("resources.json must define resource entries")
     if not official_pages.get("pages"):
@@ -319,8 +353,8 @@ def check_content_model(root: Path, errors: list[str]) -> None:
         if "coda.io" in path.read_text(encoding="utf-8").lower():
             errors.append(f"{path.relative_to(root)} may not contain direct Coda URLs; use live-sources.json finalUrl only")
     shortlinks = [item for item in official_pages.get("pages", []) if item.get("shortlink") and item.get("promoted") is not False]
-    if len(shortlinks) < 12:
-        errors.append(f"official-pages.json expected at least 12 promoted official shortlinks, found {len(shortlinks)}")
+    if len(shortlinks) < 10:
+        errors.append(f"official-pages.json expected at least 10 promoted non-governance official shortlinks, found {len(shortlinks)}")
     if len(repositories.get("repositories", [])) != 52:
         errors.append(f"repositories.json expected 52 public repositories, found {len(repositories.get('repositories', []))}")
     popular_tags = resources.get("popularTags", [])
@@ -344,6 +378,10 @@ def check_content_model(root: Path, errors: list[str]) -> None:
     for label, records in registry_sets:
         for record in records:
             source_id = record.get("sourceId")
+            if source_id in BLOCKED_GOVERNANCE_SOURCE_IDS:
+                errors.append(f"{label} contains blocked governance source id: {source_id}")
+            if record.get("category") == "governance" or record.get("audience") == "governance":
+                errors.append(f"{label}:{source_id} exposes governance category/audience")
             if source_id not in live_id_set:
                 errors.append(f"{label} references missing live source id: {source_id}")
             if record.get("category") not in resource_categories:
@@ -355,6 +393,10 @@ def check_content_model(root: Path, errors: list[str]) -> None:
             for required in ("sourceId", "type", "category", "audience", "tags", "summary", "relatedSlugs", "priority", "promoted"):
                 if required not in record:
                     errors.append(f"{label}:{source_id} missing stable field {required}")
+            if label == "repositories.json":
+                for required in ("projectFamily", "repoType", "docsUrl", "docsSourceId", "language", "stars", "updatedAt"):
+                    if required not in record:
+                        errors.append(f"repositories.json:{source_id} missing public project field {required}")
 
     for path in sorted((root / "src" / "content" / "pages").glob("*.json")):
         page = load_json(path)
@@ -367,14 +409,18 @@ def check_content_model(root: Path, errors: list[str]) -> None:
         unknown_groups = set(page.get("resourceGroups", [])) - resource_categories
         if unknown_groups:
             errors.append(f"{slug}: unknown resource groups {sorted(unknown_groups)}")
+        if "governance" in page.get("resourceGroups", []):
+            errors.append(f"{slug}: exposes governance resource group")
         for source_id in collect_source_ids(page):
+            if source_id in BLOCKED_GOVERNANCE_SOURCE_IDS:
+                errors.append(f"{slug}: references blocked governance source id {source_id}")
             if source_id not in live_id_set:
                 errors.append(f"{slug}: references missing live source id: {source_id}")
 
     data = instituteos_data(root)
     expected_lengths = {
-        "people": 12,
-        "projects": 4,
+        "people": 8,
+        "projects": 52,
         "ideas": 30,
     }
     for key, expected in expected_lengths.items():
@@ -394,6 +440,9 @@ def check_content_model(root: Path, errors: list[str]) -> None:
         for blocked_text in ("coda.io", "workspace", "source atlas", "source manifest", "aii.pdf", "dashboard screenshot"):
             if blocked_text in serialized:
                 errors.append(f"src/content/instituteos/{label}.json contains blocked public term {blocked_text!r}")
+        for blocked_text in ("governance links", "board of directors", "officers", "scientific advisory board"):
+            if blocked_text in serialized:
+                errors.append(f"src/content/instituteos/{label}.json contains internal governance surface {blocked_text!r}")
 
     asset_records = data["assets"].get("records", [])
     asset_filenames = {item.get("filename") for item in asset_records}
@@ -534,15 +583,17 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         errors.append(f"knowledge.html missing filter ids {sorted(missing_filter_ids)}")
     if 'id="knowledge-count"' not in html or 'aria-live="polite"' not in html:
         errors.append("knowledge.html knowledge-count must announce filter updates with aria-live=polite")
-    if html.count("<caption>") < 4:
-        errors.append("knowledge.html must render captions for people, projects, ideas, and ontology tables")
-    if html.count("<thead>") < 4 or html.count('scope="row"') < 4:
+    if "Open Source Map" not in html:
+        errors.append("knowledge.html must be visitor-labeled as Open Source Map")
+    if html.count("<caption>") < 5:
+        errors.append("knowledge.html must render captions for people, repositories, ideas, ontology, and research tables")
+    if html.count("<thead>") < 5 or html.count('scope="row"') < 5:
         errors.append("knowledge.html tables must include table heads and row headers")
     for required in ("data-knowledge-row", "data-knowledge-kind", "data-knowledge-search"):
         if required not in html:
             errors.append(f"knowledge.html missing {required}")
 
-    row_counts = {"people": 0, "projects": 0, "ideas": 0, "ontology": 0}
+    row_counts = {"people": 0, "projects": 0, "ideas": 0, "ontology": 0, "research": 0}
     for _tag, attrs in info.start_tags:
         kind = attrs.get("data-knowledge-kind")
         if kind in row_counts:
@@ -552,6 +603,7 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         "projects": len(data["projects"].get("records", [])),
         "ideas": len(data["ideas"].get("records", [])),
         "ontology": len(data["ontology"].get("edges", [])),
+        "research": len(research_resource_records(root)),
     }
     if row_counts != expected_counts:
         errors.append(f"knowledge.html row counts {row_counts} do not match sanitized registries {expected_counts}")
@@ -561,11 +613,12 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         *(f"project-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["projects"].get("records", [])),
         *(f"idea-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ideas"].get("records", [])),
         *(f"ontology-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ontology"].get("edges", [])),
+        *(f"research-{re.sub(r'[^a-z0-9]+', '-', item['sourceId'].lower()).strip('-')}" for item in research_resource_records(root)),
     ]
     for anchor_id in expected_anchor_ids:
         if anchor_id not in info.ids:
             errors.append(f"knowledge.html missing row anchor #{anchor_id}")
-    for required_href in {"resources.html", "directory.html#instituteos-tables", "projects.html#knowledge-preview", "learning.html#knowledge-preview"}:
+    for required_href in {"resources.html", "directory.html#open-source-map", "projects.html#knowledge-preview", "learning.html#knowledge-preview"}:
         if required_href not in hrefs:
             errors.append(f"knowledge.html missing internal signpost {required_href}")
 
@@ -578,7 +631,7 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
     html = directory_html.read_text(encoding="utf-8")
     info = parse_html(directory_html)
     directory_hrefs = {href for href, _class_name in info.anchors}
-    for required_id in ("site-pages", "resource-groups", "official-pages", "official-shortlinks", "repositories", "verified-links", "instituteos-tables"):
+    for required_id in ("site-pages", "resource-groups", "official-pages", "official-shortlinks", "repositories", "verified-links", "open-source-map"):
         if required_id not in info.ids:
             errors.append(f"directory.html missing {required_id}")
 
@@ -616,10 +669,11 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
         *(f"knowledge.html#project-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["projects"].get("records", [])),
         *(f"knowledge.html#idea-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ideas"].get("records", [])),
         *(f"knowledge.html#ontology-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ontology"].get("edges", [])),
+        *(f"knowledge.html#research-{re.sub(r'[^a-z0-9]+', '-', item['sourceId'].lower()).strip('-')}" for item in research_resource_records(root)),
     ]
     for href in expected_row_links:
         if href not in html:
-            errors.append(f"directory.html missing Knowledge Map row link {href}")
+            errors.append(f"directory.html missing Open Source Map row link {href}")
 
 
 def check_navigation(root: Path, errors: list[str]) -> None:
@@ -747,7 +801,7 @@ def check_site_contract(root: Path) -> int:
         return 1
 
     print(
-        "Site contract passed: Knowledge Map, audience pathways, resource views, official shortlinks, repositories, verified links, canonical URLs, and dark/red theme."
+        "Site contract passed: Open Source Map, audience pathways, resource views, official shortlinks, repositories, verified links, canonical URLs, and dark/red theme."
     )
     return 0
 

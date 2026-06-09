@@ -1,204 +1,131 @@
 {
-  "description": "Public-safe people and role summaries derived from InstituteOS entities.",
+  "description": "Public GitHub people visible through public ActiveInferenceInstitute repository metadata.",
   "records": [
     {
-      "id": "daniel-friedman",
-      "name": "Daniel Friedman",
-      "organizationId": "active-inference-institute",
-      "organizationName": "Active Inference Institute, Inc.",
-      "policyCount": 23,
+      "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+      "id": "github-ana-magdalena",
+      "login": "Ana-Magdalena",
+      "name": "Ana-Magdalena",
+      "publicRole": "Public GitHub contributor",
       "relatedSlugs": [
-        "about",
-        "programs"
+        "projects",
+        "learning"
       ],
-      "roleGroup": "Governance",
-      "roles": [
-        "President",
-        "Treasurer",
-        "Board Member",
-        "Officer"
+      "repositories": [
+        "ActiveInferenceJournal"
       ],
-      "title": "President & Treasurer"
+      "sourceId": "person-ana-magdalena"
     },
     {
-      "id": "board-vice-president",
-      "name": "Vice President",
-      "organizationId": "active-inference-institute",
-      "organizationName": "Active Inference Institute, Inc.",
-      "policyCount": 4,
+      "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+      "id": "github-bazookamanph",
+      "login": "BazookamanPH",
+      "name": "BazookamanPH",
+      "publicRole": "Public GitHub contributor",
       "relatedSlugs": [
-        "about",
-        "programs"
+        "projects",
+        "learning"
       ],
-      "roleGroup": "Governance",
-      "roles": [
-        "Vice President",
-        "Officer",
-        "Board Member"
+      "repositories": [
+        "ActiveInferenceJournal"
       ],
-      "title": "Vice President"
+      "sourceId": "person-bazookamanph"
     },
     {
-      "id": "board-secretary",
-      "name": "Board Secretary",
-      "organizationId": "active-inference-institute",
-      "organizationName": "Active Inference Institute, Inc.",
-      "policyCount": 4,
+      "contributionSummary": "Public GitHub profile connected to multiple ActiveInferenceInstitute open-source repositories.",
+      "id": "github-docxology",
+      "login": "docxology",
+      "name": "Daniel Ari Friedman",
+      "publicRole": "Public GitHub contributor",
       "relatedSlugs": [
-        "about",
-        "programs"
+        "projects",
+        "learning",
+        "ecosystem"
       ],
-      "roleGroup": "Officer",
-      "roles": [
-        "Secretary",
-        "Officer"
+      "repositories": [
+        "CEREBRUM",
+        "GeneralizedNotationNotation",
+        "GEO-INFER",
+        "institute_website"
       ],
-      "title": "Secretary"
+      "sourceId": "person-docxology"
     },
     {
-      "id": "compliance-officer",
-      "name": "Compliance Officer",
-      "organizationId": "administrative-unit",
-      "organizationName": "Administrative Unit",
-      "policyCount": 21,
+      "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+      "id": "github-hollygrimm",
+      "login": "hollygrimm",
+      "name": "Holly Grimm",
+      "publicRole": "Public GitHub contributor",
       "relatedSlugs": [
-        "about",
-        "programs"
+        "projects",
+        "learning",
+        "ecosystem"
       ],
-      "roleGroup": "Officer",
-      "roles": [
-        "Compliance Officer"
+      "repositories": [
+        "ActiveInferenceJournal"
       ],
-      "title": "Compliance Officer"
+      "sourceId": "person-hollygrimm"
     },
     {
-      "id": "data-protection-officer",
-      "name": "Data Protection Officer",
-      "organizationId": "administrative-unit",
-      "organizationName": "Administrative Unit",
-      "policyCount": 11,
+      "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+      "id": "github-jeffschulman",
+      "login": "jeffschulman",
+      "name": "jeffschulman",
+      "publicRole": "Public GitHub contributor",
       "relatedSlugs": [
-        "about",
-        "programs"
+        "projects",
+        "learning"
       ],
-      "roleGroup": "Officer",
-      "roles": [
-        "Data Protection Officer"
+      "repositories": [
+        "ActiveInferenceJournal"
       ],
-      "title": "Data Protection Officer (DPO)"
+      "sourceId": "person-jeffschulman"
     },
     {
-      "id": "communications-lead",
-      "name": "Communications Lead",
-      "organizationId": "active-inference-institute",
-      "organizationName": "Active Inference Institute, Inc.",
-      "policyCount": 9,
+      "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+      "id": "github-mlflumic",
+      "login": "mlflumic",
+      "name": "mlflumic",
+      "publicRole": "Public GitHub contributor",
       "relatedSlugs": [
-        "about",
-        "projects"
+        "projects",
+        "learning"
       ],
-      "roleGroup": "Operations",
-      "roles": [
-        "Communications Lead"
+      "repositories": [
+        "ActiveInferenceJournal"
       ],
-      "title": "Marketing & Communications Lead"
+      "sourceId": "person-mlflumic"
     },
     {
-      "id": "esg-coordinator",
-      "name": "ESG Coordinator",
-      "organizationId": "active-inference-institute",
-      "organizationName": "Active Inference Institute, Inc.",
-      "policyCount": 4,
+      "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+      "id": "github-thebuttskie",
+      "login": "TheButtskie",
+      "name": "TheButtskie",
+      "publicRole": "Public GitHub contributor",
       "relatedSlugs": [
-        "about",
-        "projects"
+        "projects",
+        "learning"
       ],
-      "roleGroup": "Operations",
-      "roles": [
-        "ESG Coordinator"
+      "repositories": [
+        "ActiveInferenceJournal"
       ],
-      "title": "Environmental, Social & Governance Coordinator"
+      "sourceId": "person-thebuttskie"
     },
     {
-      "id": "hr-lead",
-      "name": "HR Lead",
-      "organizationId": "administrative-unit",
-      "organizationName": "Administrative Unit",
-      "policyCount": 18,
+      "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
+      "id": "github-turfus",
+      "login": "turfus",
+      "name": "turfus",
+      "publicRole": "Public GitHub contributor",
       "relatedSlugs": [
-        "about",
-        "projects"
+        "projects",
+        "learning"
       ],
-      "roleGroup": "Operations",
-      "roles": [
-        "HR Lead"
+      "repositories": [
+        "ActiveInferenceJournal"
       ],
-      "title": "Human Resources Lead"
-    },
-    {
-      "id": "it-security-lead",
-      "name": "IT Security Lead",
-      "organizationId": "administrative-unit",
-      "organizationName": "Administrative Unit",
-      "policyCount": 12,
-      "relatedSlugs": [
-        "about",
-        "projects"
-      ],
-      "roleGroup": "Operations",
-      "roles": [
-        "IT Security Lead"
-      ],
-      "title": "IT Security Lead"
-    },
-    {
-      "id": "procurement-manager",
-      "name": "Procurement Manager",
-      "organizationId": "administrative-unit",
-      "organizationName": "Administrative Unit",
-      "policyCount": 5,
-      "relatedSlugs": [
-        "about",
-        "projects"
-      ],
-      "roleGroup": "Operations",
-      "roles": [
-        "Procurement Manager"
-      ],
-      "title": "Procurement & Vendor Manager"
-    },
-    {
-      "id": "eduactive-director",
-      "name": "EduActive Director",
-      "organizationId": "eduactive",
-      "organizationName": "EduActive",
-      "policyCount": 4,
-      "relatedSlugs": [
-        "about",
-        "programs"
-      ],
-      "roleGroup": "Program leadership",
-      "roles": [
-        "Program Director"
-      ],
-      "title": "Director, EduActive"
-    },
-    {
-      "id": "reinference-director",
-      "name": "ReInference Director",
-      "organizationId": "reinference",
-      "organizationName": "ReInference",
-      "policyCount": 6,
-      "relatedSlugs": [
-        "about",
-        "programs"
-      ],
-      "roleGroup": "Program leadership",
-      "roles": [
-        "Program Director"
-      ],
-      "title": "Director, ReInference"
+      "sourceId": "person-turfus"
     }
   ],
-  "source": "instituteos/library/registries/entities.json"
+  "source": "public GitHub profiles and repository contributor listings checked 2026-06-09"
 }

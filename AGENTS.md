@@ -8,7 +8,7 @@ This repository builds the public GitHub Pages website for the Active Inference 
 
 This is a public resource hub, not a working-material archive. Do not publish input artifacts, drafting screenshots, generated trace views, page extraction output, or downloadable working materials. Public copy may be informed by internal materials, but the current site must remain visitor-facing and navigable.
 
-InstituteOS-derived content must be injected only through `scripts/sync_instituteos_public_data.py`. The generated public slices may include role names, project summaries, concept rows, ontology relationships, count-level governance coverage, and approved brand marks. They must not include private operational fields, raw task detail, working documents, demos, recordings, or internal UI captures.
+Public structured content must be injected only through `scripts/sync_instituteos_public_data.py`. The generated public slices may include externally visible GitHub profile rows, public repository rows, concept rows, ontology relationships, research links, and approved brand marks. They must not include nonpublic rosters, nonpublic stewardship records, private operational fields, raw task detail, working documents, demos, recordings, or internal UI captures.
 
 The canonical remote is `origin`:
 
@@ -32,7 +32,7 @@ The site is static:
 - `src/content/*.json` and `src/content/pages/*.json` are the content sources.
 - `assets/css/styles.css` defines the dark charcoal design system.
 - `assets/js/site.js` handles navigation disclosure, resource filtering, popular tag chips, and repository sorting.
-- `scripts/sync_instituteos_public_data.py` copies sanitized InstituteOS public tables and brand-only assets into this repo.
+- `scripts/sync_instituteos_public_data.py` copies sanitized Open Source Map tables and brand-only assets into this repo.
 - Generated root files are committed because GitHub Pages serves from `main` at repository root.
 
 Generated public files should be limited to:
@@ -61,10 +61,10 @@ The content model is split into registries:
 - `src/content/official-pages.json` for reachable official Institute pages, `activeinference.org`, START, and public shortlinks/subdomains.
 - `src/content/repositories.json` for reachable public `ActiveInferenceInstitute` repositories.
 - `src/content/audience-pathways.json` for homepage visitor routes.
-- `src/content/instituteos/*.json` for sanitized InstituteOS public people, projects, ideas, ontology, and asset tables.
+- `src/content/instituteos/*.json` for sanitized public GitHub people, repositories, ideas, ontology, and asset tables.
 - `src/content/live-sources.json` for URL, status, and last-check data.
 
-Refresh InstituteOS public data from the default sibling checkout:
+Refresh public Open Source Map data from public repository metadata and the default sibling concept-graph checkout:
 
 ```bash
 npm run sync:instituteos
@@ -107,7 +107,7 @@ Every rendered external URL should resolve from `src/content/live-sources.json`.
 - The Full Directory filters should use popular tag chips/select options, not an exhaustive noisy tag list.
 - The repository view must sort locally by updated date, stars, language, and group.
 - The global directory must index every curated page, page section, resource group, official page, official shortlink, verified external link, and public repository.
-- The Knowledge Map must provide searchable/filterable tables for public people/roles, projects, ideas, and ontology relationships, with accessible captions and Directory row-anchor links.
+- The Open Source Map must provide searchable/filterable tables for public GitHub people, repositories, research links, ideas, and ontology relationships, with accessible captions and Directory row-anchor links.
 - Static security must stay simple: local scripts/styles only, CSP and referrer meta tags present, no forms or embedded frames, no inline event handlers, and external anchors backed by `src/content/live-sources.json`.
 - External public links should render only internal GitHub Pages links, official Institute domains or shortlinks, GitHub repositories/pages, papers and research records, media/social/donation/contact links, or other verified public resources.
 
@@ -132,7 +132,7 @@ For browser verification, serve from the repository root:
 python3 -m http.server 4173
 ```
 
-Check desktop home, Resources, Directory, Knowledge Map, mobile navigation dropdowns, Projects, Get Involved, and 404. Confirm no console errors and no local missing-asset responses.
+Check desktop home, Resources, Directory, Open Source Map, mobile navigation dropdowns, Projects, Get Involved, and 404. Confirm no console errors and no local missing-asset responses.
 
 ## Deployment
 

@@ -168,9 +168,10 @@ function updateKnowledgeFilters() {
     const label = count.dataset.knowledgeCount || "rows";
     const sectionLabel = {
       "people-table": "people",
-      "projects-table": "projects",
+      "projects-table": "repositories",
       "ideas-table": "ideas",
       "ontology-table": "relationships",
+      "research-table": "research links",
     }[label] || "rows";
     count.textContent = `${visibleRows} ${sectionLabel} shown`;
   }
