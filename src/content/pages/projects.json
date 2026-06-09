@@ -1,13 +1,28 @@
 {
   "slug": "projects",
   "title": "Projects",
-  "subtitle": "Institute projects and ecosystem projects convert Active Inference into public artifacts, tools, research, education, and applied practice.",
-  "sourceRange": "Pages 86-166 and 200-204",
-  "lede": "The PDF distinguishes Institute Projects and Ecosystem Projects, with preparation and measurement workflows for proposing, tracking, and reporting work.",
+  "subtitle": "Institute and ecosystem projects convert Active Inference into public artifacts, tools, research, education, and applied practice.",
+  "audience": "Builders, researchers, maintainers, partners, and contributors looking for concrete work.",
+  "lede": "Projects convert shared ideas into repositories, research outputs, learning infrastructure, media, events, and applied work.",
+  "primaryActions": [
+    {
+      "label": "Browse repositories",
+      "sourceId": "github-org"
+    },
+    {
+      "label": "Open project resources",
+      "href": "resources.html#projects"
+    }
+  ],
+  "resourceGroups": [
+    "projects",
+    "learning",
+    "research"
+  ],
   "sections": [
     {
       "heading": "Project Lifecycle",
-      "body": "Projects are prepared through a proposal process and measured through reporting updates from the Active Inference ecosystem. The public site organizes the project surface around clear titles, missions, outputs, and source-page references.",
+      "body": "Projects are prepared through proposals and measured through updates from the Active Inference ecosystem. The public site organizes projects around clear titles, missions, outputs, and useful resource links.",
       "links": [
         {
           "sourceId": "github-org"
@@ -19,7 +34,7 @@
     },
     {
       "heading": "Institute Projects",
-      "body": "Institute projects include recurring research, education, production, ontology, knowledge engineering, software, symposium, and learning-group efforts. They provide internal continuity and public-facing outputs.",
+      "body": "Institute projects include recurring research, education, production, ontology, knowledge engineering, software, symposium, and learning-group efforts. They provide continuity and public-facing outputs.",
       "links": [
         {
           "sourceId": "github-org"
@@ -84,7 +99,7 @@
     },
     {
       "title": "Applied Active Inference Symposium",
-      "text": "A recurring symposium with prior events and a presenter/sponsor pathway."
+      "text": "A recurring symposium with prior events and presenter or sponsor pathways."
     },
     {
       "title": "CogNarr",

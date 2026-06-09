@@ -2,12 +2,27 @@
   "slug": "programs",
   "title": "Programs",
   "subtitle": "Structured ways to contribute, learn, partner, mentor, fund, and steward open work.",
-  "sourceRange": "Pages 58-85",
-  "lede": "Institute programs turn interest into participation through volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, and open source pathways.",
+  "audience": "Potential volunteers, fellows, mentors, partners, funders, and open-source contributors.",
+  "lede": "Institute programs turn interest into participation through volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, and open-source pathways.",
+  "primaryActions": [
+    {
+      "label": "Get involved",
+      "href": "get-involved.html"
+    },
+    {
+      "label": "Support the Institute",
+      "sourceId": "donate"
+    }
+  ],
+  "resourceGroups": [
+    "community",
+    "support",
+    "projects"
+  ],
   "sections": [
     {
       "heading": "Volunteer",
-      "body": "Volunteering is the broadest on-ramp for participation. The source describes active and documented participation in learning groups and projects, with room for people to contribute according to available time, background, and skills.",
+      "body": "Volunteering is the broadest on-ramp for participation. People can contribute to learning groups, projects, operations, writing, analysis, media, and community support according to available time, background, and skills.",
       "links": [
         {
           "sourceId": "discord"
@@ -19,7 +34,7 @@
     },
     {
       "heading": "Internship and Mentorship",
-      "body": "Internships and mentorship provide more structured engagement. These pathways help participants learn by contributing to projects, public artifacts, educational materials, research workflows, and community operations."
+      "body": "Internships and mentorship provide more structured engagement. These pathways help participants learn by contributing to projects, public materials, educational work, research workflows, and community operations."
     },
     {
       "heading": "Fellows",
@@ -27,7 +42,7 @@
     },
     {
       "heading": "Partnership and Philanthropy",
-      "body": "Partners and donors support shared research, public education, infrastructure, and project development. The PDF frames partnership as a practical exchange of time, attention, expertise, funding, and institutional support.",
+      "body": "Partners and donors support shared research, public education, infrastructure, and project development. Partnership is a practical exchange of time, attention, expertise, funding, and institutional support.",
       "links": [
         {
           "sourceId": "donate"
@@ -36,7 +51,7 @@
     },
     {
       "heading": "Open Source",
-      "body": "Open source is treated as an ecosystem support function: publish reusable work, improve project infrastructure, and make shared technical resources discoverable.",
+      "body": "Open source is an ecosystem support function: publish reusable work, improve project infrastructure, and make shared technical resources discoverable.",
       "links": [
         {
           "sourceId": "github-org"

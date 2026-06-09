@@ -1,38 +1,79 @@
 [
   {
-    "label": "About",
-    "href": "about.html"
+    "label": "Institute",
+    "items": [
+      {
+        "label": "About",
+        "href": "about.html"
+      },
+      {
+        "label": "Ecosystem",
+        "href": "ecosystem.html"
+      }
+    ]
   },
   {
-    "label": "Active Inference",
-    "href": "active-inference.html"
+    "label": "Learn",
+    "items": [
+      {
+        "label": "Active Inference",
+        "href": "active-inference.html"
+      },
+      {
+        "label": "Learning and Research",
+        "href": "learning.html"
+      },
+      {
+        "label": "Activities",
+        "href": "activities.html"
+      }
+    ]
   },
   {
-    "label": "Activities",
-    "href": "activities.html"
-  },
-  {
-    "label": "Programs",
-    "href": "programs.html"
+    "label": "Participate",
+    "items": [
+      {
+        "label": "Programs",
+        "href": "programs.html"
+      },
+      {
+        "label": "Get Involved",
+        "href": "get-involved.html"
+      }
+    ]
   },
   {
     "label": "Projects",
-    "href": "projects.html"
+    "items": [
+      {
+        "label": "Project Map",
+        "href": "projects.html"
+      },
+      {
+        "label": "Open Repositories",
+        "href": "resources.html#projects"
+      }
+    ]
   },
   {
-    "label": "Learning",
-    "href": "learning.html"
-  },
-  {
-    "label": "Ecosystem",
-    "href": "ecosystem.html"
-  },
-  {
-    "label": "Get Involved",
-    "href": "get-involved.html"
-  },
-  {
-    "label": "Source Atlas",
-    "href": "atlas/"
+    "label": "Resources",
+    "items": [
+      {
+        "label": "Resource Directory",
+        "href": "resources.html"
+      },
+      {
+        "label": "Community",
+        "href": "resources.html#community"
+      },
+      {
+        "label": "Media",
+        "href": "resources.html#media"
+      },
+      {
+        "label": "Support",
+        "href": "resources.html#support"
+      }
+    ]
   }
 ]

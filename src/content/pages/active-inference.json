@@ -2,16 +2,31 @@
   "slug": "active-inference",
   "title": "Active Inference",
   "subtitle": "A framework for understanding perception, action, learning, cognition, and adaptive systems.",
-  "sourceRange": "Pages 15-21 and 181-185",
-  "lede": "The source PDF introduces Active Inference as the central scientific and practical framework around which the Institute organizes education, research, applications, and ecosystem support.",
+  "audience": "Newcomers, learners, researchers, builders, and collaborators.",
+  "lede": "Active Inference is the central scientific and practical framework around which the Institute organizes education, research, applications, and ecosystem support.",
+  "primaryActions": [
+    {
+      "label": "Start learning",
+      "href": "learning.html"
+    },
+    {
+      "label": "Open Start repository",
+      "sourceId": "start-repo"
+    }
+  ],
+  "resourceGroups": [
+    "learning",
+    "research",
+    "projects"
+  ],
   "sections": [
     {
       "heading": "What Active Inference Provides",
-      "body": "Active Inference connects perception, action, uncertainty, and model-based adaptation. The Institute's public material presents it as a shared framework for scientific inquiry, engineering practice, education, and collective sensemaking."
+      "body": "Active Inference connects perception, action, uncertainty, and model-based adaptation. The Institute presents it as a shared framework for scientific inquiry, engineering practice, education, and collective sensemaking."
     },
     {
       "heading": "How to Approach the Field",
-      "body": "The PDF directs newcomers to the living document, the Start page, livestreams, podcasts, textbook groups, readings, and implementations. This site separates those entry points into stable public pages while keeping source-page references visible.",
+      "body": "Newcomers can begin with the ecosystem reference, the Start repository, public livestreams, podcasts, learning groups, readings, and implementations. The site separates those entry points into stable public pathways.",
       "links": [
         {
           "sourceId": "ecosystem"
@@ -29,7 +44,7 @@
     },
     {
       "heading": "Implementations",
-      "body": "Implementation pathways include RxInfer.jl, PyMDP, SPM, and symbolic cognitive robotics. These tools support modeling, simulation, inference, and applied experimentation.",
+      "body": "Implementation pathways include RxInfer.jl, PyMDP, SPM, symbolic cognitive robotics, notational tools, and domain-specific repositories. These support modeling, simulation, inference, and applied experimentation.",
       "links": [
         {
           "sourceId": "github-org"
@@ -38,7 +53,7 @@
     },
     {
       "heading": "Applications",
-      "body": "Active Inference appears across domains including biology, neuroscience, mental health, robotics, education, economics, physics, social systems, logistics, DeSci, and scientific method.",
+      "body": "Active Inference appears across domains including biology, neuroscience, mental health, robotics, education, economics, physics, social systems, logistics, decentralized science, and scientific method.",
       "links": [
         {
           "sourceId": "geo-infer"
@@ -56,7 +71,7 @@
     },
     {
       "title": "Learning path",
-      "text": "Textbook groups, courses, streams, podcasts, readings, and source documents.",
+      "text": "Textbook groups, courses, streams, podcasts, readings, and shared learning repositories.",
       "links": [
         {
           "sourceId": "start-repo"

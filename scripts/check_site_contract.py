@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Check the generated static site against the public release contract."""
+"""Check the generated static site against the public resource-hub contract."""
 
 from __future__ import annotations
 
-import argparse
 import json
 import re
 import sys
@@ -16,8 +15,25 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CONTENT_DIR = PROJECT_ROOT / "src" / "content"
 CANONICAL_BASE = "https://activeinferenceinstitute.github.io/institute_website/"
 ALLOWED_TEMPLATE_EXTERNAL_URLS = {"http://www.sitemaps.org/schemas/sitemap/0.9"}
-EXPECTED_PDF_PAGES = 211
-CURATED_SECTION_IDS = {"source-coverage", "verified-links", "related-pages"}
+CURATED_SECTION_IDS = {"key-surfaces", "resources", "related-pages"}
+OBSOLETE_PATHS = [
+    "atlas",
+    "assets/source/AII.pdf",
+    "assets/js/atlas.js",
+    "source.html",
+    "src/content/pdf-pages.json",
+    "scripts/extract_pdf.py",
+]
+OBSOLETE_TEXT_PATTERNS = [
+    r"\bPDF\b",
+    r"AII\.pdf",
+    r"Source Atlas",
+    r"Source Manifest",
+    r"source-page",
+    r"pdf-pages",
+    r"Pages\s+[0-9]",
+    r"atlas/",
+]
 OLD_THEME_PATTERNS = [
     "docxology.github.io",
     "docxology/institute_website",
@@ -37,8 +53,10 @@ OLD_THEME_PATTERNS = [
 ]
 SCAN_EXCLUDES = {
     ".git",
+    ".cache",
     "node_modules",
     "__pycache__",
+    "scripts",
 }
 SCAN_SUFFIXES = {".css", ".html", ".js", ".json", ".md", ".txt", ".xml"}
 
@@ -50,9 +68,11 @@ class HtmlInfo(HTMLParser):
         self.links: list[tuple[str, dict[str, str]]] = []
         self.metas: list[dict[str, str]] = []
         self.ids: set[str] = set()
+        self.start_tags: list[tuple[str, dict[str, str]]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attrs_dict = {name: value or "" for name, value in attrs}
+        self.start_tags.append((tag, attrs_dict))
         if "id" in attrs_dict:
             self.ids.add(attrs_dict["id"])
         if tag == "a" and attrs_dict.get("href"):
@@ -84,14 +104,15 @@ def internal_site_href(href: str) -> bool:
 
 def live_source_urls(manifest: dict) -> set[str]:
     urls: set[str] = set()
-    for source in manifest.get("sources", []):
-        if source.get("ok"):
-            for key in ("url", "finalUrl"):
-                value = source.get(key)
-                if value:
-                    urls.add(value)
-                    urls.add(value.rstrip("/"))
-                    urls.add(f"{value.rstrip('/')}/")
+    for item in manifest.get("sources", []):
+        if not item.get("ok"):
+            continue
+        for key in ("url", "finalUrl"):
+            value = item.get(key)
+            if value:
+                urls.add(value)
+                urls.add(value.rstrip("/"))
+                urls.add(f"{value.rstrip('/')}/")
     return urls
 
 
@@ -103,10 +124,16 @@ def generated_public_files(root: Path) -> list[Path]:
         relative_parts = path.relative_to(root).parts
         if any(part in SCAN_EXCLUDES for part in relative_parts):
             continue
-        if relative_parts[0] in {"scripts"}:
-            continue
         files.append(path)
     return sorted(files)
+
+
+def generated_html_files(root: Path) -> list[Path]:
+    return sorted(
+        path
+        for path in root.rglob("*.html")
+        if not any(part in SCAN_EXCLUDES or part in {"src"} for part in path.relative_to(root).parts)
+    )
 
 
 def section_between(text: str, start_marker: str, end_marker: str) -> str:
@@ -117,14 +144,64 @@ def section_between(text: str, start_marker: str, end_marker: str) -> str:
     return text[start:] if end == -1 else text[start:end]
 
 
-def check_pdf_pages(root: Path, errors: list[str]) -> None:
-    pdf_data = load_json(root / "src" / "content" / "pdf-pages.json")
-    pages = pdf_data.get("pages", [])
-    reported = pdf_data.get("source", {}).get("reportedPages")
-    if len(pages) != EXPECTED_PDF_PAGES:
-        errors.append(f"pdf-pages.json has {len(pages)} pages, expected {EXPECTED_PDF_PAGES}")
-    if reported != EXPECTED_PDF_PAGES:
-        errors.append(f"pdf-pages.json reports {reported} pages, expected {EXPECTED_PDF_PAGES}")
+def collect_source_ids(value: object) -> set[str]:
+    found: set[str] = set()
+    if isinstance(value, dict):
+        source_id = value.get("sourceId")
+        if isinstance(source_id, str):
+            found.add(source_id)
+        for child in value.values():
+            found.update(collect_source_ids(child))
+    elif isinstance(value, list):
+        for child in value:
+            found.update(collect_source_ids(child))
+    return found
+
+
+def check_no_obsolete_public_artifacts(root: Path, errors: list[str]) -> None:
+    for relative in OBSOLETE_PATHS:
+        if (root / relative).exists():
+            errors.append(f"obsolete public artifact remains: {relative}")
+    for image in (root / "assets" / "img").glob("source-page-*.png"):
+        errors.append(f"obsolete public image remains: {image.relative_to(root)}")
+
+
+def check_content_model(root: Path, errors: list[str]) -> None:
+    site = load_json(root / "src" / "content" / "site.json")
+    if "sourcePdf" in site:
+        errors.append("site.json still contains the obsolete sourcePdf field")
+
+    navigation = load_json(root / "src" / "content" / "navigation.json")
+    if not navigation or any("items" not in group or not group["items"] for group in navigation):
+        errors.append("navigation.json must define grouped dropdown navigation")
+
+    manifest = load_json(root / "src" / "content" / "live-sources.json")
+    live_ids = {item["id"] for item in manifest.get("sources", [])}
+    resources = load_json(root / "src" / "content" / "resources.json")
+    resource_categories = {item["id"] for item in resources.get("categories", [])}
+    if not resource_categories:
+        errors.append("resources.json must define resource categories")
+    if not resources.get("resources"):
+        errors.append("resources.json must define resource entries")
+
+    for source_id in collect_source_ids(resources):
+        if source_id not in live_ids:
+            errors.append(f"resources.json references missing live source id: {source_id}")
+
+    for path in sorted((root / "src" / "content" / "pages").glob("*.json")):
+        page = load_json(path)
+        slug = page.get("slug", path.stem)
+        if "sourceRange" in page:
+            errors.append(f"{slug}: obsolete sourceRange field remains")
+        for required in ("audience", "resourceGroups", "primaryActions", "relatedSlugs", "externalSourceIds"):
+            if not page.get(required):
+                errors.append(f"{slug}: missing required public content field {required}")
+        unknown_groups = set(page.get("resourceGroups", [])) - resource_categories
+        if unknown_groups:
+            errors.append(f"{slug}: unknown resource groups {sorted(unknown_groups)}")
+        for source_id in collect_source_ids(page):
+            if source_id not in live_ids:
+                errors.append(f"{slug}: references missing live source id: {source_id}")
 
 
 def check_curated_pages(root: Path, errors: list[str]) -> None:
@@ -150,35 +227,59 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
 
         if "On this page" not in html:
             errors.append(f"{slug}: missing page-local table of contents label")
-        if not {"#source-coverage", "#verified-links", "#related-pages"}.issubset(set(hrefs)):
-            errors.append(f"{slug}: page guide does not link to source, verified, and related sections")
+        if not {"#resources", "#related-pages"}.issubset(set(hrefs)):
+            errors.append(f"{slug}: page guide does not link to resources and related sections")
         missing_ids = CURATED_SECTION_IDS - info.ids
         if missing_ids:
             errors.append(f"{slug}: missing section ids {sorted(missing_ids)}")
-        if not any(href.startswith("atlas/page-") for href in hrefs):
-            errors.append(f"{slug}: missing actionable Source Atlas page link")
 
         related_section = section_between(html, 'id="related-pages"', 'class="pager page-pager"')
         if not any(f'href="{href}"' in related_section for href in page_hrefs - {f"{slug}.html"}):
             errors.append(f"{slug}: related-pages section lacks a related internal page link")
 
-        verified_section = section_between(html, 'id="verified-links"', 'id="related-pages"')
+        resources_section = section_between(html, 'id="resources"', 'id="related-pages"')
         verified_external_hrefs = [
-            match.group(1) for match in re.finditer(r'href="(https?://[^"]+)"', verified_section)
+            match.group(1) for match in re.finditer(r'href="(https?://[^"]+)"', resources_section)
         ]
         if not verified_external_hrefs:
-            errors.append(f"{slug}: verified-links section lacks an external link")
+            errors.append(f"{slug}: resources section lacks an external verified link")
         for href in verified_external_hrefs:
             if href not in allowed_live_urls and href.rstrip("/") not in allowed_live_urls:
-                errors.append(f"{slug}: verified external link is not in live-sources.json: {href}")
+                errors.append(f"{slug}: external resource link is not in live-sources.json: {href}")
 
         for href in hrefs:
             if not external_href(href) or internal_site_href(href):
                 continue
-            if href.startswith("mailto:"):
-                continue
             if href not in allowed_live_urls and href.rstrip("/") not in allowed_live_urls:
                 errors.append(f"{slug}: external anchor is not represented in live-sources.json: {href}")
+
+
+def check_resource_directory(root: Path, errors: list[str]) -> None:
+    resources_html = root / "resources.html"
+    if not resources_html.exists():
+        errors.append("resources.html is missing")
+        return
+    html = resources_html.read_text(encoding="utf-8")
+    info = parse_html(resources_html)
+    for required_id in ("resource-search", "resource-category", "resource-count"):
+        if required_id not in info.ids:
+            errors.append(f"resources.html missing {required_id}")
+    if 'class="resource-card"' not in html and " resource-card" not in html:
+        errors.append("resources.html does not render resource cards")
+
+    categories = load_json(root / "src" / "content" / "resources.json").get("categories", [])
+    missing = [category["id"] for category in categories if category["id"] not in info.ids]
+    if missing:
+        errors.append(f"resources.html missing category anchors {missing}")
+
+
+def check_navigation(root: Path, errors: list[str]) -> None:
+    for html_path in generated_html_files(root):
+        html = html_path.read_text(encoding="utf-8")
+        if 'class="nav-menu-button"' not in html:
+            errors.append(f"{html_path.relative_to(root)} lacks dropdown navigation buttons")
+        if "aria-expanded" not in html or "data-nav-toggle" not in html:
+            errors.append(f"{html_path.relative_to(root)} lacks accessible navigation disclosure attributes")
 
 
 def check_canonical_outputs(root: Path, errors: list[str]) -> None:
@@ -193,17 +294,11 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
     sitemap = (root / "sitemap.xml").read_text(encoding="utf-8")
     if f"<loc>{CANONICAL_BASE}</loc>" not in sitemap:
         errors.append("sitemap.xml does not include the canonical root URL")
-    if "docxology" in sitemap:
-        errors.append("sitemap.xml contains a stale docxology reference")
+    for obsolete in ("source.html", "assets/source", "atlas"):
+        if obsolete in sitemap:
+            errors.append(f"sitemap.xml contains obsolete entry {obsolete}")
 
-    html_paths = sorted(
-        path
-        for path in root.rglob("*.html")
-        if not any(part in SCAN_EXCLUDES or part in {"src", "scripts", "node_modules"} for part in path.relative_to(root).parts)
-    )
-    for html_path in html_paths:
-        if not html_path.exists():
-            continue
+    for html_path in generated_html_files(root):
         info = parse_html(html_path)
         canonical = [
             attrs.get("href", "")
@@ -221,13 +316,16 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
             errors.append(f"{html_path.relative_to(root)} has invalid og:url {og_urls[:1]}")
 
 
-def check_stale_theme_references(root: Path, errors: list[str]) -> None:
+def check_stale_references(root: Path, errors: list[str]) -> None:
     for path in generated_public_files(root):
         text = path.read_text(encoding="utf-8", errors="ignore")
         lower = text.lower()
         for pattern in OLD_THEME_PATTERNS:
             if pattern.lower() in lower:
                 errors.append(f"{path.relative_to(root)} contains stale reference {pattern}")
+        for pattern in OBSOLETE_TEXT_PATTERNS:
+            if re.search(pattern, text, flags=re.IGNORECASE):
+                errors.append(f"{path.relative_to(root)} contains obsolete public reference matching {pattern}")
 
 
 def check_template_external_urls(root: Path, errors: list[str]) -> None:
@@ -244,10 +342,13 @@ def check_template_external_urls(root: Path, errors: list[str]) -> None:
 
 def check_site_contract(root: Path) -> int:
     errors: list[str] = []
-    check_pdf_pages(root, errors)
+    check_no_obsolete_public_artifacts(root, errors)
+    check_content_model(root, errors)
     check_curated_pages(root, errors)
+    check_resource_directory(root, errors)
+    check_navigation(root, errors)
     check_canonical_outputs(root, errors)
-    check_stale_theme_references(root, errors)
+    check_stale_references(root, errors)
     check_template_external_urls(root, errors)
 
     if errors:
@@ -256,16 +357,9 @@ def check_site_contract(root: Path) -> int:
             print(f"- {error}", file=sys.stderr)
         return 1
 
-    print("Site contract passed: 211 PDF pages, curated signposting, canonical URLs, dark palette, and live-source external links.")
+    print("Site contract passed: resource hub, accessible navigation, verified links, canonical URLs, and dark/red public theme.")
     return 0
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("root", nargs="?", default=str(PROJECT_ROOT), help="Repository/site root")
-    args = parser.parse_args()
-    return check_site_contract(Path(args.root).resolve())
-
-
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(check_site_contract(PROJECT_ROOT))

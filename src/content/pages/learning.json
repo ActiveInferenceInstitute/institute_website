@@ -2,12 +2,27 @@
   "slug": "learning",
   "title": "Learning and Research",
   "subtitle": "Textbook groups, videos, podcasts, courses, research resources, implementations, and technical foundations.",
-  "sourceRange": "Pages 15-21, 114-166, and 181-185",
-  "lede": "The source PDF points learners toward the living document, livestreams, Active Inference Insights, textbook groups, readings, code implementations, and domain-specific courses.",
+  "audience": "Learners and researchers looking for structured entry points.",
+  "lede": "Learning resources point newcomers and experienced participants toward living references, livestreams, Active Inference Insights, textbook groups, readings, code implementations, and domain-specific courses.",
+  "primaryActions": [
+    {
+      "label": "Open Start repository",
+      "sourceId": "start-repo"
+    },
+    {
+      "label": "Watch public videos",
+      "sourceId": "youtube"
+    }
+  ],
+  "resourceGroups": [
+    "learning",
+    "media",
+    "research"
+  ],
   "sections": [
     {
       "heading": "How to Start",
-      "body": "Begin with the living document, the Start page, public livestreams, podcasts, and learning groups. The website gives a stable public map, while the Discord and recurring events provide synchronous participation.",
+      "body": "Begin with the ecosystem reference, the Start repository, public livestreams, podcasts, and learning groups. The website gives a stable public map, while Discord and recurring events provide synchronous participation.",
       "links": [
         {
           "sourceId": "ecosystem"
@@ -28,7 +43,7 @@
     },
     {
       "heading": "Core Readings",
-      "body": "The PDF references the 2022 textbook by Thomas Parr, Giovanni Pezzulo, and Karl J. Friston; Maxwell Ramstead's 2023 precis; Jared Tumiel's Spinning Up in Active Inference; Beren Millidge's paper repository; and work on Active Inference ontology and teams.",
+      "body": "Learning pathways include the 2022 textbook by Thomas Parr, Giovanni Pezzulo, and Karl J. Friston; Maxwell Ramstead's 2023 precis; Jared Tumiel's Spinning Up in Active Inference; Beren Millidge's paper repository; and work on Active Inference ontology and teams.",
       "links": [
         {
           "sourceId": "start-repo"
@@ -49,7 +64,7 @@
     },
     {
       "heading": "Implementations",
-      "body": "The source identifies implementations including RxInfer.jl, PyMDP, SPM, and symbolic cognitive robotics. These support practical modeling and experimentation.",
+      "body": "Implementation pathways include RxInfer.jl, PyMDP, SPM, symbolic cognitive robotics, and open repositories. These support practical modeling and experimentation.",
       "links": [
         {
           "sourceId": "github-org"
@@ -101,8 +116,8 @@
       ]
     },
     {
-      "title": "Tech Tree",
-      "text": "A structured learning map for concepts, methods, and applications.",
+      "title": "Learning Map",
+      "text": "A structured path through concepts, methods, and applications.",
       "links": [
         {
           "sourceId": "start-repo"

@@ -24,11 +24,13 @@ const siteData = {
   social: loadJson("social.json"),
   metrics: loadJson("metrics.json"),
   liveSources: loadJson("live-sources.json"),
+  resources: loadJson("resources.json"),
   pages,
 };
-const pdfData = loadJson("pdf-pages.json");
+
 const liveSourceById = new Map((siteData.liveSources.sources || []).map((source) => [source.id, source]));
 const pageBySlug = new Map(siteData.pages.map((page) => [page.slug, page]));
+const resourceCategoryById = new Map((siteData.resources.categories || []).map((category) => [category.id, category]));
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -60,33 +62,75 @@ function absoluteUrl(filePath = "") {
   return new URL(clean, baseUrl).toString();
 }
 
-function nav(prefix = "") {
-  const items = siteData.navigation
-    .map((item) => `<a href="${prefix}${item.href}">${escapeHtml(item.label)}</a>`)
-    .join("");
-  return `<nav class="nav" aria-label="Primary">${items}</nav>`;
+function resolveLink(link) {
+  if (!link) {
+    return null;
+  }
+  if (link.sourceId) {
+    const resource = liveSourceById.get(link.sourceId);
+    if (!resource || !resource.ok) {
+      return null;
+    }
+    return {
+      label: link.label || resource.label,
+      href: resource.finalUrl || resource.url,
+      meta: resource.category,
+      external: true,
+    };
+  }
+  if (link.href && link.label) {
+    return {
+      label: link.label,
+      href: link.href,
+      meta: link.meta,
+      external: /^https?:\/\//.test(link.href),
+    };
+  }
+  return null;
 }
 
 function resolveLinks(links = []) {
-  return links
-    .map((link) => {
-      if (link.sourceId) {
-        const source = liveSourceById.get(link.sourceId);
-        if (!source || !source.ok) {
-          return null;
-        }
-        return {
-          label: link.label || source.label,
-          href: source.finalUrl || source.url,
-          meta: source.category,
-        };
-      }
-      if (link.href && link.label) {
-        return link;
-      }
-      return null;
+  return links.map(resolveLink).filter(Boolean);
+}
+
+function nav(prefix = "") {
+  const groups = siteData.navigation
+    .map((group, index) => {
+      const id = `nav-menu-${index}-${slugifyAnchor(group.label)}`;
+      const items = (group.items || [])
+        .map((item) => `<a href="${prefix}${escapeHtml(item.href)}" role="menuitem">${escapeHtml(item.label)}</a>`)
+        .join("");
+      return `<div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="${id}" data-nav-toggle>
+          <span>${escapeHtml(group.label)}</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="${id}" role="menu">${items}</div>
+      </div>`;
     })
-    .filter(Boolean);
+    .join("");
+  return `<nav class="nav" aria-label="Primary">${groups}</nav>`;
+}
+
+function socialLinks() {
+  return siteData.social
+    .map((item) => resolveLink(item))
+    .filter(Boolean)
+    .map((link) => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`)
+    .join("");
+}
+
+function actionButtons(links = []) {
+  const resolved = resolveLinks(links);
+  if (!resolved.length) {
+    return "";
+  }
+  return `<div class="hero-actions">${resolved
+    .map((link, index) => {
+      const kind = index === 0 ? "primary" : "secondary";
+      return `<a class="button ${kind}" href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`;
+    })
+    .join("")}</div>`;
 }
 
 function linkChips(links = []) {
@@ -95,41 +139,19 @@ function linkChips(links = []) {
     return "";
   }
   return `<div class="link-chips">${resolved
-    .map(
-      (link) => `<a href="${escapeHtml(link.href)}">
-        <span>${escapeHtml(link.label)}</span>
-        ${link.meta ? `<em>${escapeHtml(link.meta)}</em>` : ""}
-      </a>`,
-    )
+    .map((link) => {
+      const meta = link.meta ? `<em>${escapeHtml(link.meta)}</em>` : "";
+      return `<a href="${escapeHtml(link.href)}"><span>${escapeHtml(link.label)}</span>${meta}</a>`;
+    })
     .join("")}</div>`;
 }
 
-function pageGuide(page) {
-  const sectionLinks = page.sections
-    .map((section) => `<a href="#${escapeHtml(slugifyAnchor(section.heading))}">${escapeHtml(section.heading)}</a>`)
-    .join("");
-  return `<section class="content-band page-index-band">
-    <div class="page-index">
-      <div>
-        <p class="eyebrow">On this page</p>
-        <h2>${escapeHtml(page.title)} guide</h2>
-      </div>
-      <nav aria-label="${escapeHtml(page.title)} page sections">
-        ${sectionLinks}
-        <a href="#source-coverage">Source coverage</a>
-        <a href="#verified-links">Verified links</a>
-        <a href="#related-pages">Related pages</a>
-      </nav>
-    </div>
-  </section>`;
-}
-
-function layout({ title, description, currentPath, body, extraHead = "", bodyClass = "" }) {
+function layout({ title, description, currentPath, body, bodyClass = "" }) {
   const prefix = relPrefix(currentPath);
   const pageTitle = title === siteData.site.name ? title : `${title} | ${siteData.site.name}`;
   const pageDescription = description || siteData.site.description;
   const canonicalUrl = absoluteUrl(currentPath);
-  const previewImage = absoluteUrl("assets/img/source-page-001.png");
+  const normalizedBody = body.trim();
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -144,10 +166,8 @@ function layout({ title, description, currentPath, body, extraHead = "", bodyCla
   <meta property="og:title" content="${escapeHtml(pageTitle)}">
   <meta property="og:description" content="${escapeHtml(pageDescription)}">
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}">
-  <meta property="og:image" content="${escapeHtml(previewImage)}">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="${prefix}assets/css/styles.css">
-  ${extraHead}
 </head>
 <body class="${bodyClass}">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -162,7 +182,7 @@ function layout({ title, description, currentPath, body, extraHead = "", bodyCla
     ${nav(prefix)}
   </header>
   <main id="main">
-    ${body}
+    ${normalizedBody}
   </main>
   <footer class="site-footer">
     <div>
@@ -171,12 +191,11 @@ function layout({ title, description, currentPath, body, extraHead = "", bodyCla
     </div>
     <div class="footer-links">
       <a href="mailto:${escapeHtml(siteData.site.email)}">${escapeHtml(siteData.site.email)}</a>
-      <a href="${prefix}${siteData.site.sourcePdf}">Source PDF</a>
-      <a href="${prefix}atlas/">Source Atlas</a>
-      <a href="${prefix}source.html">Source Manifest</a>
+      <a href="${prefix}resources.html">Resources</a>
+      <a href="${prefix}get-involved.html">Get involved</a>
     </div>
     <div class="social-links" aria-label="Verified public links">
-      ${siteData.social.map((item) => `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>`).join("")}
+      ${socialLinks()}
     </div>
   </footer>
   <script src="${prefix}assets/js/site.js" defer></script>
@@ -209,8 +228,24 @@ function cardGrid(cards = []) {
     .join("")}</div>`;
 }
 
-function sourceLinks(range) {
-  return `<p class="source-range">Source coverage: <a href="#source-coverage">${escapeHtml(range)}</a>. Browse the <a href="atlas/">page-by-page Source Atlas</a>.</p>`;
+function pageGuide(page) {
+  const sectionLinks = page.sections
+    .map((section) => `<a href="#${escapeHtml(slugifyAnchor(section.heading))}">${escapeHtml(section.heading)}</a>`)
+    .join("");
+  return `<section class="content-band page-index-band">
+    <div class="page-index">
+      <div>
+        <p class="eyebrow">On this page</p>
+        <h2>${escapeHtml(page.title)} guide</h2>
+      </div>
+      <nav aria-label="${escapeHtml(page.title)} page sections">
+        ${sectionLinks}
+        <a href="#key-surfaces">Key surfaces</a>
+        <a href="#resources">Resources</a>
+        <a href="#related-pages">Related pages</a>
+      </nav>
+    </div>
+  </section>`;
 }
 
 function relatedSlugsForPage(page) {
@@ -223,10 +258,10 @@ function relatedSlugsForPage(page) {
 
 function relatedPages(page) {
   const related = relatedSlugsForPage(page).map((slug) => pageBySlug.get(slug)).filter(Boolean);
-  return `<div class="source-grid compact-grid">${related
+  return `<div class="resource-grid compact-grid">${related
     .map(
-      (relatedPage) => `<a class="source-card" href="${slugToHref(relatedPage.slug)}">
-        <span>${escapeHtml(relatedPage.sourceRange)}</span>
+      (relatedPage) => `<a class="resource-card internal-card" href="${slugToHref(relatedPage.slug)}">
+        <span>${escapeHtml(relatedPage.audience || "Related guide")}</span>
         <strong>${escapeHtml(relatedPage.title)}</strong>
         <p>${escapeHtml(relatedPage.lede)}</p>
       </a>`,
@@ -234,19 +269,52 @@ function relatedPages(page) {
     .join("")}</div>`;
 }
 
-function verifiedExternalLinks(page) {
-  const links = resolveLinks((page.externalSourceIds || []).map((sourceId) => ({ sourceId })));
-  if (!links.length) {
-    return '<p class="lede">No live external links are assigned to this page yet. Use the Source Manifest for the complete verified list.</p>';
+function resourcesForPage(page) {
+  const groups = new Set(page.resourceGroups || []);
+  const explicit = new Set(page.externalSourceIds || []);
+  return (siteData.resources.resources || [])
+    .filter((resource) => groups.has(resource.category) || explicit.has(resource.sourceId))
+    .map(resolveResource)
+    .filter(Boolean);
+}
+
+function resolveResource(resource) {
+  const source = liveSourceById.get(resource.sourceId);
+  if (!source || !source.ok) {
+    return null;
   }
-  return `<div class="external-grid">${links
-    .map(
-      (link) => `<a class="external-card" href="${escapeHtml(link.href)}">
-        <span>${escapeHtml(link.meta || "Verified source")}</span>
-        <strong>${escapeHtml(link.label)}</strong>
-      </a>`,
-    )
+  const category = resourceCategoryById.get(resource.category);
+  return {
+    ...resource,
+    source,
+    categoryLabel: category?.label || source.category || resource.category,
+    href: source.finalUrl || source.url,
+  };
+}
+
+function resourceCards(resources = []) {
+  if (!resources.length) {
+    return '<p class="lede">No public resources are assigned here yet. Use the resource directory for the full verified list.</p>';
+  }
+  return `<div class="resource-grid">${resources
+    .map((resource) => {
+      const related = (resource.relatedSlugs || [])
+        .map((slug) => pageBySlug.get(slug))
+        .filter(Boolean)
+        .map((page) => `<a href="${slugToHref(page.slug)}">${escapeHtml(page.title)}</a>`)
+        .join("");
+      const search = `${resource.source.label} ${resource.categoryLabel} ${resource.summary}`.toLowerCase();
+      return `<article class="resource-card" data-category="${escapeHtml(resource.category)}" data-search="${escapeHtml(search)}">
+        <span>${escapeHtml(resource.categoryLabel)}</span>
+        <h3><a href="${escapeHtml(resource.href)}">${escapeHtml(resource.source.label)}</a></h3>
+        <p>${escapeHtml(resource.summary)}</p>${related ? `\n        <div class="mini-links" aria-label="Related pages">${related}</div>` : ""}
+      </article>`;
+    })
     .join("")}</div>`;
+}
+
+function resourceSectionForPage(page) {
+  return resourceCards(resourcesForPage(page));
 }
 
 function publicPagePager(page) {
@@ -260,21 +328,26 @@ function publicPagePager(page) {
 }
 
 function homePage() {
-  const featured = pdfData.pages.filter((page) => [1, 4, 22, 58, 87, 167].includes(page.number));
   const programPage = siteData.pages.find((page) => page.slug === "programs");
   const projectPage = siteData.pages.find((page) => page.slug === "projects");
+  const learningPage = siteData.pages.find((page) => page.slug === "learning");
   const ecosystemPage = siteData.pages.find((page) => page.slug === "ecosystem");
+  const featuredResources = (siteData.resources.resources || [])
+    .filter((resource) => resource.featured)
+    .map(resolveResource)
+    .filter(Boolean)
+    .slice(0, 8);
   const body = `
   <section class="hero">
-    <img class="hero-art" src="assets/img/source-page-001.png" alt="" aria-hidden="true">
     <div class="hero-inner">
-      <p class="eyebrow">Public information website</p>
+      <p class="eyebrow">Public resource hub</p>
       <h1>${escapeHtml(siteData.site.name)}</h1>
       <p class="hero-copy">${escapeHtml(siteData.site.description)}</p>
-      <div class="hero-actions">
-        <a class="button primary" href="get-involved.html">Get involved</a>
-        <a class="button secondary" href="atlas/">Explore the source atlas</a>
-      </div>
+      ${actionButtons([
+        { label: "Get involved", href: "get-involved.html" },
+        { label: "Browse resources", href: "resources.html" },
+        { label: "Explore projects", href: "projects.html" },
+      ])}
     </div>
   </section>
 
@@ -286,49 +359,39 @@ function homePage() {
 
   <section class="content-band">
     ${sectionHeading({
-      eyebrow: "Refactored from the source PDF",
-      title: "A public map for the Institute and ecosystem",
-      text: "The source PDF is a living institutional document. This site turns it into stable public pages while preserving a page-by-page atlas for auditability.",
+      eyebrow: "Start here",
+      title: "Find the right path through the Institute",
+      text: "The site is organized around what visitors need to do: understand the Institute, learn Active Inference, join activities, browse projects, and use verified public resources.",
     })}
     <div class="feature-layout">
       <article>
         <h3>Education, research, training, and applications</h3>
-        <p>AII supports the Active Inference ecosystem through recurring learning groups, research projects, open source work, media production, public events, partnerships, and institutional stewardship.</p>
-        <p>The site is organized for visitors who need an overview first, then source-level detail when they want it.</p>
+        <p>AII supports the Active Inference ecosystem through recurring learning groups, research projects, open-source work, media production, public events, partnerships, and institutional stewardship.</p>
+        <p>Use the navigation groups to move quickly between institutional context, learning pathways, participation routes, project work, and public resources.</p>
       </article>
-      <div class="thumb-stack" aria-label="Source document previews">
-        <img src="assets/img/source-page-004.png" alt="Activities page preview from the source PDF">
-        <img src="assets/img/source-page-058.png" alt="Programs page preview from the source PDF">
-        <img src="assets/img/source-page-167.png" alt="Ecosystem page preview from the source PDF">
-      </div>
+      <aside class="action-panel" aria-label="Recommended entry points">
+        <a href="active-inference.html"><strong>Understand Active Inference</strong><span>Framework, applications, and entry points</span></a>
+        <a href="learning.html"><strong>Start learning</strong><span>Readings, videos, podcasts, and groups</span></a>
+        <a href="get-involved.html"><strong>Participate</strong><span>Channels, activities, support, and contact</span></a>
+      </aside>
     </div>
   </section>
 
   <section class="content-band muted">
-    ${sectionHeading({ eyebrow: "Core areas", title: "How the work is organized" })}
+    ${sectionHeading({ eyebrow: "Core areas", title: "How the public work is organized" })}
     ${cardGrid([
-      { title: "Institute", text: "Mission, history, structure, communications, values, governance, and public channels." },
-      { title: "Programs", text: programPage.lede },
-      { title: "Projects", text: projectPage.lede },
-      { title: "Learning", text: "Textbook groups, courses, podcasts, livestreams, readings, implementations, and research resources." },
-      { title: "Ecosystem", text: ecosystemPage.lede },
-      { title: "Get involved", text: "Discord, activities, volunteer paths, partnerships, philanthropy, and contact details." },
+      { title: "Institute", text: "Mission, structure, communications, values, governance, and public channels.", links: [{ label: "About", href: "about.html" }] },
+      { title: "Programs", text: programPage.lede, links: [{ label: "Programs", href: "programs.html" }] },
+      { title: "Projects", text: projectPage.lede, links: [{ label: "Projects", href: "projects.html" }] },
+      { title: "Learning", text: learningPage.lede, links: [{ label: "Learning", href: "learning.html" }] },
+      { title: "Ecosystem", text: ecosystemPage.lede, links: [{ label: "Ecosystem", href: "ecosystem.html" }] },
+      { title: "Resources", text: "A searchable directory of verified community, learning, media, project, research, support, and social links.", links: [{ label: "Resource directory", href: "resources.html" }] },
     ])}
   </section>
 
   <section class="content-band">
-    ${sectionHeading({ eyebrow: "Source coverage", title: "Featured source pages", text: "Every PDF page has a generated atlas page. These featured pages show the major source sections." })}
-    <div class="source-grid">
-      ${featured
-        .map(
-          (page) => `<a class="source-card" href="atlas/${page.slug}.html">
-            <span>Page ${page.number}</span>
-            <strong>${escapeHtml(page.title)}</strong>
-            <p>${escapeHtml(page.summary)}</p>
-          </a>`,
-        )
-        .join("")}
-    </div>
+    ${sectionHeading({ eyebrow: "Featured resources", title: "Verified public entry points", text: "These resources are checked through the public link registry and grouped by visitor need." })}
+    ${resourceCards(featuredResources)}
   </section>`;
   return layout({
     title: siteData.site.name,
@@ -342,14 +405,14 @@ function homePage() {
 function publicPage(page) {
   const body = `
   <section class="page-hero compact">
-    <p class="eyebrow">${escapeHtml(page.sourceRange)}</p>
+    <p class="eyebrow">${escapeHtml(page.audience || "Public guide")}</p>
     <h1>${escapeHtml(page.title)}</h1>
     <p>${escapeHtml(page.subtitle)}</p>
+    ${actionButtons(page.primaryActions)}
   </section>
   ${pageGuide(page)}
   <section class="content-band">
     <p class="lede">${escapeHtml(page.lede)}</p>
-    ${sourceLinks(page.sourceRange)}
     <div class="article-stack">
       ${page.sections
         .map((section) => {
@@ -362,19 +425,15 @@ function publicPage(page) {
         .join("")}
     </div>
   </section>
-  <section class="content-band muted">
+  <section class="content-band muted" id="key-surfaces">
     ${sectionHeading({ eyebrow: "Key surfaces", title: `${page.title} at a glance` })}
     ${cardGrid(page.cards)}
   </section>
-  <section class="content-band" id="source-coverage">
-    ${sectionHeading({ eyebrow: "Source coverage", title: "PDF traceability", text: `This page is summarized from ${page.sourceRange}. Use these source pages and the full atlas to audit the public summary.` })}
-    ${relatedSourcePages(page.sourceRange)}
+  <section class="content-band" id="resources">
+    ${sectionHeading({ eyebrow: "Verified resources", title: "Public links for this page", text: "External links are resolved from the shared resource registry so visitor-facing destinations stay centralized and checkable." })}
+    ${resourceSectionForPage(page)}
   </section>
-  <section class="content-band muted" id="verified-links">
-    ${sectionHeading({ eyebrow: "Verified external links", title: "Public resources and repositories", text: "These links resolve through the live-source manifest, so volatile destinations stay centralized and auditable." })}
-    ${verifiedExternalLinks(page)}
-  </section>
-  <section class="content-band" id="related-pages">
+  <section class="content-band muted" id="related-pages">
     ${sectionHeading({ eyebrow: "Related pages", title: "Continue through the site" })}
     ${relatedPages(page)}
   </section>
@@ -387,178 +446,54 @@ function publicPage(page) {
   });
 }
 
-function pageNumbersFromRange(range) {
-  const matches = [...range.matchAll(/(\d+)(?:-(\d+))?/g)];
-  const numbers = new Set();
-  for (const match of matches) {
-    const start = Number(match[1]);
-    const end = Number(match[2] || match[1]);
-    for (let i = start; i <= end; i += Math.max(1, Math.ceil((end - start + 1) / 6))) {
-      numbers.add(i);
-    }
-  }
-  return [...numbers].slice(0, 8);
-}
-
-function relatedSourcePages(range) {
-  const numbers = pageNumbersFromRange(range);
-  const pages = pdfData.pages.filter((page) => numbers.includes(page.number));
-  return `<div class="source-grid compact-grid">${pages
-    .map(
-      (page) => `<a class="source-card" href="atlas/${page.slug}.html">
-        <span>Page ${page.number}</span>
-        <strong>${escapeHtml(page.title)}</strong>
-        <p>${escapeHtml(page.summary)}</p>
-      </a>`,
-    )
-    .join("")}</div>`;
-}
-
-function atlasIndex() {
-  const sectionOptions = pdfData.sections
-    .map((section) => `<option value="${escapeHtml(section.id)}">${escapeHtml(section.label)} (${section.start}-${section.end})</option>`)
+function resourcesPage() {
+  const categories = siteData.resources.categories || [];
+  const resources = (siteData.resources.resources || []).map(resolveResource).filter(Boolean);
+  const categoryOptions = categories
+    .map((category) => `<option value="${escapeHtml(category.id)}">${escapeHtml(category.label)}</option>`)
     .join("");
-  const items = pdfData.pages
-    .map(
-      (page) => `<a class="atlas-row" href="${page.slug}.html" data-section="${escapeHtml(page.section)}" data-search="${escapeHtml(`${page.title} ${page.summary} ${page.text}`.toLowerCase())}">
-        <span>Page ${page.number}</span>
-        <strong>${escapeHtml(page.title)}</strong>
-        <em>${escapeHtml(page.sectionLabel)}</em>
-        <p>${escapeHtml(page.summary)}</p>
-      </a>`,
-    )
+  const categoryNav = categories
+    .map((category) => `<a href="#${escapeHtml(category.id)}">${escapeHtml(category.label)}</a>`)
     .join("");
-  const body = `
-  <section class="page-hero compact">
-    <p class="eyebrow">${pdfData.source.reportedPages} PDF pages</p>
-    <h1>Source Atlas</h1>
-    <p>A page-by-page map of the source PDF. Use it to audit coverage, find source wording, and move from curated public pages back to the original document structure.</p>
-  </section>
-  <section class="content-band">
-    <div class="atlas-tools">
-      <label>
-        <span>Search source pages</span>
-        <input id="atlas-search" type="search" placeholder="Search projects, programs, domains, people, or channels">
-      </label>
-      <label>
-        <span>Filter section</span>
-        <select id="atlas-section">
-          <option value="">All sections</option>
-          ${sectionOptions}
-        </select>
-      </label>
-    </div>
-    <p id="atlas-count" class="result-count">${pdfData.pages.length} pages shown</p>
-    <div class="atlas-list" id="atlas-list">${items}</div>
-  </section>`;
-  return layout({
-    title: "Source Atlas",
-    description: "Searchable page-by-page atlas of the Active Inference Institute source PDF.",
-    currentPath: "atlas/index.html",
-    body,
-    extraHead: '<script src="../assets/js/atlas.js" defer></script>',
-  });
-}
-
-function sourcePage(page) {
-  const prev = pdfData.pages.find((candidate) => candidate.number === page.number - 1);
-  const next = pdfData.pages.find((candidate) => candidate.number === page.number + 1);
-  const thumbPath = `../assets/img/source-page-${String(page.number).padStart(3, "0")}.png`;
-  const thumbExists = fs.existsSync(out("assets", "img", `source-page-${String(page.number).padStart(3, "0")}.png`));
-  const body = `
-  <section class="page-hero compact">
-    <p class="eyebrow">${escapeHtml(page.sectionLabel)} / Page ${page.number}</p>
-    <h1>${escapeHtml(page.title)}</h1>
-    <p>${escapeHtml(page.summary)}</p>
-  </section>
-  <section class="content-band source-page-layout">
-    <article class="source-text">
-      <h2>Extracted text</h2>
-      <pre>${escapeHtml(page.text || "Blank or spacer page in the source PDF.")}</pre>
-    </article>
-    <aside class="source-aside">
-      ${thumbExists ? `<img src="${thumbPath}" alt="Rendered preview of source PDF page ${page.number}">` : ""}
-      <a class="button secondary full" href="../${siteData.site.sourcePdf}">Download source PDF</a>
-      <a class="button secondary full" href="./">Back to atlas</a>
-    </aside>
-  </section>
-  <nav class="pager" aria-label="Source page navigation">
-    ${prev ? `<a href="${prev.slug}.html">Previous: page ${prev.number}</a>` : "<span></span>"}
-    ${next ? `<a href="${next.slug}.html">Next: page ${next.number}</a>` : "<span></span>"}
-  </nav>`;
-  return layout({
-    title: `Page ${page.number}: ${page.title}`,
-    description: page.summary,
-    currentPath: `atlas/${page.slug}.html`,
-    body,
-  });
-}
-
-function sourceManifest() {
-  const liveSources = siteData.liveSources.sources || [];
-  const verifiedCount = liveSources.filter((source) => source.ok).length;
-  const knownUnavailableCount = liveSources.filter((source) => !source.ok).length;
-  const sourceRows = liveSources
-    .map((source) => {
-      const finalUrl = source.finalUrl || source.url;
-      const statusText = source.ok
-        ? `Verified ${source.statusCode}`
-        : `Not promoted ${source.statusCode || "unavailable"}`;
-      const label = source.ok
-        ? `<a href="${escapeHtml(finalUrl)}">${escapeHtml(source.label)}</a>`
-        : `<span>${escapeHtml(source.label)}</span>`;
-      return `<tr>
-        <td>${label}</td>
-        <td>${escapeHtml(source.category)}</td>
-        <td><span class="status-pill ${source.ok ? "ok" : "warn"}">${escapeHtml(statusText)}</span></td>
-        <td>${escapeHtml(source.sourceBasis)}</td>
-      </tr>`;
+  const grouped = categories
+    .map((category) => {
+      const groupResources = resources.filter((resource) => resource.category === category.id);
+      return `<section class="resource-category" id="${escapeHtml(category.id)}">
+        ${sectionHeading({ eyebrow: "Resource group", title: category.label, text: category.description })}
+        ${resourceCards(groupResources)}
+      </section>`;
     })
     .join("");
   const body = `
   <section class="page-hero compact">
-    <p class="eyebrow">Source and maintenance</p>
-    <h1>How this website is built</h1>
-    <p>The website separates curated public pages from generated source coverage. This makes the public narrative readable while keeping the PDF traceable and volatile public links explicit.</p>
+    <p class="eyebrow">Searchable directory</p>
+    <h1>Resources</h1>
+    <p>Find verified public links for community, learning, media, projects, research, support, and social channels.</p>
+  </section>
+  <section class="content-band page-index-band">
+    <div class="resource-tools" aria-label="Resource filters">
+      <label>
+        <span>Search resources</span>
+        <input id="resource-search" type="search" placeholder="Search Discord, YouTube, repositories, learning, support">
+      </label>
+      <label>
+        <span>Filter group</span>
+        <select id="resource-category">
+          <option value="">All groups</option>
+          ${categoryOptions}
+        </select>
+      </label>
+      <p id="resource-count" class="result-count">${resources.length} resources shown</p>
+    </div>
+    <nav class="category-nav" aria-label="Resource groups">${categoryNav}</nav>
   </section>
   <section class="content-band">
-    ${sectionHeading({
-      eyebrow: "Accuracy policy",
-      title: "PDF + Live source contract",
-      text: siteData.liveSources.policy || siteData.site.accuracyPolicy,
-    })}
-    <div class="manifest-summary">
-      <div><strong>${pdfData.source.reportedPages}</strong><span>PDF pages reported</span></div>
-      <div><strong>${pdfData.source.extractedPages}</strong><span>PDF pages extracted</span></div>
-      <div><strong>${verifiedCount}</strong><span>Live sources verified</span></div>
-      <div><strong>${knownUnavailableCount}</strong><span>Known unavailable, not promoted</span></div>
-    </div>
-    <p class="source-range">Live-source checks last ran ${escapeHtml(siteData.liveSources.lastCheckedAt)}. PDF-derived institutional summaries remain source-backed unless a reachable public source clearly updates a volatile detail.</p>
-  </section>
-  <section class="content-band">
-    ${cardGrid([
-      { title: "Curated pages", text: "Edited public pages live in src/content/pages/*.json." },
-      { title: "Shared site data", text: "Navigation, metrics, social links, site metadata, and live-source checks live in split JSON files under src/content/." },
-      { title: "Source atlas", text: "scripts/extract_pdf.py extracts all PDF pages into src/content/pdf-pages.json." },
-      { title: "Static generator", text: "src/build.mjs renders the root HTML files and atlas pages for GitHub Pages." },
-      { title: "No runtime framework", text: "The site is plain HTML, CSS, and JavaScript for durability and simple hosting." },
-    ])}
-  </section>
-  <section class="content-band muted">
-    ${sectionHeading({ eyebrow: "Live verification", title: "Checked public sources" })}
-    <div class="table-wrap">
-      <table class="source-table">
-        <thead>
-          <tr><th>Source</th><th>Category</th><th>Status</th><th>Basis</th></tr>
-        </thead>
-        <tbody>${sourceRows}</tbody>
-      </table>
-    </div>
+    ${grouped}
   </section>`;
   return layout({
-    title: "Source Manifest",
-    description: "Build and source contract for the Active Inference Institute website.",
-    currentPath: "source.html",
+    title: "Resources",
+    description: "Searchable directory of verified public Active Inference Institute resources.",
+    currentPath: "resources.html",
     body,
   });
 }
@@ -573,17 +508,13 @@ function build() {
   for (const page of siteData.pages) {
     writeFile(`${page.slug}.html`, publicPage(page));
   }
-  writeFile("source.html", sourceManifest());
-  writeFile("atlas/index.html", atlasIndex());
-  for (const page of pdfData.pages) {
-    writeFile(`atlas/${page.slug}.html`, sourcePage(page));
-  }
+  writeFile("resources.html", resourcesPage());
   writeFile(
     "404.html",
     layout({
       title: "Page not found",
       currentPath: "404.html",
-      body: '<section class="page-hero compact"><h1>Page not found</h1><p>Use the navigation to return to the Institute website.</p><a class="button primary" href="index.html">Home</a></section>',
+      body: '<section class="page-hero compact"><p class="eyebrow">404</p><h1>Page not found</h1><p>Use the navigation or resource directory to return to the Institute website.</p><a class="button primary" href="index.html">Home</a></section>',
     }),
   );
   writeFile(
@@ -593,9 +524,7 @@ function build() {
   const urls = [
     "index.html",
     ...siteData.pages.map((page) => `${page.slug}.html`),
-    "source.html",
-    "atlas/",
-    ...pdfData.pages.map((page) => `atlas/${page.slug}.html`),
+    "resources.html",
   ];
   writeFile(
     "sitemap.xml",

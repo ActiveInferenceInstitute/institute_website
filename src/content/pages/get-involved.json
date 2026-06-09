@@ -1,13 +1,28 @@
 {
   "slug": "get-involved",
   "title": "Get Involved",
-  "subtitle": "Join the public channels, participate in activities, contribute to projects, or support the Institute.",
-  "sourceRange": "Pages 1-10 and 205-211",
+  "subtitle": "Join public channels, participate in activities, contribute to projects, or support the Institute.",
+  "audience": "New participants, volunteers, collaborators, partners, and supporters.",
   "lede": "All backgrounds, time zones, and familiarity levels are welcome. Start with public channels, attend activities, and choose a contribution pathway that fits your context.",
+  "primaryActions": [
+    {
+      "label": "Join Discord",
+      "sourceId": "discord"
+    },
+    {
+      "label": "Donate",
+      "sourceId": "donate"
+    }
+  ],
+  "resourceGroups": [
+    "community",
+    "support",
+    "social"
+  ],
   "sections": [
     {
       "heading": "Join the Conversation",
-      "body": "Discord is the main public chat surface identified in the PDF. You can also follow public channels on YouTube, X, Bluesky, Podbean, Facebook, and LinkedIn.",
+      "body": "Discord is the main public chat surface. You can also follow public channels on YouTube, X, Bluesky, Podbean, Facebook, and LinkedIn.",
       "links": [
         {
           "sourceId": "discord"
@@ -34,7 +49,7 @@
     },
     {
       "heading": "Attend Activities",
-      "body": "The source highlights weekly and project-specific activities, including textbook groups, learning sessions, model streams, and project meetings. Drop in when your schedule allows.",
+      "body": "Weekly and project-specific activities include textbook groups, learning sessions, model streams, and project meetings. Drop in when your schedule allows.",
       "links": [
         {
           "sourceId": "weekly"
@@ -46,7 +61,7 @@
     },
     {
       "heading": "Choose a Pathway",
-      "body": "Volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, open source, and project proposal pathways provide progressively structured ways to participate.",
+      "body": "Volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, open-source, and project proposal pathways provide progressively structured ways to participate.",
       "links": [
         {
           "sourceId": "donate"

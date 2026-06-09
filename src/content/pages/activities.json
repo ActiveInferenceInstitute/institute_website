@@ -2,12 +2,27 @@
   "slug": "activities",
   "title": "Activities",
   "subtitle": "Recurring public meetings, project sessions, learning groups, streams, and community events.",
-  "sourceRange": "Pages 1-10 and 141-166",
+  "audience": "Participants looking for synchronous ways to learn and contribute.",
   "lede": "Activities are the Institute's live participation surface: learning groups, model streams, project meetings, public media, and recurring updates.",
+  "primaryActions": [
+    {
+      "label": "Join Discord",
+      "sourceId": "discord"
+    },
+    {
+      "label": "Check weekly updates",
+      "sourceId": "weekly"
+    }
+  ],
+  "resourceGroups": [
+    "community",
+    "media",
+    "learning"
+  ],
   "sections": [
     {
       "heading": "Open Participation",
-      "body": "The PDF invites people to drop in to activities when it works for them. Activities are paired with public channels and project pages so participants can move between synchronous meetings and asynchronous contribution.",
+      "body": "People can drop in to activities when it works for them. Activities are paired with public channels and project pages so participants can move between live meetings and asynchronous contribution.",
       "links": [
         {
           "sourceId": "discord"
@@ -46,7 +61,7 @@
     },
     {
       "heading": "Project Sessions",
-      "body": "Activities connect directly to Institute Projects and Ecosystem Projects, including project meetings, preparation workflows, measurement/reporting, and presentation opportunities.",
+      "body": "Activities connect directly to Institute projects and ecosystem projects, including project meetings, preparation workflows, measurement, reporting, and presentation opportunities.",
       "links": [
         {
           "sourceId": "github-org"

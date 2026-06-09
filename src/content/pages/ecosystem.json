@@ -2,12 +2,27 @@
   "slug": "ecosystem",
   "title": "Ecosystem",
   "subtitle": "A broad Active Inference ecosystem spanning scientific domains, technical implementations, social systems, and applied fields.",
-  "sourceRange": "Pages 167-199",
+  "audience": "Visitors mapping domains, partners, projects, and application areas.",
   "lede": "The Active Inference ecosystem includes challenge areas, user segments, information architecture, organizations, projects, and domains of application.",
+  "primaryActions": [
+    {
+      "label": "Open ecosystem reference",
+      "sourceId": "ecosystem"
+    },
+    {
+      "label": "Browse projects",
+      "href": "projects.html"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects",
+    "community"
+  ],
   "sections": [
     {
       "heading": "Priorities and Challenge Areas",
-      "body": "The source material frames ecosystem development around structure, growth, cyber and cognitive security, information flows, and organizations facing problems that may be addressed by Active Inference.",
+      "body": "Ecosystem development focuses on structure, growth, cyber and cognitive security, information flows, and organizations facing problems that may be addressed by Active Inference.",
       "links": [
         {
           "sourceId": "ecosystem"
@@ -16,7 +31,7 @@
     },
     {
       "heading": "Domains of Application",
-      "body": "The PDF maps Active Inference across biology, neuroscience, mental health, bioregional modeling, category theory, computation, economics, education, philosophy, physics, robotics, legal, social, logistics, scientific method, and DeSci.",
+      "body": "Active Inference connects with biology, neuroscience, mental health, bioregional modeling, category theory, computation, economics, education, philosophy, physics, robotics, legal systems, social systems, logistics, scientific method, and decentralized science.",
       "links": [
         {
           "sourceId": "geo-infer"
@@ -31,7 +46,7 @@
     },
     {
       "heading": "Ecosystem Support",
-      "body": "Ecosystem support includes public communication, learning infrastructure, project visibility, partner pathways, research resources, and shared open source tooling.",
+      "body": "Ecosystem support includes public communication, learning infrastructure, project visibility, partner pathways, research resources, and shared open-source tooling.",
       "links": [
         {
           "sourceId": "github-org"
@@ -80,8 +95,8 @@
       "text": "Group cognition, institutions, coordination, and social science."
     },
     {
-      "title": "DeSci",
-      "text": "Decentralized science, epistemic commons, and open collaboration structures.",
+      "title": "Decentralized Science",
+      "text": "Epistemic commons and open collaboration structures.",
       "links": [
         {
           "sourceId": "ecosystem"
