@@ -9,6 +9,10 @@
       {
         "label": "Ecosystem",
         "href": "ecosystem.html"
+      },
+      {
+        "label": "Global Directory",
+        "href": "directory.html"
       }
     ]
   },
@@ -26,6 +30,10 @@
       {
         "label": "Activities",
         "href": "activities.html"
+      },
+      {
+        "label": "Learning Resources",
+        "href": "resources.html#learning"
       }
     ]
   },
@@ -39,6 +47,10 @@
       {
         "label": "Get Involved",
         "href": "get-involved.html"
+      },
+      {
+        "label": "Participation Resources",
+        "href": "resources.html#participation"
       }
     ]
   },
@@ -50,7 +62,11 @@
         "href": "projects.html"
       },
       {
-        "label": "Open Repositories",
+        "label": "Repositories",
+        "href": "directory.html#repositories"
+      },
+      {
+        "label": "Project Resources",
         "href": "resources.html#projects"
       }
     ]
@@ -63,16 +79,16 @@
         "href": "resources.html"
       },
       {
-        "label": "Community",
-        "href": "resources.html#community"
+        "label": "Global Index",
+        "href": "directory.html"
       },
       {
-        "label": "Media",
-        "href": "resources.html#media"
+        "label": "Official Pages",
+        "href": "directory.html#official-pages"
       },
       {
-        "label": "Support",
-        "href": "resources.html#support"
+        "label": "Research References",
+        "href": "resources.html#research"
       }
     ]
   }

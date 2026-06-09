@@ -1,0 +1,741 @@
+{
+  "description": "Reachable official Active Inference Institute website pages and public subdomain resources.",
+  "checkedAt": "2026-06-09T01:59:33Z",
+  "pages": [
+    {
+      "sourceId": "official-home",
+      "title": "Institute website",
+      "url": "https://www.activeinference.institute/",
+      "finalUrl": "https://www.activeinference.institute/",
+      "type": "official",
+      "group": "Institute",
+      "category": "institute",
+      "audience": "newcomer",
+      "tags": [
+        "official",
+        "overview",
+        "institute"
+      ],
+      "summary": "Official public homepage for the Active Inference Institute.",
+      "relatedSlugs": [
+        "about",
+        "get-involved"
+      ],
+      "priority": 1,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-strategy",
+      "title": "Strategy and about",
+      "url": "https://www.activeinference.institute/about-us",
+      "finalUrl": "https://www.activeinference.institute/strategy",
+      "type": "official",
+      "group": "Institute",
+      "category": "institute",
+      "audience": "newcomer",
+      "tags": [
+        "official",
+        "strategy",
+        "institute"
+      ],
+      "summary": "Official strategy and about page for institutional orientation.",
+      "relatedSlugs": [
+        "about",
+        "ecosystem"
+      ],
+      "priority": 2,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-board",
+      "title": "Board of Directors",
+      "url": "https://www.activeinference.institute/board-of-directors",
+      "finalUrl": "https://www.activeinference.institute/board-of-directors",
+      "type": "official",
+      "group": "Governance",
+      "category": "governance",
+      "audience": "governance",
+      "tags": [
+        "official",
+        "governance",
+        "board"
+      ],
+      "summary": "Official Board of Directors page.",
+      "relatedSlugs": [
+        "about"
+      ],
+      "priority": 3,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-officers",
+      "title": "Officers",
+      "url": "https://www.activeinference.institute/officers",
+      "finalUrl": "https://www.activeinference.institute/officers",
+      "type": "official",
+      "group": "Governance",
+      "category": "governance",
+      "audience": "governance",
+      "tags": [
+        "official",
+        "governance",
+        "officers"
+      ],
+      "summary": "Official officers page.",
+      "relatedSlugs": [
+        "about"
+      ],
+      "priority": 4,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-scientific-advisory-board",
+      "title": "Scientific Advisory Board",
+      "url": "https://www.activeinference.institute/scientific-advisory-board",
+      "finalUrl": "https://www.activeinference.institute/scientific-advisory-board",
+      "type": "official",
+      "group": "Governance",
+      "category": "governance",
+      "audience": "researcher",
+      "tags": [
+        "official",
+        "governance",
+        "research"
+      ],
+      "summary": "Official Scientific Advisory Board page.",
+      "relatedSlugs": [
+        "about",
+        "learning"
+      ],
+      "priority": 5,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-history",
+      "title": "History",
+      "url": "https://www.activeinference.institute/history",
+      "finalUrl": "https://www.activeinference.institute/history",
+      "type": "official",
+      "group": "Institute",
+      "category": "institute",
+      "audience": "newcomer",
+      "tags": [
+        "official",
+        "history",
+        "institute"
+      ],
+      "summary": "Official history page for the Institute.",
+      "relatedSlugs": [
+        "about"
+      ],
+      "priority": 6,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-education",
+      "title": "Education overview",
+      "url": "https://www.activeinference.institute/education",
+      "finalUrl": "https://www.activeinference.institute/courses",
+      "type": "official",
+      "group": "Learning",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "official",
+        "education",
+        "courses"
+      ],
+      "summary": "Official education entry point, currently resolving to courses.",
+      "relatedSlugs": [
+        "learning",
+        "activities"
+      ],
+      "priority": 7,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-courses",
+      "title": "Courses",
+      "url": "https://www.activeinference.institute/courses",
+      "finalUrl": "https://www.activeinference.institute/courses",
+      "type": "official",
+      "group": "Learning",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "official",
+        "courses",
+        "learning"
+      ],
+      "summary": "Official courses page for learning Active Inference.",
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 8,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-textbook-group",
+      "title": "Textbook Group",
+      "url": "https://www.activeinference.institute/textbook-group",
+      "finalUrl": "https://www.activeinference.institute/textbook-group",
+      "type": "official",
+      "group": "Learning",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "official",
+        "textbook",
+        "learning"
+      ],
+      "summary": "Official Textbook Group page.",
+      "relatedSlugs": [
+        "learning",
+        "activities"
+      ],
+      "priority": 9,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-livestreams",
+      "title": "Livestreams",
+      "url": "https://www.activeinference.institute/livestreams",
+      "finalUrl": "https://www.activeinference.institute/livestreams",
+      "type": "official",
+      "group": "Media",
+      "category": "media",
+      "audience": "learner",
+      "tags": [
+        "official",
+        "livestreams",
+        "media"
+      ],
+      "summary": "Official livestreams page.",
+      "relatedSlugs": [
+        "activities",
+        "learning"
+      ],
+      "priority": 10,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-symposium-page",
+      "title": "Symposium page",
+      "url": "https://www.activeinference.institute/symposium",
+      "finalUrl": "https://www.activeinference.institute/symposium",
+      "type": "official",
+      "group": "Activities",
+      "category": "community",
+      "audience": "partner",
+      "tags": [
+        "official",
+        "symposium",
+        "events"
+      ],
+      "summary": "Official symposium page.",
+      "relatedSlugs": [
+        "activities",
+        "programs"
+      ],
+      "priority": 11,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-research",
+      "title": "Research overview",
+      "url": "https://www.activeinference.institute/research",
+      "finalUrl": "https://www.activeinference.institute/research-overview",
+      "type": "official",
+      "group": "Research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "official",
+        "research"
+      ],
+      "summary": "Official research entry point, currently resolving to the research overview.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 12,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-research-overview",
+      "title": "Research overview page",
+      "url": "https://www.activeinference.institute/research-overview",
+      "finalUrl": "https://www.activeinference.institute/research-overview",
+      "type": "official",
+      "group": "Research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "official",
+        "research",
+        "overview"
+      ],
+      "summary": "Official research overview page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 13,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-rxinfer",
+      "title": "RxInfer",
+      "url": "https://www.activeinference.institute/rxinfer",
+      "finalUrl": "https://www.activeinference.institute/rxinfer",
+      "type": "official",
+      "group": "Learning",
+      "category": "tools",
+      "audience": "developer",
+      "tags": [
+        "official",
+        "rxinfer",
+        "implementation"
+      ],
+      "summary": "Official RxInfer learning page.",
+      "relatedSlugs": [
+        "learning",
+        "projects"
+      ],
+      "priority": 14,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-knowledge-engineering",
+      "title": "Knowledge Engineering",
+      "url": "https://www.activeinference.institute/knowledge-engineering",
+      "finalUrl": "https://www.activeinference.institute/knowledge-engineering",
+      "type": "official",
+      "group": "Projects",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "official",
+        "knowledge-engineering",
+        "projects"
+      ],
+      "summary": "Official Knowledge Engineering page.",
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 15,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-active-blockference",
+      "title": "Active Blockference",
+      "url": "https://www.activeinference.institute/active-blockference",
+      "finalUrl": "https://www.activeinference.institute/active-blockference",
+      "type": "official",
+      "group": "Projects",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "official",
+        "active-blockference",
+        "projects"
+      ],
+      "summary": "Official Active Blockference page.",
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 16,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-tnb",
+      "title": "Theoretical Neurobiology",
+      "url": "https://www.activeinference.institute/tnb",
+      "finalUrl": "https://www.activeinference.institute/tnb",
+      "type": "official",
+      "group": "Research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "official",
+        "theoretical-neurobiology",
+        "research"
+      ],
+      "summary": "Official theoretical neurobiology page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 17,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-get-involved",
+      "title": "Get involved overview",
+      "url": "https://www.activeinference.institute/get-involved",
+      "finalUrl": "https://www.activeinference.institute/participation",
+      "type": "official",
+      "group": "Participate",
+      "category": "participation",
+      "audience": "contributor",
+      "tags": [
+        "official",
+        "participation"
+      ],
+      "summary": "Official get-involved entry point, currently resolving to participation.",
+      "relatedSlugs": [
+        "get-involved",
+        "programs"
+      ],
+      "priority": 18,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-participation",
+      "title": "Participation",
+      "url": "https://www.activeinference.institute/participation",
+      "finalUrl": "https://www.activeinference.institute/participation",
+      "type": "official",
+      "group": "Participate",
+      "category": "participation",
+      "audience": "contributor",
+      "tags": [
+        "official",
+        "participation",
+        "community"
+      ],
+      "summary": "Official participation page.",
+      "relatedSlugs": [
+        "get-involved",
+        "activities"
+      ],
+      "priority": 19,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-internship",
+      "title": "Internship",
+      "url": "https://www.activeinference.institute/internship",
+      "finalUrl": "https://www.activeinference.institute/internship",
+      "type": "official",
+      "group": "Participate",
+      "category": "participation",
+      "audience": "contributor",
+      "tags": [
+        "official",
+        "internship",
+        "program"
+      ],
+      "summary": "Official internship page.",
+      "relatedSlugs": [
+        "programs",
+        "get-involved"
+      ],
+      "priority": 20,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-fellowship",
+      "title": "Fellowship",
+      "url": "https://www.activeinference.institute/fellowship",
+      "finalUrl": "https://www.activeinference.institute/fellowship",
+      "type": "official",
+      "group": "Participate",
+      "category": "participation",
+      "audience": "contributor",
+      "tags": [
+        "official",
+        "fellowship",
+        "program"
+      ],
+      "summary": "Official fellowship page.",
+      "relatedSlugs": [
+        "programs",
+        "get-involved"
+      ],
+      "priority": 21,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-partnership",
+      "title": "Partnership",
+      "url": "https://www.activeinference.institute/partnership",
+      "finalUrl": "https://www.activeinference.institute/partnership",
+      "type": "official",
+      "group": "Participate",
+      "category": "support",
+      "audience": "partner",
+      "tags": [
+        "official",
+        "partnership",
+        "program"
+      ],
+      "summary": "Official partnership page.",
+      "relatedSlugs": [
+        "programs",
+        "get-involved"
+      ],
+      "priority": 22,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-support",
+      "title": "Support",
+      "url": "https://www.activeinference.institute/support",
+      "finalUrl": "https://www.activeinference.institute/support",
+      "type": "official",
+      "group": "Support",
+      "category": "support",
+      "audience": "supporter",
+      "tags": [
+        "official",
+        "support",
+        "donation"
+      ],
+      "summary": "Official support page.",
+      "relatedSlugs": [
+        "get-involved",
+        "programs"
+      ],
+      "priority": 23,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-newsletter",
+      "title": "Newsletter",
+      "url": "https://newsletter.activeinference.institute",
+      "finalUrl": "https://activeinferenceinstitute.substack.com/",
+      "type": "official",
+      "group": "Updates",
+      "category": "community",
+      "audience": "newcomer",
+      "tags": [
+        "newsletter",
+        "updates",
+        "community"
+      ],
+      "summary": "Public newsletter destination.",
+      "relatedSlugs": [
+        "activities",
+        "get-involved"
+      ],
+      "priority": 24,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-activities-coda",
+      "title": "Activities directory",
+      "url": "https://activities.activeinference.institute/",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Activities_suRCZovv#_lurStmji",
+      "type": "official",
+      "group": "Activities",
+      "category": "community",
+      "audience": "contributor",
+      "tags": [
+        "activities",
+        "coda",
+        "community"
+      ],
+      "summary": "Public activities directory.",
+      "relatedSlugs": [
+        "activities",
+        "get-involved"
+      ],
+      "priority": 25,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-projects-coda",
+      "title": "Projects directory",
+      "url": "https://projects.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Activities_suRCZovv#_lurStmji",
+      "type": "official",
+      "group": "Projects",
+      "category": "projects",
+      "audience": "contributor",
+      "tags": [
+        "projects",
+        "coda"
+      ],
+      "summary": "Public project directory destination.",
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 26,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-measure",
+      "title": "Project measurement",
+      "url": "https://measure.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Project-Measurement_suGAmUBe#_luiHuO17",
+      "type": "official",
+      "group": "Projects",
+      "category": "projects",
+      "audience": "contributor",
+      "tags": [
+        "projects",
+        "measurement",
+        "reporting"
+      ],
+      "summary": "Public project measurement and reporting surface.",
+      "relatedSlugs": [
+        "projects",
+        "programs"
+      ],
+      "priority": 27,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-textbook-group-coda",
+      "title": "Textbook Group workspace",
+      "url": "https://textbook-group.activeinference.institute/",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Textbook-Group_suWRa5oa#_luQzKZu_",
+      "type": "official",
+      "group": "Learning",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "textbook",
+        "coda",
+        "learning"
+      ],
+      "summary": "Public Textbook Group workspace.",
+      "relatedSlugs": [
+        "learning",
+        "activities"
+      ],
+      "priority": 28,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-volunteer",
+      "title": "Volunteer pathway",
+      "url": "https://volunteer.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Volunteer_suw-vJ9K",
+      "type": "official",
+      "group": "Participate",
+      "category": "participation",
+      "audience": "contributor",
+      "tags": [
+        "volunteer",
+        "participation"
+      ],
+      "summary": "Public volunteer pathway.",
+      "relatedSlugs": [
+        "get-involved",
+        "programs"
+      ],
+      "priority": 29,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-intern",
+      "title": "Intern pathway",
+      "url": "https://intern.activeinference.institute",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Internship_suwKKKon",
+      "type": "official",
+      "group": "Participate",
+      "category": "participation",
+      "audience": "contributor",
+      "tags": [
+        "internship",
+        "participation"
+      ],
+      "summary": "Public internship pathway.",
+      "relatedSlugs": [
+        "programs",
+        "get-involved"
+      ],
+      "priority": 30,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    },
+    {
+      "sourceId": "official-symposium-coda",
+      "title": "Applied Active Inference Symposium",
+      "url": "https://symposium.activeinference.institute/",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Applied-Active-Inference-Symposium_suaGn-H8",
+      "type": "official",
+      "group": "Activities",
+      "category": "community",
+      "audience": "partner",
+      "tags": [
+        "symposium",
+        "events"
+      ],
+      "summary": "Public symposium workspace.",
+      "relatedSlugs": [
+        "activities",
+        "programs"
+      ],
+      "priority": 31,
+      "promoted": true,
+      "statusCode": 200,
+      "ok": true
+    }
+  ]
+}

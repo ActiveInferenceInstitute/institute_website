@@ -16,15 +16,15 @@ This site helps visitors quickly find:
 - How to start learning Active Inference.
 - Which activities, programs, and projects are public entry points.
 - How to join, contribute, follow, or support the Institute.
-- Verified public resources, channels, repositories, and media links.
+- Verified public resources, official web surfaces, public repositories, channels, and media links.
 
 The site is intentionally a static GitHub Pages build: no runtime framework, no server dependency, and no client-side requirement beyond the small navigation and resource-filter script.
 
 ## Public Content Policy
 
-The public site must not expose input artifacts, drafting screenshots, generated trace views, page-by-page extraction surfaces, or downloadable working materials. Source material may inform authored public copy, but the published site should remain a visitor-facing resource hub.
+The public site must not expose input artifacts, drafting screenshots, generated trace views, page-by-page extraction surfaces, or downloadable working materials. Internal materials may inform authored public copy, but the published site should remain a visitor-facing resource hub.
 
-Volatile public links are centralized in `src/content/live-sources.json` and promoted through `src/content/resources.json`. Templates should resolve public channels and repositories by `sourceId` instead of hardcoding repeated external URLs.
+Volatile public links are centralized in `src/content/live-sources.json`. Templates should resolve public channels, official pages, and repositories by `sourceId` instead of hardcoding repeated external URLs.
 
 ## Architecture
 
@@ -39,6 +39,8 @@ Volatile public links are centralized in `src/content/live-sources.json` and pro
 │       ├── social.json           # Footer social links by live resource id
 │       ├── live-sources.json     # Checked external-link registry
 │       ├── resources.json        # Public resource directory model
+│       ├── official-pages.json   # Official site pages and public subdomains
+│       ├── repositories.json     # Public ActiveInferenceInstitute repositories
 │       └── pages/*.json          # Curated public guide pages
 ├── assets/
 │   ├── css/styles.css            # Dark charcoal theme with red accents
@@ -46,9 +48,11 @@ Volatile public links are centralized in `src/content/live-sources.json` and pro
 ├── scripts/
 │   ├── check_internal_links.py   # Local HTML and asset link checker
 │   ├── check_live_sources.py     # External-link verifier
-│   └── check_site_contract.py    # Public resource-hub contract checker
+│   ├── check_site_contract.py    # Public resource-hub contract checker
+│   └── check_static_security.py  # Static-site security contract checker
 ├── index.html                    # Generated public root
 ├── resources.html                # Generated searchable resource directory
+├── directory.html                # Generated global index
 ├── *.html                        # Generated curated pages
 ├── robots.txt                    # Generated crawler policy
 ├── sitemap.xml                   # Generated canonical sitemap
@@ -66,7 +70,14 @@ Curated pages live in `src/content/pages/*.json`. Each page should define:
 - `relatedSlugs` for internal signposting
 - `externalSourceIds` for verified public links
 
-Public resources are defined in `src/content/resources.json` and must reference IDs from `src/content/live-sources.json`.
+Public resources are split by purpose:
+
+- `src/content/resources.json` contains curated cross-channel resources and filter taxonomies.
+- `src/content/official-pages.json` contains reachable official site pages and public subdomains.
+- `src/content/repositories.json` contains all reachable public `ActiveInferenceInstitute` repositories.
+- `src/content/live-sources.json` remains the canonical registry for external URLs and verification status.
+
+Rendered resources use stable fields: `sourceId`, `type`, `category`, `audience`, `tags`, `summary`, `relatedSlugs`, `priority`, and `promoted`.
 
 ## Local Workflow
 
@@ -89,6 +100,7 @@ npm run check
 npm run check:links
 npm run check:sources
 npm run check:site
+npm run check:security
 git diff --check
 ```
 
@@ -111,7 +123,8 @@ Before pushing, confirm:
 - `npm run check:links` passes.
 - `npm run check:sources` passes or has been intentionally refreshed with reachable public links.
 - `npm run check:site` passes.
-- Browser checks cover desktop home, mobile navigation, the resource directory, Projects, Get Involved, and 404.
+- `npm run check:security` passes.
+- Browser checks cover desktop home, Resources, Directory, mobile navigation, Projects, Get Involved, and 404.
 
 ## Design Contract
 
@@ -120,4 +133,6 @@ Before pushing, confirm:
 - Red is the only accent color.
 - Dropdown navigation must work by click, keyboard focus, and mobile disclosure.
 - Every curated page must include local section navigation, related internal pages, and verified external resources.
-- The resource directory must support search, category filtering, and links back to relevant internal pages.
+- The resource directory must support search plus type, group, audience, and tag filtering.
+- The global directory must index every curated page, page section, resource group, official page, verified external link, and public repository.
+- Static security must remain simple: local scripts/styles only, CSP and referrer meta tags present, no forms, no embedded frames, and external anchors backed by `src/content/live-sources.json`.

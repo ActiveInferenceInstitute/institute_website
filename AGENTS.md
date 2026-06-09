@@ -37,6 +37,7 @@ Generated public files should be limited to:
 - `index.html`
 - curated page HTML files
 - `resources.html`
+- `directory.html`
 - `404.html`
 - `robots.txt`
 - `sitemap.xml`
@@ -45,7 +46,14 @@ Generated public files should be limited to:
 
 ## Content Model
 
-Use `src/content/live-sources.json` as the canonical registry for volatile public URLs. Public resources in `src/content/resources.json`, social links, page actions, section links, and card links should reference public destinations by `sourceId` whenever possible.
+Use `src/content/live-sources.json` as the canonical registry for volatile public URLs. Public resources, social links, page actions, section links, card links, official pages, and repository links should reference public destinations by `sourceId` whenever possible.
+
+The content model is split into registries:
+
+- `src/content/resources.json` for curated resources, filter types, groups, and audiences.
+- `src/content/official-pages.json` for reachable official Institute pages and public subdomains.
+- `src/content/repositories.json` for reachable public `ActiveInferenceInstitute` repositories.
+- `src/content/live-sources.json` for URL, status, and last-check data.
 
 Curated page JSON files must include:
 
@@ -59,6 +67,8 @@ Curated page JSON files must include:
 
 Do not reintroduce fields that imply public page extraction or page-number traceability.
 
+Every rendered external URL should resolve from `src/content/live-sources.json`. Keep unreachable public checks recorded only when they are useful context, and do not promote them into rendered cards unless the live check becomes reachable.
+
 ## Design Requirements
 
 - Use dark mode by default.
@@ -67,8 +77,12 @@ Do not reintroduce fields that imply public page extraction or page-number trace
 - Every curated page must signpost locally, internally, and externally:
   - local section guide
   - related internal pages
+  - related official pages
+  - related repositories
   - verified public resources
-- The resource directory must remain searchable and filterable.
+- The resource directory must remain searchable and filterable by search, type, group, audience, and tag.
+- The global directory must index every curated page, page section, resource group, official page, verified external link, and public repository.
+- Static security must stay simple: local scripts/styles only, CSP and referrer meta tags present, no forms or embedded frames, no inline event handlers, and external anchors backed by `src/content/live-sources.json`.
 
 ## Verification Gates
 
@@ -80,6 +94,7 @@ npm run check
 npm run check:links
 npm run check:sources
 npm run check:site
+npm run check:security
 git diff --check
 ```
 
@@ -89,7 +104,7 @@ For browser verification, serve from the repository root:
 python3 -m http.server 4173
 ```
 
-Check desktop home, mobile navigation dropdowns, Resources search/filter, Projects, Get Involved, and 404. Confirm no console errors and no local missing-asset responses.
+Check desktop home, Resources, Directory, mobile navigation dropdowns, Projects, Get Involved, and 404. Confirm no console errors and no local missing-asset responses.
 
 ## Deployment
 
@@ -97,6 +112,7 @@ GitHub Pages serves from `main` at `/`. After a verified commit is pushed to `or
 
 - `/`
 - `/resources.html`
+- `/directory.html`
 - `/projects.html`
 - `/get-involved.html`
 - `/sitemap.xml`

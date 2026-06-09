@@ -16,6 +16,7 @@
   ],
   "resourceGroups": [
     "community",
+    "projects",
     "support",
     "social"
   ],
@@ -137,6 +138,7 @@
   "externalSourceIds": [
     "discord",
     "donate",
+    "github-org",
     "weekly",
     "youtube",
     "x",

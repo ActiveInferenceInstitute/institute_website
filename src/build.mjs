@@ -25,12 +25,16 @@ const siteData = {
   metrics: loadJson("metrics.json"),
   liveSources: loadJson("live-sources.json"),
   resources: loadJson("resources.json"),
+  officialPages: loadJson("official-pages.json"),
+  repositories: loadJson("repositories.json"),
   pages,
 };
 
 const liveSourceById = new Map((siteData.liveSources.sources || []).map((source) => [source.id, source]));
 const pageBySlug = new Map(siteData.pages.map((page) => [page.slug, page]));
-const resourceCategoryById = new Map((siteData.resources.categories || []).map((category) => [category.id, category]));
+const typeById = new Map((siteData.resources.types || []).map((type) => [type.id, type]));
+const categoryById = new Map((siteData.resources.categories || []).map((category) => [category.id, category]));
+const audienceById = new Map((siteData.resources.audiences || []).map((audience) => [audience.id, audience]));
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -62,19 +66,32 @@ function absoluteUrl(filePath = "") {
   return new URL(clean, baseUrl).toString();
 }
 
+function externalHref(href = "") {
+  return /^https?:\/\//.test(href);
+}
+
+function linkAttrs(href = "") {
+  return externalHref(href) ? ' target="_blank" rel="noopener noreferrer"' : "";
+}
+
+function sourceFor(id) {
+  const source = liveSourceById.get(id);
+  return source && source.ok ? source : null;
+}
+
 function resolveLink(link) {
   if (!link) {
     return null;
   }
   if (link.sourceId) {
-    const resource = liveSourceById.get(link.sourceId);
-    if (!resource || !resource.ok) {
+    const source = sourceFor(link.sourceId);
+    if (!source) {
       return null;
     }
     return {
-      label: link.label || resource.label,
-      href: resource.finalUrl || resource.url,
-      meta: resource.category,
+      label: link.label || source.label,
+      href: source.finalUrl || source.url,
+      meta: source.category,
       external: true,
     };
   }
@@ -83,7 +100,7 @@ function resolveLink(link) {
       label: link.label,
       href: link.href,
       meta: link.meta,
-      external: /^https?:\/\//.test(link.href),
+      external: externalHref(link.href),
     };
   }
   return null;
@@ -116,7 +133,7 @@ function socialLinks() {
   return siteData.social
     .map((item) => resolveLink(item))
     .filter(Boolean)
-    .map((link) => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`)
+    .map((link) => `<a href="${escapeHtml(link.href)}"${linkAttrs(link.href)}>${escapeHtml(link.label)}</a>`)
     .join("");
 }
 
@@ -128,7 +145,7 @@ function actionButtons(links = []) {
   return `<div class="hero-actions">${resolved
     .map((link, index) => {
       const kind = index === 0 ? "primary" : "secondary";
-      return `<a class="button ${kind}" href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`;
+      return `<a class="button ${kind}" href="${escapeHtml(link.href)}"${linkAttrs(link.href)}>${escapeHtml(link.label)}</a>`;
     })
     .join("")}</div>`;
 }
@@ -141,9 +158,24 @@ function linkChips(links = []) {
   return `<div class="link-chips">${resolved
     .map((link) => {
       const meta = link.meta ? `<em>${escapeHtml(link.meta)}</em>` : "";
-      return `<a href="${escapeHtml(link.href)}"><span>${escapeHtml(link.label)}</span>${meta}</a>`;
+      return `<a href="${escapeHtml(link.href)}"${linkAttrs(link.href)}><span>${escapeHtml(link.label)}</span>${meta}</a>`;
     })
     .join("")}</div>`;
+}
+
+function cspContent() {
+  return [
+    "default-src 'self'",
+    "script-src 'self'",
+    "style-src 'self'",
+    "img-src 'self' data:",
+    "font-src 'self'",
+    "connect-src 'none'",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'none'",
+    "upgrade-insecure-requests",
+  ].join("; ");
 }
 
 function layout({ title, description, currentPath, body, bodyClass = "" }) {
@@ -157,6 +189,8 @@ function layout({ title, description, currentPath, body, bodyClass = "" }) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="${escapeHtml(cspContent())}">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>${escapeHtml(pageTitle)}</title>
   <meta name="description" content="${escapeHtml(pageDescription)}">
   <meta name="theme-color" content="#050505">
@@ -192,6 +226,7 @@ function layout({ title, description, currentPath, body, bodyClass = "" }) {
     <div class="footer-links">
       <a href="mailto:${escapeHtml(siteData.site.email)}">${escapeHtml(siteData.site.email)}</a>
       <a href="${prefix}resources.html">Resources</a>
+      <a href="${prefix}directory.html">Directory</a>
       <a href="${prefix}get-involved.html">Get involved</a>
     </div>
     <div class="social-links" aria-label="Verified public links">
@@ -228,6 +263,16 @@ function cardGrid(cards = []) {
     .join("")}</div>`;
 }
 
+function breadcrumb(page) {
+  return `<nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span aria-hidden="true">/</span>
+    <a href="directory.html">Directory</a>
+    <span aria-hidden="true">/</span>
+    <span>${escapeHtml(page.title)}</span>
+  </nav>`;
+}
+
 function pageGuide(page) {
   const sectionLinks = page.sections
     .map((section) => `<a href="#${escapeHtml(slugifyAnchor(section.heading))}">${escapeHtml(section.heading)}</a>`)
@@ -241,7 +286,9 @@ function pageGuide(page) {
       <nav aria-label="${escapeHtml(page.title)} page sections">
         ${sectionLinks}
         <a href="#key-surfaces">Key surfaces</a>
-        <a href="#resources">Resources</a>
+        <a href="#resources">Related resources</a>
+        <a href="#official-pages">Official pages</a>
+        <a href="#repositories">Repositories</a>
         <a href="#related-pages">Related pages</a>
       </nav>
     </div>
@@ -269,52 +316,125 @@ function relatedPages(page) {
     .join("")}</div>`;
 }
 
-function resourcesForPage(page) {
+function recordMatchesPage(record, page) {
   const groups = new Set(page.resourceGroups || []);
-  const explicit = new Set(page.externalSourceIds || []);
+  return (
+    (record.relatedSlugs || []).includes(page.slug) ||
+    groups.has(record.category) ||
+    (page.externalSourceIds || []).includes(record.sourceId)
+  );
+}
+
+function normalizedCuratedResources() {
   return (siteData.resources.resources || [])
-    .filter((resource) => groups.has(resource.category) || explicit.has(resource.sourceId))
-    .map(resolveResource)
+    .filter((resource) => resource.promoted !== false)
+    .map((resource) => normalizeResource(resource, "resource"))
     .filter(Boolean);
 }
 
-function resolveResource(resource) {
-  const source = liveSourceById.get(resource.sourceId);
-  if (!source || !source.ok) {
+function normalizedOfficialPages() {
+  return (siteData.officialPages.pages || [])
+    .filter((item) => item.promoted !== false)
+    .map((item) => normalizeResource(item, "official"))
+    .filter(Boolean);
+}
+
+function normalizedRepositories() {
+  return (siteData.repositories.repositories || [])
+    .filter((item) => item.promoted !== false)
+    .map((item) => normalizeResource(item, "repository"))
+    .filter(Boolean);
+}
+
+function allResourceEntries() {
+  return [...normalizedCuratedResources(), ...normalizedOfficialPages(), ...normalizedRepositories()].sort(
+    (a, b) => (a.priority ?? 9999) - (b.priority ?? 9999) || a.label.localeCompare(b.label),
+  );
+}
+
+function normalizeResource(resource, sourceKind) {
+  const source = sourceFor(resource.sourceId);
+  if (!source) {
     return null;
   }
-  const category = resourceCategoryById.get(resource.category);
+  const type = resource.type || sourceKind;
+  const category = resource.category || "community";
+  const audience = resource.audience || "newcomer";
+  const tags = resource.tags || [];
   return {
     ...resource,
     source,
-    categoryLabel: category?.label || source.category || resource.category,
+    sourceKind,
+    type,
+    typeLabel: typeById.get(type)?.label || type,
+    category,
+    categoryLabel: categoryById.get(category)?.label || source.category || category,
+    audience,
+    audienceLabel: audienceById.get(audience)?.label || audience,
+    tags,
+    label: resource.title || resource.name || source.label,
     href: source.finalUrl || source.url,
+    summary: resource.summary || resource.description || source.label,
   };
 }
 
-function resourceCards(resources = []) {
+function entriesForPage(page, entries, limit = 8) {
+  return entries.filter((entry) => recordMatchesPage(entry, page)).slice(0, limit);
+}
+
+function resourceCards(resources = [], { compact = false } = {}) {
   if (!resources.length) {
-    return '<p class="lede">No public resources are assigned here yet. Use the resource directory for the full verified list.</p>';
+    return '<p class="lede">No public resources are assigned here yet. Use the global directory for the full verified list.</p>';
   }
-  return `<div class="resource-grid">${resources
+  const className = compact ? "resource-grid compact-grid" : "resource-grid";
+  return `<div class="${className}">${resources
     .map((resource) => {
       const related = (resource.relatedSlugs || [])
         .map((slug) => pageBySlug.get(slug))
         .filter(Boolean)
         .map((page) => `<a href="${slugToHref(page.slug)}">${escapeHtml(page.title)}</a>`)
         .join("");
-      const search = `${resource.source.label} ${resource.categoryLabel} ${resource.summary}`.toLowerCase();
-      return `<article class="resource-card" data-category="${escapeHtml(resource.category)}" data-search="${escapeHtml(search)}">
-        <span>${escapeHtml(resource.categoryLabel)}</span>
-        <h3><a href="${escapeHtml(resource.href)}">${escapeHtml(resource.source.label)}</a></h3>
-        <p>${escapeHtml(resource.summary)}</p>${related ? `\n        <div class="mini-links" aria-label="Related pages">${related}</div>` : ""}
+      const search = [
+        resource.label,
+        resource.typeLabel,
+        resource.categoryLabel,
+        resource.audienceLabel,
+        resource.summary,
+        resource.tags.join(" "),
+        resource.language || "",
+      ]
+        .join(" ")
+        .toLowerCase();
+      const tagList = resource.tags.length
+        ? `<div class="tag-row">${resource.tags.slice(0, 5).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>`
+        : "";
+      const repoMeta =
+        resource.sourceKind === "repository"
+          ? `<p class="resource-meta">${escapeHtml(resource.language || "Unspecified")} / ${Number(resource.stars || 0)} stars / updated ${escapeHtml((resource.updatedAt || "").slice(0, 10))}</p>`
+          : "";
+      return `<article class="resource-card" data-type="${escapeHtml(resource.type)}" data-category="${escapeHtml(resource.category)}" data-audience="${escapeHtml(resource.audience)}" data-tags="${escapeHtml(resource.tags.join(" "))}" data-search="${escapeHtml(search)}">
+        <span>${escapeHtml(resource.typeLabel)} / ${escapeHtml(resource.categoryLabel)}</span>
+        <h3><a href="${escapeHtml(resource.href)}"${linkAttrs(resource.href)}>${escapeHtml(resource.label)}</a></h3>
+        <p>${escapeHtml(resource.summary)}</p>
+        ${repoMeta}
+        ${tagList}
+        ${related ? `<div class="mini-links" aria-label="Related pages">${related}</div>` : ""}
       </article>`;
     })
     .join("")}</div>`;
 }
 
-function resourceSectionForPage(page) {
-  return resourceCards(resourcesForPage(page));
+function tableRows(items, columns) {
+  return items
+    .map((item) => {
+      const cells = columns.map((column) => `<td>${column.render(item)}</td>`).join("");
+      return `<tr>${cells}</tr>`;
+    })
+    .join("");
+}
+
+function tableHead(columns) {
+  return columns.map((column) => `<th>${escapeHtml(column.label)}</th>`).join("");
 }
 
 function publicPagePager(page) {
@@ -332,19 +452,15 @@ function homePage() {
   const projectPage = siteData.pages.find((page) => page.slug === "projects");
   const learningPage = siteData.pages.find((page) => page.slug === "learning");
   const ecosystemPage = siteData.pages.find((page) => page.slug === "ecosystem");
-  const featuredResources = (siteData.resources.resources || [])
-    .filter((resource) => resource.featured)
-    .map(resolveResource)
-    .filter(Boolean)
-    .slice(0, 8);
+  const featuredResources = allResourceEntries().filter((resource) => resource.featured || resource.priority <= 12).slice(0, 10);
   const body = `
   <section class="hero">
     <div class="hero-inner">
-      <p class="eyebrow">Public resource hub</p>
+      <p class="eyebrow">Comprehensive public resource hub</p>
       <h1>${escapeHtml(siteData.site.name)}</h1>
       <p class="hero-copy">${escapeHtml(siteData.site.description)}</p>
       ${actionButtons([
-        { label: "Get involved", href: "get-involved.html" },
+        { label: "Open global directory", href: "directory.html" },
         { label: "Browse resources", href: "resources.html" },
         { label: "Explore projects", href: "projects.html" },
       ])}
@@ -361,17 +477,17 @@ function homePage() {
     ${sectionHeading({
       eyebrow: "Start here",
       title: "Find the right path through the Institute",
-      text: "The site is organized around what visitors need to do: understand the Institute, learn Active Inference, join activities, browse projects, and use verified public resources.",
+      text: "The site indexes official Institute pages, public subdomains, learning and research references, channels, repositories, and participation routes.",
     })}
     <div class="feature-layout">
       <article>
         <h3>Education, research, training, and applications</h3>
-        <p>AII supports the Active Inference ecosystem through recurring learning groups, research projects, open-source work, media production, public events, partnerships, and institutional stewardship.</p>
-        <p>Use the navigation groups to move quickly between institutional context, learning pathways, participation routes, project work, and public resources.</p>
+        <p>AII supports the Active Inference ecosystem through learning groups, research projects, open-source work, media production, public events, partnerships, and institutional stewardship.</p>
+        <p>Use the directory when you need the complete map, or use the curated pages when you want guided pathways.</p>
       </article>
       <aside class="action-panel" aria-label="Recommended entry points">
-        <a href="active-inference.html"><strong>Understand Active Inference</strong><span>Framework, applications, and entry points</span></a>
-        <a href="learning.html"><strong>Start learning</strong><span>Readings, videos, podcasts, and groups</span></a>
+        <a href="directory.html"><strong>Global index</strong><span>Every page, resource, official link, and repository</span></a>
+        <a href="resources.html"><strong>Filter resources</strong><span>Search by type, category, audience, and tag</span></a>
         <a href="get-involved.html"><strong>Participate</strong><span>Channels, activities, support, and contact</span></a>
       </aside>
     </div>
@@ -380,12 +496,12 @@ function homePage() {
   <section class="content-band muted">
     ${sectionHeading({ eyebrow: "Core areas", title: "How the public work is organized" })}
     ${cardGrid([
-      { title: "Institute", text: "Mission, structure, communications, values, governance, and public channels.", links: [{ label: "About", href: "about.html" }] },
+      { title: "Institute", text: "Mission, structure, communications, values, governance, and public channels.", links: [{ label: "About", href: "about.html" }, { label: "Official pages", href: "directory.html#official-pages" }] },
       { title: "Programs", text: programPage.lede, links: [{ label: "Programs", href: "programs.html" }] },
-      { title: "Projects", text: projectPage.lede, links: [{ label: "Projects", href: "projects.html" }] },
-      { title: "Learning", text: learningPage.lede, links: [{ label: "Learning", href: "learning.html" }] },
+      { title: "Projects", text: projectPage.lede, links: [{ label: "Projects", href: "projects.html" }, { label: "Repositories", href: "directory.html#repositories" }] },
+      { title: "Learning", text: learningPage.lede, links: [{ label: "Learning", href: "learning.html" }, { label: "Learning resources", href: "resources.html#learning" }] },
       { title: "Ecosystem", text: ecosystemPage.lede, links: [{ label: "Ecosystem", href: "ecosystem.html" }] },
-      { title: "Resources", text: "A searchable directory of verified community, learning, media, project, research, support, and social links.", links: [{ label: "Resource directory", href: "resources.html" }] },
+      { title: "Directory", text: "A complete global index of public pages, resource groups, repositories, and verified external links.", links: [{ label: "Global directory", href: "directory.html" }] },
     ])}
   </section>
 
@@ -403,8 +519,12 @@ function homePage() {
 }
 
 function publicPage(page) {
+  const curated = normalizedCuratedResources();
+  const official = normalizedOfficialPages();
+  const repositories = normalizedRepositories();
   const body = `
   <section class="page-hero compact">
+    ${breadcrumb(page)}
     <p class="eyebrow">${escapeHtml(page.audience || "Public guide")}</p>
     <h1>${escapeHtml(page.title)}</h1>
     <p>${escapeHtml(page.subtitle)}</p>
@@ -430,8 +550,17 @@ function publicPage(page) {
     ${cardGrid(page.cards)}
   </section>
   <section class="content-band" id="resources">
-    ${sectionHeading({ eyebrow: "Verified resources", title: "Public links for this page", text: "External links are resolved from the shared resource registry so visitor-facing destinations stay centralized and checkable." })}
-    ${resourceSectionForPage(page)}
+    ${sectionHeading({ eyebrow: "Related resources", title: "Public links for this page", text: "External links are resolved from the shared registry so visitor-facing destinations stay centralized and checkable." })}
+    ${resourceCards(entriesForPage(page, curated, 12))}
+  </section>
+  <section class="content-band muted" id="official-pages">
+    ${sectionHeading({ eyebrow: "Official pages", title: "Official Institute surfaces" })}
+    ${resourceCards(entriesForPage(page, official, 8), { compact: true })}
+  </section>
+  <section class="content-band" id="repositories">
+    ${sectionHeading({ eyebrow: "Repositories", title: "Related open-source repositories" })}
+    ${resourceCards(entriesForPage(page, repositories, page.slug === "projects" ? 16 : 8), { compact: true })}
+    <p class="section-link"><a href="directory.html#repositories">View all ${siteData.repositories.repositories.length} public repositories</a></p>
   </section>
   <section class="content-band muted" id="related-pages">
     ${sectionHeading({ eyebrow: "Related pages", title: "Continue through the site" })}
@@ -446,44 +575,75 @@ function publicPage(page) {
   });
 }
 
+function optionList(items) {
+  return items.map((item) => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label)}</option>`).join("");
+}
+
 function resourcesPage() {
   const categories = siteData.resources.categories || [];
-  const resources = (siteData.resources.resources || []).map(resolveResource).filter(Boolean);
-  const categoryOptions = categories
-    .map((category) => `<option value="${escapeHtml(category.id)}">${escapeHtml(category.label)}</option>`)
-    .join("");
+  const types = siteData.resources.types || [];
+  const audiences = siteData.resources.audiences || [];
+  const resources = allResourceEntries();
+  const tags = [...new Set(resources.flatMap((resource) => resource.tags || []))].sort();
+  const tagOptions = tags.map((tag) => `<option value="${escapeHtml(tag)}">${escapeHtml(tag)}</option>`).join("");
   const categoryNav = categories
-    .map((category) => `<a href="#${escapeHtml(category.id)}">${escapeHtml(category.label)}</a>`)
+    .map((category) => {
+      const count = resources.filter((resource) => resource.category === category.id).length;
+      return `<a href="#${escapeHtml(category.id)}">${escapeHtml(category.label)} <span>${count}</span></a>`;
+    })
     .join("");
   const grouped = categories
     .map((category) => {
       const groupResources = resources.filter((resource) => resource.category === category.id);
       return `<section class="resource-category" id="${escapeHtml(category.id)}">
         ${sectionHeading({ eyebrow: "Resource group", title: category.label, text: category.description })}
+        <p class="category-count" data-category-count="${escapeHtml(category.id)}">${groupResources.length} resources in this group</p>
         ${resourceCards(groupResources)}
       </section>`;
     })
     .join("");
   const body = `
   <section class="page-hero compact">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Resources</span></nav>
     <p class="eyebrow">Searchable directory</p>
     <h1>Resources</h1>
-    <p>Find verified public links for community, learning, media, projects, research, support, and social channels.</p>
+    <p>Find verified public links for official pages, community, learning, media, projects, research, support, social channels, and repositories.</p>
   </section>
   <section class="content-band page-index-band">
     <div class="resource-tools" aria-label="Resource filters">
       <label>
         <span>Search resources</span>
-        <input id="resource-search" type="search" placeholder="Search Discord, YouTube, repositories, learning, support">
+        <input id="resource-search" type="search" placeholder="Search Discord, repositories, courses, research, support">
       </label>
       <label>
-        <span>Filter group</span>
-        <select id="resource-category">
-          <option value="">All groups</option>
-          ${categoryOptions}
+        <span>Type</span>
+        <select id="resource-type">
+          <option value="">All types</option>
+          ${optionList(types)}
         </select>
       </label>
-      <p id="resource-count" class="result-count">${resources.length} resources shown</p>
+      <label>
+        <span>Group</span>
+        <select id="resource-category">
+          <option value="">All groups</option>
+          ${optionList(categories)}
+        </select>
+      </label>
+      <label>
+        <span>Audience</span>
+        <select id="resource-audience">
+          <option value="">All audiences</option>
+          ${optionList(audiences)}
+        </select>
+      </label>
+      <label>
+        <span>Tag</span>
+        <select id="resource-tag">
+          <option value="">All tags</option>
+          ${tagOptions}
+        </select>
+      </label>
+      <p id="resource-count" class="result-count" aria-live="polite">${resources.length} resources shown</p>
     </div>
     <nav class="category-nav" aria-label="Resource groups">${categoryNav}</nav>
   </section>
@@ -498,9 +658,86 @@ function resourcesPage() {
   });
 }
 
+function directoryPage() {
+  const official = normalizedOfficialPages();
+  const repositories = normalizedRepositories();
+  const resources = allResourceEntries();
+  const publicPages = siteData.pages;
+  const officialColumns = [
+    { label: "Official page", render: (item) => `<a href="${escapeHtml(item.href)}"${linkAttrs(item.href)}>${escapeHtml(item.label)}</a>` },
+    { label: "Group", render: (item) => escapeHtml(item.categoryLabel) },
+    { label: "Audience", render: (item) => escapeHtml(item.audienceLabel) },
+    { label: "Related", render: (item) => (item.relatedSlugs || []).map((slug) => pageBySlug.get(slug)).filter(Boolean).map((page) => `<a href="${slugToHref(page.slug)}">${escapeHtml(page.title)}</a>`).join(" ") },
+  ];
+  const repoColumns = [
+    { label: "Repository", render: (item) => `<a href="${escapeHtml(item.href)}"${linkAttrs(item.href)}>${escapeHtml(item.label)}</a>` },
+    { label: "Language", render: (item) => escapeHtml(item.language || "Unspecified") },
+    { label: "Stars", render: (item) => String(Number(item.stars || 0)) },
+    { label: "Updated", render: (item) => escapeHtml((item.updatedAt || "").slice(0, 10)) },
+  ];
+  const linkColumns = [
+    { label: "Link", render: (item) => `<a href="${escapeHtml(item.href)}"${linkAttrs(item.href)}>${escapeHtml(item.label)}</a>` },
+    { label: "Type", render: (item) => escapeHtml(item.typeLabel) },
+    { label: "Group", render: (item) => escapeHtml(item.categoryLabel) },
+    { label: "Audience", render: (item) => escapeHtml(item.audienceLabel) },
+  ];
+  const body = `
+  <section class="page-hero compact">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Directory</span></nav>
+    <p class="eyebrow">Global index</p>
+    <h1>Directory</h1>
+    <p>Every public page, section, resource group, verified external link, official page, and public repository indexed by this site.</p>
+    ${actionButtons([{ label: "Filter resources", href: "resources.html" }, { label: "Project map", href: "projects.html" }])}
+  </section>
+  <section class="metrics-band" aria-label="Directory summary">
+    <div><strong>${publicPages.length}</strong><span>curated public pages</span></div>
+    <div><strong>${resources.length}</strong><span>rendered verified resources</span></div>
+    <div><strong>${official.length}</strong><span>official public pages</span></div>
+    <div><strong>${repositories.length}</strong><span>public repositories</span></div>
+  </section>
+  <section class="content-band" id="site-pages">
+    ${sectionHeading({ eyebrow: "Site pages", title: "Curated public pages and sections" })}
+    <div class="directory-list">
+      ${publicPages
+        .map((page) => `<article class="directory-entry">
+          <h3><a href="${slugToHref(page.slug)}">${escapeHtml(page.title)}</a></h3>
+          <p>${escapeHtml(page.lede)}</p>
+          <div class="mini-links">${page.sections.map((section) => `<a href="${slugToHref(page.slug)}#${slugifyAnchor(section.heading)}">${escapeHtml(section.heading)}</a>`).join("")}</div>
+        </article>`)
+        .join("")}
+    </div>
+  </section>
+  <section class="content-band muted" id="resource-groups">
+    ${sectionHeading({ eyebrow: "Resource groups", title: "Directory groups" })}
+    ${cardGrid((siteData.resources.categories || []).map((category) => ({
+      title: `${category.label} (${resources.filter((resource) => resource.category === category.id).length})`,
+      text: category.description,
+      links: [{ label: "Open group", href: `resources.html#${category.id}` }],
+    })))}
+  </section>
+  <section class="content-band" id="official-pages">
+    ${sectionHeading({ eyebrow: "Official pages", title: `${official.length} official Institute surfaces` })}
+    <div class="table-wrap"><table class="directory-table"><thead><tr>${tableHead(officialColumns)}</tr></thead><tbody>${tableRows(official, officialColumns)}</tbody></table></div>
+  </section>
+  <section class="content-band muted" id="repositories">
+    ${sectionHeading({ eyebrow: "Repositories", title: `${repositories.length} public repositories` })}
+    <div class="table-wrap"><table class="directory-table"><thead><tr>${tableHead(repoColumns)}</tr></thead><tbody>${tableRows(repositories, repoColumns)}</tbody></table></div>
+  </section>
+  <section class="content-band" id="verified-links">
+    ${sectionHeading({ eyebrow: "Verified links", title: "Rendered external link index" })}
+    <div class="table-wrap"><table class="directory-table"><thead><tr>${tableHead(linkColumns)}</tr></thead><tbody>${tableRows(resources, linkColumns)}</tbody></table></div>
+  </section>`;
+  return layout({
+    title: "Directory",
+    description: "Global index of public Active Inference Institute pages, resources, official links, and repositories.",
+    currentPath: "directory.html",
+    body,
+  });
+}
+
 function writeFile(file, html) {
   ensure(path.dirname(out(file)));
-  fs.writeFileSync(out(file), html, "utf8");
+  fs.writeFileSync(out(file), html.replace(/[ \t]+$/gm, ""), "utf8");
 }
 
 function build() {
@@ -509,12 +746,13 @@ function build() {
     writeFile(`${page.slug}.html`, publicPage(page));
   }
   writeFile("resources.html", resourcesPage());
+  writeFile("directory.html", directoryPage());
   writeFile(
     "404.html",
     layout({
       title: "Page not found",
       currentPath: "404.html",
-      body: '<section class="page-hero compact"><p class="eyebrow">404</p><h1>Page not found</h1><p>Use the navigation or resource directory to return to the Institute website.</p><a class="button primary" href="index.html">Home</a></section>',
+      body: '<section class="page-hero compact"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>404</span></nav><p class="eyebrow">404</p><h1>Page not found</h1><p>Use the navigation, resource directory, or global index to return to the Institute website.</p><a class="button primary" href="index.html">Home</a></section>',
     }),
   );
   writeFile(
@@ -525,6 +763,7 @@ function build() {
     "index.html",
     ...siteData.pages.map((page) => `${page.slug}.html`),
     "resources.html",
+    "directory.html",
   ];
   writeFile(
     "sitemap.xml",

@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Learning and Research | Active Inference Institute</title>
   <meta name="description" content="Learning resources point newcomers and experienced participants toward living references, livestreams, Active Inference Insights, textbook groups, readings, code implementations, and domain-specific courses.">
   <meta name="theme-color" content="#050505">
@@ -30,39 +32,46 @@
           <span>Institute</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-0-institute" role="menu"><a href="about.html" role="menuitem">About</a><a href="ecosystem.html" role="menuitem">Ecosystem</a></div>
+        <div class="nav-menu" id="nav-menu-0-institute" role="menu"><a href="about.html" role="menuitem">About</a><a href="ecosystem.html" role="menuitem">Ecosystem</a><a href="directory.html" role="menuitem">Global Directory</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
           <span>Learn</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-1-learn" role="menu"><a href="active-inference.html" role="menuitem">Active Inference</a><a href="learning.html" role="menuitem">Learning and Research</a><a href="activities.html" role="menuitem">Activities</a></div>
+        <div class="nav-menu" id="nav-menu-1-learn" role="menu"><a href="active-inference.html" role="menuitem">Active Inference</a><a href="learning.html" role="menuitem">Learning and Research</a><a href="activities.html" role="menuitem">Activities</a><a href="resources.html#learning" role="menuitem">Learning Resources</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-2-participate" data-nav-toggle>
           <span>Participate</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-2-participate" role="menu"><a href="programs.html" role="menuitem">Programs</a><a href="get-involved.html" role="menuitem">Get Involved</a></div>
+        <div class="nav-menu" id="nav-menu-2-participate" role="menu"><a href="programs.html" role="menuitem">Programs</a><a href="get-involved.html" role="menuitem">Get Involved</a><a href="resources.html#participation" role="menuitem">Participation Resources</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-3-projects" data-nav-toggle>
           <span>Projects</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-3-projects" role="menu"><a href="projects.html" role="menuitem">Project Map</a><a href="resources.html#projects" role="menuitem">Open Repositories</a></div>
+        <div class="nav-menu" id="nav-menu-3-projects" role="menu"><a href="projects.html" role="menuitem">Project Map</a><a href="directory.html#repositories" role="menuitem">Repositories</a><a href="resources.html#projects" role="menuitem">Project Resources</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-4-resources" data-nav-toggle>
           <span>Resources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources" role="menu"><a href="resources.html" role="menuitem">Resource Directory</a><a href="resources.html#community" role="menuitem">Community</a><a href="resources.html#media" role="menuitem">Media</a><a href="resources.html#support" role="menuitem">Support</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources" role="menu"><a href="resources.html" role="menuitem">Resource Directory</a><a href="directory.html" role="menuitem">Global Index</a><a href="directory.html#official-pages" role="menuitem">Official Pages</a><a href="resources.html#research" role="menuitem">Research References</a></div>
       </div></nav>
   </header>
   <main id="main">
     <section class="page-hero compact">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span aria-hidden="true">/</span>
+    <a href="directory.html">Directory</a>
+    <span aria-hidden="true">/</span>
+    <span>Learning and Research</span>
+  </nav>
     <p class="eyebrow">Learners and researchers looking for structured entry points.</p>
     <h1>Learning and Research</h1>
     <p>Textbook groups, videos, podcasts, courses, research resources, implementations, and technical foundations.</p>
-    <div class="hero-actions"><a class="button primary" href="https://github.com/ActiveInferenceInstitute/Start">Open Start repository</a><a class="button secondary" href="https://www.youtube.com/c/ActiveInference">Watch public videos</a></div>
+    <div class="hero-actions"><a class="button primary" href="https://github.com/ActiveInferenceInstitute/Start" target="_blank" rel="noopener noreferrer">Open Start repository</a><a class="button secondary" href="https://www.youtube.com/c/ActiveInference" target="_blank" rel="noopener noreferrer">Watch public videos</a></div>
   </section>
   <section class="content-band page-index-band">
     <div class="page-index">
@@ -73,7 +82,9 @@
       <nav aria-label="Learning and Research page sections">
         <a href="#how-to-start">How to Start</a><a href="#core-readings">Core Readings</a><a href="#courses-and-groups">Courses and Groups</a><a href="#implementations">Implementations</a>
         <a href="#key-surfaces">Key surfaces</a>
-        <a href="#resources">Resources</a>
+        <a href="#resources">Related resources</a>
+        <a href="#official-pages">Official pages</a>
+        <a href="#repositories">Repositories</a>
         <a href="#related-pages">Related pages</a>
       </nav>
     </div>
@@ -84,19 +95,19 @@
       <article class="article-block" id="how-to-start">
             <h2>How to Start</h2>
             <p>Begin with the ecosystem reference, the Start repository, public livestreams, podcasts, and learning groups. The website gives a stable public map, while Discord and recurring events provide synchronous participation.</p>
-            <div class="link-chips"><a href="https://coda.io/d/AII_do5M5iYau8H/The-Active-Inference-Ecosystem_sudNjh1n"><span>Institute and ecosystem living document</span><em>Research</em></a><a href="https://github.com/ActiveInferenceInstitute/Start"><span>Start repository</span><em>Learning</em></a><a href="https://www.youtube.com/c/ActiveInference"><span>YouTube channel</span><em>Media</em></a><a href="https://coda.io/d/AII_do5M5iYau8H/Videos-and-Podcasts_sup3s-us#_lunGi2WA"><span>Videos and podcasts index</span><em>Media</em></a><a href="https://discord.com/invite/FSUvYD2p9S"><span>Discord invite</span><em>Community</em></a></div>
+            <div class="link-chips"><a href="https://coda.io/d/AII_do5M5iYau8H/The-Active-Inference-Ecosystem_sudNjh1n" target="_blank" rel="noopener noreferrer"><span>Institute and ecosystem living document</span><em>Research</em></a><a href="https://github.com/ActiveInferenceInstitute/Start" target="_blank" rel="noopener noreferrer"><span>Start repository</span><em>Learning</em></a><a href="https://www.youtube.com/c/ActiveInference" target="_blank" rel="noopener noreferrer"><span>YouTube channel</span><em>Media</em></a><a href="https://coda.io/d/AII_do5M5iYau8H/Videos-and-Podcasts_sup3s-us#_lunGi2WA" target="_blank" rel="noopener noreferrer"><span>Videos and podcasts index</span><em>Media</em></a><a href="https://discord.com/invite/FSUvYD2p9S" target="_blank" rel="noopener noreferrer"><span>Discord invite</span><em>Community</em></a></div>
           </article><article class="article-block" id="core-readings">
             <h2>Core Readings</h2>
             <p>Learning pathways include the 2022 textbook by Thomas Parr, Giovanni Pezzulo, and Karl J. Friston; Maxwell Ramstead's 2023 precis; Jared Tumiel's Spinning Up in Active Inference; Beren Millidge's paper repository; and work on Active Inference ontology and teams.</p>
-            <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/Start"><span>Start repository</span><em>Learning</em></a></div>
+            <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/Start" target="_blank" rel="noopener noreferrer"><span>Start repository</span><em>Learning</em></a></div>
           </article><article class="article-block" id="courses-and-groups">
             <h2>Courses and Groups</h2>
             <p>Learning surfaces include Fundamentals of Active Inference, Textbook Group, Social Science course, Physics course, RxInfer.jl learning group, Seasonal School, and theoretical neurobiology conversations.</p>
-            <div class="link-chips"><a href="https://coda.io/d/_do5M5iYau8H/Untitled-page_sugXPaAM"><span>Weekly updates</span><em>Community</em></a><a href="https://www.youtube.com/c/ActiveInference"><span>YouTube channel</span><em>Media</em></a></div>
+            <div class="link-chips"><a href="https://coda.io/d/_do5M5iYau8H/Untitled-page_sugXPaAM" target="_blank" rel="noopener noreferrer"><span>Weekly updates</span><em>Community</em></a><a href="https://www.youtube.com/c/ActiveInference" target="_blank" rel="noopener noreferrer"><span>YouTube channel</span><em>Media</em></a></div>
           </article><article class="article-block" id="implementations">
             <h2>Implementations</h2>
             <p>Implementation pathways include RxInfer.jl, PyMDP, SPM, symbolic cognitive robotics, and open repositories. These support practical modeling and experimentation.</p>
-            <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute"><span>GitHub organization</span><em>Projects</em></a></div>
+            <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a></div>
           </article>
     </div>
   </section>
@@ -108,81 +119,247 @@
     <div class="card-grid"><article class="info-card">
         <h3>Textbook Group</h3>
         <p>A collaborative path through Active Inference foundations.</p>
-        <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/Start"><span>Start repository</span><em>Learning</em></a></div>
+        <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/Start" target="_blank" rel="noopener noreferrer"><span>Start repository</span><em>Learning</em></a></div>
       </article><article class="info-card">
         <h3>Livestreams</h3>
         <p>Public updates, seminars, model streams, guest streams, and educational recordings.</p>
-        <div class="link-chips"><a href="https://www.youtube.com/c/ActiveInference"><span>YouTube channel</span><em>Media</em></a><a href="https://coda.io/d/AII_do5M5iYau8H/Videos-and-Podcasts_sup3s-us#_lunGi2WA"><span>Videos and podcasts index</span><em>Media</em></a></div>
+        <div class="link-chips"><a href="https://www.youtube.com/c/ActiveInference" target="_blank" rel="noopener noreferrer"><span>YouTube channel</span><em>Media</em></a><a href="https://coda.io/d/AII_do5M5iYau8H/Videos-and-Podcasts_sup3s-us#_lunGi2WA" target="_blank" rel="noopener noreferrer"><span>Videos and podcasts index</span><em>Media</em></a></div>
       </article><article class="info-card">
         <h3>Active Inference Insights</h3>
         <p>Conversational podcast material available through public media channels.</p>
-        <div class="link-chips"><a href="https://activeinference.podbean.com/"><span>Podcast feed</span><em>Media</em></a><a href="https://www.youtube.com/c/ActiveInference"><span>YouTube channel</span><em>Media</em></a></div>
+        <div class="link-chips"><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer"><span>Podcast feed</span><em>Media</em></a><a href="https://www.youtube.com/c/ActiveInference" target="_blank" rel="noopener noreferrer"><span>YouTube channel</span><em>Media</em></a></div>
       </article><article class="info-card">
         <h3>Research Resources</h3>
         <p>References, repositories, papers, ontologies, and implementation links.</p>
-        <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute"><span>GitHub organization</span><em>Projects</em></a></div>
+        <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a></div>
       </article><article class="info-card">
         <h3>Learning Map</h3>
         <p>A structured path through concepts, methods, and applications.</p>
-        <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/Start"><span>Start repository</span><em>Learning</em></a></div>
+        <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/Start" target="_blank" rel="noopener noreferrer"><span>Start repository</span><em>Learning</em></a></div>
       </article><article class="info-card">
         <h3>Implementations</h3>
         <p>RxInfer.jl, PyMDP, SPM, and symbolic cognitive robotics.</p>
-        <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute"><span>GitHub organization</span><em>Projects</em></a></div>
+        <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a></div>
       </article></div>
   </section>
   <section class="content-band" id="resources">
     <div class="section-heading">
-    <p class="eyebrow">Verified resources</p>
+    <p class="eyebrow">Related resources</p>
     <h2>Public links for this page</h2>
-    <p>External links are resolved from the shared resource registry so visitor-facing destinations stay centralized and checkable.</p>
+    <p>External links are resolved from the shared registry so visitor-facing destinations stay centralized and checkable.</p>
   </div>
-    <div class="resource-grid"><article class="resource-card" data-category="community" data-search="weekly updates community recurring public update surface for activity orientation and current work.">
-        <span>Community</span>
-        <h3><a href="https://coda.io/d/_do5M5iYau8H/Untitled-page_sugXPaAM">Weekly updates</a></h3>
+    <div class="resource-grid"><article class="resource-card" data-type="community" data-category="community" data-audience="newcomer" data-tags="community community weekly" data-search="weekly updates community community newcomer recurring public update surface for activity orientation and current work. community community weekly ">
+        <span>Community / Community</span>
+        <h3><a href="https://coda.io/d/_do5M5iYau8H/Untitled-page_sugXPaAM" target="_blank" rel="noopener noreferrer">Weekly updates</a></h3>
         <p>Recurring public update surface for activity orientation and current work.</p>
+
+        <div class="tag-row"><span>community</span><span>community</span><span>weekly</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="activities.html">Activities</a><a href="get-involved.html">Get Involved</a></div>
-      </article><article class="resource-card" data-category="learning" data-search="start repository learning learning repository for getting started with active inference materials and pathways.">
-        <span>Learning</span>
-        <h3><a href="https://github.com/ActiveInferenceInstitute/Start">Start repository</a></h3>
+      </article><article class="resource-card" data-type="learning" data-category="learning" data-audience="learner" data-tags="learning learning start-repo" data-search="start repository learning learning learner learning repository for getting started with active inference materials and pathways. learning learning start-repo ">
+        <span>Learning / Learning</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute/Start" target="_blank" rel="noopener noreferrer">Start repository</a></h3>
         <p>Learning repository for getting started with Active Inference materials and pathways.</p>
+
+        <div class="tag-row"><span>learning</span><span>learning</span><span>start-repo</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="active-inference.html">Active Inference</a></div>
-      </article><article class="resource-card" data-category="research" data-search="institute and ecosystem living document research living public map of the institute, ecosystem, activities, and conceptual context.">
-        <span>Research</span>
-        <h3><a href="https://coda.io/d/AII_do5M5iYau8H/The-Active-Inference-Ecosystem_sudNjh1n">Institute and ecosystem living document</a></h3>
+      </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="research research ecosystem" data-search="institute and ecosystem living document research research researcher living public map of the institute, ecosystem, activities, and conceptual context. research research ecosystem ">
+        <span>Research / Research</span>
+        <h3><a href="https://coda.io/d/AII_do5M5iYau8H/The-Active-Inference-Ecosystem_sudNjh1n" target="_blank" rel="noopener noreferrer">Institute and ecosystem living document</a></h3>
         <p>Living public map of the Institute, ecosystem, activities, and conceptual context.</p>
+
+        <div class="tag-row"><span>research</span><span>research</span><span>ecosystem</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="about.html">About the Institute</a><a href="ecosystem.html">Ecosystem</a></div>
-      </article><article class="resource-card" data-category="media" data-search="youtube channel media public video channel for seminars, streams, educational sessions, and community recordings.">
-        <span>Media</span>
-        <h3><a href="https://www.youtube.com/c/ActiveInference">YouTube channel</a></h3>
+      </article><article class="resource-card" data-type="media" data-category="media" data-audience="newcomer" data-tags="media media youtube" data-search="youtube channel media media newcomer public video channel for seminars, streams, educational sessions, and community recordings. media media youtube ">
+        <span>Media / Media</span>
+        <h3><a href="https://www.youtube.com/c/ActiveInference" target="_blank" rel="noopener noreferrer">YouTube channel</a></h3>
         <p>Public video channel for seminars, streams, educational sessions, and community recordings.</p>
+
+        <div class="tag-row"><span>media</span><span>media</span><span>youtube</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="activities.html">Activities</a></div>
-      </article><article class="resource-card" data-category="media" data-search="youtube handle media direct handle for the public youtube presence.">
-        <span>Media</span>
-        <h3><a href="https://www.youtube.com/@ActiveInference/">YouTube handle</a></h3>
+      </article><article class="resource-card" data-type="media" data-category="media" data-audience="newcomer" data-tags="media media youtube-handle" data-search="youtube handle media media newcomer direct handle for the public youtube presence. media media youtube-handle ">
+        <span>Media / Media</span>
+        <h3><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube handle</a></h3>
         <p>Direct handle for the public YouTube presence.</p>
+
+        <div class="tag-row"><span>media</span><span>media</span><span>youtube-handle</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="activities.html">Activities</a><a href="learning.html">Learning and Research</a></div>
-      </article><article class="resource-card" data-category="media" data-search="videos and podcasts index media index of public videos and podcasts for browsing by format and topic.">
-        <span>Media</span>
-        <h3><a href="https://coda.io/d/AII_do5M5iYau8H/Videos-and-Podcasts_sup3s-us#_lunGi2WA">Videos and podcasts index</a></h3>
+      </article><article class="resource-card" data-type="media" data-category="media" data-audience="newcomer" data-tags="media media video" data-search="videos and podcasts index media media newcomer index of public videos and podcasts for browsing by format and topic. media media video ">
+        <span>Media / Media</span>
+        <h3><a href="https://coda.io/d/AII_do5M5iYau8H/Videos-and-Podcasts_sup3s-us#_lunGi2WA" target="_blank" rel="noopener noreferrer">Videos and podcasts index</a></h3>
         <p>Index of public videos and podcasts for browsing by format and topic.</p>
+
+        <div class="tag-row"><span>media</span><span>media</span><span>video</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="activities.html">Activities</a><a href="learning.html">Learning and Research</a></div>
-      </article><article class="resource-card" data-category="media" data-search="podcast feed media podcast destination for active inference conversations and interviews.">
-        <span>Media</span>
-        <h3><a href="https://activeinference.podbean.com/">Podcast feed</a></h3>
+      </article><article class="resource-card" data-type="media" data-category="media" data-audience="newcomer" data-tags="media media podbean" data-search="podcast feed media media newcomer podcast destination for active inference conversations and interviews. media media podbean ">
+        <span>Media / Media</span>
+        <h3><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podcast feed</a></h3>
         <p>Podcast destination for Active Inference conversations and interviews.</p>
+
+        <div class="tag-row"><span>media</span><span>media</span><span>podbean</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="activities.html">Activities</a></div>
-      </article><article class="resource-card" data-category="projects" data-search="github organization projects public github organization for institute repositories and open-source work.">
-        <span>Projects</span>
-        <h3><a href="https://github.com/ActiveInferenceInstitute">GitHub organization</a></h3>
+      </article><article class="resource-card" data-type="repository" data-category="projects" data-audience="developer" data-tags="projects projects github-org" data-search="github organization repository projects developer public github organization for institute repositories and open-source work. projects projects github-org ">
+        <span>Repository / Projects</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer">GitHub organization</a></h3>
         <p>Public GitHub organization for Institute repositories and open-source work.</p>
+
+        <div class="tag-row"><span>projects</span><span>projects</span><span>github-org</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="projects.html">Projects</a><a href="programs.html">Programs</a></div>
-      </article><article class="resource-card" data-category="research" data-search="active inference journal repository research research and publication-oriented repository for the active inference journal.">
-        <span>Research</span>
-        <h3><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal">Active Inference Journal repository</a></h3>
-        <p>Research and publication-oriented repository for the Active Inference Journal.</p>
+      </article><article class="resource-card" data-type="repository" data-category="projects" data-audience="developer" data-tags="projects projects gnn" data-search="generalized notation notation repository repository projects developer generalized notation notation project repository for model communication. projects projects gnn ">
+        <span>Repository / Projects</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation" target="_blank" rel="noopener noreferrer">Generalized Notation Notation repository</a></h3>
+        <p>Generalized Notation Notation project repository for model communication.</p>
+
+        <div class="tag-row"><span>projects</span><span>projects</span><span>gnn</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="projects.html">Projects</a><a href="learning.html">Learning and Research</a></div>
+      </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="research research journal" data-search="active inference journal repository research research researcher research and publication-oriented repository for the active inference journal. research research journal ">
+        <span>Research / Research</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal" target="_blank" rel="noopener noreferrer">Active Inference Journal repository</a></h3>
+        <p>Research and publication-oriented repository for the Active Inference Journal.</p>
+
+        <div class="tag-row"><span>research</span><span>research</span><span>journal</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="projects.html">Projects</a><a href="learning.html">Learning and Research</a></div>
+      </article><article class="resource-card" data-type="media" data-category="learning" data-audience="learner" data-tags="video intro learning" data-search="active inference livestream introduction media learning learner public livestream surfaced from the official site. video intro learning ">
+        <span>Media / Learning</span>
+        <h3><a href="https://www.youtube.com/live/09FfbL1YYOI" target="_blank" rel="noopener noreferrer">Active Inference livestream introduction</a></h3>
+        <p>Public livestream surfaced from the official site.</p>
+
+        <div class="tag-row"><span>video</span><span>intro</span><span>learning</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="active-inference.html">Active Inference</a></div>
+      </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="papers research fep" data-search="fep and active inference papers repository research research researcher external paper repository surfaced from the official research page. papers research fep ">
+        <span>Research / Research</span>
+        <h3><a href="https://github.com/BerenMillidge/FEP_Active_Inference_Papers" target="_blank" rel="noopener noreferrer">FEP and Active Inference papers repository</a></h3>
+        <p>External paper repository surfaced from the official research page.</p>
+
+        <div class="tag-row"><span>papers</span><span>research</span><span>fep</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="ecosystem.html">Ecosystem</a></div>
       </article></div>
+  </section>
+  <section class="content-band muted" id="official-pages">
+    <div class="section-heading">
+    <p class="eyebrow">Official pages</p>
+    <h2>Official Institute surfaces</h2>
+  </div>
+    <div class="resource-grid compact-grid"><article class="resource-card" data-type="official" data-category="governance" data-audience="researcher" data-tags="official governance research" data-search="scientific advisory board official page governance researcher official scientific advisory board page. official governance research ">
+        <span>Official page / Governance</span>
+        <h3><a href="https://www.activeinference.institute/scientific-advisory-board" target="_blank" rel="noopener noreferrer">Scientific Advisory Board</a></h3>
+        <p>Official Scientific Advisory Board page.</p>
+
+        <div class="tag-row"><span>official</span><span>governance</span><span>research</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="about.html">About the Institute</a><a href="learning.html">Learning and Research</a></div>
+      </article><article class="resource-card" data-type="official" data-category="learning" data-audience="learner" data-tags="official education courses" data-search="education overview official page learning learner official education entry point, currently resolving to courses. official education courses ">
+        <span>Official page / Learning</span>
+        <h3><a href="https://www.activeinference.institute/courses" target="_blank" rel="noopener noreferrer">Education overview</a></h3>
+        <p>Official education entry point, currently resolving to courses.</p>
+
+        <div class="tag-row"><span>official</span><span>education</span><span>courses</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="activities.html">Activities</a></div>
+      </article><article class="resource-card" data-type="official" data-category="learning" data-audience="learner" data-tags="official courses learning" data-search="courses official page learning learner official courses page for learning active inference. official courses learning ">
+        <span>Official page / Learning</span>
+        <h3><a href="https://www.activeinference.institute/courses" target="_blank" rel="noopener noreferrer">Courses</a></h3>
+        <p>Official courses page for learning Active Inference.</p>
+
+        <div class="tag-row"><span>official</span><span>courses</span><span>learning</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="active-inference.html">Active Inference</a></div>
+      </article><article class="resource-card" data-type="official" data-category="learning" data-audience="learner" data-tags="official textbook learning" data-search="textbook group official page learning learner official textbook group page. official textbook learning ">
+        <span>Official page / Learning</span>
+        <h3><a href="https://www.activeinference.institute/textbook-group" target="_blank" rel="noopener noreferrer">Textbook Group</a></h3>
+        <p>Official Textbook Group page.</p>
+
+        <div class="tag-row"><span>official</span><span>textbook</span><span>learning</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="activities.html">Activities</a></div>
+      </article><article class="resource-card" data-type="official" data-category="media" data-audience="learner" data-tags="official livestreams media" data-search="livestreams official page media learner official livestreams page. official livestreams media ">
+        <span>Official page / Media</span>
+        <h3><a href="https://www.activeinference.institute/livestreams" target="_blank" rel="noopener noreferrer">Livestreams</a></h3>
+        <p>Official livestreams page.</p>
+
+        <div class="tag-row"><span>official</span><span>livestreams</span><span>media</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="activities.html">Activities</a><a href="learning.html">Learning and Research</a></div>
+      </article><article class="resource-card" data-type="official" data-category="research" data-audience="researcher" data-tags="official research" data-search="research overview official page research researcher official research entry point, currently resolving to the research overview. official research ">
+        <span>Official page / Research</span>
+        <h3><a href="https://www.activeinference.institute/research-overview" target="_blank" rel="noopener noreferrer">Research overview</a></h3>
+        <p>Official research entry point, currently resolving to the research overview.</p>
+
+        <div class="tag-row"><span>official</span><span>research</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="ecosystem.html">Ecosystem</a></div>
+      </article><article class="resource-card" data-type="official" data-category="research" data-audience="researcher" data-tags="official research overview" data-search="research overview page official page research researcher official research overview page. official research overview ">
+        <span>Official page / Research</span>
+        <h3><a href="https://www.activeinference.institute/research-overview" target="_blank" rel="noopener noreferrer">Research overview page</a></h3>
+        <p>Official research overview page.</p>
+
+        <div class="tag-row"><span>official</span><span>research</span><span>overview</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="ecosystem.html">Ecosystem</a></div>
+      </article><article class="resource-card" data-type="official" data-category="tools" data-audience="developer" data-tags="official rxinfer implementation" data-search="rxinfer official page tools developer official rxinfer learning page. official rxinfer implementation ">
+        <span>Official page / Tools</span>
+        <h3><a href="https://www.activeinference.institute/rxinfer" target="_blank" rel="noopener noreferrer">RxInfer</a></h3>
+        <p>Official RxInfer learning page.</p>
+
+        <div class="tag-row"><span>official</span><span>rxinfer</span><span>implementation</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="projects.html">Projects</a></div>
+      </article></div>
+  </section>
+  <section class="content-band" id="repositories">
+    <div class="section-heading">
+    <p class="eyebrow">Repositories</p>
+    <h2>Related open-source repositories</h2>
+  </div>
+    <div class="resource-grid compact-grid"><article class="resource-card" data-type="repository" data-category="research" data-audience="researcher" data-tags="research knowledge tex" data-search="act_inf_metaanalysis repository research researcher a computational meta-analysis of the active inference literature. an automated llm pipeline extracts assertions from 849 papers across theory, tools, and domains, structuring them as nanopublications. by mapping these into a citation-weighted knowledge graph, this project provides a reproducible, living review of hypothesis-level consensus. research knowledge tex tex">
+        <span>Repository / Research</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis" target="_blank" rel="noopener noreferrer">act_inf_metaanalysis</a></h3>
+        <p>A computational meta-analysis of the Active Inference literature. An automated LLM pipeline extracts assertions from 849 papers across theory, tools, and domains, structuring them as nanopublications. By mapping these into a citation-weighted knowledge graph, this project provides a reproducible, living review of hypothesis-level consensus.</p>
+        <p class="resource-meta">TeX / 4 stars / updated 2026-05-04</p>
+        <div class="tag-row"><span>research</span><span>knowledge</span><span>tex</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="ecosystem.html">Ecosystem</a></div>
+      </article><article class="resource-card" data-type="repository" data-category="learning" data-audience="learner" data-tags="learning implementation unclassified" data-search="actinf_rxinfer repository learning learner active inference and rxinfer.jl learning implementation unclassified unspecified">
+        <span>Repository / Learning</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute/ActInf_RxInfer" target="_blank" rel="noopener noreferrer">ActInf_RxInfer</a></h3>
+        <p>Active Inference and RxInfer.jl</p>
+        <p class="resource-meta">Unspecified / 2 stars / updated 2025-04-03</p>
+        <div class="tag-row"><span>learning</span><span>implementation</span><span>unclassified</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="active-inference.html">Active Inference</a></div>
+      </article><article class="resource-card" data-type="repository" data-category="learning" data-audience="learner" data-tags="learning implementation unclassified" data-search="action-oriented repository learning learner repository for &quot;learning action-oriented models through active inference&quot; learning implementation unclassified unspecified">
+        <span>Repository / Learning</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute/action-oriented" target="_blank" rel="noopener noreferrer">action-oriented</a></h3>
+        <p>Repository for &quot;Learning action-oriented models through active inference&quot;</p>
+        <p class="resource-meta">Unspecified / 0 stars / updated 2021-08-29</p>
+        <div class="tag-row"><span>learning</span><span>implementation</span><span>unclassified</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="active-inference.html">Active Inference</a></div>
+      </article><article class="resource-card" data-type="repository" data-category="research" data-audience="researcher" data-tags="research knowledge unclassified" data-search="active_inference_ontology repository research researcher public active_inference_ontology repository in the activeinferenceinstitute github namespace. research knowledge unclassified unspecified">
+        <span>Repository / Research</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute/Active_Inference_Ontology" target="_blank" rel="noopener noreferrer">Active_Inference_Ontology</a></h3>
+        <p>Public Active_Inference_Ontology repository in the ActiveInferenceInstitute GitHub namespace.</p>
+        <p class="resource-meta">Unspecified / 14 stars / updated 2026-05-18</p>
+        <div class="tag-row"><span>research</span><span>knowledge</span><span>unclassified</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="ecosystem.html">Ecosystem</a></div>
+      </article><article class="resource-card" data-type="repository" data-category="research" data-audience="researcher" data-tags="research knowledge unclassified" data-search="activeinferencecategorytheory repository research researcher active inference &amp; category theory research knowledge unclassified unspecified">
+        <span>Repository / Research</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceCategoryTheory" target="_blank" rel="noopener noreferrer">ActiveInferenceCategoryTheory</a></h3>
+        <p>Active Inference &amp; Category Theory</p>
+        <p class="resource-meta">Unspecified / 10 stars / updated 2025-02-03</p>
+        <div class="tag-row"><span>research</span><span>knowledge</span><span>unclassified</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="ecosystem.html">Ecosystem</a></div>
+      </article><article class="resource-card" data-type="repository" data-category="learning" data-audience="learner" data-tags="learning implementation jupyter-notebook" data-search="activeinferenceimplementations repository learning learner for learning and exploring probabilistic inference learning implementation jupyter-notebook jupyter notebook">
+        <span>Repository / Learning</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceImplementations" target="_blank" rel="noopener noreferrer">ActiveInferenceImplementations</a></h3>
+        <p>For learning and exploring Probabilistic Inference</p>
+        <p class="resource-meta">Jupyter Notebook / 0 stars / updated 2024-09-21</p>
+        <div class="tag-row"><span>learning</span><span>implementation</span><span>jupyter-notebook</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="active-inference.html">Active Inference</a></div>
+      </article><article class="resource-card" data-type="repository" data-category="research" data-audience="researcher" data-tags="research knowledge html" data-search="activeinferencejournal repository research researcher content of the active inference journal research knowledge html html">
+        <span>Repository / Research</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal" target="_blank" rel="noopener noreferrer">ActiveInferenceJournal</a></h3>
+        <p>Content of the Active Inference Journal</p>
+        <p class="resource-meta">HTML / 43 stars / updated 2026-05-25</p>
+        <div class="tag-row"><span>research</span><span>knowledge</span><span>html</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="ecosystem.html">Ecosystem</a></div>
+      </article><article class="resource-card" data-type="repository" data-category="research" data-audience="researcher" data-tags="research knowledge unclassified" data-search="aeos repository research researcher active entity ontology for science  research knowledge unclassified unspecified">
+        <span>Repository / Research</span>
+        <h3><a href="https://github.com/ActiveInferenceInstitute/AEOS" target="_blank" rel="noopener noreferrer">AEOS</a></h3>
+        <p>Active Entity Ontology for Science </p>
+        <p class="resource-meta">Unspecified / 8 stars / updated 2025-05-27</p>
+        <div class="tag-row"><span>research</span><span>knowledge</span><span>unclassified</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="learning.html">Learning and Research</a><a href="ecosystem.html">Ecosystem</a></div>
+      </article></div>
+    <p class="section-link"><a href="directory.html#repositories">View all 52 public repositories</a></p>
   </section>
   <section class="content-band muted" id="related-pages">
     <div class="section-heading">
@@ -216,10 +393,11 @@
     <div class="footer-links">
       <a href="mailto:blanket@activeinference.institute">blanket@activeinference.institute</a>
       <a href="resources.html">Resources</a>
+      <a href="directory.html">Directory</a>
       <a href="get-involved.html">Get involved</a>
     </div>
     <div class="social-links" aria-label="Verified public links">
-      <a href="https://discord.com/invite/FSUvYD2p9S">Discord</a><a href="https://www.youtube.com/c/ActiveInference">YouTube</a><a href="https://x.com/InferenceActive">X</a><a href="https://bsky.app/profile/activeinference.bsky.social">Bluesky</a><a href="https://activeinference.podbean.com/">Podbean</a><a href="https://www.facebook.com/ActiveInference">Facebook</a><a href="https://www.linkedin.com/company/active-inference/">LinkedIn</a>
+      <a href="https://discord.com/invite/FSUvYD2p9S" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/c/ActiveInference" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </footer>
   <script src="assets/js/site.js" defer></script>

@@ -329,7 +329,8 @@ select:focus-visible {
 
 .page-index nav,
 .link-chips,
-.category-nav {
+.category-nav,
+.tag-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
@@ -373,6 +374,19 @@ select:focus-visible {
   color: var(--muted);
   font-size: 0.76rem;
   font-style: normal;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.breadcrumb a {
+  color: var(--soft);
 }
 
 .section-heading {
@@ -506,6 +520,36 @@ select:focus-visible {
   text-decoration-color: currentColor;
 }
 
+.resource-meta {
+  color: var(--soft);
+  font-size: 0.86rem;
+}
+
+.tag-row {
+  margin-top: 1rem;
+  gap: 0.35rem;
+}
+
+.tag-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.65rem;
+  margin: 0;
+  padding: 0.25rem 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+  color: var(--soft);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.section-link {
+  max-width: 1180px;
+  margin: 1.5rem auto 0;
+}
+
 .internal-card strong {
   display: block;
   margin-bottom: 0.5rem;
@@ -536,7 +580,7 @@ select:focus-visible {
 
 .resource-tools {
   display: grid;
-  grid-template-columns: 1fr minmax(220px, 320px) max-content;
+  grid-template-columns: minmax(240px, 1.4fr) repeat(4, minmax(150px, 0.8fr)) max-content;
   gap: 1rem;
   align-items: end;
   margin-bottom: 1rem;
@@ -570,6 +614,11 @@ select:focus-visible {
   white-space: nowrap;
 }
 
+.category-count {
+  color: var(--soft);
+  font-weight: 750;
+}
+
 .resource-category {
   scroll-margin-top: 7rem;
   margin-bottom: clamp(3rem, 7vw, 5rem);
@@ -577,6 +626,69 @@ select:focus-visible {
 
 .resource-category:last-child {
   margin-bottom: 0;
+}
+
+.directory-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.directory-entry {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.directory-entry h3 {
+  margin-top: 0;
+  letter-spacing: 0;
+}
+
+.directory-entry p {
+  color: var(--muted);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.directory-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.directory-table th,
+.directory-table td {
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.directory-table th {
+  background: var(--surface-strong);
+  color: var(--ink);
+  font-size: 0.84rem;
+}
+
+.directory-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.directory-table td {
+  color: var(--soft);
+}
+
+.directory-table td a {
+  display: inline-block;
+  margin-right: 0.45rem;
+  margin-bottom: 0.25rem;
 }
 
 .pager {
@@ -656,6 +768,7 @@ select:focus-visible {
   .page-index,
   .feature-layout,
   .card-grid,
+  .directory-list,
   .resource-grid,
   .resource-tools {
     grid-template-columns: 1fr;

@@ -1,0 +1,1345 @@
+{
+  "description": "Public repositories in the ActiveInferenceInstitute GitHub namespace, refreshed from GitHub API.",
+  "checkedAt": "2026-06-09T01:59:33Z",
+  "count": 52,
+  "repositories": [
+    {
+      "sourceId": "repo-a2a",
+      "name": "A2A",
+      "fullName": "ActiveInferenceInstitute/A2A",
+      "url": "https://github.com/ActiveInferenceInstitute/A2A",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "unclassified"
+      ],
+      "summary": "Public A2A repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2025-06-23T14:10:17Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 100,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-act-inf-metaanalysis",
+      "name": "act_inf_metaanalysis",
+      "fullName": "ActiveInferenceInstitute/act_inf_metaanalysis",
+      "url": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "tex"
+      ],
+      "summary": "A computational meta-analysis of the Active Inference literature. An automated LLM pipeline extracts assertions from 849 papers across theory, tools, and domains, structuring them as nanopublications. By mapping these into a citation-weighted knowledge graph, this project provides a reproducible, living review of hypothesis-level consensus.",
+      "description": "A computational meta-analysis of the Active Inference literature. An automated LLM pipeline extracts assertions from 849 papers across theory, tools, and domains, structuring them as nanopublications. By mapping these into a citation-weighted knowledge graph, this project provides a reproducible, living review of hypothesis-level consensus.",
+      "language": "TeX",
+      "stars": 4,
+      "updatedAt": "2026-05-04T08:34:39Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 101,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-actinf-rxinfer",
+      "name": "ActInf_RxInfer",
+      "fullName": "ActiveInferenceInstitute/ActInf_RxInfer",
+      "url": "https://github.com/ActiveInferenceInstitute/ActInf_RxInfer",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "unclassified"
+      ],
+      "summary": "Active Inference and RxInfer.jl",
+      "description": "Active Inference and RxInfer.jl",
+      "language": "Unspecified",
+      "stars": 2,
+      "updatedAt": "2025-04-03T16:05:29Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 102,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-action-oriented",
+      "name": "action-oriented",
+      "fullName": "ActiveInferenceInstitute/action-oriented",
+      "url": "https://github.com/ActiveInferenceInstitute/action-oriented",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "unclassified"
+      ],
+      "summary": "Repository for \"Learning action-oriented models through active inference\"",
+      "description": "Repository for \"Learning action-oriented models through active inference\"",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2021-08-29T20:21:57Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 103,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-active-inference-ontology",
+      "name": "Active_Inference_Ontology",
+      "fullName": "ActiveInferenceInstitute/Active_Inference_Ontology",
+      "url": "https://github.com/ActiveInferenceInstitute/Active_Inference_Ontology",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "unclassified"
+      ],
+      "summary": "Public Active_Inference_Ontology repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Unspecified",
+      "stars": 14,
+      "updatedAt": "2026-05-18T14:25:53Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 104,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-activeblockference",
+      "name": "ActiveBlockference",
+      "fullName": "ActiveInferenceInstitute/ActiveBlockference",
+      "url": "https://github.com/ActiveInferenceInstitute/ActiveBlockference",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "jupyter-notebook"
+      ],
+      "summary": "Public ActiveBlockference repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Jupyter Notebook",
+      "stars": 33,
+      "updatedAt": "2026-05-27T20:44:48Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 105,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-activeinferants",
+      "name": "ActiveInferAnts",
+      "fullName": "ActiveInferenceInstitute/ActiveInferAnts",
+      "url": "https://github.com/ActiveInferenceInstitute/ActiveInferAnts",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "python"
+      ],
+      "summary": "Active Inference models of/for Ants",
+      "description": "Active Inference models of/for Ants",
+      "language": "Python",
+      "stars": 29,
+      "updatedAt": "2026-05-18T14:26:07Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 106,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-activeinferencecategorytheory",
+      "name": "ActiveInferenceCategoryTheory",
+      "fullName": "ActiveInferenceInstitute/ActiveInferenceCategoryTheory",
+      "url": "https://github.com/ActiveInferenceInstitute/ActiveInferenceCategoryTheory",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "unclassified"
+      ],
+      "summary": "Active Inference & Category Theory",
+      "description": "Active Inference & Category Theory",
+      "language": "Unspecified",
+      "stars": 10,
+      "updatedAt": "2025-02-03T16:45:08Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 107,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-activeinferenceimplementations",
+      "name": "ActiveInferenceImplementations",
+      "fullName": "ActiveInferenceInstitute/ActiveInferenceImplementations",
+      "url": "https://github.com/ActiveInferenceInstitute/ActiveInferenceImplementations",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "jupyter-notebook"
+      ],
+      "summary": "For learning and exploring Probabilistic Inference",
+      "description": "For learning and exploring Probabilistic Inference",
+      "language": "Jupyter Notebook",
+      "stars": 0,
+      "updatedAt": "2024-09-21T09:03:24Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 108,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-activeinferencejournal",
+      "name": "ActiveInferenceJournal",
+      "fullName": "ActiveInferenceInstitute/ActiveInferenceJournal",
+      "url": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "html"
+      ],
+      "summary": "Content of the Active Inference Journal",
+      "description": "Content of the Active Inference Journal",
+      "language": "HTML",
+      "stars": 43,
+      "updatedAt": "2026-05-25T11:33:09Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 109,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-aeos",
+      "name": "AEOS",
+      "fullName": "ActiveInferenceInstitute/AEOS",
+      "url": "https://github.com/ActiveInferenceInstitute/AEOS",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "unclassified"
+      ],
+      "summary": "Active Entity Ontology for Science ",
+      "description": "Active Entity Ontology for Science ",
+      "language": "Unspecified",
+      "stars": 8,
+      "updatedAt": "2025-05-27T08:14:04Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 110,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-aii-org",
+      "name": "aii-org",
+      "fullName": "ActiveInferenceInstitute/aii-org",
+      "url": "https://github.com/ActiveInferenceInstitute/aii-org",
+      "type": "repository",
+      "category": "institute",
+      "audience": "newcomer",
+      "tags": [
+        "website",
+        "institute",
+        "html"
+      ],
+      "summary": "Active Inference Institute organizational website. ",
+      "description": "Active Inference Institute organizational website. ",
+      "language": "HTML",
+      "stars": 0,
+      "updatedAt": "2026-04-04T11:11:42Z",
+      "archived": false,
+      "relatedSlugs": [
+        "about"
+      ],
+      "priority": 111,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-ants",
+      "name": "ants",
+      "fullName": "ActiveInferenceInstitute/ants",
+      "url": "https://github.com/ActiveInferenceInstitute/ants",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "unclassified"
+      ],
+      "summary": "Public ants repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2021-08-29T20:21:33Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 112,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-atlas",
+      "name": "ATLAS",
+      "fullName": "ActiveInferenceInstitute/ATLAS",
+      "url": "https://github.com/ActiveInferenceInstitute/ATLAS",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "unclassified"
+      ],
+      "summary": "ATLAS ",
+      "description": "ATLAS ",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2024-08-21T20:33:44Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 113,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-biofirm",
+      "name": "Biofirm",
+      "fullName": "ActiveInferenceInstitute/Biofirm",
+      "url": "https://github.com/ActiveInferenceInstitute/Biofirm",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "python"
+      ],
+      "summary": "Public Biofirm repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Python",
+      "stars": 5,
+      "updatedAt": "2025-06-15T22:34:50Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 114,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-bots",
+      "name": "Bots",
+      "fullName": "ActiveInferenceInstitute/Bots",
+      "url": "https://github.com/ActiveInferenceInstitute/Bots",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "unclassified"
+      ],
+      "summary": "Public Bots repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2022-12-31T19:59:14Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 115,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-cerebrum",
+      "name": "CEREBRUM",
+      "fullName": "ActiveInferenceInstitute/CEREBRUM",
+      "url": "https://github.com/ActiveInferenceInstitute/CEREBRUM",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "python"
+      ],
+      "summary": "CEREBRUM: Case-Enabled Reasoning Engine with Bayesian Representations for Unified Modeling",
+      "description": "CEREBRUM: Case-Enabled Reasoning Engine with Bayesian Representations for Unified Modeling",
+      "language": "Python",
+      "stars": 13,
+      "updatedAt": "2026-06-09T01:43:12Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 116,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-cognitive",
+      "name": "cognitive",
+      "fullName": "ActiveInferenceInstitute/cognitive",
+      "url": "https://github.com/ActiveInferenceInstitute/cognitive",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "python"
+      ],
+      "summary": "Public cognitive repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Python",
+      "stars": 18,
+      "updatedAt": "2026-03-09T18:48:08Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 117,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-courses",
+      "name": "courses",
+      "fullName": "ActiveInferenceInstitute/courses",
+      "url": "https://github.com/ActiveInferenceInstitute/courses",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "html"
+      ],
+      "summary": "Courses for learning Active Inference",
+      "description": "Courses for learning Active Inference",
+      "language": "HTML",
+      "stars": 10,
+      "updatedAt": "2026-05-18T14:26:32Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 118,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-deepactiveinference",
+      "name": "DeepActiveInference",
+      "fullName": "ActiveInferenceInstitute/DeepActiveInference",
+      "url": "https://github.com/ActiveInferenceInstitute/DeepActiveInference",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "unclassified"
+      ],
+      "summary": "Code for the paper Deep Active Inference as Variational Policy Gradients.",
+      "description": "Code for the paper Deep Active Inference as Variational Policy Gradients.",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2021-08-29T20:23:59Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 119,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-entropix",
+      "name": "entropix",
+      "fullName": "ActiveInferenceInstitute/entropix",
+      "url": "https://github.com/ActiveInferenceInstitute/entropix",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "unclassified"
+      ],
+      "summary": "Entropy Based Sampling and Parallel CoT Decoding ",
+      "description": "Entropy Based Sampling and Parallel CoT Decoding ",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2024-10-07T21:29:04Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 120,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-fabric",
+      "name": "fabric",
+      "fullName": "ActiveInferenceInstitute/fabric",
+      "url": "https://github.com/ActiveInferenceInstitute/fabric",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "go"
+      ],
+      "summary": "fabric is an open-source framework for augmenting humans using AI. It provides a modular framework for solving specific problems using a crowdsourced set of AI prompts that can be used anywhere.",
+      "description": "fabric is an open-source framework for augmenting humans using AI. It provides a modular framework for solving specific problems using a crowdsourced set of AI prompts that can be used anywhere.",
+      "language": "Go",
+      "stars": 0,
+      "updatedAt": "2024-10-03T01:33:10Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 121,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-fep-active-inference-papers",
+      "name": "FEP_Active_Inference_Papers",
+      "fullName": "ActiveInferenceInstitute/FEP_Active_Inference_Papers",
+      "url": "https://github.com/ActiveInferenceInstitute/FEP_Active_Inference_Papers",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "unclassified"
+      ],
+      "summary": "A repository for major/influential FEP and active inference papers.",
+      "description": "A repository for major/influential FEP and active inference papers.",
+      "language": "Unspecified",
+      "stars": 1,
+      "updatedAt": "2025-11-02T02:14:16Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 122,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-fep-lean",
+      "name": "fep_lean",
+      "fullName": "ActiveInferenceInstitute/fep_lean",
+      "url": "https://github.com/ActiveInferenceInstitute/fep_lean",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "python"
+      ],
+      "summary": "Public fep_lean repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Python",
+      "stars": 3,
+      "updatedAt": "2026-04-27T04:46:06Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 123,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-feps",
+      "name": "FEPS",
+      "fullName": "ActiveInferenceInstitute/FEPS",
+      "url": "https://github.com/ActiveInferenceInstitute/FEPS",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "unclassified"
+      ],
+      "summary": "Public FEPS repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2025-01-14T16:39:57Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 124,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-flowise",
+      "name": "Flowise",
+      "fullName": "ActiveInferenceInstitute/Flowise",
+      "url": "https://github.com/ActiveInferenceInstitute/Flowise",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "unclassified"
+      ],
+      "summary": "Drag & drop UI to build your customized LLM flow",
+      "description": "Drag & drop UI to build your customized LLM flow",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2024-11-02T00:02:12Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 125,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-fundamentals",
+      "name": "fundamentals",
+      "fullName": "ActiveInferenceInstitute/fundamentals",
+      "url": "https://github.com/ActiveInferenceInstitute/fundamentals",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "python"
+      ],
+      "summary": "Unofficial repo for materials and code related to \"Fundamentals of Active Inference\" (Namjoshi 2026). ",
+      "description": "Unofficial repo for materials and code related to \"Fundamentals of Active Inference\" (Namjoshi 2026). ",
+      "language": "Python",
+      "stars": 19,
+      "updatedAt": "2026-06-05T16:05:25Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 126,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-garden-of-iris",
+      "name": "Garden-of-Iris",
+      "fullName": "ActiveInferenceInstitute/Garden-of-Iris",
+      "url": "https://github.com/ActiveInferenceInstitute/Garden-of-Iris",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "unclassified"
+      ],
+      "summary": "Public Garden-of-Iris repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2023-04-15T17:32:18Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 127,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-gen24",
+      "name": "GEN24",
+      "fullName": "ActiveInferenceInstitute/GEN24",
+      "url": "https://github.com/ActiveInferenceInstitute/GEN24",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "jupyter-notebook"
+      ],
+      "summary": "Working/Exploring branch for GEN-24 project https://coda.io/d/Active-Blockference_dIvNESFmyj6/GEN-24_su2DYdSx#_luRI0xVN",
+      "description": "Working/Exploring branch for GEN-24 project https://coda.io/d/Active-Blockference_dIvNESFmyj6/GEN-24_su2DYdSx#_luRI0xVN",
+      "language": "Jupyter Notebook",
+      "stars": 1,
+      "updatedAt": "2024-10-27T12:28:29Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 128,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-gen25",
+      "name": "gen25",
+      "fullName": "ActiveInferenceInstitute/gen25",
+      "url": "https://github.com/ActiveInferenceInstitute/gen25",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "unclassified"
+      ],
+      "summary": "Public gen25 repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2025-03-14T16:00:43Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 129,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-generalizednotationnotation",
+      "name": "GeneralizedNotationNotation",
+      "fullName": "ActiveInferenceInstitute/GeneralizedNotationNotation",
+      "url": "https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "pkl"
+      ],
+      "summary": "Public GeneralizedNotationNotation repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Pkl",
+      "stars": 24,
+      "updatedAt": "2026-05-25T17:03:46Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 130,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-generative-agents",
+      "name": "generative_agents",
+      "fullName": "ActiveInferenceInstitute/generative_agents",
+      "url": "https://github.com/ActiveInferenceInstitute/generative_agents",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "unclassified"
+      ],
+      "summary": "Generative Agents: Interactive Simulacra of Human Behavior",
+      "description": "Generative Agents: Interactive Simulacra of Human Behavior",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2023-08-15T00:55:12Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 131,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-genesis",
+      "name": "Genesis",
+      "fullName": "ActiveInferenceInstitute/Genesis",
+      "url": "https://github.com/ActiveInferenceInstitute/Genesis",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "unclassified"
+      ],
+      "summary": "A generative world for general-purpose robotics & embodied AI learning.",
+      "description": "A generative world for general-purpose robotics & embodied AI learning.",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2025-03-10T19:26:35Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 132,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-geo-infer",
+      "name": "GEO-INFER",
+      "fullName": "ActiveInferenceInstitute/GEO-INFER",
+      "url": "https://github.com/ActiveInferenceInstitute/GEO-INFER",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "html"
+      ],
+      "summary": "Public GEO-INFER repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "HTML",
+      "stars": 11,
+      "updatedAt": "2026-05-26T10:54:42Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 133,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-gnn",
+      "name": "gnn",
+      "fullName": "ActiveInferenceInstitute/gnn",
+      "url": "https://github.com/ActiveInferenceInstitute/gnn",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "unclassified"
+      ],
+      "summary": "generalized notation notation",
+      "description": "generalized notation notation",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2025-05-13T16:39:10Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 134,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-institute-website",
+      "name": "institute_website",
+      "fullName": "ActiveInferenceInstitute/institute_website",
+      "url": "https://github.com/ActiveInferenceInstitute/institute_website",
+      "type": "repository",
+      "category": "institute",
+      "audience": "newcomer",
+      "tags": [
+        "website",
+        "institute",
+        "html"
+      ],
+      "summary": "Public institute_website repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "HTML",
+      "stars": 0,
+      "updatedAt": "2026-06-09T00:57:24Z",
+      "archived": false,
+      "relatedSlugs": [
+        "about"
+      ],
+      "priority": 135,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-isss",
+      "name": "ISSS",
+      "fullName": "ActiveInferenceInstitute/ISSS",
+      "url": "https://github.com/ActiveInferenceInstitute/ISSS",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "python"
+      ],
+      "summary": "ISSS",
+      "description": "ISSS",
+      "language": "Python",
+      "stars": 0,
+      "updatedAt": "2024-03-22T16:48:01Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 136,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-jock-lang",
+      "name": "jock-lang",
+      "fullName": "ActiveInferenceInstitute/jock-lang",
+      "url": "https://github.com/ActiveInferenceInstitute/jock-lang",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "unclassified"
+      ],
+      "summary": "A simple scripting language that compiles to Nock.",
+      "description": "A simple scripting language that compiles to Nock.",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2026-06-08T17:02:25Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 137,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-journal-utilities",
+      "name": "Journal-Utilities",
+      "fullName": "ActiveInferenceInstitute/Journal-Utilities",
+      "url": "https://github.com/ActiveInferenceInstitute/Journal-Utilities",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "html"
+      ],
+      "summary": "Utilities and Documentation for creating contents for the Active Inference Journal",
+      "description": "Utilities and Documentation for creating contents for the Active Inference Journal",
+      "language": "HTML",
+      "stars": 11,
+      "updatedAt": "2026-02-21T11:19:16Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 138,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-knowledge-engineering",
+      "name": "Knowledge-Engineering",
+      "fullName": "ActiveInferenceInstitute/Knowledge-Engineering",
+      "url": "https://github.com/ActiveInferenceInstitute/Knowledge-Engineering",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "jupyter-notebook"
+      ],
+      "summary": "Public Knowledge-Engineering repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Jupyter Notebook",
+      "stars": 5,
+      "updatedAt": "2026-05-29T03:07:26Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 139,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-metta",
+      "name": "metta",
+      "fullName": "ActiveInferenceInstitute/metta",
+      "url": "https://github.com/ActiveInferenceInstitute/metta",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "unclassified"
+      ],
+      "summary": "A reinforcement learning codebase focusing on the emergence of cooperation and alignment in multi-agent AI systems.",
+      "description": "A reinforcement learning codebase focusing on the emergence of cooperation and alignment in multi-agent AI systems.",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2024-10-23T16:29:41Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 140,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-noorg",
+      "name": "NoOrg",
+      "fullName": "ActiveInferenceInstitute/NoOrg",
+      "url": "https://github.com/ActiveInferenceInstitute/NoOrg",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "html"
+      ],
+      "summary": "NoOrg is a Real Org",
+      "description": "NoOrg is a Real Org",
+      "language": "HTML",
+      "stars": 1,
+      "updatedAt": "2026-01-31T16:18:01Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 141,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-parr-et-al-2022-actinf-textbook",
+      "name": "Parr_et_al_2022_ActInf_Textbook",
+      "fullName": "ActiveInferenceInstitute/Parr_et_al_2022_ActInf_Textbook",
+      "url": "https://github.com/ActiveInferenceInstitute/Parr_et_al_2022_ActInf_Textbook",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "julia"
+      ],
+      "summary": "Active Inference Textbook Group",
+      "description": "Active Inference Textbook Group",
+      "language": "Julia",
+      "stars": 6,
+      "updatedAt": "2024-07-24T15:26:37Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 142,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-policy-entanglement",
+      "name": "policy_entanglement",
+      "fullName": "ActiveInferenceInstitute/policy_entanglement",
+      "url": "https://github.com/ActiveInferenceInstitute/policy_entanglement",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "python"
+      ],
+      "summary": "Policy Entanglement in Active Inference v1.0.0",
+      "description": "Policy Entanglement in Active Inference v1.0.0",
+      "language": "Python",
+      "stars": 1,
+      "updatedAt": "2026-05-30T05:04:34Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 143,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-pymcp",
+      "name": "pymcp",
+      "fullName": "ActiveInferenceInstitute/pymcp",
+      "url": "https://github.com/ActiveInferenceInstitute/pymcp",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "python"
+      ],
+      "summary": "PyMCP -- MCP for PyMDP",
+      "description": "PyMCP -- MCP for PyMDP",
+      "language": "Python",
+      "stars": 2,
+      "updatedAt": "2025-07-28T06:19:15Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 144,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-pymdp",
+      "name": "pymdp",
+      "fullName": "ActiveInferenceInstitute/pymdp",
+      "url": "https://github.com/ActiveInferenceInstitute/pymdp",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "python"
+      ],
+      "summary": "A Python implementation of active inference for Markov Decision Processes",
+      "description": "A Python implementation of active inference for Markov Decision Processes",
+      "language": "Python",
+      "stars": 2,
+      "updatedAt": "2024-11-09T20:10:38Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 145,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-research-discovery-engine",
+      "name": "Research-Discovery-Engine",
+      "fullName": "ActiveInferenceInstitute/Research-Discovery-Engine",
+      "url": "https://github.com/ActiveInferenceInstitute/Research-Discovery-Engine",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "html"
+      ],
+      "summary": "Public Research-Discovery-Engine repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "HTML",
+      "stars": 6,
+      "updatedAt": "2025-12-15T11:09:27Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 146,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-rl-inference",
+      "name": "rl-inference",
+      "fullName": "ActiveInferenceInstitute/rl-inference",
+      "url": "https://github.com/ActiveInferenceInstitute/rl-inference",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "unclassified"
+      ],
+      "summary": "Reinforcement Learning through Active Inference",
+      "description": "Reinforcement Learning through Active Inference",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2021-08-29T20:21:45Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 147,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-start",
+      "name": "Start",
+      "fullName": "ActiveInferenceInstitute/Start",
+      "url": "https://github.com/ActiveInferenceInstitute/Start",
+      "type": "repository",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "implementation",
+        "python"
+      ],
+      "summary": "Public Start repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Python",
+      "stars": 5,
+      "updatedAt": "2026-01-19T12:05:46Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 148,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-symposium",
+      "name": "Symposium",
+      "fullName": "ActiveInferenceInstitute/Symposium",
+      "url": "https://github.com/ActiveInferenceInstitute/Symposium",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "project",
+        "repository",
+        "python"
+      ],
+      "summary": "Public Symposium repository in the ActiveInferenceInstitute GitHub namespace.",
+      "description": "",
+      "language": "Python",
+      "stars": 12,
+      "updatedAt": "2026-03-18T01:56:27Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 149,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-topp",
+      "name": "topp",
+      "fullName": "ActiveInferenceInstitute/topp",
+      "url": "https://github.com/ActiveInferenceInstitute/topp",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "unclassified"
+      ],
+      "summary": "The Open Problems Project",
+      "description": "The Open Problems Project",
+      "language": "Unspecified",
+      "stars": 0,
+      "updatedAt": "2025-05-19T22:59:50Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 150,
+      "promoted": true
+    },
+    {
+      "sourceId": "repo-ultralink",
+      "name": "ultralink",
+      "fullName": "ActiveInferenceInstitute/ultralink",
+      "url": "https://github.com/ActiveInferenceInstitute/ultralink",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "repository",
+        "unclassified"
+      ],
+      "summary": "Framework for Linking, Rendering, and More",
+      "description": "Framework for Linking, Rendering, and More",
+      "language": "Unspecified",
+      "stars": 1,
+      "updatedAt": "2025-03-11T21:01:20Z",
+      "archived": false,
+      "relatedSlugs": [
+        "projects",
+        "ecosystem"
+      ],
+      "priority": 151,
+      "promoted": true
+    }
+  ]
+}

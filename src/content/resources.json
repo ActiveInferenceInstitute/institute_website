@@ -1,18 +1,70 @@
 {
+  "description": "Curated public resources and research references. Official pages and repositories live in their own registries and are merged at build time.",
+  "types": [
+    {
+      "id": "community",
+      "label": "Community"
+    },
+    {
+      "id": "learning",
+      "label": "Learning"
+    },
+    {
+      "id": "media",
+      "label": "Media"
+    },
+    {
+      "id": "official",
+      "label": "Official page"
+    },
+    {
+      "id": "repository",
+      "label": "Repository"
+    },
+    {
+      "id": "research",
+      "label": "Research"
+    },
+    {
+      "id": "social",
+      "label": "Social"
+    },
+    {
+      "id": "support",
+      "label": "Support"
+    }
+  ],
   "categories": [
     {
       "id": "community",
       "label": "Community",
-      "description": "Join public discussion, attend recurring updates, and find a low-friction entry point.",
+      "description": "Public discussion, recurring updates, and low-friction entry points.",
       "relatedSlugs": [
         "get-involved",
         "activities"
       ]
     },
     {
+      "id": "governance",
+      "label": "Governance",
+      "description": "Board, officer, advisory, history, and institutional stewardship pages.",
+      "relatedSlugs": [
+        "about"
+      ]
+    },
+    {
+      "id": "institute",
+      "label": "Institute",
+      "description": "Official institutional context and website surfaces.",
+      "relatedSlugs": [
+        "about",
+        "ecosystem"
+      ]
+    },
+    {
       "id": "learning",
       "label": "Learning",
-      "description": "Start with learning repositories, public study material, and recurring education sessions.",
+      "description": "Courses, study groups, introductory material, and implementation learning paths.",
       "relatedSlugs": [
         "learning",
         "active-inference"
@@ -21,16 +73,25 @@
     {
       "id": "media",
       "label": "Media",
-      "description": "Watch, listen, and review public recordings, streams, podcasts, and interviews.",
+      "description": "Public recordings, livestreams, podcasts, and media indices.",
       "relatedSlugs": [
         "activities",
         "learning"
       ]
     },
     {
+      "id": "participation",
+      "label": "Participation",
+      "description": "Volunteer, internship, fellowship, and contribution pathways.",
+      "relatedSlugs": [
+        "get-involved",
+        "programs"
+      ]
+    },
+    {
       "id": "projects",
       "label": "Projects",
-      "description": "Browse open repositories and project surfaces connected to Institute work.",
+      "description": "Open repositories, project pages, measurement, and applied work.",
       "relatedSlugs": [
         "projects",
         "ecosystem"
@@ -39,201 +100,708 @@
     {
       "id": "research",
       "label": "Research",
-      "description": "Use shared research and ecosystem references to orient deeper work.",
+      "description": "Research pages, references, repositories, and papers.",
       "relatedSlugs": [
-        "active-inference",
+        "learning",
         "ecosystem"
+      ]
+    },
+    {
+      "id": "social",
+      "label": "Social",
+      "description": "Public social channels.",
+      "relatedSlugs": [
+        "get-involved",
+        "about"
       ]
     },
     {
       "id": "support",
       "label": "Support",
-      "description": "Support public education, research infrastructure, events, and ecosystem stewardship.",
+      "description": "Donation, partnership, and support routes.",
       "relatedSlugs": [
         "programs",
         "get-involved"
       ]
     },
     {
-      "id": "social",
-      "label": "Social",
-      "description": "Follow public social channels for signals from the Institute and community.",
+      "id": "tools",
+      "label": "Tools",
+      "description": "Implementation tools, software surfaces, and technical learning resources.",
       "relatedSlugs": [
-        "get-involved",
-        "about"
+        "projects",
+        "learning"
       ]
+    }
+  ],
+  "audiences": [
+    {
+      "id": "newcomer",
+      "label": "Newcomer"
+    },
+    {
+      "id": "learner",
+      "label": "Learner"
+    },
+    {
+      "id": "contributor",
+      "label": "Contributor"
+    },
+    {
+      "id": "developer",
+      "label": "Developer"
+    },
+    {
+      "id": "researcher",
+      "label": "Researcher"
+    },
+    {
+      "id": "governance",
+      "label": "Governance"
+    },
+    {
+      "id": "partner",
+      "label": "Partner"
+    },
+    {
+      "id": "supporter",
+      "label": "Supporter"
     }
   ],
   "resources": [
     {
       "sourceId": "discord",
+      "type": "community",
       "category": "community",
+      "audience": "newcomer",
+      "tags": [
+        "community",
+        "community",
+        "discord"
+      ],
       "summary": "Primary public community channel for conversation, coordination, and newcomer orientation.",
       "relatedSlugs": [
         "get-involved",
         "activities"
       ],
+      "priority": 1,
+      "promoted": true,
       "featured": true
     },
     {
       "sourceId": "weekly",
+      "type": "community",
       "category": "community",
+      "audience": "newcomer",
+      "tags": [
+        "community",
+        "community",
+        "weekly"
+      ],
       "summary": "Recurring public update surface for activity orientation and current work.",
       "relatedSlugs": [
         "activities",
         "get-involved"
       ],
+      "priority": 2,
+      "promoted": true,
       "featured": true
     },
     {
       "sourceId": "start-repo",
+      "type": "learning",
       "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "learning",
+        "learning",
+        "start-repo"
+      ],
       "summary": "Learning repository for getting started with Active Inference materials and pathways.",
       "relatedSlugs": [
         "learning",
         "active-inference"
       ],
+      "priority": 3,
+      "promoted": true,
       "featured": true
     },
     {
       "sourceId": "ecosystem",
+      "type": "research",
       "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "research",
+        "ecosystem"
+      ],
       "summary": "Living public map of the Institute, ecosystem, activities, and conceptual context.",
       "relatedSlugs": [
         "about",
         "ecosystem"
       ],
+      "priority": 4,
+      "promoted": true,
       "featured": true
     },
     {
       "sourceId": "youtube",
+      "type": "media",
       "category": "media",
+      "audience": "newcomer",
+      "tags": [
+        "media",
+        "media",
+        "youtube"
+      ],
       "summary": "Public video channel for seminars, streams, educational sessions, and community recordings.",
       "relatedSlugs": [
         "learning",
         "activities"
       ],
+      "priority": 5,
+      "promoted": true,
       "featured": true
     },
     {
       "sourceId": "youtube-handle",
+      "type": "media",
       "category": "media",
+      "audience": "newcomer",
+      "tags": [
+        "media",
+        "media",
+        "youtube-handle"
+      ],
       "summary": "Direct handle for the public YouTube presence.",
       "relatedSlugs": [
         "activities",
         "learning"
-      ]
+      ],
+      "priority": 6,
+      "promoted": true,
+      "featured": false
     },
     {
       "sourceId": "video",
+      "type": "media",
       "category": "media",
+      "audience": "newcomer",
+      "tags": [
+        "media",
+        "media",
+        "video"
+      ],
       "summary": "Index of public videos and podcasts for browsing by format and topic.",
       "relatedSlugs": [
         "activities",
         "learning"
       ],
+      "priority": 7,
+      "promoted": true,
       "featured": true
     },
     {
       "sourceId": "podbean",
+      "type": "media",
       "category": "media",
+      "audience": "newcomer",
+      "tags": [
+        "media",
+        "media",
+        "podbean"
+      ],
       "summary": "Podcast destination for Active Inference conversations and interviews.",
       "relatedSlugs": [
         "learning",
         "activities"
-      ]
+      ],
+      "priority": 8,
+      "promoted": true,
+      "featured": false
     },
     {
       "sourceId": "github-org",
+      "type": "repository",
       "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "projects",
+        "projects",
+        "github-org"
+      ],
       "summary": "Public GitHub organization for Institute repositories and open-source work.",
       "relatedSlugs": [
         "projects",
         "programs"
       ],
+      "priority": 9,
+      "promoted": true,
       "featured": true
     },
     {
       "sourceId": "active-inferants",
+      "type": "repository",
       "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "projects",
+        "projects",
+        "active-inferants"
+      ],
       "summary": "Project repository for multiagent Active Inference modeling work.",
       "relatedSlugs": [
         "projects",
         "ecosystem"
-      ]
+      ],
+      "priority": 10,
+      "promoted": true,
+      "featured": false
     },
     {
       "sourceId": "gnn",
+      "type": "repository",
       "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "projects",
+        "projects",
+        "gnn"
+      ],
       "summary": "Generalized Notation Notation project repository for model communication.",
       "relatedSlugs": [
         "projects",
         "learning"
-      ]
+      ],
+      "priority": 11,
+      "promoted": true,
+      "featured": false
     },
     {
       "sourceId": "geo-infer",
+      "type": "repository",
       "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "projects",
+        "projects",
+        "geo-infer"
+      ],
       "summary": "Geospatial modeling repository connected to ecological and bioregional applications.",
       "relatedSlugs": [
         "projects",
         "ecosystem"
-      ]
+      ],
+      "priority": 12,
+      "promoted": true,
+      "featured": false
     },
     {
       "sourceId": "journal",
+      "type": "research",
       "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "research",
+        "journal"
+      ],
       "summary": "Research and publication-oriented repository for the Active Inference Journal.",
       "relatedSlugs": [
         "projects",
         "learning"
-      ]
+      ],
+      "priority": 13,
+      "promoted": true,
+      "featured": false
     },
     {
       "sourceId": "donate",
+      "type": "support",
       "category": "support",
+      "audience": "supporter",
+      "tags": [
+        "support",
+        "support",
+        "donate"
+      ],
       "summary": "Donation pathway for supporting public education, events, infrastructure, and stewardship.",
       "relatedSlugs": [
         "get-involved",
         "programs"
       ],
+      "priority": 14,
+      "promoted": true,
       "featured": true
     },
     {
       "sourceId": "x",
+      "type": "social",
       "category": "social",
+      "audience": "newcomer",
+      "tags": [
+        "social",
+        "social",
+        "x"
+      ],
       "summary": "Public short-form update channel.",
       "relatedSlugs": [
         "get-involved",
         "about"
-      ]
+      ],
+      "priority": 15,
+      "promoted": true,
+      "featured": false
     },
     {
       "sourceId": "bluesky",
+      "type": "social",
       "category": "social",
+      "audience": "newcomer",
+      "tags": [
+        "social",
+        "social",
+        "bluesky"
+      ],
       "summary": "Public social profile for community updates.",
       "relatedSlugs": [
         "get-involved",
         "about"
-      ]
+      ],
+      "priority": 16,
+      "promoted": true,
+      "featured": false
     },
     {
       "sourceId": "facebook",
+      "type": "social",
       "category": "social",
+      "audience": "newcomer",
+      "tags": [
+        "social",
+        "social",
+        "facebook"
+      ],
       "summary": "Public social page for Institute visibility.",
       "relatedSlugs": [
         "get-involved",
         "about"
-      ]
+      ],
+      "priority": 17,
+      "promoted": true,
+      "featured": false
     },
     {
       "sourceId": "linkedin",
+      "type": "social",
       "category": "social",
+      "audience": "newcomer",
+      "tags": [
+        "social",
+        "social",
+        "linkedin"
+      ],
       "summary": "Public organization profile for professional updates.",
       "relatedSlugs": [
         "get-involved",
         "programs"
-      ]
+      ],
+      "priority": 18,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "learning-live-intro",
+      "type": "media",
+      "category": "learning",
+      "audience": "learner",
+      "tags": [
+        "video",
+        "intro",
+        "learning"
+      ],
+      "summary": "Public livestream surfaced from the official site.",
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 40,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "learning-beren-papers",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "papers",
+        "research",
+        "fep"
+      ],
+      "summary": "External paper repository surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 41,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "learning-ramstead-precis",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "arxiv",
+        "research",
+        "active-inference"
+      ],
+      "summary": "Reachable arXiv reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 42,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "learning-foundations-arxiv",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "arxiv",
+        "research",
+        "foundations"
+      ],
+      "summary": "Reachable arXiv reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 43,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "research-zenodo-4021163",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "zenodo",
+        "research"
+      ],
+      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 44,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "research-zenodo-5573287",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "zenodo",
+        "research"
+      ],
+      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 45,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "research-zenodo-5759807",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "zenodo",
+        "research"
+      ],
+      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 46,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "research-zenodo-5797041",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "zenodo",
+        "research"
+      ],
+      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 47,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "research-zenodo-7377256",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "zenodo",
+        "research"
+      ],
+      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 48,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "research-zenodo-7443848",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "zenodo",
+        "research"
+      ],
+      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 49,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "research-zenodo-7449368",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "zenodo",
+        "research"
+      ],
+      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 50,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "research-zenodo-7484994",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "zenodo",
+        "research"
+      ],
+      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 51,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "research-zenodo-7803328",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "zenodo",
+        "research"
+      ],
+      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 52,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "research-zenodo-8164667",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "zenodo",
+        "research"
+      ],
+      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 53,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "research-zenodo-8266281",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "zenodo",
+        "research"
+      ],
+      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 54,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "learning-active-inference-book-mit",
+      "type": "research",
+      "category": "research",
+      "audience": "learner",
+      "tags": [
+        "book",
+        "research"
+      ],
+      "summary": "Known official-site learning reference that is recorded but not promoted because current automated verification receives a restricted response.",
+      "relatedSlugs": [
+        "learning",
+        "active-inference"
+      ],
+      "priority": 60,
+      "promoted": false,
+      "featured": false
     }
   ]
 }
