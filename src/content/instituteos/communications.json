@@ -1,0 +1,42 @@
+{
+  "description": "Public-safe approved communications derived from InstituteOS communications.",
+  "records": [
+    {
+      "author": "Active Inference Institute",
+      "date": "2026-03-04",
+      "id": "weekly-announcement-2026-w10",
+      "language": "en",
+      "referenceNumber": "AII-WA-2026-W10",
+      "title": "Active Inference Institute — Weekly Update #10",
+      "type": "announcement"
+    },
+    {
+      "author": "Active Inference Institute",
+      "date": "2026-03-01",
+      "id": "monthly-newsletter-2026-03",
+      "language": "en",
+      "referenceNumber": "AII-NL-2026-03",
+      "title": "Active Inference Institute — March 2026 Newsletter",
+      "type": "newsletter"
+    },
+    {
+      "author": "Active Inference Institute",
+      "date": "2026-01-15",
+      "id": "annual-review-2025",
+      "language": "en",
+      "referenceNumber": "AII-AR-2025",
+      "title": "Active Inference Institute — 2025 Annual Review",
+      "type": "report"
+    },
+    {
+      "author": "Active Inference Institute",
+      "date": "2026-01-01",
+      "id": "annual-preview-2026",
+      "language": "en",
+      "referenceNumber": "AII-AP-2026",
+      "title": "Active Inference Institute — 2026 Annual Preview & Strategic Plan",
+      "type": "report"
+    }
+  ],
+  "source": "instituteos/library/registries/communications.json"
+}

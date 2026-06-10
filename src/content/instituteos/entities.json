@@ -1,0 +1,998 @@
+{
+  "description": "Public-safe people and organizations derived from InstituteOS entities.",
+  "organizations": [
+    {
+      "description": "The parent 501(c)(3) nonprofit organisation. Incorporated in Delaware, headquartered in California. Operates three program units: EduActive, ReInference, and Administrative.",
+      "id": "active-inference-institute",
+      "memberIds": [
+        "daniel-friedman",
+        "board-vice-president",
+        "board-secretary",
+        "communications-lead",
+        "esg-coordinator"
+      ],
+      "name": "Active Inference Institute, Inc.",
+      "parentId": null,
+      "tags": [
+        "parent",
+        "nonprofit",
+        "501c3"
+      ],
+      "type": "internal_unit",
+      "url": "https://activeinference.org"
+    },
+    {
+      "description": "Operational unit responsible for governance, finance, HR, IT infrastructure, and operational support across all Institute activities.",
+      "id": "administrative-unit",
+      "memberIds": [
+        "compliance-officer",
+        "data-protection-officer",
+        "hr-lead",
+        "it-security-lead",
+        "procurement-manager"
+      ],
+      "name": "Administrative Unit",
+      "parentId": "active-inference-institute",
+      "tags": [
+        "operations",
+        "administration",
+        "support"
+      ],
+      "type": "internal_unit",
+      "url": null
+    },
+    {
+      "description": "Certificate Training Department — operates the Active Inference certificate programs (Theories 1–5 and field-specific tracks), curriculum and textbook development, teacher training, and course certification liaison with the accrediting body.",
+      "id": "aii-certificate-training-department",
+      "memberIds": [
+        "eduactive-director"
+      ],
+      "name": "AII Certificate Training Department",
+      "parentId": "active-inference-institute",
+      "tags": [
+        "strategy",
+        "education",
+        "certification",
+        "revenue",
+        "department"
+      ],
+      "type": "internal_unit",
+      "url": null
+    },
+    {
+      "description": "Consultancy Services Department — recruits qualified Active Inference consultants (often drawn from certificate graduates), manages client onboarding and engagement, and delivers consulting services with Legal, Accounting, and Impact Tracking support.",
+      "id": "aii-consultancy-services-department",
+      "memberIds": [
+        "daniel-friedman"
+      ],
+      "name": "AII Consultancy Services Department",
+      "parentId": "active-inference-institute",
+      "tags": [
+        "strategy",
+        "consulting",
+        "client",
+        "revenue",
+        "department"
+      ],
+      "type": "internal_unit",
+      "url": null
+    },
+    {
+      "description": "Membership Department — manages the tiered membership program (Tier 1/2/3), member fees and perks, referral program, and flagship events (Annual Symposium, Workshops, Speaker Series) that anchor community engagement.",
+      "id": "aii-membership-department",
+      "memberIds": [
+        "communications-lead"
+      ],
+      "name": "AII Membership Department",
+      "parentId": "active-inference-institute",
+      "tags": [
+        "strategy",
+        "membership",
+        "events",
+        "revenue",
+        "department"
+      ],
+      "type": "internal_unit",
+      "url": null
+    },
+    {
+      "description": "Publishing and Data Access Department — publishes institutional outputs (journal, reports, books) and operates the datasets and database access programs (subscription and API tiers) derived from research and consulting engagements.",
+      "id": "aii-publishing-data-access-department",
+      "memberIds": [
+        "reinference-director"
+      ],
+      "name": "AII Publishing and Data Access Department",
+      "parentId": "active-inference-institute",
+      "tags": [
+        "strategy",
+        "publishing",
+        "data",
+        "api",
+        "revenue",
+        "department"
+      ],
+      "type": "internal_unit",
+      "url": null
+    },
+    {
+      "description": "The governing body responsible for strategic oversight, fiduciary duties, and policy approval. Composed of elected members serving staggered terms.",
+      "id": "board-of-directors",
+      "memberIds": [
+        "daniel-friedman",
+        "board-vice-president",
+        "board-secretary"
+      ],
+      "name": "Board of Directors",
+      "parentId": "active-inference-institute",
+      "tags": [
+        "governance",
+        "oversight",
+        "fiduciary"
+      ],
+      "type": "governing_body",
+      "url": null
+    },
+    {
+      "description": "Educational programs unit — Active Inference curriculum, livestream series, Textbook Group, and community learning initiatives.",
+      "id": "eduactive",
+      "memberIds": [
+        "eduactive-director"
+      ],
+      "name": "EduActive",
+      "parentId": "active-inference-institute",
+      "tags": [
+        "education",
+        "curriculum",
+        "learning"
+      ],
+      "type": "internal_unit",
+      "url": null
+    },
+    {
+      "description": "European Union supervisory authorities enforcing GDPR. Applicable to the Institute's interactions with EU-based researchers, community members, and event participants.",
+      "id": "eu-data-protection",
+      "memberIds": [],
+      "name": "EU Data Protection Authorities",
+      "parentId": null,
+      "tags": [
+        "eu",
+        "gdpr",
+        "privacy",
+        "regulator"
+      ],
+      "type": "regulatory",
+      "url": null
+    },
+    {
+      "description": "External standards body (TBD) that certifies the AII Certificate Programs. Placeholder entity referenced by the Strategy diagram and the certificate-training workflow until a specific accreditor is selected.",
+      "id": "accreditation-organization",
+      "memberIds": [],
+      "name": "External Accreditation Organization",
+      "parentId": null,
+      "tags": [
+        "strategy",
+        "external",
+        "accreditation",
+        "standards"
+      ],
+      "type": "standards_body",
+      "url": null
+    },
+    {
+      "description": "Primary platform for source code hosting, version control, CI/CD pipelines, and open-source collaboration. Hosts the Institute's repositories under the docxology organisation.",
+      "id": "github",
+      "memberIds": [],
+      "name": "GitHub",
+      "parentId": null,
+      "tags": [
+        "platform",
+        "code",
+        "collaboration",
+        "open-source"
+      ],
+      "type": "technology",
+      "url": "https://github.com/docxology"
+    },
+    {
+      "description": "U.S. federal agency administering tax-exempt status under IRC §501(c)(3). The Institute files Form 990 annually and must comply with IRS governance and financial reporting requirements.",
+      "id": "irs",
+      "memberIds": [],
+      "name": "Internal Revenue Service (IRS)",
+      "parentId": null,
+      "tags": [
+        "federal",
+        "tax",
+        "501c3",
+        "regulator"
+      ],
+      "type": "regulatory",
+      "url": "https://www.irs.gov"
+    },
+    {
+      "description": "Local LLM inference platform used by the institute-docs pipeline for policy analysis, summarisation, sentiment analysis, and the Governance Assistant RAG chat.",
+      "id": "ollama",
+      "memberIds": [],
+      "name": "Ollama",
+      "parentId": null,
+      "tags": [
+        "platform",
+        "ai",
+        "llm",
+        "local"
+      ],
+      "type": "technology",
+      "url": "https://ollama.ai"
+    },
+    {
+      "description": "Research programs unit — Scientific Advisory Board-guided projects, Fellowship programs, and the Active Inference Journal.",
+      "id": "reinference",
+      "memberIds": [
+        "reinference-director"
+      ],
+      "name": "ReInference",
+      "parentId": "active-inference-institute",
+      "tags": [
+        "research",
+        "science",
+        "publication"
+      ],
+      "type": "internal_unit",
+      "url": null
+    },
+    {
+      "description": "Advisory body of domain experts providing guidance on research direction, scientific standards, and academic partnerships.",
+      "id": "scientific-advisory-board",
+      "memberIds": [],
+      "name": "Scientific Advisory Board",
+      "parentId": "active-inference-institute",
+      "tags": [
+        "advisory",
+        "research",
+        "science"
+      ],
+      "type": "governing_body",
+      "url": null
+    },
+    {
+      "description": "State of operations. California laws apply to employment, privacy (CCPA), consumer protection, and charitable registration.",
+      "id": "state-of-california",
+      "memberIds": [],
+      "name": "State of California",
+      "parentId": null,
+      "tags": [
+        "state",
+        "operations",
+        "regulator",
+        "ccpa"
+      ],
+      "type": "regulatory",
+      "url": null
+    },
+    {
+      "description": "State of incorporation. The Institute is organised under Delaware nonprofit corporation law and must maintain a registered agent and file annual reports.",
+      "id": "state-of-delaware",
+      "memberIds": [],
+      "name": "State of Delaware",
+      "parentId": null,
+      "tags": [
+        "state",
+        "incorporation",
+        "regulator"
+      ],
+      "type": "regulatory",
+      "url": null
+    },
+    {
+      "description": "Video hosting platform for the Institute's educational livestreams, recorded lectures, symposium presentations, and community events.",
+      "id": "youtube",
+      "memberIds": [],
+      "name": "YouTube",
+      "parentId": null,
+      "tags": [
+        "platform",
+        "video",
+        "education",
+        "public"
+      ],
+      "type": "technology",
+      "url": "https://youtube.com/@activeinference"
+    }
+  ],
+  "people": [
+    {
+      "active": true,
+      "id": "board-secretary",
+      "name": "Board Secretary",
+      "orgId": "active-inference-institute",
+      "policyRoles": [
+        {
+          "policyId": "bylaws",
+          "role": "responsible"
+        },
+        {
+          "policyId": "document-management",
+          "role": "responsible"
+        },
+        {
+          "policyId": "records-retention-destruction",
+          "role": "accountable"
+        },
+        {
+          "policyId": "corporate-governance",
+          "role": "consulted"
+        }
+      ],
+      "roles": [
+        "Secretary",
+        "Officer"
+      ],
+      "tags": [
+        "leadership",
+        "records",
+        "governance"
+      ],
+      "title": "Secretary"
+    },
+    {
+      "active": true,
+      "id": "communications-lead",
+      "name": "Communications Lead",
+      "orgId": "active-inference-institute",
+      "policyRoles": [
+        {
+          "policyId": "marketing-communications",
+          "role": "responsible"
+        },
+        {
+          "policyId": "social-media",
+          "role": "responsible"
+        },
+        {
+          "policyId": "brand-usage",
+          "role": "responsible"
+        },
+        {
+          "policyId": "sales-ethics",
+          "role": "consulted"
+        },
+        {
+          "policyId": "marketing-communications",
+          "role": "accountable"
+        },
+        {
+          "policyId": "sales-ethics",
+          "role": "accountable"
+        },
+        {
+          "policyId": "sales-ethics",
+          "role": "responsible"
+        },
+        {
+          "policyId": "brand-usage",
+          "role": "accountable"
+        },
+        {
+          "policyId": "social-media",
+          "role": "accountable"
+        }
+      ],
+      "roles": [
+        "Communications Lead"
+      ],
+      "tags": [
+        "communications",
+        "marketing",
+        "brand"
+      ],
+      "title": "Marketing & Communications Lead"
+    },
+    {
+      "active": true,
+      "id": "compliance-officer",
+      "name": "Compliance Officer",
+      "orgId": "administrative-unit",
+      "policyRoles": [
+        {
+          "policyId": "regulatory-compliance",
+          "role": "responsible"
+        },
+        {
+          "policyId": "anti-bribery-corruption",
+          "role": "responsible"
+        },
+        {
+          "policyId": "anti-fraud",
+          "role": "responsible"
+        },
+        {
+          "policyId": "whistleblower",
+          "role": "responsible"
+        },
+        {
+          "policyId": "conflict-of-interest",
+          "role": "responsible"
+        },
+        {
+          "policyId": "code-of-conduct",
+          "role": "responsible"
+        },
+        {
+          "policyId": "code-of-conduct",
+          "role": "consulted"
+        },
+        {
+          "policyId": "privacy-policy",
+          "role": "consulted"
+        },
+        {
+          "policyId": "risk-management",
+          "role": "responsible"
+        },
+        {
+          "policyId": "whistleblower",
+          "role": "accountable"
+        },
+        {
+          "policyId": "conflict-of-interest",
+          "role": "accountable"
+        },
+        {
+          "policyId": "active-inference-policy-development-standard",
+          "role": "responsible"
+        },
+        {
+          "policyId": "meta-policy",
+          "role": "responsible"
+        },
+        {
+          "policyId": "policy-template",
+          "role": "responsible"
+        },
+        {
+          "policyId": "tiering-recommendation-packet",
+          "role": "responsible"
+        },
+        {
+          "policyId": "quality-assurance",
+          "role": "accountable"
+        },
+        {
+          "policyId": "quality-assurance",
+          "role": "responsible"
+        },
+        {
+          "policyId": "operational-procedures-sops",
+          "role": "accountable"
+        },
+        {
+          "policyId": "accessibility-policy",
+          "role": "accountable"
+        },
+        {
+          "policyId": "customer-complaints-escalation",
+          "role": "accountable"
+        },
+        {
+          "policyId": "customer-complaints-escalation",
+          "role": "responsible"
+        }
+      ],
+      "roles": [
+        "Compliance Officer"
+      ],
+      "tags": [
+        "compliance",
+        "legal",
+        "risk"
+      ],
+      "title": "Compliance Officer"
+    },
+    {
+      "active": true,
+      "id": "daniel-friedman",
+      "name": "Daniel Friedman",
+      "orgId": "active-inference-institute",
+      "policyRoles": [
+        {
+          "policyId": "bylaws",
+          "role": "approver"
+        },
+        {
+          "policyId": "code-of-conduct",
+          "role": "accountable"
+        },
+        {
+          "policyId": "corporate-governance",
+          "role": "responsible"
+        },
+        {
+          "policyId": "financial-controls",
+          "role": "responsible"
+        },
+        {
+          "policyId": "investment-policy",
+          "role": "accountable"
+        },
+        {
+          "policyId": "budgeting-forecasting",
+          "role": "responsible"
+        },
+        {
+          "policyId": "anti-fraud",
+          "role": "accountable"
+        },
+        {
+          "policyId": "financial-controls",
+          "role": "accountable"
+        },
+        {
+          "policyId": "budgeting-forecasting",
+          "role": "accountable"
+        },
+        {
+          "policyId": "investment-policy",
+          "role": "responsible"
+        },
+        {
+          "policyId": "conflict-of-interest",
+          "role": "subject"
+        },
+        {
+          "policyId": "whistleblower",
+          "role": "informed"
+        },
+        {
+          "policyId": "ai-instructions",
+          "role": "author"
+        },
+        {
+          "policyId": "bylaws",
+          "role": "accountable"
+        },
+        {
+          "policyId": "procurement",
+          "role": "accountable"
+        },
+        {
+          "policyId": "active-inference-policy-development-standard",
+          "role": "accountable"
+        },
+        {
+          "policyId": "ai-instructions",
+          "role": "accountable"
+        },
+        {
+          "policyId": "litigation-hold",
+          "role": "responsible"
+        },
+        {
+          "policyId": "environmental-sustainability",
+          "role": "accountable"
+        },
+        {
+          "policyId": "corporate-social-responsibility",
+          "role": "accountable"
+        },
+        {
+          "policyId": "expense-reimbursement",
+          "role": "accountable"
+        },
+        {
+          "policyId": "expense-reimbursement",
+          "role": "responsible"
+        },
+        {
+          "policyId": "anti-bribery-corruption",
+          "role": "accountable"
+        }
+      ],
+      "roles": [
+        "President",
+        "Treasurer",
+        "Board Member",
+        "Officer"
+      ],
+      "tags": [
+        "leadership",
+        "executive",
+        "board",
+        "finance"
+      ],
+      "title": "President & Treasurer"
+    },
+    {
+      "active": true,
+      "id": "data-protection-officer",
+      "name": "Data Protection Officer",
+      "orgId": "administrative-unit",
+      "policyRoles": [
+        {
+          "policyId": "data-protection-information-security",
+          "role": "responsible"
+        },
+        {
+          "policyId": "privacy-policy",
+          "role": "responsible"
+        },
+        {
+          "policyId": "client-data-handling",
+          "role": "responsible"
+        },
+        {
+          "policyId": "incident-response-breach",
+          "role": "responsible"
+        },
+        {
+          "policyId": "cybersecurity",
+          "role": "consulted"
+        },
+        {
+          "policyId": "data-protection-information-security",
+          "role": "accountable"
+        },
+        {
+          "policyId": "digital-accessibility-technical-policy",
+          "role": "accountable"
+        },
+        {
+          "policyId": "digital-accessibility-technical-policy",
+          "role": "responsible"
+        },
+        {
+          "policyId": "client-data-handling",
+          "role": "accountable"
+        },
+        {
+          "policyId": "privacy-policy",
+          "role": "accountable"
+        },
+        {
+          "policyId": "acceptable-use",
+          "role": "informed"
+        }
+      ],
+      "roles": [
+        "Data Protection Officer"
+      ],
+      "tags": [
+        "privacy",
+        "data",
+        "security",
+        "gdpr"
+      ],
+      "title": "Data Protection Officer (DPO)"
+    },
+    {
+      "active": true,
+      "id": "eduactive-director",
+      "name": "EduActive Director",
+      "orgId": "eduactive",
+      "policyRoles": [
+        {
+          "policyId": "training-professional-development",
+          "role": "accountable"
+        },
+        {
+          "policyId": "accessibility-policy",
+          "role": "responsible"
+        },
+        {
+          "policyId": "intellectual-property",
+          "role": "consulted"
+        },
+        {
+          "policyId": "marketing-communications",
+          "role": "consulted"
+        }
+      ],
+      "roles": [
+        "Program Director"
+      ],
+      "tags": [
+        "education",
+        "program"
+      ],
+      "title": "Director, EduActive"
+    },
+    {
+      "active": true,
+      "id": "esg-coordinator",
+      "name": "ESG Coordinator",
+      "orgId": "active-inference-institute",
+      "policyRoles": [
+        {
+          "policyId": "environmental-sustainability",
+          "role": "responsible"
+        },
+        {
+          "policyId": "corporate-social-responsibility",
+          "role": "responsible"
+        },
+        {
+          "policyId": "human-rights",
+          "role": "responsible"
+        },
+        {
+          "policyId": "eeo-policy",
+          "role": "responsible"
+        }
+      ],
+      "roles": [
+        "ESG Coordinator"
+      ],
+      "tags": [
+        "esg",
+        "sustainability",
+        "dei"
+      ],
+      "title": "Environmental, Social & Governance Coordinator"
+    },
+    {
+      "active": true,
+      "id": "hr-lead",
+      "name": "HR Lead",
+      "orgId": "administrative-unit",
+      "policyRoles": [
+        {
+          "policyId": "employee-handbook",
+          "role": "responsible"
+        },
+        {
+          "policyId": "eeo-policy",
+          "role": "responsible"
+        },
+        {
+          "policyId": "anti-harassment-discrimination",
+          "role": "responsible"
+        },
+        {
+          "policyId": "training-professional-development",
+          "role": "responsible"
+        },
+        {
+          "policyId": "remote-work",
+          "role": "responsible"
+        },
+        {
+          "policyId": "workplace-health-safety",
+          "role": "responsible"
+        },
+        {
+          "policyId": "eeo-policy",
+          "role": "consulted"
+        },
+        {
+          "policyId": "performance-management",
+          "role": "accountable"
+        },
+        {
+          "policyId": "performance-management",
+          "role": "responsible"
+        },
+        {
+          "policyId": "employee-handbook",
+          "role": "accountable"
+        },
+        {
+          "policyId": "eeo-policy",
+          "role": "accountable"
+        },
+        {
+          "policyId": "anti-harassment-discrimination",
+          "role": "accountable"
+        },
+        {
+          "policyId": "workplace-health-safety",
+          "role": "accountable"
+        },
+        {
+          "policyId": "remote-work",
+          "role": "accountable"
+        },
+        {
+          "policyId": "disciplinary-termination",
+          "role": "accountable"
+        },
+        {
+          "policyId": "disciplinary-termination",
+          "role": "responsible"
+        },
+        {
+          "policyId": "compensation-benefits",
+          "role": "accountable"
+        },
+        {
+          "policyId": "compensation-benefits",
+          "role": "responsible"
+        }
+      ],
+      "roles": [
+        "HR Lead"
+      ],
+      "tags": [
+        "hr",
+        "people",
+        "workplace"
+      ],
+      "title": "Human Resources Lead"
+    },
+    {
+      "active": true,
+      "id": "it-security-lead",
+      "name": "IT Security Lead",
+      "orgId": "administrative-unit",
+      "policyRoles": [
+        {
+          "policyId": "cybersecurity",
+          "role": "responsible"
+        },
+        {
+          "policyId": "acceptable-use",
+          "role": "responsible"
+        },
+        {
+          "policyId": "access-control-identity",
+          "role": "responsible"
+        },
+        {
+          "policyId": "byod",
+          "role": "responsible"
+        },
+        {
+          "policyId": "incident-response-breach",
+          "role": "accountable"
+        },
+        {
+          "policyId": "business-continuity-disaster-recovery",
+          "role": "consulted"
+        },
+        {
+          "policyId": "data-protection-information-security",
+          "role": "consulted"
+        },
+        {
+          "policyId": "cybersecurity",
+          "role": "accountable"
+        },
+        {
+          "policyId": "byod",
+          "role": "accountable"
+        },
+        {
+          "policyId": "access-control-identity",
+          "role": "accountable"
+        },
+        {
+          "policyId": "acceptable-use",
+          "role": "accountable"
+        },
+        {
+          "policyId": "third-party-risk-management",
+          "role": "accountable"
+        }
+      ],
+      "roles": [
+        "IT Security Lead"
+      ],
+      "tags": [
+        "security",
+        "it",
+        "infrastructure"
+      ],
+      "title": "IT Security Lead"
+    },
+    {
+      "active": true,
+      "id": "procurement-manager",
+      "name": "Procurement Manager",
+      "orgId": "administrative-unit",
+      "policyRoles": [
+        {
+          "policyId": "procurement",
+          "role": "responsible"
+        },
+        {
+          "policyId": "vendor-due-diligence",
+          "role": "responsible"
+        },
+        {
+          "policyId": "third-party-risk-management",
+          "role": "responsible"
+        },
+        {
+          "policyId": "contract-approval-management",
+          "role": "responsible"
+        },
+        {
+          "policyId": "vendor-due-diligence",
+          "role": "accountable"
+        }
+      ],
+      "roles": [
+        "Procurement Manager"
+      ],
+      "tags": [
+        "procurement",
+        "vendor",
+        "contracts"
+      ],
+      "title": "Procurement & Vendor Manager"
+    },
+    {
+      "active": true,
+      "id": "reinference-director",
+      "name": "ReInference Director",
+      "orgId": "reinference",
+      "policyRoles": [
+        {
+          "policyId": "intellectual-property",
+          "role": "responsible"
+        },
+        {
+          "policyId": "quality-assurance",
+          "role": "responsible"
+        },
+        {
+          "policyId": "intellectual-property",
+          "role": "accountable"
+        },
+        {
+          "policyId": "document-management",
+          "role": "consulted"
+        },
+        {
+          "policyId": "ai-instructions",
+          "role": "consulted"
+        },
+        {
+          "policyId": "ai-instructions",
+          "role": "responsible"
+        }
+      ],
+      "roles": [
+        "Program Director"
+      ],
+      "tags": [
+        "research",
+        "program"
+      ],
+      "title": "Director, ReInference"
+    },
+    {
+      "active": true,
+      "id": "board-vice-president",
+      "name": "Vice President",
+      "orgId": "active-inference-institute",
+      "policyRoles": [
+        {
+          "policyId": "bylaws",
+          "role": "approver"
+        },
+        {
+          "policyId": "business-continuity-disaster-recovery",
+          "role": "responsible"
+        },
+        {
+          "policyId": "corporate-governance",
+          "role": "responsible"
+        },
+        {
+          "policyId": "business-continuity-disaster-recovery",
+          "role": "accountable"
+        }
+      ],
+      "roles": [
+        "Vice President",
+        "Officer",
+        "Board Member"
+      ],
+      "tags": [
+        "leadership",
+        "executive",
+        "board"
+      ],
+      "title": "Vice President"
+    }
+  ],
+  "source": "instituteos/library/registries/entities.json"
+}

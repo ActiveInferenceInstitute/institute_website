@@ -1,0 +1,716 @@
+{
+  "description": "Public-safe policy registry rows derived from InstituteOS policies.",
+  "records": [
+    {
+      "category": "esg_values",
+      "currentVersion": "0.2",
+      "description": "General accessibility policy covering geographic, financial, cultural, and knowledge access. Replaces the general aspects of the old DEI policy.",
+      "id": "accessibility-policy",
+      "status": "drafting",
+      "tags": [
+        "esg",
+        "accessibility"
+      ],
+      "title": "Accessibility Policy"
+    },
+    {
+      "category": "esg_values",
+      "currentVersion": "0.2",
+      "description": "Social responsibility commitments — including open-access knowledge production, free educational resources, community-driven governance, and contributions to the global scientific commons through Active Inference research",
+      "id": "corporate-social-responsibility",
+      "status": "drafting",
+      "tags": [
+        "esg"
+      ],
+      "title": "Corporate Social Responsibility (CSR) Policy"
+    },
+    {
+      "category": "esg_values",
+      "currentVersion": "0.2",
+      "description": "Environmental commitments for Institute operations — including digital-first operations to minimize physical footprint, sustainable conference practices, and responsible technology procurement aligned with ESG values",
+      "id": "environmental-sustainability",
+      "status": "drafting",
+      "tags": [
+        "esg"
+      ],
+      "title": "Environmental Sustainability Policy"
+    },
+    {
+      "category": "esg_values",
+      "currentVersion": "0.2",
+      "description": "Human rights commitments in all Institute activities — including responsible AI/ML research principles, equitable access to educational resources, and respect for research participant rights and dignity",
+      "id": "human-rights",
+      "status": "drafting",
+      "tags": [
+        "esg"
+      ],
+      "title": "Human Rights Policy"
+    },
+    {
+      "category": "financial_investment",
+      "currentVersion": "0.2",
+      "description": "Prevention, detection, and response to fraud across Institute operations — including grant fund misuse, expense fraud, research data fabrication, and misrepresentation of organizational status or tax-exempt purpose",
+      "id": "anti-fraud",
+      "status": "drafting",
+      "tags": [
+        "finance",
+        "fraud",
+        "compliance"
+      ],
+      "title": "Anti-Fraud Policy"
+    },
+    {
+      "category": "financial_investment",
+      "currentVersion": "0.2",
+      "description": "Annual budget planning cycles, program-level budgeting (Administrative, EduActive, ReInference), grant-funded project budgets, variance tracking, and Board approval of annual financial plans",
+      "id": "budgeting-forecasting",
+      "status": "drafting",
+      "tags": [
+        "finance",
+        "budgeting",
+        "planning"
+      ],
+      "title": "Budgeting & Forecasting Policy"
+    },
+    {
+      "category": "financial_investment",
+      "currentVersion": "0.2",
+      "description": "Reimbursable expenses for Board members, Officers, Research Fellows, Interns, and volunteers — including travel for global Board meetings, conference attendance, research supplies, and technology costs for remote participants",
+      "id": "expense-reimbursement",
+      "status": "drafting",
+      "tags": [
+        "finance",
+        "expenses",
+        "reimbursement"
+      ],
+      "title": "Expense Reimbursement Policy"
+    },
+    {
+      "category": "financial_investment",
+      "currentVersion": "0.2",
+      "description": "Segregation of duties, approval workflows, annual audits, and financial reporting for a 501(c)(3) organization — including grant fund management, philanthropic donations, and expense oversight by the Treasurer (President Daniel Friedman)",
+      "id": "financial-controls",
+      "status": "drafting",
+      "tags": [
+        "audit"
+      ],
+      "title": "Financial Controls Policy"
+    },
+    {
+      "category": "financial_investment",
+      "currentVersion": "0.3",
+      "description": "Formalized grant procedures covering opportunity identification, alignment screening, capacity evaluation (Red/Yellow/Green framework), conflict-of-interest disclosure and recusal, Officer collaboration workflow, and Board escalation thresholds",
+      "id": "grant-procedure",
+      "status": "drafting",
+      "tags": [
+        "finance",
+        "grants",
+        "compliance",
+        "operations"
+      ],
+      "title": "Grant Procedure Policy"
+    },
+    {
+      "category": "financial_investment",
+      "currentVersion": "0.2",
+      "description": "How Institute reserve funds and endowment may be invested, risk tolerance aligned with mission, ethical investment criteria consistent with open-science and Active Inference values, and Board approval requirements",
+      "id": "investment-policy",
+      "status": "drafting",
+      "tags": [
+        "investor"
+      ],
+      "title": "Investment Policy"
+    },
+    {
+      "category": "governance_ethics",
+      "currentVersion": "0.9",
+      "description": "Meta-policy defining how all AII governance artifacts are developed, structured, tiered, monitored, and revised",
+      "id": "meta-policy",
+      "status": "drafting",
+      "tags": [
+        "meta-policy",
+        "foundational"
+      ],
+      "title": "Active Inference Policy Development & Monitoring Standard (Meta Policy)"
+    },
+    {
+      "category": "governance_ethics",
+      "currentVersion": "0.9",
+      "description": "Meta-policy defining how all other policies are developed, structured, and governed",
+      "id": "active-inference-policy-development-standard",
+      "status": "superseded",
+      "tags": [
+        "meta-policy",
+        "foundational",
+        "superseded"
+      ],
+      "title": "Active Inference Policy Development Standard"
+    },
+    {
+      "category": "governance_ethics",
+      "currentVersion": "0.4",
+      "description": "Instructions for AI-assisted policy drafting",
+      "id": "ai-instructions",
+      "status": "drafting",
+      "tags": [
+        "ai",
+        "foundational"
+      ],
+      "title": "AI Policy Instructions"
+    },
+    {
+      "category": "governance_ethics",
+      "currentVersion": "0.2",
+      "description": "Prevention of bribery and corruption in all Institute operations, especially relevant given the global Board of Directors, international research collaborations, and partnerships across multiple jurisdictions",
+      "id": "anti-bribery-corruption",
+      "status": "drafting",
+      "tags": [
+        "foundational",
+        "international"
+      ],
+      "title": "Anti-Bribery & Anti-Corruption Policy"
+    },
+    {
+      "category": "governance_ethics",
+      "currentVersion": "1.0",
+      "description": "Corporate bylaws adopted December 12, 2025, defining the governance structure of the Active Inference Institute — Members, Board of Directors, Officers, Committees, compensation, and operational procedures under Delaware nonprofit corporation law",
+      "id": "bylaws",
+      "status": "accepted",
+      "tags": [
+        "foundational",
+        "legal",
+        "accepted"
+      ],
+      "title": "Bylaws of Active Inference Institute, Inc."
+    },
+    {
+      "category": "governance_ethics",
+      "currentVersion": "0.2",
+      "description": "Expectations for integrity, ethical conduct, conflicts of interest, and professional behavior for all Institute participants — Board members, Officers, Research Fellows, Interns, volunteers, and community contributors engaged in open-science Active Inference research and education",
+      "id": "code-of-conduct",
+      "status": "drafting",
+      "tags": [
+        "foundational"
+      ],
+      "title": "Code of Conduct / Code of Ethics"
+    },
+    {
+      "category": "governance_ethics",
+      "currentVersion": "0.2",
+      "description": "How conflicts of interest are disclosed, reviewed, and managed for Board of Directors, Officers, Scientific Advisory Board members, Research Fellows, and staff — including dual affiliations with academic institutions, partner organizations (e.g. Lazy Dynamics / RxInfer), and grant-funded projects",
+      "id": "conflict-of-interest",
+      "status": "drafting",
+      "tags": [
+        "foundational"
+      ],
+      "title": "Conflict of Interest Policy"
+    },
+    {
+      "category": "governance_ethics",
+      "currentVersion": "0.3",
+      "description": "Board of Directors roles, decision-making authority, committee structure (Scientific Advisory Board, Officers), quarterly meeting cadence, fiduciary duties, and oversight of the three organizational units: Administrative, EduActive, and ReInference",
+      "id": "corporate-governance",
+      "status": "drafting",
+      "tags": [
+        "foundational",
+        "board"
+      ],
+      "title": "Corporate Governance Policy"
+    },
+    {
+      "category": "governance_ethics",
+      "currentVersion": "0.5",
+      "description": "Standardized template for all new policies",
+      "id": "policy-template",
+      "status": "drafting",
+      "tags": [
+        "template",
+        "foundational"
+      ],
+      "title": "Policy Template"
+    },
+    {
+      "category": "governance_ethics",
+      "currentVersion": "0.4",
+      "description": "Template for artifact tiering recommendations",
+      "id": "tiering-recommendation-packet",
+      "status": "drafting",
+      "tags": [
+        "template",
+        "foundational"
+      ],
+      "title": "Tiering Recommendation Packet Template"
+    },
+    {
+      "category": "governance_ethics",
+      "currentVersion": "0.2",
+      "description": "Safe, confidential reporting of unethical or illegal conduct within the Institute, covering research misconduct, financial irregularities, and policy violations — required under Delaware nonprofit law and IRS 501(c)(3) best practices",
+      "id": "whistleblower",
+      "status": "drafting",
+      "tags": [
+        "foundational",
+        "investor-required"
+      ],
+      "title": "Whistleblower Policy"
+    },
+    {
+      "category": "human_resources",
+      "currentVersion": "0.2",
+      "description": "Prevention and response to harassment and discrimination across all Institute channels — including Coda shared space, Discord, YouTube livestreams, research collaborations, and in-person events. California-compliant",
+      "id": "anti-harassment-discrimination",
+      "status": "drafting",
+      "tags": [
+        "hr",
+        "harassment",
+        "compliance"
+      ],
+      "title": "Anti-Harassment & Anti-Discrimination Policy"
+    },
+    {
+      "category": "human_resources",
+      "currentVersion": "0.2",
+      "description": "Pay structure, stipends for Research Fellows, benefits for staff, and non-monetary benefits (professional development, conference access, publication support) for a mission-driven 501(c)(3) nonprofit",
+      "id": "compensation-benefits",
+      "status": "drafting",
+      "tags": [
+        "hr",
+        "compensation",
+        "benefits"
+      ],
+      "title": "Compensation & Benefits Policy"
+    },
+    {
+      "category": "human_resources",
+      "currentVersion": "0.2",
+      "description": "Progressive disciplinary procedures and engagement termination processes for staff, Fellows, Interns, and volunteers — including grounds related to research misconduct, code of conduct violations, and policy breaches",
+      "id": "disciplinary-termination",
+      "status": "drafting",
+      "tags": [
+        "hr",
+        "disciplinary",
+        "termination"
+      ],
+      "title": "Disciplinary & Termination Policy"
+    },
+    {
+      "category": "human_resources",
+      "currentVersion": "0.2",
+      "description": "Umbrella document covering HR policies for Institute staff, Officers, and engagement terms for Research Fellows, Interns, and volunteers — adapted for a globally-distributed, primarily remote open-science organization",
+      "id": "employee-handbook",
+      "status": "drafting",
+      "tags": [
+        "umbrella"
+      ],
+      "title": "Employee Handbook"
+    },
+    {
+      "category": "human_resources",
+      "currentVersion": "0.2",
+      "description": "Equal opportunity practices for hiring, engagement, and advancement of all Institute personnel — reflecting commitment to diversity across academic disciplines, geographic regions, career stages, and backgrounds in Active Inference research",
+      "id": "eeo-policy",
+      "status": "drafting",
+      "tags": [
+        "hr",
+        "equal-opportunity",
+        "compliance"
+      ],
+      "title": "Equal Employment Opportunity (EEO) Policy"
+    },
+    {
+      "category": "human_resources",
+      "currentVersion": "0.2",
+      "description": "Reviews, feedback, and performance assessment for Officers, staff, Research Fellows, and Interns — incorporating contribution metrics across research output, educational delivery, and community engagement",
+      "id": "performance-management",
+      "status": "drafting",
+      "tags": [
+        "hr",
+        "performance",
+        "management"
+      ],
+      "title": "Performance Management Policy"
+    },
+    {
+      "category": "human_resources",
+      "currentVersion": "0.2",
+      "description": "Guidelines for the Institute's remote-first, globally-distributed operations — covering time zone coordination, asynchronous communication norms, equipment support, and hybrid arrangements for California-based personnel",
+      "id": "remote-work",
+      "status": "drafting",
+      "tags": [
+        "hr",
+        "remote-work",
+        "hybrid"
+      ],
+      "title": "Remote Work / Hybrid Work Policy"
+    },
+    {
+      "category": "human_resources",
+      "currentVersion": "0.2",
+      "description": "Learning and development programs for Institute participants — including Active Inference curriculum mastery, open-science research methods, scientific writing, and educational content development skills",
+      "id": "training-professional-development",
+      "status": "drafting",
+      "tags": [
+        "hr",
+        "training",
+        "development"
+      ],
+      "title": "Training & Professional Development Policy"
+    },
+    {
+      "category": "human_resources",
+      "currentVersion": "0.2",
+      "description": "Health and safety standards for Institute activities — primarily addressing remote work ergonomics, in-person conference/symposium safety, and mental wellness support for distributed research teams",
+      "id": "workplace-health-safety",
+      "status": "drafting",
+      "tags": [
+        "hr",
+        "safety",
+        "workplace"
+      ],
+      "title": "Workplace Health & Safety Policy"
+    },
+    {
+      "category": "it_security",
+      "currentVersion": "0.2",
+      "description": "Acceptable use rules for Institute technology resources — including GitHub repositories, Coda shared space, Discord server, YouTube channel management, cloud computing, and shared research infrastructure",
+      "id": "acceptable-use",
+      "status": "drafting",
+      "tags": [
+        "security",
+        "acceptable-use",
+        "it"
+      ],
+      "title": "Acceptable Use Policy (AUP)"
+    },
+    {
+      "category": "it_security",
+      "currentVersion": "0.2",
+      "description": "User access provisioning and identity management across Institute platforms — GitHub org roles, Coda shared space permissions, YouTube channel management, cloud services, and administrative systems. Role-based access aligned to organizational units",
+      "id": "access-control-identity",
+      "status": "drafting",
+      "tags": [
+        "security",
+        "access-control",
+        "identity"
+      ],
+      "title": "Access Control & Identity Management Policy"
+    },
+    {
+      "category": "it_security",
+      "currentVersion": "0.2",
+      "description": "Rules for using personal devices for Institute work — relevant for globally-distributed volunteers, Research Fellows, Interns, and Board members who access Institute resources from personal hardware",
+      "id": "byod",
+      "status": "drafting",
+      "tags": [
+        "security",
+        "byod",
+        "devices"
+      ],
+      "title": "Bring Your Own Device (BYOD) Policy"
+    },
+    {
+      "category": "it_security",
+      "currentVersion": "0.2",
+      "description": "Ensuring continuity of Institute research programs, educational activities, and community engagement during disruptions — covering technology failures, leadership transitions, and funding interruptions",
+      "id": "business-continuity-disaster-recovery",
+      "status": "drafting",
+      "tags": [
+        "security",
+        "continuity",
+        "disaster-recovery"
+      ],
+      "title": "Business Continuity & Disaster Recovery Policy"
+    },
+    {
+      "category": "it_security",
+      "currentVersion": "0.2",
+      "description": "Overall cybersecurity posture for Institute digital infrastructure — covering GitHub organization security, YouTube channel protection, Coda shared space access, cloud research environments, and website security",
+      "id": "cybersecurity",
+      "status": "drafting",
+      "tags": [
+        "security",
+        "cyber",
+        "it"
+      ],
+      "title": "Cybersecurity Policy"
+    },
+    {
+      "category": "it_security",
+      "currentVersion": "0.2",
+      "description": "Technical standards for digital accessibility, including WCAG compliance, captioning, and platform-specific requirements. Replaces the technical aspects of the old DEI policy.",
+      "id": "digital-accessibility-technical-policy",
+      "status": "drafting",
+      "tags": [
+        "technical",
+        "accessibility"
+      ],
+      "title": "Digital Accessibility Technical Policy"
+    },
+    {
+      "category": "it_security",
+      "currentVersion": "0.2",
+      "description": "Incident handling and breach notification procedures for cybersecurity events affecting Institute systems, research data, or community member information — including California breach notification requirements",
+      "id": "incident-response-breach",
+      "status": "drafting",
+      "tags": [
+        "security",
+        "incident-response",
+        "breach"
+      ],
+      "title": "Incident Response & Breach Notification Policy"
+    },
+    {
+      "category": "legal_risk_compliance",
+      "currentVersion": "0.4",
+      "description": "Data handling, access controls, encryption, incident response. Internal",
+      "id": "data-protection-information-security",
+      "status": "drafting",
+      "tags": [
+        "internal",
+        "security"
+      ],
+      "title": "Data Protection & Information Security Policy"
+    },
+    {
+      "category": "legal_risk_compliance",
+      "currentVersion": "0.2",
+      "description": "Preserving documents, communications, and digital records when legal action is anticipated — covering research records, Board communications, financial data, and contributor agreements",
+      "id": "litigation-hold",
+      "status": "drafting",
+      "tags": [
+        "legal",
+        "litigation",
+        "compliance"
+      ],
+      "title": "Litigation Hold Policy"
+    },
+    {
+      "category": "legal_risk_compliance",
+      "currentVersion": "0.2",
+      "description": "How the Institute collects, uses, stores, and shares personal data from participants, community members, YouTube viewers, Substack subscribers, and research subjects — GDPR-aware for international participants and CCPA-compliant for California operations",
+      "id": "privacy-policy",
+      "status": "drafting",
+      "tags": [
+        "external",
+        "gdpr",
+        "ccpa"
+      ],
+      "title": "Privacy Policy"
+    },
+    {
+      "category": "legal_risk_compliance",
+      "currentVersion": "0.2",
+      "description": "Retention schedules and secure destruction procedures for research data, educational materials, financial records, Board minutes, grant documentation, and IRS 501(c)(3) compliance records",
+      "id": "records-retention-destruction",
+      "status": "drafting",
+      "tags": [
+        "legal",
+        "records",
+        "retention"
+      ],
+      "title": "Records Retention & Destruction Policy"
+    },
+    {
+      "category": "legal_risk_compliance",
+      "currentVersion": "0.2",
+      "description": "Compliance with Delaware nonprofit corporation law, California nonprofit regulations, IRS 501(c)(3) requirements (Form 990, public disclosure), export controls for international research collaborations, and applicable data protection regulations",
+      "id": "regulatory-compliance",
+      "status": "drafting",
+      "tags": [
+        "legal",
+        "compliance",
+        "regulatory"
+      ],
+      "title": "Regulatory Compliance Policy"
+    },
+    {
+      "category": "legal_risk_compliance",
+      "currentVersion": "0.2",
+      "description": "Identification, assessment, mitigation, and reporting of risks across all Institute programs — including research integrity risks, funding dependency, cybersecurity, reputational risks, and regulatory compliance for multi-jurisdictional operations",
+      "id": "risk-management",
+      "status": "drafting",
+      "tags": [
+        "legal",
+        "risk",
+        "compliance"
+      ],
+      "title": "Risk Management Policy"
+    },
+    {
+      "category": "operations",
+      "currentVersion": "0.2",
+      "description": "Handling feedback, concerns, and complaints from community members, research participants, students, and partner organizations — escalation paths from operational staff to Officers to Board of Directors",
+      "id": "customer-complaints-escalation",
+      "status": "drafting",
+      "tags": [
+        "operations",
+        "complaints",
+        "escalation"
+      ],
+      "title": "Customer Complaints & Escalation Policy"
+    },
+    {
+      "category": "operations",
+      "currentVersion": "0.2",
+      "description": "Document lifecycle management for Institute records — including Board minutes, research papers, grant applications, educational materials, policy documents, and version control practices using GitHub and Coda",
+      "id": "document-management",
+      "status": "drafting",
+      "tags": [
+        "operations",
+        "documents",
+        "management"
+      ],
+      "title": "Document Management Policy"
+    },
+    {
+      "category": "operations",
+      "currentVersion": "0.2",
+      "description": "Ownership and licensing of work product created by or for the Institute — defaulting to open-source and Creative Commons licensing for research outputs, educational materials, and software tools consistent with the open-science mission",
+      "id": "intellectual-property",
+      "status": "drafting",
+      "tags": [
+        "operations",
+        "ip",
+        "legal"
+      ],
+      "title": "Intellectual Property Policy"
+    },
+    {
+      "category": "operations",
+      "currentVersion": "0.2",
+      "description": "Standard operating procedures for core Institute workflows — including livestream production, research project lifecycle, Fellowship onboarding, publication pipeline, and community event coordination",
+      "id": "operational-procedures-sops",
+      "status": "drafting",
+      "tags": [
+        "operations",
+        "sops",
+        "procedures"
+      ],
+      "title": "Operational Procedures / SOPs"
+    },
+    {
+      "category": "operations",
+      "currentVersion": "0.2",
+      "description": "Quality standards for Institute outputs — including research publications, educational materials, course content, YouTube video production, Active Inference Journal submissions, and open-source software contributions",
+      "id": "quality-assurance",
+      "status": "drafting",
+      "tags": [
+        "operations",
+        "quality",
+        "assurance"
+      ],
+      "title": "Quality Assurance Policy"
+    },
+    {
+      "category": "procurement_vendor",
+      "currentVersion": "0.2",
+      "description": "Authority to sign contracts by role (President, VP, Officers), contract review and legal requirements, and secure storage of partnership agreements, grant contracts, contributor agreements, and vendor contracts",
+      "id": "contract-approval-management",
+      "status": "drafting",
+      "tags": [
+        "procurement",
+        "contracts",
+        "approval"
+      ],
+      "title": "Contract Approval & Management Policy"
+    },
+    {
+      "category": "procurement_vendor",
+      "currentVersion": "0.2",
+      "description": "Purchasing thresholds and approvals for Institute operations — including software subscriptions, research tools, educational platform costs, video production equipment, and contracted services. Aligned with 501(c)(3) duty of care",
+      "id": "procurement",
+      "status": "drafting",
+      "tags": [
+        "working"
+      ],
+      "title": "Procurement Policy"
+    },
+    {
+      "category": "procurement_vendor",
+      "currentVersion": "0.2",
+      "description": "Ongoing monitoring of vendors, partners, and service providers involved in Institute programs — including cloud infrastructure providers, video hosting, payment processors, and international research collaborators",
+      "id": "third-party-risk-management",
+      "status": "drafting",
+      "tags": [
+        "procurement",
+        "vendor",
+        "risk"
+      ],
+      "title": "Third-Party Risk Management Policy"
+    },
+    {
+      "category": "procurement_vendor",
+      "currentVersion": "0.2",
+      "description": "Risk, compliance, financial stability, and values-alignment checks for vendors and partners — including technology providers, research collaborators (e.g. Lazy Dynamics/RxInfer), educational platform partners, and contracted consultants",
+      "id": "vendor-due-diligence",
+      "status": "drafting",
+      "tags": [
+        "esg"
+      ],
+      "title": "Vendor Due Diligence Policy"
+    },
+    {
+      "category": "sales_marketing",
+      "currentVersion": "0.2",
+      "description": "Proper use of Active Inference Institute brand assets — including logo, name, tagline, color palette, and typography across publications, presentations, partner materials, and merchandise",
+      "id": "brand-usage",
+      "status": "drafting",
+      "tags": [
+        "marketing",
+        "brand",
+        "guidelines"
+      ],
+      "title": "Brand Usage Guidelines"
+    },
+    {
+      "category": "sales_marketing",
+      "currentVersion": "0.2",
+      "description": "How participant, contributor, and partner data is collected, stored, processed, and protected across Institute platforms — including research subject data, course enrollment, and YouTube analytics",
+      "id": "client-data-handling",
+      "status": "drafting",
+      "tags": [
+        "data"
+      ],
+      "title": "Client Data Handling Policy"
+    },
+    {
+      "category": "sales_marketing",
+      "currentVersion": "0.2",
+      "description": "Guidelines for Institute communications across channels — website (activeinference.institute), Substack newsletter, YouTube, Discord, academic conferences, and media inquiries. Consistent messaging of open-science mission",
+      "id": "marketing-communications",
+      "status": "drafting",
+      "tags": [
+        "marketing",
+        "communications",
+        "outreach"
+      ],
+      "title": "Marketing & Communications Policy"
+    },
+    {
+      "category": "sales_marketing",
+      "currentVersion": "0.2",
+      "description": "Ethical standards for fundraising, grant applications, partnership solicitations, and philanthropy — ensuring truthful representation of Institute mission, impact, and tax-exempt status in all donor communications",
+      "id": "sales-ethics",
+      "status": "drafting",
+      "tags": [
+        "marketing",
+        "sales",
+        "ethics"
+      ],
+      "title": "Sales Ethics Policy"
+    },
+    {
+      "category": "sales_marketing",
+      "currentVersion": "0.2",
+      "description": "Social media usage guidelines for official Institute accounts and personnel representing the Institute — covering YouTube (primary channel with 600+ videos), Twitter/X, LinkedIn, Discord, and community forums",
+      "id": "social-media",
+      "status": "drafting",
+      "tags": [
+        "marketing",
+        "social-media",
+        "communications"
+      ],
+      "title": "Social Media Policy"
+    }
+  ],
+  "source": "instituteos/library/registries/policies.json"
+}

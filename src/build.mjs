@@ -34,6 +34,10 @@ const siteData = {
     ideas: loadJson(path.join("instituteos", "ideas.json")),
     ontology: loadJson(path.join("instituteos", "ontology.json")),
     assets: loadJson(path.join("instituteos", "assets.json")),
+    entities: loadJson(path.join("instituteos", "entities.json")),
+    processes: loadJson(path.join("instituteos", "processes.json")),
+    communications: loadJson(path.join("instituteos", "communications.json")),
+    policies: loadJson(path.join("instituteos", "policies.json")),
   },
   pages,
 };
@@ -588,6 +592,11 @@ function instituteosCounts() {
     ideas: siteData.instituteos.ideas.records.length,
     ontology: siteData.instituteos.ontology.edges.length,
     research: researchRows().length,
+    organizations: (siteData.instituteos.entities.organizations || []).length,
+    members: (siteData.instituteos.entities.people || []).length,
+    processes: (siteData.instituteos.processes.records || []).length,
+    publications: (siteData.instituteos.communications.records || []).length,
+    policies: (siteData.instituteos.policies.records || []).length,
   };
 }
 
@@ -677,6 +686,46 @@ function researchRows(limit = Infinity) {
     }));
 }
 
+function entityOrgRows(limit = Infinity) {
+  return (siteData.instituteos.entities.organizations || []).slice(0, limit).map((org) => ({
+    ...org,
+    rowId: rowAnchor("org", org.id),
+    dataAttrs: knowledgeDataAttrs("organizations", [org.name, org.type, org.description, org.tags]),
+  }));
+}
+
+function entityPeopleRows(limit = Infinity) {
+  return (siteData.instituteos.entities.people || []).slice(0, limit).map((person) => ({
+    ...person,
+    rowId: rowAnchor("member", person.id),
+    dataAttrs: knowledgeDataAttrs("members", [person.name, person.title, person.roles, person.tags]),
+  }));
+}
+
+function processRows(limit = Infinity) {
+  return (siteData.instituteos.processes.records || []).slice(0, limit).map((proc) => ({
+    ...proc,
+    rowId: rowAnchor("process", proc.id),
+    dataAttrs: knowledgeDataAttrs("processes", [proc.title, proc.category, proc.status, proc.description]),
+  }));
+}
+
+function communicationRows(limit = Infinity) {
+  return (siteData.instituteos.communications.records || []).slice(0, limit).map((comm) => ({
+    ...comm,
+    rowId: rowAnchor("publication", comm.id),
+    dataAttrs: knowledgeDataAttrs("publications", [comm.title, comm.type, comm.date, comm.author]),
+  }));
+}
+
+function policyRows(limit = Infinity) {
+  return (siteData.instituteos.policies.records || []).slice(0, limit).map((pol) => ({
+    ...pol,
+    rowId: rowAnchor("policy", pol.id),
+    dataAttrs: knowledgeDataAttrs("policies", [pol.title, pol.category, pol.status, pol.description, pol.tags]),
+  }));
+}
+
 function tableSection({ id, eyebrow, title, text, countLabel, tableHtml }) {
   return `<section class="content-band" id="${escapeHtml(id)}">
     ${sectionHeading({ eyebrow, title, text })}
@@ -745,6 +794,67 @@ function researchTable(rows = researchRows()) {
     { label: "Tags", render: (item) => escapeHtml(listText(item.tags)) },
   ];
   return dataTable({ caption: "Verified public research, paper, and reference links.", columns, rows });
+}
+
+function organizationsTable(rows = entityOrgRows()) {
+  const columns = [
+    {
+      label: "Organization",
+      render: (item) =>
+        item.url
+          ? `<a href="${escapeHtml(item.url)}" rel="noopener noreferrer" target="_blank">${escapeHtml(item.name)}</a>`
+          : escapeHtml(item.name),
+    },
+    { label: "Type", render: (item) => escapeHtml(title_case_token_js(item.type || "")) },
+    { label: "Description", render: (item) => escapeHtml((item.description || "").slice(0, 120)) },
+    { label: "Members", render: (item) => String((item.memberIds || []).length) },
+  ];
+  return dataTable({ caption: "Public organizations in the Active Inference Institute governance registry.", columns, rows });
+}
+
+function governanceMembersTable(rows = entityPeopleRows()) {
+  const columns = [
+    { label: "Name", render: (item) => escapeHtml(item.name) },
+    { label: "Title", render: (item) => escapeHtml(item.title || "") },
+    { label: "Roles", render: (item) => escapeHtml((item.roles || []).join(" · ")) },
+    { label: "Active", render: (item) => (item.active ? "Yes" : "No") },
+  ];
+  return dataTable({ caption: "Public governance members in the Active Inference Institute registry.", columns, rows });
+}
+
+function processesTable(rows = processRows()) {
+  const columns = [
+    { label: "Process", render: (item) => `<a href="#${escapeHtml(item.rowId)}">${escapeHtml(item.title)}</a>` },
+    { label: "Category", render: (item) => escapeHtml(title_case_token_js(item.category || "")) },
+    { label: "Status", render: (item) => escapeHtml(title_case_token_js(item.status || "")) },
+    { label: "Steps", render: (item) => String(item.stepCount || 0) },
+    { label: "SLA days", render: (item) => item.slaDays != null ? String(item.slaDays) : "—" },
+    { label: "Description", render: (item) => escapeHtml((item.description || "").slice(0, 120)) },
+  ];
+  return dataTable({ caption: "Public governance process descriptions from the Active Inference Institute.", columns, rows });
+}
+
+function publicationsTable(rows = communicationRows()) {
+  const columns = [
+    { label: "Title", render: (item) => escapeHtml(item.title) },
+    { label: "Type", render: (item) => escapeHtml(title_case_token_js(item.type || "")) },
+    { label: "Date", render: (item) => escapeHtml((item.date || "").slice(0, 10)) },
+    { label: "Author", render: (item) => escapeHtml(item.author || "") },
+    { label: "Reference", render: (item) => escapeHtml(item.referenceNumber || "") },
+  ];
+  return dataTable({ caption: "Approved public communications from the Active Inference Institute.", columns, rows });
+}
+
+function policiesTable(rows = policyRows()) {
+  const columns = [
+    { label: "Policy", render: (item) => `<a href="#${escapeHtml(item.rowId)}">${escapeHtml(item.title)}</a>` },
+    { label: "Category", render: (item) => escapeHtml(title_case_token_js((item.category || "").replace(/_/g, " "))) },
+    { label: "Status", render: (item) => escapeHtml(title_case_token_js(item.status || "")) },
+    { label: "Version", render: (item) => escapeHtml(item.currentVersion || "") },
+    { label: "Description", render: (item) => escapeHtml((item.description || "").slice(0, 120)) },
+    { label: "Tags", render: (item) => escapeHtml(listText(item.tags)) },
+  ];
+  return dataTable({ caption: "Public governance policy registry for the Active Inference Institute.", columns, rows });
 }
 
 function title_case_token_js(value = "") {
@@ -825,6 +935,11 @@ function knowledgePage() {
     <div><strong>${counts.ideas}</strong><span>idea rows</span></div>
     <div><strong>${counts.research}</strong><span>research links</span></div>
     <div><strong>${counts.ontology}</strong><span>relationship rows</span></div>
+    <div><strong>${counts.organizations}</strong><span>organizations</span></div>
+    <div><strong>${counts.members}</strong><span>governance members</span></div>
+    <div><strong>${counts.processes}</strong><span>governance processes</span></div>
+    <div><strong>${counts.publications}</strong><span>publications</span></div>
+    <div><strong>${counts.policies}</strong><span>policies</span></div>
   </section>
   <section class="content-band page-index-band">
     <div class="page-index">
@@ -839,6 +954,11 @@ function knowledgePage() {
         <a href="#ideas-table">Ideas</a>
         <a href="#ontology-table">Ontology</a>
         <a href="#research-table">Research</a>
+        <a href="#organizations-table">Organizations</a>
+        <a href="#members-table">Governance</a>
+        <a href="#processes-table">Processes</a>
+        <a href="#publications-table">Publications</a>
+        <a href="#policies-table">Policies</a>
         <a href="#related-pages">Related pages</a>
       </nav>
     </div>
@@ -872,6 +992,11 @@ function knowledgePage() {
       { title: "Ideas", text: "Concept, method, tool, value, and publication nodes from public-safe tech-tree metadata.", links: [{ label: "Ideas table", href: "#ideas-table" }] },
       { title: "Ontology", text: "Directed relationships between public ideas, methods, values, tools, and applications.", links: [{ label: "Ontology table", href: "#ontology-table" }] },
       { title: "Research", text: "Verified public research, paper, and reference links from the resource registry.", links: [{ label: "Research table", href: "#research-table" }] },
+      { title: "Organizations", text: "Public organizations in the governance registry — governing bodies, internal units, partners, and technology providers.", links: [{ label: "Organizations table", href: "#organizations-table" }] },
+      { title: "Governance", text: "Public governance members including board, officers, and registered organizational roles.", links: [{ label: "Governance table", href: "#members-table" }] },
+      { title: "Processes", text: "Public governance process descriptions including category, status, step count, and SLA.", links: [{ label: "Processes table", href: "#processes-table" }] },
+      { title: "Publications", text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: "Publications table", href: "#publications-table" }] },
+      { title: "Policies", text: "Public governance policy registry with category, status, version, and description.", links: [{ label: "Policies table", href: "#policies-table" }] },
     ])}
   </section>
   <section class="content-band page-index-band">
@@ -889,9 +1014,14 @@ function knowledgePage() {
           <option value="ideas">Ideas</option>
           <option value="ontology">Ontology</option>
           <option value="research">Research</option>
+          <option value="organizations">Organizations</option>
+          <option value="members">Governance</option>
+          <option value="processes">Processes</option>
+          <option value="publications">Publications</option>
+          <option value="policies">Policies</option>
         </select>
       </label>
-      <p id="knowledge-count" class="result-count" aria-live="polite">${counts.people + counts.projects + counts.ideas + counts.ontology + counts.research} rows shown</p>
+      <p id="knowledge-count" class="result-count" aria-live="polite">${counts.people + counts.projects + counts.ideas + counts.ontology + counts.research + counts.organizations + counts.members + counts.processes + counts.publications + counts.policies} rows shown</p>
     </div>
   </section>
   ${tableSection({
@@ -933,6 +1063,46 @@ function knowledgePage() {
     text: "Verified public research, paper, and reference links surfaced from the resource registry.",
     countLabel: `${counts.research} research links shown`,
     tableHtml: researchTable(),
+  })}
+  ${tableSection({
+    id: "organizations-table",
+    eyebrow: "Organizations",
+    title: `${counts.organizations} organization rows`,
+    text: "Public organizations in the governance registry — governing bodies, internal units, partners, and technology providers.",
+    countLabel: `${counts.organizations} organizations shown`,
+    tableHtml: organizationsTable(),
+  })}
+  ${tableSection({
+    id: "members-table",
+    eyebrow: "Governance",
+    title: `${counts.members} governance member rows`,
+    text: "Public governance members including board, officers, and registered organizational roles.",
+    countLabel: `${counts.members} governance members shown`,
+    tableHtml: governanceMembersTable(),
+  })}
+  ${tableSection({
+    id: "processes-table",
+    eyebrow: "Processes",
+    title: `${counts.processes} governance process rows`,
+    text: "Public governance process descriptions with category, status, step count, and SLA target.",
+    countLabel: `${counts.processes} processes shown`,
+    tableHtml: processesTable(),
+  })}
+  ${tableSection({
+    id: "publications-table",
+    eyebrow: "Publications",
+    title: `${counts.publications} publication rows`,
+    text: "Approved public communications — reports, announcements, and newsletters.",
+    countLabel: `${counts.publications} publications shown`,
+    tableHtml: publicationsTable(),
+  })}
+  ${tableSection({
+    id: "policies-table",
+    eyebrow: "Policies",
+    title: `${counts.policies} governance policy rows`,
+    text: "Public governance policy registry with category, current status, version, and description.",
+    countLabel: `${counts.policies} policies shown`,
+    tableHtml: policiesTable(),
   })}
   <section class="content-band muted" id="related-pages">
     ${sectionHeading({ eyebrow: "Related pages", title: "Continue through the public site" })}
@@ -982,6 +1152,36 @@ function knowledgeDirectoryRows() {
       label: item.label,
       summary: `${item.categoryLabel} / ${item.audienceLabel}`,
       href: `knowledge.html#${rowAnchor("research", item.sourceId)}`,
+    })),
+    ...(siteData.instituteos.entities.organizations || []).map((item) => ({
+      kind: "Organizations",
+      label: item.name,
+      summary: `${title_case_token_js(item.type || "")}`,
+      href: `knowledge.html#${rowAnchor("org", item.id)}`,
+    })),
+    ...(siteData.instituteos.entities.people || []).map((item) => ({
+      kind: "Governance Members",
+      label: item.name,
+      summary: `${item.title || ""} ${(item.roles || []).slice(0, 2).join(", ")}`.trim(),
+      href: `knowledge.html#${rowAnchor("member", item.id)}`,
+    })),
+    ...(siteData.instituteos.processes.records || []).map((item) => ({
+      kind: "Governance Processes",
+      label: item.title,
+      summary: `${title_case_token_js(item.category || "")} / ${title_case_token_js(item.status || "")}`,
+      href: `knowledge.html#${rowAnchor("process", item.id)}`,
+    })),
+    ...(siteData.instituteos.communications.records || []).map((item) => ({
+      kind: "Publications",
+      label: item.title,
+      summary: `${title_case_token_js(item.type || "")} / ${(item.date || "").slice(0, 10)}`,
+      href: `knowledge.html#${rowAnchor("publication", item.id)}`,
+    })),
+    ...(siteData.instituteos.policies.records || []).map((item) => ({
+      kind: "Governance Policies",
+      label: item.title,
+      summary: `${title_case_token_js((item.category || "").replace(/_/g, " "))} / ${title_case_token_js(item.status || "")}`,
+      href: `knowledge.html#${rowAnchor("policy", item.id)}`,
     })),
   ];
   return rows.sort((a, b) => a.kind.localeCompare(b.kind) || a.label.localeCompare(b.label));

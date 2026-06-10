@@ -1,0 +1,892 @@
+{
+  "description": "Public-safe governance process summaries derived from InstituteOS processes.",
+  "records": [
+    {
+      "category": "operations",
+      "description": "Procedure for preparing the Institute's public annual report. Covers data gathering, financial summary, narrative drafting, design, Board approval, and publication.",
+      "id": "annual-report-preparation",
+      "linkedPolicies": [
+        "financial-controls",
+        "marketing-communications",
+        "corporate-governance"
+      ],
+      "slaDays": 60,
+      "status": "active",
+      "stepCount": 5,
+      "steps": [
+        {
+          "description": "Gather metrics and highlights from all units: EduActive, ReInference, Administrative, and Communications.",
+          "name": "Data Collection",
+          "order": 1
+        },
+        {
+          "description": "Write the annual report narrative: President's letter, mission impact, research highlights, education outcomes, financial summary context.",
+          "name": "Narrative Drafting",
+          "order": 2
+        },
+        {
+          "description": "Prepare financial highlights: revenue by source, expense categories, program vs. administrative ratio, year-over-year trends.",
+          "name": "Financial Summary",
+          "order": 3
+        },
+        {
+          "description": "Design the annual report: apply brand guidelines, create infographics, lay out photos and charts, produce PDF and web versions.",
+          "name": "Design & Layout",
+          "order": 4
+        },
+        {
+          "description": "Present final report to Board for approval. Publish on website and distribute to stakeholders, donors, and regulatory filings.",
+          "name": "Board Approval & Publication",
+          "order": 5
+        }
+      ],
+      "title": "Annual Report Preparation",
+      "triggers": [
+        "End of fiscal year",
+        "Board request for annual report",
+        "Approaching Form 990 filing (narrative section input)"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "governance",
+      "description": "The formal process by which the Board of Directors reviews, deliberates, and votes on proposed policies. Governs the transition from PROPOSED → FOR_VOTE → ACCEPTED in the policy lifecycle.",
+      "id": "board-policy-approval",
+      "linkedPolicies": [
+        "bylaws",
+        "corporate-governance",
+        "active-inference-policy-development-standard"
+      ],
+      "slaDays": 30,
+      "status": "active",
+      "stepCount": 5,
+      "steps": [
+        {
+          "description": "The policy author submits the completed draft to the Board Secretary for placement on the review agenda. The Secretary verifies completeness against the resolved template schema.",
+          "name": "Submit for Board Review",
+          "order": 1
+        },
+        {
+          "description": "Board members receive the review packet and have 14 days to read, comment, and submit questions. The policy status transitions to PROPOSED.",
+          "name": "Board Review Period",
+          "order": 2
+        },
+        {
+          "description": "The Board discusses the policy in a scheduled meeting. Amendments may be proposed and the policy may be sent back for revision or advanced to vote.",
+          "name": "Board Deliberation",
+          "order": 3
+        },
+        {
+          "description": "The Board conducts a formal vote on the policy. Requires a simple majority for adoption. The policy transitions to FOR_VOTE status during this step.",
+          "name": "Formal Vote",
+          "order": 4
+        },
+        {
+          "description": "Upon approval, the Secretary records the vote, updates the policy status to ACCEPTED, and publishes the ratified version to the policy library.",
+          "name": "Ratification & Publication",
+          "order": 5
+        }
+      ],
+      "title": "Board of Directors Policy Approval",
+      "triggers": [
+        "Policy status transitions to PROPOSED",
+        "Board meeting agenda includes policy vote",
+        "Emergency policy action requested by Officer"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "legal_compliance",
+      "description": "Procedure for registering and maintaining compliance for a foreign nonprofit operating in California. Covers Statement of Information, Attorney General registration, and Franchise Tax Board.",
+      "id": "california-operations-registration",
+      "linkedPolicies": [
+        "regulatory-compliance",
+        "financial-controls",
+        "privacy-policy"
+      ],
+      "slaDays": 60,
+      "status": "active",
+      "stepCount": 5,
+      "steps": [
+        {
+          "description": "File Statement and Designation by Foreign Corporation (Form S&DC) with the California Secretary of State. Fee: $30.",
+          "name": "Qualify as Foreign Corporation",
+          "order": 1
+        },
+        {
+          "description": "File Initial Registration Form (CT-1) with the CA Attorney General's Registry of Charitable Trusts within 30 days of receiving charitable assets. Fee: $25.",
+          "name": "Register with CA Attorney General",
+          "order": 2
+        },
+        {
+          "description": "File Form FTB 3500 with the California Franchise Tax Board to obtain state tax-exempt status. Requires IRS Determination Letter.",
+          "name": "Apply for CA Tax Exemption (FTB 3500)",
+          "order": 3
+        },
+        {
+          "description": "File Statement of Information with the CA Secretary of State within 90 days of fiscal year end. Fee: $20.",
+          "name": "File Annual Statement of Information (SI-100)",
+          "order": 4
+        },
+        {
+          "description": "File Annual Registration Renewal Fee Report and FTB Form 199 with the Attorney General. Due within 4 months and 15 days after fiscal year end.",
+          "name": "File Annual AG Renewal (RRF-1 + Form 199)",
+          "order": 5
+        }
+      ],
+      "title": "California Operations Registration & Compliance",
+      "triggers": [
+        "Decision to operate in California",
+        "Annual Statement of Information due (within 90 days of fiscal year end)",
+        "Attorney General annual renewal (RRF-1 due with Form 199)"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "legal_compliance",
+      "description": "Procedure for incorporating a nonprofit in Delaware and maintaining annual compliance. Covers Certificate of Incorporation, Registered Agent, Annual Report, and Franchise Tax.",
+      "id": "delaware-incorporation",
+      "linkedPolicies": [
+        "regulatory-compliance",
+        "corporate-governance",
+        "bylaws"
+      ],
+      "slaDays": 90,
+      "status": "active",
+      "stepCount": 5,
+      "steps": [
+        {
+          "description": "Draft Certificate of Incorporation for a Delaware Nonstock Corporation (Title 8, Chapter 1, §101-102). Include purpose clause with 501(c)(3) language.",
+          "name": "Prepare Certificate of Incorporation",
+          "order": 1
+        },
+        {
+          "description": "Submit Certificate of Incorporation to Delaware Division of Corporations. Pay filing fee ($89 for nonstock corporations).",
+          "name": "File with Delaware Division of Corporations",
+          "order": 2
+        },
+        {
+          "description": "Ensure a registered agent is appointed in Delaware at all times for service of process and state correspondence.",
+          "name": "Maintain Registered Agent",
+          "order": 3
+        },
+        {
+          "description": "File Annual Report with the Delaware Division of Corporations by March 1 each year. Fee: $25 for nonprofits.",
+          "name": "File Delaware Annual Report",
+          "order": 4
+        },
+        {
+          "description": "Non-profit corporations exempt from franchise tax under DE Code Title 8 §503. File annual exempt report confirming exempt status.",
+          "name": "Pay Delaware Franchise Tax",
+          "order": 5
+        }
+      ],
+      "title": "Delaware Incorporation & Annual Compliance",
+      "triggers": [
+        "Initial incorporation decision",
+        "Annual Report filing deadline (March 1)",
+        "Registered Agent change"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "operations",
+      "description": "Process to evaluate potential grant opportunities against the Institute's mission, capacity, and strategic goals before committing resources to write an application.",
+      "id": "grant-opportunity-relevance",
+      "linkedPolicies": [
+        "financial-controls",
+        "budgeting-forecasting"
+      ],
+      "slaDays": 14,
+      "status": "active",
+      "stepCount": 5,
+      "steps": [
+        {
+          "description": "Log the grant opportunity, including funder details, deadline, award amount, and core requirements.",
+          "name": "Opportunity Identification",
+          "order": 1
+        },
+        {
+          "description": "Evaluate if the grant objectives align with the Active Inference Institute's open science and educational mission.",
+          "name": "Mission Alignment Check",
+          "order": 2
+        },
+        {
+          "description": "Determine if the Institute has the personnel and technical capacity to execute the proposed grant project.",
+          "name": "Capacity Assessment",
+          "order": 3
+        },
+        {
+          "description": "Review matching fund requirements, indirect cost recovery rates, and cash flow implications.",
+          "name": "Financial Viability",
+          "order": 4
+        },
+        {
+          "description": "Formal decision to proceed with writing the grant application based on the prior assessments.",
+          "name": "Go/No-Go Decision",
+          "order": 5
+        }
+      ],
+      "title": "Determine Grant Opportunity Relevance",
+      "triggers": [
+        "New grant RFP identified",
+        "Funder invites proposal"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "human_resources",
+      "description": "Procedure for onboarding new employees and interns. Covers documentation, system access, policy acknowledgment, training, and first-week orientation.",
+      "id": "employee-onboarding",
+      "linkedPolicies": [
+        "employee-handbook",
+        "eeo-policy",
+        "anti-harassment-discrimination",
+        "training-professional-development",
+        "acceptable-use",
+        "code-of-conduct",
+        "remote-work"
+      ],
+      "slaDays": 14,
+      "status": "active",
+      "stepCount": 6,
+      "steps": [
+        {
+          "description": "HR sends welcome packet, collects tax and identification documents, prepares equipment/accounts, and schedules Day 1 orientation.",
+          "name": "Pre-boarding Preparation",
+          "order": 1
+        },
+        {
+          "description": "In-person or virtual orientation covering Institute mission (Active Inference), organizational structure, key contacts, and shared space tour.",
+          "name": "Day 1 Orientation",
+          "order": 2
+        },
+        {
+          "description": "IT Security provisions accounts: email, GitHub, Discord, Coda, and any role-specific tools. Apply principle of least privilege.",
+          "name": "System Access Provisioning",
+          "order": 3
+        },
+        {
+          "description": "New hire reviews and acknowledges key policies: Code of Conduct, Acceptable Use, Anti-Harassment, Remote Work. Signed acknowledgments stored in HR records.",
+          "name": "Policy Acknowledgment",
+          "order": 4
+        },
+        {
+          "description": "Enroll in role-specific and mandatory training: Active Inference foundations, security awareness, accessibility, and any technical onboarding.",
+          "name": "Training Enrollment",
+          "order": 5
+        },
+        {
+          "description": "Manager and HR conduct a 14-day check-in to assess onboarding experience, answer questions, and adjust training plan if needed.",
+          "name": "First Check-in (Day 14)",
+          "order": 6
+        }
+      ],
+      "title": "Employee Onboarding",
+      "triggers": [
+        "Offer letter accepted",
+        "Intern start date confirmed",
+        "Contractor engagement begins"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "legal_compliance",
+      "description": "End-to-end procedure for establishing and maintaining federal tax-exempt status under IRC §501(c)(3). Covers IRS Form 1023 filing, EIN application, determination letter tracking, and ongoing compliance.",
+      "id": "federal-501c3-registration",
+      "linkedPolicies": [
+        "regulatory-compliance",
+        "financial-controls",
+        "corporate-governance"
+      ],
+      "slaDays": 180,
+      "status": "active",
+      "stepCount": 6,
+      "steps": [
+        {
+          "description": "Apply for an EIN online via IRS.gov (Form SS-4). Required before Form 1023 filing.",
+          "name": "Obtain Employer Identification Number (EIN)",
+          "order": 1
+        },
+        {
+          "description": "Compile the application for tax-exempt status: organizational documents, narrative description of activities, financial projections, board composition, and conflict-of-interest policy.",
+          "name": "Prepare Form 1023 / 1023-EZ Application",
+          "order": 2
+        },
+        {
+          "description": "File Form 1023/1023-EZ via Pay.gov with the user fee. Track confirmation number.",
+          "name": "Submit to IRS",
+          "order": 3
+        },
+        {
+          "description": "Monitor IRS processing (typically 3-6 months). Respond to any IRS follow-up questions.",
+          "name": "Determination Letter Tracking",
+          "order": 4
+        },
+        {
+          "description": "Update state registrations with exempt status, register with state charity regulators, set up donation receipting system, file initial Form 990.",
+          "name": "Post-Determination Setup",
+          "order": 5
+        },
+        {
+          "description": "Establish annual compliance calendar: Form 990, state renewals, public disclosure requirements, unrelated business income tracking.",
+          "name": "Annual Compliance Calendar",
+          "order": 6
+        }
+      ],
+      "title": "Federal 501(c)(3) Registration & Maintenance",
+      "triggers": [
+        "Initial incorporation decision",
+        "Annual Form 990 filing deadline (May 15 for calendar year)",
+        "Material change in operations or governance"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "communications",
+      "description": "Automated process for generating branded PDF and Markdown letterhead documents from plaintext content.md files in the communications library. Idempotent: clears and regenerates outputs.",
+      "id": "generate-communications",
+      "linkedPolicies": [
+        "brand-usage",
+        "marketing-communications"
+      ],
+      "slaDays": 1,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "Remove existing generated files from the target output/ directory to prevent stale artifacts.",
+          "name": "Clear Existing Outputs",
+          "order": 1
+        },
+        {
+          "description": "Convert content.md files to branded PDF (light and dark variants) and Markdown letterhead documents using the letterhead renderer.",
+          "name": "Generate Letterhead Documents",
+          "order": 2
+        },
+        {
+          "description": "Update library/registries/communications.json with new output paths and content hashes.",
+          "name": "Update Communications Registry",
+          "order": 3
+        }
+      ],
+      "title": "Generate Communications Output",
+      "triggers": [
+        "New communication content.md created or updated",
+        "Brand template changes",
+        "Batch regeneration request"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "education",
+      "description": "Ongoing process for regular intern check-ins during engagement and structured offboarding when the internship concludes. Ensures continuous feedback, learning assessment, and graceful access revocation.",
+      "id": "internship-checkin-offboarding",
+      "linkedPolicies": [
+        "training-professional-development",
+        "performance-management",
+        "acceptable-use"
+      ],
+      "slaDays": 21,
+      "status": "active",
+      "stepCount": 5,
+      "steps": [
+        {
+          "description": "Bi-weekly 1:1 between intern and mentor to review progress, provide feedback, adjust scope, and address any concerns.",
+          "name": "Regular Check-in",
+          "order": 1
+        },
+        {
+          "description": "Formal mid-point assessment with mentor and EduActive Director. Review learning objectives, project progress, and determine continuation recommendation.",
+          "name": "Mid-Point Review",
+          "order": 2
+        },
+        {
+          "description": "Intern submits final project deliverable(s). Mentor reviews and provides final feedback.",
+          "name": "Final Deliverable Submission",
+          "order": 3
+        },
+        {
+          "description": "Conduct exit interview to gather feedback on the internship experience, mentorship quality, and suggestions for improvement.",
+          "name": "Exit Interview",
+          "order": 4
+        },
+        {
+          "description": "Revoke all provisioned access: Discord, GitHub, Coda, and any other tools. Update entity registry to deactivate.",
+          "name": "Access Revocation",
+          "order": 5
+        }
+      ],
+      "title": "Intern Check-in & Offboarding",
+      "triggers": [
+        "Bi-weekly check-in cadence",
+        "Mid-point review milestone",
+        "Internship end date approaching (2 weeks prior)",
+        "Early termination request"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "education",
+      "description": "Procedure for onboarding interns to the Active Inference Institute. Covers application processing, orientation, tool provisioning, mentor assignment, and first-week deliverables.",
+      "id": "internship-onboarding",
+      "linkedPolicies": [
+        "training-professional-development",
+        "code-of-conduct",
+        "acceptable-use",
+        "remote-work"
+      ],
+      "slaDays": 14,
+      "status": "active",
+      "stepCount": 6,
+      "steps": [
+        {
+          "description": "Confirm intern acceptance, send welcome email with start date, expected time commitment, and pre-reading materials on Active Inference.",
+          "name": "Application Confirmation",
+          "order": 1
+        },
+        {
+          "description": "Share Active Inference introductory materials: textbook chapters, key papers, and recorded lectures from the Institute's YouTube channel.",
+          "name": "Pre-Onboarding Materials",
+          "order": 2
+        },
+        {
+          "description": "Live or recorded orientation covering: Institute mission, organizational structure, Active Inference primer, communication norms, and code of conduct review.",
+          "name": "Orientation Session",
+          "order": 3
+        },
+        {
+          "description": "Provision intern access to Discord, GitHub, Coda, and project-specific tools. Apply principle of least privilege.",
+          "name": "Tool Provisioning",
+          "order": 4
+        },
+        {
+          "description": "Assign a mentor from the appropriate unit. Schedule initial 1:1 meeting and establish check-in cadence.",
+          "name": "Mentor Assignment",
+          "order": 5
+        },
+        {
+          "description": "Intern completes a small introductory deliverable to demonstrate understanding and tool proficiency.",
+          "name": "First-Week Deliverable",
+          "order": 6
+        }
+      ],
+      "title": "Intern Onboarding",
+      "triggers": [
+        "Intern application accepted",
+        "New semester/cohort start date",
+        "Special project intern engagement"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "it_security",
+      "description": "Procedure for detecting, containing, eradicating, and recovering from IT security incidents. Aligns with NIST CSF and the Institute's Incident Response & Breach Notification Policy.",
+      "id": "incident-response",
+      "linkedPolicies": [
+        "incident-response-breach",
+        "cybersecurity",
+        "data-protection-information-security",
+        "business-continuity-disaster-recovery"
+      ],
+      "slaDays": 7,
+      "status": "active",
+      "stepCount": 6,
+      "steps": [
+        {
+          "description": "Identify the potential security incident through monitoring, alerting, or user report. Log the initial indicator of compromise (IoC).",
+          "name": "Detection & Alerting",
+          "order": 1
+        },
+        {
+          "description": "Assess the scope, severity (P1–P4), and potential impact. Determine if breach notification is required under GDPR/CCPA.",
+          "name": "Triage & Classification",
+          "order": 2
+        },
+        {
+          "description": "Isolate affected systems, revoke compromised credentials, and prevent further spread. Short-term and long-term containment strategies.",
+          "name": "Containment",
+          "order": 3
+        },
+        {
+          "description": "Remove the root cause — malware, unauthorized access, misconfiguration. Patch vulnerable systems.",
+          "name": "Eradication",
+          "order": 4
+        },
+        {
+          "description": "Restore affected systems from clean backups, validate integrity, and return to normal operations.",
+          "name": "Recovery",
+          "order": 5
+        },
+        {
+          "description": "Conduct a blameless post-mortem. Document root cause, timeline, impact, and preventive measures. Update policies if needed.",
+          "name": "Post-Mortem & Lessons Learned",
+          "order": 6
+        }
+      ],
+      "title": "IT Security Incident Response",
+      "triggers": [
+        "Security alert from monitoring tools",
+        "User report of suspicious activity",
+        "Automated intrusion detection trigger",
+        "Third-party breach notification"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "communications",
+      "description": "Procedure for planning, writing, reviewing, and publishing the Institute's newsletter on Substack. Covers content planning, drafting, editorial review, and publication with engagement tracking.",
+      "id": "newsletter-publication",
+      "linkedPolicies": [
+        "marketing-communications",
+        "brand-usage",
+        "social-media"
+      ],
+      "slaDays": 14,
+      "status": "active",
+      "stepCount": 5,
+      "steps": [
+        {
+          "description": "Determine newsletter theme, gather content from across the Institute: research updates, educational events, community highlights, and organizational news.",
+          "name": "Content Planning",
+          "order": 1
+        },
+        {
+          "description": "Write newsletter sections: intro/editorial, research spotlight, education updates, community news, upcoming events, and call to action.",
+          "name": "Content Drafting",
+          "order": 2
+        },
+        {
+          "description": "President and/or relevant unit directors review the draft for accuracy, tone, brand alignment, and completeness.",
+          "name": "Editorial Review",
+          "order": 3
+        },
+        {
+          "description": "Publish the newsletter via Substack. Cross-post excerpts to Discord, LinkedIn, and X/Twitter.",
+          "name": "Publication",
+          "order": 4
+        },
+        {
+          "description": "After 48 hours, review Substack analytics: open rate, click-through rate, new subscribers, unsubscribes.",
+          "name": "Engagement Tracking",
+          "order": 5
+        }
+      ],
+      "title": "Newsletter Publication (Substack)",
+      "triggers": [
+        "Monthly publication cadence",
+        "Major announcement or milestone",
+        "Event/cohort launch requiring communication"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "legal_compliance",
+      "description": "Procedure for filing and paying annual organizational taxes for a 501(c)(3) nonprofit registered in Delaware and active in California (e.g., IRS Form 990, CA Form 199, DE Franchise Tax).",
+      "id": "pay-organizational-taxes",
+      "linkedPolicies": [
+        "financial-controls",
+        "regulatory-compliance"
+      ],
+      "slaDays": 135,
+      "status": "active",
+      "stepCount": 6,
+      "steps": [
+        {
+          "description": "Close books for the fiscal year, reconcile accounts, and prepare financial statements for the tax preparer.",
+          "name": "Gather Financials",
+          "order": 1
+        },
+        {
+          "description": "External CPA prepares draft tax returns including IRS Form 990, DE Annual Report, and CA Form 199 / RRF-1.",
+          "name": "CPA Preparation",
+          "order": 2
+        },
+        {
+          "description": "Distribute IRS Form 990 to the full Board of Directors for review prior to filing, as recommended by IRS governance guidelines.",
+          "name": "Board Review",
+          "order": 3
+        },
+        {
+          "description": "Authorize CPA to electronically file IRS Form 990 (or 990-EZ/990-N).",
+          "name": "File Federal Returns (IRS)",
+          "order": 4
+        },
+        {
+          "description": "File Delaware Annual Report and California FTB Form 199 + Attorney General Form RRF-1.",
+          "name": "File State Returns (DE & CA)",
+          "order": 5
+        },
+        {
+          "description": "Remit any required payments or filing fees (e.g., DE Franchise Tax, CA Registry of Charitable Trusts fee).",
+          "name": "Payment Remittance",
+          "order": 6
+        }
+      ],
+      "title": "Pay Organizational Taxes",
+      "triggers": [
+        "End of fiscal year",
+        "Approaching statutory tax deadlines (e.g., May 15 for calendar year nonprofits)"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "governance",
+      "description": "Meta-process governing the full lifecycle of any policy document from initial exploration through retirement. Maps directly to the 8 board statuses defined in board_statuses.json.",
+      "id": "policy-lifecycle-management",
+      "linkedPolicies": [
+        "active-inference-policy-development-standard"
+      ],
+      "slaDays": 90,
+      "status": "active",
+      "stepCount": 8,
+      "steps": [
+        {
+          "description": "Identify the need for a policy. Research peer organizations, regulatory requirements, and stakeholder needs. Produce a scoping brief.",
+          "name": "Explore & Scope",
+          "order": 1
+        },
+        {
+          "description": "Compose the policy using the resolved template schema standard. Collaborate with subject matter experts and AI drafting assistants.",
+          "name": "Draft Policy",
+          "order": 2
+        },
+        {
+          "description": "Submit the completed draft to the Board for formal review. Status transitions from DRAFTING to PROPOSED.",
+          "name": "Submit Proposal",
+          "order": 3
+        },
+        {
+          "description": "Revise the draft based on Board feedback. Track amendments and re-submit. Status transitions to AMENDED.",
+          "name": "Amend (if needed)",
+          "order": 4
+        },
+        {
+          "description": "Invoke the Board Policy Approval process (board-policy-approval). Status transitions to FOR_VOTE.",
+          "name": "Board Vote",
+          "order": 5
+        },
+        {
+          "description": "Policy is accepted and published to the library. Status transitions to ACCEPTED.",
+          "name": "Accept & Publish",
+          "order": 6
+        },
+        {
+          "description": "Ongoing monitoring of the active policy. Periodic reviews triggered by schedule or regulatory changes.",
+          "name": "Monitor & Review",
+          "order": 7
+        },
+        {
+          "description": "When a policy is no longer needed or is replaced, it transitions to SUPERSEDED or RETIRED.",
+          "name": "Retire or Supersede",
+          "order": 8
+        }
+      ],
+      "title": "Policy Lifecycle Management",
+      "triggers": [
+        "New policy topic identified",
+        "Existing policy requires revision",
+        "Board directive to create or retire a policy",
+        "Regulatory change requiring policy response"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "research",
+      "description": "Procedure for proposing, scoping, and launching new research projects. Ensures alignment with mission, resource availability, and proper governance.",
+      "id": "research-project-initiation",
+      "linkedPolicies": [
+        "intellectual-property",
+        "quality-assurance",
+        "budgeting-forecasting"
+      ],
+      "slaDays": 21,
+      "status": "active",
+      "stepCount": 5,
+      "steps": [
+        {
+          "description": "Researcher submits a 2-page project proposal: objectives, methodology (Active Inference framing), expected outcomes, timeline, and resource needs.",
+          "name": "Proposal Submission",
+          "order": 1
+        },
+        {
+          "description": "Scientific Advisory Board evaluates methodological rigor, novelty, and alignment with Active Inference principles.",
+          "name": "Scientific Merit Review",
+          "order": 2
+        },
+        {
+          "description": "Determine required compute, personnel, data access, and budget. President approval required for projects exceeding $5,000.",
+          "name": "Resource Allocation",
+          "order": 3
+        },
+        {
+          "description": "Review intellectual property implications, data privacy requirements, and ethical considerations. Ensure compliance with open science mission.",
+          "name": "Ethics & IP Review",
+          "order": 4
+        },
+        {
+          "description": "Kickoff meeting with project team: review scope, timeline, milestones, communication plan, and deliverables. Create GitHub repository.",
+          "name": "Project Kickoff",
+          "order": 5
+        }
+      ],
+      "title": "Research Project Initiation",
+      "triggers": [
+        "New research proposal submitted",
+        "Grant-funded project kicking off",
+        "Strategic initiative approved by Board"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "human_resources",
+      "description": "Procedure for evaluating, interviewing, and selecting candidates for the Research Fellow program.",
+      "id": "research-fellow-application-review",
+      "linkedPolicies": [
+        "employee-handbook",
+        "eeo-policy",
+        "anti-harassment-discrimination"
+      ],
+      "slaDays": 30,
+      "status": "active",
+      "stepCount": 6,
+      "steps": [
+        {
+          "description": "Receive the application materials (CV, cover letter, research proposal) and log them into the applicant tracking system.",
+          "name": "Application Intake",
+          "order": 1
+        },
+        {
+          "description": "Screen application for completeness and basic qualifications against the fellowship criteria.",
+          "name": "Initial Screening",
+          "order": 2
+        },
+        {
+          "description": "Scientific Advisory Board or ReInference Director reviews the research proposal for alignment with Active Inference methodology.",
+          "name": "Scientific Review",
+          "order": 3
+        },
+        {
+          "description": "Conduct a panel interview with the candidate to assess technical skills, cultural fit, and communication.",
+          "name": "Interview Panel",
+          "order": 4
+        },
+        {
+          "description": "President or ReInference Director makes the final selection decision based on all accumulated evidence.",
+          "name": "Final Decision",
+          "order": 5
+        },
+        {
+          "description": "Extend offer to candidate. Upon acceptance, trigger the employee-onboarding process.",
+          "name": "Offer & Onboarding",
+          "order": 6
+        }
+      ],
+      "title": "Review of Research Fellow Application",
+      "triggers": [
+        "Application received via portal",
+        "Referral from Scientific Advisory Board"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "procurement",
+      "description": "Procedure for evaluating, approving, and onboarding third-party vendors and service providers. Ensures compliance with procurement, risk management, and data protection requirements.",
+      "id": "vendor-onboarding",
+      "linkedPolicies": [
+        "procurement",
+        "vendor-due-diligence",
+        "third-party-risk-management",
+        "contract-approval-management",
+        "data-protection-information-security"
+      ],
+      "slaDays": 21,
+      "status": "active",
+      "stepCount": 5,
+      "steps": [
+        {
+          "description": "Internal stakeholder submits a vendor engagement request with business justification, estimated spend, and data access requirements.",
+          "name": "Vendor Request",
+          "order": 1
+        },
+        {
+          "description": "Procurement Manager conducts due diligence: financial stability, references, compliance certifications (SOC 2, ISO 27001), ESG practices.",
+          "name": "Due Diligence Review",
+          "order": 2
+        },
+        {
+          "description": "Compliance Officer and DPO assess data protection risks, regulatory exposure, and vendor lock-in risk. Score using the Institute's risk matrix.",
+          "name": "Risk Assessment",
+          "order": 3
+        },
+        {
+          "description": "Negotiate contract terms, SLAs, data processing agreements (DPAs), and liability clauses. President approval required above spending thresholds.",
+          "name": "Contract Negotiation & Review",
+          "order": 4
+        },
+        {
+          "description": "Provision access, issue credentials, configure integrations, and add vendor to the entity registry. Schedule first review date.",
+          "name": "Vendor Onboarding",
+          "order": 5
+        }
+      ],
+      "title": "Vendor Due Diligence & Onboarding",
+      "triggers": [
+        "New vendor engagement requested",
+        "Existing vendor contract renewal",
+        "Vendor risk profile change detected"
+      ],
+      "version": "0.1"
+    },
+    {
+      "category": "operations",
+      "description": "Procedure for drafting, reviewing, and submitting a formal grant application following a Go decision.",
+      "id": "write-grant-application",
+      "linkedPolicies": [
+        "financial-controls",
+        "quality-assurance"
+      ],
+      "slaDays": 45,
+      "status": "active",
+      "stepCount": 6,
+      "steps": [
+        {
+          "description": "Establish the grant timeline, assign writing sections to contributors, and review funder guidelines.",
+          "name": "Kickoff Meeting",
+          "order": 1
+        },
+        {
+          "description": "Write the core proposal narrative, including methodology, literature review, and expected outcomes.",
+          "name": "Draft Narrative",
+          "order": 2
+        },
+        {
+          "description": "Create the project budget and budget narrative, ensuring alignment with institutional financial controls.",
+          "name": "Develop Budget",
+          "order": 3
+        },
+        {
+          "description": "Scientific Advisory Board or peer reviewers evaluate the proposal for clarity, feasibility, and impact.",
+          "name": "Internal Review (Red Team)",
+          "order": 4
+        },
+        {
+          "description": "President and/or Board of Directors grant final sign-off before submission to the funder.",
+          "name": "Final Approval",
+          "order": 5
+        },
+        {
+          "description": "Compile all components and submit via the funder's portal before the deadline.",
+          "name": "Submission",
+          "order": 6
+        }
+      ],
+      "title": "Write Grant Application",
+      "triggers": [
+        "GO decision from grant-opportunity-relevance process"
+      ],
+      "version": "0.1"
+    }
+  ],
+  "source": "instituteos/library/registries/processes.json"
+}

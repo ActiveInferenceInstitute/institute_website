@@ -289,6 +289,158 @@ def sanitize_ontology(tech_tree_data: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def record_is_public_safe(record: dict[str, Any]) -> bool:
+    """Return False if a single record would trip validate_public_payload.
+
+    Mirrors validate_public_payload's checks without raising. Used to drop the
+    rare entity whose own public identity collides with a private-channel token —
+    e.g. a technology-provider organization literally named "Discord" — so the
+    surviving payload passes the shared public-safety gate untouched.
+    """
+    serialized = json.dumps(record, ensure_ascii=False).lower()
+    for blocked in PRIVATE_KEYS:
+        if f'"{blocked}"' in serialized:
+            return False
+    for blocked in ("coda.io", "workspace", "source atlas", "source manifest", "aii.pdf"):
+        if blocked in serialized:
+            return False
+    return True
+
+
+def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
+    people = []
+    organizations = []
+    for entity in entities_data.get("entities", []):
+        entity_type = entity.get("entity_type")
+        if entity_type == "person":
+            policy_roles = [
+                {
+                    "policyId": link.get("policy_id"),
+                    "role": public_text(link.get("role")),
+                }
+                for link in entity.get("policy_links", [])
+            ]
+            record = {
+                "id": entity.get("id"),
+                "name": public_text(entity.get("name")),
+                "title": public_text(entity.get("title")),
+                "roles": [public_text(role) for role in entity.get("roles", [])],
+                "orgId": entity.get("org_id"),
+                "active": entity.get("active"),
+                "tags": [public_text(tag) for tag in entity.get("tags", []) if public_text(tag)],
+                "policyRoles": policy_roles,
+            }
+            if record_is_public_safe(record):
+                people.append(record)
+        elif entity_type == "organization":
+            record = {
+                "id": entity.get("id"),
+                "name": public_text(entity.get("name")),
+                "type": public_text(entity.get("type")),
+                "description": public_text(entity.get("description")),
+                "url": entity.get("url"),
+                "tags": [public_text(tag) for tag in entity.get("tags", []) if public_text(tag)],
+                "memberIds": list(entity.get("people", [])),
+                "parentId": entity.get("parent_id"),
+            }
+            if record_is_public_safe(record):
+                organizations.append(record)
+    people.sort(key=lambda item: item["name"].lower())
+    organizations.sort(key=lambda item: item["name"].lower())
+    return {
+        "description": "Public-safe people and organizations derived from InstituteOS entities.",
+        "source": "instituteos/library/registries/entities.json",
+        "people": people,
+        "organizations": organizations,
+    }
+
+
+def sanitize_processes(processes_data: dict[str, Any]) -> dict[str, Any]:
+    records = []
+    for process in processes_data.get("processes", []):
+        sla = process.get("sla") or {}
+        steps = process.get("steps", [])
+        records.append(
+            {
+                "id": process.get("id"),
+                "title": public_text(process.get("title")),
+                "description": public_text(process.get("description")),
+                "category": public_text(process.get("category")),
+                "version": process.get("version"),
+                "status": public_text(process.get("status")),
+                "triggers": [public_text(trigger) for trigger in process.get("triggers", [])],
+                "slaDays": sla.get("total_days"),
+                "linkedPolicies": list(process.get("linked_policies", [])),
+                "stepCount": len(steps),
+                "steps": [
+                    {
+                        "order": step.get("order"),
+                        "name": public_text(step.get("name")),
+                        "description": public_text(step.get("description")),
+                    }
+                    for step in steps
+                ],
+            }
+        )
+    records.sort(key=lambda item: item["title"].lower())
+    return {
+        "description": "Public-safe governance process summaries derived from InstituteOS processes.",
+        "source": "instituteos/library/registries/processes.json",
+        "records": records,
+    }
+
+
+def sanitize_communications(comms_data: dict[str, Any]) -> dict[str, Any]:
+    records = []
+    for comm in comms_data.get("communications", []):
+        if comm.get("review_status") != "approved":
+            continue
+        records.append(
+            {
+                "id": comm.get("id"),
+                "type": public_text(comm.get("type")),
+                "title": public_text(comm.get("title")),
+                "author": public_text(comm.get("author")),
+                "date": comm.get("date"),
+                "referenceNumber": comm.get("reference_number"),
+                "language": comm.get("language"),
+            }
+        )
+    records.sort(key=lambda item: str(item.get("date") or ""), reverse=True)
+    return {
+        "description": "Public-safe approved communications derived from InstituteOS communications.",
+        "source": "instituteos/library/registries/communications.json",
+        "records": records,
+    }
+
+
+def sanitize_policies(policies_data: dict[str, Any]) -> dict[str, Any]:
+    records = []
+    for policy in policies_data.get("policies", []):
+        current_version = ""
+        for version in policy.get("versions", []):
+            if version.get("is_current") is True:
+                current_version = version.get("version") or ""
+                break
+        records.append(
+            {
+                "id": policy.get("id"),
+                "title": public_text(policy.get("title")),
+                "category": public_text(policy.get("category")),
+                "description": public_text(policy.get("description")),
+                "status": public_text(policy.get("status")),
+                "tags": [public_text(tag) for tag in policy.get("tags", []) if public_text(tag)],
+                "currentVersion": current_version,
+            }
+        )
+    records.sort(key=lambda item: (item["category"].lower(), item["title"].lower()))
+    return {
+        "description": "Public-safe policy registry rows derived from InstituteOS policies.",
+        "source": "instituteos/library/registries/policies.json",
+        "records": records,
+    }
+
+
 def build_asset_records(instituteos_root: Path) -> tuple[dict[str, Any], list[SyncResult]]:
     records = []
     writes: list[SyncResult] = []
@@ -332,11 +484,29 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
     repositories_data = load_json(PROJECT_ROOT / "src" / "content" / "repositories.json")
     tech_tree_data = load_json(instituteos_root / "library" / "registries" / "tech_trees.json")
 
+    registries_dir = instituteos_root / "library" / "registries"
+    entities_path = registries_dir / "entities.json"
+    processes_path = registries_dir / "processes.json"
+    communications_path = registries_dir / "communications.json"
+    policies_path = registries_dir / "policies.json"
+    for required_path in (entities_path, processes_path, communications_path, policies_path):
+        if not required_path.exists():
+            raise SystemExit(f"required InstituteOS registry not found: {required_path}")
+
+    entities_data = load_json(entities_path)
+    processes_data = load_json(processes_path)
+    communications_data = load_json(communications_path)
+    policies_data = load_json(policies_path)
+
     payloads = {
         "people.json": sanitize_people(),
         "projects.json": sanitize_projects(repositories_data),
         "ideas.json": sanitize_ideas(tech_tree_data),
         "ontology.json": sanitize_ontology(tech_tree_data),
+        "entities.json": sanitize_entities(entities_data),
+        "processes.json": sanitize_processes(processes_data),
+        "communications.json": sanitize_communications(communications_data),
+        "policies.json": sanitize_policies(policies_data),
     }
     asset_payload, asset_writes = build_asset_records(instituteos_root)
     payloads["assets.json"] = asset_payload
