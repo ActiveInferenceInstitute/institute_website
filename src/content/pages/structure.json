@@ -1,0 +1,121 @@
+{
+  "slug": "structure",
+  "title": "Institute Structure",
+  "subtitle": "Governance, roles, and organizational units of the Active Inference Institute.",
+  "audience": "Visitors seeking to understand how the Institute is organized and governed.",
+  "lede": "The Active Inference Institute is organized around a governing Board of Directors, executive Officers, a Scientific Advisory Board, and two operational units for education and research.",
+  "primaryActions": [
+    {
+      "label": "Get involved",
+      "href": "get-involved.html"
+    },
+    {
+      "label": "Programs",
+      "href": "programs.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Governance Overview",
+      "body": "The Institute is a registered 501(c)(3) nonprofit organization incorporated in Delaware, USA. Governance is exercised through a Board of Directors supported by Officers for operations and a Scientific Advisory Board for scholarly guidance. This structure ensures that the Institute's direction reflects both sound governance and scientific integrity. All governance documents, policies, and processes are maintained as open public records.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Board of Directors",
+      "body": "The Board of Directors is the primary governing body of the Active Inference Institute. The Board provides strategic direction, fiduciary oversight, and institutional accountability. Board members are responsible for the long-term health and mission alignment of the Institute. The Board meets regularly and maintains public records of its decisions, policies, and governance actions."
+    },
+    {
+      "heading": "Officers",
+      "body": "Officers are responsible for the day-to-day operations of the Institute. Officer roles include President, Treasurer, and Secretary, among others. Officers implement Board decisions, manage organizational processes, maintain financial records, coordinate communications, and oversee Institute Programs. Officers work closely with the organizational units and report to the Board of Directors."
+    },
+    {
+      "heading": "Scientific Advisory Board",
+      "body": "The Scientific Advisory Board (SAB) provides scientific and scholarly guidance to the Institute. SAB members are experts in Active Inference, computational neuroscience, cognitive science, and related fields. The SAB advises on research directions, educational content, project selection, and the scientific quality of Institute outputs. SAB members may serve as Facilitators for research projects and learning groups."
+    },
+    {
+      "heading": "Organizational Units",
+      "body": "Two organizational units carry out the Institute's programs. The EduActive Unit focuses on education: it supports learning groups, courses, textbook cohorts, seasonal schools, educational course development, and audio-visual production. The ReInference Unit focuses on research: it supports research projects, the Active Inference Journal, the Active Inference Ontology, knowledge engineering, and the Applied Active Inference Symposium. Both units are led by Facilitators who coordinate project groups, learning activities, and community engagement."
+    },
+    {
+      "heading": "Volunteers, Learners, and Interns",
+      "body": "Volunteers, Learners, and Interns are the active participants who power the Institute's day-to-day work. Volunteers contribute across all functions — learning groups, project support, operations, writing, analysis, and media. Learners engage with educational programs at their own pace. Interns participate in structured pathways that develop skills through project contribution and community engagement. All of these roles connect outward to the broader Active Inference Ecosystem.",
+      "links": [
+        {
+          "label": "Volunteer",
+          "sourceId": "shortlink-volunteer"
+        },
+        {
+          "label": "Internship",
+          "sourceId": "shortlink-intern"
+        }
+      ]
+    },
+    {
+      "heading": "Ecosystem Relationship",
+      "body": "The Institute sits inside the broader Active Inference Ecosystem — a global network of researchers, practitioners, learners, universities, companies, and collaborators who work with and around Active Inference. The Institute provides Ecosystem Support through communications, education, project facilitation, computational and storage resources, publishing and licensing support, funding discovery, and partnerships. The Ecosystem in turn contributes members, projects, ideas, and feedback that shape the Institute's directions.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Board of Directors",
+      "text": "Strategic direction and fiduciary oversight.",
+      "links": [
+        {
+          "label": "About governance",
+          "href": "structure.html#board-of-directors"
+        }
+      ]
+    },
+    {
+      "title": "Officers",
+      "text": "Day-to-day operational leadership of the Institute.",
+      "links": [
+        {
+          "label": "Officers",
+          "href": "structure.html#officers"
+        }
+      ]
+    },
+    {
+      "title": "Scientific Advisory Board",
+      "text": "Expert guidance on research, education, and scientific quality.",
+      "links": [
+        {
+          "label": "Scientific Advisory Board",
+          "href": "structure.html#scientific-advisory-board"
+        }
+      ]
+    },
+    {
+      "title": "EduActive & ReInference Units",
+      "text": "Two operational units — one for education, one for research — carry out Institute programs.",
+      "links": [
+        {
+          "label": "Organizational units",
+          "href": "structure.html#organizational-units"
+        }
+      ]
+    }
+  ],
+  "order": 2,
+  "relatedSlugs": [
+    "about",
+    "programs",
+    "projects",
+    "get-involved"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "shortlink-volunteer",
+    "shortlink-intern"
+  ]
+}

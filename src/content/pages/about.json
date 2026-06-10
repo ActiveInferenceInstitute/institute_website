@@ -1,17 +1,17 @@
 {
   "slug": "about",
   "title": "About the Institute",
-  "subtitle": "A public-interest institution for Active Inference education, research, and applications.",
-  "audience": "Visitors who want a fast institutional orientation.",
-  "lede": "The Active Inference Institute is a volunteer-led 501(c)(3) open science nonprofit making Active Inference known, taught, and applied across science, engineering, and practical domains.",
+  "subtitle": "A participatory open science institute supporting education, research, training, and applications related to Active Inference.",
+  "audience": "Visitors seeking an institutional orientation.",
+  "lede": "The Active Inference Institute is a volunteer-led 501(c)(3) nonprofit dedicated to improving the accessibility, rigor, and applicability of Active Inference. We welcome people of all backgrounds, time zones, and familiarity levels.",
   "primaryActions": [
     {
-      "label": "Open current landing page",
+      "label": "Institute home",
       "sourceId": "official-activeinference-org"
     },
     {
-      "label": "Read strategy",
-      "sourceId": "shortlink-strategy"
+      "label": "Institute & Ecosystem document",
+      "sourceId": "ecosystem"
     }
   ],
   "resourceGroups": [
@@ -22,8 +22,8 @@
   ],
   "sections": [
     {
-      "heading": "Purpose",
-      "body": "AII supports education, research, training, and applications related to Active Inference. The Institute welcomes different backgrounds, time zones, and familiarity levels, and organizes the ecosystem through programs, projects, public media, research resources, and open-source collaboration.",
+      "heading": "What We Do",
+      "body": "The Active Inference Institute identifies, establishes, scaffolds, and supports the sustainable implementation of: education and research services; participation, communication, advisory, and governance affordances within the Institute and the Active Inference Ecosystem; publishing and licensing protocols that establish open-source, fair-use, and effective dissemination of community products; and ecosystem support services including communications, educational programs, and collaborative projects. We host Institute Programs and Projects, provide visibility for Ecosystem Projects, and steward the information commons for the Active Inference field.",
       "links": [
         {
           "sourceId": "ecosystem"
@@ -34,33 +34,68 @@
       ]
     },
     {
-      "heading": "Mission, Vision, Values, and Principles",
-      "body": "The Institute emphasizes integrity, open learning, responsible conduct, professional development, research excellence, and practical service. The public site presents these as an operating stance: make Active Inference more accessible, rigorous, and applicable while supporting ethical collaboration."
-    },
-    {
-      "heading": "Public Structure",
-      "body": "The public Institute surface is organized around learning groups, project groups, media channels, public repositories, official shortlinks, and open collaboration pathways. This site emphasizes the external routes visitors can inspect and use directly."
-    },
-    {
-      "heading": "Information Surfaces",
-      "body": "Public channels include Discord, official shortlinks, newsletters, video and podcast channels, social profiles, project repositories, and GitHub project pages. This website organizes those surfaces into stable visitor pathways.",
+      "heading": "History",
+      "body": "The Institute was founded in 2021 as a volunteer-led community dedicated to making Active Inference more accessible and applicable across science, engineering, and practical domains. The community understood from the outset that change is inevitable, that sustainability and growth depend on a willingness to take chances, and that building trust takes time. In 2022 the first Textbook Group cohort began, bringing together learners from diverse backgrounds to study Active Inference collaboratively — multiple cohorts have since completed the program. The Applied Active Inference Symposium launched in 2021 and has grown into an annual gathering, with five completed symposia through 2025 and a sixth planned for 2026. The Institute was incorporated as a 501(c)(3) nonprofit in Delaware, USA, formalizing governance with a Board of Directors, Officers, and Scientific Advisory Board. The Institute and Ecosystem living document — a community-authored survey of the Institute's state and directions — was first published as an academic paper in 2023 and updated annually through 2025, with contributions from over thirty authors worldwide.",
       "links": [
-        {
-          "sourceId": "weekly"
-        },
         {
           "sourceId": "video"
         },
         {
+          "sourceId": "weekly"
+        }
+      ]
+    },
+    {
+      "heading": "Mission, Vision, Values, and Principles",
+      "body": "Our mission is to improve the accessibility, rigor, and applicability of Active Inference across science, engineering, education, and practical domains. The Institute operates by the motto Act. Infer. Serve. — a commitment to learning, action, and service. Our values include integrity, open learning, responsible conduct, professional development, research excellence, and practical service. We practice open science: making research reproducible and navigable, publishing under open licenses, and stewarding shared infrastructure. Diversity of background, discipline, and familiarity level is a feature of the community, not a constraint."
+    },
+    {
+      "heading": "Institute Structure",
+      "body": "The Institute is governed by a Board of Directors, with day-to-day operations led by Officers and scientific advisory functions served by the Scientific Advisory Board. Two organizational units carry out Institute programs: the EduActive Unit for education and the ReInference Unit for research, each led by Facilitators. Projects, Volunteers, Learners, and Interns operate within this structure and connect outward to the broader Active Inference Ecosystem.",
+      "links": [
+        {
+          "label": "View full structure and roles",
+          "href": "structure.html"
+        }
+      ]
+    },
+    {
+      "heading": "Institute Programs",
+      "body": "Institute Programs are the structured pathways for participation: Volunteer, Internship, Mentorship, Fellowship, Partnership, Philanthropy, and Grants. These programs turn interest into contribution and connect individual participation to the Institute's research, education, and ecosystem goals.",
+      "links": [
+        {
+          "label": "Explore all programs",
+          "href": "programs.html"
+        }
+      ]
+    },
+    {
+      "heading": "Open Science and the Ecosystem",
+      "body": "The Institute publishes its work under open licenses and maintains public repositories, video archives, newsletters, an Active Inference Ontology, and a Journal. We participate in and support the broader Active Inference Ecosystem — a growing network of researchers, practitioners, and learners working across disciplines including computational neuroscience, cognitive science, ecology, economics, and engineering.",
+      "links": [
+        {
           "sourceId": "github-org"
+        },
+        {
+          "sourceId": "ecosystem"
         }
       ]
     }
   ],
   "cards": [
     {
+      "title": "Founded 2021",
+      "text": "Established as a volunteer community, incorporated as a Delaware 501(c)(3) nonprofit.",
+      "links": [
+        {
+          "label": "History",
+          "href": "about.html#history"
+        }
+      ]
+    },
+    {
       "title": "Open participation",
-      "text": "The Institute is designed for people who arrive with different time zones, skills, and familiarity levels.",
+      "text": "All backgrounds, time zones, and familiarity levels are welcome in Institute Programs and Activities.",
       "links": [
         {
           "sourceId": "discord"
@@ -68,34 +103,30 @@
       ]
     },
     {
-      "title": "Public knowledge",
-      "text": "Livestreams, podcasts, readings, projects, and educational groups create reusable learning material.",
+      "title": "Applied rigor",
+      "text": "The Institute connects Active Inference theory with applied projects, symposia, tools, and ecosystem support.",
       "links": [
         {
-          "sourceId": "youtube"
-        },
-        {
-          "sourceId": "video"
-        },
-        {
-          "sourceId": "podbean"
+          "sourceId": "github-org"
         }
       ]
     },
     {
-      "title": "Applied rigor",
-      "text": "The Institute connects theoretical foundations with applied projects, tools, symposia, and ecosystem support.",
+      "title": "Act. Infer. Serve.",
+      "text": "The motto guiding every program, project, and community initiative.",
       "links": [
         {
-          "sourceId": "github-org"
+          "label": "Programs",
+          "href": "programs.html"
         }
       ]
     }
   ],
   "order": 1,
   "relatedSlugs": [
-    "active-inference",
+    "structure",
     "programs",
+    "active-inference",
     "get-involved"
   ],
   "externalSourceIds": [
@@ -105,6 +136,7 @@
     "github-org",
     "official-activeinference-org",
     "shortlink-strategy",
-    "shortlink-welcome"
+    "shortlink-welcome",
+    "video"
   ]
 }

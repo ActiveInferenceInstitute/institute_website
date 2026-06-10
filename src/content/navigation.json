@@ -7,16 +7,16 @@
         "href": "about.html"
       },
       {
+        "label": "Structure & Governance",
+        "href": "structure.html"
+      },
+      {
         "label": "Ecosystem",
         "href": "ecosystem.html"
       },
       {
         "label": "Global Directory",
         "href": "directory.html"
-      },
-      {
-        "label": "Current Landing Page",
-        "href": "resources.html#official-pages"
       },
       {
         "label": "Official Shortlinks",
@@ -61,8 +61,16 @@
         "href": "get-involved.html"
       },
       {
-        "label": "Participation Resources",
-        "href": "resources.html#participation"
+        "label": "Fellowship",
+        "href": "programs.html#fellowship"
+      },
+      {
+        "label": "Internship",
+        "href": "programs.html#internship"
+      },
+      {
+        "label": "Grants & Partnership",
+        "href": "programs.html#grants"
       }
     ]
   },

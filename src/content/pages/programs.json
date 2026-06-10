@@ -1,16 +1,16 @@
 {
   "slug": "programs",
   "title": "Programs",
-  "subtitle": "Structured ways to contribute, learn, partner, mentor, fund, and steward open work.",
-  "audience": "Potential volunteers, fellows, mentors, partners, funders, and open-source contributors.",
-  "lede": "Institute programs turn interest into participation through volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, and open-source pathways.",
+  "subtitle": "Structured pathways to contribute, learn, partner, mentor, fund, and steward open work.",
+  "audience": "Potential volunteers, interns, fellows, mentors, partners, funders, and open-source contributors.",
+  "lede": "Institute Programs turn interest into participation through volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, and open-source pathways. All programs are open to people of any background and familiarity level.",
   "primaryActions": [
     {
-      "label": "Explore fellowship",
+      "label": "Fellowship",
       "sourceId": "shortlink-fellows"
     },
     {
-      "label": "Open mentorship",
+      "label": "Mentorship",
       "sourceId": "shortlink-mentorship"
     }
   ],
@@ -23,27 +23,64 @@
   "sections": [
     {
       "heading": "Volunteer",
-      "body": "Volunteering is the broadest on-ramp for participation. People can contribute to learning groups, projects, operations, writing, analysis, media, and community support according to available time, background, and skills.",
+      "body": "Volunteering is the broadest on-ramp for participation. Volunteers contribute to learning groups, projects, operations, writing, analysis, media production, and community support according to available time, background, and skills. No prior expertise in Active Inference is required — many volunteers begin by attending meetings, watching recordings, and contributing in whatever way fits their current capacity. Volunteer opportunities are available continuously through the Discord community and the weekly newsletter.",
       "links": [
         {
           "sourceId": "discord"
         },
+        {
+          "sourceId": "shortlink-volunteer"
+        }
+      ]
+    },
+    {
+      "heading": "Internship",
+      "body": "Internships provide structured engagement for participants who want to contribute more deeply to specific projects or functions. Interns work on defined deliverables — documentation, analysis, code, educational materials, or operational support — and develop skills through project practice and community engagement. The internship pathway is designed to be accessible regardless of prior experience with Active Inference, with learning built into the process.",
+      "links": [
+        {
+          "sourceId": "shortlink-intern"
+        }
+      ]
+    },
+    {
+      "heading": "Mentorship",
+      "body": "Mentorship connects experienced participants with people earlier in their engagement with Active Inference or the Institute. Mentors support the development of mentees through guidance, feedback, shared project work, and professional connection. Mentorship can be formal — with defined goals and regular check-ins — or informal, emerging naturally from community participation.",
+      "links": [
+        {
+          "sourceId": "shortlink-mentorship"
+        }
+      ]
+    },
+    {
+      "heading": "Fellowship",
+      "body": "The Fellowship pathway supports contributors who provide regular progress reports and develop research, applications, or public resources aligned with the Institute and Ecosystem. Fellows make sustained commitments to specific projects or areas of work, share updates with the community on a regular schedule, and produce public outputs — papers, software, educational materials, or project deliverables. The Fellowship is designed for people ready to take on a defined scope of work and contribute it publicly.",
+      "links": [
+        {
+          "sourceId": "shortlink-fellows"
+        }
+      ]
+    },
+    {
+      "heading": "Grants",
+      "body": "The Institute supports grant proposals and funding efforts aligned with Active Inference research, education, and application. Participants and projects within the Institute and Ecosystem can seek Institute support for grant preparation, institutional affiliation, and collaborative funding proposals. The Institute also tracks funding opportunities relevant to the community and shares them through its regular communications.",
+      "links": [
         {
           "sourceId": "weekly"
         }
       ]
     },
     {
-      "heading": "Internship and Mentorship",
-      "body": "Internships and mentorship provide more structured engagement. These pathways help participants learn by contributing to projects, public materials, educational work, research workflows, and community operations."
+      "heading": "Partnership",
+      "body": "Partnerships align organizations, research groups, funders, and collaborators around concrete shared work. Partner organizations may co-host events, co-author publications, share resources, provide infrastructure, or collaborate on research and education projects. Partnership is a practical exchange of time, attention, expertise, funding, and institutional support.",
+      "links": [
+        {
+          "sourceId": "shortlink-partners"
+        }
+      ]
     },
     {
-      "heading": "Fellows",
-      "body": "The Fellowship pathway supports contributors who provide regular progress reports and develop research, applications, or public resources aligned with the Institute and ecosystem."
-    },
-    {
-      "heading": "Partnership and Philanthropy",
-      "body": "Partners and donors support shared research, public education, infrastructure, and project development. Partnership is a practical exchange of time, attention, expertise, funding, and institutional support.",
+      "heading": "Philanthropy",
+      "body": "As a registered 501(c)(3) nonprofit, the Active Inference Institute accepts tax-deductible donations from individuals and organizations. Philanthropic support funds public education, research infrastructure, events, community tools, and ecosystem stewardship. Donors contribute to the long-term sustainability of open-science work that serves the entire Active Inference community.",
       "links": [
         {
           "sourceId": "donate"
@@ -52,7 +89,7 @@
     },
     {
       "heading": "Open Source",
-      "body": "Open source is an ecosystem support function: publish reusable work, improve project infrastructure, and make shared technical resources discoverable.",
+      "body": "Open-source contribution is an ecosystem support function: publish reusable work, improve project infrastructure, and make shared technical resources discoverable and maintainable. The Institute hosts and contributes to open-source repositories for Active Inference implementations, tools, datasets, ontologies, and educational materials.",
       "links": [
         {
           "sourceId": "github-org"
@@ -72,19 +109,34 @@
     },
     {
       "title": "Internship",
-      "text": "Join a structured contribution pathway with learning, documentation, and project practice."
+      "text": "Structured contribution pathway with learning, documentation, and project practice.",
+      "links": [
+        {
+          "sourceId": "shortlink-intern"
+        }
+      ]
     },
     {
       "title": "Mentorship",
-      "text": "Support participant development and project continuity."
+      "text": "Support participant development, or find a mentor to guide your own engagement.",
+      "links": [
+        {
+          "sourceId": "shortlink-mentorship"
+        }
+      ]
     },
     {
       "title": "Fellowship",
-      "text": "Develop research or applied work with regular reporting and public outputs."
+      "text": "Develop research or applied work with regular reporting and public outputs.",
+      "links": [
+        {
+          "sourceId": "shortlink-fellows"
+        }
+      ]
     },
     {
-      "title": "Partnership",
-      "text": "Align organizations, funders, and collaborators around concrete shared work.",
+      "title": "Grants",
+      "text": "Institute support for grant preparation, affiliation, and collaborative funding proposals.",
       "links": [
         {
           "sourceId": "weekly"
@@ -92,18 +144,37 @@
       ]
     },
     {
+      "title": "Partnership",
+      "text": "Align organizations and collaborators around concrete shared research or education work.",
+      "links": [
+        {
+          "sourceId": "shortlink-partners"
+        }
+      ]
+    },
+    {
       "title": "Philanthropy",
-      "text": "Support public education, research infrastructure, events, and ecosystem stewardship.",
+      "text": "Support public education, research infrastructure, and ecosystem stewardship as a 501(c)(3) donor.",
       "links": [
         {
           "sourceId": "donate"
         }
       ]
+    },
+    {
+      "title": "Open Source",
+      "text": "Publish reusable work, improve project infrastructure, and contribute to shared Active Inference tools.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
     }
   ],
-  "order": 4,
+  "order": 5,
   "relatedSlugs": [
     "get-involved",
+    "structure",
     "projects",
     "about"
   ],
@@ -114,6 +185,9 @@
     "github-org",
     "shortlink-fellows",
     "shortlink-mentorship",
+    "shortlink-volunteer",
+    "shortlink-intern",
+    "shortlink-partners",
     "shortlink-prepare",
     "shortlink-strategy"
   ]
