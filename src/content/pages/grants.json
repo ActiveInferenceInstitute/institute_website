@@ -1,0 +1,114 @@
+{
+  "slug": "grants",
+  "title": "Grants",
+  "subtitle": "Institute support for grant preparation, affiliation, and collaborative funding aligned with Active Inference.",
+  "audience": "Researchers, educators, and project teams seeking funding for Active Inference work.",
+  "lede": "The Institute supports grant proposals and collaborative funding efforts that advance Active Inference research, education, and application. Participants and projects can seek Institute support for proposal preparation, institutional affiliation, and co-investigation.",
+  "primaryActions": [
+    {
+      "label": "Weekly updates",
+      "sourceId": "weekly"
+    },
+    {
+      "label": "Contact us",
+      "href": "get-involved.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What Grant Support Looks Like",
+      "body": "Institute grant support can take several forms: providing institutional affiliation for proposals submitted through or in partnership with the Institute; helping researchers identify relevant funding opportunities; contributing to collaborative proposals as a co-investigator or sub-awardee; and sharing Institute infrastructure, data, and community resources in support of grant-funded work. The specific form of support depends on the proposal and the alignment with Institute goals.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        }
+      ]
+    },
+    {
+      "heading": "Alignment with Institute Goals",
+      "body": "Grant support is available for work that advances Active Inference research, education, or application in ways consistent with the Institute's mission. Priority areas include: foundational Active Inference research and modeling; educational tools, curricula, and courses; open-source software and tooling; interdisciplinary applications in health, ecology, economics, cognition, and social systems; and infrastructure for the broader Active Inference Ecosystem. Proposals that produce publicly accessible outputs are particularly well-suited to Institute support."
+    },
+    {
+      "heading": "Funding Opportunities",
+      "body": "The Institute tracks funding opportunities relevant to the Active Inference community and shares them through the weekly newsletter. Opportunities come from government agencies, private foundations, academic institutions, and other sources. If you are aware of an opportunity that could benefit the community and are interested in collaborating on a proposal, reach out to the Institute.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        }
+      ]
+    },
+    {
+      "heading": "How to Engage",
+      "body": "If you are interested in pursuing a grant with Institute support, the best first step is to describe your proposed work and why it aligns with Active Inference and the Institute's mission. Email blanket@activeinference.institute with a brief description of the funding opportunity and your proposed role. The Institute will respond with information about how support might be structured.",
+      "links": [
+        {
+          "label": "Partnership",
+          "href": "partnership.html"
+        },
+        {
+          "label": "Fellowship",
+          "href": "fellowship.html"
+        }
+      ]
+    },
+    {
+      "heading": "Related Programs",
+      "body": "Grant-funded work often runs in parallel with fellowship or partnership. Fellows may use grants to support their sustained work. Partners may pursue grants collaboratively with the Institute. Philanthropy is a complementary pathway for project support that does not require a formal grant process.",
+      "links": [
+        {
+          "label": "Partnership",
+          "href": "partnership.html"
+        },
+        {
+          "label": "Philanthropy",
+          "href": "philanthropy.html"
+        },
+        {
+          "label": "All programs",
+          "href": "programs.html"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Institutional affiliation",
+      "text": "Submit proposals through or in partnership with the Institute as an affiliated organization."
+    },
+    {
+      "title": "Opportunity tracking",
+      "text": "The weekly newsletter shares relevant funding calls as they become available.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        }
+      ]
+    },
+    {
+      "title": "Collaborative proposals",
+      "text": "Co-investigate or sub-award grants with Institute researchers and educators."
+    },
+    {
+      "title": "Open outputs",
+      "text": "Grant-supported work producing publicly accessible results is a priority for Institute partnership.",
+      "links": [
+        {
+          "label": "Fellowship",
+          "href": "fellowship.html"
+        }
+      ]
+    }
+  ],
+  "order": 15,
+  "relatedSlugs": [
+    "programs",
+    "fellowship",
+    "partnership",
+    "philanthropy",
+    "projects"
+  ],
+  "externalSourceIds": [
+    "weekly",
+    "github-org"
+  ]
+}

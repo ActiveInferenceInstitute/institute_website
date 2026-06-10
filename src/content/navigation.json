@@ -57,20 +57,20 @@
         "href": "programs.html"
       },
       {
-        "label": "Get Involved",
-        "href": "get-involved.html"
-      },
-      {
-        "label": "Fellowship",
-        "href": "programs.html#fellowship"
+        "label": "Volunteer",
+        "href": "volunteer.html"
       },
       {
         "label": "Internship",
-        "href": "programs.html#internship"
+        "href": "internship.html"
       },
       {
-        "label": "Grants & Partnership",
-        "href": "programs.html#grants"
+        "label": "Fellowship",
+        "href": "fellowship.html"
+      },
+      {
+        "label": "Get Involved",
+        "href": "get-involved.html"
       }
     ]
   },

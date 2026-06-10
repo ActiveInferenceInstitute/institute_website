@@ -1,0 +1,118 @@
+{
+  "slug": "volunteer",
+  "title": "Volunteer",
+  "subtitle": "The broadest on-ramp for participation in the Active Inference Institute.",
+  "audience": "Anyone interested in contributing to Active Inference education, research, or community operations.",
+  "lede": "Volunteering is how most people begin participating in the Institute. There is no expertise threshold — contributions at every level of familiarity with Active Inference are meaningful and welcome.",
+  "primaryActions": [
+    {
+      "label": "Volunteer pathway",
+      "sourceId": "official-volunteer"
+    },
+    {
+      "label": "Join Discord",
+      "sourceId": "discord"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What Volunteers Do",
+      "body": "Volunteers contribute across the full range of Institute activities: attending and supporting learning groups, contributing to project documentation, helping with operations and communications, writing summaries and notes, producing or editing audio-visual content, moderating community spaces, testing tools, and participating in discussions. Contributions can be as small as showing up consistently to a learning group or as substantial as leading a documentation effort over several months.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "sourceId": "weekly"
+        }
+      ]
+    },
+    {
+      "heading": "How to Get Started",
+      "body": "The best way to start volunteering is to join the Discord community, attend an open activity, and let the organizers know you are interested in contributing. The weekly newsletter lists upcoming activities and active projects. The Volunteer pathway page has current information on how to express interest and connect with project leads. No application is required — introduce yourself and find where you can help.",
+      "links": [
+        {
+          "sourceId": "official-volunteer"
+        },
+        {
+          "sourceId": "activities"
+        }
+      ]
+    },
+    {
+      "heading": "What You Will Gain",
+      "body": "Volunteers learn Active Inference by working alongside researchers and educators at the frontier of the field. Contributing to real projects — even through small tasks — builds familiarity with the concepts, the community, and the tools in ways that passive reading cannot. Many volunteers have moved into internship, mentorship, and fellowship roles through participation that began as informal contribution.",
+      "links": [
+        {
+          "label": "Internship",
+          "href": "internship.html"
+        },
+        {
+          "label": "Fellowship",
+          "href": "fellowship.html"
+        }
+      ]
+    },
+    {
+      "heading": "Time and Commitment",
+      "body": "Volunteering is flexible by design. There is no minimum time commitment. You can contribute when you have capacity and step back when you do not. The Institute's global community spans many time zones, so most activities are recorded and many contributions are asynchronous. Sustained engagement over time is valuable, but irregular participation is also welcome."
+    },
+    {
+      "heading": "Related Programs",
+      "body": "Volunteering is the entry point to the full set of Institute Programs. After gaining experience as a volunteer, many people move to more structured engagement through internship, mentorship, or fellowship. There are also open-source contribution opportunities for those who prefer to contribute code, data, or tooling to public repositories.",
+      "links": [
+        {
+          "label": "All programs",
+          "href": "programs.html"
+        },
+        {
+          "label": "Internship",
+          "href": "internship.html"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "No threshold",
+      "text": "All familiarity levels welcome. Begin by attending activities and contributing where you can."
+    },
+    {
+      "title": "Flexible",
+      "text": "No minimum time commitment. Contribute when you have capacity — sync or async."
+    },
+    {
+      "title": "Community",
+      "text": "Volunteers work alongside researchers, educators, and practitioners across the Ecosystem.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    },
+    {
+      "title": "Pathway to more",
+      "text": "Volunteering leads naturally to internship, mentorship, and fellowship roles.",
+      "links": [
+        {
+          "label": "Programs",
+          "href": "programs.html"
+        }
+      ]
+    }
+  ],
+  "order": 11,
+  "relatedSlugs": [
+    "programs",
+    "internship",
+    "mentorship",
+    "get-involved",
+    "activities"
+  ],
+  "externalSourceIds": [
+    "official-volunteer",
+    "discord",
+    "weekly",
+    "activities"
+  ]
+}

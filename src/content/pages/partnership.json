@@ -1,0 +1,122 @@
+{
+  "slug": "partnership",
+  "title": "Partnership",
+  "subtitle": "Organizational collaboration aligned around Active Inference research, education, and application.",
+  "audience": "Organizations, research groups, universities, companies, and institutions interested in formal collaboration with the Institute.",
+  "lede": "Partnerships align organizations and collaborators around concrete shared work — co-hosting events, co-authoring research, sharing infrastructure, or developing joint education and application programs.",
+  "primaryActions": [
+    {
+      "label": "Partnership pathway",
+      "sourceId": "official-partnership"
+    },
+    {
+      "label": "Contact us",
+      "href": "get-involved.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What Partnership Means",
+      "body": "Partnership is a practical relationship built around shared work. Partner organizations contribute time, attention, expertise, funding, infrastructure, or institutional capacity in exchange for collaboration with the Institute and its community. Partnership is not a sponsorship or a passive affiliation — it is an active, bilateral exchange with concrete outcomes that benefit both parties and the broader Active Inference Ecosystem.",
+      "links": [
+        {
+          "sourceId": "official-partnership"
+        }
+      ]
+    },
+    {
+      "heading": "Forms of Partnership",
+      "body": "Partnerships take many forms depending on the partner's goals and the Institute's current capacity. Common partnership activities include: co-hosting workshops, symposia, or educational events; co-authoring research papers or educational materials; sharing computational and storage resources; developing joint courses, tools, or datasets; cross-linking community and research infrastructure; and collaborating on grant proposals and funded research projects.",
+      "links": [
+        {
+          "label": "Grants",
+          "href": "grants.html"
+        }
+      ]
+    },
+    {
+      "heading": "Who Partners with the Institute",
+      "body": "Current and past partners include universities, research labs, companies working on Active Inference applications, nonprofit organizations, standards bodies, and individual research groups. Partners work across computational neuroscience, cognitive science, ecology, economics, engineering, health, and other domains where Active Inference is being applied. The Applied Active Inference Symposium has been a central gathering point for partners and collaborators each year.",
+      "links": [
+        {
+          "sourceId": "official-symposium-shortlink"
+        }
+      ]
+    },
+    {
+      "heading": "How to Become a Partner",
+      "body": "Partnership begins with a conversation about alignment and shared goals. Organizations interested in partnership should reach out through the partnership pathway page or by emailing blanket@activeinference.institute. Describe your organization, what you work on, and what kind of collaboration you have in mind. The Institute will respond with information about how to proceed.",
+      "links": [
+        {
+          "sourceId": "official-partnership"
+        }
+      ]
+    },
+    {
+      "heading": "Related Programs",
+      "body": "Partnership often connects with grant support and philanthropy. Partners may pursue grants collaboratively with the Institute. Organizations that want to support the Institute's work without a formal collaboration can contribute through the philanthropy pathway.",
+      "links": [
+        {
+          "label": "Grants",
+          "href": "grants.html"
+        },
+        {
+          "label": "Philanthropy",
+          "href": "philanthropy.html"
+        },
+        {
+          "label": "All programs",
+          "href": "programs.html"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Active collaboration",
+      "text": "Partnership is bilateral — shared work with concrete outcomes, not passive affiliation."
+    },
+    {
+      "title": "Events and research",
+      "text": "Co-host symposia, workshops, courses, and collaborative research projects.",
+      "links": [
+        {
+          "sourceId": "official-symposium-shortlink"
+        }
+      ]
+    },
+    {
+      "title": "Grants together",
+      "text": "Collaborate on grant proposals as co-investigators or sub-awardees.",
+      "links": [
+        {
+          "label": "Grants",
+          "href": "grants.html"
+        }
+      ]
+    },
+    {
+      "title": "Get in touch",
+      "text": "Describe your work and what collaboration you have in mind.",
+      "links": [
+        {
+          "sourceId": "official-partnership"
+        }
+      ]
+    }
+  ],
+  "order": 16,
+  "relatedSlugs": [
+    "programs",
+    "grants",
+    "philanthropy",
+    "projects",
+    "about"
+  ],
+  "externalSourceIds": [
+    "official-partnership",
+    "official-symposium-shortlink",
+    "weekly",
+    "github-org"
+  ]
+}

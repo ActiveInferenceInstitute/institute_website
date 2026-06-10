@@ -23,22 +23,27 @@
   "sections": [
     {
       "heading": "Volunteer",
-      "body": "Volunteering is the broadest on-ramp for participation. Volunteers contribute to learning groups, projects, operations, writing, analysis, media production, and community support according to available time, background, and skills. No prior expertise in Active Inference is required — many volunteers begin by attending meetings, watching recordings, and contributing in whatever way fits their current capacity. Volunteer opportunities are available continuously through the Discord community and the weekly newsletter.",
+      "body": "Volunteering is the broadest on-ramp for participation. Volunteers contribute to learning groups, projects, operations, writing, analysis, media production, and community support according to available time, background, and skills. No prior expertise in Active Inference is required — many volunteers begin by attending meetings, watching recordings, and contributing in whatever way fits their current capacity.",
       "links": [
         {
           "sourceId": "discord"
         },
         {
-          "sourceId": "shortlink-volunteer"
+          "label": "Volunteer page",
+          "href": "volunteer.html"
         }
       ]
     },
     {
       "heading": "Internship",
-      "body": "Internships provide structured engagement for participants who want to contribute more deeply to specific projects or functions. Interns work on defined deliverables — documentation, analysis, code, educational materials, or operational support — and develop skills through project practice and community engagement. The internship pathway is designed to be accessible regardless of prior experience with Active Inference, with learning built into the process.",
+      "body": "Internships provide structured engagement for participants who want to contribute more deeply to specific projects or functions. Interns work on defined deliverables — documentation, analysis, code, educational materials, or operational support — and develop skills through project practice and community engagement. Learning is built into the process regardless of prior experience.",
       "links": [
         {
-          "sourceId": "shortlink-intern"
+          "sourceId": "official-internship"
+        },
+        {
+          "label": "Internship page",
+          "href": "internship.html"
         }
       ]
     },
@@ -48,24 +53,36 @@
       "links": [
         {
           "sourceId": "shortlink-mentorship"
+        },
+        {
+          "label": "Mentorship page",
+          "href": "mentorship.html"
         }
       ]
     },
     {
       "heading": "Fellowship",
-      "body": "The Fellowship pathway supports contributors who provide regular progress reports and develop research, applications, or public resources aligned with the Institute and Ecosystem. Fellows make sustained commitments to specific projects or areas of work, share updates with the community on a regular schedule, and produce public outputs — papers, software, educational materials, or project deliverables. The Fellowship is designed for people ready to take on a defined scope of work and contribute it publicly.",
+      "body": "The Fellowship pathway supports contributors who provide regular progress reports and develop research, applications, or public resources aligned with the Institute and Ecosystem. Fellows make sustained commitments to specific projects or areas of work, share updates with the community on a regular schedule, and produce public outputs — papers, software, educational materials, or project deliverables.",
       "links": [
         {
           "sourceId": "shortlink-fellows"
+        },
+        {
+          "label": "Fellowship page",
+          "href": "fellowship.html"
         }
       ]
     },
     {
       "heading": "Grants",
-      "body": "The Institute supports grant proposals and funding efforts aligned with Active Inference research, education, and application. Participants and projects within the Institute and Ecosystem can seek Institute support for grant preparation, institutional affiliation, and collaborative funding proposals. The Institute also tracks funding opportunities relevant to the community and shares them through its regular communications.",
+      "body": "The Institute supports grant proposals and funding efforts aligned with Active Inference research, education, and application. Participants and projects can seek Institute support for grant preparation, institutional affiliation, and collaborative funding proposals. The Institute tracks funding opportunities and shares them through its regular communications.",
       "links": [
         {
           "sourceId": "weekly"
+        },
+        {
+          "label": "Grants page",
+          "href": "grants.html"
         }
       ]
     },
@@ -74,16 +91,24 @@
       "body": "Partnerships align organizations, research groups, funders, and collaborators around concrete shared work. Partner organizations may co-host events, co-author publications, share resources, provide infrastructure, or collaborate on research and education projects. Partnership is a practical exchange of time, attention, expertise, funding, and institutional support.",
       "links": [
         {
-          "sourceId": "shortlink-partners"
+          "sourceId": "official-partnership"
+        },
+        {
+          "label": "Partnership page",
+          "href": "partnership.html"
         }
       ]
     },
     {
       "heading": "Philanthropy",
-      "body": "As a registered 501(c)(3) nonprofit, the Active Inference Institute accepts tax-deductible donations from individuals and organizations. Philanthropic support funds public education, research infrastructure, events, community tools, and ecosystem stewardship. Donors contribute to the long-term sustainability of open-science work that serves the entire Active Inference community.",
+      "body": "As a registered 501(c)(3) nonprofit, the Active Inference Institute accepts tax-deductible donations from individuals and organizations. Philanthropic support funds public education, research infrastructure, events, community tools, and ecosystem stewardship.",
       "links": [
         {
           "sourceId": "donate"
+        },
+        {
+          "label": "Philanthropy page",
+          "href": "philanthropy.html"
         }
       ]
     },

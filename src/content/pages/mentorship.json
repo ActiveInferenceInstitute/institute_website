@@ -1,0 +1,120 @@
+{
+  "slug": "mentorship",
+  "title": "Mentorship",
+  "subtitle": "Connecting experienced participants with people developing their engagement with Active Inference.",
+  "audience": "Both people seeking a mentor and experienced contributors willing to mentor others.",
+  "lede": "Mentorship at the Institute runs in both directions — experienced contributors support the development of newer participants, and everyone benefits from the exchange of perspectives, context, and guidance.",
+  "primaryActions": [
+    {
+      "label": "Mentorship pathway",
+      "sourceId": "shortlink-mentorship"
+    },
+    {
+      "label": "Get involved",
+      "href": "get-involved.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What Mentorship Looks Like",
+      "body": "Mentorship at the Institute can take many forms: regular one-on-one conversations, feedback on work in progress, introductions to other community members, guidance on navigating projects and learning resources, or simply a reliable point of contact who knows the landscape. Formal mentorship includes defined goals and a regular cadence of check-ins. Informal mentorship emerges naturally from community participation and shared project work. Both are valuable.",
+      "links": [
+        {
+          "sourceId": "shortlink-mentorship"
+        }
+      ]
+    },
+    {
+      "heading": "For Those Seeking a Mentor",
+      "body": "If you are newer to Active Inference or the Institute and would benefit from guidance, mentorship is available. Start by participating in community activities and identifying experienced contributors whose work and perspective resonates with yours. Express your interest through the mentorship pathway or by reaching out directly through the Discord community. Mentors are community members who have agreed to provide support — they are not distant authorities but active participants who remember what it is like to be new.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "sourceId": "shortlink-mentorship"
+        }
+      ]
+    },
+    {
+      "heading": "For Those Offering Mentorship",
+      "body": "If you are an experienced participant in the Institute or Ecosystem and are willing to support others, mentorship is a meaningful way to contribute. Mentors help newer participants navigate the community, develop skills, and make meaningful contributions. The time commitment is flexible — even occasional guidance makes a substantial difference for people earlier in their journey. Expressing interest through the mentorship pathway connects you with participants who are actively seeking support.",
+      "links": [
+        {
+          "sourceId": "shortlink-mentorship"
+        }
+      ]
+    },
+    {
+      "heading": "Mentorship and Internship",
+      "body": "Mentorship and internship are complementary pathways. Interns are typically connected with mentors from the community who provide guidance throughout their internship. The mentorship program also operates independently — some mentorship relationships develop outside any formal internship context, simply through sustained community participation.",
+      "links": [
+        {
+          "label": "Internship",
+          "href": "internship.html"
+        }
+      ]
+    },
+    {
+      "heading": "Related Programs",
+      "body": "Mentorship connects naturally with volunteering, internship, and fellowship. Volunteers often benefit from mentorship as they explore how to contribute. Interns receive mentorship as part of their structured engagement. Fellows draw on mentorship relationships as they develop sustained bodies of work.",
+      "links": [
+        {
+          "label": "All programs",
+          "href": "programs.html"
+        },
+        {
+          "label": "Fellowship",
+          "href": "fellowship.html"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Flexible forms",
+      "text": "Formal or informal, one-on-one or group — mentorship takes the shape that fits the people involved."
+    },
+    {
+      "title": "For seekers",
+      "text": "Newer participants can find mentors through the pathway or community participation.",
+      "links": [
+        {
+          "sourceId": "shortlink-mentorship"
+        }
+      ]
+    },
+    {
+      "title": "For mentors",
+      "text": "Experienced contributors can offer guidance and support to those earlier in their journey.",
+      "links": [
+        {
+          "sourceId": "shortlink-mentorship"
+        }
+      ]
+    },
+    {
+      "title": "Complements internship",
+      "text": "Interns receive mentorship as part of their structured engagement.",
+      "links": [
+        {
+          "label": "Internship",
+          "href": "internship.html"
+        }
+      ]
+    }
+  ],
+  "order": 13,
+  "relatedSlugs": [
+    "programs",
+    "volunteer",
+    "internship",
+    "fellowship",
+    "get-involved"
+  ],
+  "externalSourceIds": [
+    "shortlink-mentorship",
+    "discord",
+    "weekly"
+  ]
+}
