@@ -1,0 +1,43 @@
+{
+  "slug": "project-numinia",
+  "title": "Numinia",
+  "subtitle": "Embedding Active Inference values in an autonomous AI and educational adventure game.",
+  "audience": "Game developers, AI researchers, and educators interested in Active Inference embedded in game environments.",
+  "lede": "Numinia is an Ecosystem project developing an autonomous AI and educational adventure game grounded in Active Inference principles. The first mission embeds Active Inference in the values of the Numinia agent, creating an environment where players and agents co-learn through play.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Numinia builds an educational game environment where Active Inference principles shape agent behavior and player interaction. The first mission centers on the Numinia AI embodying Active Inference values — learning, adapting, and acting in a game world that reflects the free energy principle.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Game developers, AI researchers, and educators interested in Active Inference in educational environments are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 66,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

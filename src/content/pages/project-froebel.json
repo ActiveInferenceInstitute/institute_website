@@ -1,0 +1,44 @@
+{
+  "slug": "project-froebel",
+  "title": "Froebel's System",
+  "subtitle": "Studying Friedrich Froebel's pedagogical system through Active Inference and integral studies.",
+  "audience": "Education researchers, historians of pedagogy, and anyone interested in connecting classical educational philosophy with Active Inference.",
+  "lede": "Froebel's System studies the educational philosophy and methods of Friedrich Froebel — the inventor of kindergarten — through the lens of Active Inference and integral studies. The project captures and analyzes Froebel's approach as a cohort-based study, using Common Concepts as a prototyping platform.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Friedrich Froebel developed a systematic approach to early childhood education centered on play, creativity, and self-directed exploration. This project applies Active Inference as a theoretical framework for analyzing and extending Froebel's system, capturing his pedagogical principles and testing their alignment with current educational models.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Education researchers, historians, and pedagogically-oriented Active Inference practitioners are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 62,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-educational-course-development",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

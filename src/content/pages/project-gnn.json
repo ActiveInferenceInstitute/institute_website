@@ -1,0 +1,73 @@
+{
+  "slug": "project-gnn",
+  "title": "Generalized Notation Notation",
+  "subtitle": "A text-based notation system for communicating generative models and Active Inference systems.",
+  "audience": "Modelers, researchers, and developers working with generative models and wanting interoperable notation.",
+  "lede": "Generalized Notation Notation (GNN) is a text-based notation project for communicating and specifying generative models. It provides a shared language for describing Active Inference and related models in a way that is both human-readable and machine-processable, enabling interoperability across tools and codebases.",
+  "primaryActions": [
+    {
+      "label": "GNN repository",
+      "sourceId": "gnn"
+    },
+    {
+      "label": "Repo",
+      "sourceId": "repo-gnn"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "GNN defines a notation system for generative models used in Active Inference and related frameworks. By standardizing how models are described, GNN enables clearer communication between researchers, easier translation between implementations, and more robust tooling around model specification and analysis.",
+      "links": [
+        {
+          "sourceId": "gnn"
+        },
+        {
+          "sourceId": "repo-gnn"
+        },
+        {
+          "sourceId": "repo-generalizednotationnotation"
+        }
+      ]
+    },
+    {
+      "heading": "Status and Resources",
+      "body": "GNN has an active repository and has been used across several Institute projects. Documentation and examples are available through the repository.",
+      "links": [
+        {
+          "sourceId": "repo-gnn"
+        },
+        {
+          "sourceId": "github-org"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Contributions include specification work, tooling development, documentation, and applying GNN to new modeling domains. Background in formal modeling or Active Inference is helpful.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        }
+      ]
+    }
+  ],
+  "order": 25,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "project-knowledge-engineering",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "gnn",
+    "repo-gnn",
+    "repo-generalizednotationnotation",
+    "github-org",
+    "discord"
+  ]
+}

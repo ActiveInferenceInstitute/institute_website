@@ -1,0 +1,68 @@
+{
+  "slug": "project-geo-infer",
+  "title": "GEO-INFER",
+  "subtitle": "Geospatial modeling using Active Inference and spatial data analysis techniques.",
+  "audience": "Geospatial researchers, data scientists, and modelers interested in spatial Active Inference applications.",
+  "lede": "GEO-INFER develops geospatial modeling methods grounded in Active Inference. The project integrates spatial data analysis with the Active Inference framework, opening applications in ecology, urban planning, resource management, and other domains where geographic context matters.",
+  "primaryActions": [
+    {
+      "label": "GEO-INFER",
+      "sourceId": "geo-infer"
+    },
+    {
+      "label": "Repository",
+      "sourceId": "repo-geo-infer"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "GEO-INFER combines geospatial analysis methods — including raster data, spatial statistics, and geographic information systems — with Active Inference principles. The project explores how agents operating in spatially structured environments can be modeled and understood through the free energy framework.",
+      "links": [
+        {
+          "sourceId": "geo-infer"
+        },
+        {
+          "sourceId": "repo-geo-infer"
+        }
+      ]
+    },
+    {
+      "heading": "Repository and Resources",
+      "body": "GEO-INFER maintains an active GitHub repository with implementations, examples, and documentation. The project is connected to broader Active Inference implementation work in the Institute.",
+      "links": [
+        {
+          "sourceId": "repo-geo-infer"
+        },
+        {
+          "sourceId": "github-org"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Contributors with backgrounds in geography, ecology, environmental science, spatial data analysis, or Active Inference modeling are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        }
+      ]
+    }
+  ],
+  "order": 26,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "geo-infer",
+    "repo-geo-infer",
+    "github-org",
+    "discord"
+  ]
+}

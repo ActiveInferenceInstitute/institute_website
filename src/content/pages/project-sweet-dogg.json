@@ -1,0 +1,43 @@
+{
+  "slug": "project-sweet-dogg",
+  "title": "Project Sweet (Sus) Dogg",
+  "subtitle": "Helping warm relations by strengthening alignment in human-animal interactions.",
+  "audience": "Researchers, practitioners, and animal behavior scientists interested in Active Inference approaches to human-animal alignment.",
+  "lede": "Project Sweet (Sus) Dogg applies Active Inference principles to understanding and improving human-animal relationships — particularly focusing on alignment and trust-building in interactions between humans and domestic animals.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project develops Active Inference models of human-animal interaction, examining how mutual inference and alignment processes shape relationships and behaviors across species boundaries.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Animal behavior researchers, ethologists, and Active Inference modelers are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 55,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

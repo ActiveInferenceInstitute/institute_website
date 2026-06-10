@@ -1,0 +1,76 @@
+{
+  "slug": "project-rxinfer",
+  "title": "RxInfer.jl Learning and Development Group",
+  "subtitle": "Learning, applying, and extending the RxInfer.jl reactive message-passing inference system.",
+  "audience": "Julia programmers, probabilistic modelers, and Active Inference practitioners working with RxInfer.jl.",
+  "lede": "The RxInfer.jl Learning and Development Group supports learning and extending RxInfer.jl, a Julia package for reactive Bayesian inference. The group produces learning resources, code examples, and contributes to the broader development of RxInfer as a platform for Active Inference.",
+  "primaryActions": [
+    {
+      "label": "RxInfer shortlink",
+      "sourceId": "shortlink-rxinfer"
+    },
+    {
+      "label": "Official page",
+      "sourceId": "official-rxinfer"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "RxInfer.jl is a reactive message-passing probabilistic programming system developed externally and adopted by the Institute as a key platform for Active Inference implementations. The Institute's learning group focuses on understanding, applying, and extending RxInfer across Active Inference use cases — building examples, documentation, and learning pathways for community members.",
+      "links": [
+        {
+          "sourceId": "shortlink-rxinfer"
+        },
+        {
+          "sourceId": "official-rxinfer"
+        },
+        {
+          "sourceId": "repo-actinf-rxinfer"
+        }
+      ]
+    },
+    {
+      "heading": "Resources",
+      "body": "The group maintains a project overview, learning sessions, and code in the Institute repository. Active sessions appear in the Institute's activities calendar.",
+      "links": [
+        {
+          "sourceId": "official-rxinfer"
+        },
+        {
+          "sourceId": "repo-actinf-rxinfer"
+        },
+        {
+          "sourceId": "official-activities-shortlink"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Participants can join learning sessions, contribute examples, or help improve RxInfer's visualization capabilities. Julia programming experience is helpful but structured learning sessions accommodate all levels.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        }
+      ]
+    }
+  ],
+  "order": 30,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "project-rxinfer-visualization",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "shortlink-rxinfer",
+    "official-rxinfer",
+    "repo-actinf-rxinfer",
+    "official-activities-shortlink",
+    "discord"
+  ]
+}

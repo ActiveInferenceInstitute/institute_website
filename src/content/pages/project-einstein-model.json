@@ -1,0 +1,43 @@
+{
+  "slug": "project-einstein-model",
+  "title": "The Einstein Model of a Solid as a Model of the Mental Apparatus",
+  "subtitle": "Bridging psychoanalytic theory and Active Inference through the economic perspective of psychoanalytic theory.",
+  "audience": "Psychoanalytic researchers, neuroscientists, and theoreticians interested in formal bridges between psychoanalysis and Active Inference.",
+  "lede": "This Ecosystem project develops a formal bridge between the Einstein model of a solid and the mental apparatus, viewed through the economic perspective of psychoanalytic theory. It applies Active Inference to bridge psychoanalytic concepts with modern neuroscience and artificial intelligence.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project develops theoretical connections between classical psychoanalytic models of the mind and the Active Inference framework, using the Einstein model as a structural analogy. The work bridges the economic (energy-based) perspective in psychoanalysis with the free energy formalism.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Psychoanalytic researchers, neuroscientists, and formally-oriented theoreticians are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 57,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

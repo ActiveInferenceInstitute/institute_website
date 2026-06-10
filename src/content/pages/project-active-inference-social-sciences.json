@@ -1,0 +1,65 @@
+{
+  "slug": "project-active-inference-social-sciences",
+  "title": "Active Inference for Social Sciences",
+  "subtitle": "Developing Active Inference curricula and research for social science disciplines.",
+  "audience": "Social scientists, educators, and researchers connecting Active Inference to social science theory and practice.",
+  "lede": "Active Inference for Social Sciences develops courses, curricula, research, and writing connecting Active Inference to the social sciences. The project produced a 2023 course and continues to build educational and research resources for social scientists engaging with the Active Inference framework.",
+  "primaryActions": [
+    {
+      "label": "Courses",
+      "sourceId": "official-courses"
+    },
+    {
+      "label": "EduActive Unit",
+      "href": "edactive.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "This project adapts Active Inference for social science audiences — developing conceptual translations, course materials, and research directions. It recognizes that Active Inference's account of agency, communication, and social interaction has deep implications for sociology, political science, economics, anthropology, and related fields.",
+      "links": [
+        {
+          "sourceId": "official-courses"
+        }
+      ]
+    },
+    {
+      "heading": "Past Work",
+      "body": "A 2023 course — 'Active Inference for the Social Sciences' — was produced and is accessible through the Institute's course infrastructure. The project continues to generate writing, research, and curriculum.",
+      "links": [
+        {
+          "sourceId": "official-courses"
+        },
+        {
+          "sourceId": "repo-courses"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Social scientists, educators, and interdisciplinary researchers interested in connecting Active Inference to their domains are welcome to contribute.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "EduActive Unit",
+          "href": "edactive.html"
+        }
+      ]
+    }
+  ],
+  "order": 32,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-educational-course-development",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "official-courses",
+    "repo-courses",
+    "discord"
+  ]
+}

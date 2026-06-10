@@ -1,0 +1,56 @@
+{
+  "slug": "project-cognitive-agent-modeling",
+  "title": "Cognitive Agent Modeling",
+  "subtitle": "Developing minimal cognitive agent models using Active Inference principles.",
+  "audience": "Researchers and modelers interested in computational cognitive modeling and Active Inference implementations.",
+  "lede": "Cognitive Agent Modeling is a ReInference Institute project focused on developing minimal cognitive agent models grounded in Active Inference. The work explores how perception, action, and learning can be formalized and implemented using the Active Inference framework.",
+  "primaryActions": [
+    {
+      "label": "GitHub",
+      "sourceId": "github-org"
+    },
+    {
+      "label": "ReInference Unit",
+      "href": "reinference.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Cognitive Agent Modeling project builds computational models of cognitive agents using Active Inference as the theoretical foundation. Work includes model design, implementation, and evaluation across different agent environments and task contexts. The project contributes to the broader Institute effort to make Active Inference implementations accessible and well-documented.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        },
+        {
+          "sourceId": "repo-activeinferenceimplementations"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Contributors with backgrounds in computational neuroscience, cognitive science, machine learning, or software engineering are welcome. Engagement ranges from implementation and testing to theoretical discussion and documentation.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        }
+      ]
+    }
+  ],
+  "order": 23,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference",
+    "project-active-inferants"
+  ],
+  "externalSourceIds": [
+    "github-org",
+    "repo-activeinferenceimplementations",
+    "discord"
+  ]
+}

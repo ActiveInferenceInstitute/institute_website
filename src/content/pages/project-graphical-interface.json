@@ -1,0 +1,52 @@
+{
+  "slug": "project-graphical-interface",
+  "title": "Graphical Interface",
+  "subtitle": "A graphical interface project for Active Inference modeling and visualization.",
+  "audience": "Developers, designers, and modelers working on user interfaces for Active Inference tools.",
+  "lede": "The Graphical Interface project develops visual and interactive tools for working with Active Inference models. It focuses on making model structure, dynamics, and outputs more accessible through well-designed graphical interfaces and visualization layers.",
+  "primaryActions": [
+    {
+      "label": "GitHub",
+      "sourceId": "github-org"
+    },
+    {
+      "label": "ReInference Unit",
+      "href": "reinference.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Graphical Interface project creates user-facing tools for exploring, building, and visualizing Active Inference models. Good visual interfaces lower the barrier to entry for working with generative models and make model structure more interpretable to practitioners and researchers.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Contributors with interests in UI/UX design, visualization, front-end development, or Active Inference modeling are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        }
+      ]
+    }
+  ],
+  "order": 27,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "project-rxinfer-visualization",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "github-org",
+    "discord"
+  ]
+}

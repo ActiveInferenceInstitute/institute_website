@@ -1,0 +1,55 @@
+{
+  "slug": "project-fundamentals-active-inference",
+  "title": "Fundamentals of Active Inference",
+  "subtitle": "Assisting the development and dissemination of the Fundamentals of Active Inference textbook.",
+  "audience": "Learners, educators, and engineers working through the Fundamentals of Active Inference textbook.",
+  "lede": "Fundamentals of Active Inference is an Ecosystem project supporting the development and dissemination of the Fundamentals of Active Inference textbook — a comprehensive introduction to Active Inference principles, algorithms, and applications for engineers. The Institute hosts a Textbook Group cohort working through this book.",
+  "primaryActions": [
+    {
+      "label": "Textbook Group",
+      "sourceId": "official-textbook-group-shortlink"
+    },
+    {
+      "label": "Repository",
+      "sourceId": "repo-fundamentals"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project supports educational engagement with the Fundamentals of Active Inference book — building learning pathways, study materials, exercises, and community resources for those learning from this text.",
+      "links": [
+        {
+          "sourceId": "repo-fundamentals"
+        },
+        {
+          "sourceId": "official-textbook-group-shortlink"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Join the current Textbook Group cohort or contribute to supplementary materials.",
+      "links": [
+        {
+          "sourceId": "official-textbook-group-shortlink"
+        },
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 63,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-textbook-group",
+    "learning"
+  ],
+  "externalSourceIds": [
+    "repo-fundamentals",
+    "official-textbook-group-shortlink",
+    "discord"
+  ]
+}

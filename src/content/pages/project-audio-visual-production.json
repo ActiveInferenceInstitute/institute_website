@@ -1,0 +1,72 @@
+{
+  "slug": "project-audio-visual-production",
+  "title": "Audio-Visual Production",
+  "subtitle": "Producing livestreams, podcasts, recordings, and audio-visual resources for the Active Inference community.",
+  "audience": "Producers, coordinators, technical contributors, and anyone interested in supporting Institute media.",
+  "lede": "Audio-Visual Production is a sustained Institute project responsible for planning, recording, and publishing the Institute's livestreams, podcasts, video events, and educational recordings. The project has produced a continuously updated table of all livestreams and videos from 2020 onward.",
+  "primaryActions": [
+    {
+      "label": "Videos",
+      "sourceId": "video"
+    },
+    {
+      "label": "YouTube",
+      "sourceId": "youtube"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Audio-Visual Production project manages the full production pipeline for Institute media — from planning and guest curation through live recording, post-production, and publication. It produces the pragmatic video catalog for all Institute outputs, including ModelStreams, GuestStreams, project meetings, courses, and special events.",
+      "links": [
+        {
+          "sourceId": "video"
+        },
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "official-livestreams"
+        }
+      ]
+    },
+    {
+      "heading": "Past and Current Work",
+      "body": "A comprehensive table of all livestreams and videos from 2020 to the present is maintained by this project. The Institute has produced hundreds of hours of openly accessible recordings covering Active Inference theory, applications, project updates, and community discussions.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "official-livestreams"
+        }
+      ]
+    },
+    {
+      "heading": "How to Help",
+      "body": "The project welcomes producers, coordinators, technical contributors, and guest curators. If you enjoy the videos and want to help expand and improve production, reach out via blanket@activeinference.institute with subject [PRODUCTION].",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "Volunteer",
+          "href": "volunteer.html"
+        }
+      ]
+    }
+  ],
+  "order": 35,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "volunteer",
+    "programs"
+  ],
+  "externalSourceIds": [
+    "video",
+    "youtube",
+    "official-livestreams",
+    "discord"
+  ]
+}

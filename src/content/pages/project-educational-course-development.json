@@ -1,0 +1,70 @@
+{
+  "slug": "project-educational-course-development",
+  "title": "Educational Course Development",
+  "subtitle": "Developing structured Active Inference courses, curricula, and educational resources.",
+  "audience": "Educators, curriculum designers, instructors, and learners interested in formal Active Inference course work.",
+  "lede": "Educational Course Development is a sustained Institute project producing structured courses in Active Inference and related topics. It maintains an Obsidian repository and course catalog, developing educational materials for a range of backgrounds and learning goals.",
+  "primaryActions": [
+    {
+      "label": "Courses",
+      "sourceId": "official-courses"
+    },
+    {
+      "label": "Repository",
+      "sourceId": "repo-courses"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Educational Course Development project designs and produces courses for Active Inference learners. This includes introductory and advanced courses, domain-specific curricula, and modular educational components that can be used across the Institute's learning programs.",
+      "links": [
+        {
+          "sourceId": "official-courses"
+        },
+        {
+          "sourceId": "repo-courses"
+        }
+      ]
+    },
+    {
+      "heading": "Resources",
+      "body": "Courses are accessible through the Institute's course page and Obsidian repository. Materials are openly licensed and designed for reuse.",
+      "links": [
+        {
+          "sourceId": "official-courses"
+        },
+        {
+          "sourceId": "shortlink-obsidian"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Educators, instructional designers, subject matter experts, and learners interested in contributing to course development are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "EduActive Unit",
+          "href": "edactive.html"
+        }
+      ]
+    }
+  ],
+  "order": 36,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-textbook-group",
+    "project-seasonal-school",
+    "learning"
+  ],
+  "externalSourceIds": [
+    "official-courses",
+    "repo-courses",
+    "shortlink-obsidian",
+    "discord"
+  ]
+}

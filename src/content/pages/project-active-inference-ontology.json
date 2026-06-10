@@ -1,0 +1,69 @@
+{
+  "slug": "project-active-inference-ontology",
+  "title": "Active Inference Ontology",
+  "subtitle": "Maintaining and developing the public ontology for Active Inference and decentralized science.",
+  "audience": "Ontologists, knowledge engineers, and researchers working on formal knowledge representation for Active Inference.",
+  "lede": "The Active Inference Ontology project maintains and extends the public ontology for the Active Inference framework. It provides structured, machine-readable definitions of concepts and their relationships, supporting decentralized science, reproducibility, and knowledge reuse.",
+  "primaryActions": [
+    {
+      "label": "Ontology shortlink",
+      "sourceId": "shortlink-ontology"
+    },
+    {
+      "label": "Repository",
+      "sourceId": "repo-active-inference-ontology"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Active Inference Ontology formalizes the conceptual structure of Active Inference — defining terms, relationships, and hierarchies that enable consistent reasoning, cross-project compatibility, and machine-readable knowledge. The ontology supports the broader goal of open, decentralized Active Inference science.",
+      "links": [
+        {
+          "sourceId": "shortlink-ontology"
+        },
+        {
+          "sourceId": "repo-active-inference-ontology"
+        }
+      ]
+    },
+    {
+      "heading": "Resources",
+      "body": "The public ontology website and GitHub repository provide access to the current ontology, its documentation, and contribution pathways.",
+      "links": [
+        {
+          "sourceId": "repo-active-inference-ontology"
+        },
+        {
+          "sourceId": "github-org"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Ontologists, knowledge engineers, and researchers who work with formal knowledge representation are welcome to contribute. Background in description logics, RDF/OWL, or conceptual modeling is helpful.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "EduActive Unit",
+          "href": "edactive.html"
+        }
+      ]
+    }
+  ],
+  "order": 34,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-knowledge-engineering",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "shortlink-ontology",
+    "repo-active-inference-ontology",
+    "github-org",
+    "discord"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "slug": "project-active-inferants",
+  "title": "Active InferAnts",
+  "subtitle": "Multiagent modeling of collective behavior using Active Inference, with connections to ant colony research.",
+  "audience": "Researchers, modelers, and engineers interested in multiagent systems, collective behavior, and Active Inference.",
+  "lede": "Active InferAnts is a multiagent modeling project that applies Active Inference to collective behavior, inspired by ant colony dynamics. It has produced a GitHub repository, a 2021 paper, and code developed within the Active Blockference project, with multiple realizations across different modeling contexts.",
+  "primaryActions": [
+    {
+      "label": "Active InferAnts",
+      "sourceId": "active-inferants"
+    },
+    {
+      "label": "Repository",
+      "sourceId": "repo-activeinferants"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Active InferAnts develops multiagent models using Active Inference to simulate and understand collective behavior. The project draws inspiration from social insect biology — particularly ant colony foraging and organization — and applies generative modeling to understand how local agent behaviors produce collective intelligence without central coordination.",
+      "links": [
+        {
+          "sourceId": "active-inferants"
+        },
+        {
+          "sourceId": "repo-activeinferants"
+        }
+      ]
+    },
+    {
+      "heading": "Past Work and Papers",
+      "body": "The project has a 2021 paper, a GitHub repository with multiple code realizations, and is developed in part through the Active Blockference project. The work spans individual agent models, collective foraging scenarios, and theoretical extensions.",
+      "links": [
+        {
+          "sourceId": "active-inferants"
+        },
+        {
+          "sourceId": "repo-ants"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Contributors with backgrounds in computational biology, multiagent systems, Active Inference, or behavioral ecology are welcome. Technical contributions (code, models) and conceptual work (theory, documentation) are both valued.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        }
+      ]
+    }
+  ],
+  "order": 29,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "project-active-blockference",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "active-inferants",
+    "repo-activeinferants",
+    "repo-ants",
+    "discord"
+  ]
+}

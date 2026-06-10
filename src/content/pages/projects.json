@@ -22,10 +22,10 @@
   "sections": [
     {
       "heading": "Project Lifecycle",
-      "body": "Projects are prepared through proposals and measured through updates from the Active Inference ecosystem. The public site organizes projects around clear titles, missions, outputs, and useful resource links.",
+      "body": "Projects are prepared through proposals and measured through updates from the Active Inference ecosystem. All Institute and Ecosystem projects have dedicated pages with stable URLs for reference, sharing, and ongoing engagement.",
       "links": [
         {
-          "sourceId": "github-org"
+          "sourceId": "shortlink-prepare"
         },
         {
           "sourceId": "weekly"
@@ -33,35 +33,78 @@
       ]
     },
     {
-      "heading": "Institute Projects",
-      "body": "Institute projects include recurring research, education, production, ontology, knowledge engineering, software, symposium, and learning-group efforts. They provide continuity and public-facing outputs.",
+      "heading": "EduActive Unit — Institute Projects",
+      "body": "EduActive hosts education-focused Institute projects: the Textbook Group, Active Inference Ontology, Active Inference Journal, Educational Course Development, Audio-Visual Production, Applied Active Inference Symposium, Seasonal School, Physics Course, Active Inference for Social Sciences, and the Video Improvement Project.",
       "links": [
         {
-          "sourceId": "github-org"
+          "label": "EduActive Unit",
+          "href": "edactive.html"
         },
         {
-          "sourceId": "journal"
+          "label": "Textbook Group",
+          "href": "project-textbook-group.html"
         },
         {
-          "sourceId": "active-inferants"
+          "label": "Symposium",
+          "href": "project-symposium.html"
         },
         {
-          "sourceId": "gnn"
+          "label": "Active Inference Ontology",
+          "href": "project-active-inference-ontology.html"
         },
         {
-          "sourceId": "geo-infer"
+          "label": "Seasonal School",
+          "href": "project-seasonal-school.html"
+        }
+      ]
+    },
+    {
+      "heading": "ReInference Unit — Institute Projects",
+      "body": "ReInference hosts research-focused Institute projects: Active Blockference, AICACP, Applied Active Inference Symposium, Cognitive Agent Modeling, FarmWorks, Generalized Notation Notation, GEO-INFER, Graphical Interface, Knowledge Engineering, Active InferAnts, RxInfer.jl, and the Theoretical Neurobiology Group.",
+      "links": [
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        },
+        {
+          "label": "Active InferAnts",
+          "href": "project-active-inferants.html"
+        },
+        {
+          "label": "GEO-INFER",
+          "href": "project-geo-infer.html"
+        },
+        {
+          "label": "GNN",
+          "href": "project-gnn.html"
+        },
+        {
+          "label": "RxInfer.jl",
+          "href": "project-rxinfer.html"
+        },
+        {
+          "label": "Knowledge Engineering",
+          "href": "project-knowledge-engineering.html"
         }
       ]
     },
     {
       "heading": "Ecosystem Projects",
-      "body": "Ecosystem projects are broader community initiatives, including theoretical, applied, domain-specific, and infrastructure efforts that connect Active Inference to external research and practice.",
+      "body": "Ecosystem projects are community-driven initiatives across computational neuroscience, AI, ecology, education, creativity, philosophy, and applied domains. Each project has a dedicated page with a stable URL.",
       "links": [
         {
           "sourceId": "github-org"
         },
         {
           "sourceId": "ecosystem"
+        },
+        {
+          "label": "CogNarr",
+          "href": "project-cognarn.html"
+        },
+        {
+          "label": "Geometric Inquiry Theory",
+          "href": "project-geometric-inquiry.html"
         }
       ]
     }
@@ -165,6 +208,8 @@
   ],
   "order": 5,
   "relatedSlugs": [
+    "edactive",
+    "reinference",
     "learning",
     "ecosystem",
     "programs"

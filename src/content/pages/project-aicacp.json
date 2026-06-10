@@ -1,0 +1,52 @@
+{
+  "slug": "project-aicacp",
+  "title": "AICACP",
+  "subtitle": "A coalition-oriented project at the intersection of AI capabilities and care practices.",
+  "audience": "Researchers, practitioners, and policy-oriented contributors interested in AI alignment, capabilities, and care-oriented approaches.",
+  "lede": "AICACP is an Institute project organized around AI capabilities, alignment, and care practices — exploring how Active Inference principles inform responsible and care-oriented AI development. The project maintains a public information page and contributes to the Institute's research on beneficial AI.",
+  "primaryActions": [
+    {
+      "label": "Project page",
+      "sourceId": "official-participation"
+    },
+    {
+      "label": "ReInference Unit",
+      "href": "reinference.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "AICACP addresses the alignment and care dimensions of advanced AI capabilities. Using Active Inference as a theoretical lens, the project examines how AI systems can be designed with attention to care, alignment, and human flourishing. The work connects theoretical frameworks with practical guidance for building AI that serves broad human interests.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
+    },
+    {
+      "heading": "Participation",
+      "body": "AICACP welcomes contributors with backgrounds in AI, ethics, policy, philosophy of mind, and Active Inference. Engagement ranges from theoretical discussion to practical documentation and policy writing.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        }
+      ]
+    }
+  ],
+  "order": 21,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "github-org",
+    "discord",
+    "official-participation"
+  ]
+}

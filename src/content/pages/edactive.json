@@ -1,0 +1,142 @@
+{
+  "slug": "edactive",
+  "title": "EduActive Unit",
+  "subtitle": "The Active Inference Institute's education-focused organizational unit.",
+  "audience": "Learners, educators, course developers, textbook contributors, and anyone interested in Active Inference education.",
+  "lede": "EduActive is the Institute's education arm. It hosts the Textbook Group, courses, ontology work, the Active Inference Journal, audio-visual production, seasonal school, and related learning initiatives. EduActive projects connect Active Inference to learning infrastructure, pedagogy, and public educational resources.",
+  "primaryActions": [
+    {
+      "label": "Textbook Group",
+      "sourceId": "official-textbook-group-shortlink"
+    },
+    {
+      "label": "All Projects",
+      "href": "projects.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What EduActive Does",
+      "body": "EduActive provides the educational infrastructure for the Institute and Ecosystem. Its projects develop and maintain courses, textbooks, ontologies, journals, audio-visual resources, and learning groups. EduActive makes Active Inference accessible across disciplines and experience levels by creating structured, reusable, and openly licensed educational artifacts.",
+      "links": [
+        {
+          "sourceId": "official-courses"
+        },
+        {
+          "sourceId": "official-education"
+        }
+      ]
+    },
+    {
+      "heading": "Institute Projects",
+      "body": "EduActive hosts Institute-operated educational projects with sustained maintenance, regular outputs, and defined participation pathways. These include the Textbook Group, Active Inference Ontology, Active Inference Journal, Educational Course Development, Audio-Visual Production, Applied Active Inference Symposium, Seasonal School, Physics Course, Active Inference for Social Sciences, and the Video Improvement project.",
+      "links": [
+        {
+          "label": "Textbook Group",
+          "href": "project-textbook-group.html"
+        },
+        {
+          "label": "Active Inference Ontology",
+          "href": "project-active-inference-ontology.html"
+        },
+        {
+          "label": "Active Inference Journal",
+          "href": "project-active-inference-journal.html"
+        },
+        {
+          "label": "Applied Active Inference Symposium",
+          "href": "project-symposium.html"
+        },
+        {
+          "label": "Seasonal School",
+          "href": "project-seasonal-school.html"
+        },
+        {
+          "label": "Educational Course Development",
+          "href": "project-educational-course-development.html"
+        }
+      ]
+    },
+    {
+      "heading": "Ecosystem Projects",
+      "body": "EduActive supports Ecosystem projects aligned with education, learning, and public knowledge. These include Action Research on Collective Foraging, the Active Inference Cycle Book, MathArt Conversations, Neurodivergent Learning Sessions, Numinia, Froebel's System, and others.",
+      "links": [
+        {
+          "label": "MathArt Conversations",
+          "href": "project-mathart.html"
+        },
+        {
+          "label": "Neurodivergent Learning Sessions",
+          "href": "project-neurodivergent-learning.html"
+        },
+        {
+          "label": "Numinia",
+          "href": "project-numinia.html"
+        }
+      ]
+    },
+    {
+      "heading": "Participate in EduActive",
+      "body": "EduActive projects welcome learners, developers, writers, instructors, artists, and organizers at all stages. Join a Textbook Group cohort, contribute to ontology work, help produce audio-visual content, or join an ecosystem education project. No prior expertise is required.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "Programs",
+          "href": "programs.html"
+        },
+        {
+          "label": "Volunteer",
+          "href": "volunteer.html"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Textbook Group",
+      "text": "Structured cohort learning through foundational and advanced Active Inference texts.",
+      "links": [
+        {
+          "sourceId": "official-textbook-group-shortlink"
+        }
+      ]
+    },
+    {
+      "title": "Active Inference Journal",
+      "text": "Knowledge, discussion, and community publication channel.",
+      "links": [
+        {
+          "sourceId": "journal"
+        }
+      ]
+    },
+    {
+      "title": "Active Inference Ontology",
+      "text": "Maintaining the public ontology for decentralized science.",
+      "links": [
+        {
+          "sourceId": "shortlink-ontology"
+        }
+      ]
+    },
+    {
+      "title": "Applied Symposium",
+      "text": "Annual symposium bringing researchers and practitioners together.",
+      "links": [
+        {
+          "sourceId": "official-symposium-shortlink"
+        }
+      ]
+    }
+  ],
+  "order": 18,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "structure",
+    "programs",
+    "learning"
+  ]
+}

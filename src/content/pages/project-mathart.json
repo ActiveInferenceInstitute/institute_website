@@ -1,0 +1,43 @@
+{
+  "slug": "project-mathart",
+  "title": "MathArt Conversations",
+  "subtitle": "Exploring profound connections between mathematics and the arts through collaborative conversation.",
+  "audience": "Mathematicians, artists, educators, and anyone interested in mathematical aesthetics and art-science dialogue.",
+  "lede": "MathArt Conversations is an Ecosystem project creating a space for exploring the profound connections between mathematics and the arts. Through collaborative conversations, streams, and shared inquiry, it surfaces deep structural resonances between mathematical structures and artistic creativity.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "MathArt Conversations hosts dialogues and collaborative sessions at the intersection of mathematics and art — examining how theorems, proofs, and mathematical structures resonate with and inform artistic creation, and vice versa. The project produces conversation recordings accessible through the MathArt Streams.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Mathematicians, artists, educators, and anyone drawn to math-art dialogue are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 64,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

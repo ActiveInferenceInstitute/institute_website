@@ -1,0 +1,43 @@
+{
+  "slug": "project-geometric-inquiry",
+  "title": "Geometric Inquiry Theory",
+  "subtitle": "Establishing geometric bases for inquiry through Q-State Dynamics and the structural basis of inquiry.",
+  "audience": "Mathematicians, physicists, and theoreticians working on the geometric and formal foundations of inquiry and cognition.",
+  "lede": "Geometric Inquiry Theory develops a geometric framework for understanding inquiry as a structured dynamic process — establishing Q-State Dynamics and the structural basis of inquiry as a coherent mathematical theory, drawing on a multi-decade background spanning paramedicine, network engineering, and culinary arts as informal laboratories.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project establishes geometric and algebraic foundations for inquiry — treating the act of asking questions as a structured, consequence-laden process with formal properties. Q-State Dynamics provides the theoretical core, with protocols documenting the empirical and epistemological basis of the work.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Mathematicians, physicists, and formally-oriented theoreticians interested in the foundations of inquiry are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 49,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "slug": "project-artificial-sentience",
+  "title": "Artificial Sentience",
+  "subtitle": "Exploring the conditions for and implications of sentience in artificial systems through an Active Inference lens.",
+  "audience": "Philosophers, AI researchers, and consciousness scientists interested in machine sentience and phenomenology.",
+  "lede": "Artificial Sentience is an Ecosystem project examining the theoretical conditions for sentience in artificial systems. Drawing on Active Inference, it explores what it would mean for a machine to be sentient, using the free energy principle as a framework for understanding experience and self-organization.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project develops theoretical accounts of sentience using Active Inference — examining whether and how the formal properties of active inference systems relate to phenomenal experience. It connects philosophy of mind, computational neuroscience, and AI research.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Philosophers, neuroscientists, and AI researchers interested in consciousness and Active Inference are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 44,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

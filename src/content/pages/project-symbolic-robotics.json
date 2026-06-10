@@ -1,0 +1,43 @@
+{
+  "slug": "project-symbolic-robotics",
+  "title": "Symbolic Cognitive Robotics",
+  "subtitle": "Exploring symbolic and embodied cognitive robotics through Active Inference and Bayesian reasoning.",
+  "audience": "Roboticists, AI researchers, and cognitive scientists interested in symbolic reasoning, embodied cognition, and robotics.",
+  "lede": "Symbolic Cognitive Robotics is an Ecosystem project applying Active Inference to robotic systems that combine symbolic reasoning with embodied action. Work draws on papers in robotics and embodied cognition, and includes implementation on physical robot platforms.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project explores how symbolic cognitive architectures and embodied Active Inference can be integrated in robotic systems. Implementation work uses rover-class robots and extends Active Inference with symbolic reasoning capabilities for exploration, planning, and learning.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Roboticists, AI researchers, and cognitive scientists with interests in symbolic AI and embodied Active Inference are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 56,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

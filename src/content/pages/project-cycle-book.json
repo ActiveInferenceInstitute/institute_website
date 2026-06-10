@@ -1,0 +1,43 @@
+{
+  "slug": "project-cycle-book",
+  "title": "Active Inference Cycle Book for Self-Knowing",
+  "subtitle": "A reflective book project applying Active Inference as a framework for self-knowledge and personal development.",
+  "audience": "Reflective practitioners, educators, and individuals interested in applying Active Inference to personal understanding.",
+  "lede": "The Active Inference Cycle Book for Self-Knowing develops a practical framework for personal growth and self-knowledge grounded in Active Inference. It uses the inference cycle — perceiving, modeling, acting, learning — as a scaffold for reflective practice and long-term personal development.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The book applies Active Inference concepts — prediction, action, free energy minimization, and belief updating — as a practical guide for self-understanding. The aim is to make the theoretical framework accessible as a living tool for personal development and population-level wellbeing.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Writers, educators, and practitioners interested in Active Inference as personal development framework are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 60,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

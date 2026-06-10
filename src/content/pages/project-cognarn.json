@@ -1,0 +1,56 @@
+{
+  "slug": "project-cognarn",
+  "title": "CogNarr Ecosystem",
+  "subtitle": "Facilitating group cognition at scale through cognitive narrative infrastructure.",
+  "audience": "Researchers, practitioners, and developers interested in collective intelligence, group cognition, and narrative infrastructure.",
+  "lede": "CogNarr (Cognitive Narrative) is an Ecosystem project developing infrastructure for facilitating group cognition at scale. It builds tools and frameworks that enable communities to coordinate shared understanding through structured narrative and cognitive scaffolding, with an initial focus on minimal viable incubation.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "CogNarr develops infrastructure for collective sense-making — creating shared cognitive scaffolds that help groups coordinate attention, update beliefs, and maintain coherent action. The initial mission is a minimal viable incubation platform that can serve as a coordination layer for community cognition.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Meetings and Activity",
+      "body": "CogNarr holds regular project meetings visible in the Institute's activities calendar. The project has an active community on the Discord.",
+      "links": [
+        {
+          "sourceId": "official-activities-shortlink"
+        },
+        {
+          "sourceId": "discord"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Developers, researchers, and practitioners interested in group cognition and narrative infrastructure are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 46,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "official-activities-shortlink",
+    "discord"
+  ]
+}

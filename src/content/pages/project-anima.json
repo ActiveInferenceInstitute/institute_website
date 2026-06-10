@@ -1,0 +1,43 @@
+{
+  "slug": "project-anima",
+  "title": "Anima",
+  "subtitle": "Exploring Active Inference in the context of current LLM-based AI interactions and policy-based behavior.",
+  "audience": "AI researchers and practitioners interested in Active Inference approaches to LLM behavior and alignment.",
+  "lede": "Anima is an Ecosystem project exploring how Active Inference principles apply to interactions with large language models. It examines how policy-based, blanket-aware Active Inference architectures can inform the design and understanding of current AI systems.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Anima investigates the intersection of Active Inference and current LLM-based AI — examining how Active Inference models of perception, policy, and action relate to LLM behavior, and how the framework can guide AI design for coherent, aligned behavior.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "AI researchers, cognitive scientists, and practitioners interested in Active Inference approaches to AI systems are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 43,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

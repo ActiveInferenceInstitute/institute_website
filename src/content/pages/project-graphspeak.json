@@ -1,0 +1,43 @@
+{
+  "slug": "project-graphspeak",
+  "title": "Graphspeak / Blorbbe",
+  "subtitle": "Popularizing open-source graph-based communication and knowledge representation tools.",
+  "audience": "Knowledge workers, developers, and communities interested in graph-based communication and open knowledge tools.",
+  "lede": "Graphspeak / Blorbbe is an Ecosystem project developing open-source tools for graph-based communication and knowledge representation, aiming to make structured, relational knowledge more accessible and usable for broad audiences.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project develops graph-based communication tools — enabling people to express ideas, relationships, and knowledge in structured, visual, and interoperable formats. The work connects to Active Inference through shared interests in generative model-based communication.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Developers, knowledge workers, and communication researchers interested in graph-based tools are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 50,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "project-gnn"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

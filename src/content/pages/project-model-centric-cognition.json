@@ -1,0 +1,51 @@
+{
+  "slug": "project-model-centric-cognition",
+  "title": "Model-Centric Cognition",
+  "subtitle": "Developing the Wave Hypothesis and model-centric approaches to cognition and knowledge representation.",
+  "audience": "Cognitive scientists, AI researchers, and philosophers working on model-centric theories of mind.",
+  "lede": "Model-Centric Cognition is an Ecosystem project developing a model-centric theory of cognition anchored in the Wave Hypothesis. It examines how cognitive systems represent and update internal models, drawing on Active Inference and existing wave-based theoretical traditions.",
+  "primaryActions": [
+    {
+      "label": "Wave Hypothesis",
+      "sourceId": "shortlink-wave-hypothesis"
+    },
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project develops a theoretical account of cognition centered on model structure and dynamics. The Wave Hypothesis provides the theoretical core, departing from existing approaches and addressing pushback through formal development and empirical grounding.",
+      "links": [
+        {
+          "sourceId": "shortlink-wave-hypothesis"
+        },
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Cognitive scientists, philosophers, and AI theoreticians are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 54,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "shortlink-wave-hypothesis",
+    "ecosystem",
+    "discord"
+  ]
+}

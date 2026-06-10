@@ -1,0 +1,44 @@
+{
+  "slug": "project-robotic-microscopy",
+  "title": "From Instrument to Intelligent Agent: Robotic Microscopy",
+  "subtitle": "Deploying Active Inference and AI to automate robotic microscopy and manage soil biology at scale.",
+  "audience": "Robotics researchers, biologists, and AI practitioners interested in autonomous scientific instrumentation.",
+  "lede": "This Ecosystem project turns a robotic microscope into an Active Inference-driven intelligent agent for managing soil biology at scale. It develops AI systems that autonomously operate microscopy hardware, acquire data, and make decisions — treating the instrument as an inference agent in a biological environment.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project develops Active Inference architectures for autonomous robotic microscopy — creating systems that observe, plan, and act in order to characterize biological samples with minimal human intervention. The application domain is soil biology, supporting FarmWorks-adjacent ecological research.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Roboticists, biologists, and AI engineers interested in autonomous instrumentation are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 48,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "project-farmworks",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

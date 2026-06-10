@@ -1,0 +1,43 @@
+{
+  "slug": "project-m-theory-hdpls",
+  "title": "M-Theory as Function of Hyper Dimensional Prismatic Light Scattering (HDPLS-TARS)",
+  "subtitle": "Testing the limits of M-Theory through hyper-dimensional field interconnections and active inference.",
+  "audience": "Theoretical physicists and mathematicians working at the frontiers of M-Theory and information geometry.",
+  "lede": "HDPLS-TARS is a speculative and exploratory Ecosystem project testing the limits and foundations of M-Theory through the lens of hyper-dimensional field interconnections. It examines new functional and experiential insights by treating M-Theory as a function of prismatic light scattering dynamics.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project explores whether M-Theory can be reformulated or extended through the lens of active inference and hyper-dimensional geometry. It addresses philosophical and empirical fallacies, delineates theoretical consequences, and develops new functional insights at the edge of current physics.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Theoretical physicists, mathematicians, and formally-oriented researchers are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 53,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

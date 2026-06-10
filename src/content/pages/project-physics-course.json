@@ -1,0 +1,52 @@
+{
+  "slug": "project-physics-course",
+  "title": "Physics Course",
+  "subtitle": "A course connecting physics, thermodynamics, and the theoretical foundations of Active Inference.",
+  "audience": "Physics-oriented learners and researchers exploring the physical basis of the Free Energy Principle.",
+  "lede": "The Physics Course is an Institute education project developing course materials on the physical foundations of Active Inference and the Free Energy Principle — covering thermodynamics, information theory, and the physics underlying biological self-organization.",
+  "primaryActions": [
+    {
+      "label": "Courses",
+      "sourceId": "official-courses"
+    },
+    {
+      "label": "EduActive Unit",
+      "href": "edactive.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Physics Course explores Active Inference from a physics perspective, covering how thermodynamics, information theory, and statistical mechanics underpin the Free Energy Principle. It develops course materials connecting these foundations to biological and cognitive systems.",
+      "links": [
+        {
+          "sourceId": "official-courses"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Physicists, mathematicians, and quantitatively-oriented learners interested in the theoretical foundations of Active Inference are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "EduActive Unit",
+          "href": "edactive.html"
+        }
+      ]
+    }
+  ],
+  "order": 37,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-educational-course-development",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "official-courses",
+    "discord"
+  ]
+}

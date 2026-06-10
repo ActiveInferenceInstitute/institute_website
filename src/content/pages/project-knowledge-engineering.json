@@ -1,0 +1,69 @@
+{
+  "slug": "project-knowledge-engineering",
+  "title": "Knowledge Engineering",
+  "subtitle": "Building the Active Inference Institute's knowledge infrastructure, public frontend, and literature meta-analysis.",
+  "audience": "Knowledge engineers, information scientists, researchers, and contributors working on structured knowledge resources.",
+  "lede": "Knowledge Engineering develops and maintains the public knowledge infrastructure for the Active Inference Institute, including the public frontend, literature meta-analysis, and organizational knowledge systems. The project connects Institute outputs to the broader literature and makes them machine-readable and navigable.",
+  "primaryActions": [
+    {
+      "label": "Official page",
+      "sourceId": "official-knowledge-engineering"
+    },
+    {
+      "label": "Repository",
+      "sourceId": "repo-knowledge-engineering"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Knowledge Engineering builds and maintains the structured knowledge layer of the Institute. This includes the public-facing knowledge frontend, systematic literature meta-analysis for Active Inference research, organizational knowledge graphs, and tools for navigating the growing body of Active Inference work.",
+      "links": [
+        {
+          "sourceId": "official-knowledge-engineering"
+        },
+        {
+          "sourceId": "repo-knowledge-engineering"
+        }
+      ]
+    },
+    {
+      "heading": "Past Work",
+      "body": "The project has produced a public frontend and literature meta-analysis accessible from the end of 2022. The work supports the Institute's mission of making Active Inference knowledge findable, reusable, and cumulative.",
+      "links": [
+        {
+          "sourceId": "repo-knowledge-engineering"
+        },
+        {
+          "sourceId": "github-org"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Contributors with backgrounds in knowledge representation, information science, ontology, natural language processing, or library science are welcome alongside Active Inference researchers.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        }
+      ]
+    }
+  ],
+  "order": 28,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "project-active-inference-ontology",
+    "project-gnn"
+  ],
+  "externalSourceIds": [
+    "official-knowledge-engineering",
+    "repo-knowledge-engineering",
+    "github-org",
+    "discord"
+  ]
+}

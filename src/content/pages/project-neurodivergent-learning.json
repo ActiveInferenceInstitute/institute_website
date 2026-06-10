@@ -1,0 +1,44 @@
+{
+  "slug": "project-neurodivergent-learning",
+  "title": "Neurodivergent Learning Sessions",
+  "subtitle": "Creating Active Inference learning resources and sessions tailored for neurodivergent participants.",
+  "audience": "Neurodivergent learners, educators, and advocates for inclusive Active Inference education.",
+  "lede": "Neurodivergent Learning Sessions develops Active Inference learning resources and sessions designed for neurodivergent participants — building curriculum, milestones, and community structures that support autistic, ADHD, and other neurodivergent learners in engaging deeply with Active Inference.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project creates learning environments and materials that recognize neurodiversity as a resource — developing curriculum and milestones adapted for neurodivergent engagement styles, from auditory and visual presentation to pacing and community structures.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Neurodivergent learners, educators, and accessibility advocates are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 65,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-educational-course-development",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

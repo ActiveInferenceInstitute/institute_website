@@ -1,0 +1,64 @@
+{
+  "slug": "project-theoretical-neurobiology",
+  "title": "Theoretical Neurobiology Group",
+  "subtitle": "Supporting theoretical neurobiology conversations and model development within the Active Inference community.",
+  "audience": "Neuroscientists, biologists, and theoreticians interested in theoretical approaches to neural systems through Active Inference.",
+  "lede": "The Theoretical Neurobiology Group (TNB) supports theoretical work connecting Active Inference to neurobiology. It hosts regular meetings and discussions for participants working on mathematical and conceptual models of neural systems, bridging the free energy principle with empirical neuroscience.",
+  "primaryActions": [
+    {
+      "label": "TNB page",
+      "sourceId": "official-tnb"
+    },
+    {
+      "label": "ReInference Unit",
+      "href": "reinference.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Theoretical Neurobiology Group convenes researchers and learners interested in applying Active Inference and the free energy principle to neurobiology. Sessions cover topics from predictive coding to interoception, allostasis, neural circuits, and the mathematical structure of active inference in biological systems.",
+      "links": [
+        {
+          "sourceId": "official-tnb"
+        }
+      ]
+    },
+    {
+      "heading": "Activities",
+      "body": "The group holds regular meetings, reading sessions, and collaborative discussions. Recordings and resources from past sessions are accessible through the Institute's channels.",
+      "links": [
+        {
+          "sourceId": "official-tnb"
+        },
+        {
+          "sourceId": "youtube"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Background in neuroscience, biology, or Active Inference is helpful. The group welcomes students, researchers, and anyone engaging seriously with theoretical neurobiology.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        }
+      ]
+    }
+  ],
+  "order": 31,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "official-tnb",
+    "youtube",
+    "discord"
+  ]
+}

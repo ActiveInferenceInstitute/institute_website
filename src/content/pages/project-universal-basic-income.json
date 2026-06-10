@@ -1,0 +1,43 @@
+{
+  "slug": "project-universal-basic-income",
+  "title": "The Universal Basic Income Experiment",
+  "subtitle": "Studying universal basic income through Active Inference modeling and simulation.",
+  "audience": "Economists, social scientists, and policy researchers interested in Active Inference approaches to economic policy.",
+  "lede": "The Universal Basic Income Experiment applies Active Inference to study Universal Basic Income (UBI) — using token economics, policy simulation, and behavioral modeling to examine UBI's effects on human flourishing and economic dynamics.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project develops simulation and modeling approaches for UBI using Active Inference principles — modeling economic agents, their belief updating, and policy responses to study how UBI interventions propagate through socioeconomic systems.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Economists, social scientists, policy researchers, and modelers interested in Active Inference approaches to economic policy are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 58,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

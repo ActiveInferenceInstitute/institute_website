@@ -1,0 +1,67 @@
+{
+  "slug": "project-seasonal-school",
+  "title": "Seasonal School",
+  "subtitle": "An intensive in-person or online school for deep engagement with Active Inference.",
+  "audience": "Students, researchers, and practitioners seeking an immersive Active Inference learning experience.",
+  "lede": "The Seasonal School is an Institute educational program providing intensive, structured, and in-depth engagement with Active Inference theory, modeling, and applications. It has run multiple cohorts and developed a track record as a concentrated learning experience for participants from varied backgrounds.",
+  "primaryActions": [
+    {
+      "label": "Seasonal School page",
+      "sourceId": "official-education"
+    },
+    {
+      "label": "EduActive Unit",
+      "href": "edactive.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Seasonal School delivers concentrated Active Inference education through structured sessions over days or weeks. It combines lectures, workshops, modeling practice, and discussion — creating a learning environment that accelerates understanding for participants at multiple levels of prior background.",
+      "links": [
+        {
+          "sourceId": "official-education"
+        }
+      ]
+    },
+    {
+      "heading": "Past Editions",
+      "body": "The Seasonal School has run several cohorts, each producing recordings and resources for the broader community. Past recordings are accessible through the Institute's video channels.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "official-livestreams"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "The Seasonal School accepts applications from students, researchers, and practitioners. Follow the Institute's communications for upcoming editions.",
+      "links": [
+        {
+          "sourceId": "official-newsletter"
+        },
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 38,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-educational-course-development",
+    "project-textbook-group",
+    "programs"
+  ],
+  "externalSourceIds": [
+    "official-education",
+    "youtube",
+    "official-livestreams",
+    "official-newsletter",
+    "discord"
+  ]
+}

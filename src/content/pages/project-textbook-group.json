@@ -1,0 +1,102 @@
+{
+  "slug": "project-textbook-group",
+  "title": "Textbook Group",
+  "subtitle": "Structured cohort learning through Active Inference textbooks, with 5.5 completed cohorts since 2022.",
+  "audience": "Learners, students, and researchers working through Active Inference textbooks in a structured group setting.",
+  "lede": "The Textbook Group is a sustained Institute educational program running structured cohort-based learning through Active Inference textbooks. Since 2022 it has completed 5.5 cohorts, including the current 'Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers' cohort.",
+  "primaryActions": [
+    {
+      "label": "Textbook Group",
+      "sourceId": "official-textbook-group-shortlink"
+    },
+    {
+      "label": "Register",
+      "sourceId": "official-textbook-group"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Textbook Group brings participants together in structured cohorts to work through Active Inference textbooks with guidance and peer support. Each cohort runs regular sessions with discussion, exercises, and collaborative work through key texts.",
+      "links": [
+        {
+          "sourceId": "official-textbook-group-shortlink"
+        },
+        {
+          "sourceId": "official-textbook-group"
+        }
+      ]
+    },
+    {
+      "heading": "Current and Past Cohorts",
+      "body": "The Textbook Group has completed 5.5 cohorts since 2022. The current cohort is working through 'Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers.' Recordings and materials from prior cohorts are accessible through the repository and course pages.",
+      "links": [
+        {
+          "sourceId": "official-textbook-group"
+        },
+        {
+          "sourceId": "repo-parr-et-al-2022-actinf-textbook"
+        },
+        {
+          "sourceId": "repo-fundamentals"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Register for upcoming cohorts through the Textbook Group page. No prior expertise in Active Inference is required — the group provides structure for participants at all levels.",
+      "links": [
+        {
+          "sourceId": "official-textbook-group-shortlink"
+        },
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "5.5 cohorts since 2022",
+      "text": "Structured learning through core Active Inference texts.",
+      "links": [
+        {
+          "sourceId": "official-textbook-group"
+        }
+      ]
+    },
+    {
+      "title": "Current cohort",
+      "text": "Fundamentals of Active Inference: Principles, Algorithms, and Applications.",
+      "links": [
+        {
+          "sourceId": "official-textbook-group-shortlink"
+        }
+      ]
+    },
+    {
+      "title": "Open enrollment",
+      "text": "Register for the next cohort.",
+      "links": [
+        {
+          "sourceId": "official-textbook-group-shortlink"
+        }
+      ]
+    }
+  ],
+  "order": 39,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-educational-course-development",
+    "project-seasonal-school",
+    "learning"
+  ],
+  "externalSourceIds": [
+    "official-textbook-group-shortlink",
+    "official-textbook-group",
+    "repo-parr-et-al-2022-actinf-textbook",
+    "repo-fundamentals",
+    "discord"
+  ]
+}

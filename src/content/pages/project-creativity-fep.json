@@ -1,0 +1,43 @@
+{
+  "slug": "project-creativity-fep",
+  "title": "Creativity and Creators Under the Free Energy Principle",
+  "subtitle": "Designing and researching creative processes and creative agents through the Free Energy Principle.",
+  "audience": "Artists, cognitive scientists, and researchers interested in computational creativity and Active Inference.",
+  "lede": "This Ecosystem project develops accounts of creativity and creative agents under the Free Energy Principle — examining how generative models and free energy minimization explain, predict, and enhance creative behavior.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project designs and researches creativity as an Active Inference process — asking how creative agents update beliefs, explore possibility spaces, and produce novel outputs. The work connects theoretical accounts with practical research on creative practice.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Artists, cognitive scientists, and creativity researchers interested in Active Inference are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 61,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

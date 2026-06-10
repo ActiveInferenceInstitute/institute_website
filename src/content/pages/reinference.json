@@ -1,0 +1,140 @@
+{
+  "slug": "reinference",
+  "title": "ReInference Unit",
+  "subtitle": "The Active Inference Institute's research-focused organizational unit.",
+  "audience": "Researchers, modelers, engineers, and contributors building Active Inference software, tools, and scientific knowledge.",
+  "lede": "ReInference is the Institute's research and development arm. It hosts software projects, theoretical work, applied modeling, geospatial analysis, knowledge engineering, and interdisciplinary research under the Active Inference framework. ReInference projects range from widely-used open-source tools to specialized research initiatives.",
+  "primaryActions": [
+    {
+      "label": "GitHub",
+      "sourceId": "github-org"
+    },
+    {
+      "label": "All Projects",
+      "href": "projects.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What ReInference Does",
+      "body": "ReInference develops and maintains research infrastructure, software tools, and scientific knowledge for Active Inference. Its institute projects have active development pipelines, open repositories, and regular community touchpoints. ReInference connects theoretical advances in Active Inference with concrete implementations, datasets, and application domains.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        },
+        {
+          "sourceId": "official-research"
+        }
+      ]
+    },
+    {
+      "heading": "Institute Projects",
+      "body": "ReInference hosts 12 Institute-operated projects: Active Blockference, AICACP, the Applied Active Inference Symposium, Cognitive Agent Modeling, FarmWorks, Generalized Notation Notation (GNN), GEO-INFER, a Graphical Interface project, Knowledge Engineering, Multiagent Modeling (Active InferAnts), the RxInfer.jl learning group, and the Theoretical Neurobiology Group.",
+      "links": [
+        {
+          "label": "Active InferAnts",
+          "href": "project-active-inferants.html"
+        },
+        {
+          "label": "GEO-INFER",
+          "href": "project-geo-infer.html"
+        },
+        {
+          "label": "GNN",
+          "href": "project-gnn.html"
+        },
+        {
+          "label": "RxInfer.jl",
+          "href": "project-rxinfer.html"
+        },
+        {
+          "label": "Knowledge Engineering",
+          "href": "project-knowledge-engineering.html"
+        },
+        {
+          "label": "Active Blockference",
+          "href": "project-active-blockference.html"
+        }
+      ]
+    },
+    {
+      "heading": "Ecosystem Projects",
+      "body": "ReInference supports Ecosystem projects in theoretical neuroscience, computational modeling, AI applications, and specialized domains. These include CogNarr, the Geometric Inquiry Theory, Symbolic Cognitive Robotics, Model-Centric Cognition, and over a dozen other community-driven research projects.",
+      "links": [
+        {
+          "label": "CogNarr",
+          "href": "project-cognarn.html"
+        },
+        {
+          "label": "Geometric Inquiry Theory",
+          "href": "project-geometric-inquiry.html"
+        },
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate in ReInference",
+      "body": "ReInference projects welcome researchers, engineers, students, and domain experts. Contributing can mean writing code, modeling, running experiments, producing documentation, or engaging in research discussions. Most projects are open to new participants.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        },
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "Programs",
+          "href": "programs.html"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Active InferAnts",
+      "text": "Multiagent modeling with prior code, papers, and development in Active Blockference.",
+      "links": [
+        {
+          "sourceId": "active-inferants"
+        }
+      ]
+    },
+    {
+      "title": "GEO-INFER",
+      "text": "Geospatial modeling using Active Inference techniques.",
+      "links": [
+        {
+          "sourceId": "geo-infer"
+        }
+      ]
+    },
+    {
+      "title": "GNN",
+      "text": "Generalized Notation Notation for communicating generative models.",
+      "links": [
+        {
+          "sourceId": "gnn"
+        }
+      ]
+    },
+    {
+      "title": "RxInfer.jl",
+      "text": "Learning and development around the RxInfer.jl probabilistic programming system.",
+      "links": [
+        {
+          "sourceId": "shortlink-rxinfer"
+        }
+      ]
+    }
+  ],
+  "order": 19,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "structure",
+    "active-inference",
+    "learning"
+  ]
+}

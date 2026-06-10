@@ -78,16 +78,20 @@
     "label": "Projects",
     "items": [
       {
-        "label": "Project Map",
+        "label": "All Projects",
         "href": "projects.html"
+      },
+      {
+        "label": "EduActive Unit",
+        "href": "edactive.html"
+      },
+      {
+        "label": "ReInference Unit",
+        "href": "reinference.html"
       },
       {
         "label": "Repositories",
         "href": "directory.html#repositories"
-      },
-      {
-        "label": "Project Resources",
-        "href": "resources.html#projects"
       }
     ]
   },

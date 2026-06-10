@@ -1,0 +1,44 @@
+{
+  "slug": "project-collective-foraging",
+  "title": "Action Research on Collective Foraging",
+  "subtitle": "Studying collective foraging dynamics, negotiation affordances, and sustainability through Active Inference.",
+  "audience": "Ecologists, behavioral scientists, and researchers interested in collective behavior and negotiation.",
+  "lede": "Action Research on Collective Foraging (Negotiation Affordances) applies Active Inference to collective foraging behavior — studying how groups form coalitions, negotiate opportunities, and sustain value exchanges. The project has a focus on long-term sustainability and social dynamics.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project develops Active Inference models of collective foraging — treating groups of agents as inference systems that jointly minimize surprise about resource availability and social coordination. The work addresses sustainability, formation dynamics, and value exchange in collective settings.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Ecologists, behavioral scientists, and Active Inference modelers interested in collective behavior are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 59,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-active-inferants",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

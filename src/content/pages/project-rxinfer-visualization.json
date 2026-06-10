@@ -1,0 +1,52 @@
+{
+  "slug": "project-rxinfer-visualization",
+  "title": "Improving RxInfer.jl Model Visualization",
+  "subtitle": "Developing visualization capabilities for RxInfer.jl probabilistic models.",
+  "audience": "Julia developers, probabilistic modelers, and visualization specialists working with RxInfer.jl.",
+  "lede": "This Ecosystem project improves the model visualization capabilities of RxInfer.jl — developing tools that make it easier to see, explore, and understand the structure and dynamics of generative models built with the RxInfer system.",
+  "primaryActions": [
+    {
+      "label": "GitHub",
+      "sourceId": "github-org"
+    },
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Good visualization tools make probabilistic models more interpretable and accessible. This project develops visualization infrastructure for RxInfer.jl, contributing to a growing ecosystem of tooling around the system. Work includes graph rendering, inference visualization, and interactive exploration interfaces.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        },
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Julia programmers, visualization specialists, and Active Inference practitioners are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 52,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "project-rxinfer",
+    "project-graphical-interface"
+  ],
+  "externalSourceIds": [
+    "github-org",
+    "ecosystem",
+    "discord"
+  ]
+}

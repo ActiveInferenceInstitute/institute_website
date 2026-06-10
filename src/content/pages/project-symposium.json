@@ -1,0 +1,116 @@
+{
+  "slug": "project-symposium",
+  "title": "Applied Active Inference Symposium",
+  "subtitle": "An annual gathering of Active Inference researchers, practitioners, and contributors from around the world.",
+  "audience": "Researchers, practitioners, speakers, sponsors, and participants interested in the annual Symposium.",
+  "lede": "The Applied Active Inference Symposium is a yearly event that convenes the global Active Inference community. It has run five times from 2021 through 2025, with the sixth symposium in 2026. The Symposium features research presentations, discussions, and collaborative sessions spanning computational neuroscience, AI, ecology, economics, health, and other domains.",
+  "primaryActions": [
+    {
+      "label": "Symposium page",
+      "sourceId": "official-symposium-page"
+    },
+    {
+      "label": "Symposium shortlink",
+      "sourceId": "official-symposium-shortlink"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "About the Symposium",
+      "body": "The Applied Active Inference Symposium is the Institute's flagship annual event. It brings together researchers, educators, practitioners, and community members who are applying Active Inference across scientific and practical domains. The event features talks, panels, workshops, and community sessions, with full recordings made publicly available after each edition.",
+      "links": [
+        {
+          "sourceId": "official-symposium-page"
+        },
+        {
+          "sourceId": "repo-symposium"
+        }
+      ]
+    },
+    {
+      "heading": "Past Symposia",
+      "body": "Five symposia have been held from 2021 through 2025. Each edition has expanded the scope and participation of the community. Recordings, materials, and proceedings from prior symposia are accessible through the official page and the YouTube channel.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "official-symposium-shortlink"
+        }
+      ]
+    },
+    {
+      "heading": "Present and Future",
+      "body": "The 6th Applied Active Inference Symposium takes place in 2026. The Symposium is a joint project between the EduActive and ReInference units, reflecting its role at the intersection of education, research, and community building.",
+      "links": [
+        {
+          "sourceId": "official-symposium-shortlink"
+        },
+        {
+          "label": "EduActive",
+          "href": "edactive.html"
+        },
+        {
+          "label": "ReInference",
+          "href": "reinference.html"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "The Symposium is open to researchers, practitioners, students, and curious community members. Presenters, session organizers, sponsors, and volunteers are welcome. Reach out through the official Symposium page or contact blanket@activeinference.institute.",
+      "links": [
+        {
+          "sourceId": "official-symposium-page"
+        },
+        {
+          "sourceId": "official-partnership"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "2021–2025 editions",
+      "text": "Five prior symposia with publicly available recordings and proceedings.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        }
+      ]
+    },
+    {
+      "title": "2026 symposium",
+      "text": "The 6th Applied Active Inference Symposium.",
+      "links": [
+        {
+          "sourceId": "official-symposium-shortlink"
+        }
+      ]
+    },
+    {
+      "title": "Sponsor or present",
+      "text": "Opportunities for speakers, sponsors, and volunteers.",
+      "links": [
+        {
+          "sourceId": "official-symposium-page"
+        }
+      ]
+    }
+  ],
+  "order": 22,
+  "relatedSlugs": [
+    "edactive",
+    "reinference",
+    "projects",
+    "fellowship",
+    "partnership"
+  ],
+  "externalSourceIds": [
+    "official-symposium-page",
+    "official-symposium-shortlink",
+    "repo-symposium",
+    "youtube",
+    "official-partnership"
+  ]
+}

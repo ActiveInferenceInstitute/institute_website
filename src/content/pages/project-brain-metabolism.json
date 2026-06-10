@@ -1,0 +1,44 @@
+{
+  "slug": "project-brain-metabolism",
+  "title": "Energy Modeling Human Brain Metabolism",
+  "subtitle": "Applying Active Inference to model metabolic energy dynamics in the human brain.",
+  "audience": "Neuroscientists, biophysicists, and researchers studying brain metabolism and the Free Energy Principle.",
+  "lede": "Energy Modeling Human Brain Metabolism applies Active Inference and the Free Energy Principle to model metabolic processes in the human brain. The project develops quantitative models of how the brain manages energy resources as an inference problem.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The brain is the body's most metabolically expensive organ. This project models how it manages energy — framing metabolic regulation as an active inference process where the brain predicts and minimizes surprises about its own metabolic state. The work connects neuroscience, physiology, and the Free Energy Principle.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Neuroscientists, biophysicists, and modelers with interests in brain metabolism and Active Inference are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 47,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference",
+    "project-theoretical-neurobiology"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

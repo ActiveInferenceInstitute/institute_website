@@ -1,0 +1,43 @@
+{
+  "slug": "project-tower-of-babel",
+  "title": "Project Development for Solving the Tower of Babel Problem",
+  "subtitle": "UniFysica Philo-sophia: developing a universal language framework bridging scientific and humanistic inquiry.",
+  "audience": "Linguists, philosophers, scientists, and anyone interested in universal knowledge frameworks and cross-domain translation.",
+  "lede": "This Ecosystem project develops a framework for solving the Tower of Babel Problem — the challenge of cross-domain knowledge communication and translation. Drawing on philosophical and physical principles, it outlines, develops, and implements UniFysica Philo-sophia as a universal conceptual bridge.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project aims to develop a shared conceptual and linguistic framework — UniFysica Philo-sophia — that enables communication across scientific, humanistic, and cultural domains. It draws on the Blombos-to-present history of human symbolic communication and applies Active Inference as a unifying formalism.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Linguists, philosophers, scientists, and cross-domain thinkers are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 67,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

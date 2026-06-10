@@ -1,0 +1,54 @@
+{
+  "slug": "project-active-inference-journal",
+  "title": "Active Inference Journal",
+  "subtitle": "A community publication and knowledge channel for Active Inference research and discussion.",
+  "audience": "Researchers, writers, and knowledge contributors producing and consuming Active Inference publications.",
+  "lede": "The Active Inference Journal is an Institute publication and community knowledge channel. It supports the development and dissemination of Active Inference research, discussion, and learning through volunteer-led editorial work and open publishing.",
+  "primaryActions": [
+    {
+      "label": "Journal",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Repository",
+      "sourceId": "repo-activeinferencejournal"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Active Inference Journal develops and publishes Active Inference knowledge through community editorial work. The journal is volunteer-led and open, creating a venue for research, analysis, and discussion that supplements traditional academic publishing.",
+      "links": [
+        {
+          "sourceId": "journal"
+        },
+        {
+          "sourceId": "repo-activeinferencejournal"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Contribute as a writer, editor, or reviewer. Volunteers help curate, review, and produce journal content across the full range of Active Inference research and application.",
+      "links": [
+        {
+          "sourceId": "journal"
+        },
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 33,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-active-inference-ontology"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "repo-activeinferencejournal",
+    "discord"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "slug": "project-active-blockference",
+  "title": "Active Blockference",
+  "subtitle": "Applying Active Inference examples and tooling in blockchain-adjacent and decentralized systems contexts.",
+  "audience": "Developers, researchers, and modelers interested in Active Inference for decentralized and blockchain-adjacent applications.",
+  "lede": "Active Blockference develops Active Inference examples and tools applicable to decentralized and blockchain-adjacent systems. The project has produced a GitHub repository, blog posts, and video overviews, and serves as an integration point for multiagent modeling work from Active InferAnts.",
+  "primaryActions": [
+    {
+      "label": "Repository",
+      "sourceId": "repo-activeblockference"
+    },
+    {
+      "label": "ReInference Unit",
+      "href": "reinference.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Active Blockference explores how Active Inference can be applied to decentralized environments — systems where agents interact without centralized coordination. The project develops modeling examples, implementations, and resources showing how generative models and free energy minimization apply in blockchain and distributed system contexts.",
+      "links": [
+        {
+          "sourceId": "repo-activeblockference"
+        },
+        {
+          "sourceId": "official-active-blockference"
+        }
+      ]
+    },
+    {
+      "heading": "Past Work and Resources",
+      "body": "Active Blockference has produced a GitHub repository with implementations and examples, blog posts describing the conceptual framing, and video overviews from project meetings. The Active InferAnts multiagent work is developed partly within Active Blockference.",
+      "links": [
+        {
+          "sourceId": "repo-activeblockference"
+        },
+        {
+          "sourceId": "active-inferants"
+        }
+      ]
+    },
+    {
+      "heading": "How to Participate",
+      "body": "Participants can contribute through code, modeling, writing, or discussion. Engagement happens through the GitHub repository and project meetings in the Institute community. Background in Active Inference or distributed systems is helpful but not required.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        }
+      ]
+    }
+  ],
+  "order": 20,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "project-active-inferants",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "repo-activeblockference",
+    "official-active-blockference",
+    "active-inferants",
+    "discord"
+  ]
+}

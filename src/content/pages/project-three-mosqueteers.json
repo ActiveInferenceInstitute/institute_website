@@ -1,0 +1,43 @@
+{
+  "slug": "project-three-mosqueteers",
+  "title": "The Three Mosqueteers",
+  "subtitle": "Creating a livestream making science accessible to people without a scientific background.",
+  "audience": "Science communicators, educators, and public audiences interested in accessible science content.",
+  "lede": "The Three Mosqueteers is an Ecosystem project creating a live science communication show for people without a scientific background. It develops a format that makes scientific information — including Active Inference and related work — engaging and genuinely accessible.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project creates a science communication livestream format — The Three Mosqueteers — that brings scientific concepts to audiences who wouldn't typically encounter them. The show aims to make Active Inference and the broader world of complex adaptive systems accessible through story, conversation, and collaborative exploration.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Science communicators, educators, and live stream contributors are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 68,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-audio-visual-production"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

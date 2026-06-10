@@ -1,0 +1,48 @@
+{
+  "slug": "project-belief-updating-ptsd",
+  "title": "Active Inference Account of Belief Updating in PTSD",
+  "subtitle": "Developing a theoretical Active Inference account of belief updating processes in post-traumatic stress disorder.",
+  "audience": "Clinical researchers, neuroscientists, and practitioners interested in computational psychiatry and Active Inference.",
+  "lede": "This Ecosystem project develops a formal Active Inference account of belief updating in PTSD. It applies predictive processing and free energy frameworks to model how traumatic experience disrupts normal belief updating, offering a principled theoretical basis for understanding and potentially treating PTSD.",
+  "primaryActions": [
+    {
+      "label": "GitHub",
+      "sourceId": "github-org"
+    },
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project writes theory and develops models showing how Active Inference principles illuminate the belief updating processes disrupted in PTSD. This computational psychiatry approach connects formal neuroscience with clinical relevance.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Researchers in clinical neuroscience, psychiatry, and computational modeling are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 41,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "github-org",
+    "ecosystem",
+    "discord"
+  ]
+}

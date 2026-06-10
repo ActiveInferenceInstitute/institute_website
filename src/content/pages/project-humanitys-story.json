@@ -1,0 +1,43 @@
+{
+  "slug": "project-humanitys-story",
+  "title": "Humanity's Story of an Uncertain Self",
+  "subtitle": "Producing an account of human self-understanding through the lens of Active Inference and free energy.",
+  "audience": "Philosophers, cognitive scientists, humanists, and anyone interested in the intersection of science and human narrative.",
+  "lede": "Humanity's Story of an Uncertain Self is an Ecosystem project developing a broad account of human self-knowledge as an inference problem. Drawing on Active Inference, it examines how humans construct and maintain stories about themselves as agents in an uncertain world.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project produces an integrated account of human self-understanding from the perspective of Active Inference — combining philosophical analysis, cognitive science, and narrative theory to examine how agents model themselves and generate coherent self-narratives under uncertainty.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Philosophers, cognitive scientists, humanists, and narrative researchers are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 51,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ]
+}

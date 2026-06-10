@@ -1,0 +1,48 @@
+{
+  "slug": "project-translation-agent",
+  "title": "Active Inference Agent for Modeling Human Translation",
+  "subtitle": "Modeling human translation processes using Active Inference agent architectures.",
+  "audience": "Cognitive scientists, linguists, and AI researchers interested in computational models of translation.",
+  "lede": "This Ecosystem project develops an Active Inference agent model of human translation processes. It applies the free energy framework to the cognitive and linguistic tasks involved in translating between languages, producing models of human translation behavior.",
+  "primaryActions": [
+    {
+      "label": "GitHub",
+      "sourceId": "github-org"
+    },
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Using Active Inference as a modeling framework, the project models translation as an inference problem — where the translator minimizes prediction error about target language representations given source language inputs. Work includes theoretical development and agent implementations.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Linguists, cognitive scientists, and NLP researchers interested in Active Inference models are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 42,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "github-org",
+    "ecosystem",
+    "discord"
+  ]
+}

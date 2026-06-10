@@ -1,0 +1,60 @@
+{
+  "slug": "project-farmworks",
+  "title": "FarmWorks",
+  "subtitle": "Applied Active Inference modeling for agriculture, soil biology, and ecological systems.",
+  "audience": "Researchers, ecologists, and practitioners working on agricultural systems, soil biology, and applied ecology.",
+  "lede": "FarmWorks develops miniature Active Inference models and applications for agricultural and ecological contexts. The project has produced a public FarmWorks page and a 2024 publication describing the approach of treating farm and soil systems as active inference agents.",
+  "primaryActions": [
+    {
+      "label": "GitHub",
+      "sourceId": "github-org"
+    },
+    {
+      "label": "ReInference Unit",
+      "href": "reinference.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "FarmWorks applies Active Inference concepts to agricultural systems — treating farms, soil ecosystems, and crop cycles as generative models that sense and act in their environments. The project develops mini-projects, models, and publications demonstrating how Active Inference illuminates ecological decision-making and farm management.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
+    },
+    {
+      "heading": "Publications and Past Work",
+      "body": "The project produced a 2024 publication and maintains a FarmWorks overview page describing the theoretical grounding and practical applications. Work includes model prototypes and documentation for soil and agricultural Active Inference.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "FarmWorks welcomes ecologists, agricultural scientists, modelers, and anyone interested in applying Active Inference to biological and ecological systems.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        }
+      ]
+    }
+  ],
+  "order": 24,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "github-org",
+    "discord"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "project-video-improvement",
+  "title": "Video Improvement Project",
+  "subtitle": "Improving the quality, accessibility, and discoverability of Active Inference Institute video content.",
+  "audience": "Media contributors, editors, and community members working to improve the Institute's video catalog.",
+  "lede": "The Video Improvement Project focuses on enhancing the quality, organization, and accessibility of the Institute's extensive video library — covering hundreds of livestreams, educational sessions, and project recordings from 2020 onward.",
+  "primaryActions": [
+    {
+      "label": "YouTube",
+      "sourceId": "youtube"
+    },
+    {
+      "label": "EduActive Unit",
+      "href": "edactive.html"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Video Improvement Project works to improve the Institute's video content along multiple dimensions: production quality, metadata and discoverability, accessibility features (captions, transcripts), and organization of the video catalog. The Institute has produced hundreds of hours of content since 2020.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "video"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Editors, producers, metadata specialists, and media organizers are welcome. Even small contributions — improving descriptions, adding timestamps, or reviewing captions — make a meaningful difference.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "Audio-Visual Production",
+          "href": "project-audio-visual-production.html"
+        }
+      ]
+    }
+  ],
+  "order": 40,
+  "relatedSlugs": [
+    "edactive",
+    "projects",
+    "project-audio-visual-production"
+  ],
+  "externalSourceIds": [
+    "youtube",
+    "video",
+    "discord"
+  ]
+}
