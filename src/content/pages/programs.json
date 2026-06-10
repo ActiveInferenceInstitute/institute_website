@@ -137,7 +137,7 @@
       "text": "Structured contribution pathway with learning, documentation, and project practice.",
       "links": [
         {
-          "sourceId": "shortlink-intern"
+          "sourceId": "official-internship"
         }
       ]
     },
@@ -173,7 +173,7 @@
       "text": "Align organizations and collaborators around concrete shared research or education work.",
       "links": [
         {
-          "sourceId": "shortlink-partners"
+          "sourceId": "official-partnership"
         }
       ]
     },
@@ -210,9 +210,9 @@
     "github-org",
     "shortlink-fellows",
     "shortlink-mentorship",
-    "shortlink-volunteer",
-    "shortlink-intern",
-    "shortlink-partners",
+    "official-volunteer",
+    "official-internship",
+    "official-partnership",
     "shortlink-prepare",
     "shortlink-strategy"
   ]

@@ -38,7 +38,21 @@
     },
     {
       "heading": "Organizational Units",
-      "body": "Two organizational units carry out the Institute's programs. The EduActive Unit focuses on education: it supports learning groups, courses, textbook cohorts, seasonal schools, educational course development, and audio-visual production. The ReInference Unit focuses on research: it supports research projects, the Active Inference Journal, the Active Inference Ontology, knowledge engineering, and the Applied Active Inference Symposium. Both units are led by Facilitators who coordinate project groups, learning activities, and community engagement."
+      "body": "Two organizational units carry out the Institute's programs. The EduActive Unit focuses on education: it supports learning groups, courses, textbook cohorts, seasonal schools, educational course development, and audio-visual production. The ReInference Unit focuses on research: it supports research projects, the Active Inference Journal, the Active Inference Ontology, knowledge engineering, and the Applied Active Inference Symposium. Both units are led by Facilitators who coordinate project groups, learning activities, and community engagement.",
+      "links": [
+        {
+          "label": "EduActive Unit",
+          "href": "edactive.html"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "reinference.html"
+        },
+        {
+          "label": "All Projects",
+          "href": "projects.html"
+        }
+      ]
     },
     {
       "heading": "Volunteers, Learners, and Interns",
@@ -46,11 +60,11 @@
       "links": [
         {
           "label": "Volunteer",
-          "sourceId": "shortlink-volunteer"
+          "sourceId": "official-volunteer"
         },
         {
           "label": "Internship",
-          "sourceId": "shortlink-intern"
+          "sourceId": "official-internship"
         }
       ]
     },
@@ -111,11 +125,13 @@
     "about",
     "programs",
     "projects",
+    "edactive",
+    "reinference",
     "get-involved"
   ],
   "externalSourceIds": [
     "ecosystem",
-    "shortlink-volunteer",
-    "shortlink-intern"
+    "official-volunteer",
+    "official-internship"
   ]
 }

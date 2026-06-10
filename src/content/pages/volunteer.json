@@ -35,7 +35,7 @@
           "sourceId": "official-volunteer"
         },
         {
-          "sourceId": "activities"
+          "sourceId": "official-activities-shortlink"
         }
       ]
     },
@@ -113,6 +113,6 @@
     "official-volunteer",
     "discord",
     "weekly",
-    "activities"
+    "official-activities-shortlink"
   ]
 }
