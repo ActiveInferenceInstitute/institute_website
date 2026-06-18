@@ -18,15 +18,52 @@
         "multiagent-modeling",
         "distributed-systems",
         "generative-models",
-        "jupyter-notebook"
+        "jupyter-notebook",
+        "cognitive-modeling",
+        "multi-agent-simulation",
+        "cadcad",
+        "complex-systems",
+        "open-source",
+        "agent-behavior"
       ],
       "summary": "Active Inference examples and tools for decentralized and blockchain-adjacent systems",
       "website_slug": "project-active-blockference",
       "links": {
-        "website": "project-active-blockference.html",
         "github": "https://github.com/ActiveInferenceInstitute/ActiveBlockference",
+        "discord": "https://discord.activeinference.institute/",
+        "cadcad": "https://cadcad.org/",
+        "website": "project-active-blockference.html",
         "official": "https://www.activeinference.institute/active-blockference",
         "active-inferants": "https://github.com/ActiveInferenceInstitute/ActiveInferAnts"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
+      "id": "active-entity-ontology-for-science",
+      "title": "Active Entity Ontology for Science (AEOS)",
+      "description": "AEOS is a 2022 framework that applies Active Inference principles to model scientific activity as a collective cognitive process. It provides composable, versionable systems for understanding both traditional institutional science and decentralized science approaches, integrating BOLTS perspective (Business, Operations, Legal, Technical, Social) for comprehensive analysis. The framework enables epistemic community emergence, transparent resource allocation, and tools for decentralized scientific governance while maintaining rigor in institutional settings.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "active-inference",
+        "decentralized-science",
+        "scientific-ontology",
+        "scientific-governance",
+        "epistemic-commons",
+        "organizational-frameworks"
+      ],
+      "summary": "Framework bridging centralized and decentralized science approaches using Active Inference principles for scientific organization and governance.",
+      "website_slug": null,
+      "links": {
+        "publication": "https://zenodo.org/records/7484994",
+        "github": "https://github.com/ActiveInferenceInstitute/AEOS"
       },
       "linked_policies": [],
       "linked_processes": [],
@@ -50,13 +87,20 @@
         "ant-colonies",
         "computational-biology",
         "modeling",
-        "open-source"
+        "open-source",
+        "multi-agent-systems",
+        "ant-colony",
+        "computational-modeling",
+        "stigmergy",
+        "swarm-intelligence",
+        "behavioral-simulation"
       ],
       "summary": "Multiagent modeling of collective behavior using Active Inference, with connections to ant colony research.",
       "website_slug": "project-active-inferants",
       "links": {
-        "website": "project-active-inferants.html",
         "github": "https://github.com/ActiveInferenceInstitute/ActiveInferAnts",
+        "p3if": "https://p3if.com/",
+        "website": "project-active-inferants.html",
         "github-ants": "https://github.com/ActiveInferenceInstitute/ants",
         "discord": "https://discord.activeinference.institute"
       },
@@ -82,11 +126,19 @@
         "journal",
         "open-science",
         "community",
-        "knowledge-sharing"
+        "knowledge-sharing",
+        "knowledge-repository",
+        "transcription",
+        "open-source",
+        "decentralized-science",
+        "academic-publishing",
+        "collaborative-editing"
       ],
       "summary": "A community publication and knowledge channel for Active Inference research and discussion.",
       "website_slug": "project-active-inference-journal",
       "links": {
+        "github_main": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal",
+        "github_utilities": "https://github.com/ActiveInferenceInstitute/Journal-Utilities",
         "website": "project-active-inference-journal.html",
         "github": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal"
       },
@@ -112,14 +164,20 @@
         "decentralized-science",
         "formal-knowledge",
         "rdf-owl",
-        "machine-readable"
+        "machine-readable",
+        "knowledge-engineering",
+        "terminology",
+        "formal-logic",
+        "translation",
+        "living-document"
       ],
       "summary": "Maintains and develops the public ontology for Active Inference and decentralized science with structured, machine-readable definitions.",
       "website_slug": "project-active-inference-ontology",
       "links": {
+        "github": "https://github.com/ActiveInferenceInstitute/Active_Inference_Ontology",
+        "sumo": "https://www.ontologyportal.org/",
         "website": "project-active-inference-ontology.html",
-        "ontology": "https://ontology.activeinference.institute",
-        "github": "https://github.com/ActiveInferenceInstitute/Active_Inference_Ontology"
+        "ontology": "https://ontology.activeinference.institute"
       },
       "linked_policies": [],
       "linked_processes": [],
@@ -211,6 +269,35 @@
       ]
     },
     {
+      "id": "ai2c-active-inference-alignment-coalition",
+      "title": "AI²C: Active Inference Alignment Coalition",
+      "description": "AI²C is a multi-institution initiative led by Research Fellow Mahault Albarracin to address fragmented alignment research. The project builds a coalition where alignment is studied as a multi-agent, organizational, and embodied problem with governance built into the system. It produces governance frameworks, reusable proposal modules, alignment benchmarks grounded in Active Inference, embodied multi-agent experiments, and open-source tools to make alignment research replicable, fundable, and scalable.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "ai-alignment",
+        "active-inference",
+        "multi-agent-systems",
+        "governance-frameworks",
+        "embodied-systems",
+        "robotics",
+        "open-science"
+      ],
+      "summary": "Multi-institution initiative building a research coalition, funding pipeline, and shared infrastructure for AI alignment, governance, and embodied experimentation.",
+      "website_slug": null,
+      "links": {
+        "Active Inference Institute": "https://www.activeinference.institute/"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
       "id": "aicacp",
       "title": "AICACP",
       "description": "AICACP is an Institute project organized around AI capabilities, alignment, and care practices — exploring how Active Inference principles inform responsible and care-oriented AI development. The project maintains a public information page and contributes to the Institute's research on beneficial AI.",
@@ -228,11 +315,18 @@
         "active-inference",
         "policy",
         "ethics",
-        "beneficial-ai"
+        "beneficial-ai",
+        "consensus-building",
+        "world-models",
+        "agency",
+        "ai-regulation",
+        "workshops"
       ],
       "summary": "A coalition-oriented project at the intersection of AI capabilities and care practices.",
       "website_slug": "project-aicacp",
       "links": {
+        "active-inference-institute": "https://www.activeinference.institute/",
+        "google-docs": "https://docs.google.com/document/d/1uzJU3g9Lb18mVvj3YK3fdAzSR2ii7YkDJG_p6u_I9_4/edit?tab=t.0",
         "website": "project-aicacp.html",
         "github": "https://github.com/ActiveInferenceInstitute",
         "participation": "https://www.activeinference.institute/participation",
@@ -446,11 +540,26 @@
         "narrative-infrastructure",
         "cognitive-scaffolding",
         "sense-making",
-        "community-coordination"
+        "community-coordination",
+        "active-inference",
+        "cognitive-architecture",
+        "story-graphs",
+        "decision-making",
+        "collaborative-systems",
+        "knowledge-representation",
+        "computational-models"
       ],
       "summary": "Facilitating group cognition at scale through cognitive narrative infrastructure.",
       "website_slug": "project-cognarn",
       "links": {
+        "arxiv": "https://arxiv.org/abs/2407.18945",
+        "osf": "https://osf.io/preprints/osf/muc29",
+        "principled-societies-project": "https://principledsocietiesproject.org/",
+        "orcid": "https://orcid.org/0000-0003-1289-7997",
+        "mdpi-1": "https://www.mdpi.com/2071-1050/12/17/6881",
+        "mdpi-2": "https://www.mdpi.com/2071-1050/12/19/8047",
+        "mdpi-3": "https://www.mdpi.com/2071-1050/13/2/726",
+        "ijccr": "https://www.ijccr.net/article/view/9186",
         "website": "project-cognarn.html",
         "ecosystem": "https://ecosystem.activeinference.institute/"
       },
@@ -517,6 +626,31 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
+      "id": "courses",
+      "title": "Courses",
+      "description": "A collection of courses offered by the Active Inference Institute. The page serves as a central directory for accessing course offerings and related educational content hosted by the institute.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "courses",
+        "education",
+        "active-inference",
+        "learning",
+        "institute-programs"
+      ],
+      "summary": "Courses hosted at the Active Inference Institute",
+      "website_slug": null,
+      "links": {},
       "linked_policies": [],
       "linked_processes": [],
       "tasks": []
@@ -616,6 +750,32 @@
       "tasks": []
     },
     {
+      "id": "educational-standards-qualifications",
+      "title": "Educational Standards & Qualifications",
+      "description": "The Active Inference Institute outlines multiple engagement pathways ranging from casual browsers discovering active inference through keyword searches to dedicated researchers and funded practitioners. The institute aims to create accessible entry points and learning paths for a global audience through multi-tiered educational approaches, with expanded 2025 learning initiatives that bridge theoretical foundations with practical applications while fostering collaborative communities of practice across academic, industry, and independent researchers.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "active-inference",
+        "educational-pathways",
+        "learning-initiatives",
+        "community-practice",
+        "research-education",
+        "theoretical-foundations"
+      ],
+      "summary": "Engagement pathways and learning initiatives at the Active Inference Institute for global learners at all levels.",
+      "website_slug": null,
+      "links": {},
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
       "id": "einstein-model",
       "title": "The Einstein Model of a Solid as a Model of the Mental Apparatus",
       "description": "This Ecosystem project develops a formal bridge between the Einstein model of a solid and the mental apparatus, viewed through the economic perspective of psychoanalytic theory. It applies Active Inference to bridge psychoanalytic concepts with modern neuroscience and artificial intelligence.",
@@ -663,11 +823,17 @@
         "ecology",
         "ecological-systems",
         "modeling",
-        "applied-research"
+        "applied-research",
+        "decentralized-ai",
+        "human-ai-interaction",
+        "farm-scale-solutions",
+        "agents",
+        "personalization"
       ],
       "summary": "FarmWorks develops miniature Active Inference models and applications for agricultural and ecological contexts.",
       "website_slug": "project-farmworks",
       "links": {
+        "zenodo": "https://zenodo.org/records/13754586",
         "website": "project-farmworks.html",
         "github": "https://github.com/ActiveInferenceInstitute",
         "discord": "https://discord.activeinference.institute"
@@ -724,11 +890,17 @@
         "learning",
         "education",
         "engineering",
-        "free-energy-principle"
+        "free-energy-principle",
+        "expectation-maximisation",
+        "living-systems",
+        "mathematical-biology"
       ],
       "summary": "Ecosystem project supporting the development and dissemination of the Fundamentals of Active Inference textbook — a comprehensive introduction to Active Inference principles, algorithms, and applications for engineers.",
       "website_slug": "project-fundamentals-active-inference",
       "links": {
+        "youtube_active_inference_insights_018": "https://www.youtube.com/watch?v=sAwPXw-WNg4",
+        "youtube_hidden_math": "https://youtu.be/hf18w6CuY8o",
+        "substack_invitation": "https://activeinferenceinstitute.substack.com/p/invitation-fundamentals-of-active",
         "website": "project-fundamentals-active-inference.html",
         "textbook-group": "https://textbook-group.activeinference.institute/",
         "repository": "https://github.com/ActiveInferenceInstitute/fundamentals",
@@ -756,13 +928,20 @@
         "ecology",
         "urban-planning",
         "resource-management",
-        "environmental-science"
+        "environmental-science",
+        "geospatial",
+        "probabilistic-modeling",
+        "bayesian-methods",
+        "open-source",
+        "spatial-temporal",
+        "bioregional-modeling",
+        "agent-systems"
       ],
       "summary": "Geospatial modeling using Active Inference and spatial data analysis techniques.",
       "website_slug": "project-geo-infer",
       "links": {
-        "website": "project-geo-infer.html",
-        "github": "https://github.com/ActiveInferenceInstitute/GEO-INFER"
+        "github": "https://github.com/ActiveInferenceInstitute/GEO-INFER",
+        "website": "project-geo-infer.html"
       },
       "linked_policies": [],
       "linked_processes": [],
@@ -816,11 +995,17 @@
         "model-specification",
         "formal-modeling",
         "interoperability",
-        "knowledge-engineering"
+        "knowledge-engineering",
+        "cognitive-modeling",
+        "machine-parsable",
+        "knowledge-representation"
       ],
       "summary": "A text-based notation system for communicating generative models and Active Inference systems that provides a shared language for describing models in a human-readable and machine-processable way.",
       "website_slug": "project-gnn",
       "links": {
+        "github": "https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation",
+        "publication": "https://doi.org/10.5281/zenodo.7803328",
+        "institute": "https://activeinference.org/",
         "website": "project-gnn.html",
         "github_main": "https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation",
         "github_repo": "https://github.com/ActiveInferenceInstitute/gnn",
@@ -1059,14 +1244,19 @@
         "knowledge-graphs",
         "information-science",
         "ontology",
-        "active-inference"
+        "active-inference",
+        "free-energy-principle",
+        "literature-analysis",
+        "scientific-publications",
+        "annotation"
       ],
       "summary": "Knowledge Engineering develops and maintains the public knowledge infrastructure for the Active Inference Institute, including the public frontend, literature meta-analysis, and organizational knowledge systems.",
       "website_slug": "project-knowledge-engineering",
       "links": {
+        "github": "https://github.com/ActiveInferenceInstitute/Knowledge-Engineering",
+        "zenodo": "https://zenodo.org/record/7449368",
         "website": "project-knowledge-engineering.html",
-        "official_page": "https://www.activeinference.institute/knowledge-engineering",
-        "github": "https://github.com/ActiveInferenceInstitute/Knowledge-Engineering"
+        "official_page": "https://www.activeinference.institute/knowledge-engineering"
       },
       "linked_policies": [],
       "linked_processes": [],
@@ -1166,6 +1356,37 @@
       "tasks": []
     },
     {
+      "id": "myth-of-objectivity",
+      "title": "Myth of Objectivity Hypothesis",
+      "description": "This project investigates how morality and symbolic thought co-evolved through the Myth of Objectivity Hypothesis, using multi-agent active inference simulations and transcendental model selection to explore how implicit and explicit moral beliefs form the foundation of symbolic identities. The research formalizes the relationship between moral reasoning and symbolic cognition across hierarchical social levels (individual, dyadic, group, cultural), offering insights for understanding human uniqueness and developing aligned AI systems.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "active-inference",
+        "artificial-intelligence",
+        "morality",
+        "symbolic-cognition",
+        "cultural-evolution",
+        "multi-agent-systems",
+        "model-selection"
+      ],
+      "summary": "Rigorous exploration of humanity's capacity for symbolic intelligence by modeling norms across social and identity scales to develop culturally-aligned artificial general intelligence.",
+      "website_slug": null,
+      "links": {
+        "youtube": "https://www.youtube.com/watch?v=vh8Q6Bc-TQA",
+        "frontiers-in-sociology": "https://www.frontiersin.org/articles/10.3389/fsoc.2023.1269621/abstract",
+        "substack": "https://shaggy.substack.com/"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
       "id": "neurodivergent-learning",
       "title": "Neurodivergent Learning Sessions",
       "description": "Neurodivergent Learning Sessions develops Active Inference learning resources and sessions designed for neurodivergent participants — building curriculum, milestones, and community structures that support autistic, ADHD, and other neurodivergent learners in engaging deeply with Active Inference.",
@@ -1227,6 +1448,40 @@
       "tasks": []
     },
     {
+      "id": "perspective-architectures-for-coherent-and-attuned-artificial-agency",
+      "title": "Perspective Architectures for Coherent and Attuned Artificial Agency",
+      "description": "A three-phase research project led by Hongju Pae that grounds AI alignment in internalist dynamics rather than external objectives. Phase 1 implements a latent perspective manifold as an internal control geometry modeling attentional bias, affective stance, and interpretive mode. Phase 2 examines how affective coherence and integrative capacity emerge as dynamical consequences of internal organization. Phase 3 extends to multi-agent settings to study alignment as social attunement through shared interpretive legibility. The work provides a substrate for studying how agents develop stable self-organization and mutual intelligibility without externally imposed goals.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "ai-alignment",
+        "agency",
+        "perspective-taking",
+        "emergent-coherence",
+        "multi-agent-systems",
+        "active-inference",
+        "generative-architecture",
+        "social-attunement"
+      ],
+      "summary": "Formalize a minimal computational architecture that models internal coherence dynamics for AI alignment through latent generative perspective structures.",
+      "website_slug": null,
+      "links": {
+        "cear-lab": "https://hjpae.github.io/cear/",
+        "arxiv-minimal-perspective": "https://arxiv.org/abs/2602.02902",
+        "arxiv-empathy-modeling": "https://arxiv.org/abs/2602.20936",
+        "aaai-2026-spring-symposium": "https://cimc.ai/events/aaai-symposium?schedule=open",
+        "active-inference-institute": "https://activeinference.institute"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
       "id": "physics-course",
       "title": "Physics Course",
       "description": "The Physics Course is an Institute education project developing course materials on the physical foundations of Active Inference and the Free Energy Principle — covering thermodynamics, information theory, and the physics underlying biological self-organization.",
@@ -1252,6 +1507,92 @@
         "website": "project-physics-course.html",
         "courses": "https://www.activeinference.institute/courses",
         "discord": "https://discord.activeinference.institute"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
+      "id": "production",
+      "title": "Production",
+      "description": "The Active Inference Institute produces educational content in multiple formats including livestreams focused on specific papers (58 discussed 2020-2025), 100+ guest streams, specialized streams (ModelStream, OrgStream, MathStream, ArtStreams, InferAnt Streams), roundtables, and courses. Highlights include Active Inference Insights podcast hosted by Darius Parvizi-Wayne featuring guests from physics, mathematics, cognitive science, and philosophy. Over 500 videos have been released and are being transcribed, analyzed, translated, and published with content available across YouTube, Podbean, and a dedicated video platform.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "education",
+        "content-production",
+        "active-inference",
+        "video-streaming",
+        "podcasts",
+        "youtube",
+        "research-communication"
+      ],
+      "summary": "Educational content production across YouTube, podcasts, and multiple platforms featuring livestreams, guest talks, and specialized streams.",
+      "website_slug": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@ActiveInference",
+        "podcasts": "https://activeinference.podbean.com/",
+        "podcast-insights": "https://actinfinsights.podbean.com/",
+        "video-platform": "https://video.activeinference.institute/"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
+      "id": "research",
+      "title": "Research",
+      "description": "The Research page hosts information on research projects within the Active Inference Institute. It curates publications and research outputs from 2020-2024, including peer-reviewed articles on federated inference, active inference ontologies, multi-agent systems, and applications to biological and social systems. Notable contributions cover topics ranging from quantum cognition to paleolithic analysis to decentralized science.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "active-inference",
+        "federated-inference",
+        "multi-agent-systems",
+        "ontology",
+        "neuroscience",
+        "cognitive-science",
+        "decentralized-science"
+      ],
+      "summary": "Research activities and resources at the Active Inference Institute and ecosystem participants.",
+      "website_slug": null,
+      "links": {
+        "sciencedirect-federated-inference": "https://www.sciencedirect.com/science/article/pii/S0149763423004694",
+        "zenodo-active-inference-ontology-sumo": "https://zenodo.org/records/11463326",
+        "zenodo-spatial-web-terms": "https://zenodo.org/records/11062810",
+        "doi-shared-protentions": "https://doi.org/10.3390/e26040303",
+        "zenodo-quantum-dreams": "https://doi.org/10.5281/zenodo.10798145",
+        "sciencedirect-paleolithic": "https://www.sciencedirect.com/science/article/pii/S1571064524000447",
+        "zenodo-institute-ecosystem": "https://zenodo.org/record/8266281",
+        "osf-distributed-science": "https://osf.io/dnw5k/",
+        "mdpi-evolutionary-developmental": "https://www.mdpi.com/1099-4300/25/7/964",
+        "zenodo-generative-research-teams": "https://zenodo.org/record/8164667",
+        "zenodo-generalized-notation": "https://zenodo.org/record/7803328",
+        "arxiv-autonomous-decision-making": "https://arxiv.org/abs/2209.09185",
+        "sciencedirect-ant-pheromone": "https://www.sciencedirect.com/science/article/pii/S1389041723000207",
+        "zenodo-free-energy-principle": "https://zenodo.org/record/7449368",
+        "zenodo-catechism-active-diffusion": "https://zenodo.org/record/7443848",
+        "zenodo-mirror-test": "https://zenodo.org/record/7377256",
+        "springer-active-blockference": "https://link.springer.com/chapter/10.1007/978-3-031-28719-0_10",
+        "zenodo-ontology-decentralized-science": "https://zenodo.org/record/7484994",
+        "zenodo-friston-symposium": "https://zenodo.org/record/5797041",
+        "zenodo-active-inference-conflict": "https://zenodo.org/record/5759807",
+        "zenodo-narrative-information": "https://zenodo.org/record/5573287",
+        "cognitio2021": "https://www.cognitio2021.com/",
+        "osf-thinking-state": "https://osf.io/dxnzt/",
+        "frontiersin-active-inferants": "https://www.frontiersin.org/articles/10.3389/fnbeh.2021.647732/",
+        "zenodo-behavior-engineering": "https://zenodo.org/record/4021163",
+        "youtube-context-switching": "https://youtu.be/4647USeygmg"
       },
       "linked_policies": [],
       "linked_processes": [],
@@ -1305,11 +1646,16 @@
         "julia",
         "reactive-systems",
         "bayesian-inference",
-        "learning-group"
+        "learning-group",
+        "machine-learning",
+        "education",
+        "open-source",
+        "community-driven"
       ],
       "summary": "The RxInfer.jl Learning and Development Group supports learning and extending RxInfer.jl, a Julia package for reactive Bayesian inference.",
       "website_slug": "project-rxinfer",
       "links": {
+        "learnableloop": "https://learnableloop.com/",
         "website": "project-rxinfer.html",
         "rxinfer-learning": "https://rxinfer.activeinference.institute",
         "official-page": "https://www.activeinference.institute/rxinfer",
@@ -1370,7 +1716,10 @@
         "intensive-training",
         "cohort-based",
         "community-engagement",
-        "structured-curriculum"
+        "structured-curriculum",
+        "seasonal-programs",
+        "community",
+        "institute"
       ],
       "summary": "An intensive in-person or online school for deep engagement with Active Inference theory, modeling, and applications.",
       "website_slug": "project-seasonal-school",
@@ -1381,6 +1730,39 @@
         "livestreams": "https://www.activeinference.institute/livestreams",
         "newsletter": "https://newsletter.activeinference.institute",
         "discord": "https://discord.activeinference.institute"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
+      "id": "start",
+      "title": "Start",
+      "description": "START is a modular pipeline that generates high-quality educational materials on Active Inference and the Free Energy Principle, tailored to professional domains and individual learners. It integrates live web research via Perplexity and advanced LLMs via OpenRouter to produce evidence-based, professionally structured content with visual analytics and multilingual localization in 11+ languages. The system emphasizes reproducibility and quality assurance through comprehensive testing, linting, and documentation, featuring an interactive CLI experience and automated deployment to GitHub Pages.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "active-inference",
+        "education",
+        "curriculum",
+        "multilingual",
+        "learning-paths",
+        "free-energy-principle",
+        "content-generation",
+        "professional-development"
+      ],
+      "summary": "Scalable, Tailored Active Inference Research & Training — modular pipeline generating multilingual educational materials on Active Inference and the Free Energy Principle tailored to professional domains and individual learners.",
+      "website_slug": null,
+      "links": {
+        "github": "https://github.com/ActiveInferenceInstitute/Start",
+        "docs": "https://activeinferenceinstitute.github.io/Start/",
+        "youtube_stream_008": "https://youtube.com/live/h_tO7gZH2Ks",
+        "youtube_stream_015": "https://www.youtube.com/live/0cOV7-St2Ws"
       },
       "linked_policies": [],
       "linked_processes": [],
@@ -1518,16 +1900,50 @@
         "community-building",
         "computational-neuroscience",
         "ai",
-        "collaborative-sessions"
+        "collaborative-sessions",
+        "industry-applications",
+        "robotics",
+        "artificial-intelligence"
       ],
       "summary": "The Applied Active Inference Symposium is a yearly event that convenes the global Active Inference community. It has run five times from 2021 through 2025, with the sixth symposium in 2026. The Symposium features research presentations, discussions, and collaborative sessions spanning computational neuroscience, AI, ecology, economics, health, and other domains.",
       "website_slug": "project-symposium",
       "links": {
+        "symposium_website": "https://symposium.activeinference.institute/",
+        "zenodo_transcript": "https://zenodo.org/records/5797072",
+        "youtube_channel": "https://youtube.com/c/ActiveInference",
         "website": "project-symposium.html",
         "symposium_page": "https://www.activeinference.institute/symposium",
         "symposium_shortlink": "https://symposium.activeinference.institute/",
-        "github_repository": "https://github.com/ActiveInferenceInstitute/Symposium",
-        "youtube_channel": "https://youtube.com/c/ActiveInference"
+        "github_repository": "https://github.com/ActiveInferenceInstitute/Symposium"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
+      "id": "systems-approach",
+      "title": "Systems Approach",
+      "description": "A modern third-generation systems approach that transcends traditional linear models by embracing continuous evolution, interactivity across scales, and dynamic, constructivist perspectives. The approach integrates active inference principles to design resilient, self-organizing systems that actively reshape themselves in response to environmental changes. Key aspects include treating systems as constructors that adapt and build their environments, dynamic modeling based on ongoing feedback, and community-driven development within collaborative ecosystems.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "systems-thinking",
+        "active-inference",
+        "adaptive-systems",
+        "complex-adaptive-systems",
+        "systems-engineering",
+        "constructivism",
+        "self-organizing-systems"
+      ],
+      "summary": "Third-generation systems approach combining active inference with adaptive, self-organizing design for complex systems.",
+      "website_slug": null,
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2310.11524"
       },
       "linked_policies": [],
       "linked_processes": [],
@@ -1550,17 +1966,54 @@
         "cohort-learning",
         "textbooks",
         "learning-community",
-        "structured-learning"
+        "structured-learning",
+        "textbook-study",
+        "open-science",
+        "collaborative-learning",
+        "free-energy-principle"
       ],
       "summary": "Structured cohort-based learning through Active Inference textbooks, with 5.5 completed cohorts since 2022.",
       "website_slug": "project-textbook-group",
       "links": {
+        "2026-textbook": "https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/",
+        "2022-textbook": "https://mitpress.mit.edu/9780262045353/active-inference/",
+        "youtube-playlists": "https://www.youtube.com/playlist?list=PLNm0u2n1IwdrpoTg-9l37YIBiDrrOzTw-",
         "website": "project-textbook-group.html",
         "textbook_group_main": "https://textbook-group.activeinference.institute/",
         "textbook_group_register": "https://www.activeinference.institute/textbook-group",
         "fundamentals_repository": "https://github.com/ActiveInferenceInstitute/fundamentals",
         "parr_textbook_repository": "https://github.com/ActiveInferenceInstitute/Parr_et_al_2022_ActInf_Textbook",
         "discord": "https://discord.activeinference.institute"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
+      "id": "the-foundations-of-ideology",
+      "title": "The Foundations of Ideology",
+      "description": "Develops a novel computational neuroscience framework for understanding how political ideologies form, persist, and evolve. Grounded in the Free Energy Principle and Active Inference Framework, the project explains ideology through the brain's fundamental imperative to minimize prediction error. Working with Dr. Dylan Grove, the research demonstrates how prediction error minimization strategies shape political belief formation, identifies cognitive constraints like heuristic adherence and category conflation, and offers mechanistic explanations for ideological polarization with evidence from political theory, psychology, and neuroscience.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "political-ideology",
+        "computational-neuroscience",
+        "free-energy-principle",
+        "active-inference",
+        "prediction-error",
+        "cognitive-flexibility",
+        "political-psychology",
+        "polarization"
+      ],
+      "summary": "Computational neuroscience framework explaining political ideology formation through Free Energy Principle and prediction error minimization.",
+      "website_slug": null,
+      "links": {
+        "youtube": "https://www.youtube.com/live/aRT9n16N4J8?"
       },
       "linked_policies": [],
       "linked_processes": [],
@@ -1584,15 +2037,28 @@
         "neuroscience",
         "mathematical-modeling",
         "neural-systems",
-        "predictive-coding"
+        "predictive-coding",
+        "neurobiology",
+        "computational-modeling",
+        "cognitive-science",
+        "predictive-processing",
+        "consciousness",
+        "multi-agent-systems"
       ],
       "summary": "The Theoretical Neurobiology Group (TNB) supports theoretical work connecting Active Inference to neurobiology with regular meetings and discussions for mathematical and conceptual models of neural systems.",
       "website_slug": "project-theoretical-neurobiology",
       "links": {
+        "youtube": "https://youtube.com/c/ActiveInference",
+        "verses": "https://www.verses.ai/about",
+        "university-of-sussex": "https://www.sussex.ac.uk",
+        "sussex-centre-for-consciousness-science": "https://www.sussex.ac.uk/research/centres/sussex-centre-for-consciousness-science/",
+        "wolfram-institute": "https://wolframinstitute.org/people",
+        "github-action-models": "https://github.com/ComputationalPsychiatry/ActionModels.jl",
+        "github-hgf": "https://github.com/ComputationalPsychiatry/HierarchicalGaussianFiltering.jl",
+        "github-active-inference": "https://github.com/ilabcode/ActiveInference.jl",
         "website": "project-theoretical-neurobiology.html",
         "tnb_page": "https://www.activeinference.institute/tnb",
-        "discord": "https://discord.activeinference.institute",
-        "youtube": "https://youtube.com/c/ActiveInference"
+        "discord": "https://discord.activeinference.institute"
       },
       "linked_policies": [],
       "linked_processes": [],
@@ -1748,6 +2214,39 @@
         "youtube": "https://youtube.com/c/ActiveInference",
         "videos-shortlink": "https://video.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
+      "id": "wave-hypothesis",
+      "title": "Wave Hypothesis",
+      "description": "During 2024, Robert Worden presented a series of livestreams at the Active Inference Institute exploring the brain wave hypothesis through multiple papers and discussions including the Projective Wave Theory of Consciousness, assessment and testing of the brain wave hypothesis, and unified theories of language. The series features guest streams with discussions on Bayesian model-based cognition, spatial cognition in animals, consciousness, meaning, and language from a theoretical neuroscience perspective.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "brain-waves",
+        "consciousness",
+        "wave-hypothesis",
+        "bayesian-cognition",
+        "theoretical-neuroscience",
+        "active-inference",
+        "language-theory"
+      ],
+      "summary": "Series of livestreams and papers by Robert Worden on the brain wave hypothesis, projective wave theory of consciousness, and Bayesian model-based cognition.",
+      "website_slug": null,
+      "links": {
+        "arxiv_projective_wave_theory": "https://arxiv.org/abs/2405.12071",
+        "arxiv_brain_wave_assessment": "https://arxiv.org/abs/2408.04636",
+        "arxiv_brain_wave_testing": "https://arxiv.org/abs/2408.05368",
+        "bayes_language_intro": "http://www.bayeslanguage.org/bb/intro.html",
+        "bayes_language_commentary": "http://www.bayeslanguage.org/bb/commentary.html"
       },
       "linked_policies": [],
       "linked_processes": [],
