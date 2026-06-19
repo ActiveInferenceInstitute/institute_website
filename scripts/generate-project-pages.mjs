@@ -34,12 +34,28 @@ function resourceGroupsFor(slug, data) {
   return [...groups].filter((group) => VALID_RESOURCE_GROUPS.has(group)).slice(0, 3);
 }
 
+// Maintainer-facing taxonomy: page JSONs live in subfolders for navigability,
+// but the slug stays the identity and the built output URL is always FLAT
+// (<slug>.html at the site root). Project pages go to projects/; the two
+// organizational units (edactive, reinference) are program pages.
+function subfolderFor(slug) {
+  if (slug === "edactive" || slug === "reinference") {
+    return "programs";
+  }
+  if (slug.startsWith("project-")) {
+    return "projects";
+  }
+  return "";
+}
+
 function write(slug, data) {
   const page = { slug, ...data };
   if (!page.resourceGroups) {
     page.resourceGroups = resourceGroupsFor(slug, data);
   }
-  writeFileSync(join(PAGES, `${slug}.json`), JSON.stringify(page, null, 2) + "\n");
+  const dir = join(PAGES, subfolderFor(slug));
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, `${slug}.json`), JSON.stringify(page, null, 2) + "\n");
   console.log(`  wrote ${slug}.json`);
 }
 

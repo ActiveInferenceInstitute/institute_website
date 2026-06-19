@@ -24,10 +24,27 @@ function loadProjectsData() {
   return _projectsData;
 }
 
-const pages = fs
-  .readdirSync(path.join(contentDir, "pages"))
-  .filter((file) => file.endsWith(".json"))
-  .map((file) => loadJson(path.join("pages", file)))
+// Pages may live directly under src/content/pages or in maintainer-facing
+// taxonomy subfolders (institute/, programs/, participate/, projects/,
+// communications/). Walk the tree recursively so every .json is loaded
+// regardless of nesting. The page slug field stays the identity that maps to a
+// FLAT <slug>.html output path — folder placement never affects output URLs.
+function walkPageJson(dir) {
+  const found = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      found.push(...walkPageJson(full));
+    } else if (entry.isFile() && entry.name.endsWith(".json")) {
+      found.push(full);
+    }
+  }
+  return found;
+}
+
+const pagesDir = path.join(contentDir, "pages");
+const pages = walkPageJson(pagesDir)
+  .map((full) => loadJson(path.relative(contentDir, full)))
   .sort((a, b) => (a.order ?? 0) - (b.order ?? 0) || a.slug.localeCompare(b.slug));
 
 const siteData = {

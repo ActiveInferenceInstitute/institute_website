@@ -398,7 +398,7 @@ def check_content_model(root: Path, errors: list[str]) -> None:
                     if required not in record:
                         errors.append(f"repositories.json:{source_id} missing public project field {required}")
 
-    for path in sorted((root / "src" / "content" / "pages").glob("*.json")):
+    for path in sorted((root / "src" / "content" / "pages").rglob("*.json")):
         page = load_json(path)
         slug = page.get("slug", path.stem)
         if "sourceRange" in page:
@@ -457,7 +457,7 @@ def check_content_model(root: Path, errors: list[str]) -> None:
 def check_curated_pages(root: Path, errors: list[str]) -> None:
     pages_dir = root / "src" / "content" / "pages"
     pages = sorted(
-        (load_json(path) for path in pages_dir.glob("*.json")),
+        (load_json(path) for path in pages_dir.rglob("*.json")),
         key=lambda page: (page.get("order", 0), page.get("slug", "")),
     )
     page_hrefs = {f"{page['slug']}.html" for page in pages}
@@ -644,7 +644,7 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
         if html_path.name != "knowledge.html" and "knowledge.html" not in hrefs and not any(href.startswith("knowledge.html#") for href in hrefs):
             errors.append(f"{html_path.relative_to(root)} does not link to knowledge.html")
 
-    pages = [load_json(path) for path in sorted((root / "src" / "content" / "pages").glob("*.json"))]
+    pages = [load_json(path) for path in sorted((root / "src" / "content" / "pages").rglob("*.json"))]
     for page in pages:
         if f'{page["slug"]}.html' not in html:
             errors.append(f"directory.html missing page {page['slug']}")

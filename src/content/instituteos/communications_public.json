@@ -1,0 +1,41 @@
+{
+  "description": "Public-safe approved Institute communications.",
+  "records": [
+    {
+      "id": "weekly-announcement-2026-w10",
+      "type": "announcement",
+      "title": "Active Inference Institute — Weekly Update #10",
+      "author": "Active Inference Institute",
+      "date": "2026-03-04",
+      "referenceNumber": "AII-WA-2026-W10",
+      "language": "en"
+    },
+    {
+      "id": "monthly-newsletter-2026-03",
+      "type": "newsletter",
+      "title": "Active Inference Institute — March 2026 Newsletter",
+      "author": "Active Inference Institute",
+      "date": "2026-03-01",
+      "referenceNumber": "AII-NL-2026-03",
+      "language": "en"
+    },
+    {
+      "id": "annual-review-2025",
+      "type": "report",
+      "title": "Active Inference Institute — 2025 Annual Review",
+      "author": "Active Inference Institute",
+      "date": "2026-01-15",
+      "referenceNumber": "AII-AR-2025",
+      "language": "en"
+    },
+    {
+      "id": "annual-preview-2026",
+      "type": "report",
+      "title": "Active Inference Institute — 2026 Annual Preview & Strategic Plan",
+      "author": "Active Inference Institute",
+      "date": "2026-01-01",
+      "referenceNumber": "AII-AP-2026",
+      "language": "en"
+    }
+  ]
+}

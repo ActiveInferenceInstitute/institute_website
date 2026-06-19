@@ -1,0 +1,87 @@
+{
+  "description": "Public-safe AII strategy departments and revenue streams.",
+  "departments": [
+    {
+      "id": "aii-certificate-training-department",
+      "label": "AII Certificate Training Department",
+      "nodeCount": 11
+    },
+    {
+      "id": "aii-consultancy-services-department",
+      "label": "AII Consultancy Services Department",
+      "nodeCount": 13
+    },
+    {
+      "id": "aii-publishing-data-access-department",
+      "label": "AII Publishing and Data Access Department",
+      "nodeCount": 5
+    },
+    {
+      "id": "aii-membership-department",
+      "label": "AII Membership Department",
+      "nodeCount": 12
+    }
+  ],
+  "revenueStreams": [
+    {
+      "id": "rev_grant",
+      "label": "Grant Funding",
+      "from": "ctd_curr"
+    },
+    {
+      "id": "rev_course_fees",
+      "label": "Certificate Program Course Fees",
+      "from": "ctd_enroll"
+    },
+    {
+      "id": "rev_teacher_training",
+      "label": "Teacher Training Fees",
+      "from": "ctd_teach"
+    },
+    {
+      "id": "rev_textbooks",
+      "label": "Textbook Sales",
+      "from": "ctd_text"
+    },
+    {
+      "id": "rev_consulting",
+      "label": "Consulting Fees",
+      "from": "csd_deploy"
+    },
+    {
+      "id": "rev_publications",
+      "label": "Publications",
+      "from": "pda_pub"
+    },
+    {
+      "id": "rev_db_sub",
+      "label": "Database Access / Subscription",
+      "from": "pda_db"
+    },
+    {
+      "id": "rev_db_api",
+      "label": "Database Access / API",
+      "from": "pda_db"
+    },
+    {
+      "id": "rev_events",
+      "label": "Events Revenue",
+      "from": "mbr_events"
+    },
+    {
+      "id": "rev_membership",
+      "label": "Membership Fees",
+      "from": "mbr_t1"
+    },
+    {
+      "id": "rev_membership_t2",
+      "label": "Membership Fees (Tier 2)",
+      "from": "mbr_t2"
+    },
+    {
+      "id": "rev_membership_t3",
+      "label": "Membership Fees (Tier 3)",
+      "from": "mbr_t3"
+    }
+  ]
+}

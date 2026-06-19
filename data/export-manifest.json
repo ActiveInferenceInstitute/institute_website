@@ -1,0 +1,64 @@
+{
+  "files": [
+    {
+      "name": "communications_public.json",
+      "output_path": "src/content/instituteos/communications_public.json",
+      "record_count": 4,
+      "sha256": "3fb57268179cd2c74f9f669c7cda7886504ad845af62520f4c502d5b0eb2d2ea",
+      "target": "content"
+    },
+    {
+      "name": "domain_projects.json",
+      "output_path": "src/content/instituteos/domain_projects.json",
+      "record_count": 22,
+      "sha256": "6dec397abb8b65dbba8e02e5636d7ff9a043706e177fab347b2d9fe580628a14",
+      "target": "content"
+    },
+    {
+      "name": "governance_graph.json",
+      "output_path": "src/content/instituteos/governance_graph.json",
+      "record_count": 200,
+      "sha256": "2ed526d29fb13ddf981bfa496bca8d6f22e4dc90bcaf5a0a3830a8be83b29fab",
+      "target": "content"
+    },
+    {
+      "name": "narratives_public.json",
+      "output_path": "src/content/instituteos/narratives_public.json",
+      "record_count": 44,
+      "sha256": "ee04c924ee0532aa91383c048523f973833af13fe363849378cec894e5820b78",
+      "target": "content"
+    },
+    {
+      "name": "ontology_graph.json",
+      "output_path": "src/content/instituteos/ontology_graph.json",
+      "record_count": 30,
+      "sha256": "fd46d52b4451eda4a66538b4ad39f5841473c4cea0169adc8bed7e2a23d6d1c1",
+      "target": "content"
+    },
+    {
+      "name": "projects.json",
+      "output_path": "data/projects.json",
+      "record_count": 67,
+      "sha256": "e2d44a1362589b62173d577c4ac4acca20d27af642730b27aec3e8b97b89b12f",
+      "target": "data"
+    },
+    {
+      "name": "strategies_public.json",
+      "output_path": "src/content/instituteos/strategies_public.json",
+      "record_count": 16,
+      "sha256": "aa8b911a4836f7edbda68482713abb2c26a7ee660a26e67898cd97fc7ab4d100",
+      "target": "content"
+    },
+    {
+      "name": "tech_tree_graph.json",
+      "output_path": "src/content/instituteos/tech_tree_graph.json",
+      "record_count": 30,
+      "sha256": "4bec7ebea84a5df248b65c7a34fd234275d284167a8c76c5ed042c295488313e",
+      "target": "content"
+    }
+  ],
+  "gate_version": "1.0.0",
+  "generated_at": "2026-06-19T14:30:24.286561+00:00",
+  "library_git_sha": "96bdedc8",
+  "library_version": "1.94.0"
+}

@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import shutil
 import sys
 from dataclasses import dataclass
@@ -61,6 +62,20 @@ PRIVATE_KEYS = {
     "linkedin",
     "primary_contact",
 }
+# Strict-union forbidden substrings. ``/users/`` (an absolute local path) was
+# previously only caught by the in-repo graph gate; it is added here so the
+# public sync gate matches the unified PublicGate's substring set.
+FORBIDDEN_SUBSTRINGS = (
+    "coda.io",
+    "/users/",
+    "workspace",
+    "source atlas",
+    "source manifest",
+    "aii.pdf",
+)
+# Generic email-address pattern. The historical sync gate relied solely on the
+# ``"email"`` key scan; this catches an address that leaks into any *value*.
+EMAIL_RE = re.compile(r"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}", re.IGNORECASE)
 PUBLIC_GITHUB_PEOPLE = [
     {
         "id": "github-docxology",
@@ -323,9 +338,11 @@ def record_is_public_safe(record: dict[str, Any]) -> bool:
     for blocked in PRIVATE_KEYS:
         if f'"{blocked}"' in serialized:
             return False
-    for blocked in ("coda.io", "workspace", "source atlas", "source manifest", "aii.pdf"):
+    for blocked in FORBIDDEN_SUBSTRINGS:
         if blocked in serialized:
             return False
+    if EMAIL_RE.search(serialized):
+        return False
     return True
 
 
@@ -497,9 +514,12 @@ def validate_public_payload(data: Any, path: str) -> None:
     for blocked in PRIVATE_KEYS:
         if f'"{blocked}"' in serialized:
             raise ValueError(f"{path} contains blocked private key {blocked!r}")
-    for blocked in ("coda.io", "workspace", "source atlas", "source manifest", "aii.pdf"):
+    for blocked in FORBIDDEN_SUBSTRINGS:
         if blocked in serialized:
             raise ValueError(f"{path} contains blocked public term {blocked!r}")
+    found_emails = sorted(set(EMAIL_RE.findall(serialized)))
+    if found_emails:
+        raise ValueError(f"{path} contains blocked email address(es) {found_emails!r}")
 
 
 def build_results(instituteos_root: Path) -> list[SyncResult]:
