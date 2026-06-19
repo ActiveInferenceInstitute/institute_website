@@ -12,6 +12,10 @@
     {
       "label": "Programs",
       "href": "programs.html"
+    },
+    {
+      "label": "Active Inference Institute",
+      "sourceId": "official-activeinference-org"
     }
   ],
   "sections": [
@@ -133,5 +137,9 @@
     "ecosystem",
     "official-volunteer",
     "official-internship"
+  ],
+  "resourceGroups": [
+    "institute",
+    "projects"
   ]
 }

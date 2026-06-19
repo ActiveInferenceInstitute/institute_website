@@ -66,7 +66,7 @@
           "order": 3
         },
         {
-          "description": "Design the annual report: apply brand guidelines, create infographics, lay out photos and charts, produce PDF and web versions.",
+          "description": "Design the annual report: apply brand guidelines, create infographics, lay out photos and charts, produce document and web versions.",
           "name": "Design & Layout",
           "order": 4
         },
@@ -612,7 +612,7 @@
     },
     {
       "category": "communications",
-      "description": "Automated process for generating branded PDF and Markdown letterhead documents from plaintext content.md files in the communications library. Idempotent: clears and regenerates outputs.",
+      "description": "Automated process for generating branded document and Markdown letterhead documents from plaintext content.md files in the communications library. Idempotent: clears and regenerates outputs.",
       "id": "generate-communications",
       "linkedPolicies": [
         "brand-usage",
@@ -628,7 +628,7 @@
           "order": 1
         },
         {
-          "description": "Convert content.md files to branded PDF (light and dark variants) and Markdown letterhead documents using the letterhead renderer.",
+          "description": "Convert content.md files to branded document (light and dark variants) and Markdown letterhead documents using the letterhead renderer.",
           "name": "Generate Letterhead Documents",
           "order": 2
         },

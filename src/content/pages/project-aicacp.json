@@ -48,5 +48,9 @@
     "github-org",
     "discord",
     "official-participation"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
   ]
 }

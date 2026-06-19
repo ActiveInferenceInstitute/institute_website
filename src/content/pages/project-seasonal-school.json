@@ -63,5 +63,10 @@
     "official-livestreams",
     "official-newsletter",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "learning"
   ]
 }

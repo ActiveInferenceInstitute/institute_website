@@ -65,5 +65,10 @@
     "repo-activeinferants",
     "repo-ants",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "tools"
   ]
 }

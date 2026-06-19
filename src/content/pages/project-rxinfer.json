@@ -72,5 +72,10 @@
     "repo-actinf-rxinfer",
     "official-activities-shortlink",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "tools"
   ]
 }

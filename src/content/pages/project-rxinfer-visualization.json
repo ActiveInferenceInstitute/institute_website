@@ -48,5 +48,9 @@
     "github-org",
     "ecosystem",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
   ]
 }

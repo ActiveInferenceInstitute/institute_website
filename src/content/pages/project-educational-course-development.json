@@ -66,5 +66,10 @@
     "repo-courses",
     "shortlink-obsidian",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "learning",
+    "tools"
   ]
 }

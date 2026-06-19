@@ -138,5 +138,15 @@
     "structure",
     "programs",
     "learning"
+  ],
+  "externalSourceIds": [
+    "official-education",
+    "official-courses",
+    "github-org",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "learning"
   ]
 }

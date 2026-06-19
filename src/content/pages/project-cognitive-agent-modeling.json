@@ -52,5 +52,10 @@
     "github-org",
     "repo-activeinferenceimplementations",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "tools"
   ]
 }

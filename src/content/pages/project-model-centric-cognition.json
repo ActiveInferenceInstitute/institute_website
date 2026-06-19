@@ -47,5 +47,9 @@
     "shortlink-wave-hypothesis",
     "ecosystem",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
   ]
 }

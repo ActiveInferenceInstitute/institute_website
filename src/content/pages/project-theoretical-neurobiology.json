@@ -60,5 +60,9 @@
     "official-tnb",
     "youtube",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
   ]
 }

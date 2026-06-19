@@ -61,5 +61,10 @@
     "official-courses",
     "repo-courses",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "learning"
   ]
 }

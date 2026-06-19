@@ -116,5 +116,9 @@
     "shortlink-mentorship",
     "discord",
     "weekly"
+  ],
+  "resourceGroups": [
+    "participation",
+    "projects"
   ]
 }

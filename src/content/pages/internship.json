@@ -118,5 +118,9 @@
     "official-intern",
     "discord",
     "weekly"
+  ],
+  "resourceGroups": [
+    "participation",
+    "projects"
   ]
 }

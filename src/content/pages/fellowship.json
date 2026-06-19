@@ -120,5 +120,9 @@
     "weekly",
     "github-org",
     "discord"
+  ],
+  "resourceGroups": [
+    "participation",
+    "projects"
   ]
 }

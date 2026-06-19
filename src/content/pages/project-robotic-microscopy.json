@@ -40,5 +40,9 @@
   "externalSourceIds": [
     "ecosystem",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
   ]
 }

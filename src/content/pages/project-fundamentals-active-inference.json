@@ -51,5 +51,10 @@
     "repo-fundamentals",
     "official-textbook-group-shortlink",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "learning"
   ]
 }

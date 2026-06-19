@@ -118,5 +118,9 @@
     "official-symposium-shortlink",
     "official-textbook-group-shortlink",
     "weekly"
+  ],
+  "resourceGroups": [
+    "support",
+    "projects"
   ]
 }

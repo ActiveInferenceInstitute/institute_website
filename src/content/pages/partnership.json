@@ -118,5 +118,9 @@
     "official-symposium-shortlink",
     "weekly",
     "github-org"
+  ],
+  "resourceGroups": [
+    "participation",
+    "projects"
   ]
 }

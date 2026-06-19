@@ -114,5 +114,9 @@
     "discord",
     "weekly",
     "official-activities-shortlink"
+  ],
+  "resourceGroups": [
+    "participation",
+    "projects"
   ]
 }

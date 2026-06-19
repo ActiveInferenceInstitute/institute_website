@@ -11,8 +11,35 @@ const __dir = dirname(fileURLToPath(import.meta.url));
 const PAGES = join(__dir, "../src/content/pages");
 mkdirSync(PAGES, { recursive: true });
 
+// Resource groups drive which registered repositories and official pages surface
+// on a page: build.mjs::recordMatchesPage renders a resource when its category is
+// in the page's resourceGroups (cards are capped at 8 per section and only render
+// resources already registered in live-sources.json — no new/fabricated links).
+// "projects" is always included because it matches both a registered repository
+// and an official page, guaranteeing the #repositories and #official-pages
+// sections render cards; the rest are added from the page's evident domain.
+const VALID_RESOURCE_GROUPS = new Set([
+  "community", "institute", "learning", "media", "participation",
+  "projects", "research", "social", "support", "tools",
+]);
+
+function resourceGroupsFor(slug, data) {
+  const signal = [slug, ...(data.relatedSlugs || []), ...(data.externalSourceIds || []), data.audience || ""]
+    .join(" ")
+    .toLowerCase();
+  const groups = new Set(["projects"]);
+  if (/research|active-inference|model|science|paper|ontology|theory|cognitive/.test(signal)) groups.add("research");
+  if (/learn|education|course|textbook|edactive|mentor|fellow|curriculum/.test(signal)) groups.add("learning");
+  if (/repo-|tool|software|implementation|library|\bcode\b|engine/.test(signal)) groups.add("tools");
+  return [...groups].filter((group) => VALID_RESOURCE_GROUPS.has(group)).slice(0, 3);
+}
+
 function write(slug, data) {
-  writeFileSync(join(PAGES, `${slug}.json`), JSON.stringify({ slug, ...data }, null, 2) + "\n");
+  const page = { slug, ...data };
+  if (!page.resourceGroups) {
+    page.resourceGroups = resourceGroupsFor(slug, data);
+  }
+  writeFileSync(join(PAGES, `${slug}.json`), JSON.stringify(page, null, 2) + "\n");
   console.log(`  wrote ${slug}.json`);
 }
 
@@ -67,7 +94,8 @@ write("edactive", {
     { title: "Applied Symposium", text: "Annual symposium bringing researchers and practitioners together.", links: [{ sourceId: "official-symposium-shortlink" }] }
   ],
   order: 18,
-  relatedSlugs: ["reinference", "projects", "structure", "programs", "learning"]
+  relatedSlugs: ["reinference", "projects", "structure", "programs", "learning"],
+  externalSourceIds: ["official-education", "official-courses", "github-org", "discord"]
 });
 
 write("reinference", {
@@ -119,7 +147,8 @@ write("reinference", {
     { title: "RxInfer.jl", text: "Learning and development around the RxInfer.jl probabilistic programming system.", links: [{ sourceId: "shortlink-rxinfer" }] }
   ],
   order: 19,
-  relatedSlugs: ["edactive", "projects", "structure", "active-inference", "learning"]
+  relatedSlugs: ["edactive", "projects", "structure", "active-inference", "learning"],
+  externalSourceIds: ["github-org", "official-activeinference-org", "discord"]
 });
 
 // ── ReInference Institute Projects ──────────────────────────────────────────

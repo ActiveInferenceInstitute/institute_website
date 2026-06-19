@@ -65,5 +65,10 @@
     "repo-knowledge-engineering",
     "github-org",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "tools"
   ]
 }

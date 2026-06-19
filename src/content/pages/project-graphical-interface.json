@@ -48,5 +48,10 @@
   "externalSourceIds": [
     "github-org",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "tools"
   ]
 }

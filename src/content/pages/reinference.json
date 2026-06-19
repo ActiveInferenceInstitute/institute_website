@@ -136,5 +136,15 @@
     "structure",
     "active-inference",
     "learning"
+  ],
+  "externalSourceIds": [
+    "github-org",
+    "official-activeinference-org",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "learning"
   ]
 }

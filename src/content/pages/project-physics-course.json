@@ -48,5 +48,10 @@
   "externalSourceIds": [
     "official-courses",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "learning"
   ]
 }

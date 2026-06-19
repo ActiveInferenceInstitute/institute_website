@@ -98,5 +98,10 @@
     "repo-parr-et-al-2022-actinf-textbook",
     "repo-fundamentals",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "learning"
   ]
 }

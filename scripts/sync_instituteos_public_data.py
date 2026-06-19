@@ -172,6 +172,7 @@ def public_text(value: str | None) -> str:
         "global-workspace": "global-access",
         "workspace": "shared space",
         "Workspace": "Shared Space",
+        "PDF": "document",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)

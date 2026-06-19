@@ -50,5 +50,10 @@
     "journal",
     "repo-activeinferencejournal",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "learning"
   ]
 }

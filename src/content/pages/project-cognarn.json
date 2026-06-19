@@ -52,5 +52,9 @@
     "ecosystem",
     "official-activities-shortlink",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
   ]
 }

@@ -110,5 +110,9 @@
   "externalSourceIds": [
     "weekly",
     "github-org"
+  ],
+  "resourceGroups": [
+    "support",
+    "projects"
   ]
 }

@@ -65,5 +65,10 @@
     "repo-active-inference-ontology",
     "github-org",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "learning"
   ]
 }

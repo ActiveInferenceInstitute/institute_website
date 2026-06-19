@@ -68,5 +68,9 @@
     "youtube",
     "official-livestreams",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "learning"
   ]
 }

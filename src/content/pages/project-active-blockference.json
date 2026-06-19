@@ -65,5 +65,10 @@
     "official-active-blockference",
     "active-inferants",
     "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "tools"
   ]
 }
