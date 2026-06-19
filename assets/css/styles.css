@@ -1,18 +1,22 @@
 :root {
   color-scheme: dark;
-  --ink: #f5f5f5;
-  --muted: #a1a1aa;
-  --soft: #d4d4d8;
-  --paper: #050505;
-  --surface: #111111;
-  --surface-strong: #18181b;
-  --line: #343434;
-  --red: #ff3b3b;
+  /* Unified onto the InstituteOS design-system token contract (instituteos-ds.css,
+     linked before this file). The fallbacks keep the site styled even if the DS
+     stylesheet is ever absent. This is how the website inherits the canonical
+     brand — red #dc2626, the dashboard surfaces, and the editorial type. */
+  --ink: var(--ds-text, #f5f5f5);
+  --muted: var(--ds-text-muted, #a1a1aa);
+  --soft: var(--ds-text, #d4d4d8);
+  --paper: var(--ds-bg, #050505);
+  --surface: var(--ds-surface, #111111);
+  --surface-strong: var(--ds-surface-2, #18181b);
+  --line: var(--ds-glass-border, #343434);
+  --red: var(--ds-red, #ff3b3b);
   --red-deep: #2a0d0d;
-  --shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
-  --radius: 8px;
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --shadow: var(--ds-shadow, 0 18px 48px rgba(0, 0, 0, 0.45));
+  --radius: var(--ds-radius-sm, 8px);
+  font-family: var(--ds-font-body,
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 }
 
 * {

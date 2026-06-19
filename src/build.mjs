@@ -691,6 +691,7 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
   <meta name="twitter:description" content="${escapeHtml(pageDescription)}">
   <meta name="twitter:image" content="${escapeHtml(ogImage)}">
   <meta name="generator" content="institute_website v${SITE_VERSION}">
+  <link rel="stylesheet" href="${prefix}assets/css/instituteos-ds.css">
   <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}${structuredData(title, currentDir, canonicalUrl, slug, pageDescription)}
 </head>
 <body class="${bodyClass}">
