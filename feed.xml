@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Active Inference Institute — Updates</title>
+    <link>https://activeinferenceinstitute.github.io/institute_website/</link>
+    <atom:link href="https://activeinferenceinstitute.github.io/institute_website/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>A participatory open science institute supporting education, research, training, and applications related to Active Inference.</description>
+    <language>en</language>
+    <item>
+      <title>Active Inference Institute — Weekly Update #10</title>
+      <link>https://activeinferenceinstitute.github.io/institute_website/activities/</link>
+      <guid isPermaLink="false">https://activeinferenceinstitute.github.io/institute_website/#weekly-announcement-2026-w10</guid>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 GMT</pubDate>
+      <category>announcement</category>
+      <description>announcement: Active Inference Institute — Weekly Update #10</description>
+    </item>
+    <item>
+      <title>Active Inference Institute — March 2026 Newsletter</title>
+      <link>https://activeinferenceinstitute.github.io/institute_website/activities/</link>
+      <guid isPermaLink="false">https://activeinferenceinstitute.github.io/institute_website/#monthly-newsletter-2026-03</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <category>newsletter</category>
+      <description>newsletter: Active Inference Institute — March 2026 Newsletter</description>
+    </item>
+    <item>
+      <title>Active Inference Institute — 2025 Annual Review</title>
+      <link>https://activeinferenceinstitute.github.io/institute_website/activities/</link>
+      <guid isPermaLink="false">https://activeinferenceinstitute.github.io/institute_website/#annual-review-2025</guid>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>report: Active Inference Institute — 2025 Annual Review</description>
+    </item>
+    <item>
+      <title>Active Inference Institute — 2026 Annual Preview &amp; Strategic Plan</title>
+      <link>https://activeinferenceinstitute.github.io/institute_website/activities/</link>
+      <guid isPermaLink="false">https://activeinferenceinstitute.github.io/institute_website/#annual-preview-2026</guid>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 GMT</pubDate>
+      <category>report</category>
+      <description>report: Active Inference Institute — 2026 Annual Preview &amp; Strategic Plan</description>
+    </item>
+  </channel>
+</rss>

@@ -75,6 +75,8 @@ def href_for_slug(target_slug: str, current_dir: str = "", anchor: str = "") -> 
 ALLOWED_TEMPLATE_EXTERNAL_URLS = {
     "http://www.sitemaps.org/schemas/sitemap/0.9",
     "https://schema.org",  # JSON-LD @context (structured data; non-fetched identifier)
+    "http://www.w3.org/2005/Atom",  # RSS atom:link namespace (feed.xml)
+    "https://jsonfeed.org/version/1.1",  # JSON Feed version identifier (feed.json)
 }
 CURATED_SECTION_IDS = {
     "next-actions",

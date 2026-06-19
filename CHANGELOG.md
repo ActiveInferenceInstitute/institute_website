@@ -3,7 +3,21 @@
 All notable changes to the Active Inference Institute website are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
-## v2.1.0 — 2026-06-19
+## v2.2.0 — 2026-06-19
+
+Subscription, installability, and disclosure.
+
+### Added
+- **RSS + JSON feeds** of Institute updates (`/feed.xml`, `/feed.json`) built from
+  the public communications, with autodiscovery `<link rel="alternate">` on every page.
+- **Installable web app** — a `manifest.webmanifest` (name, theme, icons, standalone
+  display) plus favicon and apple-touch-icon links, so the site can be added to a
+  home screen.
+- **`/.well-known/security.txt`** (RFC 9116) with a responsible-disclosure contact.
+
+### Notes
+- The PWA/favicon icons reuse the brand mark (non-square); a dedicated square icon
+  can be swapped in later without code changes.
 
 Search-engine optimization and discoverability.
 

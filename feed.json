@@ -1,0 +1,50 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Active Inference Institute — Updates",
+  "home_page_url": "https://activeinferenceinstitute.github.io/institute_website/",
+  "feed_url": "https://activeinferenceinstitute.github.io/institute_website/feed.json",
+  "description": "A participatory open science institute supporting education, research, training, and applications related to Active Inference.",
+  "language": "en",
+  "items": [
+    {
+      "id": "https://activeinferenceinstitute.github.io/institute_website/#weekly-announcement-2026-w10",
+      "title": "Active Inference Institute — Weekly Update #10",
+      "content_text": "announcement: Active Inference Institute — Weekly Update #10",
+      "date_published": "2026-03-04T00:00:00.000Z",
+      "url": "https://activeinferenceinstitute.github.io/institute_website/activities/",
+      "tags": [
+        "announcement"
+      ]
+    },
+    {
+      "id": "https://activeinferenceinstitute.github.io/institute_website/#monthly-newsletter-2026-03",
+      "title": "Active Inference Institute — March 2026 Newsletter",
+      "content_text": "newsletter: Active Inference Institute — March 2026 Newsletter",
+      "date_published": "2026-03-01T00:00:00.000Z",
+      "url": "https://activeinferenceinstitute.github.io/institute_website/activities/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinferenceinstitute.github.io/institute_website/#annual-review-2025",
+      "title": "Active Inference Institute — 2025 Annual Review",
+      "content_text": "report: Active Inference Institute — 2025 Annual Review",
+      "date_published": "2026-01-15T00:00:00.000Z",
+      "url": "https://activeinferenceinstitute.github.io/institute_website/activities/",
+      "tags": [
+        "report"
+      ]
+    },
+    {
+      "id": "https://activeinferenceinstitute.github.io/institute_website/#annual-preview-2026",
+      "title": "Active Inference Institute — 2026 Annual Preview & Strategic Plan",
+      "content_text": "report: Active Inference Institute — 2026 Annual Preview & Strategic Plan",
+      "date_published": "2026-01-01T00:00:00.000Z",
+      "url": "https://activeinferenceinstitute.github.io/institute_website/activities/",
+      "tags": [
+        "report"
+      ]
+    }
+  ]
+}
