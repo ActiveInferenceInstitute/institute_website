@@ -529,8 +529,9 @@ function cspContent() {
   ].join("; ");
 }
 
-// Absolute URL of the social-share / Organization logo image.
-const OG_IMAGE = () => absoluteUrl("assets/img/instituteos/ActInferServe.png");
+// Absolute URLs for the 1200x630 social-share card and the square logo/icon.
+const OG_IMAGE = () => absoluteUrl("assets/img/social-card.png");
+const LOGO_IMAGE = () => absoluteUrl("assets/img/icon-512.png");
 
 function jsonLdScript(data) {
   // Non-executable schema.org data block. Escape "<" so a "</script>" inside any
@@ -549,7 +550,7 @@ function structuredData(rawTitle, currentDir, canonicalUrl) {
           "@id": `${base}#org`,
           name: siteData.site.name,
           url: base,
-          logo: OG_IMAGE(),
+          logo: LOGO_IMAGE(),
           description: siteData.site.description,
           email: siteData.site.email,
         },
@@ -596,8 +597,9 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
   <title>${escapeHtml(pageTitle)}</title>
   <meta name="description" content="${escapeHtml(pageDescription)}">
   <meta name="theme-color" content="#050505">
-  <link rel="icon" type="image/png" href="${prefix}assets/img/instituteos/ActInferServe.png">
-  <link rel="apple-touch-icon" href="${prefix}assets/img/instituteos/ActInferServe.png">
+  <link rel="icon" type="image/svg+xml" href="${prefix}assets/img/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="${prefix}assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="${prefix}assets/img/icon-180.png">
   <link rel="manifest" href="${prefix}manifest.webmanifest">
   <link rel="alternate" type="application/rss+xml" title="${escapeHtml(siteData.site.name)} — Updates" href="${prefix}feed.xml">
   <link rel="alternate" type="application/feed+json" title="${escapeHtml(siteData.site.name)} — Updates" href="${prefix}feed.json">
@@ -626,6 +628,10 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
       </span>
     </a>
     ${nav(currentDir)}
+    <div class="site-search" role="search">
+      <input type="search" id="site-search-input" placeholder="Search the Institute…" autocomplete="off" spellcheck="false" aria-label="Search the site" aria-controls="site-search-results" aria-expanded="false">
+      <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Search results" hidden></div>
+    </div>
   </header>
   <main id="main">
     ${normalizedBody}
@@ -647,7 +653,9 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
     </div>
     <p class="build-stamp">v${escapeHtml(SITE_VERSION)}${SOURCE_FINGERPRINT ? ` · build ${escapeHtml(SOURCE_FINGERPRINT)}` : ""}</p>
   </footer>
-  <script src="${prefix}assets/js/site.js" defer></script>${graphScript}
+  <script src="${prefix}assets/js/site.js" defer></script>
+  <script src="${prefix}assets/js/search-data.js" defer></script>
+  <script src="${prefix}assets/js/search.js" defer></script>${graphScript}
 </body>
 </html>`;
 }
@@ -2293,8 +2301,9 @@ function buildManifest() {
         background_color: "#050505",
         theme_color: "#050505",
         icons: [
-          { src: "assets/img/instituteos/ActInferServe.png", sizes: "357x445", type: "image/png", purpose: "any" },
-          { src: "assets/img/instituteos/Dark_ActInfServe.png", sizes: "937x819", type: "image/png", purpose: "any" },
+          { src: "assets/img/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+          { src: "assets/img/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+          { src: "assets/img/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
         ],
       },
       null,
@@ -2311,6 +2320,38 @@ function buildSecurityTxt() {
     `Canonical: ${absoluteUrl(".well-known/security.txt")}`,
     "",
   ].join("\n");
+}
+
+function buildSearchIndex() {
+  // Embedded, self-hosted client-side search index (no fetch — CSP-safe). Curated
+  // pages carry unique destinations; Open Source Map records resolve to /knowledge/.
+  const knowledgeUrl = absoluteUrl(outputPathForSlug("knowledge"));
+  const osm = siteData.instituteos;
+  const entries = [];
+  for (const page of siteData.pages) {
+    entries.push({
+      t: page.title,
+      u: absoluteUrl(outputPathForSlug(page.slug)),
+      k: String(page.description || page.lede || "").slice(0, 180),
+      c: "Page",
+    });
+  }
+  for (const record of osm.projects.records || []) {
+    entries.push({ t: record.title, u: knowledgeUrl, k: `${record.summary || ""} ${(record.tags || []).join(" ")}`.slice(0, 180), c: "Repository" });
+  }
+  for (const record of osm.ideas.records || []) {
+    entries.push({ t: record.label, u: knowledgeUrl, k: String(record.summary || "").slice(0, 180), c: "Concept" });
+  }
+  for (const record of osm.policies.records || []) {
+    entries.push({ t: record.title, u: knowledgeUrl, k: String(record.category || ""), c: "Policy" });
+  }
+  for (const record of osm.processes.records || []) {
+    entries.push({ t: record.title, u: knowledgeUrl, k: String(record.category || ""), c: "Process" });
+  }
+  for (const record of osm.entities.people || []) {
+    entries.push({ t: record.name, u: knowledgeUrl, k: (record.roles || []).join(" "), c: "Person" });
+  }
+  return `window.__SEARCH_INDEX__ = ${JSON.stringify(entries)};\n`;
 }
 
 function writeFile(file, html) {
@@ -2388,6 +2429,7 @@ function build() {
   writeFile("feed.json", buildJsonFeed());
   writeFile("manifest.webmanifest", buildManifest());
   writeFile(path.join(".well-known", "security.txt"), buildSecurityTxt());
+  writeFile(path.join("assets", "js", "search-data.js"), buildSearchIndex());
   console.log(`Built ${urls.length} public pages plus 404.html`);
 }
 

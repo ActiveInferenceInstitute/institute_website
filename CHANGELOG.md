@@ -3,6 +3,20 @@
 All notable changes to the Active Inference Institute website are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## v2.3.0 — 2026-06-19
+
+Brand identity and site-wide search.
+
+### Added
+- **Dedicated brand icon + social card.** A square SVG mark (Markov-blanket motif)
+  rasterized to favicon, apple-touch, and 192/512 PWA icon sizes, plus a 1200×630
+  social-share card now used as `og:image`/`twitter:image` and the schema.org logo —
+  replacing the previous non-square brand mark. Regenerate with
+  `scripts/generate-icons.sh`.
+- **Global site search.** A header search box that searches an embedded index of
+  pages, repositories, concepts, policies, processes, and people (324 entries).
+  Fully client-side and CSP-safe (no network requests), with keyboard navigation.
+
 ## v2.2.0 — 2026-06-19
 
 Subscription, installability, and disclosure.

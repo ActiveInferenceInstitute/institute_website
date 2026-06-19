@@ -995,3 +995,16 @@ select:focus-visible {
   }
 }
 .build-stamp{margin-top:1.5rem;font-size:.75rem;opacity:.55;letter-spacing:.02em}
+
+/* Global site search (header) */
+.site-search{position:relative;margin-left:auto;flex:0 1 15rem;max-width:15rem}
+.site-search input{width:100%;padding:.5rem .75rem;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:inherit;font:inherit}
+.site-search input:focus{outline:2px solid #ef4444;outline-offset:1px}
+.site-search-results{position:absolute;top:calc(100% + .35rem);right:0;width:min(24rem,82vw);max-height:60vh;overflow:auto;background:#0a0a0a;border:1px solid rgba(255,255,255,.15);border-radius:10px;box-shadow:0 14px 44px rgba(0,0,0,.55);z-index:60}
+.site-search-result{display:flex;gap:.7rem;align-items:baseline;padding:.55rem .85rem;text-decoration:none;color:inherit;border-bottom:1px solid rgba(255,255,255,.06)}
+.site-search-result:last-child{border-bottom:0}
+.site-search-result:hover,.site-search-result:focus-visible{background:rgba(239,68,68,.16);outline:none}
+.site-search-kind{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:#ef4444;flex:0 0 5rem}
+.site-search-title{font-size:.9rem}
+.site-search-empty{padding:.75rem .85rem;margin:0;opacity:.6;font-size:.85rem}
+@media (max-width:720px){.site-search{max-width:100%;flex-basis:100%;order:3;margin-left:0}.site-search-results{width:100%}}
