@@ -115,6 +115,36 @@
       "url": null
     },
     {
+      "description": "Open-access preprint server (Cornell University) and a primary open-collaboration channel for Active Inference and Free Energy Principle literature.",
+      "id": "arxiv",
+      "memberIds": [],
+      "name": "arXiv",
+      "parentId": null,
+      "tags": [],
+      "type": "partner",
+      "url": "https://arxiv.org"
+    },
+    {
+      "description": "Independent researcher who maintains a widely used public bibliography of Free Energy Principle and Active Inference papers; an external community reference upstream of the Institute's mirror.",
+      "id": "beren-millidge-fep-papers",
+      "memberIds": [],
+      "name": "Beren Millidge — FEP / Active Inference Papers",
+      "parentId": null,
+      "tags": [],
+      "type": "partner",
+      "url": "https://github.com/BerenMillidge/FEP_Active_Inference_Papers"
+    },
+    {
+      "description": "Decentralized social networking service on the open AT Protocol; supports portable identities and federated open collaboration. The Institute maintains a public presence.",
+      "id": "bluesky",
+      "memberIds": [],
+      "name": "Bluesky",
+      "parentId": null,
+      "tags": [],
+      "type": "technology",
+      "url": "https://bsky.app"
+    },
+    {
       "description": "The governing body responsible for strategic oversight, fiduciary duties, and policy approval. Composed of elected members serving staggered terms.",
       "id": "board-of-directors",
       "memberIds": [
@@ -209,6 +239,16 @@
       "url": "https://www.irs.gov"
     },
     {
+      "description": "Markdown-based knowledge-management and publishing platform used to host public Active Inference knowledge bases; ecosystem knowledge infrastructure.",
+      "id": "obsidian",
+      "memberIds": [],
+      "name": "Obsidian",
+      "parentId": null,
+      "tags": [],
+      "type": "technology",
+      "url": "https://obsidian.md"
+    },
+    {
       "description": "Local LLM inference platform used by the institute-docs pipeline for policy analysis, summarisation, sentiment analysis, and the Governance Assistant RAG chat.",
       "id": "ollama",
       "memberIds": [],
@@ -296,9 +336,222 @@
       ],
       "type": "technology",
       "url": "https://youtube.com/@activeinference"
+    },
+    {
+      "description": "Open-access research data and publication repository (CERN / OpenAIRE) providing DOIs and long-term archival; part of the open epistemic commons the Institute deposits to.",
+      "id": "zenodo",
+      "memberIds": [],
+      "name": "Zenodo",
+      "parentId": null,
+      "tags": [],
+      "type": "partner",
+      "url": "https://zenodo.org"
     }
   ],
   "people": [
+    {
+      "active": true,
+      "id": "adam-safron",
+      "name": "Adam Safron",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor",
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Primary point of contact / IE project facilitator for AICACP"
+    },
+    {
+      "active": true,
+      "id": "adeel-razi",
+      "name": "Adeel Razi",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "alexander-ororbia",
+      "name": "Alexander Ororbia",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": null,
+      "id": "alexander-sabine",
+      "name": "Alexander Sabine",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Director"
+      ],
+      "tags": [],
+      "title": "Board Member"
+    },
+    {
+      "active": true,
+      "id": "alexander-vyatkin",
+      "name": "Alexander Vyatkin",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Officer"
+      ],
+      "tags": [],
+      "title": "Vice President"
+    },
+    {
+      "active": null,
+      "id": "alexandra-mikhailova",
+      "name": "Alexandra Mikhailova",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Vice President",
+        "Secretary",
+        "Officer",
+        "Board Member"
+      ],
+      "tags": [],
+      "title": "Vice President & Secretary"
+    },
+    {
+      "active": true,
+      "id": "ali-rahmjoo",
+      "name": "Ali Rahmjoo",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": null,
+      "id": "alianna-maren",
+      "name": "Alianna Maren",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Director"
+      ],
+      "tags": [],
+      "title": "Board Member"
+    },
+    {
+      "active": null,
+      "id": "ana-magdalena-hurtado",
+      "name": "Ana Magdalena Hurtado",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Director",
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Board Member"
+    },
+    {
+      "active": true,
+      "id": "andrew-pashea",
+      "name": "Andrew Pashea",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": null,
+      "id": "ann-stapleton",
+      "name": "Ann Stapleton",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Director"
+      ],
+      "tags": [],
+      "title": "Board Member"
+    },
+    {
+      "active": true,
+      "id": "anna-pereira",
+      "name": "Anna Pereira",
+      "orgId": "eduactive",
+      "policyRoles": [],
+      "roles": [
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "antonio-lucas-alba",
+      "name": "Antonio Lucas-Alba",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "arun-niranjan",
+      "name": "Arun Niranjan",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": null,
+      "id": "austin-cook",
+      "name": "Austin Cook",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Director"
+      ],
+      "tags": [],
+      "title": "Board Member"
+    },
+    {
+      "active": true,
+      "id": "avel-guenin-carlut",
+      "name": "Avel Guénin-Carlut",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
     {
       "active": true,
       "id": "board-secretary",
@@ -332,6 +585,54 @@
         "governance"
       ],
       "title": "Secretary"
+    },
+    {
+      "active": true,
+      "id": "bradly-alicea",
+      "name": "Bradly Alicea",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "candice-pattisapu",
+      "name": "Candice Pattisapu",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "chris-fields",
+      "name": "Chris Fields",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "christo-kurisummoottil-thomas",
+      "name": "Christo Kurisummoottil Thomas",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
     },
     {
       "active": true,
@@ -489,6 +790,18 @@
     },
     {
       "active": true,
+      "id": "cory-slater",
+      "name": "Cory Slater",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
       "id": "daniel-friedman",
       "name": "Daniel Friedman",
       "orgId": "active-inference-institute",
@@ -590,7 +903,9 @@
         "President",
         "Treasurer",
         "Board Member",
-        "Officer"
+        "Officer",
+        "Member",
+        "Unit Member"
       ],
       "tags": [
         "leadership",
@@ -664,6 +979,31 @@
     },
     {
       "active": true,
+      "id": "dean-tickles",
+      "name": "Dean Tickles",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": null,
+      "id": "ed-ober",
+      "name": "Ed Ober",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Director"
+      ],
+      "tags": [],
+      "title": "Board Member"
+    },
+    {
+      "active": true,
       "id": "eduactive-director",
       "name": "EduActive Director",
       "orgId": "eduactive",
@@ -693,6 +1033,31 @@
         "program"
       ],
       "title": "Director, EduActive"
+    },
+    {
+      "active": true,
+      "id": "elliott-hauser",
+      "name": "Elliott Hauser",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": null,
+      "id": "ellynne-dec",
+      "name": "Ellynne Dec",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Director"
+      ],
+      "tags": [],
+      "title": "Board Member"
     },
     {
       "active": true,
@@ -726,6 +1091,42 @@
         "dei"
       ],
       "title": "Environmental, Social & Governance Coordinator"
+    },
+    {
+      "active": true,
+      "id": "fraser-paterson",
+      "name": "Fraser Paterson",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Primary point of contact / IE project facilitator for Improving RxInfer.jl's Model Visualization Capabilities"
+    },
+    {
+      "active": true,
+      "id": "haris-neophytou",
+      "name": "Haris Neophytou",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "holly-grimm",
+      "name": "Holly Grimm",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
     },
     {
       "active": true,
@@ -818,6 +1219,31 @@
     },
     {
       "active": true,
+      "id": "hector-manrique",
+      "name": "Héctor Manrique",
+      "orgId": "eduactive",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor",
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "ian-tennant",
+      "name": "Ian Tennant",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
       "id": "it-security-lead",
       "name": "IT Security Lead",
       "orgId": "administrative-unit",
@@ -883,6 +1309,201 @@
     },
     {
       "active": true,
+      "id": "ivan-metelkin",
+      "name": "Ivan Metelkin",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Primary point of contact / IE project facilitator for Active Inference for Built Environments & CooperActive Systems"
+    },
+    {
+      "active": true,
+      "id": "jana-lumi",
+      "name": "Jana Lumi",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "jean-francois-cloutier",
+      "name": "Jean-François Cloutier",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Primary point of contact / IE project facilitator for Symbolic cognitive robotics"
+    },
+    {
+      "active": true,
+      "id": "jeremy-cooper",
+      "name": "Jeremy Cooper",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Primary point of contact / IE project facilitator for Active Inference Account of Belief Updating in PTSD"
+    },
+    {
+      "active": true,
+      "id": "jesse-g",
+      "name": "Jesse G",
+      "orgId": "eduactive",
+      "policyRoles": [],
+      "roles": [
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "joel-dietz",
+      "name": "Joel Dietz",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "john-boik",
+      "name": "John Boik",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Primary point of contact / IE project facilitator for CogNarr Ecosystem: Facilitating Group Cognition at Scale"
+    },
+    {
+      "active": true,
+      "id": "john-clippinger",
+      "name": "John Clippinger",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "joshua-shane",
+      "name": "Joshua Shane",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "karl-john-friston",
+      "name": "Karl John Friston",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Member",
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "luca-possati",
+      "name": "Luca Possati",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "matt-brown",
+      "name": "Matt Brown",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "maxwell-j-d-ramstead",
+      "name": "Maxwell J D Ramstead",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "michael-lennon",
+      "name": "Michael Lennon",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "mike-smith",
+      "name": "Mike Smith",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "pablofm",
+      "name": "PabloFM",
+      "orgId": "eduactive",
+      "policyRoles": [],
+      "roles": [
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
       "id": "procurement-manager",
       "name": "Procurement Manager",
       "orgId": "administrative-unit",
@@ -917,6 +1538,18 @@
         "contracts"
       ],
       "title": "Procurement & Vendor Manager"
+    },
+    {
+      "active": true,
+      "id": "rafael-kaufmann",
+      "name": "Rafael Kaufmann",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member"
+      ],
+      "tags": [],
+      "title": ""
     },
     {
       "active": true,
@@ -960,6 +1593,104 @@
     },
     {
       "active": true,
+      "id": "robert-worden",
+      "name": "Robert Worden",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Primary point of contact / IE project facilitator for Model-Centric cognition"
+    },
+    {
+      "active": true,
+      "id": "scott-david",
+      "name": "Scott David",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "sebastian-alvarado",
+      "name": "Sebastian Alvarado",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "shady-el-damaty",
+      "name": "Shady El Damaty",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "shagor-shaggy-rahman",
+      "name": "Shagor (Shaggy) Rahman",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Primary point of contact / IE project facilitator for Humanity's Story of an Uncertain Self"
+    },
+    {
+      "active": true,
+      "id": "theodoros-aliferis",
+      "name": "Theodoros Aliferis",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Primary point of contact / IE project facilitator for The Einstein Model of a Solid as a Model of the Mental Apparatus from the Economic Perspective of Psychoanalytic Theory"
+    },
+    {
+      "active": true,
+      "id": "thomas-kehler",
+      "name": "Thomas Kehler",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Scientific Advisor"
+      ],
+      "tags": [],
+      "title": ""
+    },
+    {
+      "active": true,
+      "id": "v-bleu-knight",
+      "name": "V. Bleu Knight",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Officer",
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Secretary"
+    },
+    {
+      "active": true,
       "id": "board-vice-president",
       "name": "Vice President",
       "orgId": "active-inference-institute",
@@ -992,6 +1723,34 @@
         "board"
       ],
       "title": "Vice President"
+    },
+    {
+      "active": null,
+      "id": "bleu-knight",
+      "name": "Virginia Bleu Knight",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Director",
+        "Member"
+      ],
+      "tags": [],
+      "title": "Board Member"
+    },
+    {
+      "active": null,
+      "id": "vladimir-baulin",
+      "name": "Vladimir Baulin",
+      "orgId": "active-inference-institute",
+      "policyRoles": [],
+      "roles": [
+        "Board Member",
+        "Director",
+        "Unit Member"
+      ],
+      "tags": [],
+      "title": "Board Member"
     }
   ],
   "source": "instituteos/library/registries/entities.json"

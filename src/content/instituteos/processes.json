@@ -2,6 +2,42 @@
   "description": "Public-safe governance process summaries derived from InstituteOS processes.",
   "records": [
     {
+      "category": "it_security",
+      "description": "Ensure participants have appropriate access to infrastructure, platforms, and educational resources.",
+      "id": "ecosystem-support-access-provisioning",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Request access to specific resources or platforms",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Configure system access and permissions",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Provision documentation and training materials",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Verify access functionality",
+          "order": 4
+        }
+      ],
+      "title": "Access Provisioning",
+      "triggers": [
+        "Ecosystem Support program lifecycle"
+      ],
+      "version": null
+    },
+    {
       "category": "operations",
       "description": "Procedure for preparing the Institute's public annual report. Covers data gathering, financial summary, narrative drafting, design, Board approval, and publication.",
       "id": "annual-report-preparation",
@@ -143,6 +179,114 @@
       "version": "0.1"
     },
     {
+      "category": "human_resources",
+      "description": "Monitor research progress and ensure continued alignment with Institute mission",
+      "id": "fellows-checkin",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Provide quarterly progress reports on research activities",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Conduct annual evaluation including self-assessment and oral presentation",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Gather feedback from mentors and collaborators",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Assess satisfactory performance for continuation and renewal",
+          "order": 4
+        }
+      ],
+      "title": "Check-in",
+      "triggers": [
+        "Fellows program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Monitor ongoing contributions, progress, and alignment with Active Inference Institute standards.",
+      "id": "open-source-checkin",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Review recent contributions and commits",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Assess quality and adherence to guidelines",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Provide feedback and support",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Track project milestones and objectives",
+          "order": 4
+        }
+      ],
+      "title": "Contribution Check-in",
+      "triggers": [
+        "Open Source program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Document final contributions and ensure knowledge transfer for ongoing maintenance.",
+      "id": "open-source-offboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Document contributions and handoff notes",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Revoke repository access as needed",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Archive or transition project ownership",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Update contributor records and acknowledgments",
+          "order": 4
+        }
+      ],
+      "title": "Contributor Offboarding",
+      "triggers": [
+        "Open Source program lifecycle"
+      ],
+      "version": null
+    },
+    {
       "category": "legal_compliance",
       "description": "Procedure for incorporating a nonprofit in Delaware and maintaining annual compliance. Covers Certificate of Incorporation, Registered Agent, Annual Report, and Franchise Tax.",
       "id": "delaware-incorporation",
@@ -233,6 +377,130 @@
         "Funder invites proposal"
       ],
       "version": "0.1"
+    },
+    {
+      "category": "operations",
+      "description": "Enable and process charitable contributions through the donation portal",
+      "id": "philanthropy-donation-processing",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Access donation portal at donate.activeinference.institute",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Submit donation",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Receive tax-exempt documentation where applicable",
+          "order": 3
+        }
+      ],
+      "title": "Donation Processing",
+      "triggers": [
+        "Philanthropy program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "operations",
+      "description": "Welcome donors and explain the Institute's mission and tax-exempt status",
+      "id": "philanthropy-onboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Learn about Active Inference Institute's 501(c)(3) nonprofit recognition",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Understand mission impact areas",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Review tax-exempt donation information",
+          "order": 3
+        }
+      ],
+      "title": "Donor Onboarding",
+      "triggers": [
+        "Philanthropy program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "operations",
+      "description": "Acknowledge donor contributions and maintain ongoing engagement",
+      "id": "philanthropy-recognition",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Record donation and donor information",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Send acknowledgment and tax documentation",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Maintain donor relationship for future communications",
+          "order": 3
+        }
+      ],
+      "title": "Donor Recognition",
+      "triggers": [
+        "Philanthropy program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "education",
+      "description": "Develop active inference expertise through self-guided and collaborative learning",
+      "id": "internship-education",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Participate in learning groups",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Self-guided study of active inference",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Complete learning journey milestones",
+          "order": 3
+        }
+      ],
+      "title": "Education and Learning",
+      "triggers": [
+        "Internship program lifecycle"
+      ],
+      "version": null
     },
     {
       "category": "human_resources",
@@ -379,6 +647,130 @@
       "version": "0.1"
     },
     {
+      "category": "operations",
+      "description": "Develop and submit grant proposals to potential funders.",
+      "id": "grants-application",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Write grant proposal aligned with funder requirements",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Secure letters of support and collaboration from partners",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Submit completed application by deadline",
+          "order": 3
+        }
+      ],
+      "title": "Grants Application",
+      "triggers": [
+        "Grants program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "operations",
+      "description": "Prepare research teams and grant writers for successful grant applications.",
+      "id": "grants-onboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Identify funding opportunities aligned with Institute research areas",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Assemble interdisciplinary team for grant development",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Establish collaboration and communication structures",
+          "order": 3
+        }
+      ],
+      "title": "Grants Onboarding",
+      "triggers": [
+        "Grants program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "operations",
+      "description": "Publish submitted grants and research outputs to create stigmergic traces on the ecosystem.",
+      "id": "grants-publication",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Upload grant proposal to preprint server (Zenodo)",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Document outcomes and lessons learned",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Share publicly to inform ecosystem and future applications",
+          "order": 3
+        }
+      ],
+      "title": "Grants Publication",
+      "triggers": [
+        "Grants program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "operations",
+      "description": "Track funder review process and manage awarded grants.",
+      "id": "grants-review",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Monitor application status with funder",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Receive award decision and communicate outcome",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Establish grant management and reporting protocols if funded",
+          "order": 3
+        }
+      ],
+      "title": "Grants Review & Award",
+      "triggers": [
+        "Grants program lifecycle"
+      ],
+      "version": null
+    },
+    {
       "category": "education",
       "description": "Ongoing process for regular intern check-ins during engagement and structured offboarding when the internship concludes. Ensures continuous feedback, learning assessment, and graceful access revocation.",
       "id": "internship-checkin-offboarding",
@@ -480,6 +872,42 @@
       "version": "0.1"
     },
     {
+      "category": "human_resources",
+      "description": "Recognize achievement and provide credentials for future engagement",
+      "id": "internship-completion",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Complete active participation requirements",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Receive certification of completion",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Obtain letter of recommendation if applicable",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Gain access to research infrastructure",
+          "order": 4
+        }
+      ],
+      "title": "Internship Completion",
+      "triggers": [
+        "Internship program lifecycle"
+      ],
+      "version": null
+    },
+    {
       "category": "it_security",
       "description": "Procedure for detecting, containing, eradicating, and recovering from IT security incidents. Aligns with NIST CSF and the Institute's Incident Response & Breach Notification Policy.",
       "id": "incident-response",
@@ -534,6 +962,99 @@
       "version": "0.1"
     },
     {
+      "category": "human_resources",
+      "description": "Collect personal statements and advising needs from interns and members",
+      "id": "mentorship-application",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Submit personal statement via mentorship form",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Describe learning trajectory and advising needs",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Request specific kind of support",
+          "order": 3
+        }
+      ],
+      "title": "Mentorship Application",
+      "triggers": [
+        "Mentorship program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Monitor ongoing mentor-mentee relationships and co-learning progress",
+      "id": "mentorship-checkin",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Conduct periodic check-ins with mentor-mentee pairs",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Track generative model updates and learning outcomes",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Assess ongoing compatibility and support needs",
+          "order": 3
+        }
+      ],
+      "title": "Mentorship Check-in",
+      "triggers": [
+        "Mentorship program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Match mentors with mentees based on expertise and learning needs",
+      "id": "mentorship-matching",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Review applications and mentor pool",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Match individuals based on subject matter and prediction matter expertise",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Confirm mentor-mentee pairing",
+          "order": 3
+        }
+      ],
+      "title": "Mentorship Matching",
+      "triggers": [
+        "Mentorship program lifecycle"
+      ],
+      "version": null
+    },
+    {
       "category": "communications",
       "description": "Procedure for planning, writing, reviewing, and publishing the Institute's newsletter on Substack. Covers content planning, drafting, editorial review, and publication with engagement tracking.",
       "id": "newsletter-publication",
@@ -579,6 +1100,315 @@
         "Event/cohort launch requiring communication"
       ],
       "version": "0.1"
+    },
+    {
+      "category": "human_resources",
+      "description": "Document fellowship completion and ensure proper transition of work",
+      "id": "fellows-offboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Complete final research report",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Remove institutional affiliation from professional materials",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Archive research outputs and deliverables",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Conduct exit interview with mentor",
+          "order": 4
+        }
+      ],
+      "title": "Offboarding",
+      "triggers": [
+        "Fellows program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Establish fellowship agreement, confirm code of conduct adherence, and integrate fellow into Institute community",
+      "id": "fellows-onboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Accept offer letter and sign fellowship agreement",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Confirm reading and agreement to Research Fellows Terms",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Establish initial institutional affiliation",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Introduce mentors and collaborators",
+          "order": 4
+        }
+      ],
+      "title": "Onboarding",
+      "triggers": [
+        "Fellows program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Monitor participant engagement and address infrastructure or support needs.",
+      "id": "ecosystem-support-checkin",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Assess resource usage and engagement levels",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Collect feedback on platforms and services",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Identify technical issues or access problems",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Coordinate improvements and additional support",
+          "order": 4
+        }
+      ],
+      "title": "Ongoing Support Check-in",
+      "triggers": [
+        "Ecosystem Support program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Gracefully transition participants out of the ecosystem while preserving institutional relationships.",
+      "id": "ecosystem-support-offboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Archive participant work and contributions",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Revoke access to active platforms and systems",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Document lessons and partnership outcomes",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Maintain contact for future collaboration",
+          "order": 4
+        }
+      ],
+      "title": "Participant Offboarding",
+      "triggers": [
+        "Ecosystem Support program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Orient new participants to available resources, services, and community engagement opportunities.",
+      "id": "ecosystem-support-onboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Register and verify participant information",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Grant access to Informational Commons materials",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Introduce community forums and discussion groups",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Explain partnership and collaboration opportunities",
+          "order": 4
+        }
+      ],
+      "title": "Participant Onboarding",
+      "triggers": [
+        "Ecosystem Support program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Maintain alignment and adapt partnership activities based on feedback and emerging needs.",
+      "id": "partnership-checkin",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Provide curated updates on relevant developments and opportunities",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Facilitate feedback loops to refine activities based on emerging needs",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Adapt plans as necessary to maintain impact and mutual benefit",
+          "order": 3
+        }
+      ],
+      "title": "Partnership Check-in",
+      "triggers": [
+        "Partnership program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Conclude partnership engagement and manage post-termination obligations.",
+      "id": "partnership-offboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Provide written notice of termination",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Cease use of Institute intellectual property",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Return or destroy confidential information in possession",
+          "order": 3
+        }
+      ],
+      "title": "Partnership Offboarding",
+      "triggers": [
+        "Partnership program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Guide prospective partners from initial engagement through formal agreement establishment.",
+      "id": "partnership-onboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Initial engagement and exploratory discussions",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Complete Partnership Application with organization details and alignment statement",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Institute review and selection based on impact potential and alignment",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Execute formal Partnership Agreement with terms and commitments",
+          "order": 4
+        }
+      ],
+      "title": "Partnership Onboarding",
+      "triggers": [
+        "Partnership program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Establish shared goals and develop collaborative roadmap for the partnership.",
+      "id": "partnership-planning",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Identify shared objectives and key milestones for 6-12 months",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Develop detailed action plan with timelines and deliverables",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Schedule regular check-ins to monitor progress",
+          "order": 3
+        }
+      ],
+      "title": "Partnership Planning Session",
+      "triggers": [
+        "Partnership program lifecycle"
+      ],
+      "version": null
     },
     {
       "category": "legal_compliance",
@@ -629,6 +1459,37 @@
         "Approaching statutory tax deadlines (e.g., May 15 for calendar year nonprofits)"
       ],
       "version": "0.1"
+    },
+    {
+      "category": "human_resources",
+      "description": "Monitor progress and adapt internship plan as needed",
+      "id": "internship-checkin",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Participate in synchronous check-ins",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Complete asynchronous progress updates",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Adjust internship approach collaboratively",
+          "order": 3
+        }
+      ],
+      "title": "Periodic Check-in",
+      "triggers": [
+        "Internship program lifecycle"
+      ],
+      "version": null
     },
     {
       "category": "governance",
@@ -690,6 +1551,73 @@
         "Regulatory change requiring policy response"
       ],
       "version": "0.1"
+    },
+    {
+      "category": "human_resources",
+      "description": "Establish contributor access and understanding of licensing, contribution guidelines, and repository structure.",
+      "id": "open-source-onboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Review CC BY-NC-SA 4.0 license terms and requirements",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Gain access to GitHub repositories",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Understand contribution guidelines and project structure",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Set up development environment",
+          "order": 4
+        }
+      ],
+      "title": "Repository Onboarding",
+      "triggers": [
+        "Open Source program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "research",
+      "description": "Advance personal research programs and contribute to institute projects",
+      "id": "internship-research",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 3,
+      "steps": [
+        {
+          "description": "",
+          "name": "Engage in private research projects",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Participate in institute research activities",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Document research contributions",
+          "order": 3
+        }
+      ],
+      "title": "Research and Development",
+      "triggers": [
+        "Internship program lifecycle"
+      ],
+      "version": null
     },
     {
       "category": "research",
@@ -837,6 +1765,114 @@
         "Vendor risk profile change detected"
       ],
       "version": "0.1"
+    },
+    {
+      "category": "human_resources",
+      "description": "Maintain engagement and document ongoing participation in Institute activities",
+      "id": "volunteer-checkin",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Provide updates on project contributions and progress",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Participate in prepare/measure cycles for documentation",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Report learnings and development of expertise areas",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Identify needs for support or resource access",
+          "order": 4
+        }
+      ],
+      "title": "Volunteer Check-in",
+      "triggers": [
+        "Volunteer program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Recognize completed service and maintain relationships with departing volunteers",
+      "id": "volunteer-offboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Document final project contributions and outcomes",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Issue letter of recognition if applicable",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Archive affiliation status and communications",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Maintain contact for future engagement opportunities",
+          "order": 4
+        }
+      ],
+      "title": "Volunteer Offboarding",
+      "triggers": [
+        "Volunteer program lifecycle"
+      ],
+      "version": null
+    },
+    {
+      "category": "human_resources",
+      "description": "Register new volunteers and clarify their role and opportunities at the Institute",
+      "id": "volunteer-onboarding",
+      "linkedPolicies": [],
+      "slaDays": null,
+      "status": "active",
+      "stepCount": 4,
+      "steps": [
+        {
+          "description": "",
+          "name": "Complete volunteer registration form",
+          "order": 1
+        },
+        {
+          "description": "",
+          "name": "Clarify contribution interests and time availability",
+          "order": 2
+        },
+        {
+          "description": "",
+          "name": "Receive overview of available projects and programs",
+          "order": 3
+        },
+        {
+          "description": "",
+          "name": "Obtain access to digital resources and communication channels",
+          "order": 4
+        }
+      ],
+      "title": "Volunteer Onboarding",
+      "triggers": [
+        "Volunteer program lifecycle"
+      ],
+      "version": null
     },
     {
       "category": "operations",

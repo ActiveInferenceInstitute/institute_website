@@ -14,10 +14,27 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+
+def _resolve_instituteos_root() -> Path:
+    """Locate the InstituteOS source checkout that provides public-safe data.
+
+    Honors the ``INSTITUTEOS_ROOT`` env var first, then auto-detects common
+    layouts: a parent checkout that embeds this site as a submodule, or a sibling
+    clone (``../instituteos``). Only a candidate that actually contains
+    ``library/registries`` is accepted; otherwise the sibling path is returned.
+    """
+    env = os.environ.get("INSTITUTEOS_ROOT")
+    if env:
+        return Path(env)
+    for candidate in (PROJECT_ROOT.parents[1], PROJECT_ROOT.parent / "instituteos"):
+        if (candidate / "library" / "registries").is_dir():
+            return candidate
+    return PROJECT_ROOT.parent / "instituteos"
+
+
 # The InstituteOS source checkout that provides public-safe concept-graph data.
-# Override with the INSTITUTEOS_ROOT env var; defaults to a sibling clone next to
-# this website repository (e.g. ``../instituteos``).
-DEFAULT_INSTITUTEOS_ROOT = Path(os.environ.get("INSTITUTEOS_ROOT", str(PROJECT_ROOT.parent / "instituteos")))
+DEFAULT_INSTITUTEOS_ROOT = _resolve_instituteos_root()
 CONTENT_OUT = PROJECT_ROOT / "src" / "content" / "instituteos"
 ASSET_OUT = PROJECT_ROOT / "assets" / "img" / "instituteos"
 BRAND_ASSETS = {
