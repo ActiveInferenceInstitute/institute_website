@@ -2251,6 +2251,63 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": []
+    },
+    {
+      "id": "pymdp",
+      "title": "pymdp",
+      "description": "pymdp is a Python implementation of Active Inference for partially observable Markov Decision Processes, widely used in the community for building and simulating discrete-state generative models. It is an external ecosystem implementation distinct from the Institute's own projects.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "active-inference",
+        "markov-decision-process",
+        "python",
+        "generative-models",
+        "computation",
+        "ecosystem"
+      ],
+      "summary": "Community Python library implementing Active Inference for POMDPs.",
+      "website_slug": null,
+      "links": {
+        "github": "https://github.com/infer-actively/pymdp"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
+    },
+    {
+      "id": "beren-millidge-fep-active-inference-papers",
+      "title": "FEP & Active Inference Papers (Beren Millidge)",
+      "description": "A community-maintained, openly available repository cataloguing major and influential Free Energy Principle and Active Inference papers across theoretical neurobiology, computational neuroscience, and the formal foundations of active inference. Maintained externally; the Active Inference Institute keeps a mirror, but this is the canonical external source.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "owner_entity_id": null,
+      "topics": [
+        "free-energy-principle",
+        "active-inference",
+        "theoretical-neurobiology",
+        "computational-neuroscience",
+        "bibliography",
+        "open-science",
+        "ecosystem"
+      ],
+      "summary": "External community-curated bibliography of major FEP and Active Inference papers.",
+      "website_slug": null,
+      "links": {
+        "github": "https://github.com/BerenMillidge/FEP_Active_Inference_Papers"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": []
     }
   ]
 }

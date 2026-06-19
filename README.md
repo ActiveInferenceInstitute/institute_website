@@ -93,7 +93,7 @@ Rendered resources use stable fields: `sourceId`, `type`, `category`, `audience`
 
 ## Public Data Injection
 
-The public Open Source Map is generated from public repository metadata plus public-safe concept graph data from the sibling repository at `/Users/4d/Documents/GitHub/instituteos` by default:
+The public Open Source Map is generated from public repository metadata plus public-safe concept graph data from a sibling InstituteOS checkout. By default it looks for `../instituteos` next to this repository; set the `INSTITUTEOS_ROOT` environment variable to point elsewhere:
 
 ```bash
 npm run sync:instituteos

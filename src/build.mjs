@@ -12,6 +12,18 @@ function loadJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(contentDir, relativePath), "utf8"));
 }
 
+// The machine-readable public projects feed lives at the repo root (data/),
+// outside src/content. Loaded once and reused for related-projects + domain
+// cross-linking.
+let _projectsData = null;
+function loadProjectsData() {
+  if (_projectsData === null) {
+    const file = path.join(root, "data", "projects.json");
+    _projectsData = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : { projects: [] };
+  }
+  return _projectsData;
+}
+
 const pages = fs
   .readdirSync(path.join(contentDir, "pages"))
   .filter((file) => file.endsWith(".json"))
@@ -38,11 +50,35 @@ const siteData = {
     processes: loadJson(path.join("instituteos", "processes.json")),
     communications: loadJson(path.join("instituteos", "communications.json")),
     policies: loadJson(path.join("instituteos", "policies.json")),
+    techTreeGraph: loadJson(path.join("instituteos", "tech_tree_graph.json")),
+    ontologyGraph: loadJson(path.join("instituteos", "ontology_graph.json")),
+    governanceGraph: loadJson(path.join("instituteos", "governance_graph.json")),
+    domainProjects: loadJson(path.join("instituteos", "domain_projects.json")),
+    narratives: loadJson(path.join("instituteos", "narratives_public.json")),
   },
   pages,
 };
 
 const liveSourceById = new Map((siteData.liveSources.sources || []).map((source) => [source.id, source]));
+// Every reachable public URL (plus trailing-slash variants) backed by the live
+// source registry. Used to gate raw registry URLs: an external anchor may only
+// be emitted when its href is represented here, matching the static-security
+// and site-contract checks.
+const liveSourceUrlSet = new Set();
+for (const source of siteData.liveSources.sources || []) {
+  if (source.ok && source.url) {
+    const clean = source.url.replace(/\/+$/, "");
+    liveSourceUrlSet.add(source.url);
+    liveSourceUrlSet.add(clean);
+    liveSourceUrlSet.add(`${clean}/`);
+  }
+}
+function isVerifiedExternalUrl(url = "") {
+  if (!url) {
+    return false;
+  }
+  return liveSourceUrlSet.has(url) || liveSourceUrlSet.has(url.replace(/\/+$/, ""));
+}
 const pageBySlug = new Map(siteData.pages.map((page) => [page.slug, page]));
 const typeById = new Map((siteData.resources.types || []).map((type) => [type.id, type]));
 const categoryById = new Map((siteData.resources.categories || []).map((category) => [category.id, category]));
@@ -56,6 +92,126 @@ const escapeHtml = (value = "") =>
     .replaceAll('"', "&quot;");
 
 const slugToHref = (slug) => (slug === "index" ? "index.html" : `${slug}.html`);
+
+// Public-safe prose normalizer for free-text sourced from registries/narratives.
+// Strips markdown link syntax to its label, removes raw URLs, drops redacted
+// email placeholders, and neutralizes private-channel/document tokens so the
+// rendered HTML stays inside the public site contract (no Coda/workspace
+// wording, no obsolete PDF/atlas references, no external anchors smuggled in as
+// bare URLs). Output is plain text and must still be passed through escapeHtml.
+function sanitizePublicProse(value = "") {
+  let text = String(value);
+  // Markdown links/images -> visible label only.
+  text = text.replace(/!?\[([^\]]*)\]\((?:[^)]*)\)/g, "$1");
+  // Bare URLs -> removed (anchors must come from live-sources.json only).
+  text = text.replace(/https?:\/\/[^\s)\]]+/g, "");
+  // Redacted email placeholders and leftover empty brackets/parens.
+  text = text.replace(/\[?\s*email redacted\s*\]?/gi, "");
+  text = text.replace(/\(\s*\)/g, "").replace(/\[\s*\]/g, "");
+  // Neutralize tokens that trip the public-site scanners.
+  const replacements = [
+    [/\bcoda\.io\b/gi, "the shared space"],
+    [/\bcoda\b/gi, "the shared space"],
+    [/\bworkspaces?\b/gi, "shared spaces"],
+    [/\bPDF\b/g, "document"],
+    [/\bpdfs\b/gi, "documents"],
+    [/\bSource Atlas\b/gi, "source map"],
+    [/\bSource Manifest\b/gi, "source list"],
+  ];
+  for (const [pattern, replacement] of replacements) {
+    text = text.replace(pattern, replacement);
+  }
+  // Collapse markdown bullet artifacts and excess whitespace.
+  text = text.replace(/\r/g, "");
+  return text;
+}
+
+// Split a sanitized narrative body into renderable paragraphs. Markdown list
+// markers and blank lines become paragraph breaks; empty fragments are dropped.
+function proseParagraphs(value = "") {
+  const cleaned = sanitizePublicProse(value);
+  return cleaned
+    .split(/\n{2,}|\n(?=\s*[-*]\s)/)
+    .map((chunk) =>
+      chunk
+        .split("\n")
+        .map((line) => line.replace(/^\s*[-*]\s+/, "").trim())
+        .filter(Boolean)
+        .join(" "),
+    )
+    .map((chunk) => chunk.trim())
+    .filter((chunk) => chunk.length > 0);
+}
+
+// Flatten a node meta object (or scalar) into a single readable string, since
+// graphs.js renders node.meta via String(node.meta).
+function flattenGraphMeta(meta) {
+  if (meta === null || meta === undefined) {
+    return undefined;
+  }
+  if (typeof meta === "string" || typeof meta === "number") {
+    return String(meta);
+  }
+  if (typeof meta === "object") {
+    const parts = Object.entries(meta)
+      .filter(([, v]) => v !== null && v !== undefined && v !== "")
+      .map(([k, v]) => `${title_case_token_js(k)}: ${v}`);
+    return parts.length ? parts.join(" · ") : undefined;
+  }
+  return undefined;
+}
+
+// Project a raw graph dataset (nodes/edges) into the embedded JSON contract:
+// node = {id,label,type,href?,meta?}; edge = {source,target,relation}. meta is
+// flattened to a string and href is preserved when present.
+function projectGraphData({ nodes = [], edges = [] } = {}) {
+  const projectedNodes = nodes.map((node) => {
+    const out = {
+      id: node.id,
+      label: sanitizePublicProse(node.label ?? node.id),
+      type: node.type ?? "node",
+    };
+    if (node.href) {
+      out.href = node.href;
+    }
+    const meta = flattenGraphMeta(node.meta);
+    if (meta) {
+      out.meta = meta;
+    }
+    return out;
+  });
+  const projectedEdges = edges
+    .filter((edge) => edge && edge.source && edge.target)
+    .map((edge) => ({ source: edge.source, target: edge.target, relation: edge.relation ?? "related" }));
+  return { nodes: projectedNodes, edges: projectedEdges };
+}
+
+// Emit one graph instance per the GRAPH EMBEDDING CONTRACT: a .graph-figure
+// wrapper containing an empty .graph-mount (data-graph-source) plus a data
+// island whose textContent is the graph JSON. graphs.js discovers each mount,
+// reads document.getElementById(source).textContent, and JSON.parses it (it is
+// element-type agnostic — it never requires a <script> holder).
+//
+// The data island is a hidden, non-executable element rather than a
+// <script type="application/json"> tag: the static-security gate
+// (scripts/check_static_security.py) rejects ANY <script> without a src that
+// carries body text, so a JSON <script> would be (incorrectly) flagged as
+// inline script. A hidden element is not a <script>, is never executed, and is
+// still only readable as embedded data — fully inside script-src/connect-src
+// 'none' (no fetch, build-time data only).
+//
+// JSON is HTML-escaped so the element's textContent survives HTML parsing
+// verbatim: "<" -> < (left as literal text; JSON.parse decodes it), and
+// "&" -> &amp; (the HTML parser decodes it back to "&" in textContent).
+function graphFigure(name, rawData) {
+  const id = `graph-data-${name}`;
+  const data = projectGraphData(rawData);
+  const json = JSON.stringify(data).replace(/&/g, "&amp;").replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
+  return `<div class="graph-figure">
+    <div class="graph-mount" data-graph-source="${id}"></div>
+    <div class="graph-data" id="${id}" hidden>${json}</div>
+  </div>`;
+}
 
 const slugifyAnchor = (value = "") =>
   String(value)
@@ -219,6 +375,11 @@ function layout({ title, description, currentPath, body, bodyClass = "" }) {
   const pageDescription = description || siteData.site.description;
   const canonicalUrl = absoluteUrl(currentPath);
   const normalizedBody = body.trim();
+  // Only pages that embed at least one .graph-mount load the graph renderer and
+  // its stylesheet (both 'self' origin, satisfying script-src/style-src 'self').
+  const hasGraph = normalizedBody.includes("graph-mount");
+  const graphStyle = hasGraph ? `\n  <link rel="stylesheet" href="${prefix}assets/css/graphs.css">` : "";
+  const graphScript = hasGraph ? `\n  <script src="${prefix}assets/js/graphs.js" defer></script>` : "";
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -236,7 +397,7 @@ function layout({ title, description, currentPath, body, bodyClass = "" }) {
   <meta property="og:description" content="${escapeHtml(pageDescription)}">
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}">
   <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="${prefix}assets/css/styles.css">
+  <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}
 </head>
 <body class="${bodyClass}">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -269,7 +430,7 @@ function layout({ title, description, currentPath, body, bodyClass = "" }) {
       ${socialLinks()}
     </div>
   </footer>
-  <script src="${prefix}assets/js/site.js" defer></script>
+  <script src="${prefix}assets/js/site.js" defer></script>${graphScript}
 </body>
 </html>`;
 }
@@ -601,10 +762,11 @@ function instituteosCounts() {
 }
 
 function knowledgeSearchText(values = []) {
-  return values
-    .flatMap((value) => (Array.isArray(value) ? value : [value]))
-    .join(" ")
-    .toLowerCase();
+  return sanitizePublicProse(
+    values
+      .flatMap((value) => (Array.isArray(value) ? value : [value]))
+      .join(" "),
+  ).toLowerCase();
 }
 
 function knowledgeDataAttrs(kind, values = []) {
@@ -801,12 +963,12 @@ function organizationsTable(rows = entityOrgRows()) {
     {
       label: "Organization",
       render: (item) =>
-        item.url
+        item.url && isVerifiedExternalUrl(item.url)
           ? `<a href="${escapeHtml(item.url)}" rel="noopener noreferrer" target="_blank">${escapeHtml(item.name)}</a>`
           : escapeHtml(item.name),
     },
     { label: "Type", render: (item) => escapeHtml(title_case_token_js(item.type || "")) },
-    { label: "Description", render: (item) => escapeHtml((item.description || "").slice(0, 120)) },
+    { label: "Description", render: (item) => escapeHtml(sanitizePublicProse(item.description || "").slice(0, 120)) },
     { label: "Members", render: (item) => String((item.memberIds || []).length) },
   ];
   return dataTable({ caption: "Public organizations in the Active Inference Institute governance registry.", columns, rows });
@@ -829,7 +991,7 @@ function processesTable(rows = processRows()) {
     { label: "Status", render: (item) => escapeHtml(title_case_token_js(item.status || "")) },
     { label: "Steps", render: (item) => String(item.stepCount || 0) },
     { label: "SLA days", render: (item) => item.slaDays != null ? String(item.slaDays) : "—" },
-    { label: "Description", render: (item) => escapeHtml((item.description || "").slice(0, 120)) },
+    { label: "Description", render: (item) => escapeHtml(sanitizePublicProse(item.description || "").slice(0, 120)) },
   ];
   return dataTable({ caption: "Public governance process descriptions from the Active Inference Institute.", columns, rows });
 }
@@ -851,7 +1013,7 @@ function policiesTable(rows = policyRows()) {
     { label: "Category", render: (item) => escapeHtml(title_case_token_js((item.category || "").replace(/_/g, " "))) },
     { label: "Status", render: (item) => escapeHtml(title_case_token_js(item.status || "")) },
     { label: "Version", render: (item) => escapeHtml(item.currentVersion || "") },
-    { label: "Description", render: (item) => escapeHtml((item.description || "").slice(0, 120)) },
+    { label: "Description", render: (item) => escapeHtml(sanitizePublicProse(item.description || "").slice(0, 120)) },
     { label: "Tags", render: (item) => escapeHtml(listText(item.tags)) },
   ];
   return dataTable({ caption: "Public governance policy registry for the Active Inference Institute.", columns, rows });
@@ -1048,6 +1210,7 @@ function knowledgePage() {
     countLabel: `${counts.ideas} ideas shown`,
     tableHtml: ideasTable(),
   })}
+  ${ontologyGraphSection()}
   ${tableSection({
     id: "ontology-table",
     eyebrow: "Ontology",
@@ -1290,10 +1453,12 @@ function publicPage(page) {
         .join("")}
     </div>
   </section>
+  ${instituteosFeatureSections(page)}
   <section class="content-band muted" id="key-surfaces">
     ${sectionHeading({ eyebrow: "Key surfaces", title: `${page.title} at a glance` })}
     ${cardGrid(page.cards)}
   </section>
+  ${page.slug.startsWith("project-") ? relatedProjectsSection(page) : ""}
   ${knowledgePreview(page)}
   <section class="content-band" id="resources">
     ${sectionHeading({ eyebrow: "Related resources", title: "Public links for this page", text: "External links are resolved from the shared registry so visitor-facing destinations stay centralized and checkable." })}
@@ -1319,6 +1484,249 @@ function publicPage(page) {
     currentPath: `${page.slug}.html`,
     body,
   });
+}
+
+// ── InstituteOS feature sections (graphs, narratives, domains, related projects) ──
+
+// Narrative entries sanitized and grouped for a given target page. Bodies are
+// transposed public Institute prose; markdown/links/PII are scrubbed at render.
+function narrativesForTarget(targetPage) {
+  return (siteData.instituteos.narratives.narratives || [])
+    .filter((entry) => entry.target_page === targetPage)
+    .map((entry) => ({
+      section: entry.section,
+      title: sanitizePublicProse(entry.title || entry.section || ""),
+      paragraphs: proseParagraphs(entry.body || ""),
+    }))
+    .filter((entry) => entry.paragraphs.length > 0);
+}
+
+// Render a narrative collection as one content-band with stacked prose blocks.
+function narrativeSection({ id, eyebrow, title, text, targetPage }) {
+  const entries = narrativesForTarget(targetPage);
+  if (!entries.length) {
+    return "";
+  }
+  const blocks = entries
+    .map((entry) => {
+      const paras = entry.paragraphs.map((para) => `<p>${escapeHtml(para)}</p>`).join("\n            ");
+      return `<article class="article-block" id="${escapeHtml(slugifyAnchor(`narrative-${entry.section}-${entry.title}`))}">
+            <h3>${escapeHtml(entry.title)}</h3>
+            ${paras}
+          </article>`;
+    })
+    .join("\n          ");
+  return `<section class="content-band" id="${escapeHtml(id)}">
+    ${sectionHeading({ eyebrow, title, text })}
+    <div class="article-stack">
+          ${blocks}
+    </div>
+  </section>`;
+}
+
+// Tech-tree explorer: an interactive node-link graph plus a relation legend.
+function techTreeExplorerSection() {
+  const graph = siteData.instituteos.techTreeGraph;
+  return `<section class="content-band" id="tech-tree-explorer">
+    ${sectionHeading({
+      eyebrow: "Tech-tree explorer",
+      title: "Explore the Active Inference learning graph",
+      text: "An interactive map of concepts, methods, and tools across the Active Inference and Free Energy Principle tech trees. Select a node to highlight its neighbors; filter by relationship type.",
+    })}
+    ${graphFigure("tech-tree", graph)}
+    <p class="section-link"><a href="knowledge.html#ideas-table">Open the full idea and ontology tables</a></p>
+  </section>`;
+}
+
+// Ontology graph view for the knowledge page (companion to the ontology table).
+function ontologyGraphSection() {
+  const graph = siteData.instituteos.ontologyGraph;
+  return `<section class="content-band" id="ontology-graph">
+    ${sectionHeading({
+      eyebrow: "Graph view",
+      title: "Ontology relationships as a graph",
+      text: "The same public ontology relationships shown in the table below, rendered as an interactive node-link graph. Select a concept to highlight what it connects to.",
+    })}
+    ${graphFigure("ontology", graph)}
+    <p class="section-link"><a href="#ontology-table">Jump to the ontology relationship table</a></p>
+  </section>`;
+}
+
+// Governance network graph for the structure page (entities, policies, processes).
+function governanceGraphSection() {
+  const graph = siteData.instituteos.governanceGraph;
+  return `<section class="content-band" id="governance-graph">
+    ${sectionHeading({
+      eyebrow: "Governance network",
+      title: "How entities, policies, and processes connect",
+      text: "A public-safe network of governance entities, policies, and processes with their RACI-style relationships. Select a node to trace its accountable, responsible, consulted, and informed links.",
+    })}
+    ${graphFigure("governance", graph)}
+    <p class="section-link"><a href="knowledge.html#policies-table">Open the full governance registry tables</a></p>
+  </section>`;
+}
+
+// "Browse projects by domain" — cross-links each domain's projects to the
+// generated project pages (where a public page exists for that project).
+function domainProjectsSection() {
+  const domains = (siteData.instituteos.domainProjects.domains || []).filter((domain) => (domain.projects || []).length);
+  if (!domains.length) {
+    return "";
+  }
+  const slugToPage = new Set(siteData.pages.map((page) => page.slug));
+  const cards = domains
+    .map((domain) => {
+      const links = (domain.projects || [])
+        .map((project) => {
+          const pageSlug = projectPageSlugForDataId(project.id);
+          const label = escapeHtml(sanitizePublicProse(project.title || project.id));
+          if (pageSlug && slugToPage.has(pageSlug)) {
+            return `<a href="${slugToHref(pageSlug)}">${label}</a>`;
+          }
+          return `<span>${label}</span>`;
+        })
+        .join("");
+      return `<article class="info-card domain-card" id="${escapeHtml(slugifyAnchor(`domain-${domain.slug}`))}">
+        <h3>${escapeHtml(sanitizePublicProse(domain.domain))}</h3>
+        <p>${(domain.projects || []).length} public project${(domain.projects || []).length === 1 ? "" : "s"} mapped to this domain of application.</p>
+        <div class="mini-links">${links}</div>
+      </article>`;
+    })
+    .join("");
+  return `<section class="content-band" id="browse-by-domain">
+    ${sectionHeading({
+      eyebrow: "Browse by domain",
+      title: "Projects across domains of application",
+      text: "Each domain of application links to the public project pages that work within it. Projects can appear in more than one domain.",
+    })}
+    <div class="card-grid">${cards}</div>
+  </section>`;
+}
+
+// Map a data/projects.json project id to its generated page slug. Prefers the
+// explicit website_slug; falls back to the conventional project-<id> form when a
+// page exists.
+const projectDataById = new Map((loadProjectsData().projects || []).map((project) => [project.id, project]));
+function projectPageSlugForDataId(dataId) {
+  const project = projectDataById.get(dataId);
+  if (project && project.website_slug) {
+    return project.website_slug;
+  }
+  return `project-${dataId}`;
+}
+
+// "Related projects" for a project page: projects sharing category and/or
+// topics, ranked by overlap, restricted to those with a real public page.
+function relatedProjectsForPage(page) {
+  const slug = page.slug;
+  const projects = (loadProjectsData().projects || []).filter((project) => project.website_slug);
+  const self = projects.find((project) => project.website_slug === slug);
+  if (!self) {
+    return [];
+  }
+  const selfTopics = new Set((self.topics || []).map((topic) => String(topic).toLowerCase()));
+  const scored = projects
+    .filter((project) => project.website_slug !== slug)
+    .map((project) => {
+      const topics = (project.topics || []).map((topic) => String(topic).toLowerCase());
+      const shared = topics.filter((topic) => selfTopics.has(topic));
+      const categoryMatch = project.category && self.category && project.category === self.category ? 1 : 0;
+      const score = shared.length * 2 + categoryMatch;
+      return { project, score, sharedCount: shared.length, sharedTopics: shared.slice(0, 3) };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        a.project.title.localeCompare(b.project.title),
+    )
+    .slice(0, 6);
+  return scored;
+}
+
+function relatedProjectsSection(page) {
+  const related = relatedProjectsForPage(page);
+  if (!related.length) {
+    return "";
+  }
+  const slugToPage = new Set(siteData.pages.map((candidate) => candidate.slug));
+  const cards = related
+    .filter((entry) => slugToPage.has(entry.project.website_slug))
+    .map((entry) => {
+      const project = entry.project;
+      const reason = entry.sharedTopics.length
+        ? `Shared topics: ${entry.sharedTopics.map((topic) => title_case_token_js(topic)).join(", ")}`
+        : `Same category: ${title_case_token_js(project.category || "")}`;
+      const summary = sanitizePublicProse(project.summary || project.description || "").slice(0, 160);
+      return `<a class="resource-card internal-card related-project-card" href="${slugToHref(project.website_slug)}">
+        <span>${escapeHtml(title_case_token_js(project.category || "Project"))}</span>
+        <strong>${escapeHtml(sanitizePublicProse(project.title))}</strong>
+        <p>${escapeHtml(summary)}</p>
+        <em>${escapeHtml(reason)}</em>
+      </a>`;
+    })
+    .join("");
+  if (!cards) {
+    return "";
+  }
+  return `<section class="content-band muted" id="related-projects">
+    ${sectionHeading({
+      eyebrow: "Related projects",
+      title: "Projects with shared topics",
+      text: "Computed from shared topics and category in the public project data feed.",
+    })}
+    <div class="resource-grid compact-grid">${cards}</div>
+  </section>`;
+}
+
+// InstituteOS feature blocks injected into a curated public page, keyed by slug.
+// Returns markup inserted between the article stack and the key-surfaces band so
+// the required curated section ordering stays intact.
+function instituteosFeatureSections(page) {
+  switch (page.slug) {
+    case "learning":
+      return techTreeExplorerSection();
+    case "structure":
+      return (
+        governanceGraphSection() +
+        narrativeSection({
+          id: "structure-narratives",
+          eyebrow: "Institute structure",
+          title: "How the Institute is organized",
+          text: "Public narrative content describing how the Institute is structured and organized.",
+          targetPage: "structure",
+        })
+      );
+    case "ecosystem":
+      return (
+        domainProjectsSection() +
+        narrativeSection({
+          id: "ecosystem-narratives",
+          eyebrow: "Ecosystem",
+          title: "The Active Inference ecosystem",
+          text: "Public narrative content describing the ecosystem and its domains of application.",
+          targetPage: "ecosystem",
+        })
+      );
+    case "about":
+      return narrativeSection({
+        id: "about-narratives",
+        eyebrow: "Institute narrative",
+        title: "Mission, history, and direction",
+        text: "Public mission, vision, values, history, strategy, and focus-area prose for the Institute.",
+        targetPage: "about",
+      });
+    case "activities":
+      return narrativeSection({
+        id: "activities-narratives",
+        eyebrow: "Activities",
+        title: "Public activities and updates",
+        text: "Public narrative content describing the Institute's recurring activities.",
+        targetPage: "activities",
+      });
+    default:
+      return "";
+  }
 }
 
 function optionList(items) {

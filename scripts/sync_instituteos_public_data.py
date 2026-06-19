@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import sys
 from dataclasses import dataclass
@@ -13,7 +14,10 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_INSTITUTEOS_ROOT = Path("/Users/4d/Documents/GitHub/instituteos")
+# The InstituteOS source checkout that provides public-safe concept-graph data.
+# Override with the INSTITUTEOS_ROOT env var; defaults to a sibling clone next to
+# this website repository (e.g. ``../instituteos``).
+DEFAULT_INSTITUTEOS_ROOT = Path(os.environ.get("INSTITUTEOS_ROOT", str(PROJECT_ROOT.parent / "instituteos")))
 CONTENT_OUT = PROJECT_ROOT / "src" / "content" / "instituteos"
 ASSET_OUT = PROJECT_ROOT / "assets" / "img" / "instituteos"
 BRAND_ASSETS = {

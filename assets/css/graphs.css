@@ -1,0 +1,268 @@
+/* Styling for the self-hosted node-link graph renderer (assets/js/graphs.js).
+   All visual styling lives here — graphs.js sets classes only, never inline
+   styles. Inherits the site theme tokens from styles.css (:root). */
+
+.graph-figure {
+  margin: 1.5rem 0;
+}
+
+.graph-mount {
+  display: block;
+}
+
+.graph-canvas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.graph-svg-wrap {
+  flex: 1 1 420px;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 0.5rem;
+}
+
+.graph-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: inherit;
+}
+
+/* Edges */
+.graph-edge {
+  stroke: var(--line);
+  stroke-width: 1.4;
+  stroke-opacity: 0.75;
+  transition: stroke-opacity 0.15s ease, stroke-width 0.15s ease;
+}
+
+.graph-edge.is-active {
+  stroke-width: 2.4;
+  stroke-opacity: 1;
+}
+
+.graph-edge.is-dim {
+  stroke-opacity: 0.12;
+}
+
+.graph-edge.is-hidden {
+  display: none;
+}
+
+.graph-edge-label {
+  fill: var(--muted);
+  font-size: 9px;
+  text-anchor: middle;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.graph-figure[data-active] .graph-edge.is-active + .graph-edge-label,
+.graph-svg:hover .graph-edge-label {
+  opacity: 0.85;
+}
+
+.graph-edge-label.is-hidden {
+  display: none;
+}
+
+/* Nodes */
+.graph-node {
+  cursor: pointer;
+}
+
+.graph-node-dot {
+  stroke: var(--paper);
+  stroke-width: 1.5;
+  fill: var(--soft);
+  transition: r 0.15s ease, fill 0.15s ease;
+}
+
+.graph-node-label {
+  fill: var(--soft);
+  font-size: 11px;
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.graph-node:hover .graph-node-dot,
+.graph-node:focus .graph-node-dot {
+  r: 11;
+}
+
+.graph-node:focus {
+  outline: none;
+}
+
+.graph-node:focus .graph-node-dot {
+  stroke: var(--red);
+  stroke-width: 2.5;
+}
+
+.graph-node.is-active .graph-node-dot {
+  r: 12;
+  stroke: var(--red);
+  stroke-width: 2.5;
+}
+
+.graph-node.is-dim {
+  opacity: 0.28;
+}
+
+.graph-node.is-neighbor .graph-node-dot {
+  stroke: var(--red);
+}
+
+/* Type palette (8 deterministic slots, red-anchored grayscale) */
+.graph-type-0 .graph-node-dot { fill: var(--red); }
+.graph-type-1 .graph-node-dot { fill: #f5f5f5; }
+.graph-type-2 .graph-node-dot { fill: #a1a1aa; }
+.graph-type-3 .graph-node-dot { fill: #71717a; }
+.graph-type-4 .graph-node-dot { fill: #d4d4d8; }
+.graph-type-5 .graph-node-dot { fill: #ff7a7a; }
+.graph-type-6 .graph-node-dot { fill: #52525b; }
+.graph-type-7 .graph-node-dot { fill: #e4e4e7; }
+
+/* Relation palette (edge strokes + legend swatches) */
+.graph-rel-0 { stroke: var(--red); }
+.graph-rel-1 { stroke: #a1a1aa; }
+.graph-rel-2 { stroke: #71717a; }
+.graph-rel-3 { stroke: #d4d4d8; }
+.graph-rel-4 { stroke: #ff7a7a; }
+.graph-rel-5 { stroke: #52525b; }
+.graph-rel-6 { stroke: #e4e4e7; }
+.graph-rel-7 { stroke: #ff3b3b; }
+
+/* Detail panel */
+.graph-panel {
+  flex: 1 1 220px;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+  padding: 1rem;
+  color: var(--soft);
+  font-size: 0.9rem;
+}
+
+.graph-panel-empty {
+  margin: 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.graph-panel-title {
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.graph-panel-type {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.graph-panel-type .graph-node-dot { display: none; }
+
+.graph-panel-meta {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+}
+
+.graph-panel-link {
+  display: inline-block;
+  margin-top: 0.85rem;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--red);
+  border-radius: var(--radius);
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.graph-panel-link:hover,
+.graph-panel-link:focus {
+  background: var(--red);
+  color: var(--paper);
+}
+
+/* Legend / relation filter */
+.graph-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.graph-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--soft);
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.graph-legend-item:hover,
+.graph-legend-item:focus-visible {
+  border-color: var(--red);
+  outline: none;
+}
+
+.graph-legend-item.is-off {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+
+.graph-legend-swatch {
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+/* The legend swatch inherits the relation color via the stroke palette.
+   Map stroke tokens to a usable swatch color through currentColor. */
+.graph-legend-item.graph-rel-0 { color: var(--red); }
+.graph-legend-item.graph-rel-1 { color: #a1a1aa; }
+.graph-legend-item.graph-rel-2 { color: #71717a; }
+.graph-legend-item.graph-rel-3 { color: #d4d4d8; }
+.graph-legend-item.graph-rel-4 { color: #ff7a7a; }
+.graph-legend-item.graph-rel-5 { color: #52525b; }
+.graph-legend-item.graph-rel-6 { color: #e4e4e7; }
+.graph-legend-item.graph-rel-7 { color: #ff3b3b; }
+
+.graph-legend-label {
+  color: var(--soft);
+}
+
+.graph-mount.is-empty {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .graph-canvas {
+    flex-direction: column;
+  }
+}

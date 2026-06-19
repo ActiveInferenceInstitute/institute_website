@@ -1,0 +1,442 @@
+{
+  "nodes": [
+    {
+      "id": "active-inference:free-energy-principle",
+      "label": "Free Energy Principle",
+      "type": "concept",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:active-inference",
+      "label": "Active Inference",
+      "type": "concept",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:predictive-processing",
+      "label": "Predictive Processing",
+      "type": "concept",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:markov-blankets",
+      "label": "Markov Blankets",
+      "type": "concept",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:variational-bayes",
+      "label": "Variational Bayes",
+      "type": "method",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:generative-models",
+      "label": "Generative Models",
+      "type": "concept",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:precision-weighting",
+      "label": "Precision Weighting",
+      "type": "concept",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:expected-free-energy",
+      "label": "Expected Free Energy",
+      "type": "concept",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:policy-selection",
+      "label": "Policy Selection",
+      "type": "method",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:perception",
+      "label": "Perception as Inference",
+      "type": "application",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:action",
+      "label": "Action as Active Inference",
+      "type": "application",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:learning",
+      "label": "Learning as Model Update",
+      "type": "application",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:accessibility-value",
+      "label": "Accessibility",
+      "type": "value",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:rigor-value",
+      "label": "Scientific Rigor",
+      "type": "value",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:applicability-value",
+      "label": "Real-World Applicability",
+      "type": "value",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "active-inference:pymdp",
+      "label": "pymdp",
+      "type": "tool",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "emerging"
+      }
+    },
+    {
+      "id": "active-inference:rxinfer",
+      "label": "RxInfer.jl",
+      "type": "tool",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "emerging"
+      },
+      "href": "project-rxinfer.html"
+    },
+    {
+      "id": "active-inference:karl-friston",
+      "label": "Karl Friston",
+      "type": "person",
+      "meta": {
+        "tree": "active-inference",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "free-energy-principle:information-theory",
+      "label": "Information Theory",
+      "type": "research_area",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "free-energy-principle:statistical-mechanics",
+      "label": "Statistical Mechanics",
+      "type": "research_area",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "free-energy-principle:bayesian-inference",
+      "label": "Bayesian Inference",
+      "type": "method",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "free-energy-principle:entropy",
+      "label": "Entropy",
+      "type": "concept",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "free-energy-principle:surprise-minimization",
+      "label": "Surprise Minimization",
+      "type": "concept",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "free-energy-principle:fep-core",
+      "label": "Free Energy Principle (Core)",
+      "type": "concept",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "free-energy-principle:self-organization",
+      "label": "Self-Organization",
+      "type": "concept",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "free-energy-principle:autopoiesis",
+      "label": "Autopoiesis",
+      "type": "concept",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "free-energy-principle:perception-action-loop",
+      "label": "Perception-Action Loop",
+      "type": "concept",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "free-energy-principle:homeostasis",
+      "label": "Homeostasis",
+      "type": "concept",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "established"
+      }
+    },
+    {
+      "id": "free-energy-principle:allostasis",
+      "label": "Allostasis",
+      "type": "concept",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "advanced"
+      }
+    },
+    {
+      "id": "free-energy-principle:consciousness-theories",
+      "label": "Consciousness Theories",
+      "type": "research_area",
+      "meta": {
+        "tree": "free-energy-principle",
+        "maturity": "emerging"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "active-inference:free-energy-principle",
+      "target": "active-inference:active-inference",
+      "relation": "enables"
+    },
+    {
+      "source": "active-inference:free-energy-principle",
+      "target": "active-inference:markov-blankets",
+      "relation": "part_of"
+    },
+    {
+      "source": "active-inference:free-energy-principle",
+      "target": "active-inference:variational-bayes",
+      "relation": "implements"
+    },
+    {
+      "source": "active-inference:free-energy-principle",
+      "target": "active-inference:generative-models",
+      "relation": "part_of"
+    },
+    {
+      "source": "active-inference:predictive-processing",
+      "target": "active-inference:free-energy-principle",
+      "relation": "extends"
+    },
+    {
+      "source": "active-inference:active-inference",
+      "target": "active-inference:precision-weighting",
+      "relation": "part_of"
+    },
+    {
+      "source": "active-inference:active-inference",
+      "target": "active-inference:expected-free-energy",
+      "relation": "part_of"
+    },
+    {
+      "source": "active-inference:expected-free-energy",
+      "target": "active-inference:policy-selection",
+      "relation": "enables"
+    },
+    {
+      "source": "active-inference:active-inference",
+      "target": "active-inference:perception",
+      "relation": "applies_to"
+    },
+    {
+      "source": "active-inference:active-inference",
+      "target": "active-inference:action",
+      "relation": "applies_to"
+    },
+    {
+      "source": "active-inference:active-inference",
+      "target": "active-inference:learning",
+      "relation": "applies_to"
+    },
+    {
+      "source": "active-inference:pymdp",
+      "target": "active-inference:active-inference",
+      "relation": "implements"
+    },
+    {
+      "source": "active-inference:rxinfer",
+      "target": "active-inference:active-inference",
+      "relation": "implements"
+    },
+    {
+      "source": "active-inference:karl-friston",
+      "target": "active-inference:free-energy-principle",
+      "relation": "authored_by"
+    },
+    {
+      "source": "active-inference:accessibility-value",
+      "target": "active-inference:active-inference",
+      "relation": "governs"
+    },
+    {
+      "source": "active-inference:rigor-value",
+      "target": "active-inference:free-energy-principle",
+      "relation": "governs"
+    },
+    {
+      "source": "active-inference:applicability-value",
+      "target": "active-inference:perception",
+      "relation": "governs"
+    },
+    {
+      "source": "active-inference:applicability-value",
+      "target": "active-inference:action",
+      "relation": "governs"
+    },
+    {
+      "source": "active-inference:variational-bayes",
+      "target": "active-inference:generative-models",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "active-inference:markov-blankets",
+      "target": "active-inference:generative-models",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "free-energy-principle:information-theory",
+      "target": "free-energy-principle:fep-core",
+      "relation": "part_of"
+    },
+    {
+      "source": "free-energy-principle:statistical-mechanics",
+      "target": "free-energy-principle:fep-core",
+      "relation": "part_of"
+    },
+    {
+      "source": "free-energy-principle:bayesian-inference",
+      "target": "free-energy-principle:fep-core",
+      "relation": "implements"
+    },
+    {
+      "source": "free-energy-principle:entropy",
+      "target": "free-energy-principle:surprise-minimization",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "free-energy-principle:surprise-minimization",
+      "target": "free-energy-principle:fep-core",
+      "relation": "instantiated_by"
+    },
+    {
+      "source": "free-energy-principle:fep-core",
+      "target": "free-energy-principle:self-organization",
+      "relation": "enables"
+    },
+    {
+      "source": "free-energy-principle:autopoiesis",
+      "target": "free-energy-principle:self-organization",
+      "relation": "related_to"
+    },
+    {
+      "source": "free-energy-principle:fep-core",
+      "target": "free-energy-principle:homeostasis",
+      "relation": "applies_to"
+    },
+    {
+      "source": "free-energy-principle:allostasis",
+      "target": "free-energy-principle:homeostasis",
+      "relation": "extends"
+    },
+    {
+      "source": "free-energy-principle:perception-action-loop",
+      "target": "free-energy-principle:fep-core",
+      "relation": "part_of"
+    },
+    {
+      "source": "free-energy-principle:fep-core",
+      "target": "free-energy-principle:consciousness-theories",
+      "relation": "applies_to"
+    },
+    {
+      "source": "free-energy-principle:bayesian-inference",
+      "target": "free-energy-principle:entropy",
+      "relation": "prerequisite"
+    },
+    {
+      "source": "free-energy-principle:information-theory",
+      "target": "free-energy-principle:entropy",
+      "relation": "prerequisite"
+    }
+  ]
+}

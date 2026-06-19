@@ -1,0 +1,270 @@
+{
+  "domains": [
+    {
+      "domain": "Biology",
+      "slug": "biology",
+      "projects": []
+    },
+    {
+      "domain": "Bioregional Modeling",
+      "slug": "bioregional-modeling",
+      "projects": [
+        {
+          "id": "active-inferants",
+          "title": "Active InferAnts"
+        },
+        {
+          "id": "farmworks",
+          "title": "FarmWorks"
+        },
+        {
+          "id": "geo-infer",
+          "title": "GEO-INFER"
+        },
+        {
+          "id": "graphical-interface",
+          "title": "Graphical Interface"
+        }
+      ]
+    },
+    {
+      "domain": "Category Theory",
+      "slug": "category-theory",
+      "projects": []
+    },
+    {
+      "domain": "Computational",
+      "slug": "computational",
+      "projects": []
+    },
+    {
+      "domain": "DeSci",
+      "slug": "desci",
+      "projects": []
+    },
+    {
+      "domain": "Domains of Application",
+      "slug": "domains-of-application",
+      "projects": []
+    },
+    {
+      "domain": "Economics",
+      "slug": "economics",
+      "projects": []
+    },
+    {
+      "domain": "Education",
+      "slug": "education",
+      "projects": [
+        {
+          "id": "active-inference-social-sciences",
+          "title": "Active Inference for Social Sciences"
+        },
+        {
+          "id": "active-inference-textbook",
+          "title": "Active Inference Textbook Development"
+        },
+        {
+          "id": "courses",
+          "title": "Courses"
+        },
+        {
+          "id": "cycle-book",
+          "title": "Active Inference Cycle Book for Self-Knowing"
+        },
+        {
+          "id": "educational-course-development",
+          "title": "Educational Course Development"
+        },
+        {
+          "id": "froebel",
+          "title": "Froebel's System"
+        },
+        {
+          "id": "fundamentals-active-inference",
+          "title": "Fundamentals of Active Inference"
+        },
+        {
+          "id": "physics-course",
+          "title": "Physics Course"
+        },
+        {
+          "id": "production",
+          "title": "Production"
+        },
+        {
+          "id": "rxinfer",
+          "title": "RxInfer.jl Learning and Development Group"
+        },
+        {
+          "id": "seasonal-school",
+          "title": "Seasonal School"
+        },
+        {
+          "id": "start",
+          "title": "Start"
+        },
+        {
+          "id": "textbook-group",
+          "title": "Textbook Group"
+        },
+        {
+          "id": "three-mosqueteers",
+          "title": "The Three Mosqueteers"
+        },
+        {
+          "id": "video-improvement",
+          "title": "Video Improvement Project"
+        }
+      ]
+    },
+    {
+      "domain": "Implementations of Active Inference",
+      "slug": "implementations-of-active-inference",
+      "projects": []
+    },
+    {
+      "domain": "Legal",
+      "slug": "legal",
+      "projects": []
+    },
+    {
+      "domain": "Logistics",
+      "slug": "logistics",
+      "projects": []
+    },
+    {
+      "domain": "Mental Health",
+      "slug": "mental-health",
+      "projects": []
+    },
+    {
+      "domain": "Neuroscience",
+      "slug": "neuroscience",
+      "projects": [
+        {
+          "id": "belief-updating-ptsd",
+          "title": "Active Inference Account of Belief Updating in PTSD"
+        },
+        {
+          "id": "brain-metabolism",
+          "title": "Energy Modeling Human Brain Metabolism"
+        },
+        {
+          "id": "einstein-model",
+          "title": "The Einstein Model of a Solid as a Model of the Mental Apparatus"
+        },
+        {
+          "id": "research",
+          "title": "Research"
+        },
+        {
+          "id": "theoretical-neurobiology",
+          "title": "Theoretical Neurobiology Group"
+        }
+      ]
+    },
+    {
+      "domain": "Philosophy",
+      "slug": "philosophy",
+      "projects": [
+        {
+          "id": "froebel",
+          "title": "Froebel's System"
+        },
+        {
+          "id": "tower-of-babel",
+          "title": "Project Development for Solving the Tower of Babel Problem"
+        }
+      ]
+    },
+    {
+      "domain": "Physics",
+      "slug": "physics",
+      "projects": [
+        {
+          "id": "m-theory-hdpls",
+          "title": "M-Theory as Function of Hyper Dimensional Prismatic Light Scattering (HDPLS-TARS)"
+        },
+        {
+          "id": "physics-course",
+          "title": "Physics Course"
+        }
+      ]
+    },
+    {
+      "domain": "PyMDP",
+      "slug": "pymdp",
+      "projects": []
+    },
+    {
+      "domain": "Robotics",
+      "slug": "robotics",
+      "projects": [
+        {
+          "id": "ai2c-active-inference-alignment-coalition",
+          "title": "AI²C: Active Inference Alignment Coalition"
+        },
+        {
+          "id": "robotic-microscopy",
+          "title": "From Instrument to Intelligent Agent: Robotic Microscopy"
+        },
+        {
+          "id": "symbolic-robotics",
+          "title": "Symbolic Cognitive Robotics"
+        },
+        {
+          "id": "symposium",
+          "title": "Applied Active Inference Symposium"
+        }
+      ]
+    },
+    {
+      "domain": "RxInfer.jl",
+      "slug": "rxinfer-jl",
+      "projects": [
+        {
+          "id": "rxinfer-visualization",
+          "title": "Improving RxInfer.jl Model Visualization"
+        }
+      ]
+    },
+    {
+      "domain": "Scientific Method",
+      "slug": "scientific-method",
+      "projects": []
+    },
+    {
+      "domain": "Social",
+      "slug": "social",
+      "projects": []
+    },
+    {
+      "domain": "SPM (Statistical Parametric Mapping)",
+      "slug": "spm-statistical-parametric-mapping",
+      "projects": []
+    },
+    {
+      "domain": "Symbolic Cognitive Robotics",
+      "slug": "symbolic-cognitive-robotics",
+      "projects": [
+        {
+          "id": "ai2c-active-inference-alignment-coalition",
+          "title": "AI²C: Active Inference Alignment Coalition"
+        },
+        {
+          "id": "robotic-microscopy",
+          "title": "From Instrument to Intelligent Agent: Robotic Microscopy"
+        },
+        {
+          "id": "symbolic-robotics",
+          "title": "Symbolic Cognitive Robotics"
+        },
+        {
+          "id": "symposium",
+          "title": "Applied Active Inference Symposium"
+        }
+      ]
+    }
+  ]
+}
