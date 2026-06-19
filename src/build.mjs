@@ -195,6 +195,7 @@ const ALL_ROUTED_SLUGS = [
   "knowledge",
   "resources",
   "directory",
+  "search",
 ];
 const SLUG_FOR_DIR = (() => {
   const map = new Map();
@@ -533,13 +534,72 @@ function cspContent() {
 const OG_IMAGE = () => absoluteUrl("assets/img/social-card.png");
 const LOGO_IMAGE = () => absoluteUrl("assets/img/icon-512.png");
 
+// Per-page social card: assets/img/cards/<slug>.png when present on disk, else the
+// shared social-card.png. Cards are generated for src/content/pages slugs (and any
+// other slug whose card has been rasterized); programmatic pages without a card
+// (knowledge, directory, resources, search, home) fall back to the shared card.
+function ogImageForSlug(slug) {
+  if (slug) {
+    const cardFile = path.join("assets", "img", "cards", `${slug}.png`);
+    if (fs.existsSync(out(cardFile))) {
+      return absoluteUrl(cardFile);
+    }
+  }
+  return OG_IMAGE();
+}
+
 function jsonLdScript(data) {
   // Non-executable schema.org data block. Escape "<" so a "</script>" inside any
   // value cannot break out of the element (the security gate allows ld+json).
   return `\n  <script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`;
 }
 
-function structuredData(rawTitle, currentDir, canonicalUrl) {
+// Resolve the public code-repository URL for a project page, if any. Reads the
+// public data/projects.json links map (github / github_main / any github.com URL).
+// Returns null when the project has no associated public repository.
+function projectRepositoryUrl(websiteSlug) {
+  const project = (loadProjectsData().projects || []).find((entry) => entry.website_slug === websiteSlug);
+  if (!project) {
+    return null;
+  }
+  if (typeof project.repository_url === "string" && project.repository_url.trim()) {
+    return project.repository_url.trim();
+  }
+  const links = project.links || {};
+  for (const key of ["github", "github_main", "repository", "repo"]) {
+    if (typeof links[key] === "string" && links[key].includes("github.com")) {
+      return links[key];
+    }
+  }
+  for (const value of Object.values(links)) {
+    if (typeof value === "string" && value.includes("github.com")) {
+      return value;
+    }
+  }
+  return null;
+}
+
+// schema.org node for a /projects/<name>/ page. SoftwareSourceCode when a public
+// code repository is known, otherwise CreativeWork. Only page-derived fields are
+// used (title, description, canonical url) — nothing is fabricated.
+function projectStructuredNode(slug, rawTitle, canonicalUrl, description) {
+  const repoUrl = projectRepositoryUrl(slug);
+  const node = {
+    "@type": repoUrl ? "SoftwareSourceCode" : "CreativeWork",
+    "@id": `${canonicalUrl}#project`,
+    name: rawTitle,
+    url: canonicalUrl,
+  };
+  if (description) {
+    node.description = description;
+  }
+  if (repoUrl) {
+    node.codeRepository = repoUrl;
+  }
+  return node;
+}
+
+function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", description = "") {
   const base = absoluteUrl("index.html");
   if (!currentDir) {
     return jsonLdScript({
@@ -571,11 +631,22 @@ function structuredData(rawTitle, currentDir, canonicalUrl) {
     });
   }
   items.push({ "@type": "ListItem", position, name: rawTitle, item: canonicalUrl });
-  return jsonLdScript({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items });
+  const breadcrumb = { "@type": "BreadcrumbList", "@id": `${canonicalUrl}#breadcrumb`, itemListElement: items };
+  // On project pages, merge a SoftwareSourceCode/CreativeWork node into a single
+  // @graph alongside the breadcrumb. Other pages keep the lone BreadcrumbList.
+  if (slug.startsWith("project-")) {
+    return jsonLdScript({
+      "@context": "https://schema.org",
+      "@graph": [breadcrumb, projectStructuredNode(slug, rawTitle, canonicalUrl, description)],
+    });
+  }
+  return jsonLdScript({ "@context": "https://schema.org", ...breadcrumb });
 }
 
-function layout({ title, description, currentDir = "", canonicalPath, body, bodyClass = "" }) {
+function layout({ title, description, currentDir = "", canonicalPath, body, bodyClass = "", slug = "" }) {
   const prefix = relPrefix(currentDir);
+  // Per-page Open Graph / Twitter card image (falls back to the shared card).
+  const ogImage = ogImageForSlug(slug);
   const homeHref = prefix || "./";
   const pageTitle = title === siteData.site.name ? title : `${title} | ${siteData.site.name}`;
   const pageDescription = description || siteData.site.description;
@@ -587,6 +658,11 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
   const hasGraph = normalizedBody.includes("graph-mount");
   const graphStyle = hasGraph ? `\n  <link rel="stylesheet" href="${prefix}assets/css/graphs.css">` : "";
   const graphScript = hasGraph ? `\n  <script src="${prefix}assets/js/graphs.js" defer></script>` : "";
+  // Only the dedicated /search/ page (which embeds a #search-page-mount region)
+  // loads the full-results renderer. It reads the same embedded search index
+  // (search-data.js, 'self' origin) — no fetch, CSP-safe.
+  const hasSearchPage = normalizedBody.includes("search-page-mount");
+  const searchPageScript = hasSearchPage ? `\n  <script src="${prefix}assets/js/search-page.js" defer></script>` : "";
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -609,13 +685,13 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
   <meta property="og:title" content="${escapeHtml(pageTitle)}">
   <meta property="og:description" content="${escapeHtml(pageDescription)}">
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}">
-  <meta property="og:image" content="${escapeHtml(OG_IMAGE())}">
+  <meta property="og:image" content="${escapeHtml(ogImage)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(pageDescription)}">
-  <meta name="twitter:image" content="${escapeHtml(OG_IMAGE())}">
+  <meta name="twitter:image" content="${escapeHtml(ogImage)}">
   <meta name="generator" content="institute_website v${SITE_VERSION}">
-  <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}${structuredData(title, currentDir, canonicalUrl)}
+  <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}${structuredData(title, currentDir, canonicalUrl, slug, pageDescription)}
 </head>
 <body class="${bodyClass}">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -643,6 +719,7 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
     </div>
     <div class="footer-links">
       <a href="mailto:${escapeHtml(siteData.site.email)}">${escapeHtml(siteData.site.email)}</a>
+      <a href="${hrefForSlug("search", currentDir)}">Search</a>
       <a href="${hrefForSlug("resources", currentDir)}">Resources</a>
       <a href="${hrefForSlug("directory", currentDir)}">Directory</a>
       <a href="${hrefForSlug("knowledge", currentDir)}">Open Source Map</a>
@@ -655,7 +732,7 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
   </footer>
   <script src="${prefix}assets/js/site.js" defer></script>
   <script src="${prefix}assets/js/search-data.js" defer></script>
-  <script src="${prefix}assets/js/search.js" defer></script>${graphScript}
+  <script src="${prefix}assets/js/search.js" defer></script>${searchPageScript}${graphScript}
 </body>
 </html>`;
 }
@@ -1509,6 +1586,7 @@ function knowledgePage() {
     description: "Structured public tables for ActiveInferenceInstitute people, repositories, research links, ideas, and ontology relationships.",
     currentDir,
     body,
+    slug: "knowledge",
   });
 }
 
@@ -1651,6 +1729,7 @@ function homePage() {
     description: siteData.site.description,
     body,
     bodyClass: "home",
+    slug: "index",
   });
 }
 
@@ -1713,6 +1792,7 @@ function publicPage(page) {
     description: page.lede,
     currentDir,
     body,
+    slug: page.slug,
   });
 }
 
@@ -2109,6 +2189,7 @@ function resourcesPage() {
     description: "Searchable directory of verified public Active Inference Institute resources.",
     currentDir,
     body,
+    slug: "resources",
   });
 }
 
@@ -2216,6 +2297,42 @@ function directoryPage() {
     description: "Global index of public Active Inference Institute pages, resources, official links, and repositories.",
     currentDir,
     body,
+    slug: "directory",
+  });
+}
+
+// Dedicated full-text search page (/search/). Emitted programmatically like the
+// knowledge/directory pages — NOT a curated src/content/pages JSON, so it is not
+// subject to the curated-page contract. It reuses the embedded search index
+// (search-data.js) and a self-hosted enhancement script (search-page.js) that
+// renders the FULL grouped result set and prefills from the ?q= query string.
+function searchPage() {
+  const currentDir = urlDirForSlug("search");
+  // Count of embedded index entries (matches buildSearchIndex's first line).
+  const indexLine = buildSearchIndex().split("\n", 1)[0];
+  const indexCount = JSON.parse(indexLine.replace(/^window\.__SEARCH_INDEX__ = /, "").replace(/;\s*$/, "")).length;
+  const body = `
+  <section class="page-hero compact">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><span>Search</span></nav>
+    <p class="eyebrow">Site search</p>
+    <h1>Search the Institute</h1>
+    <p>Search every public page, repository, concept, policy, process, and person indexed by this site. Results are grouped by type and drawn from the embedded, self-hosted search index — no network requests.</p>
+  </section>
+  <section class="content-band" id="search-page-mount">
+    <div class="search-page" role="search">
+      <label class="search-page-label" for="search-page-input">Search ${indexCount} indexed entries</label>
+      <input type="search" id="search-page-input" name="q" class="search-page-input" placeholder="Search pages, repositories, concepts, policies, processes, and people…" autocomplete="off" spellcheck="false" aria-describedby="search-page-status" aria-controls="search-page-results">
+      <p id="search-page-status" class="search-page-status" role="status" aria-live="polite">Type at least two characters to search.</p>
+    </div>
+    <div id="search-page-results" class="search-page-results" aria-live="polite"></div>
+    <noscript><p>Enable JavaScript to use site search, or browse the <a href="${hrefForSlug("directory", currentDir)}">global directory</a> and <a href="${hrefForSlug("knowledge", currentDir)}">Open Source Map</a>.</p></noscript>
+  </section>`;
+  return layout({
+    title: "Search",
+    description: "Search every public Active Inference Institute page, repository, concept, policy, process, and person.",
+    currentDir,
+    body,
+    slug: "search",
   });
 }
 
@@ -2351,7 +2468,10 @@ function buildSearchIndex() {
   for (const record of osm.entities.people || []) {
     entries.push({ t: record.name, u: knowledgeUrl, k: (record.roles || []).join(" "), c: "Person" });
   }
-  return `window.__SEARCH_INDEX__ = ${JSON.stringify(entries)};\n`;
+  // Canonical /search/ URL so the header quick-search can offer a "See all
+  // results" link (CSP-safe: a self-origin internal href, no fetch).
+  const searchPageUrl = absoluteUrl(outputPathForSlug("search"));
+  return `window.__SEARCH_INDEX__ = ${JSON.stringify(entries)};\nwindow.__SEARCH_PAGE_URL__ = ${JSON.stringify(searchPageUrl)};\n`;
 }
 
 function writeFile(file, html) {
@@ -2368,6 +2488,7 @@ function build() {
     ["knowledge", knowledgePage],
     ["resources", resourcesPage],
     ["directory", directoryPage],
+    ["search", searchPage],
   ];
   for (const [slug, render] of slugRenderers) {
     writeFile(outputPathForSlug(slug), render());

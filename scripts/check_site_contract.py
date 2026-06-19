@@ -794,6 +794,8 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
         errors.append("sitemap.xml does not include the directory clean URL")
     if f"<loc>{CANONICAL_BASE}knowledge/</loc>" not in sitemap:
         errors.append("sitemap.xml does not include the knowledge clean URL")
+    if f"<loc>{CANONICAL_BASE}search/</loc>" not in sitemap:
+        errors.append("sitemap.xml does not include the search clean URL")
     for obsolete in ("source.html", "assets/source", "atlas"):
         if obsolete in sitemap:
             errors.append(f"sitemap.xml contains obsolete entry {obsolete}")

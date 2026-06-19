@@ -103,6 +103,10 @@
     "label": "Resources",
     "items": [
       {
+        "label": "Search",
+        "slug": "search"
+      },
+      {
         "label": "Resource Directory",
         "slug": "resources"
       },

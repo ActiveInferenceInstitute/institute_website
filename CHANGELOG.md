@@ -3,6 +3,21 @@
 All notable changes to the Active Inference Institute website are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## v2.4.0 — 2026-06-19
+
+Search depth, richer structured data, and per-page link previews.
+
+### Added
+- **Dedicated `/search/` page** — full results grouped by type (pages,
+  repositories, concepts, policies, processes, people), deep-linkable via `?q=`,
+  with a "See all results" link from the header quick-search.
+- **Per-project structured data** — each `/projects/<name>/` page now publishes
+  `SoftwareSourceCode` JSON-LD (with `codeRepository` when a public repo exists) or
+  `CreativeWork`, alongside its breadcrumb.
+- **Per-page social cards** — a unique 1200×630 `og:image` is generated for every
+  content page (`scripts/generate-cards.mjs`), so each link preview is distinct.
+- **`TODO.md`** roadmap at the repo root to coordinate upcoming work.
+
 ## v2.3.0 — 2026-06-19
 
 Brand identity and site-wide search.

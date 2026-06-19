@@ -5,6 +5,7 @@
   var input = document.getElementById("site-search-input");
   var results = document.getElementById("site-search-results");
   var index = window.__SEARCH_INDEX__;
+  var searchPageUrl = window.__SEARCH_PAGE_URL__ || "";
   if (!input || !results || !index) {
     return;
   }
@@ -62,7 +63,7 @@
     if (!matches.length) {
       results.innerHTML = '<p class="site-search-empty">No matches found.</p>';
     } else {
-      results.innerHTML = matches
+      var list = matches
         .map(function (match) {
           return (
             '<a class="site-search-result" role="option" href="' +
@@ -75,6 +76,18 @@
           );
         })
         .join("");
+      // Offer a "See all results" link into the dedicated /search/ page (which
+      // renders the FULL grouped result set), prefilled with the current query.
+      var seeAll = searchPageUrl
+        ? '<a class="site-search-all" href="' +
+          searchPageUrl +
+          "?q=" +
+          encodeURIComponent(query) +
+          '">See all results for &ldquo;' +
+          escapeHtml(query) +
+          "&rdquo;</a>"
+        : "";
+      results.innerHTML = list + seeAll;
     }
     open();
   }
