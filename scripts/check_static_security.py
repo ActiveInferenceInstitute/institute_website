@@ -41,6 +41,10 @@ class StaticHtmlParser(HTMLParser):
         self.inline_script_chunks: list[str] = []
         self._inside_script = False
         self._current_script_has_src = False
+        # JSON-LD (``type="application/ld+json"``) is a non-executable structured-
+        # data block, not script the CSP would run. It is the only standard way to
+        # publish schema.org data, so its body is allowed (it never executes).
+        self._current_script_is_data = False
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attrs_dict = {name.lower(): value or "" for name, value in attrs}
@@ -55,6 +59,7 @@ class StaticHtmlParser(HTMLParser):
             self.scripts.append(attrs_dict)
             self._inside_script = True
             self._current_script_has_src = bool(attrs_dict.get("src"))
+            self._current_script_is_data = attrs_dict.get("type", "").lower() == "application/ld+json"
         elif tag.lower() == "img":
             self.images.append(attrs_dict)
 
@@ -62,9 +67,15 @@ class StaticHtmlParser(HTMLParser):
         if tag.lower() == "script":
             self._inside_script = False
             self._current_script_has_src = False
+            self._current_script_is_data = False
 
     def handle_data(self, data: str) -> None:
-        if self._inside_script and not self._current_script_has_src and data.strip():
+        if (
+            self._inside_script
+            and not self._current_script_has_src
+            and not self._current_script_is_data
+            and data.strip()
+        ):
             self.inline_script_chunks.append(data.strip())
 
 

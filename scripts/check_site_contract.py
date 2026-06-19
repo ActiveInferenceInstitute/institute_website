@@ -72,7 +72,10 @@ def href_for_slug(target_slug: str, current_dir: str = "", anchor: str = "") -> 
     if anchor:
         hash_part = anchor if anchor.startswith("#") else f"#{anchor}"
     return f"{rel}{hash_part}"
-ALLOWED_TEMPLATE_EXTERNAL_URLS = {"http://www.sitemaps.org/schemas/sitemap/0.9"}
+ALLOWED_TEMPLATE_EXTERNAL_URLS = {
+    "http://www.sitemaps.org/schemas/sitemap/0.9",
+    "https://schema.org",  # JSON-LD @context (structured data; non-fetched identifier)
+}
 CURATED_SECTION_IDS = {
     "next-actions",
     "key-surfaces",

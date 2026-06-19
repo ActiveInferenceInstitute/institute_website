@@ -529,6 +529,50 @@ function cspContent() {
   ].join("; ");
 }
 
+// Absolute URL of the social-share / Organization logo image.
+const OG_IMAGE = () => absoluteUrl("assets/img/instituteos/ActInferServe.png");
+
+function jsonLdScript(data) {
+  // Non-executable schema.org data block. Escape "<" so a "</script>" inside any
+  // value cannot break out of the element (the security gate allows ld+json).
+  return `\n  <script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`;
+}
+
+function structuredData(rawTitle, currentDir, canonicalUrl) {
+  const base = absoluteUrl("index.html");
+  if (!currentDir) {
+    return jsonLdScript({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${base}#org`,
+          name: siteData.site.name,
+          url: base,
+          logo: OG_IMAGE(),
+          description: siteData.site.description,
+          email: siteData.site.email,
+        },
+        { "@type": "WebSite", "@id": `${base}#website`, url: base, name: siteData.site.name, publisher: { "@id": `${base}#org` } },
+      ],
+    });
+  }
+  const items = [{ "@type": "ListItem", position: 1, name: "Home", item: base }];
+  const parts = currentDir.split("/").filter(Boolean);
+  let position = 2;
+  if (parts.length === 2) {
+    const section = parts[0];
+    items.push({
+      "@type": "ListItem",
+      position: position++,
+      name: section.charAt(0).toUpperCase() + section.slice(1),
+      item: absoluteUrl(`${section}/index.html`),
+    });
+  }
+  items.push({ "@type": "ListItem", position, name: rawTitle, item: canonicalUrl });
+  return jsonLdScript({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items });
+}
+
 function layout({ title, description, currentDir = "", canonicalPath, body, bodyClass = "" }) {
   const prefix = relPrefix(currentDir);
   const homeHref = prefix || "./";
@@ -558,9 +602,13 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
   <meta property="og:title" content="${escapeHtml(pageTitle)}">
   <meta property="og:description" content="${escapeHtml(pageDescription)}">
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="${escapeHtml(OG_IMAGE())}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
+  <meta name="twitter:description" content="${escapeHtml(pageDescription)}">
+  <meta name="twitter:image" content="${escapeHtml(OG_IMAGE())}">
   <meta name="generator" content="institute_website v${SITE_VERSION}">
-  <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}
+  <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}${structuredData(title, currentDir, canonicalUrl)}
 </head>
 <body class="${bodyClass}">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -2194,10 +2242,20 @@ function build() {
   // Sitemap + version urls: one clean directory URL per routed page (404 excluded).
   // absoluteUrl collapses <dir>/index.html to /<dir>/ (and root to /).
   const urls = slugRenderers.map(([slug]) => outputPathForSlug(slug));
+  // lastmod from the export date (stable per export, not a live clock); priority
+  // by depth: home 1.0, top-level sections 0.8, deeper collection pages 0.6.
+  const lastmod = (EXPORTED_AT || "").slice(0, 10);
+  const sitemapPriority = (url) => {
+    const depth = url.split("/").filter((part) => part && part !== "index.html").length;
+    return depth === 0 ? "1.0" : depth >= 2 ? "0.6" : "0.8";
+  };
   writeFile(
     "sitemap.xml",
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
-      .map((url) => `  <url><loc>${absoluteUrl(url)}</loc></url>`)
+      .map(
+        (url) =>
+          `  <url><loc>${absoluteUrl(url)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}<priority>${sitemapPriority(url)}</priority></url>`,
+      )
       .join("\n")}\n</urlset>\n`,
   );
   // Machine-readable site version + public-safe provenance. built_at mirrors the

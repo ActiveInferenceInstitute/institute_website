@@ -3,6 +3,20 @@
 All notable changes to the Active Inference Institute website are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## v2.1.0 — 2026-06-19
+
+Search-engine optimization and discoverability.
+
+### Added
+- **Structured data (schema.org JSON-LD).** The home page publishes Organization
+  and WebSite data; every other page publishes a BreadcrumbList reflecting its
+  section (e.g. Home › Projects › Active Blockference) — improving search results
+  and enabling rich breadcrumb display.
+- **Social share previews.** Every page now carries an `og:image` and an upgraded
+  `summary_large_image` Twitter card with title, description, and image.
+- **Richer sitemap.** Each URL now includes `lastmod` and a depth-based `priority`
+  (home highest, section pages above deep collection pages) to guide crawlers.
+
 ## v2.0.0 — 2026-06-19
 
 Major information-architecture change: the website now uses clean,
