@@ -11,7 +11,7 @@
     },
     {
       "label": "All Projects",
-      "href": "projects.html"
+      "href": "/projects/"
     }
   ],
   "sections": [
@@ -33,27 +33,27 @@
       "links": [
         {
           "label": "Textbook Group",
-          "href": "project-textbook-group.html"
+          "href": "/projects/textbook-group/"
         },
         {
           "label": "Active Inference Ontology",
-          "href": "project-active-inference-ontology.html"
+          "href": "/projects/active-inference-ontology/"
         },
         {
           "label": "Active Inference Journal",
-          "href": "project-active-inference-journal.html"
+          "href": "/projects/active-inference-journal/"
         },
         {
           "label": "Applied Active Inference Symposium",
-          "href": "project-symposium.html"
+          "href": "/projects/symposium/"
         },
         {
           "label": "Seasonal School",
-          "href": "project-seasonal-school.html"
+          "href": "/projects/seasonal-school/"
         },
         {
           "label": "Educational Course Development",
-          "href": "project-educational-course-development.html"
+          "href": "/projects/educational-course-development/"
         }
       ]
     },
@@ -63,15 +63,15 @@
       "links": [
         {
           "label": "MathArt Conversations",
-          "href": "project-mathart.html"
+          "href": "/projects/mathart/"
         },
         {
           "label": "Neurodivergent Learning Sessions",
-          "href": "project-neurodivergent-learning.html"
+          "href": "/projects/neurodivergent-learning/"
         },
         {
           "label": "Numinia",
-          "href": "project-numinia.html"
+          "href": "/projects/numinia/"
         }
       ]
     },
@@ -84,11 +84,11 @@
         },
         {
           "label": "Programs",
-          "href": "programs.html"
+          "href": "/programs/"
         },
         {
           "label": "Volunteer",
-          "href": "volunteer.html"
+          "href": "/volunteer/"
         }
       ]
     }

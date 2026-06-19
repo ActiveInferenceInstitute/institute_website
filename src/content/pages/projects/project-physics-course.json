@@ -11,7 +11,7 @@
     },
     {
       "label": "EduActive Unit",
-      "href": "edactive.html"
+      "href": "/edactive/"
     }
   ],
   "sections": [
@@ -33,7 +33,7 @@
         },
         {
           "label": "EduActive Unit",
-          "href": "edactive.html"
+          "href": "/edactive/"
         }
       ]
     }

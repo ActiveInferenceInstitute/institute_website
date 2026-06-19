@@ -7,11 +7,11 @@
   "primaryActions": [
     {
       "label": "Get involved",
-      "href": "get-involved.html"
+      "href": "/get-involved/"
     },
     {
       "label": "Programs",
-      "href": "programs.html"
+      "href": "/programs/"
     },
     {
       "label": "Active Inference Institute",
@@ -46,15 +46,15 @@
       "links": [
         {
           "label": "EduActive Unit",
-          "href": "edactive.html"
+          "href": "/edactive/"
         },
         {
           "label": "ReInference Unit",
-          "href": "reinference.html"
+          "href": "/reinference/"
         },
         {
           "label": "All Projects",
-          "href": "projects.html"
+          "href": "/projects/"
         }
       ]
     },
@@ -89,7 +89,7 @@
       "links": [
         {
           "label": "About governance",
-          "href": "structure.html#board-of-directors"
+          "href": "/structure/#board-of-directors"
         }
       ]
     },
@@ -99,7 +99,7 @@
       "links": [
         {
           "label": "Officers",
-          "href": "structure.html#officers"
+          "href": "/structure/#officers"
         }
       ]
     },
@@ -109,7 +109,7 @@
       "links": [
         {
           "label": "Scientific Advisory Board",
-          "href": "structure.html#scientific-advisory-board"
+          "href": "/structure/#scientific-advisory-board"
         }
       ]
     },
@@ -119,7 +119,7 @@
       "links": [
         {
           "label": "Organizational units",
-          "href": "structure.html#organizational-units"
+          "href": "/structure/#organizational-units"
         }
       ]
     }

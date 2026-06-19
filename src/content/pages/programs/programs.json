@@ -30,7 +30,7 @@
         },
         {
           "label": "Volunteer page",
-          "href": "volunteer.html"
+          "href": "/volunteer/"
         }
       ]
     },
@@ -43,7 +43,7 @@
         },
         {
           "label": "Internship page",
-          "href": "internship.html"
+          "href": "/internship/"
         }
       ]
     },
@@ -56,7 +56,7 @@
         },
         {
           "label": "Mentorship page",
-          "href": "mentorship.html"
+          "href": "/mentorship/"
         }
       ]
     },
@@ -69,7 +69,7 @@
         },
         {
           "label": "Fellowship page",
-          "href": "fellowship.html"
+          "href": "/fellowship/"
         }
       ]
     },
@@ -82,7 +82,7 @@
         },
         {
           "label": "Grants page",
-          "href": "grants.html"
+          "href": "/grants/"
         }
       ]
     },
@@ -95,7 +95,7 @@
         },
         {
           "label": "Partnership page",
-          "href": "partnership.html"
+          "href": "/partnership/"
         }
       ]
     },
@@ -108,7 +108,7 @@
         },
         {
           "label": "Philanthropy page",
-          "href": "philanthropy.html"
+          "href": "/philanthropy/"
         }
       ]
     },

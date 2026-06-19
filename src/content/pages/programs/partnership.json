@@ -11,7 +11,7 @@
     },
     {
       "label": "Contact us",
-      "href": "get-involved.html"
+      "href": "/get-involved/"
     }
   ],
   "sections": [
@@ -30,7 +30,7 @@
       "links": [
         {
           "label": "Grants",
-          "href": "grants.html"
+          "href": "/grants/"
         }
       ]
     },
@@ -58,15 +58,15 @@
       "links": [
         {
           "label": "Grants",
-          "href": "grants.html"
+          "href": "/grants/"
         },
         {
           "label": "Philanthropy",
-          "href": "philanthropy.html"
+          "href": "/philanthropy/"
         },
         {
           "label": "All programs",
-          "href": "programs.html"
+          "href": "/programs/"
         }
       ]
     }
@@ -91,7 +91,7 @@
       "links": [
         {
           "label": "Grants",
-          "href": "grants.html"
+          "href": "/grants/"
         }
       ]
     },

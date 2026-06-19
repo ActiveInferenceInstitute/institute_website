@@ -11,7 +11,7 @@
     },
     {
       "label": "Contact us",
-      "href": "get-involved.html"
+      "href": "/get-involved/"
     }
   ],
   "sections": [
@@ -43,11 +43,11 @@
       "links": [
         {
           "label": "Partnership",
-          "href": "partnership.html"
+          "href": "/partnership/"
         },
         {
           "label": "Fellowship",
-          "href": "fellowship.html"
+          "href": "/fellowship/"
         }
       ]
     },
@@ -57,15 +57,15 @@
       "links": [
         {
           "label": "Partnership",
-          "href": "partnership.html"
+          "href": "/partnership/"
         },
         {
           "label": "Philanthropy",
-          "href": "philanthropy.html"
+          "href": "/philanthropy/"
         },
         {
           "label": "All programs",
-          "href": "programs.html"
+          "href": "/programs/"
         }
       ]
     }
@@ -94,7 +94,7 @@
       "links": [
         {
           "label": "Fellowship",
-          "href": "fellowship.html"
+          "href": "/fellowship/"
         }
       ]
     }

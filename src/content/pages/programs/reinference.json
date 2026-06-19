@@ -11,7 +11,7 @@
     },
     {
       "label": "All Projects",
-      "href": "projects.html"
+      "href": "/projects/"
     }
   ],
   "sections": [
@@ -33,27 +33,27 @@
       "links": [
         {
           "label": "Active InferAnts",
-          "href": "project-active-inferants.html"
+          "href": "/projects/active-inferants/"
         },
         {
           "label": "GEO-INFER",
-          "href": "project-geo-infer.html"
+          "href": "/projects/geo-infer/"
         },
         {
           "label": "GNN",
-          "href": "project-gnn.html"
+          "href": "/projects/gnn/"
         },
         {
           "label": "RxInfer.jl",
-          "href": "project-rxinfer.html"
+          "href": "/projects/rxinfer/"
         },
         {
           "label": "Knowledge Engineering",
-          "href": "project-knowledge-engineering.html"
+          "href": "/projects/knowledge-engineering/"
         },
         {
           "label": "Active Blockference",
-          "href": "project-active-blockference.html"
+          "href": "/projects/active-blockference/"
         }
       ]
     },
@@ -63,11 +63,11 @@
       "links": [
         {
           "label": "CogNarr",
-          "href": "project-cognarn.html"
+          "href": "/projects/cognarn/"
         },
         {
           "label": "Geometric Inquiry Theory",
-          "href": "project-geometric-inquiry.html"
+          "href": "/projects/geometric-inquiry/"
         },
         {
           "sourceId": "ecosystem"
@@ -86,7 +86,7 @@
         },
         {
           "label": "Programs",
-          "href": "programs.html"
+          "href": "/programs/"
         }
       ]
     }

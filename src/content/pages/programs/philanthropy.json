@@ -11,7 +11,7 @@
     },
     {
       "label": "Learn about the Institute",
-      "href": "about.html"
+      "href": "/about/"
     }
   ],
   "sections": [
@@ -46,7 +46,7 @@
       "links": [
         {
           "label": "Partnership",
-          "href": "partnership.html"
+          "href": "/partnership/"
         }
       ]
     },
@@ -56,11 +56,11 @@
       "links": [
         {
           "label": "Volunteer",
-          "href": "volunteer.html"
+          "href": "/volunteer/"
         },
         {
           "label": "All programs",
-          "href": "programs.html"
+          "href": "/programs/"
         }
       ]
     }
@@ -90,7 +90,7 @@
       "links": [
         {
           "label": "Programs",
-          "href": "programs.html"
+          "href": "/programs/"
         }
       ]
     },
@@ -100,7 +100,7 @@
       "links": [
         {
           "label": "Partnership",
-          "href": "partnership.html"
+          "href": "/partnership/"
         }
       ]
     }

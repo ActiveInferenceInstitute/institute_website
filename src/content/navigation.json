@@ -4,23 +4,24 @@
     "items": [
       {
         "label": "About",
-        "href": "about.html"
+        "slug": "about"
       },
       {
         "label": "Structure & Governance",
-        "href": "structure.html"
+        "slug": "structure"
       },
       {
         "label": "Ecosystem",
-        "href": "ecosystem.html"
+        "slug": "ecosystem"
       },
       {
         "label": "Global Directory",
-        "href": "directory.html"
+        "slug": "directory"
       },
       {
         "label": "Official Shortlinks",
-        "href": "resources.html#official-shortlinks"
+        "slug": "resources",
+        "anchor": "official-shortlinks"
       }
     ]
   },
@@ -29,23 +30,25 @@
     "items": [
       {
         "label": "Active Inference",
-        "href": "active-inference.html"
+        "slug": "active-inference"
       },
       {
         "label": "Learning and Research",
-        "href": "learning.html"
+        "slug": "learning"
       },
       {
         "label": "Activities",
-        "href": "activities.html"
+        "slug": "activities"
       },
       {
         "label": "Learning Resources",
-        "href": "resources.html#learning"
+        "slug": "resources",
+        "anchor": "learning"
       },
       {
         "label": "START Docs",
-        "href": "resources.html#learning"
+        "slug": "resources",
+        "anchor": "learning"
       }
     ]
   },
@@ -54,23 +57,23 @@
     "items": [
       {
         "label": "Programs",
-        "href": "programs.html"
+        "slug": "programs"
       },
       {
         "label": "Volunteer",
-        "href": "volunteer.html"
+        "slug": "volunteer"
       },
       {
         "label": "Internship",
-        "href": "internship.html"
+        "slug": "internship"
       },
       {
         "label": "Fellowship",
-        "href": "fellowship.html"
+        "slug": "fellowship"
       },
       {
         "label": "Get Involved",
-        "href": "get-involved.html"
+        "slug": "get-involved"
       }
     ]
   },
@@ -79,19 +82,20 @@
     "items": [
       {
         "label": "All Projects",
-        "href": "projects.html"
+        "slug": "projects"
       },
       {
         "label": "EduActive Unit",
-        "href": "edactive.html"
+        "slug": "edactive"
       },
       {
         "label": "ReInference Unit",
-        "href": "reinference.html"
+        "slug": "reinference"
       },
       {
         "label": "Repositories",
-        "href": "directory.html#repositories"
+        "slug": "directory",
+        "anchor": "repositories"
       }
     ]
   },
@@ -100,27 +104,30 @@
     "items": [
       {
         "label": "Resource Directory",
-        "href": "resources.html"
+        "slug": "resources"
       },
       {
         "label": "Global Index",
-        "href": "directory.html"
+        "slug": "directory"
       },
       {
         "label": "Open Source Map",
-        "href": "knowledge.html"
+        "slug": "knowledge"
       },
       {
         "label": "Official Pages",
-        "href": "directory.html#official-pages"
+        "slug": "directory",
+        "anchor": "official-pages"
       },
       {
         "label": "Research References",
-        "href": "resources.html#research"
+        "slug": "resources",
+        "anchor": "research"
       },
       {
         "label": "Audience Pathways",
-        "href": "index.html#audience-pathways"
+        "slug": "index",
+        "anchor": "audience-pathways"
       }
     ]
   }

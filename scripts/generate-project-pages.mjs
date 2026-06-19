@@ -35,9 +35,11 @@ function resourceGroupsFor(slug, data) {
 }
 
 // Maintainer-facing taxonomy: page JSONs live in subfolders for navigability,
-// but the slug stays the identity and the built output URL is always FLAT
-// (<slug>.html at the site root). Project pages go to projects/; the two
-// organizational units (edactive, reinference) are program pages.
+// but the slug stays the identity. The built output URL is a CLEAN directory URL
+// resolved by build.mjs::urlDirForSlug (e.g. project-<name> -> /projects/<name>/,
+// emitted as projects/<name>/index.html). Internal cross-links in these JSONs use
+// root-absolute clean paths ("/projects/<name>/", "/reinference/") which build.mjs
+// re-resolves to caller-relative clean URLs per page.
 function subfolderFor(slug) {
   if (slug === "edactive" || slug === "reinference") {
     return "programs";
@@ -68,7 +70,7 @@ write("edactive", {
   lede: "EduActive is the Institute's education arm. It hosts the Textbook Group, courses, ontology work, the Active Inference Journal, audio-visual production, seasonal school, and related learning initiatives. EduActive projects connect Active Inference to learning infrastructure, pedagogy, and public educational resources.",
   primaryActions: [
     { label: "Textbook Group", sourceId: "official-textbook-group-shortlink" },
-    { label: "All Projects", href: "projects.html" }
+    { label: "All Projects", href: "/projects/" }
   ],
   sections: [
     {
@@ -80,27 +82,27 @@ write("edactive", {
       heading: "Institute Projects",
       body: "EduActive hosts Institute-operated educational projects with sustained maintenance, regular outputs, and defined participation pathways. These include the Textbook Group, Active Inference Ontology, Active Inference Journal, Educational Course Development, Audio-Visual Production, Applied Active Inference Symposium, Seasonal School, Physics Course, Active Inference for Social Sciences, and the Video Improvement project.",
       links: [
-        { label: "Textbook Group", href: "project-textbook-group.html" },
-        { label: "Active Inference Ontology", href: "project-active-inference-ontology.html" },
-        { label: "Active Inference Journal", href: "project-active-inference-journal.html" },
-        { label: "Applied Active Inference Symposium", href: "project-symposium.html" },
-        { label: "Seasonal School", href: "project-seasonal-school.html" },
-        { label: "Educational Course Development", href: "project-educational-course-development.html" }
+        { label: "Textbook Group", href: "/projects/textbook-group/" },
+        { label: "Active Inference Ontology", href: "/projects/active-inference-ontology/" },
+        { label: "Active Inference Journal", href: "/projects/active-inference-journal/" },
+        { label: "Applied Active Inference Symposium", href: "/projects/symposium/" },
+        { label: "Seasonal School", href: "/projects/seasonal-school/" },
+        { label: "Educational Course Development", href: "/projects/educational-course-development/" }
       ]
     },
     {
       heading: "Ecosystem Projects",
       body: "EduActive supports Ecosystem projects aligned with education, learning, and public knowledge. These include Action Research on Collective Foraging, the Active Inference Cycle Book, MathArt Conversations, Neurodivergent Learning Sessions, Numinia, Froebel's System, and others.",
       links: [
-        { label: "MathArt Conversations", href: "project-mathart.html" },
-        { label: "Neurodivergent Learning Sessions", href: "project-neurodivergent-learning.html" },
-        { label: "Numinia", href: "project-numinia.html" }
+        { label: "MathArt Conversations", href: "/projects/mathart/" },
+        { label: "Neurodivergent Learning Sessions", href: "/projects/neurodivergent-learning/" },
+        { label: "Numinia", href: "/projects/numinia/" }
       ]
     },
     {
       heading: "Participate in EduActive",
       body: "EduActive projects welcome learners, developers, writers, instructors, artists, and organizers at all stages. Join a Textbook Group cohort, contribute to ontology work, help produce audio-visual content, or join an ecosystem education project. No prior expertise is required.",
-      links: [{ sourceId: "discord" }, { label: "Programs", href: "programs.html" }, { label: "Volunteer", href: "volunteer.html" }]
+      links: [{ sourceId: "discord" }, { label: "Programs", href: "/programs/" }, { label: "Volunteer", href: "/volunteer/" }]
     }
   ],
   cards: [
@@ -121,7 +123,7 @@ write("reinference", {
   lede: "ReInference is the Institute's research and development arm. It hosts software projects, theoretical work, applied modeling, geospatial analysis, knowledge engineering, and interdisciplinary research under the Active Inference framework. ReInference projects range from widely-used open-source tools to specialized research initiatives.",
   primaryActions: [
     { label: "GitHub", sourceId: "github-org" },
-    { label: "All Projects", href: "projects.html" }
+    { label: "All Projects", href: "/projects/" }
   ],
   sections: [
     {
@@ -133,27 +135,27 @@ write("reinference", {
       heading: "Institute Projects",
       body: "ReInference hosts 12 Institute-operated projects: Active Blockference, AICACP, the Applied Active Inference Symposium, Cognitive Agent Modeling, FarmWorks, Generalized Notation Notation (GNN), GEO-INFER, a Graphical Interface project, Knowledge Engineering, Multiagent Modeling (Active InferAnts), the RxInfer.jl learning group, and the Theoretical Neurobiology Group.",
       links: [
-        { label: "Active InferAnts", href: "project-active-inferants.html" },
-        { label: "GEO-INFER", href: "project-geo-infer.html" },
-        { label: "GNN", href: "project-gnn.html" },
-        { label: "RxInfer.jl", href: "project-rxinfer.html" },
-        { label: "Knowledge Engineering", href: "project-knowledge-engineering.html" },
-        { label: "Active Blockference", href: "project-active-blockference.html" }
+        { label: "Active InferAnts", href: "/projects/active-inferants/" },
+        { label: "GEO-INFER", href: "/projects/geo-infer/" },
+        { label: "GNN", href: "/projects/gnn/" },
+        { label: "RxInfer.jl", href: "/projects/rxinfer/" },
+        { label: "Knowledge Engineering", href: "/projects/knowledge-engineering/" },
+        { label: "Active Blockference", href: "/projects/active-blockference/" }
       ]
     },
     {
       heading: "Ecosystem Projects",
       body: "ReInference supports Ecosystem projects in theoretical neuroscience, computational modeling, AI applications, and specialized domains. These include CogNarr, the Geometric Inquiry Theory, Symbolic Cognitive Robotics, Model-Centric Cognition, and over a dozen other community-driven research projects.",
       links: [
-        { label: "CogNarr", href: "project-cognarn.html" },
-        { label: "Geometric Inquiry Theory", href: "project-geometric-inquiry.html" },
+        { label: "CogNarr", href: "/projects/cognarn/" },
+        { label: "Geometric Inquiry Theory", href: "/projects/geometric-inquiry/" },
         { sourceId: "ecosystem" }
       ]
     },
     {
       heading: "Participate in ReInference",
       body: "ReInference projects welcome researchers, engineers, students, and domain experts. Contributing can mean writing code, modeling, running experiments, producing documentation, or engaging in research discussions. Most projects are open to new participants.",
-      links: [{ sourceId: "github-org" }, { sourceId: "discord" }, { label: "Programs", href: "programs.html" }]
+      links: [{ sourceId: "github-org" }, { sourceId: "discord" }, { label: "Programs", href: "/programs/" }]
     }
   ],
   cards: [
@@ -176,7 +178,7 @@ write("project-active-blockference", {
   lede: "Active Blockference develops Active Inference examples and tools applicable to decentralized and blockchain-adjacent systems. The project has produced a GitHub repository, blog posts, and video overviews, and serves as an integration point for multiagent modeling work from Active InferAnts.",
   primaryActions: [
     { label: "Repository", sourceId: "repo-activeblockference" },
-    { label: "ReInference Unit", href: "reinference.html" }
+    { label: "ReInference Unit", href: "/reinference/" }
   ],
   sections: [
     {
@@ -192,7 +194,7 @@ write("project-active-blockference", {
     {
       heading: "How to Participate",
       body: "Participants can contribute through code, modeling, writing, or discussion. Engagement happens through the GitHub repository and project meetings in the Institute community. Background in Active Inference or distributed systems is helpful but not required.",
-      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "reinference.html" }]
+      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "/reinference/" }]
     }
   ],
   order: 20,
@@ -207,7 +209,7 @@ write("project-aicacp", {
   lede: "AICACP is an Institute project organized around AI capabilities, alignment, and care practices — exploring how Active Inference principles inform responsible and care-oriented AI development. The project maintains a public information page and contributes to the Institute's research on beneficial AI.",
   primaryActions: [
     { label: "Project page", sourceId: "official-participation" },
-    { label: "ReInference Unit", href: "reinference.html" }
+    { label: "ReInference Unit", href: "/reinference/" }
   ],
   sections: [
     {
@@ -218,7 +220,7 @@ write("project-aicacp", {
     {
       heading: "Participation",
       body: "AICACP welcomes contributors with backgrounds in AI, ethics, policy, philosophy of mind, and Active Inference. Engagement ranges from theoretical discussion to practical documentation and policy writing.",
-      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "reinference.html" }]
+      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "/reinference/" }]
     }
   ],
   order: 21,
@@ -249,7 +251,7 @@ write("project-symposium", {
     {
       heading: "Present and Future",
       body: "The 6th Applied Active Inference Symposium takes place in 2026. The Symposium is a joint project between the EduActive and ReInference units, reflecting its role at the intersection of education, research, and community building.",
-      links: [{ sourceId: "official-symposium-shortlink" }, { label: "EduActive", href: "edactive.html" }, { label: "ReInference", href: "reinference.html" }]
+      links: [{ sourceId: "official-symposium-shortlink" }, { label: "EduActive", href: "/edactive/" }, { label: "ReInference", href: "/reinference/" }]
     },
     {
       heading: "Participate",
@@ -274,7 +276,7 @@ write("project-cognitive-agent-modeling", {
   lede: "Cognitive Agent Modeling is a ReInference Institute project focused on developing minimal cognitive agent models grounded in Active Inference. The work explores how perception, action, and learning can be formalized and implemented using the Active Inference framework.",
   primaryActions: [
     { label: "GitHub", sourceId: "github-org" },
-    { label: "ReInference Unit", href: "reinference.html" }
+    { label: "ReInference Unit", href: "/reinference/" }
   ],
   sections: [
     {
@@ -285,7 +287,7 @@ write("project-cognitive-agent-modeling", {
     {
       heading: "Participate",
       body: "Contributors with backgrounds in computational neuroscience, cognitive science, machine learning, or software engineering are welcome. Engagement ranges from implementation and testing to theoretical discussion and documentation.",
-      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "reinference.html" }]
+      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "/reinference/" }]
     }
   ],
   order: 23,
@@ -300,7 +302,7 @@ write("project-farmworks", {
   lede: "FarmWorks develops miniature Active Inference models and applications for agricultural and ecological contexts. The project has produced a public FarmWorks page and a 2024 publication describing the approach of treating farm and soil systems as active inference agents.",
   primaryActions: [
     { label: "GitHub", sourceId: "github-org" },
-    { label: "ReInference Unit", href: "reinference.html" }
+    { label: "ReInference Unit", href: "/reinference/" }
   ],
   sections: [
     {
@@ -316,7 +318,7 @@ write("project-farmworks", {
     {
       heading: "Participate",
       body: "FarmWorks welcomes ecologists, agricultural scientists, modelers, and anyone interested in applying Active Inference to biological and ecological systems.",
-      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "reinference.html" }]
+      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "/reinference/" }]
     }
   ],
   order: 24,
@@ -347,7 +349,7 @@ write("project-gnn", {
     {
       heading: "Participate",
       body: "Contributions include specification work, tooling development, documentation, and applying GNN to new modeling domains. Background in formal modeling or Active Inference is helpful.",
-      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "reinference.html" }]
+      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "/reinference/" }]
     }
   ],
   order: 25,
@@ -378,7 +380,7 @@ write("project-geo-infer", {
     {
       heading: "Participate",
       body: "Contributors with backgrounds in geography, ecology, environmental science, spatial data analysis, or Active Inference modeling are welcome.",
-      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "reinference.html" }]
+      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "/reinference/" }]
     }
   ],
   order: 26,
@@ -393,7 +395,7 @@ write("project-graphical-interface", {
   lede: "The Graphical Interface project develops visual and interactive tools for working with Active Inference models. It focuses on making model structure, dynamics, and outputs more accessible through well-designed graphical interfaces and visualization layers.",
   primaryActions: [
     { label: "GitHub", sourceId: "github-org" },
-    { label: "ReInference Unit", href: "reinference.html" }
+    { label: "ReInference Unit", href: "/reinference/" }
   ],
   sections: [
     {
@@ -404,7 +406,7 @@ write("project-graphical-interface", {
     {
       heading: "Participate",
       body: "Contributors with interests in UI/UX design, visualization, front-end development, or Active Inference modeling are welcome.",
-      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "reinference.html" }]
+      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "/reinference/" }]
     }
   ],
   order: 27,
@@ -435,7 +437,7 @@ write("project-knowledge-engineering", {
     {
       heading: "Participate",
       body: "Contributors with backgrounds in knowledge representation, information science, ontology, natural language processing, or library science are welcome alongside Active Inference researchers.",
-      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "reinference.html" } ]
+      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "/reinference/" } ]
     }
   ],
   order: 28,
@@ -466,7 +468,7 @@ write("project-active-inferants", {
     {
       heading: "Participate",
       body: "Contributors with backgrounds in computational biology, multiagent systems, Active Inference, or behavioral ecology are welcome. Technical contributions (code, models) and conceptual work (theory, documentation) are both valued.",
-      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "reinference.html" }]
+      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "/reinference/" }]
     }
   ],
   order: 29,
@@ -497,7 +499,7 @@ write("project-rxinfer", {
     {
       heading: "Participate",
       body: "Participants can join learning sessions, contribute examples, or help improve RxInfer's visualization capabilities. Julia programming experience is helpful but structured learning sessions accommodate all levels.",
-      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "reinference.html" }]
+      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "/reinference/" }]
     }
   ],
   order: 30,
@@ -512,7 +514,7 @@ write("project-theoretical-neurobiology", {
   lede: "The Theoretical Neurobiology Group (TNB) supports theoretical work connecting Active Inference to neurobiology. It hosts regular meetings and discussions for participants working on mathematical and conceptual models of neural systems, bridging the free energy principle with empirical neuroscience.",
   primaryActions: [
     { label: "TNB page", sourceId: "official-tnb" },
-    { label: "ReInference Unit", href: "reinference.html" }
+    { label: "ReInference Unit", href: "/reinference/" }
   ],
   sections: [
     {
@@ -528,7 +530,7 @@ write("project-theoretical-neurobiology", {
     {
       heading: "Participate",
       body: "Background in neuroscience, biology, or Active Inference is helpful. The group welcomes students, researchers, and anyone engaging seriously with theoretical neurobiology.",
-      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "reinference.html" }]
+      links: [{ sourceId: "discord" }, { label: "ReInference Unit", href: "/reinference/" }]
     }
   ],
   order: 31,
@@ -545,7 +547,7 @@ write("project-active-inference-social-sciences", {
   lede: "Active Inference for Social Sciences develops courses, curricula, research, and writing connecting Active Inference to the social sciences. The project produced a 2023 course and continues to build educational and research resources for social scientists engaging with the Active Inference framework.",
   primaryActions: [
     { label: "Courses", sourceId: "official-courses" },
-    { label: "EduActive Unit", href: "edactive.html" }
+    { label: "EduActive Unit", href: "/edactive/" }
   ],
   sections: [
     {
@@ -561,7 +563,7 @@ write("project-active-inference-social-sciences", {
     {
       heading: "Participate",
       body: "Social scientists, educators, and interdisciplinary researchers interested in connecting Active Inference to their domains are welcome to contribute.",
-      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "edactive.html" }]
+      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/edactive/" }]
     }
   ],
   order: 32,
@@ -618,7 +620,7 @@ write("project-active-inference-ontology", {
     {
       heading: "Participate",
       body: "Ontologists, knowledge engineers, and researchers who work with formal knowledge representation are welcome to contribute. Background in description logics, RDF/OWL, or conceptual modeling is helpful.",
-      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "edactive.html" }]
+      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/edactive/" }]
     }
   ],
   order: 34,
@@ -649,7 +651,7 @@ write("project-audio-visual-production", {
     {
       heading: "How to Help",
       body: "The project welcomes producers, coordinators, technical contributors, and guest curators. If you enjoy the videos and want to help expand and improve production, reach out via blanket@activeinference.institute with subject [PRODUCTION].",
-      links: [{ sourceId: "discord" }, { label: "Volunteer", href: "volunteer.html" }]
+      links: [{ sourceId: "discord" }, { label: "Volunteer", href: "/volunteer/" }]
     }
   ],
   order: 35,
@@ -680,7 +682,7 @@ write("project-educational-course-development", {
     {
       heading: "Participate",
       body: "Educators, instructional designers, subject matter experts, and learners interested in contributing to course development are welcome.",
-      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "edactive.html" }]
+      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/edactive/" }]
     }
   ],
   order: 36,
@@ -695,7 +697,7 @@ write("project-physics-course", {
   lede: "The Physics Course is an Institute education project developing course materials on the physical foundations of Active Inference and the Free Energy Principle — covering thermodynamics, information theory, and the physics underlying biological self-organization.",
   primaryActions: [
     { label: "Courses", sourceId: "official-courses" },
-    { label: "EduActive Unit", href: "edactive.html" }
+    { label: "EduActive Unit", href: "/edactive/" }
   ],
   sections: [
     {
@@ -706,7 +708,7 @@ write("project-physics-course", {
     {
       heading: "Participate",
       body: "Physicists, mathematicians, and quantitatively-oriented learners interested in the theoretical foundations of Active Inference are welcome.",
-      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "edactive.html" }]
+      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/edactive/" }]
     }
   ],
   order: 37,
@@ -721,7 +723,7 @@ write("project-seasonal-school", {
   lede: "The Seasonal School is an Institute educational program providing intensive, structured, and in-depth engagement with Active Inference theory, modeling, and applications. It has run multiple cohorts and developed a track record as a concentrated learning experience for participants from varied backgrounds.",
   primaryActions: [
     { label: "Seasonal School page", sourceId: "official-education" },
-    { label: "EduActive Unit", href: "edactive.html" }
+    { label: "EduActive Unit", href: "/edactive/" }
   ],
   sections: [
     {
@@ -788,7 +790,7 @@ write("project-video-improvement", {
   lede: "The Video Improvement Project focuses on enhancing the quality, organization, and accessibility of the Institute's extensive video library — covering hundreds of livestreams, educational sessions, and project recordings from 2020 onward.",
   primaryActions: [
     { label: "YouTube", sourceId: "youtube" },
-    { label: "EduActive Unit", href: "edactive.html" }
+    { label: "EduActive Unit", href: "/edactive/" }
   ],
   sections: [
     {
@@ -799,7 +801,7 @@ write("project-video-improvement", {
     {
       heading: "Participate",
       body: "Editors, producers, metadata specialists, and media organizers are welcome. Even small contributions — improving descriptions, adding timestamps, or reviewing captions — make a meaningful difference.",
-      links: [{ sourceId: "discord" }, { label: "Audio-Visual Production", href: "project-audio-visual-production.html" }]
+      links: [{ sourceId: "discord" }, { label: "Audio-Visual Production", href: "/projects/audio-visual-production/" }]
     }
   ],
   order: 40,

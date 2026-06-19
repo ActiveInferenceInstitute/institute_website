@@ -14,6 +14,64 @@ from urllib.parse import urlparse
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CONTENT_DIR = PROJECT_ROOT / "src" / "content"
 CANONICAL_BASE = "https://activeinferenceinstitute.github.io/institute_website/"
+
+# Clean-URL taxonomy mirror of src/build.mjs::urlDirForSlug. Maps a page slug to
+# its output directory (no .html). The output file is always <dir>/index.html and
+# the canonical/clean URL is /<dir>/ (root "" for the home page). 404 stays flat.
+PROGRAM_SUBPAGE_SLUGS = {
+    "fellowship",
+    "internship",
+    "mentorship",
+    "partnership",
+    "philanthropy",
+}
+
+
+def url_dir_for_slug(slug: str) -> str:
+    if slug == "index":
+        return ""
+    if slug.startswith("project-"):
+        return f"projects/{slug[len('project-'):]}"
+    if slug in PROGRAM_SUBPAGE_SLUGS:
+        return f"programs/{slug}"
+    return slug
+
+
+def output_path_for_slug(slug: str) -> str:
+    directory = url_dir_for_slug(slug)
+    return f"{directory}/index.html" if directory else "index.html"
+
+
+def html_path_for_slug(root: Path, slug: str) -> Path:
+    return root / output_path_for_slug(slug)
+
+
+def rel_prefix(current_dir: str) -> str:
+    depth = len([part for part in current_dir.split("/") if part])
+    return "../" * depth
+
+
+def dir_for_html_path(root: Path, html_path: Path) -> str:
+    """The clean-URL dir of a generated HTML file (parent dir relative to root)."""
+    relative = html_path.relative_to(root)
+    parent = relative.parent
+    return "" if str(parent) == "." else parent.as_posix()
+
+
+def href_for_slug(target_slug: str, current_dir: str = "", anchor: str = "") -> str:
+    """Caller-relative clean href from current_dir to target_slug (mirrors build.mjs)."""
+    import posixpath
+
+    target_dir = url_dir_for_slug(target_slug)
+    rel = posixpath.relpath(target_dir or ".", current_dir or ".")
+    if rel == ".":
+        rel = "./"
+    if not rel.endswith("/"):
+        rel += "/"
+    hash_part = ""
+    if anchor:
+        hash_part = anchor if anchor.startswith("#") else f"#{anchor}"
+    return f"{rel}{hash_part}"
 ALLOWED_TEMPLATE_EXTERNAL_URLS = {"http://www.sitemaps.org/schemas/sitemap/0.9"}
 CURATED_SECTION_IDS = {
     "next-actions",
@@ -303,10 +361,12 @@ def check_content_model(root: Path, errors: list[str]) -> None:
     navigation = load_json(root / "src" / "content" / "navigation.json")
     if not navigation or any("items" not in group or not group["items"] for group in navigation):
         errors.append("navigation.json must define grouped dropdown navigation")
-    nav_hrefs = {item.get("href") for group in navigation for item in group.get("items", [])}
-    for required_href in {"directory.html", "resources.html", "projects.html", "get-involved.html"}:
-        if required_href not in nav_hrefs:
-            errors.append(f"navigation.json missing required destination {required_href}")
+    # Navigation items now reference clean-URL slugs (+ optional anchor), not flat
+    # <slug>.html literals. Validate the required destination slugs are present.
+    nav_slugs = {item.get("slug") for group in navigation for item in group.get("items", [])}
+    for required_slug in {"directory", "resources", "projects", "get-involved"}:
+        if required_slug not in nav_slugs:
+            errors.append(f"navigation.json missing required destination {required_slug}")
 
     manifest = live_manifest(root)
     live_ids = [item["id"] for item in manifest.get("sources", [])]
@@ -460,14 +520,14 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
         (load_json(path) for path in pages_dir.rglob("*.json")),
         key=lambda page: (page.get("order", 0), page.get("slug", "")),
     )
-    page_hrefs = {f"{page['slug']}.html" for page in pages}
     allowed_live_urls = live_source_urls(live_manifest(root))
 
     for page in pages:
         slug = page["slug"]
-        html_path = root / f"{slug}.html"
+        current_dir = url_dir_for_slug(slug)
+        html_path = html_path_for_slug(root, slug)
         if not html_path.exists():
-            errors.append(f"{slug}: generated HTML is missing")
+            errors.append(f"{slug}: generated HTML is missing at {output_path_for_slug(slug)}")
             continue
 
         html = html_path.read_text(encoding="utf-8")
@@ -482,14 +542,20 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
         if missing_ids:
             errors.append(f"{slug}: missing section ids {sorted(missing_ids)}")
 
+        # Clean-URL hrefs for resources/directory are caller-relative from this page.
+        resources_href = href_for_slug("resources", current_dir)
+        directory_href = href_for_slug("directory", current_dir)
         next_actions = section_between(html, 'id="next-actions"', 'class="content-band"')
-        if 'href="resources.html' not in next_actions or 'href="directory.html"' not in next_actions:
+        if f'href="{resources_href}' not in next_actions or f'href="{directory_href}"' not in next_actions:
             errors.append(f"{slug}: best next actions must link to resources and directory")
         if not re.search(r'href="https?://', next_actions):
             errors.append(f"{slug}: best next actions lacks a verified external action")
 
         related_section = section_between(html, 'id="related-pages"', 'class="pager page-pager"')
-        if not any(f'href="{href}"' in related_section for href in page_hrefs - {f"{slug}.html"}):
+        related_page_hrefs = {
+            href_for_slug(other["slug"], current_dir) for other in pages if other["slug"] != slug
+        }
+        if not any(f'href="{href}"' in related_section for href in related_page_hrefs):
             errors.append(f"{slug}: related-pages section lacks a related internal page link")
 
         resources_section = section_between(html, 'id="resources"', 'id="official-pages"')
@@ -509,9 +575,9 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
 
 
 def check_resource_directory(root: Path, errors: list[str]) -> None:
-    resources_html = root / "resources.html"
+    resources_html = html_path_for_slug(root, "resources")
     if not resources_html.exists():
-        errors.append("resources.html is missing")
+        errors.append("resources/index.html is missing")
         return
     html = resources_html.read_text(encoding="utf-8")
     info = parse_html(resources_html)
@@ -566,9 +632,10 @@ def check_resource_directory(root: Path, errors: list[str]) -> None:
 
 
 def check_knowledge_page(root: Path, errors: list[str]) -> None:
-    html_path = root / "knowledge.html"
+    html_path = html_path_for_slug(root, "knowledge")
+    current_dir = url_dir_for_slug("knowledge")
     if not html_path.exists():
-        errors.append("knowledge.html is missing")
+        errors.append("knowledge/index.html is missing")
         return
     html = html_path.read_text(encoding="utf-8")
     info = parse_html(html_path)
@@ -618,15 +685,22 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
     for anchor_id in expected_anchor_ids:
         if anchor_id not in info.ids:
             errors.append(f"knowledge.html missing row anchor #{anchor_id}")
-    for required_href in {"resources.html", "directory.html#open-source-map", "projects.html#knowledge-preview", "learning.html#knowledge-preview"}:
+    required_signposts = {
+        href_for_slug("resources", current_dir),
+        href_for_slug("directory", current_dir, "open-source-map"),
+        href_for_slug("projects", current_dir, "knowledge-preview"),
+        href_for_slug("learning", current_dir, "knowledge-preview"),
+    }
+    for required_href in required_signposts:
         if required_href not in hrefs:
             errors.append(f"knowledge.html missing internal signpost {required_href}")
 
 
 def check_directory_page(root: Path, errors: list[str]) -> None:
-    directory_html = root / "directory.html"
+    directory_dir = url_dir_for_slug("directory")
+    directory_html = html_path_for_slug(root, "directory")
     if not directory_html.exists():
-        errors.append("directory.html is missing")
+        errors.append("directory/index.html is missing")
         return
     html = directory_html.read_text(encoding="utf-8")
     info = parse_html(directory_html)
@@ -635,21 +709,30 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
         if required_id not in info.ids:
             errors.append(f"directory.html missing {required_id}")
 
+    # Every generated page must link to the directory and knowledge pages using a
+    # caller-relative clean URL computed from that page's own output directory.
     for html_path in generated_html_files(root):
-        if html_path.name == "directory.html":
+        page_dir = dir_for_html_path(root, html_path)
+        if page_dir == directory_dir:
             continue
         hrefs = {href for href, _class_name in parse_html(html_path).anchors}
-        if "directory.html" not in hrefs and not any(href.startswith("directory.html#") for href in hrefs):
-            errors.append(f"{html_path.relative_to(root)} does not link to directory.html")
-        if html_path.name != "knowledge.html" and "knowledge.html" not in hrefs and not any(href.startswith("knowledge.html#") for href in hrefs):
-            errors.append(f"{html_path.relative_to(root)} does not link to knowledge.html")
+        directory_href = href_for_slug("directory", page_dir)
+        if directory_href not in hrefs and not any(href.startswith(directory_href + "#") for href in hrefs):
+            errors.append(f"{html_path.relative_to(root)} does not link to directory")
+        if page_dir != url_dir_for_slug("knowledge"):
+            knowledge_href = href_for_slug("knowledge", page_dir)
+            if knowledge_href not in hrefs and not any(href.startswith(knowledge_href + "#") for href in hrefs):
+                errors.append(f"{html_path.relative_to(root)} does not link to knowledge")
 
     pages = [load_json(path) for path in sorted((root / "src" / "content" / "pages").rglob("*.json"))]
     for page in pages:
-        if f'{page["slug"]}.html' not in html:
+        page_href = href_for_slug(page["slug"], directory_dir)
+        if f'href="{page_href}"' not in html:
             errors.append(f"directory.html missing page {page['slug']}")
         for section in page.get("sections", []):
-            if f'{page["slug"]}.html#{re.sub(r"[^a-z0-9]+", "-", section["heading"].lower()).strip("-")}' not in html:
+            anchor = re.sub(r"[^a-z0-9]+", "-", section["heading"].lower()).strip("-")
+            section_href = href_for_slug(page["slug"], directory_dir, anchor)
+            if f'href="{section_href}"' not in html:
                 errors.append(f"directory.html missing section link {page['slug']}:{section['heading']}")
 
     official_pages = load_json(root / "src" / "content" / "official-pages.json").get("pages", [])
@@ -664,15 +747,20 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
             errors.append(f"directory.html missing repository {repo.get('fullName', repo.get('name'))}")
 
     data = instituteos_data(root)
+
+    def knowledge_row_href(prefix: str, key: str) -> str:
+        anchor = f"{prefix}-{re.sub(r'[^a-z0-9]+', '-', key.lower()).strip('-')}"
+        return href_for_slug("knowledge", directory_dir, anchor)
+
     expected_row_links = [
-        *(f"knowledge.html#person-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["people"].get("records", [])),
-        *(f"knowledge.html#project-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["projects"].get("records", [])),
-        *(f"knowledge.html#idea-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ideas"].get("records", [])),
-        *(f"knowledge.html#ontology-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ontology"].get("edges", [])),
-        *(f"knowledge.html#research-{re.sub(r'[^a-z0-9]+', '-', item['sourceId'].lower()).strip('-')}" for item in research_resource_records(root)),
+        *(knowledge_row_href("person", item["id"]) for item in data["people"].get("records", [])),
+        *(knowledge_row_href("project", item["id"]) for item in data["projects"].get("records", [])),
+        *(knowledge_row_href("idea", item["id"]) for item in data["ideas"].get("records", [])),
+        *(knowledge_row_href("ontology", item["id"]) for item in data["ontology"].get("edges", [])),
+        *(knowledge_row_href("research", item["sourceId"]) for item in research_resource_records(root)),
     ]
     for href in expected_row_links:
-        if href not in html:
+        if f'href="{href}"' not in html:
             errors.append(f"directory.html missing Open Source Map row link {href}")
 
 
@@ -697,10 +785,10 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
     sitemap = (root / "sitemap.xml").read_text(encoding="utf-8")
     if f"<loc>{CANONICAL_BASE}</loc>" not in sitemap:
         errors.append("sitemap.xml does not include the canonical root URL")
-    if f"<loc>{CANONICAL_BASE}directory.html</loc>" not in sitemap:
-        errors.append("sitemap.xml does not include directory.html")
-    if f"<loc>{CANONICAL_BASE}knowledge.html</loc>" not in sitemap:
-        errors.append("sitemap.xml does not include knowledge.html")
+    if f"<loc>{CANONICAL_BASE}directory/</loc>" not in sitemap:
+        errors.append("sitemap.xml does not include the directory clean URL")
+    if f"<loc>{CANONICAL_BASE}knowledge/</loc>" not in sitemap:
+        errors.append("sitemap.xml does not include the knowledge clean URL")
     for obsolete in ("source.html", "assets/source", "atlas"):
         if obsolete in sitemap:
             errors.append(f"sitemap.xml contains obsolete entry {obsolete}")

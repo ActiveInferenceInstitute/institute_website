@@ -37,11 +37,11 @@
       "links": [
         {
           "label": "Volunteer first",
-          "href": "volunteer.html"
+          "href": "/volunteer/"
         },
         {
           "label": "Internship",
-          "href": "internship.html"
+          "href": "/internship/"
         }
       ]
     },
@@ -101,7 +101,7 @@
       "links": [
         {
           "label": "Internship",
-          "href": "internship.html"
+          "href": "/internship/"
         }
       ]
     }

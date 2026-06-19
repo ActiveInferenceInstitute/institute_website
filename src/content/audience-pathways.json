@@ -5,7 +5,7 @@
       "id": "newcomer",
       "label": "Newcomer",
       "summary": "Understand what the Institute is, watch an introduction, and join the public community.",
-      "primaryHref": "about.html",
+      "primaryHref": "/about/",
       "links": [
         {
           "label": "Current landing page",
@@ -25,7 +25,7 @@
       "id": "learner",
       "label": "Learner",
       "summary": "Start with the START docs, knowledge base, videos, courses, and textbook-oriented groups.",
-      "primaryHref": "learning.html",
+      "primaryHref": "/learning/",
       "links": [
         {
           "label": "START docs",
@@ -45,7 +45,7 @@
       "id": "researcher",
       "label": "Researcher",
       "summary": "Move from conceptual references to ontology, metaanalysis, research records, and open questions.",
-      "primaryHref": "learning.html#core-readings",
+      "primaryHref": "/learning/#core-readings",
       "links": [
         {
           "label": "Active Inference Ontology shortlink",
@@ -65,7 +65,7 @@
       "id": "developer",
       "label": "Developer",
       "summary": "Find implementation repos, RxInfer work, GNN, pymdp, and project preparation surfaces.",
-      "primaryHref": "projects.html#repositories",
+      "primaryHref": "/projects/#repositories",
       "links": [
         {
           "label": "GitHub organization",
@@ -85,7 +85,7 @@
       "id": "contributor",
       "label": "Contributor",
       "summary": "Join activities, prepare a project, volunteer, or enter a structured program pathway.",
-      "primaryHref": "get-involved.html",
+      "primaryHref": "/get-involved/",
       "links": [
         {
           "label": "Project Preparation shortlink",
@@ -105,7 +105,7 @@
       "id": "partner-supporter",
       "label": "Partner / Supporter",
       "summary": "Use partnership, support, donation, and fellowship pathways to help sustain public work.",
-      "primaryHref": "programs.html#partnership-and-philanthropy",
+      "primaryHref": "/programs/#partnership-and-philanthropy",
       "links": [
         {
           "label": "Donate",

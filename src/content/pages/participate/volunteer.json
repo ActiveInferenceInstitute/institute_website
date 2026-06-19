@@ -45,11 +45,11 @@
       "links": [
         {
           "label": "Internship",
-          "href": "internship.html"
+          "href": "/internship/"
         },
         {
           "label": "Fellowship",
-          "href": "fellowship.html"
+          "href": "/fellowship/"
         }
       ]
     },
@@ -63,11 +63,11 @@
       "links": [
         {
           "label": "All programs",
-          "href": "programs.html"
+          "href": "/programs/"
         },
         {
           "label": "Internship",
-          "href": "internship.html"
+          "href": "/internship/"
         }
       ]
     }
@@ -96,7 +96,7 @@
       "links": [
         {
           "label": "Programs",
-          "href": "programs.html"
+          "href": "/programs/"
         }
       ]
     }

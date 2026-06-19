@@ -11,7 +11,7 @@
     },
     {
       "label": "ReInference Unit",
-      "href": "reinference.html"
+      "href": "/reinference/"
     }
   ],
   "sections": [
@@ -36,7 +36,7 @@
         },
         {
           "label": "ReInference Unit",
-          "href": "reinference.html"
+          "href": "/reinference/"
         }
       ]
     }

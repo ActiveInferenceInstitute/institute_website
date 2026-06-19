@@ -119,7 +119,125 @@ const escapeHtml = (value = "") =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 
-const slugToHref = (slug) => (slug === "index" ? "index.html" : `${slug}.html`);
+// ── Clean-URL taxonomy ────────────────────────────────────────────────────────
+// urlDirForSlug is the ONE source of truth mapping a page slug to its output
+// directory (a clean directory URL, no .html). The output file is always
+// <dir>/index.html and the canonical URL is /<dir>/ (root "" for the home page).
+// 404 is special-cased as a flat root file in build() and is never routed here.
+const PROGRAM_SUBPAGE_SLUGS = new Set([
+  "fellowship",
+  "internship",
+  "mentorship",
+  "partnership",
+  "philanthropy",
+]);
+
+function urlDirForSlug(slug) {
+  if (slug === "index") {
+    return "";
+  }
+  if (slug.startsWith("project-")) {
+    return `projects/${slug.slice("project-".length)}`;
+  }
+  if (PROGRAM_SUBPAGE_SLUGS.has(slug)) {
+    return `programs/${slug}`;
+  }
+  // projects, programs, about, structure, ecosystem, active-inference, learning,
+  // activities, get-involved, volunteer, grants, edactive, reinference,
+  // resources, directory, knowledge -> root-level directory.
+  return slug;
+}
+
+// The output file path for a slug: <dir>/index.html (root index.html for home).
+function outputPathForSlug(slug) {
+  const dir = urlDirForSlug(slug);
+  return dir ? `${dir}/index.html` : "index.html";
+}
+
+// Caller-relative clean href from the CURRENT page directory to a target slug.
+// Always ends with "/" (the canonical directory URL). The home page resolves to
+// the relative path back to the site root (e.g. "../../" from projects/<x>/).
+// An optional #anchor is preserved verbatim.
+function hrefForSlug(targetSlug, currentDir = "", anchor = "") {
+  const targetDir = urlDirForSlug(targetSlug);
+  let rel = path.posix.relative(currentDir, targetDir);
+  if (rel === "") {
+    rel = targetDir === "" ? "./" : "./";
+  }
+  if (!rel.endsWith("/")) {
+    rel += "/";
+  }
+  const hash = anchor ? (anchor.startsWith("#") ? anchor : `#${anchor}`) : "";
+  return `${rel}${hash}`;
+}
+
+// Backwards-compatible thin wrapper: slugToHref now resolves a slug to a
+// caller-relative clean directory URL. Every caller threads the CURRENT page dir.
+const slugToHref = (slug, currentDir = "", anchor = "") => hrefForSlug(slug, currentDir, anchor);
+
+// Parse a legacy "<slug>.html" or "<slug>.html#anchor" literal into its slug and
+// optional anchor, so content authored with the old flat hrefs resolves through
+// the taxonomy. Returns null when the value is not a flat-page literal.
+function parseFlatHref(value = "") {
+  const match = /^([a-z0-9-]+)\.html(#.*)?$/i.exec(String(value).trim());
+  if (!match) {
+    return null;
+  }
+  return { slug: match[1], anchor: match[2] || "" };
+}
+
+// Reverse map: a clean directory ("projects/x", "about", "") back to the slug
+// that produced it. Lets authors write dir-agnostic clean references (a leading
+// "/<dir>/" path) that re-resolve relative to the current page. Built once.
+const ALL_ROUTED_SLUGS = [
+  "index",
+  ...siteData.pages.map((page) => page.slug),
+  "knowledge",
+  "resources",
+  "directory",
+];
+const SLUG_FOR_DIR = (() => {
+  const map = new Map();
+  for (const slug of ALL_ROUTED_SLUGS) {
+    map.set(urlDirForSlug(slug), slug);
+  }
+  return map;
+})();
+const ROUTED_SLUG_SET = new Set(ALL_ROUTED_SLUGS);
+
+// Resolve any author-supplied internal href to a caller-relative clean URL.
+// Accepts:
+//  - legacy "<slug>.html[#anchor]" literals (mapped via the taxonomy)
+//  - root-absolute clean references "/<dir>/[#anchor]" (mapped back to a slug)
+// and passes through external URLs, mailto/tel, bare "#anchor" fragments, and
+// already-relative clean directory hrefs unchanged.
+function resolveInternalHref(href = "", currentDir = "") {
+  if (!href || externalHref(href) || /^(mailto:|tel:|sms:|#)/i.test(href)) {
+    return href;
+  }
+  const parsed = parseFlatHref(href);
+  if (parsed) {
+    return hrefForSlug(parsed.slug, currentDir, parsed.anchor);
+  }
+  // Root-absolute clean reference: "/projects/x/", "/about/", "/" (home).
+  // Resolve by exact output dir first, then fall back to treating the final path
+  // segment as a slug name (so "/partnership/" still maps to the program-subpage
+  // slug whose real dir is "programs/partnership").
+  if (href.startsWith("/")) {
+    const [pathPart, anchorPart = ""] = href.split("#");
+    const dir = pathPart.replace(/^\/+/, "").replace(/\/+$/, "");
+    const anchor = anchorPart ? `#${anchorPart}` : "";
+    const byDir = SLUG_FOR_DIR.get(dir);
+    if (byDir) {
+      return hrefForSlug(byDir, currentDir, anchor);
+    }
+    const lastSegment = dir.split("/").filter(Boolean).pop() || "index";
+    if (ROUTED_SLUG_SET.has(lastSegment)) {
+      return hrefForSlug(lastSegment, currentDir, anchor);
+    }
+  }
+  return href;
+}
 
 // Public-safe prose normalizer for free-text sourced from registries/narratives.
 // Strips markdown link syntax to its label, removes raw URLs, drops redacted
@@ -192,7 +310,7 @@ function flattenGraphMeta(meta) {
 // Project a raw graph dataset (nodes/edges) into the embedded JSON contract:
 // node = {id,label,type,href?,meta?}; edge = {source,target,relation}. meta is
 // flattened to a string and href is preserved when present.
-function projectGraphData({ nodes = [], edges = [] } = {}) {
+function projectGraphData({ nodes = [], edges = [] } = {}, currentDir = "") {
   const projectedNodes = nodes.map((node) => {
     const out = {
       id: node.id,
@@ -200,7 +318,9 @@ function projectGraphData({ nodes = [], edges = [] } = {}) {
       type: node.type ?? "node",
     };
     if (node.href) {
-      out.href = node.href;
+      // graphs.js renders node.href as a real anchor relative to the page, so
+      // resolve internal references to a caller-relative clean URL here.
+      out.href = resolveInternalHref(node.href, currentDir);
     }
     const meta = flattenGraphMeta(node.meta);
     if (meta) {
@@ -231,9 +351,9 @@ function projectGraphData({ nodes = [], edges = [] } = {}) {
 // JSON is HTML-escaped so the element's textContent survives HTML parsing
 // verbatim: "<" -> < (left as literal text; JSON.parse decodes it), and
 // "&" -> &amp; (the HTML parser decodes it back to "&" in textContent).
-function graphFigure(name, rawData) {
+function graphFigure(name, rawData, currentDir = "") {
   const id = `graph-data-${name}`;
-  const data = projectGraphData(rawData);
+  const data = projectGraphData(rawData, currentDir);
   const json = JSON.stringify(data).replace(/&/g, "&amp;").replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
   return `<div class="graph-figure">
     <div class="graph-mount" data-graph-source="${id}"></div>
@@ -247,8 +367,15 @@ const slugifyAnchor = (value = "") =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 
-function relPrefix(currentPath) {
-  return currentPath.includes("/") ? "../" : "";
+// Asset/root prefix for the CURRENT page directory, generalized to N levels:
+// the number of path segments in the dir determines how many "../" hops reach
+// the site root. Root pages (dir "") get "". projects/<x>/ (depth 2) get "../../".
+function relPrefix(currentDir = "") {
+  if (!currentDir) {
+    return "";
+  }
+  const depth = currentDir.split("/").filter(Boolean).length;
+  return "../".repeat(depth);
 }
 
 function absoluteUrl(filePath = "") {
@@ -310,12 +437,12 @@ function resolveLinks(links = []) {
   return links.map(resolveLink).filter(Boolean);
 }
 
-function nav(prefix = "") {
+function nav(currentDir = "") {
   const groups = siteData.navigation
     .map((group, index) => {
       const id = `nav-menu-${index}-${slugifyAnchor(group.label)}`;
       const items = (group.items || [])
-        .map((item) => `<a href="${prefix}${escapeHtml(item.href)}" role="menuitem">${escapeHtml(item.label)}</a>`)
+        .map((item) => `<a href="${escapeHtml(hrefForSlug(item.slug, currentDir, item.anchor || ""))}" role="menuitem">${escapeHtml(item.label)}</a>`)
         .join("");
       return `<div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="${id}" data-nav-toggle>
@@ -337,7 +464,7 @@ function socialLinks() {
     .join("");
 }
 
-function actionButtons(links = []) {
+function actionButtons(links = [], currentDir = "") {
   const resolved = resolveLinks(links);
   if (!resolved.length) {
     return "";
@@ -345,12 +472,13 @@ function actionButtons(links = []) {
   return `<div class="hero-actions">${resolved
     .map((link, index) => {
       const kind = index === 0 ? "primary" : "secondary";
-      return `<a class="button ${kind}" href="${escapeHtml(link.href)}"${linkAttrs(link.href)}>${escapeHtml(link.label)}</a>`;
+      const href = resolveInternalHref(link.href, currentDir);
+      return `<a class="button ${kind}" href="${escapeHtml(href)}"${linkAttrs(href)}>${escapeHtml(link.label)}</a>`;
     })
     .join("")}</div>`;
 }
 
-function linkChips(links = []) {
+function linkChips(links = [], currentDir = "") {
   const resolved = resolveLinks(links);
   if (!resolved.length) {
     return "";
@@ -358,18 +486,22 @@ function linkChips(links = []) {
   return `<div class="link-chips">${resolved
     .map((link) => {
       const meta = link.meta ? `<em>${escapeHtml(link.meta)}</em>` : "";
-      return `<a href="${escapeHtml(link.href)}"${linkAttrs(link.href)}><span>${escapeHtml(link.label)}</span>${meta}</a>`;
+      const href = resolveInternalHref(link.href, currentDir);
+      return `<a href="${escapeHtml(href)}"${linkAttrs(href)}><span>${escapeHtml(link.label)}</span>${meta}</a>`;
     })
     .join("")}</div>`;
 }
 
-function linkList(links = []) {
+function linkList(links = [], currentDir = "") {
   const resolved = resolveLinks(links);
   if (!resolved.length) {
     return "";
   }
   return `<div class="mini-links">${resolved
-    .map((link) => `<a href="${escapeHtml(link.href)}"${linkAttrs(link.href)}>${escapeHtml(link.label)}</a>`)
+    .map((link) => {
+      const href = resolveInternalHref(link.href, currentDir);
+      return `<a href="${escapeHtml(href)}"${linkAttrs(href)}>${escapeHtml(link.label)}</a>`;
+    })
     .join("")}</div>`;
 }
 
@@ -397,11 +529,13 @@ function cspContent() {
   ].join("; ");
 }
 
-function layout({ title, description, currentPath, body, bodyClass = "" }) {
-  const prefix = relPrefix(currentPath);
+function layout({ title, description, currentDir = "", canonicalPath, body, bodyClass = "" }) {
+  const prefix = relPrefix(currentDir);
+  const homeHref = prefix || "./";
   const pageTitle = title === siteData.site.name ? title : `${title} | ${siteData.site.name}`;
   const pageDescription = description || siteData.site.description;
-  const canonicalUrl = absoluteUrl(currentPath);
+  // canonicalPath overrides for the flat 404 file; otherwise derive from the dir.
+  const canonicalUrl = absoluteUrl(canonicalPath ?? (currentDir ? `${currentDir}/index.html` : "index.html"));
   const normalizedBody = body.trim();
   // Only pages that embed at least one .graph-mount load the graph renderer and
   // its stylesheet (both 'self' origin, satisfying script-src/style-src 'self').
@@ -431,14 +565,14 @@ function layout({ title, description, currentPath, body, bodyClass = "" }) {
 <body class="${bodyClass}">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="brand" href="${prefix}index.html" aria-label="${escapeHtml(siteData.site.name)} home">
+    <a class="brand" href="${homeHref}" aria-label="${escapeHtml(siteData.site.name)} home">
       <span class="brand-mark">AI</span>
       <span>
         <strong>${escapeHtml(siteData.site.name)}</strong>
         <em>${escapeHtml(siteData.site.tagline)}</em>
       </span>
     </a>
-    ${nav(prefix)}
+    ${nav(currentDir)}
   </header>
   <main id="main">
     ${normalizedBody}
@@ -450,10 +584,10 @@ function layout({ title, description, currentPath, body, bodyClass = "" }) {
     </div>
     <div class="footer-links">
       <a href="mailto:${escapeHtml(siteData.site.email)}">${escapeHtml(siteData.site.email)}</a>
-      <a href="${prefix}resources.html">Resources</a>
-      <a href="${prefix}directory.html">Directory</a>
-      <a href="${prefix}knowledge.html">Open Source Map</a>
-      <a href="${prefix}get-involved.html">Get involved</a>
+      <a href="${hrefForSlug("resources", currentDir)}">Resources</a>
+      <a href="${hrefForSlug("directory", currentDir)}">Directory</a>
+      <a href="${hrefForSlug("knowledge", currentDir)}">Open Source Map</a>
+      <a href="${hrefForSlug("get-involved", currentDir)}">Get involved</a>
     </div>
     <div class="social-links" aria-label="Verified public links">
       ${socialLinks()}
@@ -478,10 +612,10 @@ function sectionHeading({ eyebrow, title, text }) {
   return parts.join("\n");
 }
 
-function cardGrid(cards = []) {
+function cardGrid(cards = [], currentDir = "") {
   return `<div class="card-grid">${cards
     .map((card) => {
-      const links = linkChips(card.links);
+      const links = linkChips(card.links, currentDir);
       return `<article class="info-card">
         <h3>${escapeHtml(card.title)}</h3>
         <p>${escapeHtml(card.text)}</p>${links ? `\n        ${links}` : ""}
@@ -490,17 +624,17 @@ function cardGrid(cards = []) {
     .join("")}</div>`;
 }
 
-function breadcrumb(page) {
+function breadcrumb(page, currentDir = "") {
   return `<nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="index.html">Home</a>
+    <a href="${hrefForSlug("index", currentDir)}">Home</a>
     <span aria-hidden="true">/</span>
-    <a href="directory.html">Directory</a>
+    <a href="${hrefForSlug("directory", currentDir)}">Directory</a>
     <span aria-hidden="true">/</span>
     <span>${escapeHtml(page.title)}</span>
   </nav>`;
 }
 
-function pageGuide(page) {
+function pageGuide(page, currentDir = "") {
   const sectionLinks = page.sections
     .map((section) => `<a href="#${escapeHtml(slugifyAnchor(section.heading))}">${escapeHtml(section.heading)}</a>`)
     .join("");
@@ -514,7 +648,7 @@ function pageGuide(page) {
         ${sectionLinks}
         <a href="#next-actions">Best next actions</a>
         <a href="#key-surfaces">Key surfaces</a>
-        <a href="knowledge.html">Open Source Map</a>
+        <a href="${hrefForSlug("knowledge", currentDir)}">Open Source Map</a>
         <a href="#resources">Related resources</a>
         <a href="#official-pages">Official pages</a>
         <a href="#repositories">Repositories</a>
@@ -532,11 +666,11 @@ function relatedSlugsForPage(page) {
   return [siteData.pages[index - 1]?.slug, siteData.pages[index + 1]?.slug].filter(Boolean);
 }
 
-function relatedPages(page) {
+function relatedPages(page, currentDir = "") {
   const related = relatedSlugsForPage(page).map((slug) => pageBySlug.get(slug)).filter(Boolean);
   return `<div class="resource-grid compact-grid">${related
     .map(
-      (relatedPage) => `<a class="resource-card internal-card" href="${slugToHref(relatedPage.slug)}">
+      (relatedPage) => `<a class="resource-card internal-card" href="${slugToHref(relatedPage.slug, currentDir)}">
         <span>${escapeHtml(relatedPage.audience || "Related guide")}</span>
         <strong>${escapeHtml(relatedPage.title)}</strong>
         <p>${escapeHtml(relatedPage.lede)}</p>
@@ -545,7 +679,7 @@ function relatedPages(page) {
     .join("")}</div>`;
 }
 
-function audiencePathwaySection() {
+function audiencePathwaySection(currentDir = "") {
   const pathways = siteData.audiencePathways.pathways || [];
   if (!pathways.length) {
     return "";
@@ -562,15 +696,15 @@ function audiencePathwaySection() {
           <span>${escapeHtml(pathway.label)}</span>
           <h3>${escapeHtml(pathway.title || pathway.label)}</h3>
           <p>${escapeHtml(pathway.summary)}</p>
-          <a class="button secondary" href="${escapeHtml(pathway.primaryHref)}">${escapeHtml(pathway.actionLabel || "Open pathway")}</a>
-          ${linkList(pathway.links)}
+          <a class="button secondary" href="${escapeHtml(resolveInternalHref(pathway.primaryHref, currentDir))}">${escapeHtml(pathway.actionLabel || "Open pathway")}</a>
+          ${linkList(pathway.links, currentDir)}
         </article>`)
         .join("")}
     </div>
   </section>`;
 }
 
-function bestNextActions(page) {
+function bestNextActions(page, currentDir = "") {
   const primary = resolveLinks(page.primaryActions || []).slice(0, 3);
   const groups = page.resourceGroups || [];
   const related = relatedSlugsForPage(page)
@@ -579,11 +713,13 @@ function bestNextActions(page) {
     .slice(0, 2)
     .map((relatedPage) => ({
       label: relatedPage.title,
-      href: slugToHref(relatedPage.slug),
+      href: slugToHref(relatedPage.slug, currentDir),
     }));
   const resourceLinks = [
-    groups[0] ? { label: "Filtered resources", href: `resources.html#${groups[0]}` } : { label: "All resources", href: "resources.html" },
-    { label: "Global directory", href: "directory.html" },
+    groups[0]
+      ? { label: "Filtered resources", href: hrefForSlug("resources", currentDir, groups[0]) }
+      : { label: "All resources", href: hrefForSlug("resources", currentDir) },
+    { label: "Global directory", href: hrefForSlug("directory", currentDir) },
   ];
   const actions = [...primary, ...resourceLinks, ...related];
   return `<section class="content-band next-action-band" id="next-actions">
@@ -593,7 +729,7 @@ function bestNextActions(page) {
         <h2>${escapeHtml(page.title)} pathway</h2>
         <p>Start with the highest-signal public links for this page, then continue through the related resource and directory views.</p>
       </div>
-      ${linkChips(actions)}
+      ${linkChips(actions, currentDir)}
     </div>
   </section>`;
 }
@@ -684,7 +820,7 @@ function resourceBadge(resource) {
   return parts.join(" / ");
 }
 
-function resourceCards(resources = [], { compact = false, filterable = true, sortable = false, wrapperAttrs = "" } = {}) {
+function resourceCards(resources = [], { compact = false, filterable = true, sortable = false, wrapperAttrs = "", currentDir = "" } = {}) {
   if (!resources.length) {
     return '<p class="lede">No public resources are assigned here yet. Use the global directory for the full verified list.</p>';
   }
@@ -694,7 +830,7 @@ function resourceCards(resources = [], { compact = false, filterable = true, sor
       const related = (resource.relatedSlugs || [])
         .map((slug) => pageBySlug.get(slug))
         .filter(Boolean)
-        .map((page) => `<a href="${slugToHref(page.slug)}">${escapeHtml(page.title)}</a>`)
+        .map((page) => `<a href="${slugToHref(page.slug, currentDir)}">${escapeHtml(page.title)}</a>`)
         .join("");
       const search = [
         resource.label,
@@ -762,13 +898,13 @@ function dataTable({ caption, columns, rows, className = "directory-table" }) {
   </table></div>`;
 }
 
-function publicPagePager(page) {
+function publicPagePager(page, currentDir = "") {
   const index = siteData.pages.findIndex((candidate) => candidate.slug === page.slug);
   const prev = siteData.pages[index - 1];
   const next = siteData.pages[index + 1];
   return `<nav class="pager page-pager" aria-label="${escapeHtml(page.title)} adjacent pages">
-    ${prev ? `<a href="${slugToHref(prev.slug)}">Previous: ${escapeHtml(prev.title)}</a>` : "<span></span>"}
-    ${next ? `<a href="${slugToHref(next.slug)}">Next: ${escapeHtml(next.title)}</a>` : "<span></span>"}
+    ${prev ? `<a href="${slugToHref(prev.slug, currentDir)}">Previous: ${escapeHtml(prev.title)}</a>` : "<span></span>"}
+    ${next ? `<a href="${slugToHref(next.slug, currentDir)}">Next: ${escapeHtml(next.title)}</a>` : "<span></span>"}
   </nav>`;
 }
 
@@ -1056,35 +1192,35 @@ function title_case_token_js(value = "") {
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
-function knowledgePreview(page) {
+function knowledgePreview(page, currentDir = "") {
   const previewConfig = {
     about: {
       eyebrow: "Public GitHub people",
       title: "Visible public contributors",
       text: "A compact view of externally visible GitHub profiles connected to public Institute repositories.",
       table: peopleTable(peopleRows(6)),
-      href: "knowledge.html#people-table",
+      anchor: "people-table",
     },
     projects: {
       eyebrow: "Public repositories",
       title: "Open-source project registry",
       text: "Repository rows preserve public language, stars, update recency, project family, and documentation links.",
       table: projectsTable(projectRows(8)),
-      href: "knowledge.html#projects-table",
+      anchor: "projects-table",
     },
     learning: {
       eyebrow: "Ideas and methods",
       title: "Concepts and methods from the learning graph",
       text: "A compact selection from the Active Inference and Free Energy Principle tech-tree nodes.",
       table: ideasTable(ideaRows(8)),
-      href: "knowledge.html#ideas-table",
+      anchor: "ideas-table",
     },
     ecosystem: {
       eyebrow: "Ontology relationships",
       title: "Relationships across the conceptual graph",
       text: "A compact relationship view showing how ideas, methods, values, and tools connect.",
       table: ontologyTable(ontologyRows(8)),
-      href: "knowledge.html#ontology-table",
+      anchor: "ontology-table",
     },
   }[page.slug];
   if (!previewConfig) {
@@ -1093,16 +1229,17 @@ function knowledgePreview(page) {
   return `<section class="content-band knowledge-preview-band" id="knowledge-preview">
     ${sectionHeading({ eyebrow: previewConfig.eyebrow, title: previewConfig.title, text: previewConfig.text })}
     ${previewConfig.table}
-    <p class="section-link"><a href="${previewConfig.href}">Open the full Open Source Map</a></p>
+    <p class="section-link"><a href="${hrefForSlug("knowledge", currentDir, previewConfig.anchor)}">Open the full Open Source Map</a></p>
   </section>`;
 }
 
 function knowledgePage() {
   const counts = instituteosCounts();
   const darkAsset = brandAsset("dark");
+  const currentDir = urlDirForSlug("knowledge");
   const body = `
   <section class="page-hero compact knowledge-hero">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Open Source Map</span></nav>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><span>Open Source Map</span></nav>
     <p class="eyebrow">Public open-source map</p>
     <div class="knowledge-hero-layout">
       <div>
@@ -1112,11 +1249,11 @@ function knowledgePage() {
           { label: "Filter resources", href: "resources.html" },
           { label: "Browse repositories", href: "directory.html#repositories" },
           { label: "Start learning", sourceId: "start-docs" },
-        ])}
+        ], currentDir)}
       </div>
       ${
         darkAsset
-          ? `<img class="knowledge-brand-image" src="${escapeHtml(darkAsset.path)}" alt="${escapeHtml(darkAsset.alt)}">`
+          ? `<img class="knowledge-brand-image" src="${escapeHtml(relPrefix(currentDir) + darkAsset.path)}" alt="${escapeHtml(darkAsset.alt)}">`
           : ""
       }
     </div>
@@ -1169,7 +1306,7 @@ function knowledgePage() {
         { label: "Repositories", href: "directory.html#repositories" },
         { label: "Ontology shortlink", sourceId: "shortlink-ontology" },
         { label: "START docs", sourceId: "start-docs" },
-      ])}
+      ], currentDir)}
     </div>
   </section>
   <section class="content-band" id="public-data-policy">
@@ -1189,7 +1326,7 @@ function knowledgePage() {
       { title: "Processes", text: "Public governance process descriptions including category, status, step count, and SLA.", links: [{ label: "Processes table", href: "#processes-table" }] },
       { title: "Publications", text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: "Publications table", href: "#publications-table" }] },
       { title: "Policies", text: "Public governance policy registry with category, status, version, and description.", links: [{ label: "Policies table", href: "#policies-table" }] },
-    ])}
+    ], currentDir)}
   </section>
   <section class="content-band page-index-band">
     <div class="knowledge-tools" aria-label="Open Source Map filters">
@@ -1240,7 +1377,7 @@ function knowledgePage() {
     countLabel: `${counts.ideas} ideas shown`,
     tableHtml: ideasTable(),
   })}
-  ${ontologyGraphSection()}
+  ${ontologyGraphSection(currentDir)}
   ${tableSection({
     id: "ontology-table",
     eyebrow: "Ontology",
@@ -1304,83 +1441,84 @@ function knowledgePage() {
       { title: "Projects", text: "Public project, repository, and applied-work pathways.", links: [{ label: "Project map", href: "projects.html" }] },
       { title: "Learning", text: "Learning paths, research references, and concept orientation.", links: [{ label: "Learning and Research", href: "learning.html" }] },
       { title: "Directory", text: "Every rendered public page, resource group, official link, repository, and table row.", links: [{ label: "Global Directory", href: "directory.html" }] },
-    ])}
+    ], currentDir)}
   </section>`;
   return layout({
     title: "Open Source Map",
     description: "Structured public tables for ActiveInferenceInstitute people, repositories, research links, ideas, and ontology relationships.",
-    currentPath: "knowledge.html",
+    currentDir,
     body,
   });
 }
 
-function knowledgeDirectoryRows() {
+function knowledgeDirectoryRows(currentDir = "") {
   const rows = [
     ...siteData.instituteos.people.records.map((item) => ({
       kind: "Public People",
       label: item.name,
       summary: `${item.publicRole}: @${item.login}`,
-      href: `knowledge.html#${rowAnchor("person", item.id)}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("person", item.id)),
     })),
     ...siteData.instituteos.projects.records.map((item) => ({
       kind: "Repositories",
       label: item.title,
       summary: `${item.projectFamily} / ${item.language || "Unspecified"}`,
-      href: `knowledge.html#${rowAnchor("project", item.id)}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("project", item.id)),
     })),
     ...siteData.instituteos.ideas.records.map((item) => ({
       kind: "Ideas and Methods",
       label: item.label,
       summary: `${title_case_token_js(item.nodeType)} / ${item.maturity}`,
-      href: `knowledge.html#${rowAnchor("idea", item.id)}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("idea", item.id)),
     })),
     ...siteData.instituteos.ontology.edges.map((item) => ({
       kind: "Ontology",
       label: `${item.sourceLabel} -> ${item.targetLabel}`,
       summary: `${item.treeTitle} / ${item.relationship}`,
-      href: `knowledge.html#${rowAnchor("ontology", item.id)}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("ontology", item.id)),
     })),
     ...researchRows().map((item) => ({
       kind: "Research and Papers",
       label: item.label,
       summary: `${item.categoryLabel} / ${item.audienceLabel}`,
-      href: `knowledge.html#${rowAnchor("research", item.sourceId)}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("research", item.sourceId)),
     })),
     ...(siteData.instituteos.entities.organizations || []).map((item) => ({
       kind: "Organizations",
       label: item.name,
       summary: `${title_case_token_js(item.type || "")}`,
-      href: `knowledge.html#${rowAnchor("org", item.id)}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("org", item.id)),
     })),
     ...(siteData.instituteos.entities.people || []).map((item) => ({
       kind: "Governance Members",
       label: item.name,
       summary: `${item.title || ""} ${(item.roles || []).slice(0, 2).join(", ")}`.trim(),
-      href: `knowledge.html#${rowAnchor("member", item.id)}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("member", item.id)),
     })),
     ...(siteData.instituteos.processes.records || []).map((item) => ({
       kind: "Governance Processes",
       label: item.title,
       summary: `${title_case_token_js(item.category || "")} / ${title_case_token_js(item.status || "")}`,
-      href: `knowledge.html#${rowAnchor("process", item.id)}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("process", item.id)),
     })),
     ...(siteData.instituteos.communications.records || []).map((item) => ({
       kind: "Publications",
       label: item.title,
       summary: `${title_case_token_js(item.type || "")} / ${(item.date || "").slice(0, 10)}`,
-      href: `knowledge.html#${rowAnchor("publication", item.id)}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("publication", item.id)),
     })),
     ...(siteData.instituteos.policies.records || []).map((item) => ({
       kind: "Governance Policies",
       label: item.title,
       summary: `${title_case_token_js((item.category || "").replace(/_/g, " "))} / ${title_case_token_js(item.status || "")}`,
-      href: `knowledge.html#${rowAnchor("policy", item.id)}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("policy", item.id)),
     })),
   ];
   return rows.sort((a, b) => a.kind.localeCompare(b.kind) || a.label.localeCompare(b.label));
 }
 
 function homePage() {
+  const currentDir = urlDirForSlug("index");
   const programPage = siteData.pages.find((page) => page.slug === "programs");
   const projectPage = siteData.pages.find((page) => page.slug === "projects");
   const learningPage = siteData.pages.find((page) => page.slug === "learning");
@@ -1396,7 +1534,7 @@ function homePage() {
         { label: "Open global directory", href: "directory.html" },
         { label: "Browse resources", href: "resources.html" },
         { label: "Explore projects", href: "projects.html" },
-      ])}
+      ], currentDir)}
     </div>
   </section>
 
@@ -1419,15 +1557,15 @@ function homePage() {
         <p>Use the directory when you need the complete map, or use the curated pages when you want guided pathways.</p>
       </article>
       <aside class="action-panel" aria-label="Recommended entry points">
-        <a href="directory.html"><strong>Global index</strong><span>Every page, resource, official link, and repository</span></a>
-        <a href="resources.html"><strong>Filter resources</strong><span>Search by type, category, audience, and tag</span></a>
-        <a href="knowledge.html"><strong>Open Source Map</strong><span>Public people, repositories, research, ideas, and ontology tables</span></a>
-        <a href="get-involved.html"><strong>Participate</strong><span>Channels, activities, support, and contact</span></a>
+        <a href="${hrefForSlug("directory", currentDir)}"><strong>Global index</strong><span>Every page, resource, official link, and repository</span></a>
+        <a href="${hrefForSlug("resources", currentDir)}"><strong>Filter resources</strong><span>Search by type, category, audience, and tag</span></a>
+        <a href="${hrefForSlug("knowledge", currentDir)}"><strong>Open Source Map</strong><span>Public people, repositories, research, ideas, and ontology tables</span></a>
+        <a href="${hrefForSlug("get-involved", currentDir)}"><strong>Participate</strong><span>Channels, activities, support, and contact</span></a>
       </aside>
     </div>
   </section>
 
-  ${audiencePathwaySection()}
+  ${audiencePathwaySection(currentDir)}
 
   <section class="content-band muted">
     ${sectionHeading({ eyebrow: "Core areas", title: "How the public work is organized" })}
@@ -1439,16 +1577,16 @@ function homePage() {
       { title: "Ecosystem", text: ecosystemPage.lede, links: [{ label: "Ecosystem", href: "ecosystem.html" }] },
       { title: "Open Source Map", text: "Structured public tables for people, repositories, research links, ideas, and ontology relationships.", links: [{ label: "Open Source Map", href: "knowledge.html" }] },
       { title: "Directory", text: "A complete global index of public pages, resource groups, repositories, and verified external links.", links: [{ label: "Global directory", href: "directory.html" }] },
-    ])}
+    ], currentDir)}
   </section>
 
   <section class="content-band">
     ${sectionHeading({ eyebrow: "Featured resources", title: "Verified public entry points", text: "These resources are checked through the public link registry and grouped by visitor need." })}
-    ${resourceCards(featuredResources, { filterable: false })}
+    ${resourceCards(featuredResources, { filterable: false, currentDir })}
   </section>`;
   return layout({
     title: siteData.site.name,
-    currentPath: "index.html",
+    currentDir,
     description: siteData.site.description,
     body,
     bodyClass: "home",
@@ -1456,25 +1594,26 @@ function homePage() {
 }
 
 function publicPage(page) {
+  const currentDir = urlDirForSlug(page.slug);
   const curated = normalizedCuratedResources();
   const official = normalizedOfficialPages();
   const repositories = normalizedRepositories();
   const body = `
   <section class="page-hero compact">
-    ${breadcrumb(page)}
+    ${breadcrumb(page, currentDir)}
     <p class="eyebrow">${escapeHtml(page.audience || "Public guide")}</p>
     <h1>${escapeHtml(page.title)}</h1>
     <p>${escapeHtml(page.subtitle)}</p>
-    ${actionButtons(page.primaryActions)}
+    ${actionButtons(page.primaryActions, currentDir)}
   </section>
-  ${pageGuide(page)}
-  ${bestNextActions(page)}
+  ${pageGuide(page, currentDir)}
+  ${bestNextActions(page, currentDir)}
   <section class="content-band">
     <p class="lede">${escapeHtml(page.lede)}</p>
     <div class="article-stack">
       ${page.sections
         .map((section) => {
-          const links = linkChips(section.links);
+          const links = linkChips(section.links, currentDir);
           return `<article class="article-block" id="${escapeHtml(slugifyAnchor(section.heading))}">
             <h2>${escapeHtml(section.heading)}</h2>
             <p>${escapeHtml(section.body)}</p>${links ? `\n            ${links}` : ""}
@@ -1483,35 +1622,35 @@ function publicPage(page) {
         .join("")}
     </div>
   </section>
-  ${instituteosFeatureSections(page)}
+  ${instituteosFeatureSections(page, currentDir)}
   <section class="content-band muted" id="key-surfaces">
     ${sectionHeading({ eyebrow: "Key surfaces", title: `${page.title} at a glance` })}
-    ${cardGrid(page.cards)}
+    ${cardGrid(page.cards, currentDir)}
   </section>
-  ${page.slug.startsWith("project-") ? relatedProjectsSection(page) : ""}
-  ${knowledgePreview(page)}
+  ${page.slug.startsWith("project-") ? relatedProjectsSection(page, currentDir) : ""}
+  ${knowledgePreview(page, currentDir)}
   <section class="content-band" id="resources">
     ${sectionHeading({ eyebrow: "Related resources", title: "Public links for this page", text: "External links are resolved from the shared registry so visitor-facing destinations stay centralized and checkable." })}
-    ${resourceCards(entriesForPage(page, curated, 12))}
+    ${resourceCards(entriesForPage(page, curated, 12), { currentDir })}
   </section>
   <section class="content-band muted" id="official-pages">
     ${sectionHeading({ eyebrow: "Official pages", title: "Official Institute surfaces" })}
-    ${resourceCards(entriesForPage(page, official, 8), { compact: true })}
+    ${resourceCards(entriesForPage(page, official, 8), { compact: true, currentDir })}
   </section>
   <section class="content-band" id="repositories">
     ${sectionHeading({ eyebrow: "Repositories", title: "Related open-source repositories" })}
-    ${resourceCards(entriesForPage(page, repositories, page.slug === "projects" ? 16 : 8), { compact: true })}
-    <p class="section-link"><a href="directory.html#repositories">View all ${siteData.repositories.repositories.length} public repositories</a></p>
+    ${resourceCards(entriesForPage(page, repositories, page.slug === "projects" ? 16 : 8), { compact: true, currentDir })}
+    <p class="section-link"><a href="${hrefForSlug("directory", currentDir, "repositories")}">View all ${siteData.repositories.repositories.length} public repositories</a></p>
   </section>
   <section class="content-band muted" id="related-pages">
     ${sectionHeading({ eyebrow: "Related pages", title: "Continue through the site" })}
-    ${relatedPages(page)}
+    ${relatedPages(page, currentDir)}
   </section>
-  ${publicPagePager(page)}`;
+  ${publicPagePager(page, currentDir)}`;
   return layout({
     title: page.title,
     description: page.lede,
-    currentPath: `${page.slug}.html`,
+    currentDir,
     body,
   });
 }
@@ -1555,7 +1694,7 @@ function narrativeSection({ id, eyebrow, title, text, targetPage }) {
 }
 
 // Tech-tree explorer: an interactive node-link graph plus a relation legend.
-function techTreeExplorerSection() {
+function techTreeExplorerSection(currentDir = "") {
   const graph = siteData.instituteos.techTreeGraph;
   return `<section class="content-band" id="tech-tree-explorer">
     ${sectionHeading({
@@ -1563,13 +1702,13 @@ function techTreeExplorerSection() {
       title: "Explore the Active Inference learning graph",
       text: "An interactive map of concepts, methods, and tools across the Active Inference and Free Energy Principle tech trees. Select a node to highlight its neighbors; filter by relationship type.",
     })}
-    ${graphFigure("tech-tree", graph)}
-    <p class="section-link"><a href="knowledge.html#ideas-table">Open the full idea and ontology tables</a></p>
+    ${graphFigure("tech-tree", graph, currentDir)}
+    <p class="section-link"><a href="${hrefForSlug("knowledge", currentDir, "ideas-table")}">Open the full idea and ontology tables</a></p>
   </section>`;
 }
 
 // Ontology graph view for the knowledge page (companion to the ontology table).
-function ontologyGraphSection() {
+function ontologyGraphSection(currentDir = "") {
   const graph = siteData.instituteos.ontologyGraph;
   return `<section class="content-band" id="ontology-graph">
     ${sectionHeading({
@@ -1577,13 +1716,13 @@ function ontologyGraphSection() {
       title: "Ontology relationships as a graph",
       text: "The same public ontology relationships shown in the table below, rendered as an interactive node-link graph. Select a concept to highlight what it connects to.",
     })}
-    ${graphFigure("ontology", graph)}
+    ${graphFigure("ontology", graph, currentDir)}
     <p class="section-link"><a href="#ontology-table">Jump to the ontology relationship table</a></p>
   </section>`;
 }
 
 // Governance network graph for the structure page (entities, policies, processes).
-function governanceGraphSection() {
+function governanceGraphSection(currentDir = "") {
   const graph = siteData.instituteos.governanceGraph;
   return `<section class="content-band" id="governance-graph">
     ${sectionHeading({
@@ -1591,14 +1730,14 @@ function governanceGraphSection() {
       title: "How entities, policies, and processes connect",
       text: "A public-safe network of governance entities, policies, and processes with their RACI-style relationships. Select a node to trace its accountable, responsible, consulted, and informed links.",
     })}
-    ${graphFigure("governance", graph)}
-    <p class="section-link"><a href="knowledge.html#policies-table">Open the full governance registry tables</a></p>
+    ${graphFigure("governance", graph, currentDir)}
+    <p class="section-link"><a href="${hrefForSlug("knowledge", currentDir, "policies-table")}">Open the full governance registry tables</a></p>
   </section>`;
 }
 
 // "Browse projects by domain" — cross-links each domain's projects to the
 // generated project pages (where a public page exists for that project).
-function domainProjectsSection() {
+function domainProjectsSection(currentDir = "") {
   const domains = (siteData.instituteos.domainProjects.domains || []).filter((domain) => (domain.projects || []).length);
   if (!domains.length) {
     return "";
@@ -1611,7 +1750,7 @@ function domainProjectsSection() {
           const pageSlug = projectPageSlugForDataId(project.id);
           const label = escapeHtml(sanitizePublicProse(project.title || project.id));
           if (pageSlug && slugToPage.has(pageSlug)) {
-            return `<a href="${slugToHref(pageSlug)}">${label}</a>`;
+            return `<a href="${slugToHref(pageSlug, currentDir)}">${label}</a>`;
           }
           return `<span>${label}</span>`;
         })
@@ -1674,7 +1813,7 @@ function relatedProjectsForPage(page) {
   return scored;
 }
 
-function relatedProjectsSection(page) {
+function relatedProjectsSection(page, currentDir = "") {
   const related = relatedProjectsForPage(page);
   if (!related.length) {
     return "";
@@ -1688,7 +1827,7 @@ function relatedProjectsSection(page) {
         ? `Shared topics: ${entry.sharedTopics.map((topic) => title_case_token_js(topic)).join(", ")}`
         : `Same category: ${title_case_token_js(project.category || "")}`;
       const summary = sanitizePublicProse(project.summary || project.description || "").slice(0, 160);
-      return `<a class="resource-card internal-card related-project-card" href="${slugToHref(project.website_slug)}">
+      return `<a class="resource-card internal-card related-project-card" href="${slugToHref(project.website_slug, currentDir)}">
         <span>${escapeHtml(title_case_token_js(project.category || "Project"))}</span>
         <strong>${escapeHtml(sanitizePublicProse(project.title))}</strong>
         <p>${escapeHtml(summary)}</p>
@@ -1712,13 +1851,13 @@ function relatedProjectsSection(page) {
 // InstituteOS feature blocks injected into a curated public page, keyed by slug.
 // Returns markup inserted between the article stack and the key-surfaces band so
 // the required curated section ordering stays intact.
-function instituteosFeatureSections(page) {
+function instituteosFeatureSections(page, currentDir = "") {
   switch (page.slug) {
     case "learning":
-      return techTreeExplorerSection();
+      return techTreeExplorerSection(currentDir);
     case "structure":
       return (
-        governanceGraphSection() +
+        governanceGraphSection(currentDir) +
         narrativeSection({
           id: "structure-narratives",
           eyebrow: "Institute structure",
@@ -1729,7 +1868,7 @@ function instituteosFeatureSections(page) {
       );
     case "ecosystem":
       return (
-        domainProjectsSection() +
+        domainProjectsSection(currentDir) +
         narrativeSection({
           id: "ecosystem-narratives",
           eyebrow: "Ecosystem",
@@ -1764,6 +1903,7 @@ function optionList(items) {
 }
 
 function resourcesPage() {
+  const currentDir = urlDirForSlug("resources");
   const categories = siteData.resources.categories || [];
   const types = siteData.resources.types || [];
   const audiences = siteData.resources.audiences || [];
@@ -1796,13 +1936,13 @@ function resourcesPage() {
       return `<section class="resource-category" id="${escapeHtml(category.id)}">
         ${sectionHeading({ eyebrow: "Resource group", title: category.label, text: category.description })}
         <p class="category-count" data-category-count="${escapeHtml(category.id)}">${groupResources.length} resources in this group</p>
-        ${resourceCards(groupResources)}
+        ${resourceCards(groupResources, { currentDir })}
       </section>`;
     })
     .join("");
   const body = `
   <section class="page-hero compact">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Resources</span></nav>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><span>Resources</span></nav>
     <p class="eyebrow">Searchable directory</p>
     <h1>Resources</h1>
     <p>Find verified public links for official pages, community, learning, media, projects, research, support, social channels, and repositories.</p>
@@ -1817,19 +1957,19 @@ function resourcesPage() {
       { title: `Participation (${participation.length})`, text: "Community, contribution, mentorship, volunteer, support, and social routes.", links: [{ label: "Open participation", href: "#participation-view" }] },
       { title: "Open Source Map", text: "Structured tables for public people, repositories, research links, ideas, and ontology relationships.", links: [{ label: "Open Source Map", href: "knowledge.html" }] },
       { title: `Full directory (${resources.length})`, text: "Search and filter every rendered resource by type, group, audience, and popular tags.", links: [{ label: "Open full directory", href: "#full-directory" }] },
-    ])}
+    ], currentDir)}
   </section>
   <section class="content-band muted" id="featured">
     ${sectionHeading({ eyebrow: "Featured", title: "High-signal public entry points" })}
-    ${resourceCards(featured, { filterable: false })}
+    ${resourceCards(featured, { filterable: false, currentDir })}
   </section>
   <section class="content-band" id="official-pages">
     ${sectionHeading({ eyebrow: "Official pages", title: "Official Institute web surfaces", text: "These are official pages, subdomains, and public program surfaces that resolve through the verified live-source registry." })}
-    ${resourceCards(official, { compact: true, filterable: false })}
+    ${resourceCards(official, { compact: true, filterable: false, currentDir })}
   </section>
   <section class="content-band muted" id="official-shortlinks">
     ${sectionHeading({ eyebrow: "Official shortlinks", title: "Compact public subdomain map", text: "Shortlinks route visitors into official program, learning, preparation, project, and knowledge-base spaces." })}
-    ${resourceCards(shortlinks, { compact: true, filterable: false })}
+    ${resourceCards(shortlinks, { compact: true, filterable: false, currentDir })}
   </section>
   <section class="content-band" id="repositories-view">
     ${sectionHeading({ eyebrow: "Repositories", title: "Public GitHub repositories", text: "Sort the public repository view without external scripts or runtime services." })}
@@ -1845,15 +1985,15 @@ function resourcesPage() {
       </label>
       <p>${repositories.length} public repositories indexed</p>
     </div>
-    ${resourceCards(repositories, { compact: true, filterable: false, sortable: true, wrapperAttrs: ' id="repository-list" data-repository-list' })}
+    ${resourceCards(repositories, { compact: true, filterable: false, sortable: true, wrapperAttrs: ' id="repository-list" data-repository-list', currentDir })}
   </section>
   <section class="content-band muted" id="learning-research">
     ${sectionHeading({ eyebrow: "Learning / Research", title: "Study, research, and technical reference pathways" })}
-    ${resourceCards(learningResearch, { filterable: false })}
+    ${resourceCards(learningResearch, { filterable: false, currentDir })}
   </section>
   <section class="content-band" id="participation-view">
     ${sectionHeading({ eyebrow: "Participation", title: "Community, contribution, and support pathways" })}
-    ${resourceCards(participation, { filterable: false })}
+    ${resourceCards(participation, { filterable: false, currentDir })}
   </section>
   <section class="content-band muted" id="full-directory">
     ${sectionHeading({ eyebrow: "Full directory", title: "Search and filter every rendered resource" })}
@@ -1906,23 +2046,24 @@ function resourcesPage() {
   return layout({
     title: "Resources",
     description: "Searchable directory of verified public Active Inference Institute resources.",
-    currentPath: "resources.html",
+    currentDir,
     body,
   });
 }
 
 function directoryPage() {
+  const currentDir = urlDirForSlug("directory");
   const official = normalizedOfficialPages();
   const repositories = normalizedRepositories();
   const resources = allResourceEntries();
   const publicPages = siteData.pages;
   const shortlinks = official.filter((item) => item.shortlink);
-  const knowledgeRows = knowledgeDirectoryRows();
+  const knowledgeRows = knowledgeDirectoryRows(currentDir);
   const officialColumns = [
     { label: "Official page", render: (item) => `<a href="${escapeHtml(item.href)}"${linkAttrs(item.href)}>${escapeHtml(item.label)}</a>` },
     { label: "Group", render: (item) => escapeHtml(item.categoryLabel) },
     { label: "Audience", render: (item) => escapeHtml(item.audienceLabel) },
-    { label: "Related", render: (item) => (item.relatedSlugs || []).map((slug) => pageBySlug.get(slug)).filter(Boolean).map((page) => `<a href="${slugToHref(page.slug)}">${escapeHtml(page.title)}</a>`).join(" ") },
+    { label: "Related", render: (item) => (item.relatedSlugs || []).map((slug) => pageBySlug.get(slug)).filter(Boolean).map((page) => `<a href="${slugToHref(page.slug, currentDir)}">${escapeHtml(page.title)}</a>`).join(" ") },
   ];
   const repoColumns = [
     { label: "Repository", render: (item) => `<a href="${escapeHtml(item.href)}"${linkAttrs(item.href)}>${escapeHtml(item.label)}</a>` },
@@ -1944,11 +2085,11 @@ function directoryPage() {
   ];
   const body = `
   <section class="page-hero compact">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Directory</span></nav>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><span>Directory</span></nav>
     <p class="eyebrow">Global index</p>
     <h1>Directory</h1>
     <p>Every public page, section, resource group, verified external link, official page, and public repository indexed by this site.</p>
-    ${actionButtons([{ label: "Filter resources", href: "resources.html" }, { label: "Open Source Map", href: "knowledge.html" }, { label: "Project map", href: "projects.html" }])}
+    ${actionButtons([{ label: "Filter resources", href: "resources.html" }, { label: "Open Source Map", href: "knowledge.html" }, { label: "Project map", href: "projects.html" }], currentDir)}
   </section>
   <section class="metrics-band" aria-label="Directory summary">
     <div><strong>${publicPages.length}</strong><span>curated public pages</span></div>
@@ -1963,9 +2104,9 @@ function directoryPage() {
     <div class="directory-list">
       ${publicPages
         .map((page) => `<article class="directory-entry">
-          <h3><a href="${slugToHref(page.slug)}">${escapeHtml(page.title)}</a></h3>
+          <h3><a href="${slugToHref(page.slug, currentDir)}">${escapeHtml(page.title)}</a></h3>
           <p>${escapeHtml(page.lede)}</p>
-          <div class="mini-links">${page.sections.map((section) => `<a href="${slugToHref(page.slug)}#${slugifyAnchor(section.heading)}">${escapeHtml(section.heading)}</a>`).join("")}</div>
+          <div class="mini-links">${page.sections.map((section) => `<a href="${slugToHref(page.slug, currentDir, slugifyAnchor(section.heading))}">${escapeHtml(section.heading)}</a>`).join("")}</div>
         </article>`)
         .join("")}
     </div>
@@ -1976,7 +2117,7 @@ function directoryPage() {
       title: `${category.label} (${resources.filter((resource) => resource.category === category.id).length})`,
       text: category.description,
       links: [{ label: "Open group", href: `resources.html#${category.id}` }],
-    })))}
+    })), currentDir)}
   </section>
   <section class="content-band" id="official-pages">
     ${sectionHeading({ eyebrow: "Official pages", title: `${official.length} official Institute surfaces` })}
@@ -2006,13 +2147,13 @@ function directoryPage() {
       { title: `Ideas (${siteData.instituteos.ideas.records.length})`, text: "Concept, method, tool, value, and application rows from the concept graph.", links: [{ label: "Open ideas table", href: "knowledge.html#ideas-table" }] },
       { title: `Ontology (${siteData.instituteos.ontology.edges.length})`, text: "Directed relationship rows from the concept graph.", links: [{ label: "Open ontology table", href: "knowledge.html#ontology-table" }] },
       { title: `Research (${researchRows().length})`, text: "Verified public research, paper, and reference rows.", links: [{ label: "Open research table", href: "knowledge.html#research-table" }] },
-    ])}
+    ], currentDir)}
     ${dataTable({ caption: "Every Open Source Map row anchor.", columns: knowledgeColumns, rows: knowledgeRows })}
   </section>`;
   return layout({
     title: "Directory",
     description: "Global index of public Active Inference Institute pages, resources, official links, and repositories.",
-    currentPath: "directory.html",
+    currentDir,
     body,
   });
 }
@@ -2023,32 +2164,36 @@ function writeFile(file, html) {
 }
 
 function build() {
-  writeFile("index.html", homePage());
-  for (const page of siteData.pages) {
-    writeFile(`${page.slug}.html`, publicPage(page));
+  // Every routed page maps to <dir>/index.html via the clean-URL taxonomy.
+  // The home page is the only root index.html; 404.html is the only flat file.
+  const slugRenderers = [
+    ["index", homePage],
+    ...siteData.pages.map((page) => [page.slug, () => publicPage(page)]),
+    ["knowledge", knowledgePage],
+    ["resources", resourcesPage],
+    ["directory", directoryPage],
+  ];
+  for (const [slug, render] of slugRenderers) {
+    writeFile(outputPathForSlug(slug), render());
   }
-  writeFile("knowledge.html", knowledgePage());
-  writeFile("resources.html", resourcesPage());
-  writeFile("directory.html", directoryPage());
+  // 404 stays a flat root file (GitHub Pages requires /404.html). Its links use
+  // the root-relative clean paths (currentDir "").
   writeFile(
     "404.html",
     layout({
       title: "Page not found",
-      currentPath: "404.html",
-      body: '<section class="page-hero compact"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>404</span></nav><p class="eyebrow">404</p><h1>Page not found</h1><p>Use the navigation, resource directory, or global index to return to the Institute website.</p><a class="button primary" href="index.html">Home</a></section>',
+      currentDir: "",
+      canonicalPath: "404.html",
+      body: `<section class="page-hero compact"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", "")}">Home</a><span aria-hidden="true">/</span><span>404</span></nav><p class="eyebrow">404</p><h1>Page not found</h1><p>Use the navigation, resource directory, or global index to return to the Institute website.</p><a class="button primary" href="${hrefForSlug("index", "")}">Home</a></section>`,
     }),
   );
   writeFile(
     "robots.txt",
     `User-agent: *\nAllow: /\nSitemap: ${absoluteUrl("sitemap.xml")}\n`,
   );
-  const urls = [
-    "index.html",
-    ...siteData.pages.map((page) => `${page.slug}.html`),
-    "knowledge.html",
-    "resources.html",
-    "directory.html",
-  ];
+  // Sitemap + version urls: one clean directory URL per routed page (404 excluded).
+  // absoluteUrl collapses <dir>/index.html to /<dir>/ (and root to /).
+  const urls = slugRenderers.map(([slug]) => outputPathForSlug(slug));
   writeFile(
     "sitemap.xml",
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls

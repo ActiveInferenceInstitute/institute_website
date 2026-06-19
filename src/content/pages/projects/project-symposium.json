@@ -48,11 +48,11 @@
         },
         {
           "label": "EduActive",
-          "href": "edactive.html"
+          "href": "/edactive/"
         },
         {
           "label": "ReInference",
-          "href": "reinference.html"
+          "href": "/reinference/"
         }
       ]
     },

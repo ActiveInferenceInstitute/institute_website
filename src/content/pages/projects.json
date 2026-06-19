@@ -38,23 +38,23 @@
       "links": [
         {
           "label": "EduActive Unit",
-          "href": "edactive.html"
+          "href": "/edactive/"
         },
         {
           "label": "Textbook Group",
-          "href": "project-textbook-group.html"
+          "href": "/projects/textbook-group/"
         },
         {
           "label": "Symposium",
-          "href": "project-symposium.html"
+          "href": "/projects/symposium/"
         },
         {
           "label": "Active Inference Ontology",
-          "href": "project-active-inference-ontology.html"
+          "href": "/projects/active-inference-ontology/"
         },
         {
           "label": "Seasonal School",
-          "href": "project-seasonal-school.html"
+          "href": "/projects/seasonal-school/"
         }
       ]
     },
@@ -64,27 +64,27 @@
       "links": [
         {
           "label": "ReInference Unit",
-          "href": "reinference.html"
+          "href": "/reinference/"
         },
         {
           "label": "Active InferAnts",
-          "href": "project-active-inferants.html"
+          "href": "/projects/active-inferants/"
         },
         {
           "label": "GEO-INFER",
-          "href": "project-geo-infer.html"
+          "href": "/projects/geo-infer/"
         },
         {
           "label": "GNN",
-          "href": "project-gnn.html"
+          "href": "/projects/gnn/"
         },
         {
           "label": "RxInfer.jl",
-          "href": "project-rxinfer.html"
+          "href": "/projects/rxinfer/"
         },
         {
           "label": "Knowledge Engineering",
-          "href": "project-knowledge-engineering.html"
+          "href": "/projects/knowledge-engineering/"
         }
       ]
     },
@@ -100,11 +100,11 @@
         },
         {
           "label": "CogNarr",
-          "href": "project-cognarn.html"
+          "href": "/projects/cognarn/"
         },
         {
           "label": "Geometric Inquiry Theory",
-          "href": "project-geometric-inquiry.html"
+          "href": "/projects/geometric-inquiry/"
         }
       ]
     }
