@@ -12,6 +12,17 @@ function loadJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(contentDir, relativePath), "utf8"));
 }
 
+// Public site version (decoupled from the private library) + export provenance.
+// Provenance is read from the export manifest so the build stays byte-stable:
+// it changes only when the exported public data changes, never per build run.
+const SITE_VERSION = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8")).version;
+const _manifestPath = path.join(root, "data", "export-manifest.json");
+const EXPORT_PROVENANCE = fs.existsSync(_manifestPath)
+  ? JSON.parse(fs.readFileSync(_manifestPath, "utf8"))
+  : {};
+const SOURCE_FINGERPRINT = EXPORT_PROVENANCE.source_fingerprint || "";
+const EXPORTED_AT = EXPORT_PROVENANCE.generated_at || "";
+
 // The machine-readable public projects feed lives at the repo root (data/),
 // outside src/content. Loaded once and reused for related-projects + domain
 // cross-linking.
@@ -414,6 +425,7 @@ function layout({ title, description, currentPath, body, bodyClass = "" }) {
   <meta property="og:description" content="${escapeHtml(pageDescription)}">
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}">
   <meta name="twitter:card" content="summary">
+  <meta name="generator" content="institute_website v${SITE_VERSION}">
   <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}
 </head>
 <body class="${bodyClass}">
@@ -446,6 +458,7 @@ function layout({ title, description, currentPath, body, bodyClass = "" }) {
     <div class="social-links" aria-label="Verified public links">
       ${socialLinks()}
     </div>
+    <p class="build-stamp">v${escapeHtml(SITE_VERSION)}${SOURCE_FINGERPRINT ? ` · build ${escapeHtml(SOURCE_FINGERPRINT)}` : ""}</p>
   </footer>
   <script src="${prefix}assets/js/site.js" defer></script>${graphScript}
 </body>
@@ -2041,6 +2054,23 @@ function build() {
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
       .map((url) => `  <url><loc>${absoluteUrl(url)}</loc></url>`)
       .join("\n")}\n</urlset>\n`,
+  );
+  // Machine-readable site version + public-safe provenance. built_at mirrors the
+  // export timestamp (not a live clock) so the file stays byte-stable per export.
+  writeFile(
+    "version.json",
+    JSON.stringify(
+      {
+        site_version: SITE_VERSION,
+        built_at: EXPORTED_AT || null,
+        exported_at: EXPORTED_AT || null,
+        source_fingerprint: SOURCE_FINGERPRINT || null,
+        pages: urls.length,
+        commit: process.env.GITHUB_SHA || null,
+      },
+      null,
+      2,
+    ) + "\n",
   );
   console.log(`Built ${urls.length} public pages plus 404.html`);
 }

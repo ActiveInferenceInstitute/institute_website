@@ -58,7 +58,6 @@
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-06-19T14:30:24.286561+00:00",
-  "library_git_sha": "96bdedc8",
-  "library_version": "1.94.0"
+  "generated_at": "2026-06-19T15:10:33.140841+00:00",
+  "source_fingerprint": "60a951ec8ada"
 }

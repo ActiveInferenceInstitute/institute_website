@@ -779,8 +779,27 @@ def check_template_external_urls(root: Path, errors: list[str]) -> None:
         errors.append(f"src/build.mjs hardcodes external URLs instead of live-sources.json: {external_urls}")
 
 
+def check_version(root: Path, errors: list[str]) -> None:
+    version_path = root / "version.json"
+    if not version_path.exists():
+        errors.append("version.json is missing (run the build)")
+        return
+    try:
+        version = json.loads(version_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        errors.append(f"version.json is not valid JSON: {exc}")
+        return
+    package = json.loads((root / "package.json").read_text(encoding="utf-8"))
+    if version.get("site_version") != package.get("version"):
+        errors.append(
+            f"version.json site_version {version.get('site_version')!r} does not match "
+            f"package.json version {package.get('version')!r}"
+        )
+
+
 def check_site_contract(root: Path) -> int:
     errors: list[str] = []
+    check_version(root, errors)
     check_no_obsolete_public_artifacts(root, errors)
     check_content_model(root, errors)
     check_curated_pages(root, errors)

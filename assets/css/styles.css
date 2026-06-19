@@ -994,3 +994,4 @@ select:focus-visible {
     max-width: none;
   }
 }
+.build-stamp{margin-top:1.5rem;font-size:.75rem;opacity:.55;letter-spacing:.02em}
