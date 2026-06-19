@@ -123,7 +123,7 @@
     },
     {
       "category": "governance_ethics",
-      "currentVersion": "0.9",
+      "currentVersion": "0.95",
       "description": "Meta-policy defining how all AII governance artifacts are developed, structured, tiered, monitored, and revised",
       "id": "meta-policy",
       "status": "drafting",
