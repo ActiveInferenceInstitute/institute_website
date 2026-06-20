@@ -53,11 +53,11 @@
       "name": "tech_tree_graph.json",
       "output_path": "src/content/instituteos/tech_tree_graph.json",
       "record_count": 30,
-      "sha256": "4bec7ebea84a5df248b65c7a34fd234275d284167a8c76c5ed042c295488313e",
+      "sha256": "dadb9a9d4e3087ece8d70fc5b42f88cef9946b3bcad7a558cfaabb0424af5394",
       "target": "content"
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-06-19T15:10:33.140841+00:00",
-  "source_fingerprint": "60a951ec8ada"
+  "generated_at": "2026-06-20T21:42:21.964329+00:00",
+  "source_fingerprint": "fc6fd8db82ff"
 }

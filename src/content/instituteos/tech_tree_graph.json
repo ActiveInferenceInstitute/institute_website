@@ -151,8 +151,7 @@
       "meta": {
         "tree": "active-inference",
         "maturity": "emerging"
-      },
-      "href": "/projects/rxinfer/"
+      }
     },
     {
       "id": "active-inference:karl-friston",
