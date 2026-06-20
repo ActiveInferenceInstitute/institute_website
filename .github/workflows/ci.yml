@@ -1,0 +1,62 @@
+name: CI
+
+# Validates the static, dependency-free build on every push and pull request to
+# main. The site is served by GitHub Pages directly from main at the repository
+# root, so the committed *.html must always match what `node src/build.mjs`
+# produces from src/content. This workflow rebuilds, runs the full check gate,
+# and fails if the committed output has drifted from source.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # No npm dependencies (zero-dependency build), and no lockfile is committed,
+      # so a plain install is correct here. It is a no-op when there is nothing
+      # to install but keeps the step honest if a dev dependency is ever added.
+      - name: Install Node dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Build static site
+        run: npm run build
+
+      # The full gate: node --check, py_compile, internal links, instituteos data
+      # sync, site contract, and static security. Offline-safe (the network-only
+      # live-source check is intentionally excluded from `npm run check`).
+      - name: Run checks
+        run: npm run check
+
+      # GitHub Pages serves the committed *.html. If the build produced output
+      # that differs from what is committed, the published site is stale — fail
+      # loudly so the contributor rebuilds and commits the regenerated output.
+      - name: Verify committed output is up to date
+        run: |
+          if ! git diff --exit-code; then
+            echo "::error::Generated output is out of date. Run 'npm run build' and commit the result."
+            exit 1
+          fi

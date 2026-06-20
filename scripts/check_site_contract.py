@@ -75,6 +75,7 @@ def href_for_slug(target_slug: str, current_dir: str = "", anchor: str = "") -> 
 ALLOWED_TEMPLATE_EXTERNAL_URLS = {
     "http://www.sitemaps.org/schemas/sitemap/0.9",
     "https://schema.org",  # JSON-LD @context (structured data; non-fetched identifier)
+    "https://schema.org/NGO",  # Organization additionalType (non-fetched schema.org identifier)
     "http://www.w3.org/2005/Atom",  # RSS atom:link namespace (feed.xml)
     "https://jsonfeed.org/version/1.1",  # JSON Feed version identifier (feed.json)
 }
@@ -796,6 +797,10 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
         errors.append("sitemap.xml does not include the knowledge clean URL")
     if f"<loc>{CANONICAL_BASE}search/</loc>" not in sitemap:
         errors.append("sitemap.xml does not include the search clean URL")
+    if f"<loc>{CANONICAL_BASE}sitemap/</loc>" not in sitemap:
+        errors.append("sitemap.xml does not include the sitemap clean URL")
+    if "<changefreq>" not in sitemap:
+        errors.append("sitemap.xml does not include any <changefreq> hint")
     for obsolete in ("source.html", "assets/source", "atlas"):
         if obsolete in sitemap:
             errors.append(f"sitemap.xml contains obsolete entry {obsolete}")

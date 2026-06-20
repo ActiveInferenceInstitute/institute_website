@@ -5,6 +5,19 @@ lives in [`CHANGELOG.md`](CHANGELOG.md); this file tracks what's planned and in
 progress. The site is a static, dependency-free build (`node src/build.mjs`) with a
 strict Content Security Policy, gated by `npm run check`.
 
+## Shipped in v2.5
+
+- [x] **Sitemap `changefreq` hints and an HTML sitemap page** — XML `<changefreq>`
+      plus a human-readable `/sitemap/` linked from every footer.
+- [x] **`CollectionPage` structured data** for the `/projects/` and `/programs/`
+      indexes (with an `ItemList` of child pages).
+- [x] **Light/dark theme toggle** persisted in `localStorage`
+      (`assets/js/theme.js`, CSP-safe external script).
+- [x] **Per-domain landing pages under `/ecosystem/`** linking to projects by
+      domain of application.
+- [x] **Search synonyms / fuzzy matching and result highlighting** across the
+      header quick-search and the `/search/` page.
+
 ## Shipped in v2.4
 
 - [x] **Dedicated `/search/` page** — full results grouped by type, deep-linkable
@@ -16,11 +29,9 @@ strict Content Security Policy, gated by `npm run check`.
 
 ## Backlog / ideas
 
-- [ ] Sitemap `changefreq` hints and an HTML sitemap page.
-- [ ] `CollectionPage` structured data for the `/projects/` and `/programs/` indexes.
-- [ ] Light/dark theme toggle persisted in `localStorage`.
-- [ ] Per-domain landing pages under `/ecosystem/` linking to projects by domain.
-- [ ] Search synonyms / fuzzy matching and result highlighting.
+- [ ] Per-page `lastmod` in `sitemap.xml` from content provenance (instead of a
+      uniform build date).
+- [ ] Media-scoped `theme-color` meta pair (dark/light) to complement the toggle.
 
 ## Conventions
 

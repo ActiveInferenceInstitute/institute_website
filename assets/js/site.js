@@ -74,7 +74,12 @@ window.addEventListener(
   { passive: true },
 );
 toTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  // Respect prefers-reduced-motion: the smooth scroll behavior option is not
+  // governed by the CSS scroll-behavior rule, so honor the preference here.
+  const reduceMotion =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
 });
 
 const resourceSearch = document.querySelector("#resource-search");

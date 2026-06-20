@@ -3,6 +3,38 @@
 All notable changes to the Active Inference Institute website are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## v2.5.0 — 2026-06-20
+
+Discoverability, theming, and smarter search.
+
+### Added
+- **HTML sitemap (`/sitemap/`)** — a human-readable index of every public page,
+  generated programmatically and linked from the footer of every page. The XML
+  sitemap now also emits `<changefreq>` hints (weekly for top-level pages,
+  monthly for deeper collection pages) alongside `<lastmod>`/`<priority>`.
+- **CollectionPage + ItemList structured data** — the `/projects/` and
+  `/programs/` hub pages now publish a `CollectionPage` with an `ItemList` of
+  their child pages, derived at build time so the listing tracks content.
+- **Per-domain ecosystem landing pages (`/ecosystem/<domain>/`)** — one page per
+  domain of application that has mapped projects, listing each project (linking
+  to its page when one exists). The ecosystem overview links into each domain.
+- **Light/dark theme toggle** — a CSP-safe header control (`assets/js/theme.js`,
+  external + `defer`) that toggles the design-system light tokens, persists the
+  choice in `localStorage`, and honors `prefers-color-scheme` in system mode.
+- **Fuzzy + synonym search** — both the header quick-search and the `/search/`
+  page now expand queries through a synonym/alias map, fall back to a
+  subsequence fuzzy match, and highlight matched substrings with `<mark>`.
+
+### Changed
+- **Richer Organization JSON-LD** — the Organization node now declares
+  `additionalType` (NGO) and a structured `contactPoint`.
+- **Reliable link previews** — `og:image:width`/`height` (1200×630) and
+  `og:image:alt` are now emitted in every page head.
+- **Reduced layout shift** — the brand image on `/knowledge/` carries intrinsic
+  `width`/`height` plus `loading="lazy"` and `decoding="async"`.
+- **Motion-preference fix** — the back-to-top button now uses an instant scroll
+  when `prefers-reduced-motion: reduce` is set.
+
 ## v2.4.0 — 2026-06-19
 
 Search depth, richer structured data, and per-page link previews.

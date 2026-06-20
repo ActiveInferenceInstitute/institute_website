@@ -1,5 +1,5 @@
 :root {
-  color-scheme: dark;
+  color-scheme: dark light;
   /* Unified onto the InstituteOS design-system token contract (instituteos-ds.css,
      linked before this file). The fallbacks keep the site styled even if the DS
      stylesheet is ever absent. This is how the website inherits the canonical
@@ -1056,6 +1056,16 @@ select:focus-visible {
 .search-page-result a:hover,.search-page-result a:focus-visible{border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.1);outline:none}
 .search-page-result-title{display:block;font-weight:600}
 .search-page-result-snippet{display:block;margin-top:.25rem;font-size:.85rem;opacity:.7}
+/* Highlight for matched query substrings injected at runtime by search.js. */
+.site-search-result mark,.site-search-title mark,.search-page-result-title mark,.search-page-result-snippet mark{background:rgba(239,68,68,.28);color:inherit;border-radius:2px;padding:0 .1em}
+
+/* Light/dark theme toggle button (in the site header; bound by theme.js). */
+.theme-toggle{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:var(--radius);cursor:pointer;padding:.45rem .6rem;font-size:1rem;line-height:1;transition:background-color 200ms,color 200ms,border-color 200ms}
+.theme-toggle:hover{background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)}
+.theme-toggle-icon{display:inline-block}
+/* Soften the theme switch (and the FOUC from external defer scripts). */
+body{transition:background-color 200ms,color 200ms}
+@media (max-width:720px){.theme-toggle{order:4}}
 
 
 /* Back-to-top control (created by site.js on long pages, CSP-safe). */
@@ -1084,4 +1094,46 @@ select:focus-visible {
   background: var(--red);
   border-color: var(--red);
   color: #ffffff;
+}
+
+/* Interactive-surface polish ─────────────────────────────────────────────────
+   Smooth the many border/color/background hover states that previously snapped,
+   using the same DS motion tokens as .button. The global prefers-reduced-motion
+   rule above neutralizes all of these for users who opt out, so this is purely
+   additive and accessibility-safe. */
+.nav-menu-button,
+.nav-menu a,
+.page-index nav a,
+.link-chips a,
+.category-nav a,
+.mini-links a,
+.action-panel a,
+.pathway-card,
+.info-card,
+.resource-card,
+.directory-entry,
+.pager a,
+.tag-filter-chips button {
+  transition:
+    border-color var(--ds-motion, 200ms) var(--ds-ease, ease),
+    background var(--ds-motion, 200ms) var(--ds-ease, ease),
+    color var(--ds-motion, 200ms) var(--ds-ease, ease),
+    box-shadow var(--ds-motion, 200ms) var(--ds-ease, ease),
+    transform var(--ds-motion, 200ms) var(--ds-ease, ease);
+}
+
+/* Subtle lift on the elevated cards (those that already carry a shadow) so the
+   hover reads as a tactile surface, not just a color shift. */
+.info-card:hover,
+.resource-card:hover {
+  border-color: var(--red);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-card:hover,
+  .resource-card:hover {
+    transform: none;
+  }
 }

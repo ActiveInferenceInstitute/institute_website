@@ -196,6 +196,7 @@ const ALL_ROUTED_SLUGS = [
   "resources",
   "directory",
   "search",
+  "sitemap",
 ];
 const SLUG_FOR_DIR = (() => {
   const map = new Map();
@@ -599,6 +600,40 @@ function projectStructuredNode(slug, rawTitle, canonicalUrl, description) {
   return node;
 }
 
+// schema.org CollectionPage + ItemList for an index/hub page (/projects/,
+// /programs/). Enumerates the child pages that route under <currentDir>/ in the
+// same order siteData.pages is already sorted. Every URL is derived via
+// absoluteUrl — no hardcoded literals — keeping the external-URL gate green.
+function collectionStructuredNode(currentDir, canonicalUrl, rawTitle, description) {
+  const childPages = siteData.pages.filter((p) => {
+    const dir = urlDirForSlug(p.slug);
+    return dir !== currentDir && dir.startsWith(`${currentDir}/`);
+  });
+  const itemListElement = childPages.map((p, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: p.title,
+    url: absoluteUrl(outputPathForSlug(p.slug)),
+  }));
+  const itemList = {
+    "@type": "ItemList",
+    "@id": `${canonicalUrl}#itemlist`,
+    name: rawTitle,
+    numberOfItems: itemListElement.length,
+    itemListElement,
+  };
+  const collectionPage = {
+    "@type": "CollectionPage",
+    "@id": `${canonicalUrl}#collection`,
+    name: rawTitle,
+    url: canonicalUrl,
+    ...(description ? { description } : {}),
+    isPartOf: { "@id": `${absoluteUrl("index.html")}#website` },
+    mainEntity: { "@id": `${canonicalUrl}#itemlist` },
+  };
+  return [collectionPage, itemList];
+}
+
 function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", description = "", minimalSeo = false) {
   const base = absoluteUrl("index.html");
   // Soft-error pages (404) carry no entity markup and must not seed the graph.
@@ -611,11 +646,19 @@ function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", descripti
   const orgNode = {
     "@type": "Organization",
     "@id": `${base}#org`,
+    // The Institute is a 501(c)(3) nonprofit (src/content/metrics.json); the NGO
+    // additionalType strengthens the Knowledge Graph entity. Purely additive.
+    additionalType: "https://schema.org/NGO",
     name: siteData.site.name,
     url: base,
     logo: LOGO_IMAGE(),
     description: siteData.site.description,
     email: siteData.site.email,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "general inquiries",
+      email: siteData.site.email,
+    },
     ...(sameAs.length ? { sameAs } : {}),
   };
   if (!currentDir) {
@@ -658,6 +701,16 @@ function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", descripti
     return jsonLdScript({
       "@context": "https://schema.org",
       "@graph": [breadcrumb, projectStructuredNode(slug, rawTitle, canonicalUrl, description), orgNode],
+    });
+  }
+  // Index/collection hubs (/projects/, /programs/) additionally publish a
+  // CollectionPage + ItemList of their child pages so crawlers see the listing.
+  // Exact-equality on currentDir guarantees only the hub matches — detail pages
+  // have currentDir like "projects/<name>" and keep their project node above.
+  if (currentDir === "projects" || currentDir === "programs") {
+    return jsonLdScript({
+      "@context": "https://schema.org",
+      "@graph": [breadcrumb, ...collectionStructuredNode(currentDir, canonicalUrl, rawTitle, description), orgNode],
     });
   }
   // Inner pages carry the breadcrumb plus a brand Organization reference so the
@@ -722,6 +775,9 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
   <meta property="og:description" content="${escapeHtml(pageDescription)}">
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}">
   <meta property="og:image" content="${escapeHtml(ogImage)}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${escapeHtml(`${siteData.site.name} — ${pageTitle}`)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(pageDescription)}">
@@ -745,6 +801,7 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
       <input type="search" id="site-search-input" placeholder="Search the Institute…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Search the site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Search results" hidden></div>
     </div>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch theme" aria-pressed="false" title="Toggle light/dark theme"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
   </header>
   <main id="main">
     ${normalizedBody}
@@ -763,6 +820,7 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
       <a href="${hrefForSlug("knowledge", currentDir)}">Open Source Map</a>
       <a href="${hrefForSlug("get-involved", currentDir)}">Get involved</a>
       <a href="${hrefForSlug("search", currentDir)}">Search</a>
+      <a href="${hrefForSlug("sitemap", currentDir)}">Sitemap</a>
       <a href="mailto:${escapeHtml(siteData.site.email)}">${escapeHtml(siteData.site.email)}</a>
     </nav>
     <div class="social-links" aria-label="Verified public links">
@@ -770,6 +828,7 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
     </div>
     <p class="build-stamp">v${escapeHtml(SITE_VERSION)}${SOURCE_FINGERPRINT ? ` · build ${escapeHtml(SOURCE_FINGERPRINT)}` : ""}</p>
   </footer>
+  <script src="${prefix}assets/js/theme.js" defer></script>
   <script src="${prefix}assets/js/site.js" defer></script>
   <script src="${prefix}assets/js/search-data.js" defer></script>
   <script src="${prefix}assets/js/search.js" defer></script>${searchPageScript}${graphScript}
@@ -1441,7 +1500,7 @@ function knowledgePage() {
       </div>
       ${
         darkAsset
-          ? `<img class="knowledge-brand-image" src="${escapeHtml(relPrefix(currentDir) + darkAsset.path)}" alt="${escapeHtml(darkAsset.alt)}">`
+          ? `<img class="knowledge-brand-image" src="${escapeHtml(relPrefix(currentDir) + darkAsset.path)}" alt="${escapeHtml(darkAsset.alt)}" width="937" height="819" loading="lazy" decoding="async">`
           : ""
       }
     </div>
@@ -1946,8 +2005,9 @@ function domainProjectsSection(currentDir = "") {
           return `<span>${label}</span>`;
         })
         .join("");
+      const domainHref = slugToHref(`ecosystem/${domain.slug}`, currentDir);
       return `<article class="info-card domain-card" id="${escapeHtml(slugifyAnchor(`domain-${domain.slug}`))}">
-        <h3>${escapeHtml(sanitizePublicProse(domain.domain))}</h3>
+        <h3><a href="${domainHref}">${escapeHtml(sanitizePublicProse(domain.domain))}</a></h3>
         <p>${(domain.projects || []).length} public project${(domain.projects || []).length === 1 ? "" : "s"} mapped to this domain of application.</p>
         <div class="mini-links">${links}</div>
       </article>`;
@@ -1961,6 +2021,54 @@ function domainProjectsSection(currentDir = "") {
     })}
     <div class="card-grid">${cards}</div>
   </section>`;
+}
+
+// Per-domain ecosystem landing pages (/ecosystem/<domain>/). One page per
+// domain that has mapped projects, listing each project as an internal link
+// (when a real page exists) or a plain article (when it does not). Emitted
+// programmatically via slugRenderers — NOT added to siteData.pages, so it is
+// not subject to the curated-page contract. All links are CSP-safe internal
+// hrefs; layout() supplies CSP/canonical/nav/footer.
+function ecosystemDomainPages() {
+  const domains = (siteData.instituteos.domainProjects.domains || []).filter((domain) => (domain.projects || []).length);
+  const slugToPage = new Set(siteData.pages.map((page) => page.slug));
+  return domains.map((domain) => {
+    const routedSlug = `ecosystem/${domain.slug}`;
+    const currentDir = urlDirForSlug(routedSlug);
+    const domainName = sanitizePublicProse(domain.domain);
+    const cards = (domain.projects || [])
+      .map((project) => {
+        const pageSlug = projectPageSlugForDataId(project.id);
+        const label = escapeHtml(sanitizePublicProse(project.title || project.id));
+        if (pageSlug && slugToPage.has(pageSlug)) {
+          return `<a class="resource-card internal-card" href="${slugToHref(pageSlug, currentDir)}"><strong>${label}</strong></a>`;
+        }
+        return `<article class="resource-card"><strong>${label}</strong></article>`;
+      })
+      .join("");
+    const body = `
+  <section class="page-hero compact">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><a href="${hrefForSlug("ecosystem", currentDir)}">Ecosystem</a><span aria-hidden="true">/</span><span>${escapeHtml(domainName)}</span></nav>
+    <p class="eyebrow">Domain of application</p>
+    <h1>${escapeHtml(domainName)}</h1>
+    <p>${(domain.projects || []).length} public project${(domain.projects || []).length === 1 ? "" : "s"} mapped to the ${escapeHtml(domainName)} domain of application.</p>
+  </section>
+  <section class="content-band" id="domain-projects">
+    ${sectionHeading({ eyebrow: "Projects", title: `Projects in ${domainName}` })}
+    <div class="resource-grid">${cards}</div>
+    <p class="mini-links"><a href="${hrefForSlug("ecosystem", currentDir)}">Back to the ecosystem overview</a></p>
+  </section>`;
+    return {
+      slug: routedSlug,
+      html: layout({
+        title: domainName,
+        description: `Public Active Inference Institute projects in the ${domainName} domain of application.`,
+        currentDir,
+        body,
+        slug: routedSlug,
+      }),
+    };
+  });
 }
 
 // Map a data/projects.json project id to its generated page slug. Prefers the
@@ -2386,6 +2494,61 @@ function searchPage() {
   });
 }
 
+// Human-readable HTML sitemap (/sitemap/). Emitted programmatically like the
+// search/directory pages (NOT a curated src/content/pages JSON), so it is not
+// subject to the curated-page contract. It lists every routed slug, drawing the
+// same slug source the XML sitemap uses so the two cannot drift. All links go
+// through hrefForSlug (caller-relative, CSP-safe) — no hardcoded paths.
+const SITEMAP_SECTION_LABELS = {
+  index: "Home",
+  knowledge: "Open Source Map",
+  resources: "Resources",
+  directory: "Directory",
+  search: "Search",
+  sitemap: "Sitemap",
+};
+
+function sitemapPage() {
+  const currentDir = urlDirForSlug("sitemap");
+  const curatedRows = siteData.pages.map((page) => ({
+    label: page.title,
+    summary: metaDescription(page.lede || page.description || ""),
+    href: hrefForSlug(page.slug, currentDir),
+  }));
+  // Synthetic/section slugs come from the same routed-slug set used by the XML
+  // sitemap (ALL_ROUTED_SLUGS minus the curated siteData.pages slugs).
+  const curatedSlugs = new Set(siteData.pages.map((page) => page.slug));
+  const sectionRows = ALL_ROUTED_SLUGS.filter((slug) => !curatedSlugs.has(slug)).map((slug) => ({
+    label: SITEMAP_SECTION_LABELS[slug] || slug,
+    summary: "",
+    href: hrefForSlug(slug, currentDir),
+  }));
+  const linkColumn = { label: "Page", render: (item) => `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>` };
+  const summaryColumn = { label: "Summary", render: (item) => escapeHtml(item.summary) };
+  const body = `
+  <section class="page-hero compact">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><span>Sitemap</span></nav>
+    <p class="eyebrow">Site index</p>
+    <h1>Sitemap</h1>
+    <p>A human-readable index of every public Active Inference Institute page. The same set of pages is published in the <a href="${hrefForSlug("directory", currentDir)}">directory</a> and as a machine-readable XML sitemap for crawlers.</p>
+  </section>
+  <section class="content-band" id="sitemap-sections">
+    ${sectionHeading({ eyebrow: "Sections", title: "Sections and tools" })}
+    ${dataTable({ caption: "Top-level sections and site tools.", columns: [linkColumn], rows: sectionRows })}
+  </section>
+  <section class="content-band muted" id="sitemap-pages">
+    ${sectionHeading({ eyebrow: "Pages", title: `${curatedRows.length} curated public pages` })}
+    ${dataTable({ caption: "Every curated public page.", columns: [linkColumn, summaryColumn], rows: curatedRows })}
+  </section>`;
+  return layout({
+    title: "Sitemap",
+    description: "Human-readable index of every public Active Inference Institute page.",
+    currentDir,
+    body,
+    slug: "sitemap",
+  });
+}
+
 function communicationsRecords() {
   let data;
   try {
@@ -2521,7 +2684,21 @@ function buildSearchIndex() {
   // Canonical /search/ URL so the header quick-search can offer a "See all
   // results" link (CSP-safe: a self-origin internal href, no fetch).
   const searchPageUrl = absoluteUrl(outputPathForSlug("search"));
-  return `window.__SEARCH_INDEX__ = ${JSON.stringify(entries)};\nwindow.__SEARCH_PAGE_URL__ = ${JSON.stringify(searchPageUrl)};\n`;
+  // Synonym/alias expansion map: a canonical token to equivalent query terms.
+  // Used by search.js/search-page.js to BOOST matches (never to require them).
+  // All-lowercase and free of any obsolete-text/old-theme tokens so the .js
+  // stale-reference gate stays green.
+  const SYNONYMS = {
+    "active inference": ["actinf", "aif", "free energy"],
+    institute: ["aii", "org", "nonprofit"],
+    repository: ["repo", "repos", "codebase", "github"],
+    person: ["people", "member", "contributor"],
+    policy: ["policies", "bylaw", "bylaws"],
+    process: ["processes", "procedure", "workflow"],
+    learning: ["course", "courses", "education", "tutorial"],
+    concept: ["idea", "ideas", "topic"],
+  };
+  return `window.__SEARCH_INDEX__ = ${JSON.stringify(entries)};\nwindow.__SEARCH_PAGE_URL__ = ${JSON.stringify(searchPageUrl)};\nwindow.__SEARCH_SYNONYMS__ = ${JSON.stringify(SYNONYMS)};\n`;
 }
 
 function writeFile(file, html) {
@@ -2539,6 +2716,8 @@ function build() {
     ["resources", resourcesPage],
     ["directory", directoryPage],
     ["search", searchPage],
+    ["sitemap", sitemapPage],
+    ...ecosystemDomainPages().map((page) => [page.slug, () => page.html]),
   ];
   for (const [slug, render] of slugRenderers) {
     writeFile(outputPathForSlug(slug), render());
@@ -2569,12 +2748,18 @@ function build() {
     const depth = url.split("/").filter((part) => part && part !== "index.html").length;
     return depth === 0 ? "1.0" : depth >= 2 ? "0.6" : "0.8";
   };
+  // changefreq hint keyed on the same depth metric: home + top-level sections
+  // change weekly; deep project/program collection pages change monthly.
+  const sitemapChangefreq = (url) => {
+    const depth = url.split("/").filter((part) => part && part !== "index.html").length;
+    return depth >= 2 ? "monthly" : "weekly";
+  };
   writeFile(
     "sitemap.xml",
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
       .map(
         (url) =>
-          `  <url><loc>${absoluteUrl(url)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}<priority>${sitemapPriority(url)}</priority></url>`,
+          `  <url><loc>${absoluteUrl(url)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}<changefreq>${sitemapChangefreq(url)}</changefreq><priority>${sitemapPriority(url)}</priority></url>`,
       )
       .join("\n")}\n</urlset>\n`,
   );

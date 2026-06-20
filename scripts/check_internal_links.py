@@ -20,11 +20,16 @@ class LinkParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.links: list[tuple[str, str]] = []
+        # Fragment targets declared in this document (id="" / name="" anchors),
+        # used to verify that #fragment links resolve to a real anchor.
+        self.fragments: set[str] = set()
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         for name, value in attrs:
             if name in LOCAL_ATTRS and value:
                 self.links.append((tag, value))
+            if name in ("id", "name") and value:
+                self.fragments.add(value)
 
 
 def generated_html_files(root: Path) -> list[Path]:
@@ -37,14 +42,22 @@ def generated_html_files(root: Path) -> list[Path]:
     return sorted(files)
 
 
-def resolve_local_reference(source: Path, raw_url: str, root: Path) -> Path | None:
+def resolve_local_reference(source: Path, raw_url: str, root: Path) -> tuple[Path | None, str]:
+    """Resolve a local reference to (target file, fragment).
+
+    Returns (None, fragment) for external/empty/protocol-relative references and
+    for bare same-page "#fragment" links (whose target file is the source
+    itself). The fragment is the decoded part after "#" (empty when absent).
+    """
     parsed = urlparse(raw_url)
+    fragment = unquote(parsed.fragment) if parsed.fragment else ""
     if parsed.scheme in EXTERNAL_SCHEMES:
-        return None
+        return None, ""
     if not parsed.path:
-        return None
+        # Bare "#fragment" (or "#"): the target is the source document itself.
+        return (source if fragment else None), fragment
     if parsed.path.startswith("//"):
-        return None
+        return None, ""
 
     target_path = unquote(parsed.path)
     if target_path.startswith("/"):
@@ -60,18 +73,31 @@ def resolve_local_reference(source: Path, raw_url: str, root: Path) -> Path | No
 
     if raw_url.split("#", 1)[0].split("?", 1)[0].endswith("/") or target.is_dir():
         target = target / "index.html"
-    return target
+    return target, fragment
+
+
+def fragments_for(path: Path, cache: dict[Path, set[str]]) -> set[str]:
+    """Parse a generated HTML file once and return its declared fragment anchors."""
+    cached = cache.get(path)
+    if cached is None:
+        parser = LinkParser()
+        parser.feed(path.read_text(encoding="utf-8"))
+        cached = parser.fragments
+        cache[path] = cached
+    return cached
 
 
 def check_links(root: Path) -> int:
     errors: list[str] = []
     html_files = generated_html_files(root)
+    fragment_cache: dict[Path, set[str]] = {}
     for html_file in html_files:
         parser = LinkParser()
         parser.feed(html_file.read_text(encoding="utf-8"))
+        fragment_cache[html_file] = parser.fragments
         for tag, raw_url in parser.links:
             try:
-                target = resolve_local_reference(html_file, raw_url, root)
+                target, fragment = resolve_local_reference(html_file, raw_url, root)
             except ValueError as exc:
                 errors.append(f"{html_file.relative_to(root)} {tag} {exc}")
                 continue
@@ -80,6 +106,13 @@ def check_links(root: Path) -> int:
             if not target.exists():
                 errors.append(
                     f"{html_file.relative_to(root)} {tag} references missing {raw_url} -> {target.relative_to(root)}"
+                )
+                continue
+            # Verify the #fragment resolves to a real anchor in the target file.
+            if fragment and fragment not in fragments_for(target, fragment_cache):
+                errors.append(
+                    f"{html_file.relative_to(root)} {tag} references missing anchor {raw_url} -> "
+                    f"{target.relative_to(root)}#{fragment}"
                 )
 
     if errors:

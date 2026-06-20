@@ -7,6 +7,7 @@
   var results = document.getElementById("search-page-results");
   var status = document.getElementById("search-page-status");
   var index = window.__SEARCH_INDEX__;
+  var synonyms = window.__SEARCH_SYNONYMS__ || {};
   if (!input || !results || !index) {
     return;
   }
@@ -20,8 +21,87 @@
     });
   }
 
+  // Alias expansion (both directions). Used only to BOOST matches.
+  function expandTerm(term) {
+    var out = [];
+    var canonical = synonyms[term];
+    if (canonical) {
+      for (var i = 0; i < canonical.length; i += 1) {
+        out.push(canonical[i]);
+      }
+    }
+    for (var key in synonyms) {
+      if (Object.prototype.hasOwnProperty.call(synonyms, key)) {
+        var values = synonyms[key];
+        for (var j = 0; j < values.length; j += 1) {
+          if (values[j] === term) {
+            out.push(key);
+            break;
+          }
+        }
+      }
+    }
+    return out;
+  }
+
+  // In-order subsequence fallback when a direct substring match misses.
+  function fuzzyContains(hay, term) {
+    var p = 0;
+    for (var i = 0; i < hay.length && p < term.length; i += 1) {
+      if (hay.charAt(i) === term.charAt(p)) {
+        p += 1;
+      }
+    }
+    return p === term.length;
+  }
+
+  function escapeRegex(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  // Wrap matches in <mark>. Escapes source text FIRST, then inserts literal tags.
+  function highlight(text, terms) {
+    var out = escapeHtml(text);
+    var sorted = terms.slice().sort(function (a, b) {
+      return b.length - a.length;
+    });
+    for (var i = 0; i < sorted.length; i += 1) {
+      if (sorted[i].length < 2) {
+        continue;
+      }
+      var re = new RegExp(escapeRegex(escapeHtml(sorted[i])), "gi");
+      out = out.replace(re, function (m) {
+        return "<mark>" + m + "</mark>";
+      });
+    }
+    return out;
+  }
+
   // Rank every matching entry (no slice) using the same scoring shape as the
   // header quick-search, so ordering is consistent across both surfaces.
+  // Tiered per-term score (identical shape to search.js). 0 => unsatisfiable.
+  function termScore(term, title, hay) {
+    if (title.indexOf(term) === 0) {
+      return 6;
+    }
+    if (title.indexOf(term) !== -1) {
+      return 4;
+    }
+    var aliases = expandTerm(term);
+    for (var a = 0; a < aliases.length; a += 1) {
+      if (hay.indexOf(aliases[a]) !== -1) {
+        return 3;
+      }
+    }
+    if (hay.indexOf(term) !== -1) {
+      return 1;
+    }
+    if (fuzzyContains(hay, term)) {
+      return 0.5;
+    }
+    return 0;
+  }
+
   function rank(query) {
     var terms = query.split(/\s+/).filter(Boolean);
     var scored = [];
@@ -32,11 +112,12 @@
       var score = 0;
       var matched = true;
       for (var t = 0; t < terms.length; t += 1) {
-        if (hay.indexOf(terms[t]) === -1) {
+        var s = termScore(terms[t], title, hay);
+        if (s === 0) {
           matched = false;
           break;
         }
-        score += title.indexOf(terms[t]) === 0 ? 6 : title.indexOf(terms[t]) !== -1 ? 4 : 1;
+        score += s;
       }
       if (matched) {
         scored.push({ entry: entry, score: score });
@@ -52,16 +133,16 @@
     return GROUP_ORDER.indexOf(kind) === -1 ? "Other" : kind;
   }
 
-  function resultCard(entry) {
+  function resultCard(entry, terms) {
     var snippet = (entry.k || "").trim();
     return (
       '<li class="search-page-result">' +
       '<a href="' +
       encodeURI(entry.u) +
       '"><span class="search-page-result-title">' +
-      escapeHtml(entry.t) +
+      highlight(entry.t, terms) +
       "</span>" +
-      (snippet ? '<span class="search-page-result-snippet">' + escapeHtml(snippet) + "</span>" : "") +
+      (snippet ? '<span class="search-page-result-snippet">' + highlight(snippet, terms) + "</span>" : "") +
       "</a></li>"
     );
   }
@@ -73,6 +154,7 @@
       status.textContent = "Type at least two characters to search.";
       return;
     }
+    var terms = query.split(/\s+/).filter(Boolean);
     var matches = rank(query);
     if (!matches.length) {
       results.innerHTML = "";
@@ -106,7 +188,11 @@
         items.length +
         "</span></h2>" +
         '<ul class="search-page-result-list">' +
-        items.map(resultCard).join("") +
+        items
+          .map(function (entry) {
+            return resultCard(entry, terms);
+          })
+          .join("") +
         "</ul></section>";
     }
 
