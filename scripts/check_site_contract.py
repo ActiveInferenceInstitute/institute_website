@@ -31,7 +31,7 @@ def url_dir_for_slug(slug: str) -> str:
     if slug == "index":
         return ""
     if slug.startswith("project-"):
-        return f"projects/{slug[len('project-'):]}"
+        return f"projects/{slug[len('project-') :]}"
     if slug in PROGRAM_SUBPAGE_SLUGS:
         return f"programs/{slug}"
     return slug
@@ -72,6 +72,8 @@ def href_for_slug(target_slug: str, current_dir: str = "", anchor: str = "") -> 
     if anchor:
         hash_part = anchor if anchor.startswith("#") else f"#{anchor}"
     return f"{rel}{hash_part}"
+
+
 ALLOWED_TEMPLATE_EXTERNAL_URLS = {
     "http://www.sitemaps.org/schemas/sitemap/0.9",
     "https://schema.org",  # JSON-LD @context (structured data; non-fetched identifier)
@@ -175,6 +177,18 @@ RESOURCE_VIEW_IDS = {
     "learning-research",
     "participation-view",
     "full-directory",
+}
+REQUIRED_CSS_LINK_ORDER = ("assets/css/instituteos-ds.css", "assets/css/styles.css")
+REQUIRED_STYLE_ALIASES = {
+    "--ink": "--ds-text",
+    "--muted": "--ds-text-muted",
+    "--paper": "--ds-bg",
+    "--surface": "--ds-surface",
+    "--surface-strong": "--ds-surface-2",
+    "--line": "--ds-glass-border",
+    "--red": "--ds-red",
+    "--shadow": "--ds-shadow",
+    "--radius": "--ds-radius-sm",
 }
 OBSOLETE_PATHS = [
     "atlas",
@@ -417,18 +431,30 @@ def check_content_model(root: Path, errors: list[str]) -> None:
         if path.name == "live-sources.json":
             continue
         if "coda.io" in path.read_text(encoding="utf-8").lower():
-            errors.append(f"{path.relative_to(root)} may not contain direct Coda URLs; use live-sources.json finalUrl only")
-    shortlinks = [item for item in official_pages.get("pages", []) if item.get("shortlink") and item.get("promoted") is not False]
+            errors.append(
+                f"{path.relative_to(root)} may not contain direct Coda URLs; use live-sources.json finalUrl only"
+            )
+    shortlinks = [
+        item for item in official_pages.get("pages", []) if item.get("shortlink") and item.get("promoted") is not False
+    ]
     if len(shortlinks) < 10:
-        errors.append(f"official-pages.json expected at least 10 promoted non-governance official shortlinks, found {len(shortlinks)}")
+        errors.append(
+            f"official-pages.json expected at least 10 promoted non-governance official shortlinks, found {len(shortlinks)}"
+        )
     if len(repositories.get("repositories", [])) != 52:
-        errors.append(f"repositories.json expected 52 public repositories, found {len(repositories.get('repositories', []))}")
+        errors.append(
+            f"repositories.json expected 52 public repositories, found {len(repositories.get('repositories', []))}"
+        )
     popular_tags = resources.get("popularTags", [])
-    if len(popular_tags) > 18 or not {"active-inference", "learning", "research", "projects", "repository"}.issubset(popular_tags):
+    if len(popular_tags) > 18 or not {"active-inference", "learning", "research", "projects", "repository"}.issubset(
+        popular_tags
+    ):
         errors.append("resources.json popularTags must stay short and include high-signal filter tags")
     pathway_ids = {item.get("id") for item in audience_pathways.get("pathways", [])}
     if pathway_ids != REQUIRED_AUDIENCE_PATHWAYS:
-        errors.append(f"audience-pathways.json expected {sorted(REQUIRED_AUDIENCE_PATHWAYS)}, found {sorted(pathway_ids)}")
+        errors.append(
+            f"audience-pathways.json expected {sorted(REQUIRED_AUDIENCE_PATHWAYS)}, found {sorted(pathway_ids)}"
+        )
     for pathway in audience_pathways.get("pathways", []):
         if not pathway.get("primaryHref") or not pathway.get("links"):
             errors.append(f"audience pathway {pathway.get('id')} must define a destination and verified links")
@@ -456,11 +482,29 @@ def check_content_model(root: Path, errors: list[str]) -> None:
                 errors.append(f"{label}:{source_id} has unknown type {record.get('type')}")
             if record.get("audience") not in audience_ids:
                 errors.append(f"{label}:{source_id} has unknown audience {record.get('audience')}")
-            for required in ("sourceId", "type", "category", "audience", "tags", "summary", "relatedSlugs", "priority", "promoted"):
+            for required in (
+                "sourceId",
+                "type",
+                "category",
+                "audience",
+                "tags",
+                "summary",
+                "relatedSlugs",
+                "priority",
+                "promoted",
+            ):
                 if required not in record:
                     errors.append(f"{label}:{source_id} missing stable field {required}")
             if label == "repositories.json":
-                for required in ("projectFamily", "repoType", "docsUrl", "docsSourceId", "language", "stars", "updatedAt"):
+                for required in (
+                    "projectFamily",
+                    "repoType",
+                    "docsUrl",
+                    "docsSourceId",
+                    "language",
+                    "stars",
+                    "updatedAt",
+                ):
                     if required not in record:
                         errors.append(f"repositories.json:{source_id} missing public project field {required}")
 
@@ -496,28 +540,43 @@ def check_content_model(root: Path, errors: list[str]) -> None:
     if len(data["ontology"].get("trees", [])) != 2:
         errors.append("src/content/instituteos/ontology.json expected 2 trees")
     if len(data["ontology"].get("edges", [])) != 33:
-        errors.append(f"src/content/instituteos/ontology.json expected 33 edges, found {len(data['ontology'].get('edges', []))}")
+        errors.append(
+            f"src/content/instituteos/ontology.json expected 33 edges, found {len(data['ontology'].get('edges', []))}"
+        )
 
     for label, payload in data.items():
         serialized = json.dumps(payload, ensure_ascii=False).lower()
         for blocked in PRIVATE_INSTITUTEOS_KEYS:
             if f'"{blocked}"' in serialized:
                 errors.append(f"src/content/instituteos/{label}.json contains private field {blocked}")
-        for blocked_text in ("coda.io", "workspace", "source atlas", "source manifest", "aii.pdf", "dashboard screenshot"):
+        for blocked_text in (
+            "coda.io",
+            "workspace",
+            "source atlas",
+            "source manifest",
+            "aii.pdf",
+            "dashboard screenshot",
+        ):
             if blocked_text in serialized:
                 errors.append(f"src/content/instituteos/{label}.json contains blocked public term {blocked_text!r}")
         for blocked_text in ("governance links", "board of directors", "officers", "scientific advisory board"):
             if blocked_text in serialized:
-                errors.append(f"src/content/instituteos/{label}.json contains internal governance surface {blocked_text!r}")
+                errors.append(
+                    f"src/content/instituteos/{label}.json contains internal governance surface {blocked_text!r}"
+                )
 
     asset_records = data["assets"].get("records", [])
     asset_filenames = {item.get("filename") for item in asset_records}
     if asset_filenames != ALLOWED_INSTITUTEOS_ASSETS:
-        errors.append(f"assets.json must list only brand assets {sorted(ALLOWED_INSTITUTEOS_ASSETS)}, found {sorted(asset_filenames)}")
+        errors.append(
+            f"assets.json must list only brand assets {sorted(ALLOWED_INSTITUTEOS_ASSETS)}, found {sorted(asset_filenames)}"
+        )
     asset_dir = root / "assets" / "img" / "instituteos"
     disk_assets = {path.name for path in asset_dir.glob("*") if path.is_file()}
     if disk_assets != ALLOWED_INSTITUTEOS_ASSETS:
-        errors.append(f"assets/img/instituteos must contain only {sorted(ALLOWED_INSTITUTEOS_ASSETS)}, found {sorted(disk_assets)}")
+        errors.append(
+            f"assets/img/instituteos must contain only {sorted(ALLOWED_INSTITUTEOS_ASSETS)}, found {sorted(disk_assets)}"
+        )
 
 
 def check_curated_pages(root: Path, errors: list[str]) -> None:
@@ -542,8 +601,12 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
 
         if "On this page" not in html:
             errors.append(f"{slug}: missing page-local guide label")
-        if not {"#next-actions", "#resources", "#official-pages", "#repositories", "#related-pages"}.issubset(set(hrefs)):
-            errors.append(f"{slug}: page guide does not link to next actions, resources, official pages, repositories, and related sections")
+        if not {"#next-actions", "#resources", "#official-pages", "#repositories", "#related-pages"}.issubset(
+            set(hrefs)
+        ):
+            errors.append(
+                f"{slug}: page guide does not link to next actions, resources, official pages, repositories, and related sections"
+            )
         missing_ids = CURATED_SECTION_IDS - info.ids
         if missing_ids:
             errors.append(f"{slug}: missing section ids {sorted(missing_ids)}")
@@ -558,9 +621,7 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
             errors.append(f"{slug}: best next actions lacks a verified external action")
 
         related_section = section_between(html, 'id="related-pages"', 'class="pager page-pager"')
-        related_page_hrefs = {
-            href_for_slug(other["slug"], current_dir) for other in pages if other["slug"] != slug
-        }
+        related_page_hrefs = {href_for_slug(other["slug"], current_dir) for other in pages if other["slug"] != slug}
         if not any(f'href="{href}"' in related_section for href in related_page_hrefs):
             errors.append(f"{slug}: related-pages section lacks a related internal page link")
 
@@ -569,7 +630,11 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
             errors.append(f"{slug}: resources section lacks an external verified link")
 
         for section_id in ("official-pages", "repositories"):
-            section = section_between(html, f'id="{section_id}"', 'id="related-pages"' if section_id == "repositories" else 'id="repositories"')
+            section = section_between(
+                html,
+                f'id="{section_id}"',
+                'id="related-pages"' if section_id == "repositories" else 'id="repositories"',
+            )
             if 'class="resource-card"' not in section and " resource-card" not in section:
                 errors.append(f"{slug}: {section_id} section does not render resource cards")
 
@@ -594,7 +659,11 @@ def check_resource_directory(root: Path, errors: list[str]) -> None:
     missing_filter_ids = RESOURCE_FILTER_IDS - info.ids
     if missing_filter_ids:
         errors.append(f"resources.html missing filter ids {sorted(missing_filter_ids)}")
-    count_attrs = [attrs for tag, attrs in info.start_tags if attrs.get("id") == "resource-count" and attrs.get("aria-live") == "polite"]
+    count_attrs = [
+        attrs
+        for tag, attrs in info.start_tags
+        if attrs.get("id") == "resource-count" and attrs.get("aria-live") == "polite"
+    ]
     if not count_attrs:
         errors.append("resources.html resource-count must announce updates with aria-live=polite")
     for required_attr in ("data-type", "data-category", "data-audience", "data-tags", "data-search"):
@@ -602,7 +671,12 @@ def check_resource_directory(root: Path, errors: list[str]) -> None:
             errors.append(f"resources.html missing resource filter attribute {required_attr}")
     if 'class="resource-card"' not in html and " resource-card" not in html:
         errors.append("resources.html does not render resource cards")
-    for duplicate_badge in ("Community / Community", "Research / Research", "Learning / Learning", "Official page / Official page"):
+    for duplicate_badge in (
+        "Community / Community",
+        "Research / Research",
+        "Learning / Learning",
+        "Official page / Official page",
+    ):
         if duplicate_badge in html:
             errors.append(f"resources.html contains duplicate low-value badge {duplicate_badge!r}")
     if "data-tag-filter" not in html:
@@ -630,7 +704,9 @@ def check_resource_directory(root: Path, errors: list[str]) -> None:
     source_urls = live_source_url_by_id(live_manifest(root))
     for item in official_pages:
         expected_url = source_urls.get(item.get("sourceId", ""))
-        if item.get("promoted") is not False and (not expected_url or (expected_url not in hrefs and expected_url.rstrip("/") not in hrefs)):
+        if item.get("promoted") is not False and (
+            not expected_url or (expected_url not in hrefs and expected_url.rstrip("/") not in hrefs)
+        ):
             errors.append(f"resources.html missing official page {item.get('sourceId')}")
     for repo in repositories:
         if repo.get("promoted") is not False and repo.get("url") not in hrefs:
@@ -659,7 +735,9 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
     if "Open Source Map" not in html:
         errors.append("knowledge.html must be visitor-labeled as Open Source Map")
     if html.count("<caption>") < 5:
-        errors.append("knowledge.html must render captions for people, repositories, ideas, ontology, and research tables")
+        errors.append(
+            "knowledge.html must render captions for people, repositories, ideas, ontology, and research tables"
+        )
     if html.count("<thead>") < 5 or html.count('scope="row"') < 5:
         errors.append("knowledge.html tables must include table heads and row headers")
     for required in ("data-knowledge-row", "data-knowledge-kind", "data-knowledge-search"):
@@ -682,11 +760,26 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         errors.append(f"knowledge.html row counts {row_counts} do not match sanitized registries {expected_counts}")
 
     expected_anchor_ids = [
-        *(f"person-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["people"].get("records", [])),
-        *(f"project-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["projects"].get("records", [])),
-        *(f"idea-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ideas"].get("records", [])),
-        *(f"ontology-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}" for item in data["ontology"].get("edges", [])),
-        *(f"research-{re.sub(r'[^a-z0-9]+', '-', item['sourceId'].lower()).strip('-')}" for item in research_resource_records(root)),
+        *(
+            f"person-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}"
+            for item in data["people"].get("records", [])
+        ),
+        *(
+            f"project-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}"
+            for item in data["projects"].get("records", [])
+        ),
+        *(
+            f"idea-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}"
+            for item in data["ideas"].get("records", [])
+        ),
+        *(
+            f"ontology-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}"
+            for item in data["ontology"].get("edges", [])
+        ),
+        *(
+            f"research-{re.sub(r'[^a-z0-9]+', '-', item['sourceId'].lower()).strip('-')}"
+            for item in research_resource_records(root)
+        ),
     ]
     for anchor_id in expected_anchor_ids:
         if anchor_id not in info.ids:
@@ -711,7 +804,15 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
     html = directory_html.read_text(encoding="utf-8")
     info = parse_html(directory_html)
     directory_hrefs = {href for href, _class_name in info.anchors}
-    for required_id in ("site-pages", "resource-groups", "official-pages", "official-shortlinks", "repositories", "verified-links", "open-source-map"):
+    for required_id in (
+        "site-pages",
+        "resource-groups",
+        "official-pages",
+        "official-shortlinks",
+        "repositories",
+        "verified-links",
+        "open-source-map",
+    ):
         if required_id not in info.ids:
             errors.append(f"directory.html missing {required_id}")
 
@@ -746,7 +847,10 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
     source_urls = live_source_url_by_id(live_manifest(root))
     for item in official_pages:
         expected_url = source_urls.get(item.get("sourceId", ""))
-        if item.get("promoted") is not False and (not expected_url or (expected_url not in directory_hrefs and expected_url.rstrip("/") not in directory_hrefs)):
+        if item.get("promoted") is not False and (
+            not expected_url
+            or (expected_url not in directory_hrefs and expected_url.rstrip("/") not in directory_hrefs)
+        ):
             errors.append(f"directory.html missing official page {item.get('sourceId')}")
     for repo in repositories:
         if repo.get("promoted") is not False and repo.get("url") not in directory_hrefs:
@@ -779,6 +883,28 @@ def check_navigation(root: Path, errors: list[str]) -> None:
             errors.append(f"{html_path.relative_to(root)} lacks accessible navigation disclosure attributes")
 
 
+def check_design_system_contract(root: Path, errors: list[str]) -> None:
+    styles = (root / "assets" / "css" / "styles.css").read_text(encoding="utf-8")
+    for local_name, ds_name in REQUIRED_STYLE_ALIASES.items():
+        if not re.search(rf"{re.escape(local_name)}\s*:\s*var\({re.escape(ds_name)}[,\)]", styles):
+            errors.append(f"styles.css does not alias {local_name} to {ds_name}")
+
+    for html_path in generated_html_files(root):
+        page_dir = dir_for_html_path(root, html_path)
+        prefix = rel_prefix(page_dir)
+        expected = [f"{prefix}{href}" for href in REQUIRED_CSS_LINK_ORDER]
+        stylesheets = [
+            attrs.get("href", "")
+            for rel, attrs in parse_html(html_path).links
+            if "stylesheet" in rel.lower().split()
+        ]
+        positions = [stylesheets.index(href) if href in stylesheets else -1 for href in expected]
+        if -1 in positions:
+            errors.append(f"{html_path.relative_to(root)} missing required CSS links {expected}")
+        elif positions != sorted(positions):
+            errors.append(f"{html_path.relative_to(root)} must link instituteos-ds.css before styles.css")
+
+
 def check_canonical_outputs(root: Path, errors: list[str]) -> None:
     site = load_json(root / "src" / "content" / "site.json")
     if site.get("baseUrl") != CANONICAL_BASE:
@@ -807,18 +933,10 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
 
     for html_path in generated_html_files(root):
         info = parse_html(html_path)
-        canonical = [
-            attrs.get("href", "")
-            for rel, attrs in info.links
-            if rel.lower() == "canonical"
-        ]
+        canonical = [attrs.get("href", "") for rel, attrs in info.links if rel.lower() == "canonical"]
         if not canonical or not canonical[0].startswith(CANONICAL_BASE):
             errors.append(f"{html_path.relative_to(root)} has invalid canonical URL {canonical[:1]}")
-        og_urls = [
-            attrs.get("content", "")
-            for attrs in info.metas
-            if attrs.get("property") == "og:url"
-        ]
+        og_urls = [attrs.get("content", "") for attrs in info.metas if attrs.get("property") == "og:url"]
         if not og_urls or not og_urls[0].startswith(CANONICAL_BASE):
             errors.append(f"{html_path.relative_to(root)} has invalid og:url {og_urls[:1]}")
 
@@ -872,8 +990,7 @@ def check_template_external_urls(root: Path, errors: list[str]) -> None:
     external_urls = [
         match.group(0)
         for match in re.finditer(r"https?://[^\"'`<>\s)]+", build_text)
-        if not match.group(0).startswith(CANONICAL_BASE)
-        and match.group(0) not in ALLOWED_TEMPLATE_EXTERNAL_URLS
+        if not match.group(0).startswith(CANONICAL_BASE) and match.group(0) not in ALLOWED_TEMPLATE_EXTERNAL_URLS
     ]
     if external_urls:
         errors.append(f"src/build.mjs hardcodes external URLs instead of live-sources.json: {external_urls}")
@@ -907,6 +1024,7 @@ def check_site_contract(root: Path) -> int:
     check_knowledge_page(root, errors)
     check_directory_page(root, errors)
     check_navigation(root, errors)
+    check_design_system_contract(root, errors)
     check_canonical_outputs(root, errors)
     check_external_anchors(root, errors)
     check_stale_references(root, errors)

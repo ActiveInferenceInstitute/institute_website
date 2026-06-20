@@ -87,6 +87,9 @@
   --ds-radius: 16px;
   --ds-radius-pill: 999px;
 
+  /* ── Blur (glass / backdrop) ── */
+  --ds-blur-glass: 12px;
+
   /* ── Motion ── */
   --ds-motion-fast: 120ms;
   --ds-motion: 200ms;
@@ -275,7 +278,7 @@ html.theme-light, .ds-theme-light {
 .ds-table tbody tr:hover { background: var(--ds-surface-2); }
 
 /* ── Glass panel ────────────────────────────────────────────── */
-.ds-glass { background: var(--ds-glass); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--ds-glass-border); border-radius: var(--ds-radius); }
+.ds-glass { background: var(--ds-glass); -webkit-backdrop-filter: blur(var(--ds-blur-glass)); backdrop-filter: blur(var(--ds-blur-glass)); border: 1px solid var(--ds-glass-border); border-radius: var(--ds-radius); }
 
 /* ── Grain overlay (decorative, pointer-events none) ────────── */
 .ds-grain::after { content: ""; position: absolute; inset: 0; background-image: var(--ds-grain); opacity: 0.02; pointer-events: none; mix-blend-mode: overlay; }
