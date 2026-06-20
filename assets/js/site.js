@@ -33,6 +33,17 @@ for (const group of navGroups) {
     group.toggleAttribute("data-open", nextOpen);
     button.setAttribute("aria-expanded", String(nextOpen));
   });
+  // Keep aria-expanded in sync with keyboard focus so it matches the
+  // :focus-within CSS that visually opens the menu (otherwise screen-reader
+  // users hear "collapsed" while the menu is visibly open).
+  group.addEventListener("focusin", () => {
+    button.setAttribute("aria-expanded", "true");
+  });
+  group.addEventListener("focusout", (event) => {
+    if (!group.contains(event.relatedTarget)) {
+      button.setAttribute("aria-expanded", "false");
+    }
+  });
 }
 
 document.addEventListener("click", (event) => {
@@ -45,6 +56,25 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeNavGroups();
   }
+});
+
+// Back-to-top control for long pages (created client-side; CSP-safe, no inline).
+const toTop = document.createElement("button");
+toTop.type = "button";
+toTop.className = "to-top";
+toTop.setAttribute("aria-label", "Back to top");
+toTop.textContent = "↑";
+toTop.hidden = true;
+document.body.appendChild(toTop);
+window.addEventListener(
+  "scroll",
+  () => {
+    toTop.hidden = window.scrollY < 600;
+  },
+  { passive: true },
+);
+toTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 const resourceSearch = document.querySelector("#resource-search");

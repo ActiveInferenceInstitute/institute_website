@@ -39,7 +39,9 @@ body {
 }
 
 a {
-  color: var(--red);
+  /* Brand light-red for link text: #dc2626 is only 4.10:1 on the dark bg (fails
+     WCAG AA); --ds-red-light (#ef4444) clears AA while staying on-brand. */
+  color: var(--ds-red-light, #ef4444);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
 }
@@ -50,6 +52,22 @@ input:focus-visible,
 select:focus-visible {
   outline: 2px solid var(--red);
   outline-offset: 3px;
+}
+
+/* Honor reduced-motion: neutralize smooth-scroll, transitions, and the design
+   system's infinite spinner/shimmer animations for users who opt out. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 [hidden] {
@@ -212,19 +230,22 @@ select:focus-visible {
 
 .eyebrow {
   margin: 0 0 0.75rem;
-  color: var(--red);
+  /* light-red clears AA for this small bold label; tracking aids small-caps. */
+  color: var(--ds-red-light, #ef4444);
   font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .hero h1,
 .page-hero h1 {
   margin: 0;
+  /* Editorial display serif (Fraunces) for hero headlines — matches the DS. */
+  font-family: var(--ds-font-display, "Fraunces", Georgia, serif);
   font-size: clamp(2.6rem, 6.2vw, 5.25rem);
-  line-height: 0.95;
-  letter-spacing: 0;
+  line-height: 0.98;
+  letter-spacing: -0.018em;
 }
 
 .hero-copy,
@@ -252,6 +273,10 @@ select:focus-visible {
   border-radius: var(--radius);
   font-weight: 750;
   text-decoration: none;
+  transition:
+    filter var(--ds-motion, 200ms) var(--ds-ease, ease),
+    background var(--ds-motion, 200ms) var(--ds-ease, ease),
+    border-color var(--ds-motion, 200ms) var(--ds-ease, ease);
 }
 
 .button.primary {
@@ -290,6 +315,9 @@ select:focus-visible {
 .metrics-band strong {
   display: block;
   color: var(--ink);
+  /* Editorial display serif + tabular figures for the headline metrics. */
+  font-family: var(--ds-font-display, "Fraunces", Georgia, serif);
+  font-variant-numeric: tabular-nums;
   font-size: clamp(1.35rem, 3vw, 2rem);
   line-height: 1.05;
 }
@@ -1002,29 +1030,58 @@ select:focus-visible {
 
 /* Global site search (header) */
 .site-search{position:relative;margin-left:auto;flex:0 1 15rem;max-width:15rem}
-.site-search input{width:100%;padding:.5rem .75rem;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:inherit;font:inherit}
-.site-search input:focus{outline:2px solid #ef4444;outline-offset:1px}
+.site-search input{width:100%;padding:.5rem .75rem;border-radius:var(--radius);border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:inherit;font:inherit}
+.site-search input:focus{outline:2px solid var(--ds-red-light,#ef4444);outline-offset:1px}
 .site-search-results{position:absolute;top:calc(100% + .35rem);right:0;width:min(24rem,82vw);max-height:60vh;overflow:auto;background:#0a0a0a;border:1px solid rgba(255,255,255,.15);border-radius:10px;box-shadow:0 14px 44px rgba(0,0,0,.55);z-index:60}
 .site-search-result{display:flex;gap:.7rem;align-items:baseline;padding:.55rem .85rem;text-decoration:none;color:inherit;border-bottom:1px solid rgba(255,255,255,.06)}
 .site-search-result:last-child{border-bottom:0}
 .site-search-result:hover,.site-search-result:focus-visible{background:rgba(239,68,68,.16);outline:none}
-.site-search-kind{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:#ef4444;flex:0 0 5rem}
+.site-search-kind{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ds-red-light,#ef4444);flex:0 0 5rem}
 .site-search-title{font-size:.9rem}
 .site-search-empty{padding:.75rem .85rem;margin:0;opacity:.6;font-size:.85rem}
-.site-search-all{display:block;padding:.55rem .85rem;text-decoration:none;color:#ef4444;font-size:.82rem;font-weight:600;border-top:1px solid rgba(255,255,255,.12);background:rgba(239,68,68,.06)}
+.site-search-all{display:block;padding:.55rem .85rem;text-decoration:none;color:var(--ds-red-light,#ef4444);font-size:.82rem;font-weight:600;border-top:1px solid rgba(255,255,255,.12);background:rgba(239,68,68,.06)}
 .site-search-all:hover,.site-search-all:focus-visible{background:rgba(239,68,68,.18);outline:none}
 @media (max-width:720px){.site-search{max-width:100%;flex-basis:100%;order:3;margin-left:0}.site-search-results{width:100%}}
 .search-page{max-width:46rem}
-.search-page-label{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:#ef4444;margin-bottom:.4rem}
+.search-page-label{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ds-red-light,#ef4444);margin-bottom:.4rem}
 .search-page-input{width:100%;padding:.8rem 1rem;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:inherit;font:inherit;font-size:1.05rem}
-.search-page-input:focus{outline:2px solid #ef4444;outline-offset:1px}
+.search-page-input:focus{outline:2px solid var(--ds-red-light,#ef4444);outline-offset:1px}
 .search-page-status{margin:.6rem 0 0;font-size:.85rem;opacity:.7}
 .search-page-results{margin-top:1.5rem}
 .search-page-group{margin-bottom:1.75rem}
 .search-page-group h2{font-size:1.1rem;margin:0 0 .6rem;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:.35rem}
-.search-page-group-count{color:#ef4444;font-size:.85rem;font-weight:600}
+.search-page-group-count{color:var(--ds-red-light,#ef4444);font-size:.85rem;font-weight:600}
 .search-page-result-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
-.search-page-result a{display:block;padding:.7rem .9rem;border:1px solid rgba(255,255,255,.1);border-radius:9px;text-decoration:none;color:inherit;background:rgba(255,255,255,.03)}
+.search-page-result a{display:block;padding:.7rem .9rem;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);text-decoration:none;color:inherit;background:rgba(255,255,255,.03)}
 .search-page-result a:hover,.search-page-result a:focus-visible{border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.1);outline:none}
 .search-page-result-title{display:block;font-weight:600}
 .search-page-result-snippet{display:block;margin-top:.25rem;font-size:.85rem;opacity:.7}
+
+
+/* Back-to-top control (created by site.js on long pages, CSP-safe). */
+.to-top {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 40;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--ink);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition:
+    background var(--ds-motion, 200ms) var(--ds-ease, ease),
+    border-color var(--ds-motion, 200ms) var(--ds-ease, ease),
+    color var(--ds-motion, 200ms) var(--ds-ease, ease);
+}
+.to-top:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: #ffffff;
+}

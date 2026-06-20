@@ -443,14 +443,14 @@ function nav(currentDir = "") {
     .map((group, index) => {
       const id = `nav-menu-${index}-${slugifyAnchor(group.label)}`;
       const items = (group.items || [])
-        .map((item) => `<a href="${escapeHtml(hrefForSlug(item.slug, currentDir, item.anchor || ""))}" role="menuitem">${escapeHtml(item.label)}</a>`)
+        .map((item) => `<a href="${escapeHtml(hrefForSlug(item.slug, currentDir, item.anchor || ""))}">${escapeHtml(item.label)}</a>`)
         .join("");
       return `<div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="${id}" data-nav-toggle>
           <span>${escapeHtml(group.label)}</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="${id}" role="menu">${items}</div>
+        <div class="nav-menu" id="${id}">${items}</div>
       </div>`;
     })
     .join("");
@@ -599,22 +599,42 @@ function projectStructuredNode(slug, rawTitle, canonicalUrl, description) {
   return node;
 }
 
-function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", description = "") {
+function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", description = "", minimalSeo = false) {
   const base = absoluteUrl("index.html");
+  // Soft-error pages (404) carry no entity markup and must not seed the graph.
+  if (minimalSeo) {
+    return "";
+  }
+  // sameAs consolidates the brand's Knowledge Graph entity. Derived at build time
+  // from the same verified live-sources path the footer uses — no hardcoded URLs.
+  const sameAs = siteData.social.map(resolveLink).filter((l) => l && l.external && l.href).map((l) => l.href);
+  const orgNode = {
+    "@type": "Organization",
+    "@id": `${base}#org`,
+    name: siteData.site.name,
+    url: base,
+    logo: LOGO_IMAGE(),
+    description: siteData.site.description,
+    email: siteData.site.email,
+    ...(sameAs.length ? { sameAs } : {}),
+  };
   if (!currentDir) {
     return jsonLdScript({
       "@context": "https://schema.org",
       "@graph": [
+        orgNode,
         {
-          "@type": "Organization",
-          "@id": `${base}#org`,
-          name: siteData.site.name,
+          "@type": "WebSite",
+          "@id": `${base}#website`,
           url: base,
-          logo: LOGO_IMAGE(),
-          description: siteData.site.description,
-          email: siteData.site.email,
+          name: siteData.site.name,
+          publisher: { "@id": `${base}#org` },
+          potentialAction: {
+            "@type": "SearchAction",
+            target: { "@type": "EntryPoint", urlTemplate: `${absoluteUrl("search/index.html")}?q={search_term_string}` },
+            "query-input": "required name=search_term_string",
+          },
         },
-        { "@type": "WebSite", "@id": `${base}#website`, url: base, name: siteData.site.name, publisher: { "@id": `${base}#org` } },
       ],
     });
   }
@@ -637,19 +657,35 @@ function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", descripti
   if (slug.startsWith("project-")) {
     return jsonLdScript({
       "@context": "https://schema.org",
-      "@graph": [breadcrumb, projectStructuredNode(slug, rawTitle, canonicalUrl, description)],
+      "@graph": [breadcrumb, projectStructuredNode(slug, rawTitle, canonicalUrl, description), orgNode],
     });
   }
-  return jsonLdScript({ "@context": "https://schema.org", ...breadcrumb });
+  // Inner pages carry the breadcrumb plus a brand Organization reference so the
+  // entity (and its sameAs) reaches crawlers entering via deep pages.
+  return jsonLdScript({ "@context": "https://schema.org", "@graph": [breadcrumb, orgNode] });
 }
 
-function layout({ title, description, currentDir = "", canonicalPath, body, bodyClass = "", slug = "" }) {
+// Search-snippet-safe meta description: collapse whitespace and clip to ~157
+// chars on a word boundary so SERPs don't truncate mid-word. The full lede
+// still renders in the visible page body — this only trims the <meta> value.
+function metaDescription(text) {
+  const s = String(text || "").replace(/\s+/g, " ").trim();
+  if (s.length <= 160) {
+    return s;
+  }
+  return s.slice(0, 157).replace(/\s+\S*$/, "") + "…";
+}
+
+function layout({ title, description, currentDir = "", canonicalPath, body, bodyClass = "", slug = "", robots = "", ogType } = {}) {
   const prefix = relPrefix(currentDir);
   // Per-page Open Graph / Twitter card image (falls back to the shared card).
   const ogImage = ogImageForSlug(slug);
   const homeHref = prefix || "./";
   const pageTitle = title === siteData.site.name ? title : `${title} | ${siteData.site.name}`;
-  const pageDescription = description || siteData.site.description;
+  const pageDescription = metaDescription(description || siteData.site.description);
+  // Content/detail pages are articles; section hubs and the root are websites.
+  const resolvedOgType = ogType || (slug.startsWith("project-") ? "article" : "website");
+  const robotsTag = robots ? `\n  <meta name="robots" content="${escapeHtml(robots)}">` : "";
   // canonicalPath overrides for the flat 404 file; otherwise derive from the dir.
   const canonicalUrl = absoluteUrl(canonicalPath ?? (currentDir ? `${currentDir}/index.html` : "index.html"));
   const normalizedBody = body.trim();
@@ -669,10 +705,10 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="${escapeHtml(cspContent())}">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="referrer" content="strict-origin-when-cross-origin">${robotsTag}
   <title>${escapeHtml(pageTitle)}</title>
   <meta name="description" content="${escapeHtml(pageDescription)}">
-  <meta name="theme-color" content="#050505">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" type="image/svg+xml" href="${prefix}assets/img/icon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="${prefix}assets/img/favicon-32.png">
   <link rel="apple-touch-icon" href="${prefix}assets/img/icon-180.png">
@@ -680,7 +716,7 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
   <link rel="alternate" type="application/rss+xml" title="${escapeHtml(siteData.site.name)} — Updates" href="${prefix}feed.xml">
   <link rel="alternate" type="application/feed+json" title="${escapeHtml(siteData.site.name)} — Updates" href="${prefix}feed.json">
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="${escapeHtml(resolvedOgType)}">
   <meta property="og:site_name" content="${escapeHtml(siteData.site.name)}">
   <meta property="og:title" content="${escapeHtml(pageTitle)}">
   <meta property="og:description" content="${escapeHtml(pageDescription)}">
@@ -692,7 +728,7 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
   <meta name="twitter:image" content="${escapeHtml(ogImage)}">
   <meta name="generator" content="institute_website v${SITE_VERSION}">
   <link rel="stylesheet" href="${prefix}assets/css/instituteos-ds.css">
-  <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}${structuredData(title, currentDir, canonicalUrl, slug, pageDescription)}
+  <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}${structuredData(title, currentDir, canonicalUrl, slug, pageDescription, !!robots)}
 </head>
 <body class="${bodyClass}">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -706,7 +742,7 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
     </a>
     ${nav(currentDir)}
     <div class="site-search" role="search">
-      <input type="search" id="site-search-input" placeholder="Search the Institute…" autocomplete="off" spellcheck="false" aria-label="Search the site" aria-controls="site-search-results" aria-expanded="false">
+      <input type="search" id="site-search-input" placeholder="Search the Institute…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Search the site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Search results" hidden></div>
     </div>
   </header>
@@ -718,14 +754,17 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
       <strong>${escapeHtml(siteData.site.name)}</strong>
       <p>${escapeHtml(siteData.site.description)}</p>
     </div>
-    <div class="footer-links">
-      <a href="mailto:${escapeHtml(siteData.site.email)}">${escapeHtml(siteData.site.email)}</a>
-      <a href="${hrefForSlug("search", currentDir)}">Search</a>
-      <a href="${hrefForSlug("resources", currentDir)}">Resources</a>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="${hrefForSlug("about", currentDir)}">About</a>
+      <a href="${hrefForSlug("projects", currentDir)}">Projects</a>
+      <a href="${hrefForSlug("programs", currentDir)}">Programs</a>
       <a href="${hrefForSlug("directory", currentDir)}">Directory</a>
+      <a href="${hrefForSlug("resources", currentDir)}">Resources</a>
       <a href="${hrefForSlug("knowledge", currentDir)}">Open Source Map</a>
       <a href="${hrefForSlug("get-involved", currentDir)}">Get involved</a>
-    </div>
+      <a href="${hrefForSlug("search", currentDir)}">Search</a>
+      <a href="mailto:${escapeHtml(siteData.site.email)}">${escapeHtml(siteData.site.email)}</a>
+    </nav>
     <div class="social-links" aria-label="Verified public links">
       ${socialLinks()}
     </div>
@@ -764,12 +803,22 @@ function cardGrid(cards = [], currentDir = "") {
 }
 
 function breadcrumb(page, currentDir = "") {
+  // Derive the real parent section from the URL so the visible trail matches the
+  // BreadcrumbList JSON-LD (which uses the same URL-section logic). Two-segment
+  // pages (projects/x, programs/x) get a section crumb; top-level pages don't.
+  const parts = currentDir.split("/").filter(Boolean);
+  let parentLink = "";
+  if (parts.length >= 2) {
+    const section = parts[0];
+    const label = section.charAt(0).toUpperCase() + section.slice(1);
+    parentLink = `<a href="${hrefForSlug(section, currentDir)}">${escapeHtml(label)}</a>
+    <span aria-hidden="true">/</span>
+    `;
+  }
   return `<nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="${hrefForSlug("index", currentDir)}">Home</a>
     <span aria-hidden="true">/</span>
-    <a href="${hrefForSlug("directory", currentDir)}">Directory</a>
-    <span aria-hidden="true">/</span>
-    <span>${escapeHtml(page.title)}</span>
+    ${parentLink}<span aria-current="page">${escapeHtml(page.title)}</span>
   </nav>`;
 }
 
@@ -2502,7 +2551,8 @@ function build() {
       title: "Page not found",
       currentDir: "",
       canonicalPath: "404.html",
-      body: `<section class="page-hero compact"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", "")}">Home</a><span aria-hidden="true">/</span><span>404</span></nav><p class="eyebrow">404</p><h1>Page not found</h1><p>Use the navigation, resource directory, or global index to return to the Institute website.</p><a class="button primary" href="${hrefForSlug("index", "")}">Home</a></section>`,
+      robots: "noindex",
+      body: `<section class="page-hero compact"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", "")}">Home</a><span aria-hidden="true">/</span><span aria-current="page">404</span></nav><p class="eyebrow">404</p><h1>Page not found</h1><p>That page has moved or never existed. Use the search box above, or jump to a main destination:</p><div class="mini-links"><a href="${hrefForSlug("index", "")}">Home</a><a href="${hrefForSlug("directory", "")}">Directory</a><a href="${hrefForSlug("resources", "")}">Resources</a><a href="${hrefForSlug("knowledge", "")}">Open Source Map</a><a href="${hrefForSlug("get-involved", "")}">Get involved</a><a href="${hrefForSlug("search", "")}">Search</a></div><a class="button primary" href="${hrefForSlug("index", "")}">Back to home</a></section>`,
     }),
   );
   writeFile(
