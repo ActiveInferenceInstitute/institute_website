@@ -12,6 +12,9 @@
   --surface-strong: var(--ds-surface-2, #2a2a2a);
   --line: var(--ds-glass-border, rgba(255, 255, 255, 0.08));
   --red: var(--ds-red, #dc2626);
+  /* Accent for link/label text. Flips to brand red in light mode — see the
+     html.theme-light override below — so it clears WCAG AA on both backgrounds. */
+  --accent-text: var(--ds-red-light, #ef4444);
   /* Custom dark-red used only as a colored hover background (white text sits on
      it in both themes); intentionally not a DS token. */
   --red-deep: #2a0d0d;
@@ -19,6 +22,14 @@
   --radius: var(--ds-radius-sm, 10px);
   font-family: var(--ds-font-body,
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+}
+
+/* Accent text flips to the darker brand red in light mode so links and small
+   labels clear WCAG AA on light backgrounds (light-red #ef4444 is only ~3.6:1
+   there, while brand red #dc2626 is ~5:1). The DS handles surface/text flipping;
+   this handles the one accent that needs a per-theme value. */
+html.theme-light {
+  --accent-text: var(--ds-red, #dc2626);
 }
 
 * {
@@ -41,9 +52,9 @@ body {
 }
 
 a {
-  /* Brand light-red for link text: #dc2626 is only 4.10:1 on the dark bg (fails
-     WCAG AA); --ds-red-light (#ef4444) clears AA while staying on-brand. */
-  color: var(--ds-red-light, #ef4444);
+  /* Theme-aware accent text (see --accent-text): light-red on the dark bg,
+     brand red on the light bg — both clear WCAG AA. */
+  color: var(--accent-text);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
 }
@@ -212,9 +223,11 @@ select:focus-visible {
   text-decoration: none;
 }
 
-.nav-menu a:hover {
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
   background: var(--red-deep);
   color: var(--ds-on-accent, #ffffff);
+  outline: none;
 }
 
 .hero {
@@ -223,6 +236,9 @@ select:focus-visible {
   align-items: end;
   padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 5vw, 5rem);
   color: var(--ds-on-accent, #ffffff);
+  /* The hero is always dark, so its accent text stays light-red in both themes
+     (brand red is too dim on this dark gradient). Scoped override of the alias. */
+  --accent-text: var(--ds-red-light, #ef4444);
   /* Intentionally theme-independent: the home hero is an always-dark showcase
      band with white text in both light and dark mode, so these stops are fixed
      dark values rather than (theme-flipping) surface tokens. */
@@ -237,8 +253,8 @@ select:focus-visible {
 
 .eyebrow {
   margin: 0 0 0.75rem;
-  /* light-red clears AA for this small bold label; tracking aids small-caps. */
-  color: var(--ds-red-light, #ef4444);
+  /* theme-aware accent (see --accent-text); tracking aids small-caps. */
+  color: var(--accent-text);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -1043,21 +1059,21 @@ select:focus-visible {
 .site-search-result{display:flex;gap:.7rem;align-items:baseline;padding:.55rem .85rem;text-decoration:none;color:inherit;border-bottom:1px solid rgba(255,255,255,.06)}
 .site-search-result:last-child{border-bottom:0}
 .site-search-result:hover,.site-search-result:focus-visible{background:rgba(239,68,68,.16);outline:none}
-.site-search-kind{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ds-red-light,#ef4444);flex:0 0 5rem}
+.site-search-kind{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-text);flex:0 0 5rem}
 .site-search-title{font-size:.9rem}
 .site-search-empty{padding:.75rem .85rem;margin:0;opacity:.6;font-size:.85rem}
-.site-search-all{display:block;padding:.55rem .85rem;text-decoration:none;color:var(--ds-red-light,#ef4444);font-size:.82rem;font-weight:600;border-top:1px solid rgba(255,255,255,.12);background:rgba(239,68,68,.06)}
+.site-search-all{display:block;padding:.55rem .85rem;text-decoration:none;color:var(--accent-text);font-size:.82rem;font-weight:600;border-top:1px solid rgba(255,255,255,.12);background:rgba(239,68,68,.06)}
 .site-search-all:hover,.site-search-all:focus-visible{background:rgba(239,68,68,.18);outline:none}
 @media (max-width:720px){.site-search{max-width:100%;flex-basis:100%;order:3;margin-left:0}.site-search-results{width:100%}}
 .search-page{max-width:46rem}
-.search-page-label{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ds-red-light,#ef4444);margin-bottom:.4rem}
+.search-page-label{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-text);margin-bottom:.4rem}
 .search-page-input{width:100%;padding:.8rem 1rem;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:inherit;font:inherit;font-size:1.05rem}
 .search-page-input:focus{outline:2px solid var(--ds-red-light,#ef4444);outline-offset:1px}
 .search-page-status{margin:.6rem 0 0;font-size:.85rem;opacity:.7}
 .search-page-results{margin-top:1.5rem}
 .search-page-group{margin-bottom:1.75rem}
 .search-page-group h2{font-size:1.1rem;margin:0 0 .6rem;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:.35rem}
-.search-page-group-count{color:var(--ds-red-light,#ef4444);font-size:.85rem;font-weight:600}
+.search-page-group-count{color:var(--accent-text);font-size:.85rem;font-weight:600}
 .search-page-result-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
 .search-page-result a{display:block;padding:.7rem .9rem;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);text-decoration:none;color:inherit;background:rgba(255,255,255,.03)}
 .search-page-result a:hover,.search-page-result a:focus-visible{border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.1);outline:none}
