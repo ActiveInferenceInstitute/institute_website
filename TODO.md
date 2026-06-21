@@ -29,9 +29,17 @@ strict Content Security Policy, gated by `npm run check`.
 
 ## Backlog / ideas
 
-- [ ] Per-page `lastmod` in `sitemap.xml` from content provenance (instead of a
-      uniform build date).
-- [ ] Media-scoped `theme-color` meta pair (dark/light) to complement the toggle.
+- [ ] Per-page `lastmod` in `sitemap.xml` from content provenance — **deferred**:
+      there is no per-page timestamp source today (`data/export-manifest.json`
+      records per-file hashes, not page mtimes), and deriving it from git history
+      would break the build's determinism. The uniform export-date `lastmod` is
+      correct for a site regenerated as a unit; revisit if per-page provenance
+      lands in the export manifest.
+- [x] **Media-scoped `theme-color` meta pair (dark/light)** — paired
+      `prefers-color-scheme` `theme-color` metas so the browser chrome matches the
+      OS-preferred theme on load.
+- [x] **Deterministic `security.txt` `Expires`** — derived from the export date
+      (+1 year) instead of a hardcoded date that could silently lapse.
 
 ## Conventions
 

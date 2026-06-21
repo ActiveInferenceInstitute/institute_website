@@ -761,7 +761,8 @@ function layout({ title, description, currentDir = "", canonicalPath, body, body
   <meta name="referrer" content="strict-origin-when-cross-origin">${robotsTag}
   <title>${escapeHtml(pageTitle)}</title>
   <meta name="description" content="${escapeHtml(pageDescription)}">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="${prefix}assets/img/icon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="${prefix}assets/img/favicon-32.png">
   <link rel="apple-touch-icon" href="${prefix}assets/img/icon-180.png">
@@ -2643,9 +2644,16 @@ function buildManifest() {
 }
 
 function buildSecurityTxt() {
+  // Derive Expires from the export date (+1 year) so it stays deterministic with
+  // the rest of the build and never silently lapses against a stale hardcoded date.
+  const base = EXPORTED_AT ? new Date(EXPORTED_AT) : null;
+  const expires =
+    base && !Number.isNaN(base.getTime())
+      ? new Date(base.getTime() + 365 * 24 * 60 * 60 * 1000).toISOString()
+      : "2027-06-19T00:00:00.000Z";
   return [
     `Contact: mailto:${siteData.site.email}`,
-    "Expires: 2027-06-19T00:00:00.000Z",
+    `Expires: ${expires}`,
     "Preferred-Languages: en",
     `Canonical: ${absoluteUrl(".well-known/security.txt")}`,
     "",
