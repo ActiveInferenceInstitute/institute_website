@@ -3,6 +3,46 @@
 All notable changes to the Active Inference Institute website are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## v2.6.0 — 2026-06-21
+
+Design-system alignment, light-mode accessibility, and build modularization.
+
+### Added
+- **`DESIGN_SYSTEM.md`** — documents the CSS layering (generated
+  `instituteos-ds.css` token export vs. the hand-edited `styles.css` site layer),
+  the token fallback contract, how the light/dark theme class works, and what
+  `check:design-system` enforces.
+- **Design-system fallback enforcement** — `check:design-system` now verifies
+  that every `var(--ds-*, <fallback>)` in `styles.css` matches the canonical
+  token value from a fresh export, so the fallbacks can never silently drift.
+- **Media-scoped `theme-color`** — a `prefers-color-scheme` `theme-color` meta
+  pair (dark/light) so the browser chrome matches the OS-preferred theme on load.
+- **`src/url-taxonomy.mjs` + `src/lib/text.mjs`** — the clean-URL slug taxonomy
+  and the pure text utilities are now focused, reusable modules. The
+  program-subpage slug set is shared with `check_site_contract.py` via
+  `src/url-taxonomy.json`, removing cross-language drift.
+
+### Changed
+- **Documentation reconciled with the clean-URL architecture** — `README.md` and
+  `AGENTS.md` no longer describe the pre-v2.0 flat `*.html` layout; deployment
+  verification URLs now point at the real clean URLs (`/resources/` etc.) and
+  the generated-file inventory covers feeds, the manifest, `version.json`,
+  `security.txt`, `/search/`, and `/sitemap/`.
+- **Theme-aware accent text** — links and small labels use light-red on dark
+  backgrounds and brand red on light backgrounds so they clear WCAG AA in both
+  themes; the always-dark home hero keeps light-red.
+- **CSS aligned to design-system tokens** — `:root` fallbacks match the canonical
+  dark tokens and off-brand hardcoded backgrounds now use tokens.
+- **Deterministic `security.txt` `Expires`** — derived from the export date
+  (+1 year) instead of a hardcoded date.
+
+### Fixed
+- **Light-mode contrast** — the footer, content/index/next-action bands, the
+  page hero, the sticky header, the search dropdown, and several hover/focus
+  states no longer render text on a same-tone background in light mode.
+- **Keyboard focus parity** — nav-menu links show the same filled state on
+  keyboard focus as on pointer hover.
+
 ## v2.5.0 — 2026-06-20
 
 Discoverability, theming, and smarter search.
