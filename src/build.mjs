@@ -1,6 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  PROGRAM_SUBPAGE_SLUGS,
+  urlDirForSlug,
+  outputPathForSlug,
+  hrefForSlug,
+  parseFlatHref,
+} from "./url-taxonomy.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const contentDir = path.join(root, "src", "content");
@@ -120,71 +127,16 @@ const escapeHtml = (value = "") =>
     .replaceAll('"', "&quot;");
 
 // ── Clean-URL taxonomy ────────────────────────────────────────────────────────
-// urlDirForSlug is the ONE source of truth mapping a page slug to its output
-// directory (a clean directory URL, no .html). The output file is always
-// <dir>/index.html and the canonical URL is /<dir>/ (root "" for the home page).
+// The slug->directory taxonomy (PROGRAM_SUBPAGE_SLUGS, urlDirForSlug,
+// outputPathForSlug, hrefForSlug, parseFlatHref) is the ONE source of truth for
+// clean URLs and lives in ./url-taxonomy.mjs (imported above), shared with
+// scripts/check_site_contract.py via the committed url-taxonomy.json. Output is
+// always <dir>/index.html; the canonical URL is /<dir>/ (root "" for home).
 // 404 is special-cased as a flat root file in build() and is never routed here.
-const PROGRAM_SUBPAGE_SLUGS = new Set([
-  "fellowship",
-  "internship",
-  "mentorship",
-  "partnership",
-  "philanthropy",
-]);
 
-function urlDirForSlug(slug) {
-  if (slug === "index") {
-    return "";
-  }
-  if (slug.startsWith("project-")) {
-    return `projects/${slug.slice("project-".length)}`;
-  }
-  if (PROGRAM_SUBPAGE_SLUGS.has(slug)) {
-    return `programs/${slug}`;
-  }
-  // projects, programs, about, structure, ecosystem, active-inference, learning,
-  // activities, get-involved, volunteer, grants, edactive, reinference,
-  // resources, directory, knowledge -> root-level directory.
-  return slug;
-}
-
-// The output file path for a slug: <dir>/index.html (root index.html for home).
-function outputPathForSlug(slug) {
-  const dir = urlDirForSlug(slug);
-  return dir ? `${dir}/index.html` : "index.html";
-}
-
-// Caller-relative clean href from the CURRENT page directory to a target slug.
-// Always ends with "/" (the canonical directory URL). The home page resolves to
-// the relative path back to the site root (e.g. "../../" from projects/<x>/).
-// An optional #anchor is preserved verbatim.
-function hrefForSlug(targetSlug, currentDir = "", anchor = "") {
-  const targetDir = urlDirForSlug(targetSlug);
-  let rel = path.posix.relative(currentDir, targetDir);
-  if (rel === "") {
-    rel = targetDir === "" ? "./" : "./";
-  }
-  if (!rel.endsWith("/")) {
-    rel += "/";
-  }
-  const hash = anchor ? (anchor.startsWith("#") ? anchor : `#${anchor}`) : "";
-  return `${rel}${hash}`;
-}
-
-// Backwards-compatible thin wrapper: slugToHref now resolves a slug to a
+// Backwards-compatible thin wrapper: slugToHref resolves a slug to a
 // caller-relative clean directory URL. Every caller threads the CURRENT page dir.
 const slugToHref = (slug, currentDir = "", anchor = "") => hrefForSlug(slug, currentDir, anchor);
-
-// Parse a legacy "<slug>.html" or "<slug>.html#anchor" literal into its slug and
-// optional anchor, so content authored with the old flat hrefs resolves through
-// the taxonomy. Returns null when the value is not a flat-page literal.
-function parseFlatHref(value = "") {
-  const match = /^([a-z0-9-]+)\.html(#.*)?$/i.exec(String(value).trim());
-  if (!match) {
-    return null;
-  }
-  return { slug: match[1], anchor: match[2] || "" };
-}
 
 // Reverse map: a clean directory ("projects/x", "about", "") back to the slug
 // that produced it. Lets authors write dir-agnostic clean references (a leading

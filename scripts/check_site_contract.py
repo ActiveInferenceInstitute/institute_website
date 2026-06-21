@@ -15,16 +15,14 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CONTENT_DIR = PROJECT_ROOT / "src" / "content"
 CANONICAL_BASE = "https://activeinferenceinstitute.github.io/institute_website/"
 
-# Clean-URL taxonomy mirror of src/build.mjs::urlDirForSlug. Maps a page slug to
-# its output directory (no .html). The output file is always <dir>/index.html and
-# the canonical/clean URL is /<dir>/ (root "" for the home page). 404 stays flat.
-PROGRAM_SUBPAGE_SLUGS = {
-    "fellowship",
-    "internship",
-    "mentorship",
-    "partnership",
-    "philanthropy",
-}
+# Clean-URL taxonomy mirror of src/build.mjs (via src/url-taxonomy.mjs). Maps a
+# page slug to its output directory (no .html). The output file is always
+# <dir>/index.html and the canonical/clean URL is /<dir>/ (root "" for the home
+# page). 404 stays flat. The program-subpage slug set — the one piece that could
+# drift across languages — is read from the shared src/url-taxonomy.json so the
+# JS build and this checker can never disagree on it.
+_TAXONOMY = json.loads((PROJECT_ROOT / "src" / "url-taxonomy.json").read_text(encoding="utf-8"))
+PROGRAM_SUBPAGE_SLUGS = set(_TAXONOMY["programSubpageSlugs"])
 
 
 def url_dir_for_slug(slug: str) -> str:
