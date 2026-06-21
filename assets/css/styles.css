@@ -4,17 +4,19 @@
      linked before this file). The fallbacks keep the site styled even if the DS
      stylesheet is ever absent. This is how the website inherits the canonical
      brand — red #dc2626, the dashboard surfaces, and the editorial type. */
-  --ink: var(--ds-text, #f5f5f5);
-  --muted: var(--ds-text-muted, #a1a1aa);
-  --soft: var(--ds-text, #d4d4d8);
-  --paper: var(--ds-bg, #050505);
-  --surface: var(--ds-surface, #111111);
-  --surface-strong: var(--ds-surface-2, #18181b);
-  --line: var(--ds-glass-border, #343434);
-  --red: var(--ds-red, #ff3b3b);
+  --ink: var(--ds-text, #e5e5e5);
+  --muted: var(--ds-text-muted, #999999);
+  --soft: var(--ds-text, #e5e5e5);
+  --paper: var(--ds-bg, #0a0a0a);
+  --surface: var(--ds-surface, #151515);
+  --surface-strong: var(--ds-surface-2, #2a2a2a);
+  --line: var(--ds-glass-border, rgba(255, 255, 255, 0.08));
+  --red: var(--ds-red, #dc2626);
+  /* Custom dark-red used only as a colored hover background (white text sits on
+     it in both themes); intentionally not a DS token. */
   --red-deep: #2a0d0d;
-  --shadow: var(--ds-shadow, 0 18px 48px rgba(0, 0, 0, 0.45));
-  --radius: var(--ds-radius-sm, 8px);
+  --shadow: var(--ds-shadow, 0 8px 32px rgba(0, 0, 0, 0.5));
+  --radius: var(--ds-radius-sm, 10px);
   font-family: var(--ds-font-body,
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 }
@@ -80,7 +82,7 @@ select:focus-visible {
   top: -4rem;
   z-index: 20;
   background: var(--surface-strong);
-  color: #ffffff;
+  color: var(--ink);
   padding: 0.75rem 1rem;
 }
 
@@ -97,8 +99,10 @@ select:focus-visible {
   justify-content: space-between;
   gap: 1.25rem;
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  background: rgba(5, 5, 5, 0.94);
-  border-bottom: 1px solid rgba(52, 52, 52, 0.9);
+  /* Theme-aware translucent bar: tracks the page background in both light and
+     dark so the (theme-flipping) brand/nav text never lands on a same-tone bar. */
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
 }
 
@@ -123,7 +127,7 @@ select:focus-visible {
   border: 1px solid var(--red);
   border-radius: var(--radius);
   background: var(--surface-strong);
-  color: #ffffff;
+  color: var(--ink);
   font-weight: 800;
   letter-spacing: 0;
 }
@@ -173,7 +177,7 @@ select:focus-visible {
 .nav-menu-button:hover,
 .nav-group[data-open] .nav-menu-button {
   border-color: var(--line);
-  color: #ffffff;
+  color: var(--ink);
   background: var(--surface);
 }
 
@@ -210,7 +214,7 @@ select:focus-visible {
 
 .nav-menu a:hover {
   background: var(--red-deep);
-  color: #ffffff;
+  color: var(--ds-on-accent, #ffffff);
 }
 
 .hero {
@@ -218,7 +222,10 @@ select:focus-visible {
   display: grid;
   align-items: end;
   padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 5vw, 5rem);
-  color: #ffffff;
+  color: var(--ds-on-accent, #ffffff);
+  /* Intentionally theme-independent: the home hero is an always-dark showcase
+     band with white text in both light and dark mode, so these stops are fixed
+     dark values rather than (theme-flipping) surface tokens. */
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 1), rgba(5, 5, 5, 0.76)),
     linear-gradient(135deg, #050505 0%, #111111 58%, #1c1c1f 100%);
@@ -282,7 +289,7 @@ select:focus-visible {
 .button.primary {
   border-color: var(--red);
   background: var(--red);
-  color: #ffffff;
+  color: var(--ds-on-accent, #ffffff);
 }
 
 .button.secondary {
@@ -337,13 +344,13 @@ select:focus-visible {
 }
 
 .content-band.muted {
-  background: #0a0a0a;
+  background: var(--paper);
 }
 
 .page-index-band {
   padding-top: clamp(1.5rem, 4vw, 2.5rem);
   padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
-  background: #080808;
+  background: var(--paper);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -395,7 +402,7 @@ select:focus-visible {
 .resource-card:hover,
 .pager a:hover {
   border-color: var(--red);
-  color: #ffffff;
+  color: var(--ink);
 }
 
 .link-chips,
@@ -523,7 +530,7 @@ select:focus-visible {
 .next-action-band {
   padding-top: clamp(2rem, 4vw, 3.5rem);
   padding-bottom: clamp(2rem, 4vw, 3.5rem);
-  background: #070707;
+  background: var(--paper);
   border-bottom: 1px solid var(--line);
 }
 
@@ -657,8 +664,8 @@ select:focus-visible {
 
 .page-hero {
   padding: clamp(4rem, 9vw, 7rem) clamp(1rem, 5vw, 5rem);
-  background: #080808;
-  color: #ffffff;
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .page-hero.compact {
@@ -799,7 +806,7 @@ select:focus-visible {
 .tag-filter-chips button:hover,
 .tag-filter-chips button[aria-pressed="true"] {
   border-color: var(--red);
-  color: #ffffff;
+  color: var(--ds-on-accent, #ffffff);
   background: var(--red-deep);
 }
 
@@ -923,7 +930,7 @@ select:focus-visible {
   gap: 2rem;
   padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 5vw, 5rem);
   border-top: 1px solid var(--line);
-  background: #050505;
+  background: var(--paper);
   color: var(--ink);
 }
 
@@ -1032,7 +1039,7 @@ select:focus-visible {
 .site-search{position:relative;margin-left:auto;flex:0 1 15rem;max-width:15rem}
 .site-search input{width:100%;padding:.5rem .75rem;border-radius:var(--radius);border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:inherit;font:inherit}
 .site-search input:focus{outline:2px solid var(--ds-red-light,#ef4444);outline-offset:1px}
-.site-search-results{position:absolute;top:calc(100% + .35rem);right:0;width:min(24rem,82vw);max-height:60vh;overflow:auto;background:#0a0a0a;border:1px solid rgba(255,255,255,.15);border-radius:10px;box-shadow:0 14px 44px rgba(0,0,0,.55);z-index:60}
+.site-search-results{position:absolute;top:calc(100% + .35rem);right:0;width:min(24rem,82vw);max-height:60vh;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 44px rgba(0,0,0,.55);z-index:60}
 .site-search-result{display:flex;gap:.7rem;align-items:baseline;padding:.55rem .85rem;text-decoration:none;color:inherit;border-bottom:1px solid rgba(255,255,255,.06)}
 .site-search-result:last-child{border-bottom:0}
 .site-search-result:hover,.site-search-result:focus-visible{background:rgba(239,68,68,.16);outline:none}
@@ -1093,7 +1100,7 @@ body{transition:background-color 200ms,color 200ms}
 .to-top:hover {
   background: var(--red);
   border-color: var(--red);
-  color: #ffffff;
+  color: var(--ds-on-accent, #ffffff);
 }
 
 /* Interactive-surface polish ─────────────────────────────────────────────────
