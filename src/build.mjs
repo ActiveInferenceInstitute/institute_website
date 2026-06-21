@@ -8,6 +8,13 @@ import {
   hrefForSlug,
   parseFlatHref,
 } from "./url-taxonomy.mjs";
+import {
+  escapeHtml,
+  sanitizePublicProse,
+  proseParagraphs,
+  slugifyAnchor,
+  title_case_token_js,
+} from "./lib/text.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const contentDir = path.join(root, "src", "content");
@@ -119,13 +126,6 @@ const typeById = new Map((siteData.resources.types || []).map((type) => [type.id
 const categoryById = new Map((siteData.resources.categories || []).map((category) => [category.id, category]));
 const audienceById = new Map((siteData.resources.audiences || []).map((audience) => [audience.id, audience]));
 
-const escapeHtml = (value = "") =>
-  String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
-
 // ── Clean-URL taxonomy ────────────────────────────────────────────────────────
 // The slug->directory taxonomy (PROGRAM_SUBPAGE_SLUGS, urlDirForSlug,
 // outputPathForSlug, hrefForSlug, parseFlatHref) is the ONE source of truth for
@@ -191,56 +191,6 @@ function resolveInternalHref(href = "", currentDir = "") {
     }
   }
   return href;
-}
-
-// Public-safe prose normalizer for free-text sourced from registries/narratives.
-// Strips markdown link syntax to its label, removes raw URLs, drops redacted
-// email placeholders, and neutralizes private-channel/document tokens so the
-// rendered HTML stays inside the public site contract (no Coda/workspace
-// wording, no obsolete PDF/atlas references, no external anchors smuggled in as
-// bare URLs). Output is plain text and must still be passed through escapeHtml.
-function sanitizePublicProse(value = "") {
-  let text = String(value);
-  // Markdown links/images -> visible label only.
-  text = text.replace(/!?\[([^\]]*)\]\((?:[^)]*)\)/g, "$1");
-  // Bare URLs -> removed (anchors must come from live-sources.json only).
-  text = text.replace(/https?:\/\/[^\s)\]]+/g, "");
-  // Redacted email placeholders and leftover empty brackets/parens.
-  text = text.replace(/\[?\s*email redacted\s*\]?/gi, "");
-  text = text.replace(/\(\s*\)/g, "").replace(/\[\s*\]/g, "");
-  // Neutralize tokens that trip the public-site scanners.
-  const replacements = [
-    [/\bcoda\.io\b/gi, "the shared space"],
-    [/\bcoda\b/gi, "the shared space"],
-    [/\bworkspaces?\b/gi, "shared spaces"],
-    [/\bPDF\b/g, "document"],
-    [/\bpdfs\b/gi, "documents"],
-    [/\bSource Atlas\b/gi, "source map"],
-    [/\bSource Manifest\b/gi, "source list"],
-  ];
-  for (const [pattern, replacement] of replacements) {
-    text = text.replace(pattern, replacement);
-  }
-  // Collapse markdown bullet artifacts and excess whitespace.
-  text = text.replace(/\r/g, "");
-  return text;
-}
-
-// Split a sanitized narrative body into renderable paragraphs. Markdown list
-// markers and blank lines become paragraph breaks; empty fragments are dropped.
-function proseParagraphs(value = "") {
-  const cleaned = sanitizePublicProse(value);
-  return cleaned
-    .split(/\n{2,}|\n(?=\s*[-*]\s)/)
-    .map((chunk) =>
-      chunk
-        .split("\n")
-        .map((line) => line.replace(/^\s*[-*]\s+/, "").trim())
-        .filter(Boolean)
-        .join(" "),
-    )
-    .map((chunk) => chunk.trim())
-    .filter((chunk) => chunk.length > 0);
 }
 
 // Flatten a node meta object (or scalar) into a single readable string, since
@@ -314,12 +264,6 @@ function graphFigure(name, rawData, currentDir = "") {
     <div class="graph-data" id="${id}" hidden>${json}</div>
   </div>`;
 }
-
-const slugifyAnchor = (value = "") =>
-  String(value)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
 
 // Asset/root prefix for the CURRENT page directory, generalized to N levels:
 // the number of path segments in the dir determines how many "../" hops reach
@@ -1385,12 +1329,6 @@ function policiesTable(rows = policyRows()) {
   return dataTable({ caption: "Public governance policy registry for the Active Inference Institute.", columns, rows });
 }
 
-function title_case_token_js(value = "") {
-  return String(value)
-    .replaceAll("_", " ")
-    .replaceAll("-", " ")
-    .replace(/\b\w/g, (letter) => letter.toUpperCase());
-}
 
 function knowledgePreview(page, currentDir = "") {
   const previewConfig = {
