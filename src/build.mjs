@@ -1,12 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import {
-  PROGRAM_SUBPAGE_SLUGS,
   urlDirForSlug,
   outputPathForSlug,
   hrefForSlug,
-  parseFlatHref,
 } from "./url-taxonomy.mjs";
 import {
   escapeHtml,
@@ -15,183 +12,42 @@ import {
   slugifyAnchor,
   title_case_token_js,
 } from "./lib/text.mjs";
-
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const contentDir = path.join(root, "src", "content");
-
-const out = (...parts) => path.join(root, ...parts);
-const ensure = (dir) => fs.mkdirSync(dir, { recursive: true });
-
-function loadJson(relativePath) {
-  return JSON.parse(fs.readFileSync(path.join(contentDir, relativePath), "utf8"));
-}
-
-// Public site version (decoupled from the private library) + export provenance.
-// Provenance is read from the export manifest so the build stays byte-stable:
-// it changes only when the exported public data changes, never per build run.
-const SITE_VERSION = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8")).version;
-const _manifestPath = path.join(root, "data", "export-manifest.json");
-const EXPORT_PROVENANCE = fs.existsSync(_manifestPath)
-  ? JSON.parse(fs.readFileSync(_manifestPath, "utf8"))
-  : {};
-const SOURCE_FINGERPRINT = EXPORT_PROVENANCE.source_fingerprint || "";
-const EXPORTED_AT = EXPORT_PROVENANCE.generated_at || "";
-
-// The machine-readable public projects feed lives at the repo root (data/),
-// outside src/content. Loaded once and reused for related-projects + domain
-// cross-linking.
-let _projectsData = null;
-function loadProjectsData() {
-  if (_projectsData === null) {
-    const file = path.join(root, "data", "projects.json");
-    _projectsData = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : { projects: [] };
-  }
-  return _projectsData;
-}
-
-// Pages may live directly under src/content/pages or in maintainer-facing
-// taxonomy subfolders (institute/, programs/, participate/, projects/,
-// communications/). Walk the tree recursively so every .json is loaded
-// regardless of nesting. The page slug field stays the identity that maps to a
-// FLAT <slug>.html output path — folder placement never affects output URLs.
-function walkPageJson(dir) {
-  const found = [];
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      found.push(...walkPageJson(full));
-    } else if (entry.isFile() && entry.name.endsWith(".json")) {
-      found.push(full);
-    }
-  }
-  return found;
-}
-
-const pagesDir = path.join(contentDir, "pages");
-const pages = walkPageJson(pagesDir)
-  .map((full) => loadJson(path.relative(contentDir, full)))
-  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0) || a.slug.localeCompare(b.slug));
-
-const siteData = {
-  site: loadJson("site.json"),
-  navigation: loadJson("navigation.json"),
-  social: loadJson("social.json"),
-  metrics: loadJson("metrics.json"),
-  liveSources: loadJson("live-sources.json"),
-  resources: loadJson("resources.json"),
-  officialPages: loadJson("official-pages.json"),
-  repositories: loadJson("repositories.json"),
-  audiencePathways: loadJson("audience-pathways.json"),
-  instituteos: {
-    people: loadJson(path.join("instituteos", "people.json")),
-    projects: loadJson(path.join("instituteos", "projects.json")),
-    ideas: loadJson(path.join("instituteos", "ideas.json")),
-    ontology: loadJson(path.join("instituteos", "ontology.json")),
-    assets: loadJson(path.join("instituteos", "assets.json")),
-    entities: loadJson(path.join("instituteos", "entities.json")),
-    processes: loadJson(path.join("instituteos", "processes.json")),
-    communications: loadJson(path.join("instituteos", "communications.json")),
-    policies: loadJson(path.join("instituteos", "policies.json")),
-    techTreeGraph: loadJson(path.join("instituteos", "tech_tree_graph.json")),
-    ontologyGraph: loadJson(path.join("instituteos", "ontology_graph.json")),
-    governanceGraph: loadJson(path.join("instituteos", "governance_graph.json")),
-    domainProjects: loadJson(path.join("instituteos", "domain_projects.json")),
-    narratives: loadJson(path.join("instituteos", "narratives_public.json")),
-  },
-  pages,
-};
-
-const liveSourceById = new Map((siteData.liveSources.sources || []).map((source) => [source.id, source]));
-// Every reachable public URL (plus trailing-slash variants) backed by the live
-// source registry. Used to gate raw registry URLs: an external anchor may only
-// be emitted when its href is represented here, matching the static-security
-// and site-contract checks.
-const liveSourceUrlSet = new Set();
-for (const source of siteData.liveSources.sources || []) {
-  if (source.ok && source.url) {
-    const clean = source.url.replace(/\/+$/, "");
-    liveSourceUrlSet.add(source.url);
-    liveSourceUrlSet.add(clean);
-    liveSourceUrlSet.add(`${clean}/`);
-  }
-}
-function isVerifiedExternalUrl(url = "") {
-  if (!url) {
-    return false;
-  }
-  return liveSourceUrlSet.has(url) || liveSourceUrlSet.has(url.replace(/\/+$/, ""));
-}
-const pageBySlug = new Map(siteData.pages.map((page) => [page.slug, page]));
-const typeById = new Map((siteData.resources.types || []).map((type) => [type.id, type]));
-const categoryById = new Map((siteData.resources.categories || []).map((category) => [category.id, category]));
-const audienceById = new Map((siteData.resources.audiences || []).map((audience) => [audience.id, audience]));
-
-// ── Clean-URL taxonomy ────────────────────────────────────────────────────────
-// The slug->directory taxonomy (PROGRAM_SUBPAGE_SLUGS, urlDirForSlug,
-// outputPathForSlug, hrefForSlug, parseFlatHref) is the ONE source of truth for
-// clean URLs and lives in ./url-taxonomy.mjs (imported above), shared with
-// scripts/check_site_contract.py via the committed url-taxonomy.json. Output is
-// always <dir>/index.html; the canonical URL is /<dir>/ (root "" for home).
-// 404 is special-cased as a flat root file in build() and is never routed here.
-
-// Backwards-compatible thin wrapper: slugToHref resolves a slug to a
-// caller-relative clean directory URL. Every caller threads the CURRENT page dir.
-const slugToHref = (slug, currentDir = "", anchor = "") => hrefForSlug(slug, currentDir, anchor);
-
-// Reverse map: a clean directory ("projects/x", "about", "") back to the slug
-// that produced it. Lets authors write dir-agnostic clean references (a leading
-// "/<dir>/" path) that re-resolve relative to the current page. Built once.
-const ALL_ROUTED_SLUGS = [
-  "index",
-  ...siteData.pages.map((page) => page.slug),
-  "knowledge",
-  "resources",
-  "directory",
-  "search",
-  "sitemap",
-];
-const SLUG_FOR_DIR = (() => {
-  const map = new Map();
-  for (const slug of ALL_ROUTED_SLUGS) {
-    map.set(urlDirForSlug(slug), slug);
-  }
-  return map;
-})();
-const ROUTED_SLUG_SET = new Set(ALL_ROUTED_SLUGS);
-
-// Resolve any author-supplied internal href to a caller-relative clean URL.
-// Accepts:
-//  - legacy "<slug>.html[#anchor]" literals (mapped via the taxonomy)
-//  - root-absolute clean references "/<dir>/[#anchor]" (mapped back to a slug)
-// and passes through external URLs, mailto/tel, bare "#anchor" fragments, and
-// already-relative clean directory hrefs unchanged.
-function resolveInternalHref(href = "", currentDir = "") {
-  if (!href || externalHref(href) || /^(mailto:|tel:|sms:|#)/i.test(href)) {
-    return href;
-  }
-  const parsed = parseFlatHref(href);
-  if (parsed) {
-    return hrefForSlug(parsed.slug, currentDir, parsed.anchor);
-  }
-  // Root-absolute clean reference: "/projects/x/", "/about/", "/" (home).
-  // Resolve by exact output dir first, then fall back to treating the final path
-  // segment as a slug name (so "/partnership/" still maps to the program-subpage
-  // slug whose real dir is "programs/partnership").
-  if (href.startsWith("/")) {
-    const [pathPart, anchorPart = ""] = href.split("#");
-    const dir = pathPart.replace(/^\/+/, "").replace(/\/+$/, "");
-    const anchor = anchorPart ? `#${anchorPart}` : "";
-    const byDir = SLUG_FOR_DIR.get(dir);
-    if (byDir) {
-      return hrefForSlug(byDir, currentDir, anchor);
-    }
-    const lastSegment = dir.split("/").filter(Boolean).pop() || "index";
-    if (ROUTED_SLUG_SET.has(lastSegment)) {
-      return hrefForSlug(lastSegment, currentDir, anchor);
-    }
-  }
-  return href;
-}
+import {
+  root,
+  contentDir,
+  loadJson,
+  SITE_VERSION,
+  EXPORT_PROVENANCE,
+  SOURCE_FINGERPRINT,
+  EXPORTED_AT,
+  loadProjectsData,
+  siteData,
+  liveSourceById,
+  pageBySlug,
+  typeById,
+  categoryById,
+  audienceById,
+  ALL_ROUTED_SLUGS,
+} from "./data.mjs";
+import { out, ensure } from "./lib/paths.mjs";
+import { writeFile } from "./lib/output.mjs";
+import { listText, rowAnchor } from "./render/text.mjs";
+import { cspContent } from "./render/security.mjs";
+import {
+  isVerifiedExternalUrl,
+  slugToHref,
+  resolveInternalHref,
+  relPrefix,
+  absoluteUrl,
+  externalHref,
+} from "./render/urls.mjs";
+import {
+  linkAttrs,
+  sourceFor,
+  publicHrefForSource,
+  resolveLink,
+  resolveLinks,
+} from "./render/links.mjs";
 
 // Flatten a node meta object (or scalar) into a single readable string, since
 // graphs.js renders node.meta via String(node.meta).
@@ -265,76 +121,6 @@ function graphFigure(name, rawData, currentDir = "") {
   </div>`;
 }
 
-// Asset/root prefix for the CURRENT page directory, generalized to N levels:
-// the number of path segments in the dir determines how many "../" hops reach
-// the site root. Root pages (dir "") get "". projects/<x>/ (depth 2) get "../../".
-function relPrefix(currentDir = "") {
-  if (!currentDir) {
-    return "";
-  }
-  const depth = currentDir.split("/").filter(Boolean).length;
-  return "../".repeat(depth);
-}
-
-function absoluteUrl(filePath = "") {
-  const baseUrl = siteData.site.baseUrl.endsWith("/") ? siteData.site.baseUrl : `${siteData.site.baseUrl}/`;
-  let clean = String(filePath).replace(/^\/+/, "");
-  if (clean === "index.html") {
-    clean = "";
-  } else if (clean.endsWith("/index.html")) {
-    clean = clean.slice(0, -"index.html".length);
-  }
-  return new URL(clean, baseUrl).toString();
-}
-
-function externalHref(href = "") {
-  return /^https?:\/\//.test(href);
-}
-
-function linkAttrs(href = "") {
-  return externalHref(href) ? ' target="_blank" rel="noopener noreferrer"' : "";
-}
-
-function sourceFor(id) {
-  const source = liveSourceById.get(id);
-  return source && source.ok ? source : null;
-}
-
-function publicHrefForSource(source) {
-  return source.url;
-}
-
-function resolveLink(link) {
-  if (!link) {
-    return null;
-  }
-  if (link.sourceId) {
-    const source = sourceFor(link.sourceId);
-    if (!source) {
-      return null;
-    }
-    return {
-      label: link.label || source.label,
-      href: publicHrefForSource(source),
-      meta: source.category,
-      external: true,
-    };
-  }
-  if (link.href && link.label) {
-    return {
-      label: link.label,
-      href: link.href,
-      meta: link.meta,
-      external: externalHref(link.href),
-    };
-  }
-  return null;
-}
-
-function resolveLinks(links = []) {
-  return links.map(resolveLink).filter(Boolean);
-}
-
 function nav(currentDir = "") {
   const groups = siteData.navigation
     .map((group, index) => {
@@ -401,30 +187,6 @@ function linkList(links = [], currentDir = "") {
       return `<a href="${escapeHtml(href)}"${linkAttrs(href)}>${escapeHtml(link.label)}</a>`;
     })
     .join("")}</div>`;
-}
-
-function listText(items = [], fallback = "None listed") {
-  const cleaned = items.map((item) => String(item || "").trim()).filter(Boolean);
-  return cleaned.length ? cleaned.join(", ") : fallback;
-}
-
-function rowAnchor(prefix, id) {
-  return `${prefix}-${slugifyAnchor(id)}`;
-}
-
-function cspContent() {
-  return [
-    "default-src 'self'",
-    "script-src 'self'",
-    "style-src 'self'",
-    "img-src 'self' data:",
-    "font-src 'self'",
-    "connect-src 'none'",
-    "object-src 'none'",
-    "base-uri 'self'",
-    "form-action 'none'",
-    "upgrade-insecure-requests",
-  ].join("; ");
 }
 
 // Absolute URLs for the 1200x630 social-share card and the square logo/icon.
@@ -2597,11 +2359,6 @@ function buildSearchIndex() {
     concept: ["idea", "ideas", "topic"],
   };
   return `window.__SEARCH_INDEX__ = ${JSON.stringify(entries)};\nwindow.__SEARCH_PAGE_URL__ = ${JSON.stringify(searchPageUrl)};\nwindow.__SEARCH_SYNONYMS__ = ${JSON.stringify(SYNONYMS)};\n`;
-}
-
-function writeFile(file, html) {
-  ensure(path.dirname(out(file)));
-  fs.writeFileSync(out(file), html.replace(/[ \t]+$/gm, ""), "utf8");
 }
 
 function build() {
