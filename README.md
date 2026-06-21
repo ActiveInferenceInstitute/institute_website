@@ -37,7 +37,7 @@ InstituteOS-adjacent data may be injected only through the public sync script. T
 ```text
 .
 ├── src/
-│   ├── build.mjs                 # Static generator
+│   ├── build.mjs                 # Static generator (renders all public HTML + crawler files)
 │   └── content/
 │       ├── site.json             # Site metadata and canonical URL
 │       ├── navigation.json       # Accessible dropdown navigation groups
@@ -47,27 +47,46 @@ InstituteOS-adjacent data may be injected only through the public sync script. T
 │       ├── resources.json        # Public resource directory model
 │       ├── official-pages.json   # Official site pages and public subdomains
 │       ├── repositories.json     # Public ActiveInferenceInstitute repositories
-│       ├── instituteos/*.json    # Sanitized Open Source Map public tables
 │       ├── audience-pathways.json # Homepage visitor pathways
+│       ├── instituteos/*.json    # Sanitized Open Source Map public tables
 │       └── pages/*.json          # Curated public guide pages
 ├── assets/
-│   ├── css/styles.css            # Dark charcoal theme with red accents
-│   └── js/site.js                # Navigation disclosure and resource filters
+│   ├── css/styles.css            # Site theme on top of the design-system tokens
+│   ├── css/instituteos-ds.css    # Design-system token export (from library/design-system)
+│   ├── css/graphs.css            # Graph / visualization styles
+│   ├── js/site.js                # Navigation disclosure, resource filters, repo sorting
+│   └── js/theme.js               # Light/dark theme toggle (localStorage)
 ├── scripts/
 │   ├── sync_instituteos_public_data.py # Sanitized public data injection
+│   ├── generate-project-pages.mjs # Per-project page content generator
+│   ├── generate-cards.mjs        # Per-page Open Graph social cards
+│   ├── generate-icons.sh         # Brand icon / favicon generation
 │   ├── check_internal_links.py   # Local HTML and asset link checker
 │   ├── check_live_sources.py     # External-link verifier
 │   ├── check_site_contract.py    # Public resource-hub contract checker
 │   └── check_static_security.py  # Static-site security contract checker
-├── index.html                    # Generated public root
-├── resources.html                # Generated searchable resource directory
-├── directory.html                # Generated global index
-├── knowledge.html                # Generated Open Source Map
-├── *.html                        # Generated curated pages
+├── index.html                    # Generated public root (only flat HTML besides 404)
+├── 404.html                      # Generated not-found page (served by GitHub Pages)
+├── resources/index.html          # Generated searchable resource directory (clean URL /resources/)
+├── directory/index.html          # Generated global index (clean URL /directory/)
+├── knowledge/index.html          # Generated Open Source Map (clean URL /knowledge/)
+├── search/index.html             # Generated dedicated search page (clean URL /search/)
+├── sitemap/index.html            # Generated human-readable HTML sitemap (clean URL /sitemap/)
+├── <section>/<slug>/index.html   # Generated curated pages as clean URLs (about/, projects/, programs/, ecosystem/, …)
 ├── robots.txt                    # Generated crawler policy
-├── sitemap.xml                   # Generated canonical sitemap
+├── sitemap.xml                   # Generated XML sitemap
+├── feed.xml                      # Generated RSS feed
+├── feed.json                     # Generated JSON feed
+├── manifest.webmanifest          # Generated PWA manifest (installability)
+├── version.json                  # Generated machine-readable version + provenance
+├── .well-known/security.txt      # Generated RFC 9116 disclosure contact
 └── .nojekyll                     # GitHub Pages static passthrough
 ```
+
+Since v2.0 every routed page is served as a clean URL: the generator writes
+`<section>/index.html` (and `<section>/<slug>/index.html` for child pages) so
+GitHub Pages serves `/resources/`, `/projects/<name>/`, etc. The only flat HTML
+files at the repository root are `index.html` and `404.html`.
 
 ## Content Model
 
@@ -130,8 +149,13 @@ npm run check:links
 npm run check:sources
 npm run check:site
 npm run check:security
+npm run check:design-system
 git diff --check
 ```
+
+`npm run check` already chains `check:links`, `check:instituteos`,
+`check:design-system`, `check:site`, and `check:security`; the individual
+commands above are listed for targeted runs.
 
 Serve locally from the repository root:
 
@@ -147,13 +171,16 @@ GitHub Pages is configured to serve from `main` at the repository root. A releas
 
 Before pushing, confirm:
 
-- `npm run build` has refreshed generated HTML, `robots.txt`, and `sitemap.xml`.
+- `npm run build` has refreshed generated HTML, `robots.txt`, `sitemap.xml`, the
+  HTML sitemap at `/sitemap/`, `feed.xml`, `feed.json`, `manifest.webmanifest`,
+  `version.json`, and `.well-known/security.txt`.
 - `npm run check:instituteos` confirms sanitized Open Source Map tables and brand assets are current.
 - `npm run check` passes.
 - `npm run check:links` passes.
 - `npm run check:sources` passes or has been intentionally refreshed with reachable public links.
 - `npm run check:site` passes.
 - `npm run check:security` passes.
+- `npm run check:design-system` confirms the CSS stays aligned with the design-system tokens.
 - Browser checks cover desktop home, Resources, Directory, mobile navigation, Projects, Get Involved, and 404.
 
 ## Design Contract

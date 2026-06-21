@@ -35,16 +35,23 @@ The site is static:
 - `scripts/sync_instituteos_public_data.py` copies sanitized Open Source Map tables and brand-only assets into this repo.
 - Generated root files are committed because GitHub Pages serves from `main` at repository root.
 
+Since v2.0 the site serves clean URLs: every routed page is written as
+`<section>/index.html` (and `<section>/<slug>/index.html` for child pages), so
+the only flat HTML files at the repository root are `index.html` and `404.html`.
+
 Generated public files should be limited to:
 
-- `index.html`
-- curated page HTML files
-- `resources.html`
-- `directory.html`
-- `knowledge.html`
-- `404.html`
+- `index.html` and `404.html` (the only flat HTML at the repository root)
+- curated pages as clean-URL directories — `<section>/index.html` and
+  `<section>/<slug>/index.html` (e.g. `resources/`, `directory/`, `knowledge/`,
+  `search/`, `sitemap/`, `projects/<name>/`, `programs/<name>/`,
+  `ecosystem/<domain>/`)
 - `robots.txt`
-- `sitemap.xml`
+- `sitemap.xml` (XML sitemap) and the human-readable HTML sitemap at `sitemap/index.html`
+- `feed.xml` and `feed.json` (RSS + JSON feeds)
+- `manifest.webmanifest` (PWA manifest)
+- `version.json` (machine-readable version + provenance)
+- `.well-known/security.txt` (RFC 9116 responsible-disclosure contact)
 - static CSS and JavaScript assets
 - brand-only images under `assets/img/instituteos/`
 - `.nojekyll`
@@ -123,6 +130,7 @@ npm run check:links
 npm run check:sources
 npm run check:site
 npm run check:security
+npm run check:design-system
 git diff --check
 ```
 
@@ -139,11 +147,13 @@ Check desktop home, Resources, Directory, Open Source Map, mobile navigation dro
 GitHub Pages serves from `main` at `/`. After a verified commit is pushed to `origin/main`, confirm the deployed site responds at:
 
 - `/`
-- `/resources.html`
-- `/directory.html`
-- `/knowledge.html`
-- `/projects.html`
-- `/get-involved.html`
+- `/resources/`
+- `/directory/`
+- `/knowledge/`
+- `/projects/`
+- `/get-involved/`
+- `/search/`
+- `/sitemap/`
 - `/sitemap.xml`
 - `/robots.txt`
 
