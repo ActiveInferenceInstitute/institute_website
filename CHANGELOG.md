@@ -3,6 +3,15 @@
 All notable changes to the Active Inference Institute website are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+
+### Internal
+- **Modularized the static generator** — `src/build.mjs` (a 2691-line monolith)
+  was decomposed into 35 focused ES modules under `src/` (`data.mjs` foundation,
+  `lib/`, `render/`, `pages/`, `feeds.mjs`), leaving `build.mjs` a ~107-line
+  orchestrator. A pure refactor: generated output is byte-identical at every
+  step (no version bump, no user-facing change).
+
 ## v2.6.0 — 2026-06-21
 
 Design-system alignment, light-mode accessibility, and build modularization.
