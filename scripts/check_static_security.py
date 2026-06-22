@@ -148,11 +148,7 @@ def check_security() -> int:
             if missing:
                 errors.append(f"{relative}: CSP missing directives {sorted(missing)}")
 
-        referrers = [
-            attrs.get("content", "")
-            for attrs in parser.metas
-            if attrs.get("name", "").lower() == "referrer"
-        ]
+        referrers = [attrs.get("content", "") for attrs in parser.metas if attrs.get("name", "").lower() == "referrer"]
         if "strict-origin-when-cross-origin" not in referrers:
             errors.append(f"{relative}: missing strict referrer policy")
 
