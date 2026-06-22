@@ -66,13 +66,22 @@ for text. White-on-accent surfaces (buttons, the home hero) use
 
 ## What the gate enforces
 
-`npm run check:design-system` (part of `npm run check`) verifies:
+`npm run check:design-system` (`scripts/check_design_system_export.mjs`, part of
+`npm run check`) verifies:
 
 - `assets/css/instituteos-ds.css` is **byte-identical** to a fresh export of the
   upstream tokens — i.e. the committed token export is not stale.
 - The bundled web fonts under `assets/css/fonts/` match the export.
 - Every `var(--ds-*, <fallback>)` fallback in `styles.css` matches the canonical
   token value. A mismatch fails the build with the exact token and both values.
+
+The first two (freshness) checks require the upstream design-system source. In a
+**standalone checkout** where that source isn't present (for example this repo's
+own CI), the script skips the freshness comparison with a `NOTE` and still runs
+the fully self-contained fallback check against the committed `instituteos-ds.css`
+— so the brand-consistency invariant is enforced everywhere, while freshness is
+enforced wherever the source is available (set `INSTITUTEOS_DS_ROOT` to point at
+it explicitly).
 
 If the check reports a stale export, regenerate `instituteos-ds.css` from the
 upstream design system and re-run the gate. If it reports a fallback mismatch,
