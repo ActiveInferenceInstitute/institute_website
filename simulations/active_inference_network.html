@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Active Inference Network — Agents, Blankets, and Collective Autonomy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#faf8f5;color:#2a2520;font-family:'Cormorant Garamond',Georgia,serif;
+  display:flex;flex-direction:column;align-items:center;min-height:100vh;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.header{text-align:center;padding:2rem 1rem .5rem;max-width:800px}
+.header h1{font-weight:300;font-size:1.6rem;letter-spacing:.35em;text-transform:uppercase;color:#3a3530}
+.header .sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#8a8070;margin-top:.4rem;line-height:1.7;display:block}
+
+/* ─── TABS ─── */
+.tabs{display:flex;justify-content:center;gap:0;padding:.8rem 1rem .2rem;max-width:500px;width:100%}
+.tab-btn{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.15em;
+  text-transform:uppercase;color:#9a9080;background:none;border:none;
+  padding:.6rem 1.5rem;cursor:pointer;position:relative;transition:color .3s;
+  border-bottom:2px solid transparent
+}
+.tab-btn:hover{color:#5a5045}
+.tab-btn.active{color:#3a3530;border-bottom-color:#7a5a8a}
+.tab-btn .tab-range{display:block;font-size:.55rem;color:#b0a898;margin-top:.15rem;letter-spacing:.08em}
+.tab-btn.active .tab-range{color:#8a8070}
+
+/* ─── CONTROLS ─── */
+.controls{display:flex;align-items:center;justify-content:center;gap:1.2rem;padding:.8rem 1rem .3rem;flex-wrap:wrap;max-width:850px}
+.ctrl-group{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.ctrl-group label{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#9a9080}
+.ctrl-group input[type=range]{-webkit-appearance:none;width:140px;height:3px;background:#d0c8b8;border-radius:2px;outline:none;cursor:pointer}
+.ctrl-group input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#7a5a8a;border:2px solid #faf8f5;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.n-display{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:500;color:#2a2520;min-width:2.5em;text-align:center}
+.sound-panel{display:flex;align-items:center;justify-content:center;gap:1rem;padding:.3rem 1rem .5rem;flex-wrap:wrap;max-width:800px}
+.sound-panel select{padding:.35rem .6rem;background:#faf8f5;border:1.5px solid rgba(60,50,40,.18);color:#4a4035;font-family:'JetBrains Mono',monospace;font-size:.7rem;cursor:pointer;border-radius:2px;outline:none}
+.chk-group{display:flex;align-items:center;gap:.35rem;font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#6a6050;cursor:pointer;user-select:none}
+.chk-group input[type=checkbox]{-webkit-appearance:none;appearance:none;width:14px;height:14px;border:1.5px solid rgba(60,50,40,.25);border-radius:2px;cursor:pointer;position:relative;background:#faf8f5}
+.chk-group input[type=checkbox]:checked{background:rgba(90,138,122,.15);border-color:#5a8a7a}
+.chk-group input[type=checkbox]:checked::after{content:'✓';position:absolute;top:-1px;left:1px;font-size:11px;color:#5a8a7a;font-weight:500}
+.chk-group.z2 input[type=checkbox]:checked{background:rgba(122,90,138,.15);border-color:#7a5a8a}
+.chk-group.z2 input[type=checkbox]:checked::after{color:#7a5a8a}
+
+/* ─── READOUTS ─── */
+.readouts{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem 1.5rem;padding:.5rem 1rem;max-width:950px}
+.readout{text-align:center;min-width:85px}
+.readout .rlabel{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:#9a9080}
+.readout .rval{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:400;margin-top:.1rem}
+.rval.purple{color:#7a5a8a}.rval.teal{color:#5a8a7a}.rval.gold{color:#b89a4a}.rval.red{color:#c45a4a}
+
+/* ─── CANVAS ─── */
+.canvas-wrap{position:relative;width:100%;max-width:700px;margin:.5rem auto;padding:0 .5rem}
+canvas#network{width:100%;height:auto;display:block;border-radius:3px}
+
+/* ─── EXAMPLES ─── */
+.examples{max-width:700px;width:100%;padding:0 1rem;min-height:2.5rem;display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.ex-title{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#9a9080}
+.ex-label{font-weight:400;font-size:1.05rem;color:#3a3530;text-align:center;line-height:1.6}
+.ex-detail{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#8a8070;text-align:center;line-height:1.7;max-width:560px}
+.ex-nodes{color:#5a8a7a}.ex-edges{color:#7a5a8a}
+
+/* ─── LEGEND ─── */
+.legend{display:flex;justify-content:center;gap:1.2rem;padding:.3rem 1rem;flex-wrap:wrap}
+.leg-item{display:flex;align-items:center;gap:.4rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;color:#6a6050}
+.leg-dot{width:9px;height:9px;border-radius:50%}.leg-line{width:16px;height:2px}
+
+/* ─── EQUATIONS ─── */
+.equations{max-width:700px;padding:1rem 1.5rem;margin:.5rem auto}
+.eq-row{display:flex;align-items:center;gap:1rem;padding:.4rem 0;border-bottom:1px solid rgba(200,190,175,.3);flex-wrap:wrap}
+.eq-row:last-child{border-bottom:none}
+.eq-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a9080;min-width:95px}
+.eq-formula{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#4a4035;flex:1}
+.eq-val{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:500;min-width:70px;text-align:right}
+
+/* ─── EXPLAINER ─── */
+.explainer{max-width:680px;padding:1.5rem 2rem 3rem;line-height:1.85;font-size:1.05rem;color:#3a3530}
+.explainer h2{font-weight:400;font-size:1.15rem;letter-spacing:.2em;text-transform:uppercase;color:#5a5045;margin:1.8rem 0 .6rem;padding-top:.5rem;border-top:1px solid rgba(200,190,175,.4)}
+.explainer h2:first-child{border-top:none;margin-top:0}
+.explainer p{margin-bottom:.8rem}
+.explainer em{font-style:italic;color:#7a5a8a}
+.explainer strong{font-weight:500;color:#2a2520}
+.m{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#5a8a7a}
+.tab-content{display:none}.tab-content.active{display:block}
+@media(max-width:600px){.header h1{font-size:1.2rem;letter-spacing:.2em}.controls{gap:.7rem}.ctrl-group input[type=range]{width:110px}.explainer{padding:1rem 1.2rem 2rem;font-size:.95rem}.tab-btn{padding:.5rem 1rem}}
+</style>
+</head>
+<body>
+<div class="header"><h1>Active Inference Network</h1>
+  <span class="sub">Agents, Markov blankets, and the geometry of collective autonomy</span></div>
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="intimate">Self &amp; Circle<span class="tab-range">1 – 20 agents</span></button>
+  <button class="tab-btn" data-tab="scale">Crowd &amp; Culture<span class="tab-range">20 – 150 agents</span></button>
+</div>
+
+<div class="controls">
+  <div class="ctrl-group"><label>Agents n</label><input type="range" id="nSlider" min="1" max="20" value="1" step="1"></div>
+  <div class="n-display" id="nDisplay">K₁</div>
+  <div class="ctrl-group"><label>Speed</label><input type="range" id="speedSlider" min="0.2" max="3" value="1" step="0.1"></div>
+  <div class="ctrl-group"><label>Coupling ε</label><input type="range" id="entrainSlider" min="0" max="1" value="0" step="0.02"></div>
+</div>
+<div class="sound-panel">
+  <select id="soundStyle">
+    <option value="off">Sound off</option>
+    <option value="bells">Bells &amp; Plucks</option>
+    <option value="voice">Formant Voice</option>
+  </select>
+  <label class="chk-group"><input type="checkbox" id="chkSO2" checked> Agent updates</label>
+  <label class="chk-group z2"><input type="checkbox" id="chkZ2" checked> Blanket updates</label>
+</div>
+
+<div class="readouts">
+  <div class="readout"><div class="rlabel">Agents</div><div class="rval teal" id="rNodes">1</div></div>
+  <div class="readout"><div class="rlabel">Markov Blankets</div><div class="rval purple" id="rEdges">0</div></div>
+  <div class="readout"><div class="rlabel">Agent Autonomy</div><div class="rval teal" id="rIndAuto">1.000</div></div>
+  <div class="readout"><div class="rlabel">Collective Autonomy</div><div class="rval purple" id="rGrpAuto">0.000</div></div>
+  <div class="readout"><div class="rlabel">Synchrony Φ</div><div class="rval gold" id="rPhi">1.000</div></div>
+  <div class="readout"><div class="rlabel">Euler χ</div><div class="rval red" id="rEuler">1</div></div>
+</div>
+
+<div class="canvas-wrap"><canvas id="network" width="700" height="500"></canvas></div>
+
+<div class="examples"><div class="ex-title" id="exTitle"></div><div class="ex-label" id="exLabel"></div><div class="ex-detail" id="exDetail"></div></div>
+
+<div class="legend">
+  <div class="leg-item"><div class="leg-dot" style="background:#5a8a7a"></div>Agent (internal model)</div>
+  <div class="leg-item"><div class="leg-line" style="background:#7a5a8a"></div>Markov blanket</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#c45a4a"></div>Belief update</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#b89a4a"></div>Epistemic value peak</div>
+  <div class="leg-item"><div class="leg-dot" style="background:rgba(150,140,120,.5)"></div>Prediction error</div>
+</div>
+
+<div class="equations">
+  <div class="eq-row"><div class="eq-label">Agent</div><div class="eq-formula">A<sub>agent</sub> = 1/n</div><div class="eq-val teal" id="eqInd">1.000</div></div>
+  <div class="eq-row"><div class="eq-label">Collective</div><div class="eq-formula">A<sub>coll</sub> = (n−1)/n</div><div class="eq-val purple" id="eqGrp">0.000</div></div>
+  <div class="eq-row"><div class="eq-label">Synchrony</div><div class="eq-formula">Φ = |1/n · Σ exp(iθⱼ)|</div><div class="eq-val gold" id="eqPhi">1.000</div></div>
+  <div class="eq-row"><div class="eq-label">Coupling</div><div class="eq-formula">kick = ε · σ² · (1 + 3p²) per update</div><div class="eq-val gold" id="eqE2">0.000</div></div>
+  <div class="eq-row"><div class="eq-label">Euler χ</div><div class="eq-formula">χ = n − n(n−1)/2</div><div class="eq-val red" id="eqChi">1</div></div>
+</div>
+
+<!-- ═══ INTIMATE EXPLAINER ═══ -->
+<div class="tab-content active" id="explainer-intimate">
+<div class="explainer">
+  <h2>What you are seeing</h2>
+  <p>A complete graph K<sub>n</sub>, where every agent connects to every other.
+    Each <strong>node</strong> is an <em>autonomous agent</em> with its own generative model,
+    accumulating evidence from sensory states until a precision-weighted threshold is reached
+    and its beliefs update. Each <strong>edge</strong> is a <em>Markov blanket</em>: the
+    statistical boundary separating one agent's internal states from another's, mediating
+    the flow of prediction errors between them.</p>
+  <p>Agents run continuous internal cycles, updating beliefs about their environment.
+    Blankets are bistable: they either pass or block information, flipping state when their
+    own evidence threshold is reached. The blanket threshold is half the agent threshold,
+    reflecting the blanket's role as a <em>boundary</em> rather than a <em>model</em>:
+    boundaries need less evidence to reorganise because they carry more uncertainty
+    (higher variance, lower precision).</p>
+  <p>The gold glow marks <strong>epistemic value</strong>: the moment just before a
+    belief update when the system carries maximum information about the impending
+    transition. For blankets this peaks at ~90% through the accumulation cycle;
+    for agents, ~97.5%. This asymmetry reflects the blanket's greater flexibility
+    (lower precision) compared to the agent's more rigid generative model.</p>
+
+  <h2>Agents and blankets</h2>
+  <p>In the free energy principle, a Markov blanket is the set of states that
+    separates an agent's internal states from external states. In this network,
+    each edge <em>is</em> a blanket: it connects exactly two agents and mediates
+    the statistical dependencies between them.</p>
+  <p>The quadratic explosion: each new agent must form a blanket with every
+    existing agent. Person 4 doesn't add one blanket; they add three.
+    Person 10 adds nine. Person 50 adds forty-nine.
+    Total blankets = n(n−1)/2. At K₃ blankets equal agents (3 = 3);
+    after that, blankets dominate forever.
+    This is the handshake problem: in a room of 50 people, there are 1,225
+    pairwise statistical boundaries.</p>
+  <p>Each blanket carries twice the variance (half the precision) of each agent.
+    This follows from the blanket's role: it must be <em>permeable</em> to mediate
+    exchange, while the agent must be <em>precise</em> to maintain a stable model.
+    The blankets therefore don't just outnumber the agents; they carry more
+    uncertainty per component.</p>
+
+  <h2>Agent and collective autonomy</h2>
+  <p><strong>Agent autonomy</strong> <span class="m">A<sub>agent</sub> = 1/n</span>:
+    the fraction of total system variance carried by the agents' internal models.
+    <strong>Collective autonomy</strong> <span class="m">A<sub>coll</sub> = (n−1)/n</span>:
+    the fraction carried by the Markov blankets. These sum to 1.</p>
+  <p>At K₂: 50/50. At K₁₀: 90% collective. At K₂₀: 95% collective.
+    Collective autonomy measures the degree to which the ensemble has become
+    autonomous <em>from its own agents</em>. The blankets, not the agents, carry
+    most of the system's uncertainty. Yet agent autonomy never reaches zero;
+    every agent retains an irreducible internal model.</p>
+
+  <h2>Synchrony</h2>
+  <p>The Kuramoto order parameter <span class="m">Φ = |1/n · Σ exp(iθⱼ)|</span>,
+    where <span class="m">θⱼ</span> is each agent's phase in its evidence-accumulation
+    cycle. Φ = 1 when all agents update beliefs simultaneously. Φ ≈ 1/√n when
+    they accumulate independently. Watch how Φ fluctuates at K₂ (phases drifting
+    in and out of alignment), then settles near 1/√n at larger n.</p>
+
+  <h2>Blanket-mediated coupling</h2>
+  <p>With ε = 0, agents accumulate evidence independently. Raise the coupling
+    slider and each update — whether blanket or agent — delivers a prediction
+    error of <span class="m">ε · σ²</span> to connected agents.
+    Crucially, agents near their update threshold are more <em>susceptible</em>:
+    the kick is amplified by <span class="m">(1 + 3p²)</span>, where p is how far
+    through the cycle the receiving agent is. An agent at 90% receives nearly 3.5×
+    the kick of one at the start. This is critical slowing down: the closer a system
+    is to transition, the more sensitive it becomes to perturbation.</p>
+  <p>The result is cascades. One agent updates, kicking its neighbours. Those nearest
+    their own thresholds get pushed over, triggering their updates, which kick
+    <em>their</em> neighbours. At high ε, watch for waves of red sweeping through the
+    network. This is generalised synchrony: no conductor, no shared clock, just
+    Markov blankets transmitting prediction errors with susceptibility-weighted gain.</p>
+
+  <h2>Computational method</h2>
+  <p>The evidence thresholds, variance parameters, autonomy formulae, and
+    epistemic value function are derived from information geometry:
+    specifically, the Cramér-Rao bound on the statistical manifold
+    of the agents' generative models. The agent's update threshold
+    (2π) and the blanket's update threshold (π) follow from the
+    rotational and reflective symmetry of their respective state spaces.
+    The variance ratio (blanket = 2× agent) follows from the same
+    symmetry classification. These are not free parameters.</p>
+  <p style="text-align:center;margin-top:2rem;font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#a09585;letter-spacing:.15em">ACTIVE INFERENCE INSTITUTE · NETWORK DYNAMICS · 2025</p>
+</div>
+</div>
+
+<!-- ═══ SCALE EXPLAINER ═══ -->
+<div class="tab-content" id="explainer-scale">
+<div class="explainer">
+  <h2>What changes at scale</h2>
+  <p>Beyond ~20 agents, the network crosses a perceptual threshold. Individual blankets
+    become invisible; the canvas becomes a mesh. This is not a rendering limitation.
+    It is what actually happens to the agents: at K₅₀ there are 1,225 Markov blankets
+    and no agent can attend to each one. The system's free energy landscape is dominated
+    by the <em>collective</em>, not by any particular pairwise boundary.</p>
+
+  <h2>The quadratic wall</h2>
+  <p>Blankets scale as <span class="m">n(n−1)/2</span>. At K₂₀ there are 190.
+    At K₅₀ there are 1,225. At K₁₅₀ there are 11,175. The ratio of blankets
+    to agents is <span class="m">(n−1)/2</span>, which means K₁₅₀ has 74.5 blankets
+    per agent. Each agent is embedded in 149 simultaneous statistical boundaries.
+    No generative model can track this. The ensemble manages itself.</p>
+  <p>This is why organisations develop norms, cultures, and institutions: they are
+    <em>compression mechanisms</em> for a blanket space too complex for any agent
+    to model. A shared language is a set of blanket states made portable across
+    the network. A norm is a blanket pattern that updates and reconstitutes faster
+    than any agent can register. An institution is a hierarchical decomposition of
+    the blanket space into tractable sub-networks.</p>
+
+  <h2>Dunbar's number</h2>
+  <p>Robin Dunbar proposed ~150 as the cognitive limit for stable social relationships.
+    In this framework, at K₁₅₀, agent autonomy is
+    <span class="m">1/150 ≈ 0.7%</span>. The collective carries 99.3% of the system's
+    variance. Beyond this, the blankets are so dominant that adding more agents barely
+    changes the collective's dynamics; you need <em>hierarchical structure</em>
+    (sub-networks, departments, clans) to maintain any meaningful agent contribution.</p>
+  <p>Dunbar's limit, on this account, is not about memory capacity. It is about the
+    ratio of agent to blanket variance reaching a floor below which agents cannot
+    sustain meaningful individuality within the ensemble. This interpretation is
+    consistent with, but not derivable from, the free energy principle alone;
+    it requires the specific variance assignments that follow from the symmetry
+    classification of agent and blanket state spaces.</p>
+
+  <h2>Phase transitions through coupling</h2>
+  <p>With ε > 0 at large n, watch for <strong>synchronisation cascades</strong>.
+    Each update — blanket or agent — delivers a prediction error to connected agents,
+    amplified by the receiver's <em>susceptibility</em>: agents near their own threshold
+    receive up to 3.5× the base kick. At K₁₅₀, each agent has 149 blankets.
+    When several blankets update in quick succession, the cumulative prediction error
+    — amplified by susceptibility — pushes the agent past threshold. Its belief update
+    propagates outward through all 149 of <em>its</em> blankets, perturbing
+    other agents near their thresholds, and so on. The cascade appears as a wave of
+    red sweeping across the network.</p>
+  <p>This is a <em>phase transition</em> in the Kuramoto sense: below a critical
+    coupling, agents drift independently. Above it, the network locks into collective
+    oscillation. The critical coupling decreases with n; larger ensembles synchronise
+    more easily. This follows from the mean-field structure of the complete graph:
+    each agent receives prediction errors from <span class="m">n−1</span> blankets,
+    so the effective coupling scales linearly with network size.</p>
+
+  <h2>Computational method</h2>
+  <p>The simulation uses information-geometric methods to derive the update thresholds,
+    variance parameters, and coupling strengths from the symmetry class of each component's
+    state space. Agents have rotational (continuous) symmetry; blankets have reflective
+    (bistable) symmetry. The Cramér-Rao bound on each symmetry class determines the
+    evidence threshold for belief updating. The Kuramoto order parameter Φ is standard.
+    The autonomy partition 1/n follows from the variance ratio and the quadratic scaling
+    of blankets. These quantities are computed, not fitted.</p>
+  <p style="text-align:center;margin-top:2rem;font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#a09585;letter-spacing:.15em">ACTIVE INFERENCE INSTITUTE · NETWORK DYNAMICS · 2025</p>
+</div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════
+// ACTIVE INFERENCE NETWORK
+// Computational engine: Coherence-Rupture-Regeneration (CRR)
+// Alexander Sabine · temporalgrammar.ai · cohere.org.uk
+//
+// FEP mapping:
+//   Evidence accumulation:  C(x,t) = ∫ L(x,τ) dτ
+//   Belief update:          δ(now)  when  C · Ω = 1  (Cramér-Rao bound)
+//   Posterior revision:     R = ∫ φ · exp(C/Ω) · Θ dτ
+//
+// Symmetry classes:
+//   Blankets (Z₂, bistable):  σ² = 1/π,  threshold = π,  CV = 1/(2π)
+//   Agents   (SO₂, rotational): σ² = 1/2π, threshold = 2π, CV = 1/(4π)
+//
+// Epistemic value: E(C,Ω) = exp(C/Ω)·(1−C·Ω), peaks at threshold − σ²
+//   Blanket peak at ~90% through cycle
+//   Agent peak at ~97.5% through cycle
+//
+// Markov blankets: each edge separates agent internal states.
+//   Coupling: blanket update delivers ε·σ²_blanket prediction error.
+//   Synchrony: Φ = |1/n Σ exp(iθⱼ)| — Kuramoto order parameter.
+//   Agent autonomy: 1/n. Collective autonomy: (n−1)/n.
+// ═══════════════════════════════════════════════════════════════════════
+
+const PI = Math.PI;
+const {sin, cos, min, max, exp, abs, sqrt, log, floor, pow, random: rnd} = Math;
+
+// CRR constants (computational engine)
+const OMEGA_Z2 = 1/PI, OMEGA_SO2 = 1/(2*PI);       // σ² for blankets, agents
+const CSTAR_Z2 = PI, CSTAR_SO2 = 2*PI;              // evidence thresholds
+
+const COL = {
+  bg:'#faf8f5',purple:'#7a5a8a',teal:'#5a8a7a',sage:'#7a9a6a',
+  gold:'#b89a4a',red:'#c45a4a',redL:'rgba(196,90,74,0.25)',dim:'#9a9080'
+};
+
+// Epistemic value function (CRR beauty function)
+// Peaks one fluctuation-width before belief update
+function epistemicValue(C, omega) {
+  const cstar = 1/omega;
+  if (C <= 0 || C >= cstar) return 0;
+  const raw = exp(C/omega) * (1 - C*omega);
+  const evMax = omega*omega * exp(1/(omega*omega) - 1);
+  return raw / evMax;
+}
+function evGlow(C, omega) {
+  const ev = epistemicValue(C, omega);
+  return ev < 0.3 ? 0 : min(1, (ev-0.3)/0.7);
+}
+function randn() {
+  let u=0,v=0; while(!u)u=rnd(); while(!v)v=rnd();
+  return sqrt(-2*log(u))*cos(2*PI*v);
+}
+
+// ═══════════════════════════════════════════════
+const canvas = document.getElementById('network'), ctx = canvas.getContext('2d');
+let W, H, dpr, n=1, speed=1, coupling=0;
+let nodes=[], edges=[], updates=[], predErrors=[];
+let currentTab = 'intimate';
+
+const MAX_PRED_ERRORS = 400;
+
+// ═══════════════════════════════════════════════
+// TAB SYSTEM
+// ═══════════════════════════════════════════════
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('explainer-' + tab).classList.add('active');
+  const slider = document.getElementById('nSlider');
+  if (tab === 'intimate') {
+    slider.min = 1; slider.max = 20;
+    if (n > 20) { n = 20; slider.value = 20; }
+    if (n < 1) { n = 1; slider.value = 1; }
+    slider.value = n;
+  } else {
+    slider.min = 20; slider.max = 150;
+    if (n < 20) { n = 20; slider.value = 20; }
+    slider.value = n;
+  }
+  buildNetwork();
+}
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+});
+
+// ═══════════════════════════════════════════════
+// EXAMPLES
+// ═══════════════════════════════════════════════
+const EXAMPLES = {
+  1:{label:'A Self (Limit Case)',nodes:'One agent, one generative model',edges:'No blankets',detail:'A theoretical limit. Without a Markov blanket there is no inside/outside distinction, so strictly no agent at all. Selfhood requires at least one boundary; to be something is to be separate from something else. Add a second agent and both come into existence.'},
+  2:{label:'A Conversation',nodes:'Two agents',edges:'One Markov blanket between them',detail:'Agent 50%, Collective 50%. The first statistical boundary.'},
+  3:{label:'A Triad',nodes:'Three agents',edges:'Three blankets (each new agent adds one per existing agent)',detail:'χ = 0. Blankets equal agents. The tipping point.'},
+  4:{label:'A Band',nodes:'Four agents',edges:'Six blankets (agent 4 added three at once)',detail:'75% collective. The quadratic explosion begins.'},
+  5:{label:'A Dinner Party',nodes:'Five agents',edges:'Ten blankets (agent 5 added four more)',detail:'80% collective. The evening belongs to the table.'},
+  6:{label:'A Meeting',nodes:'Six agents',edges:'Fifteen blankets — already 2.5× the agents',detail:'83% collective. This is why meetings take on a life of their own.'},
+  7:{label:'A Startup',nodes:'Seven founders',edges:'Twenty-one blankets — 3× the agents',detail:'86% collective. The company has a culture none of them chose.'},
+  10:{label:'A Jury',nodes:'Ten agents',edges:'Forty-five blankets — 4.5× the agents',detail:'90% collective. The verdict lives in the blankets.'},
+  12:{label:'A Squad',nodes:'Twelve agents',edges:'Sixty-six blankets — 5.5× the agents',detail:'92% collective. Small enough to know everyone; large enough for collective intelligence.'},
+  15:{label:'A Seminar',nodes:'Fifteen agents',edges:'105 blankets — 7× the agents',detail:'93% collective. Cross-pollination outruns any single model.'},
+  20:{label:'A Classroom',nodes:'Twenty agents',edges:'190 blankets — 9.5× the agents',detail:'95% collective. The class has a shared attention no individual controls.'},
+  25:{label:'A Platoon',nodes:'Twenty-five agents',edges:'300 blankets — 12× the agents',detail:'96% collective. The unit acts as one under pressure.'},
+  30:{label:'A Guild',nodes:'Thirty agents',edges:'435 blankets — 14.5× the agents',detail:'97% collective. Shared knowledge lives in the blanket states.'},
+  40:{label:'An Orchestra',nodes:'Forty agents',edges:'780 blankets — 19.5× the agents',detail:'97.5% collective. The conductor is a compression mechanism for 780 statistical boundaries.'},
+  50:{label:'A Community',nodes:'Fifty agents',edges:'1,225 blankets — 24.5× the agents',detail:'98% collective. Almost entirely defined by its pairwise dependencies.'},
+  75:{label:'A Department',nodes:'Seventy-five agents',edges:'2,775 blankets — 37× the agents',detail:'98.7% collective. Sub-ensembles emerge because no model can track 74 boundaries.'},
+  100:{label:'A Company',nodes:'A hundred agents',edges:'4,950 blankets — 49.5× the agents',detail:'99% collective. No individual shapes the culture. The organisation is its own agent.'},
+  120:{label:'A Village',nodes:'A hundred and twenty agents',edges:'7,140 blankets — 59.5× the agents',detail:'99.2% collective. Everyone is known, but only through chains of boundaries.'},
+  150:{label:"Dunbar's Number",nodes:'A hundred and fifty agents',edges:'11,175 blankets — 74.5× the agents',detail:'99.3% collective. The cognitive limit of social networks. Beyond here, institutions replace relationships.'}
+};
+const NODE_LABELS = {
+  1:['self'],2:['you','me'],3:['A','B','C'],4:['guitar','bass','drums','voice'],
+  5:['host','guest','guest','guest','guest'],6:['chair','dev','design','ops','sales','legal'],
+  7:['CEO','CTO','CFO','design','eng','ops','sales']
+};
+const SUB={'0':'₀','1':'₁','2':'₂','3':'₃','4':'₄','5':'₅','6':'₆','7':'₇','8':'₈','9':'₉'};
+function sub(num){return String(num).split('').map(c=>SUB[c]||c).join('');}
+
+// ═══════════════════════════════════════════════
+// SOUND (sonification of belief updates)
+// ═══════════════════════════════════════════════
+let ac=null, masterGain=null;
+let soundStyle='off', playAgents=true, playBlankets=true;
+const PENTA=[0,3,5,7,10], BASE_FREQ=146.83;
+function noteFreq(i){return BASE_FREQ*pow(2,(PENTA[i%5]+12*floor(i/5))/12);}
+
+const MAX_VOICES = 6;
+let activeVoices = 0;
+function canSpeak(){return activeVoices < MAX_VOICES;}
+function claimVoice(){activeVoices++;}
+function releaseVoice(){activeVoices = max(0, activeVoices-1);}
+
+const VW={mm:[280,800],oo:[320,900],oh:[500,950],ah:[700,1200],eh:[550,1800],ee:[320,2300]};
+function vowelFromEV(ev){
+  let f1,f2;
+  if(ev<.3){const t=ev/.3;f1=VW.mm[0]+t*(VW.oo[0]-VW.mm[0]);f2=VW.mm[1]+t*(VW.oo[1]-VW.mm[1]);}
+  else if(ev<.6){const t=(ev-.3)/.3;f1=VW.oo[0]+t*(VW.ah[0]-VW.oo[0]);f2=VW.oo[1]+t*(VW.ah[1]-VW.oo[1]);}
+  else if(ev<.85){const t=(ev-.6)/.25;f1=VW.ah[0]+t*(VW.eh[0]-VW.ah[0]);f2=VW.ah[1]+t*(VW.eh[1]-VW.ah[1]);}
+  else{const t=(ev-.85)/.15;f1=VW.eh[0]+t*(VW.ee[0]-VW.eh[0]);f2=VW.eh[1]+t*(VW.ee[1]-VW.eh[1]);}
+  return[f1,f2];
+}
+
+function initAudio(){
+  if(ac)return; ac=new(AudioContext||webkitAudioContext)();
+  masterGain=ac.createGain(); masterGain.gain.value=0.7;
+  const comp=ac.createDynamicsCompressor();
+  comp.threshold.value=-18;comp.ratio.value=6;comp.attack.value=.008;comp.release.value=.12;
+  const rv=ac.createConvolver();
+  const sr=ac.sampleRate,len=sr*4,buf=ac.createBuffer(2,len,sr);
+  for(let ch=0;ch<2;ch++){const d=buf.getChannelData(ch);
+    for(let i=0;i<len;i++){const t=i/sr;
+      d[i]=(t<.06?sin(t*800)*.35*(1-t/.06):0)+exp(-t*.9)*(rnd()*2-1)*.45*(1+.15*sin(t*2*(ch+1)));}}
+  rv.buffer=buf;
+  const dry=ac.createGain(),wet=ac.createGain();dry.gain.value=.55;wet.gain.value=.45;
+  masterGain.connect(dry);masterGain.connect(rv);rv.connect(wet);
+  dry.connect(comp);wet.connect(comp);comp.connect(ac.destination);
+}
+
+function bellPlayNode(idx){
+  const now=ac.currentTime,freq=noteFreq(idx),vol=.14;
+  const o1=ac.createOscillator(),o2=ac.createOscillator();
+  o1.type='sine';o1.frequency.value=freq;o2.type='triangle';o2.frequency.value=freq*2;
+  const g1=ac.createGain(),g2=ac.createGain();
+  g1.gain.setValueAtTime(0,now);g1.gain.linearRampToValueAtTime(vol,now+.015);g1.gain.exponentialRampToValueAtTime(.001,now+2);
+  g2.gain.setValueAtTime(0,now);g2.gain.linearRampToValueAtTime(vol*.2,now+.01);g2.gain.exponentialRampToValueAtTime(.001,now+1.3);
+  const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=freq*4;f.Q.value=.7;
+  o1.connect(g1);g1.connect(f);o2.connect(g2);g2.connect(f);f.connect(masterGain);
+  o1.start(now);o2.start(now);o1.stop(now+2.2);o2.stop(now+1.5);
+}
+function bellPlayEdge(a,b){
+  const now=ac.currentTime,freq=noteFreq(a)+noteFreq(b),vol=.08;
+  const o=ac.createOscillator();o.type='triangle';o.frequency.value=freq;
+  const g=ac.createGain();
+  g.gain.setValueAtTime(0,now);g.gain.linearRampToValueAtTime(vol,now+.004);g.gain.exponentialRampToValueAtTime(.001,now+.5);
+  o.connect(g);g.connect(masterGain);o.start(now);o.stop(now+.6);
+}
+
+function voiceUtter(pitch,dur,vol){
+  if(!canSpeak())return; claimVoice();
+  const now=ac.currentTime;
+  const breathG=ac.createGain();breathG.gain.value=0;breathG.connect(masterGain);
+  let lastOsc=null;
+  for(let li=0;li<5;li++){
+    const src=ac.createOscillator();src.type='sawtooth';src.frequency.value=pitch;
+    src.detune.value=(li-2)*4;
+    const vib=ac.createOscillator();vib.type='sine';vib.frequency.value=5.5+(li-2)*.2;
+    const vibG=ac.createGain();vibG.gain.value=20;
+    vib.connect(vibG);vibG.connect(src.detune);
+    const f1=ac.createBiquadFilter();f1.type='bandpass';f1.frequency.value=400;f1.Q.value=8+li*.5;
+    const f2=ac.createBiquadFilter();f2.type='bandpass';f2.frequency.value=1200;f2.Q.value=10+li*.3;
+    const f3=ac.createBiquadFilter();f3.type='bandpass';f3.frequency.value=2800;f3.Q.value=12;
+    const fg1=ac.createGain(),fg2=ac.createGain(),fg3=ac.createGain();
+    fg1.gain.value=.5;fg2.gain.value=.35;fg3.gain.value=.15;
+    src.connect(f1);src.connect(f2);src.connect(f3);
+    f1.connect(fg1);f2.connect(fg2);f3.connect(fg3);
+    const layerG=ac.createGain();layerG.gain.value=vol/5;
+    fg1.connect(layerG);fg2.connect(layerG);fg3.connect(layerG);layerG.connect(breathG);
+    const steps=16;
+    for(let s=0;s<=steps;s++){
+      const t=now+(s/steps)*dur;
+      const EV=epistemicValue((s/steps)*CSTAR_Z2,OMEGA_Z2);
+      const[vf1,vf2]=vowelFromEV(EV);
+      f1.frequency.setValueAtTime(vf1,t);f2.frequency.setValueAtTime(vf2,t);
+      f3.frequency.setValueAtTime(2500+EV*600,t);vibG.gain.setValueAtTime(10+EV*25,t);
+    }
+    src.frequency.setValueAtTime(pitch,now);
+    src.frequency.linearRampToValueAtTime(pitch*1.03,now+dur*.4);
+    src.frequency.linearRampToValueAtTime(pitch*.98,now+dur);
+    src.start(now);vib.start(now);src.stop(now+dur+.05);vib.stop(now+dur+.05);
+    lastOsc=src;
+  }
+  const subO=ac.createOscillator();subO.type='sine';subO.frequency.value=pitch/2;
+  const subG=ac.createGain();subG.gain.setValueAtTime(0,now);
+  subG.gain.linearRampToValueAtTime(vol*.04,now+dur*.3);subG.gain.linearRampToValueAtTime(0,now+dur);
+  subO.connect(subG);subG.connect(breathG);subO.start(now);subO.stop(now+dur+.05);
+  breathG.gain.setValueAtTime(.001,now);breathG.gain.linearRampToValueAtTime(vol*.8,now+.06);
+  for(let s=1;s<8;s++){const frac=s/8;
+    breathG.gain.linearRampToValueAtTime(vol*(.3+epistemicValue(frac*CSTAR_Z2,OMEGA_Z2)*.7),now+.06+frac*(dur-.06-dur*.15));}
+  breathG.gain.linearRampToValueAtTime(vol*.1,now+dur*.92);
+  breathG.gain.linearRampToValueAtTime(0,now+dur);
+  if(lastOsc)lastOsc.onended=releaseVoice;
+}
+
+function playAgentSound(idx){
+  if(soundStyle==='off'||!playAgents||!ac)return;
+  if(n > 30) return;
+  if(soundStyle==='bells')bellPlayNode(idx);
+  else if(soundStyle==='voice'){
+    const pitch=(idx%2===0?175:330)*pow(2,PENTA[idx%5]/12);
+    const dur=min(2.0,CSTAR_SO2/PI/sqrt(max(1,n/3)));
+    voiceUtter(pitch,dur,.22);
+  }
+}
+function playBlanketSound(a,b){
+  if(soundStyle==='off'||!playBlankets||!ac)return;
+  if(n > 20) return;
+  if(soundStyle==='bells')bellPlayEdge(a,b);
+  else if(soundStyle==='voice'){
+    const rootA=(a%2===0?175:330)*pow(2,PENTA[a%5]/12);
+    const rootB=(b%2===0?175:330)*pow(2,PENTA[b%5]/12);
+    voiceUtter((rootA+rootB)/2, .4, .07);
+  }
+}
+
+document.getElementById('soundStyle').addEventListener('change',e=>{
+  soundStyle=e.target.value;if(soundStyle!=='off'){initAudio();if(ac.state==='suspended')ac.resume();}});
+document.getElementById('chkSO2').addEventListener('change',e=>{playAgents=e.target.checked;});
+document.getElementById('chkZ2').addEventListener('change',e=>{playBlankets=e.target.checked;});
+
+// ═══════════════════════════════════════════════
+// NETWORK
+// ═══════════════════════════════════════════════
+function resize(){
+  dpr=devicePixelRatio||1;const r=canvas.getBoundingClientRect();
+  W=r.width;H=r.height||W*.7;canvas.width=W*dpr;canvas.height=H*dpr;
+  canvas.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+function buildNetwork(){
+  nodes=[];edges=[];updates=[];predErrors=[];
+  const cx=W/2,cy=H/2,radius=n===1?0:min(W,H)*(n>30?.42:.38);
+  for(let i=0;i<n;i++){
+    const a=n===1?0:(i/n)*2*PI-PI/2;
+    nodes.push({x:cx+radius*cos(a),y:cy+radius*sin(a),
+      C:rnd()*CSTAR_SO2,rate:max(.3,1+OMEGA_SO2*randn()),
+      phase:rnd()*2*PI,updating:0,index:i,isMale:i%2===0});
+  }
+  for(let i=0;i<n;i++)for(let j=i+1;j<n;j++)
+    edges.push({a:i,b:j,C:rnd()*CSTAR_Z2,rate:max(.3,1+OMEGA_Z2*randn()),updating:0});
+  updateReadouts();
+}
+function updateReadouts(){
+  const nn=n,ne=n*(n-1)/2;
+  document.getElementById('nDisplay').textContent='K'+sub(n);
+  document.getElementById('rNodes').textContent=nn;
+  document.getElementById('rEdges').textContent=ne;
+  document.getElementById('rIndAuto').textContent=(1/n).toFixed(3);
+  document.getElementById('rGrpAuto').textContent=((n-1)/n).toFixed(3);
+  document.getElementById('rEuler').textContent=(nn-ne>=0?nn-ne:'−'+abs(nn-ne));
+  document.getElementById('eqInd').textContent=(1/n).toFixed(3);
+  document.getElementById('eqGrp').textContent=((n-1)/n).toFixed(3);
+  document.getElementById('eqChi').textContent=(nn-ne>=0?nn-ne:'−'+abs(nn-ne));
+  const ex=EXAMPLES[n];
+  const exT=document.getElementById('exTitle'),exL=document.getElementById('exLabel'),exD=document.getElementById('exDetail');
+  if(ex){exT.textContent='for instance';exL.innerHTML='<strong>'+ex.label+'</strong>';
+    exD.innerHTML='<span class="ex-nodes">'+ex.nodes+'</span>. <span class="ex-edges">'+ex.edges+'</span>. '+ex.detail;
+  }else{exT.textContent='';exL.innerHTML='';exD.innerHTML='';}
+}
+
+// ═══════════════════════════════════════════════
+// DYNAMICS (CRR computational engine)
+// ═══════════════════════════════════════════════
+function updateDynamics(dt){
+  const sDt=dt*speed;
+
+  // Agents: evidence accumulation toward belief update
+  for(const node of nodes){
+    node.C+=node.rate*sDt; node.phase+=sDt*.5;
+    if(node.C>=CSTAR_SO2){
+      // Belief update (CRR: rupture at C·Ω = 1)
+      node.C=0;node.updating=1;node.rate=max(.3,1+OMEGA_SO2*randn());
+      updates.push({x:node.x,y:node.y,t:1});
+      playAgentSound(node.index);
+      // Prediction errors propagate outward through blankets
+      if(predErrors.length<MAX_PRED_ERRORS){
+        const prob = n > 20 ? min(1, 20/n) : 1;
+        for(const edge of edges){
+          if(edge.a===node.index||edge.b===node.index){
+            if(rnd() > prob) continue;
+            const target=edge.a===node.index?edge.b:edge.a;
+            predErrors.push({from:node.index,to:target,progress:0,
+              speed:.6+rnd()*.4,col:node.isMale?COL.teal:COL.sage});
+          }
+        }
+      }
+      // Agent update perturbs neighbours through blankets
+      if(coupling>0){
+        const agentKick=coupling*OMEGA_SO2;
+        for(const edge of edges){
+          if(edge.a===node.index||edge.b===node.index){
+            const nb=nodes[edge.a===node.index?edge.b:edge.a];
+            // Susceptibility: near-threshold agents amplify the kick
+            const s=1+3*pow(nb.C/CSTAR_SO2,2);
+            nb.C=min(nb.C+agentKick*s,CSTAR_SO2);
+          }
+        }
+      }
+    }
+    if(node.updating>0)node.updating-=sDt*2;
+  }
+
+  // Blankets: evidence accumulation toward state flip
+  for(const edge of edges){
+    edge.C+=edge.rate*sDt;
+    if(edge.C>=CSTAR_Z2){
+      // Blanket update (CRR: rupture at C·Ω = 1)
+      edge.C=0;edge.updating=1;edge.rate=max(.3,1+OMEGA_Z2*randn());
+      const na=nodes[edge.a],nb=nodes[edge.b];
+      updates.push({x:(na.x+nb.x)/2,y:(na.y+nb.y)/2,t:1});
+      playBlanketSound(edge.a,edge.b);
+      // Bidirectional prediction errors
+      if(predErrors.length<MAX_PRED_ERRORS-1){
+        predErrors.push({from:edge.a,to:edge.b,progress:0,speed:.8+rnd()*.4,col:COL.purple});
+        predErrors.push({from:edge.b,to:edge.a,progress:0,speed:.8+rnd()*.4,col:COL.purple});
+      }
+      // Blanket-mediated coupling with susceptibility
+      if(coupling>0){
+        const baseKick=coupling*OMEGA_Z2;
+        // Susceptibility: agents near threshold amplify the signal
+        const sA=1+3*pow(na.C/CSTAR_SO2,2);
+        const sB=1+3*pow(nb.C/CSTAR_SO2,2);
+        na.C=min(na.C+baseKick*sA,CSTAR_SO2);
+        nb.C=min(nb.C+baseKick*sB,CSTAR_SO2);
+      }
+    }
+    if(edge.updating>0)edge.updating-=sDt*2;
+  }
+
+  // Prediction errors in flight
+  for(let i=predErrors.length-1;i>=0;i--){
+    predErrors[i].progress+=predErrors[i].speed*sDt;
+    if(predErrors[i].progress>=1)predErrors.splice(i,1);
+  }
+
+  // Synchrony Φ (Kuramoto order parameter)
+  let sc=0,ss=0;
+  for(const node of nodes){const th=2*PI*node.C/CSTAR_SO2;sc+=cos(th);ss+=sin(th);}
+  const phi=n>0?sqrt(sc*sc+ss*ss)/n:0;
+  document.getElementById('rPhi').textContent=phi.toFixed(3);
+  document.getElementById('eqPhi').textContent=phi.toFixed(3);
+
+  // Update flash decay
+  for(let i=updates.length-1;i>=0;i--){updates[i].t-=sDt*1.5;if(updates[i].t<=0)updates.splice(i,1);}
+}
+
+// ═══════════════════════════════════════════════
+// DRAW
+// ═══════════════════════════════════════════════
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  const nodeR=n===1?30:max(2,min(22,160/n));
+  const ringW=n>50?1:2;
+  const drawAllEdges=n<=15;
+
+  // Blankets (edges)
+  for(const edge of edges){
+    const a=nodes[edge.a],b=nodes[edge.b];
+    const p=edge.C/CSTAR_Z2;
+    const glow=evGlow(edge.C,OMEGA_Z2);
+    if(!drawAllEdges && glow===0 && edge.updating<=0) continue;
+    const alpha=drawAllEdges?(.06+p*.3):(.1+p*.4);
+    const w=drawAllEdges?(1+p*2):(1+p*1.5);
+    ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+    if(edge.updating>0){ctx.strokeStyle=COL.red;ctx.lineWidth=w+edge.updating*3;ctx.globalAlpha=alpha+edge.updating*.5;}
+    else if(glow>0){ctx.strokeStyle=`rgb(${122+62*glow|0},${90+64*glow|0},${138-64*glow|0})`;ctx.lineWidth=w+glow*2;ctx.globalAlpha=alpha+glow*.3;}
+    else{ctx.strokeStyle=COL.purple;ctx.lineWidth=w;ctx.globalAlpha=alpha;}
+    ctx.stroke();ctx.globalAlpha=1;
+  }
+
+  // Background mesh at scale
+  if(!drawAllEdges){
+    const step=n>80?8:3;
+    ctx.globalAlpha=.025;ctx.strokeStyle=COL.purple;ctx.lineWidth=.5;
+    for(let i=0;i<n;i+=step)for(let j=i+step;j<n;j+=step){
+      ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();}
+    ctx.globalAlpha=1;
+  }
+
+  // Prediction errors in flight
+  for(const pe of predErrors){
+    const from=nodes[pe.from],to=nodes[pe.to];
+    const p=pe.progress;
+    const mx=from.x+(to.x-from.x)*p,my=from.y+(to.y-from.y)*p;
+    const size=2+sin(p*PI)*3,alpha=sin(p*PI)*.7;
+    ctx.beginPath();ctx.arc(mx,my,size,0,2*PI);
+    ctx.fillStyle=pe.col;ctx.globalAlpha=alpha;ctx.fill();
+    ctx.globalAlpha=1;
+  }
+
+  // Update flashes
+  for(const u of updates){
+    ctx.beginPath();ctx.arc(u.x,u.y,(1-u.t)*20+4,0,2*PI);
+    ctx.fillStyle=COL.redL;ctx.globalAlpha=u.t*.6;ctx.fill();ctx.globalAlpha=1;
+  }
+
+  // Agent nodes
+  for(const node of nodes){
+    const p=node.C/CSTAR_SO2,glow=evGlow(node.C,OMEGA_SO2);
+    const baseCol=node.isMale?COL.teal:COL.sage;
+    // Evidence accumulation ring
+    ctx.beginPath();ctx.arc(node.x,node.y,nodeR+ringW+1,-PI/2,-PI/2+p*2*PI);
+    ctx.strokeStyle=node.updating>0?COL.red:(glow>0?`rgb(${90+94*glow|0},${138+16*glow|0},${122-48*glow|0})`:baseCol);
+    ctx.lineWidth=ringW+glow;ctx.globalAlpha=.5+p*.5;ctx.stroke();ctx.globalAlpha=1;
+    // Agent body
+    ctx.beginPath();ctx.arc(node.x,node.y,nodeR,0,2*PI);
+    const fa=.15+p*.35;
+    if(node.updating>0)ctx.fillStyle=`rgba(196,90,74,${fa+node.updating*.3})`;
+    else if(glow>0)ctx.fillStyle=`rgba(184,154,74,${fa*glow+fa*(1-glow)*.6})`;
+    else ctx.fillStyle=node.isMale?`rgba(90,138,122,${fa})`:`rgba(122,154,106,${fa})`;
+    ctx.fill();
+    ctx.strokeStyle=node.updating>0?COL.red:(glow>0?COL.gold:baseCol);
+    ctx.lineWidth=1;ctx.globalAlpha=.5;ctx.stroke();ctx.globalAlpha=1;
+    // Internal model phase indicator
+    if(nodeR>6){
+      const ix=node.x+(nodeR-2)*cos(node.phase),iy=node.y+(nodeR-2)*sin(node.phase);
+      ctx.beginPath();ctx.arc(ix,iy,max(1.5,nodeR/8),0,2*PI);
+      ctx.fillStyle=glow>0?COL.gold:baseCol;ctx.globalAlpha=.5+p*.4;ctx.fill();ctx.globalAlpha=1;
+    }
+  }
+
+  // Labels (≤7)
+  const labels=NODE_LABELS[n];
+  if(labels){
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.font=`${n===1?12:max(8,min(11,60/n+5))}px "JetBrains Mono",monospace`;
+    for(let i=0;i<nodes.length;i++){
+      const nd=nodes[i];
+      const off=n===1?(nodeR+16):(nd.y<H/2?-(nodeR+10):(nodeR+10));
+      ctx.fillStyle=COL.dim;ctx.globalAlpha=.7;ctx.fillText(labels[i]||'',nd.x,nd.y+off);
+    }ctx.globalAlpha=1;
+  }
+
+  // Gender (≤10)
+  if(n>=2&&n<=10){
+    ctx.font='7px "JetBrains Mono",monospace';ctx.textAlign='center';
+    for(const nd of nodes){
+      ctx.fillStyle=nd.isMale?'rgba(90,138,122,.35)':'rgba(122,154,106,.35)';
+      ctx.fillText(nd.isMale?'♂':'♀',nd.x,nd.y+(nd.y<H/2?-(nodeR+18):(nodeR+18)));
+    }
+  }
+
+  // HUD
+  ctx.font='10px "JetBrains Mono",monospace';ctx.fillStyle=COL.dim;ctx.textAlign='left';
+  const ne=n*(n-1)/2;
+  ctx.fillText(`K${sub(n)}: ${n} agent${n>1?'s':''}  ${ne>0?ne+' blanket'+(ne>1?'s':''):'pure autonomy'}`,10,16);
+  ctx.fillText(`Epistemic value peaks one σ² before belief update`,10,30);
+}
+
+// ═══════════════════════════════════════════════
+let lastTime=0;
+function animate(t){
+  const dt=min((t-lastTime)/1000,.05);lastTime=t;
+  updateDynamics(dt);draw();requestAnimationFrame(animate);
+}
+document.getElementById('nSlider').addEventListener('input',e=>{n=parseInt(e.target.value);buildNetwork();});
+document.getElementById('speedSlider').addEventListener('input',e=>{speed=parseFloat(e.target.value);});
+document.getElementById('entrainSlider').addEventListener('input',e=>{
+  coupling=parseFloat(e.target.value);
+  document.getElementById('eqE2').textContent=(coupling*OMEGA_Z2).toFixed(3);
+});
+window.addEventListener('resize',()=>{resize();buildNetwork();});
+resize();buildNetwork();requestAnimationFrame(animate);
+</script>
+</body>
+</html>

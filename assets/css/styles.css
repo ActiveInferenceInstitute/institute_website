@@ -1086,9 +1086,15 @@ select:focus-visible {
 .theme-toggle{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:var(--radius);cursor:pointer;padding:.45rem .6rem;font-size:1rem;line-height:1;transition:background-color 200ms,color 200ms,border-color 200ms}
 .theme-toggle:hover{background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)}
 .theme-toggle-icon{display:inline-block}
+/* Read-aloud (text-to-speech) trigger — mirrors the theme switch. Ships hidden
+   and is revealed by tts.js only when the Web Speech API is available. */
+.tts-toggle{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:var(--radius);cursor:pointer;padding:.45rem .6rem;font-size:1rem;line-height:1;transition:background-color 200ms,color 200ms,border-color 200ms}
+.tts-toggle:hover{background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)}
+.tts-toggle.is-speaking{background:rgba(239,68,68,.18);border-color:rgba(239,68,68,.6);color:var(--red)}
+.tts-toggle-icon{display:inline-block}
 /* Soften the theme switch (and the FOUC from external defer scripts). */
 body{transition:background-color 200ms,color 200ms}
-@media (max-width:720px){.theme-toggle{order:4}}
+@media (max-width:720px){.theme-toggle{order:4}.tts-toggle{order:3}}
 
 
 /* Back-to-top control (created by site.js on long pages, CSP-safe). */

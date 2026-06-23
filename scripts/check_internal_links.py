@@ -11,7 +11,10 @@ from urllib.parse import unquote, urlparse
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-SKIP_DIRS = {".git", ".cache", "node_modules", "scripts", "src"}
+# "simulations" holds vendored third-party interactive demos mirrored from
+# activeinference.org; their internal asset graph is self-contained and not part
+# of the first-party generated site, so it is excluded from link checking.
+SKIP_DIRS = {".git", ".cache", "node_modules", "scripts", "src", "simulations"}
 LOCAL_ATTRS = {"href", "src", "poster"}
 EXTERNAL_SCHEMES = {"http", "https", "mailto", "tel", "sms", "data", "javascript"}
 

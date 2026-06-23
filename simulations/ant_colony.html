@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Colony as Inference — Active Inference Ant Nest</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f0ebe3;overflow:hidden;font-family:'Cormorant Garamond',Georgia,serif}
+canvas{display:block;width:100vw;height:100vh}
+
+/* ═══ LEFT CONTROL PANEL ═══ */
+#ui{position:fixed;top:0;left:0;width:232px;height:100vh;
+  background:rgba(245,240,232,.96);border-right:1px solid rgba(120,90,50,.12);
+  padding:14px 12px;overflow-y:auto;backdrop-filter:blur(8px);z-index:10;
+  scrollbar-width:thin;scrollbar-color:rgba(120,90,50,.15) transparent}
+#ui::-webkit-scrollbar{width:4px}
+#ui::-webkit-scrollbar-thumb{background:rgba(120,90,50,.15);border-radius:2px}
+.sec{margin-bottom:12px;border-bottom:1px solid rgba(120,90,50,.08);padding-bottom:10px}
+.sec:last-child{border-bottom:none}
+.sec h3{color:rgba(140,90,30,.75);font-size:10px;letter-spacing:1.8px;
+  text-transform:uppercase;margin-bottom:7px;font-weight:normal;
+  font-family:'JetBrains Mono',monospace}
+.sg{margin-bottom:8px}
+.sg .lb{display:flex;justify-content:space-between;align-items:center;
+  color:rgba(50,35,20,.85);font-size:11.5px;letter-spacing:.3px;margin-bottom:3px}
+.sg .lb .vl{color:rgba(160,90,20,1);font-size:12.5px;font-weight:bold;
+  font-family:'JetBrains Mono',monospace}
+.sg .en{display:flex;justify-content:space-between;color:rgba(120,90,60,.5);font-size:8.5px;
+  font-family:'JetBrains Mono',monospace;margin-top:1px}
+.sg .ds{color:rgba(120,90,60,.45);font-size:8.5px;margin-top:2px;line-height:1.35;
+  font-family:'JetBrains Mono',monospace}
+input[type=range]{-webkit-appearance:none;width:100%;height:2px;
+  background:rgba(120,90,50,.15);border-radius:1px;outline:none;margin:3px 0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;
+  border-radius:50%;cursor:pointer;border:2px solid rgba(245,240,232,.9)}
+#s_pi::-webkit-slider-thumb{background:rgba(180,110,30,.8)}
+#s_evap::-webkit-slider-thumb{background:rgba(80,140,60,.8)}
+#s_epist::-webkit-slider-thumb{background:rgba(60,100,160,.8)}
+#s_food::-webkit-slider-thumb{background:rgba(180,60,40,.8)}
+#s_pop::-webkit-slider-thumb{background:rgba(100,80,60,.7)}
+.cite-tag{font-size:8px;color:rgba(140,100,50,.5);font-family:'JetBrains Mono',monospace;
+  letter-spacing:.5px;margin-top:3px;display:block}
+.ly{display:flex;align-items:center;gap:6px;margin-bottom:4px;cursor:pointer;
+  padding:2px 4px;border-radius:3px}
+.ly:hover{background:rgba(120,90,50,.06)}
+.ly input{accent-color:rgba(180,120,40,.8);cursor:pointer;margin:0}
+.ly label{color:rgba(50,35,20,.8);font-size:12px;cursor:pointer;display:flex;align-items:center;gap:5px}
+.ly .dt{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.stat-row{display:flex;justify-content:space-between;margin-bottom:3px;
+  font-size:11px;font-family:'JetBrains Mono',monospace}
+.stat-row .stat-label{color:rgba(100,75,45,.6)}
+.stat-row .stat-val{color:rgba(160,90,20,.9)}
+.btn{padding:6px 12px;background:rgba(120,90,50,.08);border:1px solid rgba(120,90,50,.15);
+  color:rgba(60,40,20,.8);font-family:'JetBrains Mono',monospace;font-size:9px;
+  letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;
+  width:100%;margin-top:4px;transition:all .2s}
+.btn:hover{background:rgba(120,90,50,.15);color:rgba(40,25,10,.95)}
+
+/* ═══ RIGHT EXPLAINER PANEL ═══ */
+#explainer{position:fixed;top:0;right:0;width:0;height:100vh;
+  background:rgba(248,244,238,.97);border-left:1px solid rgba(120,90,50,.1);
+  overflow-y:auto;backdrop-filter:blur(12px);z-index:20;
+  transition:width .4s cubic-bezier(.4,0,.2,1);
+  scrollbar-width:thin;scrollbar-color:rgba(120,90,50,.15) transparent}
+#explainer.open{width:480px}
+#explainer::-webkit-scrollbar{width:4px}
+#explainer::-webkit-scrollbar-thumb{background:rgba(120,90,50,.15);border-radius:2px}
+#ex-inner{padding:28px 24px;opacity:0;transition:opacity .3s .2s}
+#explainer.open #ex-inner{opacity:1}
+.ex-close{position:absolute;top:12px;right:14px;color:rgba(80,60,30,.6);
+  font-size:20px;cursor:pointer;background:none;border:none;font-family:Georgia;
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:3px}
+.ex-close:hover{background:rgba(120,90,50,.1);color:rgba(40,25,10,.9)}
+.tab-bar{display:flex;gap:0;margin-bottom:20px;border-bottom:1px solid rgba(120,90,50,.1)}
+.tab-btn{padding:8px 14px;font-size:10px;font-family:'JetBrains Mono',monospace;
+  letter-spacing:1.2px;text-transform:uppercase;color:rgba(120,90,50,.45);
+  background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
+.tab-btn:hover{color:rgba(100,65,20,.7)}
+.tab-btn.active{color:rgba(160,90,20,.95);border-bottom-color:rgba(180,120,40,.6)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.ex-title{font-size:24px;font-weight:400;color:rgba(40,25,10,.92);margin-bottom:6px;letter-spacing:.5px;line-height:1.3}
+.ex-subtitle{font-size:10.5px;font-family:'JetBrains Mono',monospace;
+  color:rgba(160,100,30,.6);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:22px}
+.ex-section{margin-bottom:22px}
+.ex-section h4{font-size:10.5px;font-family:'JetBrains Mono',monospace;
+  color:rgba(160,100,30,.7);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;font-weight:normal}
+.ex-section p{font-size:16px;color:rgba(40,30,15,.82);line-height:1.7;margin-bottom:12px;font-weight:300}
+.ex-section p em{color:rgba(170,90,10,.9);font-style:italic}
+.ex-section p strong{color:rgba(30,20,5,.95);font-weight:500}
+.eq-box{background:rgba(180,130,50,.06);border:1px solid rgba(180,130,50,.12);
+  border-radius:4px;padding:14px 16px;margin:12px 0;font-family:'JetBrains Mono',monospace}
+.eq-box .eq-main{font-size:14px;color:rgba(160,90,20,.9);text-align:center;margin-bottom:4px;letter-spacing:.5px}
+.eq-box .eq-note{font-size:10px;color:rgba(140,100,50,.5);text-align:center;letter-spacing:.3px}
+.cite{font-size:14px;color:rgba(60,45,20,.65);font-style:italic;
+  border-left:2px solid rgba(180,130,50,.25);padding:10px 14px;margin:14px 0;
+  line-height:1.6;background:rgba(180,130,50,.04);border-radius:0 3px 3px 0}
+.cite .cite-src{display:block;font-size:10px;font-family:'JetBrains Mono',monospace;
+  color:rgba(160,100,30,.5);margin-top:6px;font-style:normal;letter-spacing:.3px}
+.gl-item{margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(120,90,50,.08)}
+.gl-term{font-size:12px;font-family:'JetBrains Mono',monospace;
+  color:rgba(170,95,15,.85);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.gl-def{font-size:15px;color:rgba(50,35,15,.75);line-height:1.65;font-weight:300}
+.gl-def em{color:rgba(170,90,10,.8);font-style:italic}
+
+#toggle-ex{position:fixed;top:14px;right:14px;z-index:25;
+  padding:8px 16px;background:rgba(245,240,232,.9);
+  border:1px solid rgba(120,90,50,.15);color:rgba(80,55,25,.8);
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.2px;
+  text-transform:uppercase;cursor:pointer;border-radius:3px;
+  backdrop-filter:blur(8px);transition:all .25s}
+#toggle-ex:hover{background:rgba(250,245,238,.95);color:rgba(50,30,10,.95);
+  border-color:rgba(180,120,40,.3)}
+#footer{position:fixed;bottom:0;left:232px;right:0;height:28px;
+  background:rgba(240,235,228,.85);border-top:1px solid rgba(120,90,50,.06);
+  display:flex;align-items:center;padding:0 14px;z-index:8;
+  font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.5px;
+  color:rgba(100,75,45,.5);backdrop-filter:blur(4px)}
+#ant-info{position:fixed;pointer-events:none;z-index:15;
+  background:rgba(248,244,238,.95);border:1px solid rgba(180,130,50,.2);
+  border-radius:3px;padding:10px 12px;display:none;backdrop-filter:blur(8px);
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  color:rgba(50,35,20,.8);min-width:180px;box-shadow:0 2px 12px rgba(80,50,20,.1)}
+#ant-info .ai-title{color:rgba(160,90,20,.9);font-size:11px;letter-spacing:1px;
+  text-transform:uppercase;margin-bottom:6px}
+.ai-bar{height:4px;background:rgba(120,90,50,.1);border-radius:2px;margin:3px 0;overflow:hidden}
+.ai-fill{height:100%;border-radius:2px;transition:width .15s}
+.ai-fill.epistemic{background:rgba(60,110,180,.7)}
+.ai-fill.pragmatic{background:rgba(200,130,30,.7)}
+.ai-fill.food{background:rgba(100,160,50,.7)}
+#narrative{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);
+  z-index:12;max-width:540px;display:flex;align-items:flex-end;gap:10px;
+  padding:0;opacity:0;transition:opacity .6s;pointer-events:none}
+#narrative.visible{opacity:1}
+#nar-avatar{width:48px;height:48px;flex-shrink:0;position:relative}
+#nar-avatar svg{width:48px;height:48px}
+#nar-bubble{background:rgba(248,244,238,.94);border:1px solid rgba(180,130,50,.15);
+  border-radius:3px;padding:10px 16px 10px 14px;color:rgba(40,30,15,.85);
+  font-size:14.5px;line-height:1.6;backdrop-filter:blur(6px);
+  box-shadow:0 2px 16px rgba(80,50,20,.08);position:relative}
+#nar-bubble::before{content:'';position:absolute;left:-7px;bottom:12px;
+  width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;
+  border-right:7px solid rgba(248,244,238,.94)}
+#nar-name{font-size:9px;font-family:'JetBrains Mono',monospace;
+  color:rgba(160,100,30,.6);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+#nar-text em{color:rgba(170,90,10,.9);font-style:italic}
+
+/* ═══ NEST WEBCAM ═══ */
+#nest-cam{position:fixed;bottom:36px;right:14px;z-index:14;
+  width:260px;border-radius:3px;overflow:hidden;
+  border:1px solid rgba(80,50,20,.3);box-shadow:0 2px 16px rgba(40,20,5,.2);
+  background:#1a120a;transition:height .3s ease}
+#nest-cam.cam-open{height:200px}
+#nest-cam.cam-closed{height:22px}
+#nest-cam.cam-closed canvas,#nest-cam.cam-closed #nest-cam-stats{display:none}
+#nest-cam.cam-closed .rec-dot{animation:none;opacity:.4}
+#nest-cam-header{position:relative;height:22px;z-index:1}
+#nest-cam canvas{width:100%;height:calc(100% - 22px);display:block}
+#nest-cam-label{position:absolute;top:5px;left:8px;z-index:1;
+  font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1.2px;
+  text-transform:uppercase;color:rgba(255,220,160,.6)}
+#nest-cam-rec{position:absolute;top:5px;right:8px;z-index:1;display:flex;align-items:center;gap:4px;
+  font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(255,100,80,.7);letter-spacing:.5px}
+#nest-cam-rec .rec-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,80,60,.8);
+  animation:rec-blink 1.2s infinite}
+@keyframes rec-blink{0%,100%{opacity:1}50%{opacity:.2}}
+#nest-cam-stats{position:absolute;bottom:4px;left:8px;right:8px;z-index:1;
+  font-family:'JetBrains Mono',monospace;font-size:7.5px;color:rgba(255,220,160,.45);
+  display:flex;justify-content:space-between}
+
+/* ═══ MOBILE TOGGLE BUTTON ═══ */
+#mobile-ui-toggle{display:none;position:fixed;top:10px;left:10px;z-index:30;
+  width:36px;height:36px;border-radius:3px;background:rgba(245,240,232,.92);
+  border:1px solid rgba(120,90,50,.15);cursor:pointer;
+  font-size:18px;line-height:36px;text-align:center;color:rgba(80,55,25,.7);
+  box-shadow:0 1px 6px rgba(60,40,15,.12)}
+
+/* ═══ MOBILE RESPONSIVE ═══ */
+@media(max-width:800px){
+  #ui{width:100vw;height:auto;max-height:55vh;position:fixed;bottom:0;top:auto;
+    border-right:none;border-top:1px solid rgba(120,90,50,.12);
+    transform:translateY(100%);transition:transform .3s ease;z-index:28}
+  #ui.mobile-open{transform:translateY(0)}
+  #mobile-ui-toggle{display:block}
+  canvas{width:100vw;height:100vh}
+  #footer{left:0;bottom:0;z-index:5}
+  #toggle-ex{top:10px;right:10px;font-size:9px;padding:6px 10px}
+  #explainer.open{width:100vw}
+  #nest-cam{width:180px;height:140px;bottom:32px;right:8px}
+  #nest-cam.cam-open{height:140px}
+  #narrative{max-width:85vw;bottom:34px;left:50%;font-size:13px}
+  #nar-avatar{width:36px;height:36px}
+  #nar-avatar svg{width:36px;height:36px}
+  #nar-bubble{padding:8px 10px;font-size:12.5px}
+}
+@media(max-width:500px){
+  #nest-cam{width:140px;bottom:32px;right:4px}
+  #nest-cam.cam-open{height:110px}
+  #toggle-ex{font-size:8px;padding:5px 8px}
+}
+</style>
+
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
+</head><body>
+<a href="./" class="aii-floating-back">&#8592; Back to Catalog</a>
+<canvas id="c"></canvas>
+<button id="mobile-ui-toggle" onclick="document.getElementById('ui').classList.toggle('mobile-open');this.textContent=document.getElementById('ui').classList.contains('mobile-open')?'×':'☰'">☰</button>
+
+<!-- ═══ LEFT CONTROL PANEL ═══ -->
+<div id="ui">
+  <div class="sec">
+    <h3>The Colony as Inference</h3>
+    <div style="color:rgba(50,35,20,.7);font-size:13px;line-height:1.5;margin-bottom:6px">
+      Each ant minimises <em style="color:rgba(170,90,10,.9)">expected free energy</em> — inspired by <em style="color:rgba(170,90,10,.9)">Active InferAnts</em> (Friedman et al. 2021).</div>
+  </div>
+  <div class="sec">
+    <h3>Layers</h3>
+    <div class="ly"><input type="checkbox" id="l_pher" checked><label for="l_pher"><span class="dt" style="background:rgba(190,130,40,.7)"></span>Pheromone field</label></div>
+    <div class="ly"><input type="checkbox" id="l_blanket" checked><label for="l_blanket"><span class="dt" style="background:rgba(60,110,170,.7)"></span>Markov blankets</label></div>
+    <div class="ly"><input type="checkbox" id="l_trail" checked><label for="l_trail"><span class="dt" style="background:rgba(80,140,50,.7)"></span>Trail blankets</label></div>
+    <div class="ly"><input type="checkbox" id="l_colony"><label for="l_colony"><span class="dt" style="background:rgba(160,50,120,.7)"></span>Colony blanket</label></div>
+    <div class="ly"><input type="checkbox" id="l_sensory"><label for="l_sensory"><span class="dt" style="background:rgba(200,160,50,.7)"></span>Sensory fields</label></div>
+    <div class="ly"><input type="checkbox" id="l_network"><label for="l_network"><span class="dt" style="background:rgba(180,60,60,.7)"></span>Collaboration network</label></div>
+  </div>
+  <div class="sec">
+    <h3>Precision Controls</h3>
+    <div class="sg">
+      <div class="lb">Π<sub>individual</sub> <span class="vl" id="v_pi">2.00</span></div>
+      <input type="range" id="s_pi" min="0" max="100" value="50">
+      <div class="en"><span>exploratory</span><span>trail-locked</span></div>
+      <div class="ds">How sharply each ant follows pheromone</div>
+      <span class="cite-tag">Parr et al. (2022) Ch.4</span>
+    </div>
+    <div class="sg">
+      <div class="lb">Trail persistence <span class="vl" id="v_evap">0.50</span></div>
+      <input type="range" id="s_evap" min="0" max="100" value="50">
+      <div class="en"><span>volatile trails</span><span>persistent memory</span></div>
+      <div class="ds">Pheromone evaporation = belief decay rate</div>
+      <span class="cite-tag">Stigmergic generative model</span>
+    </div>
+    <div class="sg">
+      <div class="lb">Epistemic drive <span class="vl" id="v_epist">0.40</span></div>
+      <input type="range" id="s_epist" min="0" max="100" value="40">
+      <div class="en"><span>exploit only</span><span>explore widely</span></div>
+      <div class="ds">Information gain vs pragmatic value</div>
+      <span class="cite-tag">Ch.7 Eq.7.4</span>
+    </div>
+  </div>
+  <div class="sec">
+    <h3>Environment</h3>
+    <div class="sg">
+      <div class="lb">Food sources <span class="vl" id="v_food">3</span></div>
+      <input type="range" id="s_food" min="1" max="6" value="3" step="1">
+      <div class="en"><span>scarce</span><span>abundant</span></div>
+    </div>
+    <div class="sg">
+      <div class="lb">Colony size <span class="vl" id="v_pop">60</span></div>
+      <input type="range" id="s_pop" min="10" max="150" value="60" step="5">
+      <div class="en"><span>small</span><span>swarm</span></div>
+    </div>
+    <button class="btn" onclick="removeRandomFood()">Remove a food source</button>
+    <button class="btn" onclick="resetSim()">Reset colony</button>
+  </div>
+  <div class="sec">
+    <h3>Colony Statistics</h3>
+    <div class="stat-row"><span class="stat-label">Food collected</span><span class="stat-val" id="st_food">0</span></div>
+    <div class="stat-row"><span class="stat-label">Active foragers</span><span class="stat-val" id="st_forage">0</span></div>
+    <div class="stat-row"><span class="stat-label">Returning</span><span class="stat-val" id="st_return">0</span></div>
+    <div class="stat-row"><span class="stat-label">Exploring</span><span class="stat-val" id="st_explore">0</span></div>
+    <div class="stat-row"><span class="stat-label">Soldiers</span><span class="stat-val" id="st_soldiers">0</span></div>
+    <div class="stat-row"><span class="stat-label">Colony F</span><span class="stat-val" id="st_fe">0.00</span></div>
+    <div class="stat-row"><span class="stat-label">Trail entropy</span><span class="stat-val" id="st_entropy">0.00</span></div>
+  </div>
+  <div class="sec" style="border-bottom:none">
+    <div style="color:rgba(100,80,50,.45);font-size:9px;font-family:'JetBrains Mono',monospace;line-height:1.5">
+      Click any ant to inspect<br>its generative model
+    </div>
+  </div>
+</div>
+
+<button id="toggle-ex">Explainer</button>
+
+<!-- ═══ RIGHT EXPLAINER ═══ -->
+<div id="explainer">
+  <button class="ex-close" onclick="toggleExplainer()">×</button>
+  <div id="ex-inner">
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="tutorial">Tutorial</button>
+      <button class="tab-btn" data-tab="concepts">Concepts</button>
+      <button class="tab-btn" data-tab="glossary">Glossary</button>
+      <button class="tab-btn" data-tab="refs">References</button>
+    </div>
+
+    <div class="tab-content active" id="tab-tutorial">
+      <div class="ex-title">The Colony as Inference</div>
+      <div class="ex-subtitle">Stigmergy, Markov Blankets & Collective Intelligence</div>
+      <div class="ex-section">
+        <h4>What You Are Seeing</h4>
+        <p>An ant colony where each ant is an <em>active inference agent</em> — it minimises variational free energy through perception (sensing pheromone gradients via its antennae) and action (moving through the environment and depositing pheromones).</p>
+        <p>The ants do not follow pre-programmed foraging rules. Their coordinated behaviour <strong>emerges</strong> from each individual minimising its own expected free energy — balancing <em>epistemic value</em> (exploring unknown terrain) against <em>pragmatic value</em> (following established trails toward food).</p>
+      </div>
+      <div class="cite">
+        "The fact that utility and the value of information emerge as two components of expected free energy means we do not need to worry about balancing exploration and exploitation. Both are in service of optimizing the same function."
+        <span class="cite-src">— Parr, Pezzulo & Friston (2022), Active Inference, Ch.7 p.131</span>
+      </div>
+      <div class="ex-section">
+        <h4>Three Levels of Markov Blanket</h4>
+        <p><strong>Level 1 — Individual blanket.</strong> Each ant maintains a statistical boundary between its internal states (beliefs about food locations) and the external world (the actual pheromone field). The dashed circle around each ant represents this boundary. Its <em>sensory states</em> are antennae sampling pheromone; its <em>active states</em> are movement and pheromone deposition.</p>
+        <p><strong>Level 2 — Trail blanket.</strong> When multiple ants reinforce the same path, a trail-level Markov blanket emerges — shown as a green envelope around strong pheromone corridors. The trail is a <em>stigmergic generative model</em>: a shared belief structure written into the environment itself.</p>
+        <p><strong>Level 3 — Colony blanket.</strong> The nest, all trails, and all foraging zones form a colony-level boundary. Toggle the colony blanket layer to see this macro-scale agent — a superorganism that maintains homeostasis through collective free energy minimisation.</p>
+      </div>
+      <div class="cite">
+        "We could have multiple Markov blankets, nested within one another (e.g., brains, organisms, communities)."
+        <span class="cite-src">— Parr, Pezzulo & Friston (2022), Active Inference, Ch.6 p.109</span>
+      </div>
+      <div class="ex-section">
+        <h4>Stigmergy as Niche Construction</h4>
+        <p>Pheromone trails are a form of <em>niche construction</em> — the ants modify their environment, and the modified environment then shapes future behaviour. The pheromone field <strong>is</strong> the colony's generative model, externalised into the world.</p>
+        <p>The <strong>trail persistence</strong> slider controls how quickly this shared belief structure decays. Fast evaporation forces continuous re-exploration. Slow evaporation creates rigid, habitual pathways — the colony equivalent of high precision.</p>
+      </div>
+      <div class="ex-section">
+        <h4>Try This</h4>
+        <p>1. Set <strong>Π<sub>individual</sub></strong> to maximum. Watch each ant lock rigidly onto the nearest trail.</p>
+        <p>2. Now set <strong>epistemic drive</strong> to maximum. Ants begin exploring broadly, seeking information rather than reward.</p>
+        <p>3. Click <strong>"Remove a food source"</strong> while trails are established. Watch the colony's belief update propagate through pheromone decay.</p>
+        <p>4. Toggle the <strong>colony blanket</strong> layer to see the macro-scale boundary emerge.</p>
+        <p>5. Toggle <strong>sensory fields</strong> — the heatmap shows the colony's collective perception. Amber regions contain pheromone (information!); teal regions are sensed but empty. Notice how the heatmap is <em>densest along trails</em> — that's where shared sensory niches form.</p>
+        <p>6. Toggle <strong>collaboration network</strong> — amber links appear between ants that share the same trail, heading the same direction. This is <em>generalised synchrony</em>: the network shows where group-level Markov blankets are forming in real time.</p>
+        <p>7. Watch the <strong>soldiers</strong> (darker, larger ants) patrolling the nest perimeter. They use the same free energy minimisation — but their prior preferences encode "safety" instead of "food."</p>
+        <p>8. Check the <strong>nest webcam</strong> (bottom-right). The queen, larvae, food stores — these are the colony's <em>internal states</em> that all external foraging behaviour ultimately serves.</p>
+      </div>
+
+      <div class="ex-section">
+        <h4>Same Algorithm, Different Priors</h4>
+        <p>The soldiers demonstrate one of Active Inference's most powerful insights: <strong>the same inference algorithm produces completely different behaviour when the prior preferences change.</strong></p>
+        <p>A forager's C-vector encodes "I prefer to observe food at the nest." A soldier's C-vector encodes "I prefer to observe safety at the nest perimeter." Both minimise expected free energy — but the resulting policies are utterly different. One explores the world; the other guards the boundary.</p>
+        <p>This is how biological role differentiation works under the FEP: not by switching algorithms, but by switching <em>generative models</em>.</p>
+      </div>
+
+      <div class="ex-section">
+        <h4>The Queen as Deepest Prior</h4>
+        <p>The queen embodies the <em>slowest timescale</em> in the colony's hierarchical generative model. She doesn't forage or patrol — she represents the colony's deepest belief about its own continuity. Her presence in the queen's chamber is the attractor state that all other behaviour serves.</p>
+        <p>In hierarchical terms: fast legs (milliseconds) → medium trails (minutes) → slow colony strategy (hours) → the queen's reproductive cycle (weeks). Each level contextualises the one below.</p>
+      </div>
+      <div class="cite">
+        "Free-energy minimization in joint agent-environment systems: a niche construction perspective."
+        <span class="cite-src">— Bruineberg, Rietveld, Parr, van Maanen & Friston (2018), J. Theoretical Biology</span>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-concepts">
+      <div class="ex-title">Core Concepts</div>
+      <div class="ex-subtitle">The Mathematics Behind the Colony</div>
+      <div class="ex-section">
+        <h4>Expected Free Energy</h4>
+        <p>Each ant selects its movement policy by minimising <em>expected free energy</em> G(π):</p>
+        <div class="eq-box">
+          <div class="eq-main">G(π) = −Epistemic value − Pragmatic value</div>
+          <div class="eq-note">Ch.7 Eq.7.4 — the exploration-exploitation decomposition</div>
+        </div>
+        <p><strong>Epistemic value</strong> measures how much <em>information</em> a policy will yield. <strong>Pragmatic value</strong> measures how likely a policy leads to <em>preferred outcomes</em>.</p>
+      </div>
+      <div class="ex-section">
+        <h4>Precision-Weighted Prediction Error</h4>
+        <div class="eq-box">
+          <div class="eq-main">Precision Π = 1/σ²</div>
+          <div class="eq-note">High Π → rigid trail-following | Low Π → exploratory wandering</div>
+        </div>
+        <p>Precision weights prediction errors: high-precision errors drive stronger belief updates. An ant with high precision that encounters unexpected pheromone absence will make a <em>dramatic</em> course correction.</p>
+      </div>
+      <div class="ex-section">
+        <h4>Hierarchical Generative Models</h4>
+        <p><strong>Level 1 (fast):</strong> Individual ant movement — step-by-step direction changes.<br>
+        <strong>Level 2 (medium):</strong> Trail formation and dissolution — emerges over many ant-trips.<br>
+        <strong>Level 3 (slow):</strong> Colony-level foraging strategy — the macro-pattern of which food sources are exploited.</p>
+      </div>
+      <div class="cite">
+        "In hierarchical or deep models, the dynamics at higher levels generally encode things that change more slowly and contextualise things that change faster."
+        <span class="cite-src">— Parr, Pezzulo & Friston (2022), Active Inference, Ch.6 p.112</span>
+      </div>
+      <div class="ex-section">
+        <h4>The Exploration-Exploitation Balance</h4>
+        <p>Under Active Inference, there is no exploration-exploitation <em>dilemma</em> — both drives emerge from the same objective function. The <strong>epistemic drive</strong> slider modulates the relative weight of information gain.</p>
+      </div>
+
+      <div class="ex-section">
+        <h4>Sensory Fields — The Colony's Collective Perception</h4>
+        <p>Toggle <strong>Sensory fields</strong> to see a heatmap of the colony's collective sensory coverage. Each ant contributes a forward-biased sensory radius — the region its antennae can sample. Where multiple ants' fields overlap, the heatmap brightens, showing <em>shared sensory niches</em>.</p>
+        <p>The colour encodes what the ants sense: <strong>amber</strong> regions contain pheromone (information flowing inward through the Markov blanket), while <strong>teal</strong> regions are sensed but empty (no prediction error signal). This directly visualises the Active InferAnts principle that agents have only <em>local sensory access</em> to their immediate surroundings.</p>
+        <div class="eq-box">
+          <div class="eq-main">ε = o − g(μ)</div>
+          <div class="eq-note">Prediction error = observation − prediction from generative model</div>
+        </div>
+        <p>Dense sensory overlap on trails shows why group-level Markov blankets emerge there: multiple agents sharing the same sensory niche become mutually predictive.</p>
+      </div>
+
+      <div class="cite">
+        "Ants only have sensory access to their immediate surroundings and do not know where the food resource is located on the map."
+        <span class="cite-src">— Friedman, Tschantz, Ramstead, Friston & Constant (2021), Active InferAnts, Fig.1</span>
+      </div>
+
+      <div class="ex-section">
+        <h4>Collaboration Network — Generalised Synchrony</h4>
+        <p>Toggle <strong>Collaboration network</strong> to see which ants have become <em>mutually predictive</em>. A link appears when two agents share three properties simultaneously: spatial proximity, co-occupation of the same pheromone trail, and aligned heading direction.</p>
+        <p>This implements <em>generalised synchrony</em> — when agents share similar generative models and sense each other (here, indirectly via pheromone), their internal states converge. The link strength is the product of these factors, which is equivalent to <em>precision-weighted coupling</em>.</p>
+        <p>When enough links form, the connected ants constitute a <strong>group-level agent</strong> with its own emergent Markov blanket — the same mechanism that produces trail-level blankets, operating at the agent-interaction scale.</p>
+      </div>
+
+      <div class="cite">
+        "If agents adopt the same generative model of communicative behaviour, a simple form of communication emerges through generalised synchrony."
+        <span class="cite-src">— Friston & Frith (2015), Consciousness and Cognition</span>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-glossary">
+      <div class="ex-title">Glossary</div>
+      <div class="ex-subtitle">Key terms in accessible language</div>
+      <div class="gl-item"><div class="gl-term">Active Inference</div>
+        <div class="gl-def">The framework in which both perception and action serve the same objective: minimising <em>variational free energy</em>. Each ant senses pheromone (perception) and moves/deposits pheromone (action). (Parr et al. 2022, Ch.2)</div></div>
+      <div class="gl-item"><div class="gl-term">Variational Free Energy (F)</div>
+        <div class="gl-def">The quantity Active Inference agents minimise. It bounds surprise from above: F ≥ −ln P(o). An ant on a strong trail with food ahead has low F. An ant lost in unknown terrain has high F. (Parr et al. 2022, Ch.2)</div></div>
+      <div class="gl-item"><div class="gl-term">Expected Free Energy (G)</div>
+        <div class="gl-def">The quantity that evaluates <em>future</em> policies. G decomposes into epistemic value (will I learn?) and pragmatic value (will I get food?). (Parr et al. 2022, Ch.4 & Ch.7)</div></div>
+      <div class="gl-item"><div class="gl-term">Markov Blanket</div>
+        <div class="gl-def">A statistical boundary separating internal from external states. The world can only affect the ant through its sensory states (antennae); the ant can only affect the world through its active states (legs, pheromone glands). (Parr et al. 2022, Ch.3)</div></div>
+      <div class="gl-item"><div class="gl-term">Precision (Π)</div>
+        <div class="gl-def">Inverse variance (1/σ²). High precision = sharp, confident predictions. Low precision = broad, uncertain predictions. In the colony: high Π means rigid trail-following; low Π means free wandering. (Parr et al. 2022, Ch.4)</div></div>
+      <div class="gl-item"><div class="gl-term">Stigmergy</div>
+        <div class="gl-def">Indirect coordination through environmental modification. Ants write pheromone into the world; other ants read it. Under Active Inference, this is <em>niche construction</em>: externalising the generative model into shared structure.</div></div>
+      <div class="gl-item"><div class="gl-term">Epistemic Value</div>
+        <div class="gl-def">How much <em>information</em> a policy provides. Heading into unmapped terrain has high epistemic value — the ant will reduce its uncertainty about hidden states. (Parr et al. 2022, Ch.2 & Ch.7)</div></div>
+      <div class="gl-item"><div class="gl-term">Pragmatic Value</div>
+        <div class="gl-def">How likely a policy leads to <em>preferred outcomes</em>. Following a strong trail toward food has high pragmatic value. (Parr et al. 2022, Ch.2 & Ch.7)</div></div>
+      <div class="gl-item"><div class="gl-term">Niche Construction</div>
+        <div class="gl-def">Organisms modify their environment, and the modified environment shapes future behaviour. Pheromone trails are the active component of free energy minimisation — changing the world to match the model's predictions. (Bruineberg et al. 2018)</div></div>
+      <div class="gl-item"><div class="gl-term">Sensory States</div>
+        <div class="gl-def">Blanket states that mediate the influence of the external world on internal states. For each ant: the chemoreceptors on the antennae that sample pheromone concentration at three points (left, right, forward). The gradient across these samples is the <em>prediction error signal</em> that drives belief updating. Toggle "Sensory fields" to visualise these. (Parr et al. 2022, Ch.3)</div></div>
+      <div class="gl-item"><div class="gl-term">Active States</div>
+        <div class="gl-def">Blanket states that mediate the influence of internal states on the external world. For each ant: leg movements (locomotion) and pheromone gland secretion (trail deposition). Through these states, the ant's beliefs become actions that change the environment. (Parr et al. 2022, Ch.3)</div></div>
+      <div class="gl-item"><div class="gl-term">Generalised Synchrony</div>
+        <div class="gl-def">When two dynamical systems are coupled, their internal states can converge onto a <em>synchronisation manifold</em>. In the colony: ants sharing the same trail and heading the same direction become mutually predictive — each ant's state is informative about the other's. Toggle "Collaboration network" to see this emerge. (Friston & Frith 2015)</div></div>
+      <div class="gl-item"><div class="gl-term">Prior Preferences (C-vector)</div>
+        <div class="gl-def">Beliefs about desired observations, encoded in the generative model. Foragers prefer "food at nest." Soldiers prefer "safety at perimeter." The <em>same</em> free energy minimisation produces completely different behaviour depending on C — this is how biological role differentiation works under Active Inference. (Parr et al. 2022, Ch.7)</div></div>
+      <div class="gl-item"><div class="gl-term">Hierarchical Timescales</div>
+        <div class="gl-def">The colony operates across nested timescales: fast (individual leg steps, milliseconds), medium (trail formation, minutes), slow (colony foraging strategy, hours), and slowest (queen's reproductive cycle, weeks). Higher levels change slowly and contextualise faster dynamics below. The queen is the <em>deepest prior</em>. (Parr et al. 2022, Ch.6)</div></div>
+    </div>
+
+    <div class="tab-content" id="tab-refs">
+      <div class="ex-title">References</div>
+      <div class="ex-subtitle">Primary sources & further reading</div>
+      <div class="ex-section"><h4>Core Textbook</h4>
+        <p style="font-size:14.5px;line-height:1.6">Parr, T., Pezzulo, G., & Friston, K. J. (2022). <em>Active Inference: The Free Energy Principle in Mind, Brain, and Behavior.</em> MIT Press.</p></div>
+      <div class="ex-section"><h4>Active InferAnts</h4>
+        <p style="font-size:14.5px;line-height:1.6">Friedman, D. A., Tschantz, A., Ramstead, M. J. D., Friston, K., & Constant, A. (2021). Active InferAnts: An Active Inference Framework for Ant Colony Behavior. <em>Frontiers in Behavioral Neuroscience,</em> 15, 647732.</p>
+        <p style="font-size:14.5px;line-height:1.6">Saund, E., & Friedman, D. A. (2023). A single-pheromone model accounts for empirical patterns of ant colony foraging previously modeled using two pheromones. <em>Cognitive Systems Research,</em> 79, 1–18.</p></div>
+      <div class="ex-section"><h4>Niche Construction & Stigmergy</h4>
+        <p style="font-size:14.5px;line-height:1.6">Bruineberg, J., Rietveld, E., Parr, T., van Maanen, L., & Friston, K. J. (2018). Free-energy minimization in joint agent-environment systems: a niche construction perspective. <em>J. Theoretical Biology,</em> 455, 161–178.</p></div>
+      <div class="ex-section"><h4>Hierarchical Markov Blankets</h4>
+        <p style="font-size:14.5px;line-height:1.6">Palacios, E. R., Razi, A., Parr, T., Kirchhoff, M. D., & Friston, K. J. (2020). On Markov blankets and hierarchical self-organisation. <em>J. Theoretical Biology,</em> 486, 110089.</p></div>
+      <div class="ex-section"><h4>Collective Active Inference</h4>
+        <p style="font-size:14.5px;line-height:1.6">Thestrup Waade, P. et al. (2025). As One and Many: Relating Individual and Emergent Group-Level Generative Models in Active Inference. <em>Entropy,</em> 27(2), 143.</p></div>
+      <div class="ex-section"><h4>Simulation Framework</h4>
+        <p style="font-size:14.5px;line-height:1.6">Developed by Alexander Sabine (Active Inference Institute, Board of Directors). Interactive demonstrations at <strong>temporalgrammar.ai</strong>.</p>
+        <p style="font-size:12px;color:rgba(120,90,50,.5);line-height:1.6;margin-top:8px">Contact: Alexander@activeinference.institute</p></div>
+    </div>
+  </div>
+</div>
+
+<div id="ant-info">
+  <div class="ai-title" id="ai-name">Ant #0</div>
+  <div class="stat-row"><span class="stat-label">State:</span><span class="stat-val" id="ai-state">Foraging</span></div>
+  <div class="stat-row"><span class="stat-label">Epistemic:</span><span class="stat-val" id="ai-epist">0.00</span></div>
+  <div class="ai-bar"><div class="ai-fill epistemic" id="ai-ebar" style="width:0%"></div></div>
+  <div class="stat-row"><span class="stat-label">Pragmatic:</span><span class="stat-val" id="ai-prag">0.00</span></div>
+  <div class="ai-bar"><div class="ai-fill pragmatic" id="ai-pbar" style="width:0%"></div></div>
+  <div class="stat-row"><span class="stat-label">Free energy:</span><span class="stat-val" id="ai-fe">0.00</span></div>
+  <div class="stat-row"><span class="stat-label">Food carried:</span><span class="stat-val" id="ai-food">No</span></div>
+</div>
+<div id="narrative">
+  <div id="nar-avatar">
+    <!-- Daniel as a friendly scholarly ant -->
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body -->
+      <ellipse cx="24" cy="34" rx="8" ry="6" fill="#5a3a1a" opacity=".85"/>
+      <ellipse cx="24" cy="27" rx="6" ry="5" fill="#6b4520" opacity=".8"/>
+      <!-- Head -->
+      <circle cx="24" cy="19" r="7" fill="#4a2a10" opacity=".85"/>
+      <!-- Glasses (scholarly!) -->
+      <circle cx="21" cy="18" r="3.2" fill="none" stroke="rgba(180,160,120,.7)" stroke-width=".8"/>
+      <circle cx="27" cy="18" r="3.2" fill="none" stroke="rgba(180,160,120,.7)" stroke-width=".8"/>
+      <line x1="24.2" y1="18" x2="23.8" y2="18" stroke="rgba(180,160,120,.6)" stroke-width=".6"/>
+      <!-- Eyes behind glasses -->
+      <circle cx="21" cy="17.5" r="1" fill="#1a0a00"/>
+      <circle cx="27" cy="17.5" r="1" fill="#1a0a00"/>
+      <circle cx="21.3" cy="17.2" r=".35" fill="rgba(255,255,255,.6)"/>
+      <circle cx="27.3" cy="17.2" r=".35" fill="rgba(255,255,255,.6)"/>
+      <!-- Smile -->
+      <path d="M21.5 21 Q24 23.5 26.5 21" fill="none" stroke="#3a1a05" stroke-width=".6" stroke-linecap="round"/>
+      <!-- Antennae -->
+      <path d="M20 13 Q17 7 14 5" fill="none" stroke="#4a2a10" stroke-width=".8" stroke-linecap="round"/>
+      <path d="M28 13 Q31 7 34 5" fill="none" stroke="#4a2a10" stroke-width=".8" stroke-linecap="round"/>
+      <circle cx="14" cy="5" r="1.2" fill="#6b4520"/>
+      <circle cx="34" cy="5" r="1.2" fill="#6b4520"/>
+      <!-- Legs -->
+      <line x1="18" y1="30" x2="12" y2="35" stroke="#4a2a10" stroke-width=".7"/>
+      <line x1="18" y1="33" x2="11" y2="38" stroke="#4a2a10" stroke-width=".7"/>
+      <line x1="30" y1="30" x2="36" y2="35" stroke="#4a2a10" stroke-width=".7"/>
+      <line x1="30" y1="33" x2="37" y2="38" stroke="#4a2a10" stroke-width=".7"/>
+    </svg>
+  </div>
+  <div id="nar-bubble">
+    <div id="nar-name">Daniel Friedman · Active Inference Institute</div>
+    <div id="nar-text"></div>
+  </div>
+</div>
+<div id="nest-cam" class="cam-open">
+  <div id="nest-cam-header" onclick="toggleCam()" style="cursor:pointer">
+    <div id="nest-cam-label">Nest Interior</div>
+    <div id="nest-cam-rec"><span class="rec-dot"></span>LIVE</div>
+    <div id="nest-cam-toggle" style="position:absolute;top:5px;right:36px;font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,220,160,.5);letter-spacing:.5px">▼</div>
+  </div>
+  <canvas id="nc" width="520" height="400"></canvas>
+  <div id="nest-cam-stats"><span id="nc-food">Food: 0</span><span id="nc-eggs">Eggs: 0</span><span id="nc-soldiers">Guards: 0</span></div>
+</div>
+<div id="footer"><span id="status-bar">Initialising colony...</span></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  THE COLONY AS INFERENCE — Active Inference Ant Nest Tutorial
+//  Alexander Sabine · Active Inference Institute · 2025
+//  www.temporalgrammar.ai
+//
+//  Inspired by: "Active InferAnts: An Active Inference Framework
+//  for Ant Colony Behavior" — Friedman, Tschantz, Ramstead,
+//  Friston & Constant (2021), Frontiers in Behavioral Neuroscience
+//
+//  COMPUTATIONAL METHOD: CRR (Coherence-Rupture-Regeneration)
+//  CRR equations: C(x,t)=∫L(x,τ)dτ, δ(now) when C·Ω=1,
+//  R=∫φ·exp(C/Ω)·Θ dτ
+//  GUI presents only peer-reviewed FEP / Active Inference concepts.
+// ═══════════════════════════════════════════════════════════════
+
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+let W,H;
+const PI=Math.PI,TAU=PI*2;
+const{sin,cos,sqrt,abs,min,max,pow,log,floor,ceil,round,random:R,atan2,exp}=Math;
+
+function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}
+resize();addEventListener('resize',()=>{resize();resetSim()});
+
+// ─── PARAMETERS ──────────────────────────────────────────
+let precisionIndiv=2,evapRate=0.5,epistemicDrive=0.4;
+let foodCount=3,antCount=60,totalFoodCollected=0;
+
+function eM(v,lo,hi){return lo*pow(hi/lo,v/100)}
+document.getElementById('s_pi').oninput=function(){
+  precisionIndiv=eM(+this.value,.3,8);
+  document.getElementById('v_pi').textContent=precisionIndiv.toFixed(2)};
+document.getElementById('s_evap').oninput=function(){
+  evapRate=1-(+this.value/100); // INVERTED: high slider = low evaporation = persistent
+  document.getElementById('v_evap').textContent=(1-evapRate).toFixed(2)};
+document.getElementById('s_epist').oninput=function(){
+  epistemicDrive=+this.value/100;
+  document.getElementById('v_epist').textContent=epistemicDrive.toFixed(2)};
+document.getElementById('s_food').oninput=function(){
+  const n=+this.value;document.getElementById('v_food').textContent=n;
+  while(foods.length<n)spawnFood();while(foods.length>n)foods.pop();foodCount=n};
+document.getElementById('s_pop').oninput=function(){
+  const n=+this.value;document.getElementById('v_pop').textContent=n;
+  while(ants.length<n){const nS=ants.filter(a=>a.role==='soldier').length;
+    const role=nS<floor(n*SOLDIER_FRAC)?'soldier':'forager';
+    ants.push(createAnt(ants.length,role))}
+  while(ants.length>n)ants.pop();antCount=n};
+
+let showPher=true,showBlanket=true,showTrail=true,showColony=false,showSensory=false,showNetwork=false;
+document.getElementById('l_pher').onchange=function(){showPher=this.checked};
+document.getElementById('l_blanket').onchange=function(){showBlanket=this.checked};
+document.getElementById('l_trail').onchange=function(){showTrail=this.checked};
+document.getElementById('l_colony').onchange=function(){showColony=this.checked};
+document.getElementById('l_sensory').onchange=function(){showSensory=this.checked};
+document.getElementById('l_network').onchange=function(){showNetwork=this.checked};
+
+// ─── CRR ENGINE (internal) ──────────────────────────────
+class CRR{
+  constructor(omega){this.omega=omega;this.C=R()/omega*.3;this.state=0;this.ruptures=0;this.amplitude=0;this.smoothAmp=0}
+  step(L,dt){
+    const cv_t=this.omega/2;
+    if(this.state===0){this.C+=L*dt;
+      if(this.C>=(1/this.omega)*(1+(R()-.5)*2*cv_t)){this.state=1;this.amplitude=1;this.ruptures++}
+    }else if(this.state===1){this.state=2;this.rt=0}
+    else{this.rt+=dt;if(this.rt>.03){this.state=0;this.C=0}}
+    this.smoothAmp+=(this.amplitude-this.smoothAmp)*min(1,dt*12);this.amplitude*=pow(.02,dt);return this}
+  get progress(){return min(1,this.C*this.omega)}
+}
+
+// ─── PHEROMONE FIELD ─────────────────────────────────────
+const GRID=5;
+let gW,gH,pherFood,pherExplore;
+
+function initGrid(){gW=ceil(W/GRID);gH=ceil(H/GRID);pherFood=new Float32Array(gW*gH);pherExplore=new Float32Array(gW*gH)}
+
+function gIdx(gx,gy){return max(0,min(gH-1,gy))*gW+max(0,min(gW-1,gx))}
+function deposit(wx,wy,amt,isFood){
+  const gx=floor(wx/GRID),gy=floor(wy/GRID);
+  if(gx<0||gx>=gW||gy<0||gy>=gH)return;
+  const arr=isFood?pherFood:pherExplore;
+  // Deposit to 3x3 area for smoother trails
+  for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){
+    const nx=gx+dx,ny=gy+dy;
+    if(nx>=0&&nx<gW&&ny>=0&&ny<gH){
+      const w=dx===0&&dy===0?0.5:0.0625;
+      arr[ny*gW+nx]=min(1,arr[ny*gW+nx]+amt*w);
+    }
+  }
+}
+function sample(wx,wy,isFood){
+  const gx=floor(wx/GRID),gy=floor(wy/GRID);
+  if(gx<0||gx>=gW||gy<0||gy>=gH)return 0;
+  return(isFood?pherFood:pherExplore)[gy*gW+gx]}
+
+function senseGrad(wx,wy,angle,isFood){
+  const d=14,sp=0.4;
+  return{
+    left:sample(wx+cos(angle-sp)*d,wy+sin(angle-sp)*d,isFood),
+    right:sample(wx+cos(angle+sp)*d,wy+sin(angle+sp)*d,isFood),
+    front:sample(wx+cos(angle)*d*1.5,wy+sin(angle)*d*1.5,isFood)}}
+
+function evaporate(dt){
+  const r=pow(1-evapRate*0.012,dt*60);
+  for(let i=0;i<pherFood.length;i++){pherFood[i]*=r;if(pherFood[i]<.001)pherFood[i]=0}
+  for(let i=0;i<pherExplore.length;i++){pherExplore[i]*=r*.97;if(pherExplore[i]<.001)pherExplore[i]=0}
+}
+
+// ─── NEST & FOOD ─────────────────────────────────────────
+let nestX,nestY;const NEST_R=28;let foods=[];
+function spawnFood(){
+  const m=100,uL=240;let fx,fy,tries=0;
+  do{fx=uL+m+R()*(W-uL-m*2);fy=m+R()*(H-m*2);tries++}
+  while(sqrt((fx-nestX)**2+(fy-nestY)**2)<180&&tries<50);
+  foods.push({x:fx,y:fy,amount:80+R()*120,maxAmount:80+R()*120,r:16+R()*8,pp:R()*TAU})}
+
+function removeRandomFood(){
+  if(foods.length>1){foods.splice(floor(R()*foods.length),1);foodCount=foods.length;
+    document.getElementById('s_food').value=foodCount;document.getElementById('v_food').textContent=foodCount;
+    advanceNarrative("Interesting! A food source just disappeared. Watch the trail dissolve as returning ants stop reinforcing it — this is <em>distributed belief updating</em> through pheromone decay. The colony will re-explore.")}}
+
+// ─── ANTS ────────────────────────────────────────────────
+// Each ant: an active inference agent with a Markov blanket
+// ROLES demonstrate that the SAME algorithm (FEP minimisation)
+// produces DIFFERENT behaviour when prior preferences (C) change.
+// Forager C-vector: "I observe food at the nest"
+// Soldier C-vector: "I observe safety at the nest perimeter"
+// — Same free energy, different priors, different policies.
+let ants=[];
+const SOLDIER_FRAC=0.15; // ~15% of colony are soldiers
+const PATROL_R=55; // patrol radius around nest
+
+function createAnt(id,role){
+  role=role||'forager';
+  const isSoldier=role==='soldier';
+  return{id,role,
+    x:nestX+(R()-.5)*NEST_R,y:nestY+(R()-.5)*NEST_R,
+    angle:R()*TAU,speed:isSoldier?.6+R()*.2:.8+R()*.4,
+    hasFood:false,
+    beliefFoodAngle:R()*TAU,beliefConfidence:.1,
+    epistemicValue:0,pragmaticValue:0,freeEnergy:1,
+    state:isSoldier?'patrolling':'foraging',
+    distFromNest:0,foodDelivered:0,
+    legCRR:new CRR(1/PI),antennaCRR:new CRR(1/TAU),
+    legPhase:R()*TAU,bodyPhase:R()*TAU,selected:false,lastDep:0,
+    patrolAngle:R()*TAU, // soldiers: current position on patrol ring
+    patrolSpeed:.3+R()*.15}}
+
+function initAnts(){
+  ants=[];
+  const nSoldiers=max(2,floor(antCount*SOLDIER_FRAC));
+  for(let i=0;i<antCount;i++){
+    const role=i<nSoldiers?'soldier':'forager';
+    ants.push(createAnt(i,role));
+  }
+}
+
+function updateAnt(a,dt){
+  const spd=a.speed*60*dt;
+  a.legCRR.step(spd*2,dt);a.antennaCRR.step(1+a.beliefConfidence,dt);
+  a.legPhase+=spd*.3;a.bodyPhase+=dt*2;
+  const dx=a.x-nestX,dy=a.y-nestY;a.distFromNest=sqrt(dx*dx+dy*dy);
+
+  // ═══ SOLDIER BEHAVIOR ═══
+  // Different prior preferences (C-vector): "I observe safety at perimeter"
+  // Same FEP minimisation, completely different emergent policy
+  if(a.role==='soldier'){
+    a.state='patrolling';
+    a.patrolAngle+=a.patrolSpeed*dt;
+    if(a.patrolAngle>TAU)a.patrolAngle-=TAU;
+    // Position on patrol ring
+    const tx=nestX+cos(a.patrolAngle)*PATROL_R;
+    const ty=nestY+sin(a.patrolAngle)*PATROL_R;
+    // Smoothly move toward ring position (not chase — interpolate)
+    a.x+=(tx-a.x)*.08;a.y+=(ty-a.y)*.08;
+    // Heading = tangent to the circle (perpendicular to radius)
+    // This prevents the spinning: the ant faces ALONG the ring, not toward a moving target
+    const tangent=a.patrolAngle+PI*.5;
+    a.angle=tangent+(R()-.5)*.04; // tiny wobble only
+    // Soldiers have low free energy near nest (meeting their prior)
+    a.freeEnergy=max(.05,a.distFromNest/200-.1);
+    a.pragmaticValue=.7;a.epistemicValue=.15;
+    a.legPhase+=a.patrolSpeed*dt*15; // keep legs animated
+    a.bodyPhase+=dt*2;
+    a.distFromNest=sqrt((a.x-nestX)**2+(a.y-nestY)**2);
+    return;
+  }
+
+  // ═══ FORAGER BEHAVIOR ═══
+  const fp=senseGrad(a.x,a.y,a.angle,true);
+
+  if(a.hasFood){
+    a.state='returning';
+    const toN=atan2(nestY-a.y,nestX-a.x);let d=toN-a.angle;
+    while(d>PI)d-=TAU;while(d<-PI)d+=TAU;a.angle+=d*.15;
+    a.lastDep+=spd;if(a.lastDep>3){deposit(a.x,a.y,.12,true);a.lastDep=0}
+    if(a.distFromNest<NEST_R){a.hasFood=false;a.state='foraging';a.foodDelivered++;
+      totalFoodCollected++;a.beliefConfidence=min(.95,a.beliefConfidence+.1);
+      a.angle+=PI+(R()-.5)*.5}
+    a.pragmaticValue=.8;a.epistemicValue=.1;
+  }else{
+    const ps=fp.front+fp.left+fp.right;
+    if(ps>.01){
+      const gr=(fp.right-fp.left)*precisionIndiv;a.angle+=gr*.08;
+      a.speed=.8+fp.front*precisionIndiv*.02;
+      a.pragmaticValue=min(1,ps*2);a.epistemicValue=epistemicDrive*(1-ps);a.state='foraging';
+    }else{
+      a.state='exploring';a.epistemicValue=epistemicDrive;a.pragmaticValue=.05;
+      if(a.antennaCRR.state===1)a.angle+=(R()-.5)*PI*.8*(1+epistemicDrive);
+      a.angle+=(R()-.5)*.15*(1+epistemicDrive*2);
+      if(a.distFromNest<80){const aw=atan2(a.y-nestY,a.x-nestX);let d2=aw-a.angle;
+        while(d2>PI)d2-=TAU;while(d2<-PI)d2+=TAU;a.angle+=d2*.03}
+      a.lastDep+=spd;if(a.lastDep>8){deposit(a.x,a.y,.02,false);a.lastDep=0}
+    }
+    for(const f of foods){if(sqrt((a.x-f.x)**2+(a.y-f.y)**2)<f.r+5&&f.amount>0){
+      a.hasFood=true;f.amount=max(0,f.amount-1);a.beliefFoodAngle=atan2(f.y-nestY,f.x-nestX);
+      a.beliefConfidence=.8;a.angle=atan2(nestY-a.y,nestX-a.x)+(R()-.5)*.3;
+      a.lastDep=0;deposit(a.x,a.y,.3,true);break}}
+  }
+  const pH=sample(a.x,a.y,true);
+  a.freeEnergy=a.freeEnergy*.95+(a.hasFood?.1:max(0,1-pH*3))*.05;
+  a.x+=cos(a.angle)*spd;a.y+=sin(a.angle)*spd;
+  const mg=15,uL=240;
+  if(a.x<uL+mg){a.angle=abs(a.angle)<PI/2?a.angle:PI-a.angle;a.x=uL+mg}
+  if(a.x>W-mg){a.angle=PI-a.angle;a.x=W-mg}
+  if(a.y<mg){a.angle=-a.angle;a.y=mg}
+  if(a.y>H-mg){a.angle=-a.angle;a.y=H-mg}
+  while(a.angle>PI)a.angle-=TAU;while(a.angle<-PI)a.angle+=TAU;
+}
+
+// ─── RENDERING ───────────────────────────────────────────
+// Background color
+const BG='#f0ebe3';
+const BG_RGB=[240,235,227];
+
+// Pheromone: render directly to main canvas at proper coordinates
+function renderPheromone(){
+  if(!showPher)return;
+  ctx.save();
+  for(let gy=0;gy<gH;gy++)for(let gx=0;gx<gW;gx++){
+    const f=pherFood[gy*gW+gx];
+    const e=pherExplore[gy*gW+gx];
+    if(f<.005&&e<.005)continue;
+    // Food pheromone: warm amber on light bg
+    // Explore pheromone: soft blue
+    const alpha=min(.6,f*2.5+e*.8);
+    if(alpha<.01)continue;
+    const r=floor(180*f+100*e);
+    const g=floor(130*f+140*e);
+    const b=floor(40*f+200*e);
+    ctx.fillStyle=`rgba(${min(200,r)},${min(180,g)},${min(220,b)},${alpha})`;
+    ctx.fillRect(gx*GRID,gy*GRID,GRID,GRID);
+  }
+  ctx.restore();
+}
+
+function renderNest(t){
+  const pulse=1+sin(t*1.5)*.04;const r=NEST_R*pulse;
+  // Mound
+  const grd=ctx.createRadialGradient(nestX,nestY,r*.2,nestX,nestY,r*2);
+  grd.addColorStop(0,'rgba(140,100,50,.2)');grd.addColorStop(.6,'rgba(120,80,40,.08)');
+  grd.addColorStop(1,'rgba(100,70,30,0)');
+  ctx.fillStyle=grd;ctx.beginPath();ctx.arc(nestX,nestY,r*2,0,TAU);ctx.fill();
+  // Nest body
+  ctx.fillStyle='rgba(120,80,35,.45)';
+  ctx.beginPath();ctx.arc(nestX,nestY,r,0,TAU);ctx.fill();
+  ctx.strokeStyle='rgba(100,65,25,.35)';ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.arc(nestX,nestY,r,0,TAU);ctx.stroke();
+  // Entrance hole
+  ctx.fillStyle='rgba(60,35,15,.5)';
+  ctx.beginPath();ctx.ellipse(nestX,nestY,r*.35,r*.25,0,0,TAU);ctx.fill();
+  // Label
+  ctx.fillStyle='rgba(100,70,30,.5)';ctx.font="9px 'JetBrains Mono',monospace";
+  ctx.textAlign='center';ctx.fillText('NEST',nestX,nestY+r+14);
+}
+
+function renderFood(t){
+  for(const f of foods){
+    if(f.amount<=0)continue;
+    const fill=f.amount/f.maxAmount;
+    const pulse=1+sin(t*2+f.pp)*.06;const r=f.r*pulse*(.5+fill*.5);
+    // Glow
+    const grd=ctx.createRadialGradient(f.x,f.y,r*.3,f.x,f.y,r*2.5);
+    grd.addColorStop(0,`rgba(90,150,40,${.1*fill})`);grd.addColorStop(1,'rgba(80,130,30,0)');
+    ctx.fillStyle=grd;ctx.beginPath();ctx.arc(f.x,f.y,r*2.5,0,TAU);ctx.fill();
+    // Body
+    ctx.fillStyle=`rgba(90,145,35,${.35+fill*.45})`;
+    ctx.beginPath();ctx.arc(f.x,f.y,r,0,TAU);ctx.fill();
+    ctx.strokeStyle=`rgba(70,120,25,${.3+fill*.3})`;ctx.lineWidth=1.2;
+    ctx.beginPath();ctx.arc(f.x,f.y,r,0,TAU);ctx.stroke();
+    // Small leaf shapes
+    for(let i=0;i<3;i++){
+      const la=TAU/3*i+t*.15;const lx=f.x+cos(la)*r*.4,ly=f.y+sin(la)*r*.4;
+      ctx.fillStyle=`rgba(70,130,30,${.2+fill*.3})`;
+      ctx.beginPath();ctx.ellipse(lx,ly,r*.3,r*.15,la,0,TAU);ctx.fill();
+    }
+    ctx.fillStyle=`rgba(70,110,25,${.3+fill*.3})`;ctx.font="9px 'JetBrains Mono',monospace";
+    ctx.textAlign='center';ctx.fillText(floor(f.amount),f.x,f.y+r+13);
+  }
+}
+
+// ─── REALISTIC ANT RENDERING ─────────────────────────────
+function renderAnt(a,t){
+  ctx.save();ctx.translate(a.x,a.y);ctx.rotate(a.angle);
+  const legT=a.legPhase;
+  const isSoldier=a.role==='soldier';
+  const sc=isSoldier?1.25:1; // soldiers are 25% bigger
+  ctx.scale(sc,sc);
+
+  // Markov blanket
+  if(showBlanket){
+    const br=(12+a.beliefConfidence*4)/sc;
+    ctx.strokeStyle=isSoldier?'rgba(160,50,30,.18)':a.hasFood?'rgba(180,120,30,.2)':'rgba(60,100,160,.15)';
+    ctx.lineWidth=.7;ctx.setLineDash([3,3]);
+    ctx.beginPath();ctx.arc(0,0,br,0,TAU);ctx.stroke();ctx.setLineDash([]);
+  }
+
+  // Free energy glow
+  if(a.freeEnergy>.4){
+    const g=ctx.createRadialGradient(0,0,1,0,0,10);
+    g.addColorStop(0,`rgba(200,100,30,${a.freeEnergy*.15})`);
+    g.addColorStop(1,'rgba(180,80,20,0)');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,0,10,0,TAU);ctx.fill();
+  }
+
+  // Soldier: darker, reddish-brown. Forager: warm brown.
+  const dark=isSoldier?'rgba(50,15,8,':'rgba(45,25,10,';
+  const mid=isSoldier?'rgba(90,30,15,':'rgba(80,45,20,';
+  const light=isSoldier?'rgba(120,45,20,':'rgba(110,65,30,';
+
+  // ─ LEGS (3 pairs) ─
+  ctx.strokeStyle=dark+'.7)';ctx.lineWidth=.8;
+  for(let i=0;i<3;i++){
+    const lx=-3+i*3;
+    const phase=legT+i*PI/3;
+    const lift=sin(phase)*1.8;
+    // Right leg: femur + tibia
+    ctx.beginPath();ctx.moveTo(lx,0);
+    const knee_r_x=lx-1,knee_r_y=3.5+lift*.3;
+    const foot_r_x=lx-2+sin(phase)*.8,foot_r_y=5.5+lift;
+    ctx.quadraticCurveTo(knee_r_x,knee_r_y,foot_r_x,foot_r_y);ctx.stroke();
+    // Left leg
+    ctx.beginPath();ctx.moveTo(lx,0);
+    const knee_l_x=lx-1,knee_l_y=-3.5-lift*.3;
+    const foot_l_x=lx-2-sin(phase)*.8,foot_l_y=-5.5-lift;
+    ctx.quadraticCurveTo(knee_l_x,knee_l_y,foot_l_x,foot_l_y);ctx.stroke();
+  }
+
+  // ─ GASTER (abdomen) ─
+  ctx.fillStyle=a.hasFood?mid+'.85)':dark+'.8)';
+  ctx.beginPath();ctx.ellipse(-6.5,0,5,3.5,0,0,TAU);ctx.fill();
+  // Gaster stripes
+  ctx.strokeStyle=light+'.3)';ctx.lineWidth=.4;
+  for(let i=0;i<3;i++){const sx=-8.5+i*1.5;
+    ctx.beginPath();ctx.moveTo(sx,-2.5);ctx.quadraticCurveTo(sx,0,sx,2.5);ctx.stroke()}
+
+  // ─ PETIOLE (waist) ─
+  ctx.fillStyle=dark+'.75)';
+  ctx.beginPath();ctx.ellipse(-2.5,0,1.5,1.2,0,0,TAU);ctx.fill();
+
+  // ─ MESOSOMA (thorax) ─
+  ctx.fillStyle=mid+'.8)';
+  ctx.beginPath();ctx.ellipse(0.5,0,3.5,2.5,.05,0,TAU);ctx.fill();
+
+  // ─ HEAD ─
+  ctx.fillStyle=dark+'.85)';
+  const headR=isSoldier?3.2:2.8;
+  ctx.beginPath();ctx.ellipse(5,0,headR,headR*.82,0,0,TAU);ctx.fill();
+  // Eyes
+  ctx.fillStyle='rgba(30,15,5,.5)';
+  ctx.beginPath();ctx.arc(6,1.5,0.7,0,TAU);ctx.fill();
+  ctx.beginPath();ctx.arc(6,-1.5,0.7,0,TAU);ctx.fill();
+
+  // ─ MANDIBLES ─
+  const mOpen=.15+sin(a.bodyPhase*2)*.1;
+  if(isSoldier){
+    // Large soldier mandibles
+    ctx.strokeStyle=dark+'.8)';ctx.lineWidth=1.1;
+    ctx.beginPath();ctx.moveTo(7.5,1.2);ctx.quadraticCurveTo(9.5,1,10.5,2.5+mOpen);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(7.5,-1.2);ctx.quadraticCurveTo(9.5,-1,10.5,-2.5-mOpen);ctx.stroke();
+  }else{
+    ctx.strokeStyle=dark+'.65)';ctx.lineWidth=.7;
+    ctx.beginPath();ctx.moveTo(7,1);ctx.lineTo(8.5,1.5+mOpen);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(7,-1);ctx.lineTo(8.5,-1.5-mOpen);ctx.stroke();
+  }
+
+  // ─ ANTENNAE ─
+  const antSw=sin(a.bodyPhase*1.5)*.35;
+  ctx.strokeStyle=dark+'.6)';ctx.lineWidth=.6;
+  // Right antenna: scape + funiculus
+  ctx.beginPath();ctx.moveTo(6.5,1.5);
+  ctx.quadraticCurveTo(9,3+antSw*.5,11,5+antSw);ctx.stroke();
+  // Tip dot
+  ctx.fillStyle=dark+'.5)';ctx.beginPath();ctx.arc(11,5+antSw,.5,0,TAU);ctx.fill();
+  // Left antenna
+  ctx.beginPath();ctx.moveTo(6.5,-1.5);
+  ctx.quadraticCurveTo(9,-3-antSw*.5,11,-5-antSw);ctx.stroke();
+  ctx.fillStyle=dark+'.5)';ctx.beginPath();ctx.arc(11,-5-antSw,.5,0,TAU);ctx.fill();
+
+  // ─ FOOD PARTICLE ─
+  if(a.hasFood){
+    ctx.fillStyle='rgba(90,150,40,.85)';
+    ctx.beginPath();ctx.arc(8.5,0,1.8,0,TAU);ctx.fill();
+    ctx.strokeStyle='rgba(60,110,25,.5)';ctx.lineWidth=.4;
+    ctx.beginPath();ctx.arc(8.5,0,1.8,0,TAU);ctx.stroke();
+  }
+
+  // ─ SELECTION ─
+  if(a.selected){
+    ctx.strokeStyle='rgba(180,100,20,.45)';ctx.lineWidth=1.2;ctx.setLineDash([2,2]);
+    ctx.beginPath();ctx.arc(0,0,16,0,TAU);ctx.stroke();ctx.setLineDash([]);
+  }
+
+  ctx.restore();
+}
+
+function renderTrailBlankets(){
+  if(!showTrail)return;
+  ctx.save();ctx.strokeStyle='rgba(70,130,50,.18)';ctx.lineWidth=1.2;ctx.setLineDash([6,4]);
+  const thresh=.06,visited=new Set();
+  for(let y=0;y<gH;y+=3)for(let x=0;x<gW;x+=3){
+    const idx=y*gW+x;
+    if(pherFood[idx]>thresh&&!visited.has(idx)){
+      let mX=x,MX=x,mY=y,MY=y,cnt=0;const stk=[[x,y]];
+      while(stk.length>0&&cnt<300){const[cx,cy]=stk.pop();const ci=cy*gW+cx;
+        if(visited.has(ci))continue;visited.add(ci);cnt++;
+        if(cx<mX)mX=cx;if(cx>MX)MX=cx;if(cy<mY)mY=cy;if(cy>MY)MY=cy;
+        for(const[dx,dy]of[[3,0],[-3,0],[0,3],[0,-3]]){
+          const nx=cx+dx,ny=cy+dy;
+          if(nx>=0&&nx<gW&&ny>=0&&ny<gH&&pherFood[ny*gW+nx]>thresh&&!visited.has(ny*gW+nx))
+            stk.push([nx,ny])}}
+      if(cnt>10){const wx=mX*GRID-8,wy=mY*GRID-8,ww=(MX-mX)*GRID+16,wh=(MY-mY)*GRID+16;
+        ctx.beginPath();ctx.roundRect(wx,wy,ww,wh,min(ww,wh)*.15);ctx.stroke()}
+    }
+  }
+  ctx.setLineDash([]);ctx.restore();
+}
+
+function renderColonyBlanket(t){
+  if(!showColony)return;
+  let mX=nestX,MX=nestX,mY=nestY,MY=nestY;
+  for(const a of ants){if(a.x<mX)mX=a.x;if(a.x>MX)MX=a.x;if(a.y<mY)mY=a.y;if(a.y>MY)MY=a.y}
+  for(const f of foods){if(f.amount<=0)continue;if(f.x<mX)mX=f.x;if(f.x>MX)MX=f.x;if(f.y<mY)mY=f.y;if(f.y>MY)MY=f.y}
+  const pad=45,pulse=sin(t*.5)*5;
+  ctx.save();ctx.strokeStyle='rgba(150,50,110,.18)';ctx.lineWidth=1.5;ctx.setLineDash([8,6]);
+  const cx=(mX+MX)/2,cy=(mY+MY)/2;
+  ctx.beginPath();ctx.ellipse(cx,cy,(MX-mX)/2+pad+pulse,(MY-mY)/2+pad+pulse,0,0,TAU);ctx.stroke();
+  ctx.setLineDash([]);ctx.fillStyle='rgba(150,50,110,.25)';
+  ctx.font="9px 'JetBrains Mono',monospace";ctx.textAlign='center';
+  ctx.fillText('COLONY BLANKET',cx,cy-(MY-mY)/2-pad-pulse-6);ctx.restore();
+}
+
+// ─── SENSORY FIELDS (Heatmap) ────────────────────────────
+// Renders a cumulative heatmap of what all ants can sense.
+// Each ant contributes a sensory radius to a grid; overlapping
+// fields accumulate — showing shared sensory niches.
+// "Ants only have sensory access to their immediate surroundings"
+// — Friedman, Tschantz, Ramstead, Friston & Constant (2021)
+const SENSE_R=22; // sensory radius in pixels
+const SENSE_GRID=6; // heatmap cell size
+let senseW,senseH,senseMap;
+
+function initSenseMap(){
+  senseW=ceil(W/SENSE_GRID);senseH=ceil(H/SENSE_GRID);
+  senseMap=new Float32Array(senseW*senseH);
+}
+
+function renderSensoryFields(){
+  if(!showSensory)return;
+  if(!senseMap||senseMap.length!==senseW*senseH)initSenseMap();
+
+  // Clear sense map
+  senseMap.fill(0);
+
+  // Each ant contributes its sensory field to the shared heatmap
+  // The field is biased forward (antenna direction) per Active InferAnts:
+  // agents sense their immediate surroundings with directional bias
+  const rCells=ceil(SENSE_R/SENSE_GRID);
+  for(const a of ants){
+    const gcx=floor(a.x/SENSE_GRID),gcy=floor(a.y/SENSE_GRID);
+    for(let dy=-rCells;dy<=rCells;dy++)for(let dx=-rCells;dx<=rCells;dx++){
+      const gx=gcx+dx,gy=gcy+dy;
+      if(gx<0||gx>=senseW||gy<0||gy>=senseH)continue;
+      const wx=(gx+.5)*SENSE_GRID,wy=(gy+.5)*SENSE_GRID;
+      const ddx=wx-a.x,ddy=wy-a.y;
+      const dist=sqrt(ddx*ddx+ddy*ddy);
+      if(dist>SENSE_R)continue;
+
+      // Directional bias: cells in front of the ant are sensed more strongly
+      const angleToCell=atan2(ddy,ddx);
+      let angleDiff=angleToCell-a.angle;
+      while(angleDiff>PI)angleDiff-=TAU;while(angleDiff<-PI)angleDiff+=TAU;
+      const dirBias=.4+.6*max(0,cos(angleDiff)); // forward-biased
+
+      // Distance falloff
+      const distFalloff=1-dist/SENSE_R;
+
+      // What does the ant actually sense here?
+      const pherHere=sample(wx,wy,true)+sample(wx,wy,false)*.3;
+      // Sensory contribution = presence * signal * direction
+      const contribution=distFalloff*dirBias*(0.5+pherHere*3);
+
+      senseMap[gy*senseW+gx]+=contribution;
+    }
+  }
+
+  // Render heatmap
+  ctx.save();
+  for(let gy=0;gy<senseH;gy++)for(let gx=0;gx<senseW;gx++){
+    const v=senseMap[gy*senseW+gx];
+    if(v<.02)continue;
+    const clamped=min(1,v/2); // normalise — multiple ants overlap → brighter
+
+    // Colour: blue-teal for low signal, amber-gold for high pheromone signal
+    // This shows WHERE the colony has collective sensory coverage
+    const pherAtCell=sample((gx+.5)*SENSE_GRID,(gy+.5)*SENSE_GRID,true);
+    const hasSignal=pherAtCell>.02;
+
+    let r,g,b;
+    if(hasSignal){
+      // Pheromone present in sensory field: warm amber
+      r=180+clamped*60;g=130+clamped*40;b=30+clamped*20;
+    }else{
+      // No pheromone: cool teal (sensing but no information)
+      r=60+clamped*40;g=120+clamped*60;b=160+clamped*40;
+    }
+    const alpha=min(.55,.1+clamped*.45);
+    ctx.fillStyle=`rgba(${floor(r)},${floor(g)},${floor(b)},${alpha})`;
+    ctx.fillRect(gx*SENSE_GRID,gy*SENSE_GRID,SENSE_GRID,SENSE_GRID);
+  }
+  ctx.restore();
+}
+
+// ─── COLLABORATION NETWORK ──────────────────────────────
+// Shows generalised synchrony between ants: when two agents
+// share the same pheromone trail (sensory niche) and move in
+// similar directions, they become mutually predictive — their
+// internal states converge onto a synchronisation manifold.
+// This is the mechanism by which group-level Markov blankets
+// emerge from individual-level dynamics.
+//
+// Connection strength = f(proximity, pheromone co-occupation, heading alignment)
+// This directly implements precision-weighted coupling:
+// agents on the same trail, heading the same way, with high
+// pheromone = high mutual predictability = strong link.
+const NET_DIST=100; // max distance for potential link
+const NET_PHER_THRESH=0.02; // min pheromone for trail co-occupation
+
+function renderNetwork(){
+  if(!showNetwork)return;
+  ctx.save();
+
+  // Collect edges with strength
+  const edges=[];
+  for(let i=0;i<ants.length;i++){
+    const ai=ants[i];
+    const pi=sample(ai.x,ai.y,true); // pheromone at ant i
+
+    for(let j=i+1;j<ants.length;j++){
+      const aj=ants[j];
+      const dx=ai.x-aj.x,dy=ai.y-aj.y;
+      const dist=sqrt(dx*dx+dy*dy);
+      if(dist>NET_DIST)continue;
+
+      const pj=sample(aj.x,aj.y,true); // pheromone at ant j
+      const sharedPher=min(pi,pj); // both must be on pheromone
+
+      // Heading alignment: dot product of direction vectors
+      const cosAlign=cos(ai.angle)*cos(aj.angle)+sin(ai.angle)*sin(aj.angle);
+      const alignment=max(0,cosAlign); // 1=same direction, 0=perpendicular
+
+      // Proximity factor (inverse distance, normalised)
+      const proxim=1-dist/NET_DIST;
+
+      // Two pathways to synchrony:
+      // 1. Trail-based: both on pheromone, heading same way (strong)
+      const trailSync=alignment*min(1,sharedPher*10)*proxim;
+      // 2. Proximity-based: very close ants heading same direction (weaker)
+      const proxSync=alignment*proxim*proxim*0.4;
+      // 3. Same-state bonus: both foraging or both returning
+      const sameState=(ai.state===aj.state||ai.hasFood===aj.hasFood)?0.15:0;
+
+      const strength=max(trailSync,proxSync)+sameState*proxim;
+
+      if(strength>.03){
+        edges.push({i,j,strength,sharedPher,alignment,dist});
+      }
+    }
+  }
+
+  // Draw edges
+  for(const e of edges){
+    const ai=ants[e.i],aj=ants[e.j];
+    const alpha=min(.6,.1+e.strength*.8);
+
+    // Colour: amber for trail-based synchrony, soft grey for proximity-only
+    if(e.sharedPher>NET_PHER_THRESH){
+      ctx.strokeStyle=`rgba(190,100,20,${alpha})`;
+    }else{
+      ctx.strokeStyle=`rgba(120,100,80,${alpha*.6})`;
+    }
+    ctx.lineWidth=.6+e.strength*2.5;
+    ctx.beginPath();
+    ctx.moveTo(ai.x,ai.y);ctx.lineTo(aj.x,aj.y);
+    ctx.stroke();
+
+    // Midpoint synchrony indicator for strong links
+    if(e.strength>.25){
+      const mx=(ai.x+aj.x)/2,my=(ai.y+aj.y)/2;
+      const sr=2+e.strength*4;
+      const grd=ctx.createRadialGradient(mx,my,0,mx,my,sr);
+      grd.addColorStop(0,`rgba(200,120,30,${alpha*.7})`);
+      grd.addColorStop(1,`rgba(200,120,30,0)`);
+      ctx.fillStyle=grd;
+      ctx.beginPath();ctx.arc(mx,my,sr,0,TAU);ctx.fill();
+    }
+  }
+
+  // Draw nodes (small dots on each connected ant)
+  const connected=new Set();
+  for(const e of edges){connected.add(e.i);connected.add(e.j)}
+  for(const idx of connected){
+    const a=ants[idx];
+    ctx.fillStyle='rgba(190,100,20,.45)';
+    ctx.beginPath();ctx.arc(a.x,a.y,3.5,0,TAU);ctx.fill();
+    ctx.strokeStyle='rgba(190,100,20,.25)';ctx.lineWidth=.5;
+    ctx.beginPath();ctx.arc(a.x,a.y,3.5,0,TAU);ctx.stroke();
+  }
+
+  // Count clusters for status display
+  const parent=new Array(ants.length);for(let i=0;i<ants.length;i++)parent[i]=i;
+  function find(x){while(parent[x]!==x)x=parent[x]=parent[parent[x]];return x}
+  for(const e of edges){const a=find(e.i),b=find(e.j);if(a!==b)parent[a]=b}
+  const clusters=new Set();
+  for(const idx of connected)clusters.add(find(idx));
+
+  // Label cluster count
+  if(connected.size>0){
+    ctx.fillStyle='rgba(140,70,10,.55)';
+    ctx.font="10px 'JetBrains Mono',monospace";
+    ctx.textAlign='left';
+    ctx.fillText(`${connected.size} synced · ${clusters.size} cluster${clusters.size!==1?'s':''}`,240+10,H-36);
+  }
+
+  ctx.restore();
+}
+
+// ─── GROUND TEXTURE ──────────────────────────────────────
+let groundCanvas;
+function initGround(){
+  groundCanvas=document.createElement('canvas');
+  groundCanvas.width=W;groundCanvas.height=H;
+  const gc=groundCanvas.getContext('2d');
+  // Base
+  gc.fillStyle=BG;gc.fillRect(0,0,W,H);
+  // Subtle noise texture
+  const img=gc.createImageData(W,H);const d=img.data;
+  for(let i=0;i<d.length;i+=4){
+    const n=(R()-.5)*8;
+    d[i]=BG_RGB[0]+n;d[i+1]=BG_RGB[1]+n;d[i+2]=BG_RGB[2]+n;d[i+3]=255;
+  }
+  gc.putImageData(img,0,0);
+  // Subtle radial darkening from edges
+  const grd=gc.createRadialGradient(W/2,H/2,min(W,H)*.3,W/2,H/2,max(W,H)*.7);
+  grd.addColorStop(0,'rgba(240,235,227,0)');grd.addColorStop(1,'rgba(200,190,175,.15)');
+  gc.fillStyle=grd;gc.fillRect(0,0,W,H);
+}
+
+// ─── NEST WEBCAM (Interior Cross-Section) ────────────────
+// The nest interior shows the colony's INTERNAL STATES —
+// the hidden variables that foraging behaviour ultimately serves.
+// Queen = deepest prior (slowest timescale)
+// Food stores = accumulated evidence of successful policies
+// Larvae = the colony's generative model of its own future
+// Soldiers at entrance = active states maintaining the blanket
+const ncc=document.getElementById('nc');
+const ncCtx=ncc.getContext('2d');
+const NC_W=520,NC_H=400;
+
+// Interior layout
+const chambers={
+  entrance:{x:260,y:45,w:60,h:35},
+  mainTunnel:{x:260,y:45,endY:140},
+  foodL:{x:120,y:180,r:50},
+  foodR:{x:400,y:160,r:40},
+  nursery:{x:280,y:280,r:55},
+  queen:{x:200,y:320,r:45},
+  tunnel1:{from:{x:260,y:140},to:{x:120,y:180}},
+  tunnel2:{from:{x:260,y:140},to:{x:400,y:160}},
+  tunnel3:{from:{x:260,y:140},to:{x:280,y:280}},
+  tunnel4:{from:{x:280,y:280},to:{x:200,y:320}},
+};
+
+// Interior worker ants (mini ants that move between chambers)
+let interiorAnts=[];
+function initInteriorAnts(){
+  interiorAnts=[];
+  for(let i=0;i<12;i++){
+    const targets=['foodL','foodR','nursery','queen'];
+    const tgt=targets[floor(R()*targets.length)];
+    const ch=chambers[tgt];
+    interiorAnts.push({
+      x:ch.x+(R()-.5)*ch.r*.6,y:ch.y+(R()-.5)*ch.r*.6,
+      angle:R()*TAU,speed:.3+R()*.2,
+      target:tgt,phase:R()*TAU,task:R()<.5?'tending':'carrying',
+      carryFood:R()<.3
+    });
+  }
+}
+initInteriorAnts();
+
+// Queen state
+let queenBreathPhase=0;
+let eggCount=0;
+
+function renderNestCam(t,dt){
+  const cx=ncCtx;
+  queenBreathPhase+=dt*.8;
+  eggCount=min(30,floor(totalFoodCollected/5));
+
+  // Background: dark earth
+  cx.fillStyle='#1a120a';cx.fillRect(0,0,NC_W,NC_H);
+
+  // Earth texture layers
+  for(let y=0;y<NC_H;y+=6){
+    const shade=12+sin(y*.08+t*.1)*3;
+    cx.fillStyle=`rgba(${shade+10},${shade+4},${shade},${.3+R()*.1})`;
+    cx.fillRect(0,y,NC_W,6);
+  }
+  // Soil particles
+  cx.fillStyle='rgba(80,55,25,.15)';
+  for(let i=0;i<40;i++){
+    const px=(sin(i*17.3+t*.02)*260+260)%NC_W;
+    const py=(cos(i*23.7+t*.01)*200+200)%NC_H;
+    cx.beginPath();cx.arc(px,py,1+R(),0,TAU);cx.fill();
+  }
+
+  // ─ Draw tunnels ─
+  cx.lineCap='round';
+  function drawTunnel(fx,fy,tx,ty,w){
+    cx.strokeStyle='rgba(30,18,8,.95)';cx.lineWidth=w+4;
+    cx.beginPath();cx.moveTo(fx,fy);cx.quadraticCurveTo((fx+tx)/2+R()*2,(fy+ty)/2,tx,ty);cx.stroke();
+    cx.strokeStyle='rgba(20,12,5,.9)';cx.lineWidth=w;
+    cx.beginPath();cx.moveTo(fx,fy);cx.quadraticCurveTo((fx+tx)/2,(fy+ty)/2,tx,ty);cx.stroke();
+  }
+  drawTunnel(260,45,260,140,18);
+  drawTunnel(260,140,120,180,14);
+  drawTunnel(260,140,400,160,14);
+  drawTunnel(260,140,280,280,16);
+  drawTunnel(280,280,200,320,14);
+
+  // ─ Draw chambers ─
+  function drawChamber(x,y,r,label,col){
+    // Glow
+    const grd=cx.createRadialGradient(x,y,r*.2,x,y,r*1.2);
+    grd.addColorStop(0,col||'rgba(35,22,10,.95)');
+    grd.addColorStop(1,'rgba(25,15,6,.85)');
+    cx.fillStyle=grd;cx.beginPath();cx.ellipse(x,y,r,r*.7,0,0,TAU);cx.fill();
+    // Border
+    cx.strokeStyle='rgba(80,50,20,.3)';cx.lineWidth=1;
+    cx.beginPath();cx.ellipse(x,y,r,r*.7,0,0,TAU);cx.stroke();
+    // Label
+    cx.fillStyle='rgba(255,220,160,.35)';cx.font="7px 'JetBrains Mono',monospace";
+    cx.textAlign='center';cx.fillText(label,x,y-r*.7-5);
+  }
+
+  // Entrance
+  cx.fillStyle='rgba(60,40,15,.8)';
+  cx.fillRect(230,10,60,40);
+  cx.fillStyle='rgba(200,170,120,.2)';
+  cx.fillRect(232,12,56,18); // sky hint
+  cx.fillStyle='rgba(255,220,160,.3)';cx.font="7px 'JetBrains Mono',monospace";
+  cx.textAlign='center';cx.fillText('ENTRANCE',260,8);
+
+  // Food chambers
+  drawChamber(120,180,50,'FOOD STORE','rgba(40,28,10,.95)');
+  drawChamber(400,160,40,'FOOD STORE','rgba(40,28,10,.95)');
+
+  // Draw food items in food chambers
+  const foodFill=min(1,totalFoodCollected/80);
+  const nFoodItems=floor(foodFill*20);
+  for(let i=0;i<nFoodItems;i++){
+    const a=TAU/20*i+.1;
+    const fr=15+i%3*8;
+    const fx=120+cos(a)*fr,fy=180+sin(a)*fr*.6;
+    cx.fillStyle=`rgba(140,190,50,${.5+R()*.3})`;
+    cx.beginPath();cx.arc(fx,fy,2+R(),0,TAU);cx.fill();
+  }
+  for(let i=0;i<floor(nFoodItems*.6);i++){
+    const a=TAU/12*i+.3;
+    const fr=10+i%3*7;
+    const fx=400+cos(a)*fr,fy=160+sin(a)*fr*.6;
+    cx.fillStyle=`rgba(140,190,50,${.4+R()*.3})`;
+    cx.beginPath();cx.arc(fx,fy,1.5+R(),0,TAU);cx.fill();
+  }
+
+  // Nursery
+  drawChamber(280,280,55,'NURSERY','rgba(35,25,12,.95)');
+  // Eggs/larvae
+  for(let i=0;i<min(eggCount,24);i++){
+    const a=TAU/24*i;
+    const er=12+i%4*6;
+    const ex=280+cos(a)*er,ey=280+sin(a)*er*.55;
+    // Eggs: pearly white ovals
+    cx.fillStyle=`rgba(240,235,220,${.6+sin(t+i)*.15})`;
+    cx.beginPath();cx.ellipse(ex,ey,2.5,1.8,.3*i,0,TAU);cx.fill();
+  }
+  // Nurse ants tending (from interiorAnts)
+  const nurses=interiorAnts.filter(a=>a.target==='nursery');
+  nurses.forEach(n=>{
+    n.phase+=dt*1.5;n.x+=cos(n.phase)*.15;n.y+=sin(n.phase*.7)*.1;
+    drawMiniAnt(cx,n.x,n.y,n.phase,false);
+  });
+
+  // ─ QUEEN ─
+  drawChamber(200,320,45,'QUEEN\'S CHAMBER','rgba(45,25,8,.95)');
+  // Queen ant: much larger, with crown-like thorax
+  const qx=200,qy=320;
+  const qBreath=1+sin(queenBreathPhase)*.03;
+  cx.save();cx.translate(qx,qy);cx.scale(qBreath,qBreath);
+  // Gaster (enormous)
+  cx.fillStyle='rgba(70,30,10,.9)';
+  cx.beginPath();cx.ellipse(-8,0,16,10,0,0,TAU);cx.fill();
+  // Gaster stripes
+  cx.strokeStyle='rgba(100,55,20,.3)';cx.lineWidth=.6;
+  for(let i=0;i<5;i++){cx.beginPath();cx.moveTo(-16+i*4,-8);cx.lineTo(-16+i*4,8);cx.stroke()}
+  // Petiole
+  cx.fillStyle='rgba(55,25,8,.85)';
+  cx.beginPath();cx.ellipse(4,0,3,2.5,0,0,TAU);cx.fill();
+  // Mesosoma (bulky)
+  cx.fillStyle='rgba(65,30,12,.85)';
+  cx.beginPath();cx.ellipse(10,0,7,5,.05,0,TAU);cx.fill();
+  // Head
+  cx.fillStyle='rgba(55,22,8,.9)';
+  cx.beginPath();cx.ellipse(18,0,5,4,0,0,TAU);cx.fill();
+  // Eyes
+  cx.fillStyle='rgba(30,10,5,.6)';
+  cx.beginPath();cx.arc(20,2.5,1.2,0,TAU);cx.fill();
+  cx.beginPath();cx.arc(20,-2.5,1.2,0,TAU);cx.fill();
+  // Antennae
+  cx.strokeStyle='rgba(60,25,8,.6)';cx.lineWidth=.7;
+  cx.beginPath();cx.moveTo(22,3);cx.quadraticCurveTo(26,6,28,9);cx.stroke();
+  cx.beginPath();cx.moveTo(22,-3);cx.quadraticCurveTo(26,-6,28,-9);cx.stroke();
+  // Crown indicator (subtle golden aura)
+  const queenGrd=cx.createRadialGradient(0,0,5,0,0,25);
+  queenGrd.addColorStop(0,'rgba(220,180,80,.08)');queenGrd.addColorStop(1,'rgba(200,160,60,0)');
+  cx.fillStyle=queenGrd;cx.beginPath();cx.arc(0,0,25,0,TAU);cx.fill();
+  // Legs
+  cx.strokeStyle='rgba(50,20,5,.5)';cx.lineWidth=.6;
+  for(let i=0;i<3;i++){const lx=-2+i*6;
+    cx.beginPath();cx.moveTo(lx,5);cx.lineTo(lx-2,12);cx.stroke();
+    cx.beginPath();cx.moveTo(lx,-5);cx.lineTo(lx-2,-12);cx.stroke()}
+  cx.restore();
+
+  // Attendant ants around queen
+  const attendants=interiorAnts.filter(a=>a.target==='queen');
+  attendants.forEach((n,i)=>{
+    n.phase+=dt*1.2;
+    const aa=TAU/3*i+t*.2;
+    n.x=qx+cos(aa)*22;n.y=qy+sin(aa)*14;
+    drawMiniAnt(cx,n.x,n.y,aa+PI,false);
+  });
+
+  // Workers carrying food through tunnels
+  const carriers=interiorAnts.filter(a=>a.task==='carrying');
+  carriers.forEach((c,i)=>{
+    c.phase+=dt*2;
+    // Animate along tunnel path
+    const prog=(sin(c.phase*.3+i)*0.5+0.5);
+    if(c.target==='foodL'){
+      c.x=260+(120-260)*prog;c.y=140+(180-140)*prog;
+    }else if(c.target==='foodR'){
+      c.x=260+(400-260)*prog;c.y=140+(160-140)*prog;
+    }
+    const moveAngle=atan2(sin(c.phase*.3+i)*.5,cos(c.phase*.3+i));
+    drawMiniAnt(cx,c.x,c.y,moveAngle,c.carryFood);
+  });
+
+  // Entrance guard (soldier)
+  const guardAngle=t*.8;
+  drawMiniAnt(cx,245+sin(guardAngle)*8,38,PI/2,false,true);
+  drawMiniAnt(cx,275+cos(guardAngle)*8,38,PI/2,false,true);
+
+  // Scanline effect
+  const scanY=(t*40)%NC_H;
+  cx.strokeStyle='rgba(255,220,160,.03)';cx.lineWidth=1;
+  cx.beginPath();cx.moveTo(0,scanY);cx.lineTo(NC_W,scanY);cx.stroke();
+
+  // Vignette
+  const vig=cx.createRadialGradient(NC_W/2,NC_H/2,NC_W*.25,NC_W/2,NC_H/2,NC_W*.55);
+  vig.addColorStop(0,'rgba(0,0,0,0)');vig.addColorStop(1,'rgba(0,0,0,.4)');
+  cx.fillStyle=vig;cx.fillRect(0,0,NC_W,NC_H);
+
+  // Update webcam stats
+  document.getElementById('nc-food').textContent='Food: '+totalFoodCollected;
+  document.getElementById('nc-eggs').textContent='Eggs: '+eggCount;
+  document.getElementById('nc-soldiers').textContent='Guards: '+ants.filter(a=>a.role==='soldier').length;
+}
+
+// Mini ant renderer for interior view
+function drawMiniAnt(cx,x,y,angle,hasFood,isSoldier){
+  cx.save();cx.translate(x,y);cx.rotate(angle);
+  const s=isSoldier?1.15:1;cx.scale(s,s);
+  const col=isSoldier?'rgba(70,25,10,':'rgba(55,30,12,';
+  // Gaster
+  cx.fillStyle=col+'.8)';cx.beginPath();cx.ellipse(-3,0,3,2,0,0,TAU);cx.fill();
+  // Thorax
+  cx.fillStyle=col+'.75)';cx.beginPath();cx.ellipse(0,0,2,1.5,0,0,TAU);cx.fill();
+  // Head
+  cx.fillStyle=col+'.85)';cx.beginPath();cx.ellipse(2.5,0,1.8,1.4,0,0,TAU);cx.fill();
+  // Legs
+  cx.strokeStyle=col+'.5)';cx.lineWidth=.4;
+  for(let i=0;i<3;i++){const lx=-1.5+i*1.5;
+    cx.beginPath();cx.moveTo(lx,1.5);cx.lineTo(lx-.5,3.5);cx.stroke();
+    cx.beginPath();cx.moveTo(lx,-1.5);cx.lineTo(lx-.5,-3.5);cx.stroke()}
+  // Antennae
+  cx.beginPath();cx.moveTo(3.5,1);cx.lineTo(5,2.5);cx.stroke();
+  cx.beginPath();cx.moveTo(3.5,-1);cx.lineTo(5,-2.5);cx.stroke();
+  // Food
+  if(hasFood){cx.fillStyle='rgba(140,190,50,.8)';cx.beginPath();cx.arc(4.5,0,1.2,0,TAU);cx.fill()}
+  // Soldier mandibles
+  if(isSoldier){cx.lineWidth=.6;cx.beginPath();cx.moveTo(4,1);cx.lineTo(5.5,2);cx.stroke();
+    cx.beginPath();cx.moveTo(4,-1);cx.lineTo(5.5,-2);cx.stroke()}
+  cx.restore();
+}
+
+// ─── CLICK HANDLING ──────────────────────────────────────
+let selectedAnt=null;const antInfoEl=document.getElementById('ant-info');
+cv.addEventListener('click',e=>{
+  const r=cv.getBoundingClientRect();const mx=e.clientX-r.left,my=e.clientY-r.top;
+  selectedAnt=null;
+  for(const a of ants){a.selected=false;
+    if(sqrt((a.x-mx)**2+(a.y-my)**2)<15&&!selectedAnt){selectedAnt=a;a.selected=true}}
+  if(!selectedAnt)antInfoEl.style.display='none';
+});
+cv.addEventListener('mousemove',e=>{
+  if(!selectedAnt)return;antInfoEl.style.display='block';
+  antInfoEl.style.left=min(W-200,e.clientX+15)+'px';antInfoEl.style.top=min(H-150,e.clientY+15)+'px';
+  document.getElementById('ai-name').textContent=(selectedAnt.role==='soldier'?'Soldier':'Forager')+' #'+selectedAnt.id;
+  document.getElementById('ai-state').textContent=
+    selectedAnt.role==='soldier'?'Patrolling (perimeter defence)':
+    selectedAnt.hasFood?'Returning with food':selectedAnt.state==='exploring'?'Exploring (epistemic)':'Following trail (pragmatic)';
+  document.getElementById('ai-epist').textContent=selectedAnt.epistemicValue.toFixed(2);
+  document.getElementById('ai-prag').textContent=selectedAnt.pragmaticValue.toFixed(2);
+  document.getElementById('ai-fe').textContent=selectedAnt.freeEnergy.toFixed(2);
+  document.getElementById('ai-food').textContent=selectedAnt.hasFood?'Yes':'No';
+  document.getElementById('ai-ebar').style.width=(selectedAnt.epistemicValue*100)+'%';
+  document.getElementById('ai-pbar').style.width=(selectedAnt.pragmaticValue*100)+'%';
+});
+
+// ─── NARRATIVE (Daniel Friedman) ─────────────────────────
+const narrativeEl=document.getElementById('narrative');
+const narTextEl=document.getElementById('nar-text');
+const narratives=[
+  "Welcome! I'm Daniel — I study ants and Active Inference. Each ant here is an <em>Active InferAnt</em> — minimising expected free energy through stigmergic foraging.",
+  "Ants only have sensory access to their <em>immediate surroundings</em>. They don't know where food is — all they can sense is pheromone density right here, right now.",
+  "The pheromone field is a <em>stigmergic generative model</em> — the colony's beliefs about food, written into the environment itself. Niche construction in action!",
+  "Notice how trail formation emerges from individual free energy minimisation. No ant plans the trail — it's <em>self-organisation</em> through precision-weighted prediction error.",
+  "A single pheromone is sufficient! Our 2023 paper showed that one-pheromone models account for patterns previously needing two. Simplicity is powerful.",
+  "Each ant's generative model is tiny — just local pheromone gradients. But the <em>colony-level</em> generative model, encoded in all the trails together, is sophisticated.",
+  "When you toggle <em>sensory fields</em>, you see the colony's collective sensory coverage. Where fields overlap, ants share a sensory niche — the basis for group blankets.",
+  "The <em>collaboration network</em> shows generalised synchrony — ants that can predict each other because they share trails, heading, and proximity. Mutual inference!",
+  "Try removing a food source. Watch the belief update propagate: the trail decays, explorers re-emerge, new paths form. This is <em>distributed inference</em>.",
+  "High precision means rigid trail-following — exploitation. Low precision means broad wandering — exploration. Both serve the <em>same objective function</em>.",
+  "The nest is the colony's <em>homeostatic set-point</em> — its prior preference. Every foraging trip is a policy that begins and ends at this attractor.",
+  "Active Inference dissolves the exploration-exploitation dilemma. Epistemic and pragmatic value are <em>two components of the same quantity</em> — expected free energy.",
+  "This simulation embodies what we call a <em>nested multiscale framework</em>: fast legs, medium trails, slow colony strategy. Hierarchical generative models all the way.",
+  "Think of each pheromone trail as a <em>cached policy</em> — the colony learns that 'we are the sort of colony that forages here' through repeated success.",
+  "Notice the soldiers patrolling the nest perimeter — <em>same algorithm, different priors</em>. Their C-vector encodes 'I observe safety' instead of 'I observe food'. Same free energy, different behaviour!",
+  "The queen is the deepest prior — the <em>slowest timescale</em> in the hierarchical model. She doesn't forage; she <em>is</em> the colony's generative model of its own continuity.",
+  "Check the nest webcam — the interior shows the colony's <em>internal states</em>. Food stores, larvae, attendants. These are the hidden variables that foraging behaviour serves.",
+];
+let narIdx=0,narTimer=0,narVisible=false;
+function advanceNarrative(custom){
+  narTextEl.innerHTML=custom||narratives[narIdx%narratives.length];
+  narrativeEl.classList.add('visible');narVisible=true;narTimer=0;if(!custom)narIdx++}
+
+// ─── EXPLAINER ───────────────────────────────────────────
+function toggleExplainer(){document.getElementById('explainer').classList.toggle('open')}
+document.getElementById('toggle-ex').onclick=toggleExplainer;
+function toggleCam(){
+  const cam=document.getElementById('nest-cam');
+  const tog=document.getElementById('nest-cam-toggle');
+  if(cam.classList.contains('cam-open')){cam.classList.remove('cam-open');cam.classList.add('cam-closed');tog.textContent='▲'}
+  else{cam.classList.remove('cam-closed');cam.classList.add('cam-open');tog.textContent='▼'}
+}
+document.querySelectorAll('.tab-btn').forEach(btn=>{btn.onclick=function(){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+  this.classList.add('active');document.getElementById('tab-'+this.dataset.tab).classList.add('active')}});
+
+// ─── INIT ────────────────────────────────────────────────
+function resetSim(){
+  const uL=240;nestX=uL+(W-uL)*.35;nestY=H*.5;
+  totalFoodCollected=0;initGrid();initGround();initSenseMap();
+  foods=[];for(let i=0;i<foodCount;i++)spawnFood();initAnts()}
+resetSim();
+
+// ─── MAIN LOOP ───────────────────────────────────────────
+let lastTime=0,t=0,statTimer=0,narAutoTimer=0;
+
+function frame(now){
+  const dt=min(.05,(now-lastTime)/1000);lastTime=now;t+=dt;
+
+  // ═══ FULL CLEAR every frame ═══
+  ctx.drawImage(groundCanvas,0,0);
+
+  evaporate(dt);
+  for(const f of foods)if(f.amount<f.maxAmount)f.amount+=dt*.3;
+  for(const a of ants)updateAnt(a,dt);
+
+  renderPheromone();
+  renderSensoryFields();
+  renderTrailBlankets();
+  renderNetwork();
+  renderColonyBlanket(t);
+  renderNest(t);
+  renderFood(t);
+  for(const a of ants)renderAnt(a,t);
+
+  // Nest interior webcam (skip if collapsed)
+  if(document.getElementById('nest-cam').classList.contains('cam-open'))renderNestCam(t,dt);
+
+  statTimer+=dt;
+  if(statTimer>.3){statTimer=0;
+    let fg=0,rt=0,ex=0,tFE=0,sol=0;
+    for(const a of ants){if(a.role==='soldier')sol++;else if(a.hasFood)rt++;else if(a.state==='exploring')ex++;else fg++;tFE+=a.freeEnergy}
+    document.getElementById('st_food').textContent=totalFoodCollected;
+    document.getElementById('st_forage').textContent=fg;
+    document.getElementById('st_return').textContent=rt;
+    document.getElementById('st_explore').textContent=ex;
+    document.getElementById('st_soldiers').textContent=sol;
+    document.getElementById('st_fe').textContent=(tFE/ants.length).toFixed(2);
+    let ent=0,tP=0;for(let i=0;i<pherFood.length;i++)tP+=pherFood[i];
+    if(tP>0){for(let i=0;i<pherFood.length;i++){const p=pherFood[i]/tP;if(p>.0001)ent-=p*log(p)}}
+    document.getElementById('st_entropy').textContent=ent.toFixed(2);
+    document.getElementById('status-bar').textContent=
+      `${ants.length} agents · ${foods.filter(f=>f.amount>0).length} food sources · F̄=${(tFE/ants.length).toFixed(2)} · t=${t.toFixed(0)}s`}
+
+  narAutoTimer+=dt;
+  if(narVisible){narTimer+=dt;if(narTimer>8){narrativeEl.classList.remove('visible');narVisible=false}}
+  if(narAutoTimer>20&&!narVisible){narAutoTimer=0;advanceNarrative()}
+
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body></html>

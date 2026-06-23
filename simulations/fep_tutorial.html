@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Inference Tutorial — From Beliefs to Action</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@300;400&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(135deg, #0f1a24 0%, #1a2530 50%, #0f1a24 100%);
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+        
+        /* ===== TOP HEADER ===== */
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 12px 20px;
+            background: rgba(12, 22, 32, 0.95);
+            border-bottom: 1px solid rgba(100, 150, 200, 0.15);
+            text-align: center;
+            z-index: 300;
+        }
+        
+        .step-indicator {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            margin-bottom: 6px;
+        }
+        
+        .step-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(100, 150, 200, 0.3);
+            border: 1px solid rgba(100, 150, 200, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .step-dot.active {
+            background: rgba(100, 200, 150, 0.8);
+            border-color: rgba(100, 255, 180, 0.8);
+            transform: scale(1.3);
+        }
+        
+        .step-dot.completed {
+            background: rgba(100, 180, 150, 0.5);
+        }
+        
+        .step-number {
+            font-size: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(100, 200, 150, 0.7);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .step-title {
+            font-size: 20px;
+            font-weight: 300;
+            color: rgba(220, 240, 255, 0.95);
+            letter-spacing: 1px;
+        }
+        
+        /* ===== FISH VIEWPORT (CENTER) ===== */
+        .fish-viewport {
+            position: fixed;
+            top: 85px;
+            left: 290px;
+            right: 250px;
+            bottom: 70px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #1a2530;
+            box-shadow: 0 0 0 1px rgba(100, 150, 200, 0.3),
+                        0 10px 40px rgba(0, 20, 40, 0.5),
+                        inset 0 0 80px rgba(0, 30, 60, 0.4);
+        }
+        
+        #canvas { 
+            width: 100%; 
+            height: 100%; 
+            display: block; 
+        }
+        
+        .viewport-label {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(150, 180, 220, 0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+        
+        .fish-thought {
+            position: absolute;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .fish-thought.visible {
+            opacity: 1;
+        }
+        
+        .thought-bubble {
+            max-width: 180px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 30, 60, 0.3);
+        }
+        
+        .thought-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 20px;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+        }
+        
+        .thought-text {
+            font-size: 12px;
+            color: rgba(30, 50, 70, 0.9);
+            font-style: italic;
+            line-height: 1.4;
+        }
+        
+        /* ===== LEFT PANEL (INSTRUCTIONS) ===== */
+        .left-panel {
+            position: fixed;
+            top: 85px;
+            left: 15px;
+            width: 260px;
+            bottom: 70px;
+            padding: 18px;
+            background: rgba(12, 22, 32, 0.95);
+            border: 1px solid rgba(100, 150, 200, 0.2);
+            border-radius: 6px;
+            overflow-y: auto;
+            z-index: 200;
+        }
+        
+        .left-panel::-webkit-scrollbar { width: 4px; }
+        .left-panel::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
+        .left-panel::-webkit-scrollbar-thumb { background: rgba(100, 150, 200, 0.3); border-radius: 2px; }
+        
+        .instruction-text {
+            font-size: 14px;
+            color: rgba(220, 240, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        
+        .instruction-text em {
+            color: rgba(100, 200, 150, 0.95);
+            font-style: normal;
+            font-weight: 500;
+        }
+        
+        .instruction-text .warn {
+            color: rgba(255, 180, 100, 0.95);
+            font-weight: 500;
+        }
+        
+        .instruction-text .concept {
+            color: rgba(150, 180, 255, 0.95);
+            font-weight: 500;
+        }
+        
+        .equation-box {
+            background: rgba(100, 150, 200, 0.1);
+            border: 1px solid rgba(100, 150, 200, 0.25);
+            border-radius: 4px;
+            padding: 10px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        
+        .equation-main {
+            font-size: 13px;
+            font-style: italic;
+            color: rgba(220, 240, 255, 0.95);
+            margin-bottom: 4px;
+        }
+        
+        .equation-note {
+            font-size: 9px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(180, 200, 220, 0.6);
+        }
+        
+        .task-box {
+            background: rgba(100, 200, 150, 0.1);
+            border: 1px solid rgba(100, 200, 150, 0.3);
+            border-radius: 4px;
+            padding: 12px;
+            margin-top: 14px;
+        }
+        
+        .task-label {
+            font-size: 9px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(100, 200, 150, 0.7);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        
+        .task-text {
+            font-size: 12px;
+            color: rgba(220, 240, 255, 0.85);
+            line-height: 1.4;
+        }
+        
+        .task-complete {
+            background: rgba(100, 200, 150, 0.2);
+            border-color: rgba(100, 255, 180, 0.5);
+        }
+        
+        .task-complete .task-label::after {
+            content: ' ✓';
+            color: rgba(100, 255, 180, 0.9);
+        }
+        
+        .comparison-box {
+            display: flex;
+            gap: 8px;
+            margin: 12px 0;
+        }
+        
+        .compare-item {
+            flex: 1;
+            padding: 8px;
+            background: rgba(100, 150, 200, 0.08);
+            border: 1px solid rgba(100, 150, 200, 0.2);
+            border-radius: 4px;
+        }
+        
+        .compare-item.highlight {
+            background: rgba(100, 200, 150, 0.12);
+            border-color: rgba(100, 200, 150, 0.35);
+        }
+        
+        .compare-title {
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(220, 240, 255, 0.95);
+            margin-bottom: 4px;
+        }
+        
+        .compare-text {
+            font-size: 9px;
+            color: rgba(180, 200, 220, 0.7);
+            line-height: 1.4;
+        }
+        
+        /* ===== RIGHT PANEL (CONCEPTS & CONTROLS) ===== */
+        .right-panel {
+            position: fixed;
+            top: 85px;
+            right: 15px;
+            width: 220px;
+            bottom: 70px;
+            padding: 16px;
+            background: rgba(12, 22, 32, 0.95);
+            border: 1px solid rgba(100, 150, 200, 0.2);
+            border-radius: 6px;
+            overflow-y: auto;
+            z-index: 200;
+        }
+        
+        .right-panel::-webkit-scrollbar { width: 4px; }
+        .right-panel::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
+        .right-panel::-webkit-scrollbar-thumb { background: rgba(100, 150, 200, 0.3); border-radius: 2px; }
+        
+        .panel-section {
+            margin-bottom: 16px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .panel-section.visible {
+            opacity: 1;
+            max-height: 600px;
+        }
+        
+        .section-title {
+            font-size: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(100, 180, 255, 0.6);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(100, 150, 200, 0.15);
+        }
+        
+        .concept-item {
+            margin-bottom: 10px;
+        }
+        
+        .concept-label {
+            font-size: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(180, 200, 220, 0.5);
+            margin-bottom: 3px;
+        }
+        
+        .concept-value {
+            font-size: 15px;
+            font-weight: 300;
+            color: rgba(220, 240, 255, 0.95);
+        }
+        
+        .concept-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .concept-fill {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        .slider-group {
+            margin-bottom: 12px;
+        }
+        
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(180, 200, 220, 0.7);
+            margin-bottom: 5px;
+        }
+        
+        .slider {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: rgba(100, 180, 255, 0.9);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .policy-option {
+            padding: 8px;
+            margin-bottom: 6px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(100, 150, 200, 0.15);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .policy-option.selected {
+            background: rgba(100, 200, 150, 0.15);
+            border-color: rgba(100, 200, 150, 0.4);
+        }
+        
+        .policy-name {
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(220, 240, 255, 0.9);
+            margin-bottom: 4px;
+        }
+        
+        .policy-bar {
+            display: flex;
+            height: 4px;
+            border-radius: 2px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .policy-epist { background: rgba(100, 200, 150, 0.7); }
+        .policy-prag { background: rgba(255, 180, 100, 0.7); }
+        
+        .policy-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(180, 200, 220, 0.5);
+            margin-top: 3px;
+        }
+        
+        /* ===== BOTTOM NAV ===== */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 20px;
+            background: rgba(12, 22, 32, 0.95);
+            border-top: 1px solid rgba(100, 150, 200, 0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            z-index: 300;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .action-buttons.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .action-btn {
+            padding: 10px 16px;
+            background: rgba(25, 45, 65, 0.9);
+            border: 1px solid rgba(100, 150, 200, 0.25);
+            color: rgba(180, 200, 220, 0.9);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: rgba(35, 60, 85, 0.95);
+            border-color: rgba(100, 180, 255, 0.4);
+        }
+        
+        .nav-spacer {
+            width: 1px;
+            height: 30px;
+            background: rgba(100, 150, 200, 0.2);
+            margin: 0 8px;
+        }
+        
+        .nav-btn {
+            padding: 10px 24px;
+            background: rgba(20, 40, 60, 0.9);
+            border: 1px solid rgba(100, 150, 200, 0.3);
+            color: rgba(200, 220, 255, 0.95);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .nav-btn:hover:not(:disabled) {
+            background: rgba(30, 60, 90, 0.95);
+            border-color: rgba(100, 180, 255, 0.5);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
+        .nav-btn.primary {
+            background: rgba(40, 100, 80, 0.9);
+            border-color: rgba(100, 200, 150, 0.5);
+        }
+        
+        .nav-btn.primary:hover:not(:disabled) {
+            background: rgba(50, 120, 100, 0.95);
+            border-color: rgba(100, 255, 180, 0.6);
+        }
+        
+        /* ===== TUTORIAL COMPLETE OVERLAY ===== */
+        .tutorial-complete {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 20, 30, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        .tutorial-complete.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .complete-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .complete-title {
+            font-size: 32px;
+            color: rgba(100, 255, 180, 0.95);
+            margin-bottom: 15px;
+        }
+        
+        .complete-text {
+            font-size: 15px;
+            color: rgba(200, 220, 240, 0.8);
+            max-width: 450px;
+            text-align: center;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        
+        .complete-btn {
+            padding: 14px 30px;
+            background: rgba(40, 100, 80, 0.9);
+            border: 1px solid rgba(100, 200, 150, 0.5);
+            color: rgba(220, 255, 240, 0.95);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .complete-btn:hover {
+            background: rgba(50, 120, 100, 0.95);
+            border-color: rgba(100, 255, 180, 0.7);
+        }
+    </style>
+
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body>
+<a href="./" class="aii-floating-back">&#8592; Back to Catalog</a>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="step-indicator" id="stepIndicator">
+            <div class="step-dot" data-step="0"></div>
+            <div class="step-dot" data-step="1"></div>
+            <div class="step-dot" data-step="2"></div>
+            <div class="step-dot" data-step="3"></div>
+            <div class="step-dot" data-step="4"></div>
+            <div class="step-dot" data-step="5"></div>
+            <div class="step-dot" data-step="6"></div>
+            <div class="step-dot" data-step="7"></div>
+        </div>
+        <div class="step-number" id="stepNumber">Step 1 of 8</div>
+        <div class="step-title" id="stepTitle">Beliefs & Observations</div>
+    </div>
+    
+    <!-- Left Panel: Instructions -->
+    <div class="left-panel" id="leftPanel">
+        <div class="instruction-text" id="instructionText">Loading...</div>
+        <div class="task-box" id="taskBox">
+            <div class="task-label">Your Task</div>
+            <div class="task-text" id="taskText">Loading...</div>
+        </div>
+    </div>
+    
+    <!-- Fish Viewport (Center) -->
+    <div class="fish-viewport" id="fishViewport">
+        <canvas id="canvas"></canvas>
+        <div class="fish-thought" id="fishThought">
+            <div class="thought-bubble">
+                <div class="thought-text" id="thoughtText">I believe food is nearby...</div>
+            </div>
+        </div>
+        <div class="viewport-label">Fish Environment</div>
+    </div>
+    
+    <!-- Right Panel: Concepts & Controls -->
+    <div class="right-panel" id="rightPanel">
+        <div class="panel-section" id="conceptSection">
+            <div class="section-title" id="conceptTitle">Concepts</div>
+            <div id="conceptContent"></div>
+        </div>
+        <div class="panel-section" id="controlsSection">
+            <div class="section-title">Parameters</div>
+            <div id="controlsContent"></div>
+        </div>
+        <div class="panel-section" id="policySection">
+            <div class="section-title">Policy Evaluation</div>
+            <div id="policyContent"></div>
+        </div>
+    </div>
+    
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="action-buttons" id="actionButtons">
+            <button class="action-btn" id="actionBtn1">Action</button>
+            <button class="action-btn" id="actionBtn2">Action</button>
+        </div>
+        <div class="nav-spacer" id="navSpacer"></div>
+        <button class="nav-btn" id="prevBtn" disabled>← Previous</button>
+        <button class="nav-btn primary" id="nextBtn">Next Step →</button>
+    </div>
+    
+    <!-- Tutorial Complete Overlay -->
+    <div class="tutorial-complete" id="tutorialComplete">
+        <div class="complete-icon">🎓</div>
+        <div class="complete-title">Tutorial Complete!</div>
+        <div class="complete-text">
+            You now understand the core concepts of Active Inference: generative models, 
+            prediction error, VFE, preferences, policies, counterfactuals, EFE, and the 
+            epistemic/pragmatic decomposition.
+            <br><br>
+            Continue exploring in free play mode!
+        </div>
+        <button class="complete-btn" id="freePlayBtn">Enter Free Play →</button>
+    </div>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const viewport = document.getElementById('fishViewport');
+        
+        let canvasWidth = 600, canvasHeight = 400;
+        
+        function resize() {
+            const rect = viewport.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            canvasWidth = rect.width;
+            canvasHeight = rect.height;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+            
+            // Update fish belief zone position (only if Fish exists)
+            if (typeof Fish !== 'undefined') {
+                Fish.beliefs.foodZone.x = canvasWidth / 2;
+                Fish.beliefs.foodZone.y = canvasHeight * 0.3;
+            }
+        }
+        
+        window.addEventListener('resize', resize);
+        
+        // =====================================================
+        // TUTORIAL STEPS
+        // =====================================================
+        
+        const tutorialSteps = [
+            {
+                title: "Beliefs & Observations",
+                instruction: `Meet our fish. Like all living systems in Active Inference, it has a <em>generative model</em> — an internal representation of how the world works.<br><br>The fish <em>believes</em> things about its environment: where food tends to appear, what's safe, what's dangerous. These beliefs generate <em>predictions</em> about what it will observe.<br><br>Watch the fish swim. The faint circle shows where it <em>believes</em> food typically appears.`,
+                task: "Click anywhere in the viewport to drop food. Notice whether it lands inside or outside the fish's believed 'food zone'.",
+                concepts: [
+                    { label: "Believes food zone", id: "beliefZone", type: "text", value: "Upper region" },
+                    { label: "Confidence in belief", id: "beliefConf", type: "bar", value: 0.7, color: "#6ac" }
+                ],
+                controls: null,
+                showPolicies: false,
+                actions: [{ label: "🍕 Drop Food", action: "dropFood" }],
+                taskCheck: (s) => s.foodDropped > 0,
+                onEnter: (s) => { s.showBeliefZone = true; s.foodDropped = 0; }
+            },
+            {
+                title: "Prediction Error",
+                instruction: `When observations <em>match</em> predictions, the fish experiences low <span class="concept">prediction error</span>. When they <em>don't match</em>, prediction error spikes — this is <em>surprise</em>.<br><br><span class="warn">Key insight:</span> "Surprise" in Active Inference isn't an emotion — it's a mathematical quantity measuring how much observations deviate from predictions.<br><br>Drop food in <em>unexpected</em> places and watch prediction error rise.`,
+                task: "Drop food OUTSIDE the fish's believed food zone (the faint circle). Watch prediction error spike.",
+                concepts: [
+                    { label: "Predicted observation", id: "predicted", type: "text", value: "Food in upper zone" },
+                    { label: "Prediction Error (ε)", id: "predError", type: "bar", value: 0.1, color: "#f96" }
+                ],
+                controls: null,
+                showPolicies: false,
+                actions: [{ label: "🍕 Drop Food", action: "dropFood" }],
+                taskCheck: (s) => s.maxPredictionError > 0.5,
+                onEnter: (s) => { s.showPredictionError = true; s.maxPredictionError = 0; }
+            },
+            {
+                title: "Variational Free Energy",
+                instruction: `<span class="concept">Variational Free Energy (F)</span> is the quantity the fish minimises <em>right now</em> through perception.<div class="equation-box"><div class="equation-main">F ≈ Prediction Error + Complexity</div><div class="equation-note">Measures surprise given CURRENT observations</div></div>When F is high, the fish updates its beliefs to reduce it. This is <em>perception</em> — approximate Bayesian inference.<br><br><span class="warn">Important:</span> VFE is about <em>now</em>. It doesn't involve preferences or planning — just fitting beliefs to observations.`,
+                task: "Drop food in unexpected places and watch VFE spike, then decrease as the fish updates its beliefs.",
+                concepts: [
+                    { label: "Variational Free Energy", id: "vfe", type: "bar", value: 0.2, color: "#f66" },
+                    { label: "Belief updating", id: "updating", type: "text", value: "Stable" }
+                ],
+                controls: null,
+                showPolicies: false,
+                actions: [{ label: "🍕 Drop Food", action: "dropFood" }, { label: "❓ Mystery", action: "dropMystery" }],
+                taskCheck: (s) => s.vfeSpikes > 2,
+                onEnter: (s) => { s.showVFE = true; s.vfeSpikes = 0; }
+            },
+            {
+                title: "Preferences",
+                instruction: `So far, the fish just <em>perceives</em>. But living systems also <em>act</em>. To understand action selection, we need <span class="concept">preferences</span>.<br><br>In Active Inference, preferences aren't rewards — they're <em>prior beliefs about the observations the agent expects to make</em>.<br><br>The fish believes "I am the kind of agent that observes food" and "I am the kind of agent that observes safety."<br><br><span class="warn">Not reward maximisation!</span> The fish doesn't seek reward — it seeks to confirm its prior beliefs about what it will observe.`,
+                task: "Adjust the preference sliders and observe how the fish's behaviour changes.",
+                concepts: [
+                    { label: "Believes it will observe", id: "prefObs", type: "text", value: "Food, Safety" }
+                ],
+                controls: [
+                    { label: "Food preference", id: "foodPref", min: 0, max: 1, value: 0.8, step: 0.1 },
+                    { label: "Safety preference", id: "safetyPref", min: 0, max: 1, value: 0.5, step: 0.1 }
+                ],
+                showPolicies: false,
+                actions: [{ label: "🍕 Drop Food", action: "dropFood" }, { label: "⚠️ Danger", action: "addDanger" }],
+                taskCheck: (s) => s.prefsAdjusted > 2,
+                onEnter: (s) => { s.showPreferences = true; s.prefsAdjusted = 0; }
+            },
+            {
+                title: "Policies",
+                instruction: `A <span class="concept">policy (π)</span> is a sequence of actions the fish could take.<br><br>At each moment, the fish considers multiple possible policies:<br>• <em>Explore</em> — go somewhere unknown<br>• <em>Exploit</em> — go to known food<br>• <em>Stay safe</em> — remain in familiar territory<br><br>But how does it choose? It needs to evaluate each policy somehow...`,
+                task: "Watch the policy panel on the right. Notice the fish has options and is evaluating them.",
+                concepts: null,
+                controls: null,
+                showPolicies: true,
+                actions: [],
+                taskCheck: (s) => s.timeOnStep > 150,
+                onEnter: (s) => { s.showPolicies = true; s.timeOnStep = 0; }
+            },
+            {
+                title: "Imagining Futures",
+                instruction: `Here's where Active Inference gets interesting. The fish doesn't just react — it <em>imagines</em> what would happen under each policy.<br><br><span class="concept">Counterfactual prediction:</span> "If I go left, what will I observe? If I go right, what will I observe?"<br><br>Watch the ghostly paths — these are the fish's <em>imagined futures</em>. It simulates outcomes before choosing.`,
+                task: "Add food and mystery objects. Watch the imagined paths update as the fish predicts outcomes.",
+                concepts: [
+                    { label: "Explore → predicts", id: "predExplore", type: "text", value: "Uncertainty ↓" },
+                    { label: "Exploit → predicts", id: "predExploit", type: "text", value: "Food observed" }
+                ],
+                controls: null,
+                showPolicies: true,
+                actions: [{ label: "🍕 Food", action: "dropFood" }, { label: "❓ Mystery", action: "dropMystery" }],
+                taskCheck: (s) => s.futuresShown > 3,
+                onEnter: (s) => { s.showImaginedFutures = true; s.futuresShown = 0; }
+            },
+            {
+                title: "Expected Free Energy",
+                instruction: `Now the crucial step: <span class="concept">Expected Free Energy (G)</span>.<div class="equation-box"><div class="equation-main">G(π) = Expected Ambiguity + Risk</div><div class="equation-note">Expected surprise for FUTURE observations under policy π</div></div><div class="comparison-box"><div class="compare-item"><div class="compare-title">VFE (F)</div><div class="compare-text">Current surprise<br>No preferences<br>Drives perception</div></div><div class="compare-item highlight"><div class="compare-title">EFE (G)</div><div class="compare-text">Expected future surprise<br>Includes preferences<br>Drives action</div></div></div>The fish selects the policy with <em>lowest</em> G.`,
+                task: "Watch the G values for each policy. The fish chooses the policy with LOWEST expected free energy.",
+                concepts: [
+                    { label: "G(explore)", id: "gExplore", type: "bar", value: 0.4, color: "#6c8" },
+                    { label: "G(exploit)", id: "gExploit", type: "bar", value: 0.5, color: "#6c8" },
+                    { label: "G(safe)", id: "gSafe", type: "bar", value: 0.7, color: "#6c8" }
+                ],
+                controls: null,
+                showPolicies: true,
+                actions: [{ label: "🍕 Food", action: "dropFood" }, { label: "❓ Mystery", action: "dropMystery" }],
+                taskCheck: (s) => s.policySelections > 3,
+                onEnter: (s) => { s.showEFE = true; s.policySelections = 0; }
+            },
+            {
+                title: "Epistemic vs Pragmatic",
+                instruction: `G(π) has two components:<br><br><span style="color: rgba(100, 200, 150, 0.95);">● Epistemic value</span> — Expected <em>information gain</em>. "Will this reduce my uncertainty?"<br><br><span style="color: rgba(255, 180, 100, 0.95);">● Pragmatic value</span> — Expected <em>preference satisfaction</em>. "Will this lead to observations I prefer?"<br><br><span class="warn">Key insight:</span> Exploration isn't a "bonus" bolted onto reward-seeking. It emerges <em>naturally</em> from minimising expected surprise.`,
+                task: "Add mystery objects to increase uncertainty. Watch epistemic value rise and exploration emerge naturally.",
+                concepts: [
+                    { label: "Epistemic (info gain)", id: "epistemic", type: "bar", value: 0.4, color: "#6c8" },
+                    { label: "Pragmatic (preferences)", id: "pragmatic", type: "bar", value: 0.5, color: "#fa6" },
+                    { label: "Dominant driver", id: "dominant", type: "text", value: "Balanced" }
+                ],
+                controls: [
+                    { label: "Sensory precision (π)", id: "precision", min: 0.1, max: 1, value: 0.5, step: 0.1 }
+                ],
+                showPolicies: true,
+                actions: [{ label: "❓ Mystery", action: "dropMystery" }, { label: "🍕 Food", action: "dropFood" }],
+                taskCheck: (s) => s.epistemicDominant > 2,
+                onEnter: (s) => { s.showDecomposition = true; s.epistemicDominant = 0; }
+            }
+        ];
+        
+        // =====================================================
+        // FISH AGENT
+        // =====================================================
+        
+        const Fish = {
+            x: 300,
+            y: 200,
+            vx: 0,
+            vy: 0,
+            angle: 0,
+            targetAngle: 0,
+            speed: 1.5,
+            
+            bodyLength: 40,
+            bodyWidth: 18,
+            swimPhase: 0,
+            
+            beliefs: {
+                foodZone: { x: 300, y: 100, radius: 120 },
+                knownRegions: new Set(),
+                foodLocations: [],
+                dangerLocations: []
+            },
+            
+            preferences: { food: 0.8, safety: 0.5 },
+            sensoryPrecision: 0.5,
+            
+            predictionError: 0,
+            vfe: 0.2,
+            entropy: 0.5,
+            
+            policies: {
+                explore: { g: 0.5, epistemic: 0.3, pragmatic: 0.2, target: null },
+                exploit: { g: 0.6, epistemic: 0.1, pragmatic: 0.5, target: null },
+                safe: { g: 0.7, epistemic: 0.05, pragmatic: 0.65, target: null }
+            },
+            selectedPolicy: 'explore',
+            
+            thoughtText: "",
+            thoughtTimer: 0,
+            
+            update: function(state, objects) {
+                this.swimPhase += 0.08;
+                
+                // Always move - gentle wandering if no specific target
+                this.wander();
+                
+                // Update beliefs
+                this.updateBeliefs(objects);
+                
+                // Calculate VFE
+                this.calculateVFE(state, objects);
+                
+                // Evaluate and execute policies
+                this.evaluatePolicies(state, objects);
+                this.executePolicy(state, objects);
+                
+                // Movement
+                this.updateMovement();
+                
+                this.thoughtTimer--;
+            },
+            
+            wander: function() {
+                // Gentle baseline movement
+                if (Math.random() < 0.02) {
+                    this.targetAngle += (Math.random() - 0.5) * 0.5;
+                }
+            },
+            
+            updateBeliefs: function(objects) {
+                const gx = Math.floor(this.x / 60);
+                const gy = Math.floor(this.y / 60);
+                this.beliefs.knownRegions.add(`${gx},${gy}`);
+                
+                this.beliefs.foodLocations = objects
+                    .filter(o => o.type === 'food' && !o.eaten)
+                    .map(o => ({ x: o.x, y: o.y }));
+                
+                this.beliefs.dangerLocations = objects
+                    .filter(o => o.type === 'danger' && o.alpha > 0.3)
+                    .map(o => ({ x: o.x, y: o.y }));
+                
+                const totalCells = Math.ceil(canvasWidth / 60) * Math.ceil(canvasHeight / 60);
+                const knownFrac = Math.min(1, this.beliefs.knownRegions.size / Math.max(1, totalCells));
+                this.entropy = Math.max(0.1, 1 - knownFrac);
+            },
+            
+            calculateVFE: function(state, objects) {
+                let newPredError = 0;
+                
+                objects.forEach(obj => {
+                    if (obj.isNew && !obj.processed) {
+                        if (obj.type === 'food') {
+                            const dx = obj.x - this.beliefs.foodZone.x;
+                            const dy = obj.y - this.beliefs.foodZone.y;
+                            const dist = Math.sqrt(dx*dx + dy*dy);
+                            if (dist > this.beliefs.foodZone.radius) {
+                                newPredError += 0.6;
+                                this.setThought("Unexpected location!");
+                                if (state.maxPredictionError !== undefined) {
+                                    state.maxPredictionError = Math.max(state.maxPredictionError, 0.6);
+                                }
+                            } else {
+                                newPredError += 0.1;
+                                this.setThought("As predicted!");
+                            }
+                        }
+                        if (obj.type === 'mystery') {
+                            newPredError += 0.7;
+                            this.setThought("What is that?");
+                        }
+                        if (obj.type === 'danger') {
+                            newPredError += 0.4;
+                            this.setThought("Danger detected!");
+                        }
+                        obj.processed = true;
+                        obj.isNew = false;
+                    }
+                });
+                
+                const oldVFE = this.vfe;
+                this.predictionError = this.predictionError * 0.9 + newPredError;
+                this.vfe = this.predictionError * 0.7 + this.entropy * 0.3;
+                
+                if (state.vfeSpikes !== undefined && this.vfe > oldVFE + 0.12) {
+                    state.vfeSpikes++;
+                }
+            },
+            
+            evaluatePolicies: function(state, objects) {
+                // Find mystery objects (high epistemic value targets)
+                const mysteries = objects.filter(o => o.type === 'mystery' && !o.investigated && o.alpha > 0.3);
+                
+                // Explore - prioritize mysteries, then unknown regions
+                let exploreTarget;
+                let exploreEpist;
+                
+                if (mysteries.length > 0) {
+                    // Go to nearest mystery - high epistemic value!
+                    let nearestMystery = mysteries[0];
+                    let nearestDist = Infinity;
+                    mysteries.forEach(m => {
+                        const d = Math.sqrt((m.x - this.x)**2 + (m.y - this.y)**2);
+                        if (d < nearestDist) {
+                            nearestDist = d;
+                            nearestMystery = m;
+                        }
+                    });
+                    exploreTarget = { x: nearestMystery.x, y: nearestMystery.y };
+                    exploreEpist = 0.9 * this.sensoryPrecision; // Very high epistemic value for mysteries
+                } else {
+                    exploreTarget = this.findUnknownRegion();
+                    exploreEpist = this.entropy * this.sensoryPrecision * 0.8;
+                }
+                
+                const explorePrag = 0.15;
+                this.policies.explore = {
+                    g: (1 - exploreEpist) * 0.5 + (1 - explorePrag) * 0.5,
+                    epistemic: exploreEpist,
+                    pragmatic: explorePrag,
+                    target: exploreTarget
+                };
+                
+                // Exploit
+                const exploitTarget = this.beliefs.foodLocations[0] || this.beliefs.foodZone;
+                const exploitEpist = 0.1;
+                const exploitPrag = this.beliefs.foodLocations.length > 0 ? this.preferences.food * 0.9 : 0.3;
+                this.policies.exploit = {
+                    g: (1 - exploitEpist) * 0.3 + (1 - exploitPrag) * 0.7,
+                    epistemic: exploitEpist,
+                    pragmatic: exploitPrag,
+                    target: exploitTarget
+                };
+                
+                // Safe
+                const safeTarget = { x: canvasWidth / 2, y: canvasHeight / 2 };
+                const safeEpist = 0.05;
+                const safePrag = this.preferences.safety * 0.7;
+                this.policies.safe = {
+                    g: (1 - safeEpist) * 0.2 + (1 - safePrag) * 0.8,
+                    epistemic: safeEpist,
+                    pragmatic: safePrag,
+                    target: safeTarget
+                };
+                
+                if (this.beliefs.dangerLocations.length > 0) {
+                    this.policies.safe.g -= 0.3;
+                    this.policies.explore.g += 0.2;
+                }
+                
+                let bestG = Infinity;
+                for (const [name, policy] of Object.entries(this.policies)) {
+                    if (policy.g < bestG) {
+                        bestG = policy.g;
+                        this.selectedPolicy = name;
+                    }
+                }
+                
+                if (state.policySelections !== undefined) state.policySelections++;
+                
+                if (state.epistemicDominant !== undefined) {
+                    const sel = this.policies[this.selectedPolicy];
+                    if (sel.epistemic > sel.pragmatic * 1.2) state.epistemicDominant++;
+                }
+            },
+            
+            findUnknownRegion: function() {
+                const gridW = Math.ceil(canvasWidth / 60);
+                const gridH = Math.ceil(canvasHeight / 60);
+                
+                let candidates = [];
+                for (let gx = 0; gx < gridW; gx++) {
+                    for (let gy = 0; gy < gridH; gy++) {
+                        if (!this.beliefs.knownRegions.has(`${gx},${gy}`)) {
+                            candidates.push({ x: gx * 60 + 30, y: gy * 60 + 30 });
+                        }
+                    }
+                }
+                
+                if (candidates.length === 0) {
+                    return { x: canvasWidth / 2 + (Math.random() - 0.5) * 100, y: canvasHeight / 2 + (Math.random() - 0.5) * 100 };
+                }
+                
+                let nearest = candidates[0];
+                let nearestDist = Infinity;
+                candidates.forEach(c => {
+                    const d = Math.sqrt((c.x - this.x)**2 + (c.y - this.y)**2);
+                    if (d < nearestDist && d > 30) {
+                        nearestDist = d;
+                        nearest = c;
+                    }
+                });
+                return nearest;
+            },
+            
+            executePolicy: function(state, objects) {
+                const policy = this.policies[this.selectedPolicy];
+                if (!policy || !policy.target) return;
+                
+                const dx = policy.target.x - this.x;
+                const dy = policy.target.y - this.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                
+                if (dist > 25) {
+                    this.targetAngle = Math.atan2(dy, dx);
+                    this.speed = this.selectedPolicy === 'explore' ? 2.0 : 1.5;
+                }
+                
+                // Eat food
+                objects.forEach(obj => {
+                    if (obj.type === 'food' && !obj.eaten) {
+                        const d = Math.sqrt((obj.x - this.x)**2 + (obj.y - this.y)**2);
+                        if (d < 22) {
+                            obj.eaten = true;
+                            this.setThought("Found food!");
+                            this.vfe = Math.max(0, this.vfe - 0.2);
+                        }
+                    }
+                    
+                    // Investigate mystery
+                    if (obj.type === 'mystery' && !obj.investigated) {
+                        const d = Math.sqrt((obj.x - this.x)**2 + (obj.y - this.y)**2);
+                        if (d < 25) {
+                            obj.investigated = true;
+                            this.setThought("Mystery solved!");
+                            this.entropy = Math.max(0.1, this.entropy - 0.3);
+                            this.vfe = Math.max(0, this.vfe - 0.15);
+                        }
+                    }
+                });
+                
+                // Avoid danger
+                this.beliefs.dangerLocations.forEach(d => {
+                    const dd = Math.sqrt((d.x - this.x)**2 + (d.y - this.y)**2);
+                    if (dd < 80) {
+                        this.targetAngle = Math.atan2(this.y - d.y, this.x - d.x);
+                        this.speed = 3.0;
+                    }
+                });
+                
+                // Boundaries
+                const margin = 40;
+                if (this.x < margin) this.targetAngle = 0;
+                if (this.x > canvasWidth - margin) this.targetAngle = Math.PI;
+                if (this.y < margin) this.targetAngle = Math.PI / 2;
+                if (this.y > canvasHeight - margin) this.targetAngle = -Math.PI / 2;
+            },
+            
+            updateMovement: function() {
+                let angleDiff = this.targetAngle - this.angle;
+                while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+                while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+                
+                this.angle += angleDiff * 0.06;
+                
+                this.vx = Math.cos(this.angle) * this.speed;
+                this.vy = Math.sin(this.angle) * this.speed;
+                
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                const margin = 30;
+                this.x = Math.max(margin, Math.min(canvasWidth - margin, this.x));
+                this.y = Math.max(margin, Math.min(canvasHeight - margin, this.y));
+            },
+            
+            setThought: function(text) {
+                this.thoughtText = text;
+                this.thoughtTimer = 100;
+            },
+            
+            draw: function(ctx, state) {
+                // Imagined futures
+                if (state.showImaginedFutures) {
+                    this.drawImaginedFutures(ctx, state);
+                }
+                
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                
+                // Body
+                const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, this.bodyLength * 0.5);
+                grad.addColorStop(0, 'rgba(80, 180, 220, 0.95)');
+                grad.addColorStop(0.7, 'rgba(50, 130, 170, 0.9)');
+                grad.addColorStop(1, 'rgba(30, 90, 130, 0.7)');
+                
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.ellipse(0, 0, this.bodyLength * 0.5, this.bodyWidth * 0.5, 0, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Tail
+                const tailWave = Math.sin(this.swimPhase - 1.5) * 8;
+                ctx.fillStyle = 'rgba(50, 140, 180, 0.85)';
+                ctx.beginPath();
+                ctx.moveTo(-this.bodyLength * 0.3, 0);
+                ctx.quadraticCurveTo(-this.bodyLength * 0.45, tailWave, -this.bodyLength * 0.6, tailWave + 8);
+                ctx.quadraticCurveTo(-this.bodyLength * 0.45, tailWave, -this.bodyLength * 0.6, tailWave - 8);
+                ctx.closePath();
+                ctx.fill();
+                
+                // Eye
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+                ctx.beginPath();
+                ctx.arc(this.bodyLength * 0.18, -this.bodyWidth * 0.08, 4, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.fillStyle = 'rgba(20, 40, 60, 0.95)';
+                ctx.beginPath();
+                ctx.arc(this.bodyLength * 0.2, -this.bodyWidth * 0.08, 2, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.restore();
+                
+                // Thought bubble
+                const thoughtEl = document.getElementById('fishThought');
+                if (this.thoughtTimer > 0) {
+                    thoughtEl.style.left = (this.x + 25) + 'px';
+                    thoughtEl.style.top = (this.y - 50) + 'px';
+                    thoughtEl.classList.add('visible');
+                    document.getElementById('thoughtText').textContent = this.thoughtText;
+                } else {
+                    thoughtEl.classList.remove('visible');
+                }
+            },
+            
+            drawImaginedFutures: function(ctx, state) {
+                ctx.save();
+                ctx.globalAlpha = 0.25;
+                
+                for (const [name, policy] of Object.entries(this.policies)) {
+                    if (!policy.target) continue;
+                    
+                    const isSelected = this.selectedPolicy === name;
+                    ctx.strokeStyle = isSelected ? 'rgba(100, 255, 180, 0.5)' : 'rgba(150, 200, 255, 0.25)';
+                    ctx.lineWidth = isSelected ? 2 : 1;
+                    ctx.setLineDash([4, 8]);
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(this.x, this.y);
+                    ctx.lineTo(policy.target.x, policy.target.y);
+                    ctx.stroke();
+                    
+                    ctx.fillStyle = isSelected ? 'rgba(100, 255, 180, 0.3)' : 'rgba(150, 200, 255, 0.15)';
+                    ctx.beginPath();
+                    ctx.arc(policy.target.x, policy.target.y, 10, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                
+                ctx.setLineDash([]);
+                ctx.restore();
+                
+                if (state.futuresShown !== undefined) state.futuresShown++;
+            }
+        };
+        
+        // =====================================================
+        // WORLD OBJECTS
+        // =====================================================
+        
+        class WorldObject {
+            constructor(x, y, type) {
+                this.x = x;
+                this.y = y;
+                this.type = type;
+                this.alpha = 0;
+                this.targetAlpha = 1;
+                this.age = 0;
+                this.eaten = false;
+                this.investigated = false;
+                this.isNew = true;
+                this.processed = false;
+                this.phase = Math.random() * Math.PI * 2;
+            }
+            
+            update() {
+                this.age++;
+                this.alpha += (this.targetAlpha - this.alpha) * 0.06;
+                this.phase += 0.04;
+                
+                if (this.type === 'danger' && this.age > 200) this.targetAlpha = 0;
+                if (this.type === 'mystery' && this.investigated) this.targetAlpha = Math.max(0, this.targetAlpha - 0.008);
+                
+                return this.alpha > 0.01 && !this.eaten;
+            }
+            
+            draw(ctx) {
+                const pulse = 1 + Math.sin(this.phase) * 0.1;
+                
+                if (this.type === 'food') {
+                    const size = 9 * pulse;
+                    const glow = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, size * 2.5);
+                    glow.addColorStop(0, `rgba(255, 220, 100, ${this.alpha * 0.7})`);
+                    glow.addColorStop(1, 'rgba(255, 180, 50, 0)');
+                    ctx.fillStyle = glow;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, size * 2.5, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    ctx.fillStyle = `rgba(255, 230, 140, ${this.alpha})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                } else if (this.type === 'mystery') {
+                    const size = 14 * pulse;
+                    const wobble = Math.sin(this.phase * 2) * 3;
+                    
+                    const glow = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, size * 2);
+                    glow.addColorStop(0, `rgba(180, 100, 255, ${this.alpha * 0.5})`);
+                    glow.addColorStop(1, 'rgba(150, 80, 220, 0)');
+                    ctx.fillStyle = glow;
+                    ctx.beginPath();
+                    ctx.arc(this.x + wobble, this.y, size * 2, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    ctx.fillStyle = `rgba(200, 150, 255, ${this.alpha})`;
+                    ctx.font = '18px serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('?', this.x + wobble, this.y + 6);
+                    
+                } else if (this.type === 'danger') {
+                    const size = 35 * pulse;
+                    
+                    const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, size);
+                    grad.addColorStop(0, `rgba(255, 80, 80, ${this.alpha * 0.5})`);
+                    grad.addColorStop(1, 'rgba(200, 50, 50, 0)');
+                    ctx.fillStyle = grad;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    ctx.fillStyle = `rgba(255, 100, 100, ${this.alpha})`;
+                    ctx.font = '22px serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('⚠', this.x, this.y + 7);
+                }
+            }
+        }
+        
+        // =====================================================
+        // STATE & TUTORIAL CONTROL
+        // =====================================================
+        
+        const state = {
+            currentStep: 0,
+            objects: [],
+            particles: [],
+            tutorialActive: true,
+            
+            showBeliefZone: false,
+            showPredictionError: false,
+            showVFE: false,
+            showPreferences: false,
+            showPolicies: false,
+            showImaginedFutures: false,
+            showEFE: false,
+            showDecomposition: false,
+            
+            foodDropped: 0,
+            maxPredictionError: 0,
+            vfeSpikes: 0,
+            prefsAdjusted: 0,
+            timeOnStep: 0,
+            futuresShown: 0,
+            policySelections: 0,
+            epistemicDominant: 0
+        };
+        
+        // Particles
+        for (let i = 0; i < 40; i++) {
+            state.particles.push({
+                x: Math.random() * 800,
+                y: Math.random() * 600,
+                size: 0.5 + Math.random() * 1.5,
+                alpha: 0.1 + Math.random() * 0.2,
+                drift: Math.random() * Math.PI * 2
+            });
+        }
+        
+        function loadStep(stepIndex) {
+            if (stepIndex >= tutorialSteps.length) {
+                finishTutorial();
+                return;
+            }
+            
+            const step = tutorialSteps[stepIndex];
+            state.currentStep = stepIndex;
+            state.timeOnStep = 0;
+            
+            // Step indicator
+            document.querySelectorAll('.step-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === stepIndex);
+                dot.classList.toggle('completed', i < stepIndex);
+            });
+            
+            // Title
+            document.getElementById('stepNumber').textContent = `Step ${stepIndex + 1} of ${tutorialSteps.length}`;
+            document.getElementById('stepTitle').textContent = step.title;
+            
+            // Instructions
+            document.getElementById('instructionText').innerHTML = step.instruction;
+            document.getElementById('taskText').innerHTML = step.task;
+            document.getElementById('taskBox').classList.remove('task-complete');
+            
+            // Concepts
+            const conceptSection = document.getElementById('conceptSection');
+            if (step.concepts) {
+                conceptSection.classList.add('visible');
+                document.getElementById('conceptTitle').textContent = 'Concepts';
+                let html = '';
+                step.concepts.forEach(c => {
+                    if (c.type === 'text') {
+                        html += `<div class="concept-item"><div class="concept-label">${c.label}</div><div class="concept-value" id="${c.id}">${c.value}</div></div>`;
+                    } else {
+                        html += `<div class="concept-item"><div class="concept-label">${c.label}</div><div class="concept-bar"><div class="concept-fill" id="${c.id}" style="width: ${c.value * 100}%; background: ${c.color}"></div></div></div>`;
+                    }
+                });
+                document.getElementById('conceptContent').innerHTML = html;
+            } else {
+                conceptSection.classList.remove('visible');
+            }
+            
+            // Controls
+            const controlsSection = document.getElementById('controlsSection');
+            if (step.controls) {
+                controlsSection.classList.add('visible');
+                let html = '';
+                step.controls.forEach(c => {
+                    html += `<div class="slider-group"><div class="slider-label"><span>${c.label}</span><span id="${c.id}Val">${c.value.toFixed(2)}</span></div><input type="range" class="slider" id="${c.id}" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.value}"></div>`;
+                });
+                document.getElementById('controlsContent').innerHTML = html;
+                
+                step.controls.forEach(c => {
+                    const slider = document.getElementById(c.id);
+                    slider.addEventListener('input', (e) => {
+                        document.getElementById(c.id + 'Val').textContent = parseFloat(e.target.value).toFixed(2);
+                        if (c.id.includes('food')) Fish.preferences.food = parseFloat(e.target.value);
+                        if (c.id.includes('safety')) Fish.preferences.safety = parseFloat(e.target.value);
+                        if (c.id.includes('precision')) Fish.sensoryPrecision = parseFloat(e.target.value);
+                        if (state.prefsAdjusted !== undefined) state.prefsAdjusted++;
+                    });
+                });
+            } else {
+                controlsSection.classList.remove('visible');
+            }
+            
+            // Policies
+            const policySection = document.getElementById('policySection');
+            if (step.showPolicies) {
+                policySection.classList.add('visible');
+            } else {
+                policySection.classList.remove('visible');
+            }
+            
+            // Actions
+            const actionButtons = document.getElementById('actionButtons');
+            const navSpacer = document.getElementById('navSpacer');
+            if (step.actions && step.actions.length > 0) {
+                actionButtons.classList.add('visible');
+                navSpacer.style.display = 'block';
+                step.actions.forEach((a, i) => {
+                    const btn = document.getElementById(`actionBtn${i + 1}`);
+                    if (btn) {
+                        btn.textContent = a.label;
+                        btn.style.display = 'block';
+                        btn.onclick = () => handleAction(a.action);
+                    }
+                });
+                for (let i = step.actions.length + 1; i <= 2; i++) {
+                    const btn = document.getElementById(`actionBtn${i}`);
+                    if (btn) btn.style.display = 'none';
+                }
+            } else {
+                actionButtons.classList.remove('visible');
+                navSpacer.style.display = 'none';
+            }
+            
+            // Navigation
+            document.getElementById('prevBtn').disabled = stepIndex === 0;
+            document.getElementById('nextBtn').textContent = stepIndex === tutorialSteps.length - 1 ? 'Finish →' : 'Next Step →';
+            
+            // onEnter
+            if (step.onEnter) step.onEnter(state);
+        }
+        
+        function finishTutorial() {
+            document.getElementById('tutorialComplete').classList.add('visible');
+        }
+        
+        function enterFreePlay() {
+            document.getElementById('tutorialComplete').classList.remove('visible');
+            state.tutorialActive = false;
+            
+            // Show all visualizations
+            state.showBeliefZone = true;
+            state.showPredictionError = true;
+            state.showVFE = true;
+            state.showPreferences = true;
+            state.showPolicies = true;
+            state.showImaginedFutures = true;
+            state.showEFE = true;
+            state.showDecomposition = true;
+            
+            // Update header
+            document.getElementById('stepNumber').textContent = 'Free Play';
+            document.getElementById('stepTitle').textContent = 'Explore Active Inference';
+            
+            // Update instruction panel
+            document.getElementById('instructionText').innerHTML = `
+                All parameters unlocked! Experiment freely.<br><br>
+                <em>Try these experiments:</em><br>
+                • High food pref + low safety → exploits aggressively<br>
+                • Low precision → trusts priors, slow to update<br>
+                • Add mysteries → watch epistemic value rise<br>
+                • Add danger → safety policy dominates
+            `;
+            document.getElementById('taskBox').style.display = 'none';
+            
+            // Setup concepts panel with live metrics
+            const conceptSection = document.getElementById('conceptSection');
+            conceptSection.classList.add('visible');
+            document.getElementById('conceptTitle').textContent = 'Live Metrics';
+            document.getElementById('conceptContent').innerHTML = `
+                <div class="concept-item">
+                    <div class="concept-label">VFE (current surprise)</div>
+                    <div class="concept-bar"><div class="concept-fill" id="freeVFE" style="width: 20%; background: #f66"></div></div>
+                </div>
+                <div class="concept-item">
+                    <div class="concept-label">Belief Entropy H[Q]</div>
+                    <div class="concept-bar"><div class="concept-fill" id="freeEntropy" style="width: 50%; background: #fc6"></div></div>
+                </div>
+                <div class="concept-item">
+                    <div class="concept-label">EFE G(π) of selected</div>
+                    <div class="concept-bar"><div class="concept-fill" id="freeEFE" style="width: 40%; background: #6c8"></div></div>
+                </div>
+                <div class="concept-item" style="margin-top: 12px; padding-top: 8px; border-top: 1px solid rgba(100,150,200,0.15);">
+                    <div class="concept-label" style="color: rgba(100,200,150,0.7)">Epistemic Value (info gain)</div>
+                    <div class="concept-bar"><div class="concept-fill" id="freeEpistemic" style="width: 30%; background: #6c8"></div></div>
+                </div>
+                <div class="concept-item">
+                    <div class="concept-label" style="color: rgba(255,180,100,0.7)">Pragmatic Value (preferences)</div>
+                    <div class="concept-bar"><div class="concept-fill" id="freePragmatic" style="width: 50%; background: #fa6"></div></div>
+                </div>
+                <div class="concept-item">
+                    <div class="concept-label">Dominant Driver</div>
+                    <div class="concept-value" id="freeDominant" style="font-size: 14px;">Balanced</div>
+                </div>
+            `;
+            
+            // Setup controls panel with all sliders
+            const controlsSection = document.getElementById('controlsSection');
+            controlsSection.classList.add('visible');
+            document.getElementById('controlsContent').innerHTML = `
+                <div class="slider-group">
+                    <div class="slider-label">
+                        <span>Sensory Precision (π)</span>
+                        <span id="freePrecisionVal">${Fish.sensoryPrecision.toFixed(2)}</span>
+                    </div>
+                    <input type="range" class="slider" id="freePrecision" min="0.1" max="1.0" step="0.05" value="${Fish.sensoryPrecision}">
+                    <div style="font-size: 9px; color: rgba(150,180,210,0.5); margin-top: 3px;">High = trust sensory data</div>
+                </div>
+                <div class="slider-group">
+                    <div class="slider-label">
+                        <span>Food Preference</span>
+                        <span id="freeFoodVal">${Fish.preferences.food.toFixed(2)}</span>
+                    </div>
+                    <input type="range" class="slider" id="freeFoodPref" min="0.0" max="1.0" step="0.05" value="${Fish.preferences.food}">
+                </div>
+                <div class="slider-group">
+                    <div class="slider-label">
+                        <span>Safety Preference</span>
+                        <span id="freeSafetyVal">${Fish.preferences.safety.toFixed(2)}</span>
+                    </div>
+                    <input type="range" class="slider" id="freeSafetyPref" min="0.0" max="1.0" step="0.05" value="${Fish.preferences.safety}">
+                </div>
+            `;
+            
+            // Add slider event listeners
+            document.getElementById('freePrecision').addEventListener('input', (e) => {
+                Fish.sensoryPrecision = parseFloat(e.target.value);
+                document.getElementById('freePrecisionVal').textContent = Fish.sensoryPrecision.toFixed(2);
+            });
+            document.getElementById('freeFoodPref').addEventListener('input', (e) => {
+                Fish.preferences.food = parseFloat(e.target.value);
+                document.getElementById('freeFoodVal').textContent = Fish.preferences.food.toFixed(2);
+            });
+            document.getElementById('freeSafetyPref').addEventListener('input', (e) => {
+                Fish.preferences.safety = parseFloat(e.target.value);
+                document.getElementById('freeSafetyVal').textContent = Fish.preferences.safety.toFixed(2);
+            });
+            
+            // Show policies panel
+            document.getElementById('policySection').classList.add('visible');
+            
+            // Show all action buttons
+            document.getElementById('actionButtons').classList.add('visible');
+            document.getElementById('actionBtn1').textContent = '🍕 Food';
+            document.getElementById('actionBtn1').onclick = () => handleAction('dropFood');
+            document.getElementById('actionBtn2').textContent = '❓ Mystery';
+            document.getElementById('actionBtn2').onclick = () => handleAction('dropMystery');
+            document.getElementById('actionBtn2').style.display = 'block';
+            
+            // Repurpose nav buttons
+            document.getElementById('prevBtn').textContent = '⚠️ Danger';
+            document.getElementById('prevBtn').disabled = false;
+            document.getElementById('prevBtn').onclick = () => handleAction('addDanger');
+            document.getElementById('prevBtn').classList.remove('primary');
+            
+            document.getElementById('nextBtn').textContent = '🔄 Reset';
+            document.getElementById('nextBtn').onclick = () => {
+                state.objects = [];
+                Fish.beliefs.knownRegions.clear();
+                Fish.entropy = 0.8;
+                Fish.vfe = 0.2;
+                Fish.x = canvasWidth / 2;
+                Fish.y = canvasHeight / 2;
+            };
+            document.getElementById('nextBtn').classList.remove('primary');
+        }
+        
+        function handleAction(action) {
+            const margin = 30;
+            if (action === 'dropFood') {
+                const x = margin + Math.random() * (canvasWidth - margin * 2);
+                const y = margin + Math.random() * (canvasHeight - margin * 2);
+                state.objects.push(new WorldObject(x, y, 'food'));
+                state.foodDropped++;
+            } else if (action === 'dropMystery') {
+                const x = margin + Math.random() * (canvasWidth - margin * 2);
+                const y = margin + Math.random() * (canvasHeight - margin * 2);
+                state.objects.push(new WorldObject(x, y, 'mystery'));
+            } else if (action === 'addDanger') {
+                const angle = Math.random() * Math.PI * 2;
+                const dist = 100;
+                const x = Math.max(margin, Math.min(canvasWidth - margin, Fish.x + Math.cos(angle) * dist));
+                const y = Math.max(margin, Math.min(canvasHeight - margin, Fish.y + Math.sin(angle) * dist));
+                state.objects.push(new WorldObject(x, y, 'danger'));
+            }
+        }
+        
+        function updateUI() {
+            // Free play mode - update live metrics
+            if (!state.tutorialActive) {
+                const vfeEl = document.getElementById('freeVFE');
+                const entropyEl = document.getElementById('freeEntropy');
+                const efeEl = document.getElementById('freeEFE');
+                const epistEl = document.getElementById('freeEpistemic');
+                const pragEl = document.getElementById('freePragmatic');
+                const domEl = document.getElementById('freeDominant');
+                
+                if (vfeEl) vfeEl.style.width = Math.min(100, Fish.vfe * 150) + '%';
+                if (entropyEl) entropyEl.style.width = (Fish.entropy * 100) + '%';
+                
+                const sel = Fish.policies[Fish.selectedPolicy];
+                if (sel) {
+                    if (efeEl) efeEl.style.width = ((1 - sel.g) * 100) + '%';
+                    if (epistEl) epistEl.style.width = (sel.epistemic * 100) + '%';
+                    if (pragEl) pragEl.style.width = (sel.pragmatic * 100) + '%';
+                    
+                    if (domEl) {
+                        if (sel.epistemic > sel.pragmatic * 1.3) {
+                            domEl.textContent = '🔍 Epistemic (exploring)';
+                            domEl.style.color = 'rgba(100, 200, 150, 0.95)';
+                        } else if (sel.pragmatic > sel.epistemic * 1.3) {
+                            domEl.textContent = '🎯 Pragmatic (exploiting)';
+                            domEl.style.color = 'rgba(255, 180, 100, 0.95)';
+                        } else {
+                            domEl.textContent = '⚖️ Balanced';
+                            domEl.style.color = 'rgba(200, 200, 220, 0.9)';
+                        }
+                    }
+                }
+                
+                // Update policy panel in free play
+                updatePolicyPanel();
+                return;
+            }
+            
+            // Tutorial mode
+            const step = tutorialSteps[state.currentStep];
+            
+            // Update dynamic concept values
+            if (step.concepts) {
+                step.concepts.forEach(c => {
+                    const el = document.getElementById(c.id);
+                    if (!el) return;
+                    
+                    if (c.id === 'predError') el.style.width = (Fish.predictionError * 100) + '%';
+                    else if (c.id === 'vfe') el.style.width = Math.min(100, Fish.vfe * 150) + '%';
+                    else if (c.id === 'updating') el.textContent = Fish.vfe > 0.3 ? 'Updating...' : 'Stable';
+                    else if (c.id === 'gExplore') el.style.width = ((1 - Fish.policies.explore.g) * 100) + '%';
+                    else if (c.id === 'gExploit') el.style.width = ((1 - Fish.policies.exploit.g) * 100) + '%';
+                    else if (c.id === 'gSafe') el.style.width = ((1 - Fish.policies.safe.g) * 100) + '%';
+                    else if (c.id === 'epistemic') {
+                        const sel = Fish.policies[Fish.selectedPolicy];
+                        el.style.width = (sel.epistemic * 100) + '%';
+                    }
+                    else if (c.id === 'pragmatic') {
+                        const sel = Fish.policies[Fish.selectedPolicy];
+                        el.style.width = (sel.pragmatic * 100) + '%';
+                    }
+                    else if (c.id === 'dominant') {
+                        const sel = Fish.policies[Fish.selectedPolicy];
+                        el.textContent = sel.epistemic > sel.pragmatic ? 'Epistemic' : 'Pragmatic';
+                    }
+                });
+            }
+            
+            // Update policies panel
+            if (step.showPolicies) {
+                updatePolicyPanel();
+            }
+            
+            // Task completion
+            if (step.taskCheck && step.taskCheck(state)) {
+                document.getElementById('taskBox').classList.add('task-complete');
+            }
+        }
+        
+        function updatePolicyPanel() {
+            let html = '';
+            for (const [name, policy] of Object.entries(Fish.policies)) {
+                const isSelected = Fish.selectedPolicy === name;
+                const icon = name === 'explore' ? '🔍' : name === 'exploit' ? '🎯' : '🛡️';
+                const total = policy.epistemic + policy.pragmatic + 0.01;
+                
+                html += `<div class="policy-option ${isSelected ? 'selected' : ''}">
+                    <div class="policy-name">${icon} ${name.charAt(0).toUpperCase() + name.slice(1)} <span style="float:right;color:${policy.g < 0.5 ? '#6c8' : policy.g < 0.7 ? '#fc6' : '#f96'}">G=${policy.g.toFixed(2)}</span></div>
+                    <div class="policy-bar">
+                        <div class="policy-epist" style="width: ${(policy.epistemic / total) * 100}%"></div>
+                        <div class="policy-prag" style="width: ${(policy.pragmatic / total) * 100}%"></div>
+                    </div>
+                    <div class="policy-labels"><span style="color:#6c8">ε:${policy.epistemic.toFixed(2)}</span><span style="color:#fa6">ρ:${policy.pragmatic.toFixed(2)}</span></div>
+                </div>`;
+            }
+            document.getElementById('policyContent').innerHTML = html;
+        }
+        
+        function renderEnvironment() {
+            // Background
+            const bg = ctx.createLinearGradient(0, 0, 0, canvasHeight);
+            bg.addColorStop(0, '#1a2a3a');
+            bg.addColorStop(0.5, '#1e2e40');
+            bg.addColorStop(1, '#223648');
+            ctx.fillStyle = bg;
+            ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+            
+            // Light from above
+            const light = ctx.createRadialGradient(canvasWidth * 0.5, -canvasHeight * 0.1, 0, canvasWidth * 0.5, canvasHeight * 0.5, canvasHeight * 0.8);
+            light.addColorStop(0, 'rgba(80, 120, 180, 0.12)');
+            light.addColorStop(1, 'rgba(50, 80, 120, 0)');
+            ctx.fillStyle = light;
+            ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+            
+            // Particles
+            state.particles.forEach(p => {
+                p.drift += 0.008;
+                p.x += Math.sin(p.drift) * 0.2;
+                p.y += 0.12;
+                if (p.y > canvasHeight) { p.y = 0; p.x = Math.random() * canvasWidth; }
+                
+                ctx.fillStyle = `rgba(150, 180, 220, ${p.alpha * 0.4})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Belief zone
+            if (state.showBeliefZone) {
+                const zone = Fish.beliefs.foodZone;
+                ctx.save();
+                ctx.strokeStyle = 'rgba(255, 220, 100, 0.25)';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([6, 10]);
+                ctx.beginPath();
+                ctx.arc(zone.x, zone.y, zone.radius, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                
+                ctx.fillStyle = 'rgba(255, 220, 100, 0.04)';
+                ctx.fill();
+                
+                ctx.fillStyle = 'rgba(255, 220, 100, 0.4)';
+                ctx.font = '10px JetBrains Mono';
+                ctx.textAlign = 'center';
+                ctx.fillText('Believed food zone', zone.x, zone.y - zone.radius - 8);
+                ctx.restore();
+            }
+        }
+        
+        function animate() {
+            state.timeOnStep++;
+            
+            Fish.update(state, state.objects);
+            state.objects = state.objects.filter(obj => obj.update());
+            
+            renderEnvironment();
+            state.objects.forEach(obj => obj.draw(ctx));
+            Fish.draw(ctx, state);
+            
+            updateUI();
+            
+            requestAnimationFrame(animate);
+        }
+        
+        // =====================================================
+        // EVENT HANDLERS
+        // =====================================================
+        
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            // Only handle tutorial navigation if tutorial is active
+            if (!state.tutorialActive) return;
+            
+            if (state.currentStep < tutorialSteps.length - 1) {
+                loadStep(state.currentStep + 1);
+            } else {
+                finishTutorial();
+            }
+        });
+        
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            // Only handle tutorial navigation if tutorial is active
+            if (!state.tutorialActive) return;
+            
+            if (state.currentStep > 0) loadStep(state.currentStep - 1);
+        });
+        
+        document.querySelectorAll('.step-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                loadStep(parseInt(dot.dataset.step));
+            });
+        });
+        
+        document.getElementById('freePlayBtn').addEventListener('click', enterFreePlay);
+        
+        // Click on canvas to drop food
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            state.objects.push(new WorldObject(x, y, 'food'));
+            state.foodDropped++;
+        });
+        
+        // Initialize
+        resize(); // Now safe to call since Fish is defined
+        Fish.x = canvasWidth / 2;
+        Fish.y = canvasHeight / 2;
+        Fish.beliefs.foodZone.x = canvasWidth / 2;
+        Fish.beliefs.foodZone.y = canvasHeight * 0.3;
+        loadStep(0);
+        animate();
+    </script>
+</body>
+</html>

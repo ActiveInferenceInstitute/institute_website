@@ -18,6 +18,7 @@ import { ecosystemDomainPages } from "./pages/ecosystem.mjs";
 import { directoryPage } from "./pages/directory.mjs";
 import { resourcesPage } from "./pages/resources.mjs";
 import { searchPage } from "./pages/search.mjs";
+import { simulationsPage } from "./pages/simulations.mjs";
 import { sitemapPage } from "./pages/sitemap.mjs";
 
 function build() {
@@ -30,6 +31,7 @@ function build() {
     ["resources", resourcesPage],
     ["directory", directoryPage],
     ["search", searchPage],
+    ["simulations", simulationsPage],
     ["sitemap", sitemapPage],
     ...ecosystemDomainPages().map((page) => [page.slug, () => page.html]),
   ];

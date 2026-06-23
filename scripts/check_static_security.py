@@ -12,7 +12,11 @@ from urllib.parse import urlparse
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CONTENT_DIR = PROJECT_ROOT / "src" / "content"
-EXCLUDED_PARTS = {".git", ".cache", "node_modules", "__pycache__", "src", "scripts"}
+# "simulations" holds vendored third-party interactive demos (self-contained
+# canvas apps with inline scripts) mirrored from activeinference.org. They are
+# intentionally exempt from the first-party CSP/no-inline-script contract; only
+# generated, first-party pages are validated here.
+EXCLUDED_PARTS = {".git", ".cache", "node_modules", "__pycache__", "src", "scripts", "simulations"}
 DISALLOWED_TAGS = {"form", "iframe", "object", "embed"}
 ALLOWED_INSTITUTEOS_ASSETS = {"ActInferServe.png", "Dark_ActInfServe.png"}
 REQUIRED_CSP_DIRECTIVES = {

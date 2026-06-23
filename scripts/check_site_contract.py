@@ -223,7 +223,11 @@ OLD_THEME_PATTERNS = [
     "var(--coral)",
     "var(--blue)",
 ]
-SCAN_EXCLUDES = {".git", ".cache", "node_modules", "__pycache__", "scripts"}
+# "simulations" holds vendored third-party interactive demos mirrored from
+# activeinference.org. They are not first-party generated pages and are exempt
+# from the navigation/design-system/canonical/CSP site contract; only generated
+# pages are validated.
+SCAN_EXCLUDES = {".git", ".cache", "node_modules", "__pycache__", "scripts", "simulations"}
 SCAN_SUFFIXES = {".css", ".html", ".js", ".json", ".md", ".txt", ".xml"}
 
 

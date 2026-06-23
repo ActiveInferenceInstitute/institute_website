@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Active Inference School</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;cursor:crosshair}
+canvas{display:block;width:100vw;height:100vh}
+#mode{position:fixed;top:16px;left:16px;z-index:10;
+  font:11px/1 'Georgia',serif;color:rgba(220,240,238,.35);
+  padding:8px 14px;background:rgba(4,12,20,.7);
+  border:1px solid rgba(80,140,160,.15);border-radius:3px;
+  cursor:pointer;backdrop-filter:blur(6px);transition:all .3s;
+  user-select:none;letter-spacing:.5px}
+#mode:hover{background:rgba(10,25,40,.85);border-color:rgba(80,140,160,.3)}
+#mode .sep{color:rgba(150,180,175,.25);margin:0 2px}
+#mode .sel{color:rgba(220,240,238,.8)}
+#mode.threat{border-color:rgba(255,100,80,.2)}
+#mode.threat #mThreat{color:rgba(255,120,80,.85)}
+#mode.threat #mFood{color:rgba(220,240,238,.3)}
+#mode.food #mFood{color:rgba(120,255,160,.85)}
+#mode.food #mThreat{color:rgba(220,240,238,.3)}
+#narrator{position:fixed;bottom:20px;left:20px;max-width:400px;z-index:10;
+  pointer-events:none;opacity:0;transition:opacity 1.2s}
+#narrator.vis{opacity:1}
+#narrator .who{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+#narrator .who .dot{width:8px;height:8px;border-radius:50%;
+  background:rgba(140,220,200,.6);flex-shrink:0}
+#narrator .who .name{font:italic 12px/1 'Georgia',serif;
+  color:rgba(160,220,200,.7);letter-spacing:.5px}
+#narrator .quote{font:italic 16px/1.55 'Georgia',serif;
+  color:rgba(220,240,238,.8);margin-bottom:6px}
+#narrator .obs{font:13px/1.5 'Georgia',serif;
+  color:rgba(180,210,205,.55);margin-bottom:5px}
+#narrator .src{font:10px/1.2 monospace;color:rgba(140,180,170,.35);letter-spacing:.3px}
+#narrator .state{font:11px/1.2 monospace;color:rgba(140,220,200,.45);
+  letter-spacing:1.2px;text-transform:uppercase;margin-top:8px}
+#sig{position:fixed;bottom:8px;right:12px;font:9px/1 'Georgia',serif;
+  color:rgba(120,175,160,.15);letter-spacing:.5px;z-index:2;pointer-events:none}
+</style>
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
+</head><body>
+<a href="./" class="aii-floating-back">&#8592; Back to Catalog</a>
+<canvas id="c"></canvas>
+<div id="mode" class="food" onclick="toggleMode()"><span id="mFood" class="sel">◉ food source</span><span class="sep"> · </span><span id="mThreat">◉ predator</span></div>
+<div id="narrator">
+  <div class="who"><span class="dot"></span><span class="name">Daniel Friedman · Active Inference Institute</span></div>
+  <div class="quote" id="nq"></div>
+  <div class="obs" id="no"></div>
+  <div class="src" id="ns"></div>
+  <div class="state" id="nst"></div>
+</div>
+<div id="sig">www.activeinference.org</div>
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  CRR-powered Active Inference School
+//  Computational method: CRR (Sabine 2024) — temporalgrammar.ai
+//  GUI: FEP / Active Inference terminology only
+//  Alexander Sabine · Active Inference Institute · 2025
+// ═══════════════════════════════════════════════════════════════
+
+const c=document.getElementById('c'),X=c.getContext('2d'),
+P=Math.PI,T=P*2,{sin,cos,sqrt,min,max,abs,random:R,atan2,pow,exp,floor,round,hypot}=Math;
+let W,H,t=0;const DR=devicePixelRatio;
+let hashDirty=true;
+function sz(){W=c.width=innerWidth*DR;H=c.height=innerHeight*DR;hashDirty=true}
+sz();onresize=sz;
+
+let mx=-9e4,my=-9e4,mAct=false,mMode='food',clicking=false;
+c.onmousemove=e=>{mx=e.clientX*DR;my=e.clientY*DR;mAct=true};
+c.onmouseleave=()=>{mAct=false;mx=-9e4;clicking=false};
+c.onmousedown=()=>{clicking=true};
+c.onmouseup=()=>{clicking=false};
+function toggleMode(){
+  mMode=mMode==='food'?'threat':'food';
+  document.getElementById('mode').className=mMode;
+  narTimer=NAR_INTERVAL-.2}
+
+// ─── SPATIAL HASH ───────────────────────────────────────────
+const CELL=80;let hashW,hashH,grid=[];
+function rebuildHash(){hashW=Math.ceil(W/CELL)+1;hashH=Math.ceil(H/CELL)+1;
+  grid=new Array(hashW*hashH);for(let i=0;i<grid.length;i++)grid[i]=[];hashDirty=false}
+function clearHash(){for(let i=0;i<grid.length;i++)grid[i].length=0}
+function insertHash(f){const cx=floor(f.x/CELL),cy=floor(f.y/CELL);
+  if(cx>=0&&cx<hashW&&cy>=0&&cy<hashH)grid[cx+cy*hashW].push(f)}
+function queryHash(x,y,r){const res=[];
+  const x0=max(0,floor((x-r)/CELL)),x1=min(hashW-1,floor((x+r)/CELL));
+  const y0=max(0,floor((y-r)/CELL)),y1=min(hashH-1,floor((y+r)/CELL));
+  for(let cx=x0;cx<=x1;cx++)for(let cy=y0;cy<=y1;cy++){
+    const cl=grid[cx+cy*hashW];for(let i=0;i<cl.length;i++)res.push(cl[i])}
+  return res}
+
+// ─── CRR ENGINE (computational method — not exposed in GUI) ─
+const Ω=.8;
+class FishCRR{
+  constructor(){this.C=R()*2;this.Cmax=1/Ω;this.ruptured=false;this.ruptures=0;this.regen=0;
+    this.headingHist=[];this.histIdx=0}
+  step(L,dt,currentAng){
+    this.ruptured=false;this.C+=L*dt;this.C*=pow(.97,dt);
+    this.C=max(0,min(this.C,this.Cmax*2));
+    if(this.ruptures%3===0||this.headingHist.length<20){
+      this.headingHist.push({ang:currentAng,c:this.C});
+      if(this.headingHist.length>40)this.headingHist.shift()}
+    if(this.C>=this.Cmax*(1+(R()-.5)*Ω)){
+      this.ruptured=true;this.ruptures++;this.C*=.35;this.regen=.3}
+    if(this.regen>0)this.regen=max(0,this.regen-dt);return this}
+  get w(){return exp(min(this.C/Ω,4))}
+  get progress(){return min(1,this.C*Ω)}
+  get validatedHeading(){if(this.headingHist.length===0)return null;
+    let best=null,bestW=0;
+    for(const h of this.headingHist){const w=exp(h.c/Ω);if(w>bestW){bestW=w;best=h}}
+    return best}
+}
+class TailCRR{
+  constructor(w,cv){this.w=w;this.cv=cv;this.C=R()/w*.5;
+    this.st=0;this.rt=0;this.a=0;this.sa=0;this.ph=0}
+  step(L,dt){
+    if(this.st===0){this.C+=L*dt;this.ph+=dt*L;
+      if(this.C>=(1/this.w)*(1+(R()-.5)*2*this.cv)){this.st=1;this.a=1}}
+    else if(this.st===1){this.st=2;this.rt=0}
+    else{this.rt+=dt;if(this.rt>.04){this.st=0;this.C=0}}
+    this.sa+=(this.a-this.sa)*min(1,dt*14);this.a*=pow(.015,dt)}
+}
+
+// ─── FISH ───────────────────────────────────────────────────
+const N=60,fishes=[];
+for(let i=0;i<N;i++){const hBase=170+R()*45,hShift=(R()-.5)*18,depth=R();
+  fishes.push({x:0,y:0,vx:(R()-.5)*30,vy:(R()-.5)*30,ang:R()*T,
+    crr:new FishCRR(),tail:new TailCRR(Ω/P,1/T),
+    gill:new TailCRR(Ω/T,1/(4*P)),pect:new TailCRR(Ω/T,1/(4*P)),
+    tailSide:1,fp:R()*T,len:0,
+    h:hBase+hShift,s:55+R()*20,l:48+R()*22,
+    col:`hsl(${round(hBase+hShift)},${round(55+R()*20)}%,${round(52+R()*18)}%)`,
+    id:i,d:.15+R()*.3,depth,swimSpeed:1.8+R()*.6,group:-1})}
+
+function initFishes(){const L=min(W,H)*.06,cx=W*.5,cy=H*.5;
+  for(let i=0;i<N;i++){const f=fishes[i],a=R()*T,r=R()*min(W,H)*.22;
+    f.x=cx+cos(a)*r;f.y=cy+sin(a)*r;
+    f.len=L*(.6+f.depth*.5)*(.9+R()*.2);f.ang=a+P*.5+(R()-.5)*.5}}
+
+// ─── GROUP DETECTION (Union-Find for Markov blanket monitoring) ─
+let groupCount=1,groupSizes=[],groupCoherences=[],avgCoherence=0,prevGroupCount=1;
+let groupData=[]; // [{cx,cy,r,size,members}] for blanket drawing
+const parent=new Int32Array(N),rank=new Uint8Array(N);
+function ufFind(i){while(parent[i]!==i)i=parent[i]=parent[parent[i]];return i}
+function ufUnion(a,b){a=ufFind(a);b=ufFind(b);if(a===b)return;
+  if(rank[a]<rank[b]){const t=a;a=b;b=t}parent[b]=a;if(rank[a]===rank[b])rank[a]++}
+function detectGroups(){
+  for(let i=0;i<N;i++){parent[i]=i;rank[i]=0}
+  for(let i=0;i<N;i++){const fi=fishes[i];
+    const near=queryHash(fi.x,fi.y,FLOCK_R*1.2);
+    for(const o of near){if(o===fi)continue;
+      const d=hypot(o.x-fi.x,o.y-fi.y);
+      if(d<FLOCK_R*1.2)ufUnion(fi.id,o.id)}}
+  const gMap=new Map();let totalC=0;
+  for(let i=0;i<N;i++){
+    const g=ufFind(i);fishes[i].group=g;
+    if(!gMap.has(g))gMap.set(g,{size:0,cSum:0,sx:0,sy:0,members:[]});
+    const gd=gMap.get(g);gd.size++;gd.cSum+=fishes[i].crr.C;
+    gd.sx+=fishes[i].x;gd.sy+=fishes[i].y;gd.members.push(i);
+    totalC+=fishes[i].crr.C}
+  prevGroupCount=groupCount;groupCount=gMap.size;
+  groupSizes=[];groupCoherences=[];groupData=[];
+  for(const[,v]of gMap){
+    groupSizes.push(v.size);groupCoherences.push(v.cSum/v.size);
+    if(v.size>=3){
+      const cx=v.sx/v.size,cy=v.sy/v.size;let maxR=0;
+      for(const idx of v.members){const f=fishes[idx];
+        const d=hypot(f.x-cx,f.y-cy);if(d>maxR)maxR=d}
+      groupData.push({cx,cy,r:maxR+fishes[v.members[0]].len*.6,size:v.size,members:v.members})}}
+  groupSizes.sort((a,b)=>b-a);avgCoherence=totalC/N}
+
+// ─── NARRATOR (Daniel Friedman — FEP language only) ──────────
+const QUOTES={
+  one:[
+    {q:'"We could have multiple Markov blankets, nested within one another."',
+     o:'The school is behaving as a single collective agent — one shared generative model, one Markov blanket.',
+     s:'Parr, Pezzulo & Friston (2022), Active Inference, Ch.6 p.109'},
+    {q:'"A collective of active inference agents can constitute a larger group-level active inference agent with a generative model of its own."',
+     o:'Every fish minimises its own free energy, yet the school self-organises into a higher-order agent. Hierarchy emerges from precision-weighted coupling.',
+     s:'Thestrup Waade, Heins, Friston & Mathys (2025), Entropy'},
+    {q:'"Hierarchical self-organisation emerges when microscopic elements have prior beliefs that they participate in a macroscopic Markov blanket."',
+     o:'The group-level blanket is not imposed — it emerges because each fish\'s generative model includes expectations about its neighbours.',
+     s:'Palacios, Razi, Parr, Kirchhoff & Friston (2020), J. Theoretical Biology'},
+    {q:'"By maximising model evidence, an organism ensures that it realises its prior preferences and avoids surprising states."',
+     o:'The school holds together because cohesion is less surprising than isolation. Each fish provides evidence for its own existence as a school member.',
+     s:'Parr, Pezzulo & Friston (2022), Active Inference, Ch.3'},
+  ],
+  two:[
+    {q:'"The hierarchical nature of this system is induced by macroscopic Markov blankets of microscopic Markov blankets."',
+     o:'Two separate schools — two autonomous group-level agents, each with its own Markov blanket. The fish within each school share a generative model distinct from the other.',
+     s:'Palacios, Razi, Parr, Kirchhoff & Friston (2020), J. Theoretical Biology'},
+    {q:'"Precision acts as an inverse temperature governing the explore–exploit trade-off."',
+     o:'Each school maintains its own precision-weighted coupling. High within-group precision, low between-group precision — two blankets, not one.',
+     s:'Parr, Pezzulo & Friston (2022), Active Inference, Ch.7'},
+    {q:'"The Markov blanket plays the role of a statistical boundary that allows one to talk about a system per se."',
+     o:'You have created two systems where there was one. Each school is now statistically separable from the other — conditionally independent internal states.',
+     s:'Kirchhoff, Parr, Palacios, Friston & Kiverstein (2018), J. R. Soc. Interface'},
+  ],
+  splitting:[
+    {q:'"Active inference agents do not simply repeat what they have heard — they pursue a narrative embodied by the dynamical attractors in their generative models."',
+     o:'The school is splitting — a symmetry-breaking event. Generalised synchrony is fragmenting as sub-groups develop divergent predictions about their shared environment.',
+     s:'Friston & Frith (2015), Consciousness and Cognition'},
+    {q:'"In hierarchical or deep models, the dynamics at higher levels generally encode things that change more slowly."',
+     o:'Watch the group-level blanket dissolve while individual blankets persist. The higher level is more fragile — it depends on sustained mutual predictability.',
+     s:'Parr, Pezzulo & Friston (2022), Active Inference, Ch.6 p.112'},
+  ],
+  merging:[
+    {q:'"If agents adopt the same generative model of communicative behaviour, a simple form of communication emerges through generalised synchrony."',
+     o:'The schools are merging — generalised synchrony is building across what were separate blanket boundaries. A new collective agent is forming.',
+     s:'Friston & Frith (2015), Consciousness and Cognition'},
+    {q:'"The expected free energy has an epistemic component that drives exploration and a pragmatic component that drives exploitation."',
+     o:'Merging reduces collective surprise. The schools approach each other because proximity makes their mutual environment more predictable.',
+     s:'Parr, Pezzulo & Friston (2022), Active Inference, Ch.4'},
+  ],
+  scattered:[
+    {q:'"A Markov blanket defines the boundaries of a system in a statistical sense."',
+     o:'The school has fragmented — multiple small groups, each barely maintaining its own blanket. Without sustained mutual predictability, collective agency dissolves.',
+     s:'Palacios, Razi, Parr, Kirchhoff & Friston (2020), J. Theoretical Biology'},
+  ],
+  threat:[
+    {q:'"The expected free energy has an epistemic component that drives exploration and a pragmatic component that drives exploitation."',
+     o:'The predator generates massive prediction error — the fish\'s generative model did not predict this. Escape is pragmatic value: acting to avoid surprising (dangerous) outcomes.',
+     s:'Parr, Pezzulo & Friston (2022), Active Inference, Ch.4'},
+    {q:'"To ensure movement is initiated, action requires a transient sensory attenuation — downweighting sensory prediction errors."',
+     o:'The flight response requires each fish to temporarily ignore its schooling predictions and prioritise survival. Precision on threat-related prediction errors overwhelms social coupling.',
+     s:'Parr, Pezzulo & Friston (2022), Active Inference, Ch.5'},
+    {q:'"A creature\'s generative model is not just about the external world but also about the internal milieu."',
+     o:'The predator disrupts coherence at every level — individual oscillators are perturbed, within-group synchrony collapses, and the collective blanket ruptures. Watch how quickly the school fragments.',
+     s:'Parr, Pezzulo & Friston (2022), Active Inference, Ch.10'},
+  ],
+  reuniting:[
+    {q:'"If agents adopt the same generative model of communicative behaviour, a simple form of communication emerges through generalised synchrony."',
+     o:'The threat has passed. Watch the fish rebuild their collective generative model — generalised synchrony re-emerges as mutual predictability accumulates. The blanket repairs itself.',
+     s:'Friston & Frith (2015), Consciousness and Cognition'},
+    {q:'"Hierarchical self-organisation emerges when microscopic elements have prior beliefs that they participate in a macroscopic Markov blanket."',
+     o:'The school is reforming. Each fish still carries its prior belief that it belongs to a collective — the generative model persists through the disruption. Self-evidencing resumes.',
+     s:'Palacios, Razi, Parr, Kirchhoff & Friston (2020), J. Theoretical Biology'},
+  ]
+};
+let narState='one',narIdx=0,narTimer=0,narFade=0,narTarget=1;
+let threatActive=false,threatEndTime=0;
+const NAR_INTERVAL=9;
+function getState(){
+  // Detect active threat
+  if(clicking&&mAct&&mMode==='threat'){threatActive=true;threatEndTime=t+4;return'threat'}
+  // Detect reuniting (threat recently ended, groups converging)
+  if(threatActive&&t>threatEndTime){
+    if(groupCount>prevGroupCount||groupCount>1)return'reuniting';
+    threatActive=false}
+  if(groupCount===1&&prevGroupCount>1&&t<threatEndTime+6)return'reuniting';
+  if(groupCount===1){threatActive=false;return'one'}
+  if(groupCount===2&&groupSizes[0]>8&&groupSizes[1]>8)return'two';
+  if(groupCount===2&&prevGroupCount===1)return'splitting';
+  if(groupCount===1&&prevGroupCount>1)return'merging';
+  if(groupCount>2)return'scattered';
+  return'one'}
+const stLabels={one:'one school · one blanket',two:'two schools · two blankets',
+  splitting:'blanket rupture',merging:'blankets merging',scattered:'fragmented',
+  threat:'predator — flight response',reuniting:'school reforming'};
+function updStateLabel(){
+  const st=getState();
+  document.getElementById('nst').textContent=
+    `${stLabels[st]||st} · ${groupCount} group${groupCount>1?'s':''} · avg Π = ${(1/(Ω/(avgCoherence+.01))).toFixed(1)}`}
+function updNarrator(dt){
+  narTimer+=dt;narFade+=(narTarget-narFade)*dt*2;
+  if(narTimer>NAR_INTERVAL){
+    narTimer=0;narTarget=0;
+    setTimeout(()=>{
+      const st=getState();
+      const pool=QUOTES[st]||QUOTES.one;
+      narIdx=(narIdx+1)%pool.length;
+      const q=pool[narIdx];
+      document.getElementById('nq').textContent=q.q;
+      document.getElementById('no').textContent=q.o;
+      document.getElementById('ns').textContent='— '+q.s;
+      updStateLabel();
+      narState=st;narTarget=1;
+    },800)}
+  document.getElementById('narrator').classList.toggle('vis',narFade>.3)}
+
+// ─── PHYSICS (identical to v2) ──────────────────────────────
+const FLOCK_R=90,SEP_R=25,MAX_SPEED=3.5;
+function upd(dt){
+  if(hashDirty)rebuildHash();clearHash();
+  for(const f of fishes)insertHash(f);
+  for(const f of fishes){
+    const tL=8+sin(t*.3+f.id*.1)*.8;
+    f.tail.step(tL,dt);f.fp+=dt*(5+f.tail.sa*20);
+    f.gill.step(4.5,dt);f.pect.step(2,dt);
+    const near=queryHash(f.x,f.y,FLOCK_R);
+    let sepX=0,sepY=0,aliX=0,aliY=0,cohX=0,cohY=0,nc=0;
+    for(let j=0;j<near.length;j++){const o=near[j];if(o===f)continue;
+      const dx=o.x-f.x,dy=o.y-f.y,d=hypot(dx,dy);if(d>FLOCK_R||d<.1)continue;
+      if(d<SEP_R){const rep=(SEP_R-d)/SEP_R;sepX-=dx/d*rep;sepY-=dy/d*rep}
+      aliX+=o.vx;aliY+=o.vy;cohX+=o.x;cohY+=o.y;nc++}
+    if(nc>0){aliX/=nc;aliY/=nc;aliX-=f.vx;aliY-=f.vy;
+      cohX/=nc;cohY/=nc;cohX-=f.x;cohY-=f.y}
+    const aliMag=hypot(aliX,aliY),cohMag=hypot(cohX,cohY);
+    const L_flock=aliMag*.12+cohMag*.003+.1;
+    f.crr.step(L_flock,dt,f.ang);
+    const w=f.crr.w;
+    f.vx+=sepX*.18+aliX*.07*w+cohX*.004*w;
+    f.vy+=sepY*.18+aliY*.07*w+cohY*.004*w;
+    if(f.crr.ruptured){const jitter=(R()-.5)*.8;
+      f.vx+=cos(f.ang+P*.5)*jitter*2;f.vy+=sin(f.ang+P*.5)*jitter*2}
+    if(f.crr.regen>0){const vh=f.crr.validatedHeading;
+      if(vh){const blend=f.crr.regen*.15*dt*60;
+        f.vx+=(cos(vh.ang)*f.swimSpeed-f.vx)*blend;
+        f.vy+=(sin(vh.ang)*f.swimSpeed-f.vy)*blend}}
+    if(mAct){const mdx=mx-f.x,mdy=my-f.y,md=hypot(mdx,mdy)+1;
+      const mR=min(W,H)*.3;
+      if(md<mR){const str=clicking?1.2:.3;const falloff=(1-md/mR)*str;
+        if(mMode==='food'){
+          f.vx+=mdx/md*falloff;f.vy+=mdy/md*falloff}
+        else{
+          // Threat: strong repulsion + coherence disruption
+          f.vx-=mdx/md*falloff*2;f.vy-=mdy/md*falloff*2;
+          if(clicking&&md<mR*.4)f.crr.C*=.95}}}
+    if(R()<.01){f.vx+=(R()-.5)*.3;f.vy+=(R()-.5)*.3}
+    const spd=hypot(f.vx,f.vy);
+    if(spd<f.swimSpeed*.5){f.vx+=cos(f.ang)*f.swimSpeed*.3*dt*60;
+      f.vy+=sin(f.ang)*f.swimSpeed*.3*dt*60}
+    const spd2=hypot(f.vx,f.vy);
+    if(spd2>MAX_SPEED){f.vx*=MAX_SPEED/spd2;f.vy*=MAX_SPEED/spd2}
+    f.vx*=pow(.985,dt*60);f.vy*=pow(.985,dt*60)}
+  for(const f of fishes){const near=queryHash(f.x,f.y,f.len*.5);
+    for(const o of near){if(o===f)continue;
+      const dx=o.x-f.x,dy=o.y-f.y,d=hypot(dx,dy)+.1;
+      const minD=(f.len+o.len)*.2;
+      if(d<minD){const push=(minD-d)/minD*2,nx2=dx/d,ny2=dy/d;
+        f.vx-=nx2*push;f.vy-=ny2*push;o.vx+=nx2*push;o.vy+=ny2*push;
+        f.x-=nx2*push*.5;f.y-=ny2*push*.5;o.x+=nx2*push*.5;o.y+=ny2*push*.5}}}
+  for(const f of fishes){
+    f.x+=f.vx*dt*60;f.y+=f.vy*dt*60;
+    const spd=hypot(f.vx,f.vy);
+    if(spd>.3){let da=atan2(f.vy,f.vx)-f.ang;
+      while(da>P)da-=T;while(da<-P)da+=T;f.ang+=da*min(1,dt*8)}
+    const m=f.len;
+    if(f.x<-m)f.x+=W+m*2;if(f.x>W+m)f.x-=W+m*2;
+    if(f.y<-m)f.y+=H+m*2;if(f.y>H+m)f.y-=H+m*2}
+}
+
+// ─── DRAW ───────────────────────────────────────────────────
+function bP(f,s,side){const L=f.len;
+  const wave=sin(f.fp-s*3.2)*L*(.01+s*s*(.04+f.tail.sa*.1));
+  const pr=[0,.055,.09,.11,.115,.11,.1,.085,.06,.035,.012];
+  const idx=s*(pr.length-1),lo=floor(idx),hi=min(lo+1,pr.length-1);
+  const hw=L*(pr[lo]*(1-(idx-lo))+pr[hi]*(idx-lo));
+  const bx=(.42-s)*L,by=wave+side*hw;
+  return{x:f.x+cos(f.ang)*bx-sin(f.ang)*by,y:f.y+sin(f.ang)*bx+cos(f.ang)*by}}
+const NG=1.83;
+function tF(th,a){const l=2*NG*th*cos(a);let r=0,g=0,b=0;
+  if(l>=380&&l<440){r=(440-l)/60;b=1}else if(l>=440&&l<490){g=(l-440)/50;b=1}
+  else if(l>=490&&l<510){g=1;b=(510-l)/20}else if(l>=510&&l<580){r=(l-510)/70;g=1}
+  else if(l>=580&&l<645){r=1;g=(645-l)/65}else if(l>=645&&l<=780){r=1}
+  let f2=1;if(l>=380&&l<420)f2=.3+.7*(l-380)/40;
+  else if(l>700)f2=max(0,.3+.7*(780-l)/80);else if(l<380||l>780)f2=0;
+  return{r:r*f2,g:g*f2,b:b*f2}}
+
+function drawFish(f){
+  const L=f.len,ca=cos(f.ang),sa2=sin(f.ang),nx=-sa2,ny=ca;
+  const dp=f.depth,depthAlpha=.65+dp*.35;
+  X.save();X.globalAlpha=depthAlpha;
+  // Shadow
+  X.save();X.globalAlpha=.04*depthAlpha;
+  X.beginPath();X.ellipse(f.x+3,f.y+L*.06,L*.3,L*.035,f.ang,0,T);
+  X.fillStyle='#000';X.fill();X.restore();
+  // Tail fin
+  const tb=bP(f,.88,0),tt=bP(f,1,0);
+  X.save();X.globalAlpha=.5;
+  const tA=f.ang+P,tpx=cos(tA),tpy=sin(tA),sp=L*.14,tl=L*.12;
+  X.beginPath();X.moveTo(tb.x,tb.y);
+  X.bezierCurveTo(tt.x+tpx*tl*.3+nx*sp*.6,tt.y+tpy*tl*.3+ny*sp*.6,tt.x+tpx*tl+nx*sp,tt.y+tpy*tl+ny*sp,tt.x+tpx*tl*.5,tt.y+tpy*tl*.5);
+  X.lineTo(tt.x,tt.y);X.lineTo(tt.x+tpx*tl*.5,tt.y+tpy*tl*.5);
+  X.bezierCurveTo(tt.x+tpx*tl-nx*sp,tt.y+tpy*tl-ny*sp,tt.x+tpx*tl*.3-nx*sp*.6,tt.y+tpy*tl*.3-ny*sp*.6,tb.x,tb.y);
+  const tg=X.createLinearGradient(tt.x+nx*sp,tt.y+ny*sp,tt.x-nx*sp,tt.y-ny*sp);
+  tg.addColorStop(0,`hsla(${f.h+8},${f.s-12}%,${f.l-5}%,.35)`);
+  tg.addColorStop(.5,`hsla(${f.h},${f.s}%,${f.l+5}%,.5)`);
+  tg.addColorStop(1,`hsla(${f.h+8},${f.s-12}%,${f.l-5}%,.35)`);
+  X.fillStyle=tg;X.fill();
+  if(dp>.3){X.strokeStyle=`hsla(${f.h},${f.s-20}%,${f.l+10}%,.12)`;X.lineWidth=.4;
+    for(let i=0;i<7;i++){const fr=i/6,sv=fr*2-1;
+      X.beginPath();X.moveTo(tb.x,tb.y);
+      X.quadraticCurveTo(tt.x+tpx*tl*.3+nx*sv*sp*.3,tt.y+tpy*tl*.3+ny*sv*sp*.3,tt.x+tpx*tl*.7+nx*sv*sp*.85,tt.y+tpy*tl*.7+ny*sv*sp*.85);X.stroke()}}
+  X.restore();
+  // Dorsal
+  if(dp>.25){const d1=bP(f,.22,-1),d2=bP(f,.52,-1),dH=L*.1+sin(t*1.3+f.id)*.003*L;
+    X.save();X.globalAlpha=.4;X.beginPath();X.moveTo(d1.x,d1.y);
+    X.bezierCurveTo(d1.x+nx*dH*.4,d1.y+ny*dH*.4,(d1.x+d2.x)/2+nx*dH,(d1.y+d2.y)/2+ny*dH,d2.x,d2.y);
+    const dg=X.createLinearGradient(d1.x+nx*dH,d1.y+ny*dH,d1.x,d1.y);
+    dg.addColorStop(0,`hsla(${f.h},${f.s-10}%,${f.l-5}%,.12)`);dg.addColorStop(1,`hsla(${f.h+5},${f.s-5}%,${f.l}%,.35)`);
+    X.fillStyle=dg;X.fill();X.restore()}
+  // Anal
+  if(dp>.3){const a1=bP(f,.52,1),a2=bP(f,.7,1);
+    X.save();X.globalAlpha=.3;X.beginPath();X.moveTo(a1.x,a1.y);
+    X.quadraticCurveTo((a1.x+a2.x)/2-nx*L*.06,(a1.y+a2.y)/2-ny*L*.06,a2.x,a2.y);
+    X.fillStyle=`hsla(${f.h+5},${f.s-12}%,${f.l-3}%,.3)`;X.fill();X.restore()}
+  // Body
+  const bStep=dp>.5?.012:.025;
+  X.beginPath();
+  for(let s=0;s<=1;s+=bStep){const p=bP(f,s,-1);s===0?X.moveTo(p.x,p.y):X.lineTo(p.x,p.y)}
+  for(let s=1;s>=0;s-=bStep){const p=bP(f,s,1);X.lineTo(p.x,p.y)}
+  X.closePath();X.save();X.clip();
+  const bg=X.createLinearGradient(f.x+nx*L*.13,f.y+ny*L*.13,f.x-nx*L*.13,f.y-ny*L*.13);
+  bg.addColorStop(0,`hsla(${f.h-5},${f.s+5}%,${max(25,f.l-12)}%,.9)`);
+  bg.addColorStop(.2,`hsla(${f.h+10},${f.s+16}%,${min(90,f.l+14)}%,.93)`);
+  bg.addColorStop(.42,`hsla(${f.h+18},${f.s+6}%,${min(93,f.l+22)}%,.91)`);
+  bg.addColorStop(.6,`hsla(${f.h+5},${f.s+2}%,${min(90,f.l+15)}%,.91)`);
+  bg.addColorStop(.8,`hsla(${f.h},${f.s}%,${min(88,f.l+8)}%,.9)`);
+  bg.addColorStop(1,`hsla(${f.h+15},${f.s-5}%,${min(95,f.l+25)}%,.88)`);
+  X.fillStyle=bg;X.fill();
+  // ═══ ENHANCED IRIDESCENCE ═══
+  // Same LOD grid counts, more vivid thin-film parameters
+  const sR=L*.009;
+  const spd=hypot(f.vx,f.vy); // velocity-dependent shimmer
+  const ir=sin(t*2.8+f.id*1.3)*.55+.5;
+  const ir2=cos(t*2.1+f.id*.9+spd*.3)*.35+.5;
+  const ir3=sin(t*3.8+f.id*2.5+f.ang)*.25+.5;
+  const rows=dp>.65?12:dp>.3?7:4,cols=dp>.65?24:dp>.3?14:8;
+  for(let row=0;row<rows;row++)for(let col=0;col<cols;col++){
+    const s=(col+.5)/cols,v=(row+.5)/rows,side=v<.5?-1:1,vF=abs(v-.5)*2;
+    const sO=s+(row%2)*.021;if(sO>1)continue;
+    const p=bP(f,sO,side*vF);
+    // Wider angle variation + velocity-dependent shift
+    const th=vF*P*.5+sin(t*1.6+sO*7+f.id*1.7)*.18+ir*.1+ir2*.07+ir3*.04+spd*.02;
+    // Broader wavelength range for richer spectrum
+    const tk=75+sin(sO*28+row*3.5+f.h*.18)*35+sin(t*3.2+col*.7+row*.9)*10+ir3*5;
+    const cl=tF(tk,th);
+    const dorsalB=max(0,1-vF*1.5)*.12;
+    const inten=.11+.26*(1-vF)+dorsalB+f.tail.sa*.1+ir2*.04+ir3*.03;
+    X.fillStyle=`rgba(${round(cl.r*255)},${round(cl.g*255)},${round(cl.b*255)},${inten})`;
+    X.beginPath();X.arc(p.x,p.y,sR*(.85+vF*.3),-P*.7,P*.7);X.fill()}
+  // Shimmer — near only, velocity-responsive
+  if(dp>.4){const sh=sin(t*3.5+f.id*2.3+f.x*.02)*.12+.035+spd*.01;
+    if(sh>.01){const sp2=bP(f,.12,-.12),sp3=bP(f,.58,-.06);
+      X.beginPath();X.moveTo(sp2.x,sp2.y);
+      X.quadraticCurveTo((sp2.x+sp3.x)/2+nx*L*.012,(sp2.y+sp3.y)/2+ny*L*.012,sp3.x,sp3.y);
+      X.lineWidth=L*.016;X.strokeStyle=`rgba(255,255,255,${sh})`;X.stroke();
+      const sh2=sin(t*2.8+f.id*1.7+f.x*.015)*.07+.012;
+      if(sh2>.005){const sb1=bP(f,.18,.28),sb2=bP(f,.52,.22);
+        X.beginPath();X.moveTo(sb1.x,sb1.y);
+        X.quadraticCurveTo((sb1.x+sb2.x)/2-nx*L*.005,(sb1.y+sb2.y)/2-ny*L*.005,sb2.x,sb2.y);
+        X.lineWidth=L*.008;X.strokeStyle=`rgba(255,252,240,${sh2*.8})`;X.stroke()}}}
+  // Lateral line
+  X.beginPath();
+  for(let s=.05;s<.88;s+=.007){const p=bP(f,s,0);s<.06?X.moveTo(p.x,p.y):X.lineTo(p.x,p.y)}
+  X.strokeStyle=`hsla(${f.h+30},30%,80%,.14)`;X.lineWidth=.7;X.stroke();
+  // Belly
+  const bb1=bP(f,.15,.4),bb2=bP(f,.55,.35);
+  X.beginPath();X.moveTo(bb1.x,bb1.y);
+  X.quadraticCurveTo((bb1.x+bb2.x)/2-nx*L*.01,(bb1.y+bb2.y)/2-ny*L*.01,bb2.x,bb2.y);
+  X.lineWidth=L*.02;X.strokeStyle=`hsla(${f.h+20},15%,92%,.07)`;X.stroke();
+  X.restore();
+  // Gills
+  if(dp>.4){const go=.25+f.gill.sa*.45+sin(f.gill.ph*3)*.06,gp=bP(f,.16,.25);
+    X.save();X.globalAlpha=.3;
+    for(let i=0;i<3;i++){X.beginPath();X.moveTo(gp.x+ca*i*L*.008,gp.y+sa2*i*L*.008);
+      X.lineTo(gp.x+ca*i*L*.008-nx*L*.01*go,gp.y+sa2*i*L*.008-ny*L*.01*go);
+      X.strokeStyle=`rgba(${155+i*20},${45+i*10},${35+i*10},${.1+go*.12})`;X.lineWidth=1.2;X.stroke()}
+    X.restore()}
+  // Pectoral
+  if(dp>.35){const pa=sin(f.pect.ph*2.5)*.3+f.pect.sa*.15,pp=bP(f,.2,.55);
+    X.save();X.globalAlpha=.25;X.translate(pp.x,pp.y);X.rotate(f.ang+P*.3+pa);
+    X.beginPath();X.moveTo(0,0);X.bezierCurveTo(-L*.01,L*.035,-L*.05,L*.06,-L*.07,L*.048);
+    X.bezierCurveTo(-L*.055,L*.02,-L*.02,L*.005,0,0);
+    const pfg=X.createLinearGradient(0,0,-L*.06,L*.05);
+    pfg.addColorStop(0,`hsla(${f.h},${f.s-15}%,${f.l+5}%,.4)`);pfg.addColorStop(1,`hsla(${f.h+10},${f.s-20}%,${f.l+10}%,.1)`);
+    X.fillStyle=pfg;X.fill();X.restore()}
+  // Pelvic
+  if(dp>.4){const pvp=bP(f,.35,.5);
+    X.save();X.globalAlpha=.18;X.beginPath();X.moveTo(pvp.x,pvp.y);
+    X.quadraticCurveTo(pvp.x-ca*L*.02-nx*L*.04,pvp.y-sa2*L*.02-ny*L*.04,pvp.x-ca*L*.04,pvp.y-sa2*L*.04);
+    X.quadraticCurveTo(pvp.x-ca*L*.01-nx*L*.01,pvp.y-sa2*L*.01-ny*L*.01,pvp.x,pvp.y);
+    X.fillStyle=`hsla(${f.h},${f.s-18}%,${f.l+3}%,.3)`;X.fill();X.restore()}
+  // Eye
+  const ep=bP(f,.07,-.14),eR=L*.017;
+  X.beginPath();X.arc(ep.x,ep.y,eR,0,T);
+  const eg=X.createRadialGradient(ep.x-eR*.1,ep.y-eR*.1,0,ep.x,ep.y,eR);
+  eg.addColorStop(0,'#e8e4d8');eg.addColorStop(.8,'#d0ccc0');eg.addColorStop(1,'#a09888');
+  X.fillStyle=eg;X.fill();
+  X.beginPath();X.arc(ep.x+eR*.1,ep.y,eR*.55,0,T);
+  const ig2=X.createRadialGradient(ep.x+eR*.1,ep.y,eR*.08,ep.x+eR*.1,ep.y,eR*.55);
+  ig2.addColorStop(0,'#806830');ig2.addColorStop(.5,'#503815');ig2.addColorStop(1,'#201005');
+  X.fillStyle=ig2;X.fill();
+  X.beginPath();X.arc(ep.x+eR*.14,ep.y,eR*.25,0,T);X.fillStyle='#080404';X.fill();
+  X.beginPath();X.arc(ep.x+eR*.25,ep.y-eR*.18,eR*.1,0,T);X.fillStyle='rgba(255,255,255,.5)';X.fill();
+  const mp2=bP(f,.02,.04);
+  X.beginPath();X.moveTo(mp2.x+ca*L*.008,mp2.y+sa2*L*.008);
+  X.quadraticCurveTo(mp2.x,mp2.y-nx*L*.005,mp2.x-ca*L*.02,mp2.y-sa2*L*.02);
+  X.strokeStyle=`hsla(${f.h-10},25%,30%,.25)`;X.lineWidth=.7;X.stroke();
+  X.restore();
+}
+
+// ─── ENVIRONMENT ────────────────────────────────────────────
+// ─── BLANKET DRAWING ────────────────────────────────────────
+// Organic dashed outline around each detected group, warped by member positions
+function drawBlankets(){
+  if(groupData.length<2&&groupCount<2)return; // only draw when multiple groups exist
+  const cols=['rgba(80,200,190,','rgba(240,170,70,','rgba(180,120,255,','rgba(120,220,120,','rgba(255,160,120,'];
+  for(let gi=0;gi<groupData.length;gi++){
+    const g=groupData[gi];if(g.size<3)continue;
+    const col=cols[gi%cols.length];
+    const members=g.members.map(i=>fishes[i]);
+    // Draw organic boundary warped by member positions
+    X.save();X.beginPath();
+    for(let a=0;a<T;a+=.05){
+      let rx=g.cx+cos(a)*g.r,ry=g.cy+sin(a)*g.r;
+      // Warp toward nearby members for organic shape
+      for(const f of members){
+        const dx=f.x-rx,dy=f.y-ry,d=hypot(dx,dy)+10;
+        rx+=dx*f.len*.15/d;ry+=dy*f.len*.15/d}
+      a<.06?X.moveTo(rx,ry):X.lineTo(rx,ry)}
+    X.closePath();
+    const al=.08+min(.12,g.size*.002);
+    X.strokeStyle=col+al+')';X.lineWidth=1.8;
+    X.setLineDash([8,5]);X.stroke();X.setLineDash([]);
+    // Subtle fill
+    X.fillStyle=col+(al*.15)+')';X.fill();
+    // Label
+    X.fillStyle=col+min(.4,al*2)+')';
+    X.font=`${8*DR}px Georgia`;
+    X.fillText(`${g.size} agents`,g.cx-20,g.cy-g.r-8);
+    X.restore()}}
+
+// ─── CURSOR VISUALIZATION ───────────────────────────────────
+function drawCursor(){
+  if(!mAct)return;
+  X.save();
+  const pulse=sin(t*4)*.3+.7;
+  if(mMode==='threat'){
+    // Red warning rings
+    const r1=15+pulse*8,r2=25+pulse*12;
+    const al=clicking?.35:.12;
+    X.beginPath();X.arc(mx,my,r1,0,T);
+    X.strokeStyle=`rgba(255,80,60,${al*pulse})`;X.lineWidth=1.5;X.stroke();
+    X.beginPath();X.arc(mx,my,r2,0,T);
+    X.strokeStyle=`rgba(255,80,60,${al*.5*pulse})`;X.lineWidth=1;X.stroke();
+    if(clicking){X.beginPath();X.arc(mx,my,6,0,T);
+      X.fillStyle=`rgba(255,100,70,${.3*pulse})`;X.fill()}
+  }else{
+    // Green attractor
+    const r1=12+pulse*5;
+    const al=clicking?.3:.1;
+    X.beginPath();X.arc(mx,my,r1,0,T);
+    X.strokeStyle=`rgba(120,255,160,${al*pulse})`;X.lineWidth=1.5;X.stroke();
+    if(clicking){X.beginPath();X.arc(mx,my,4,0,T);
+      X.fillStyle=`rgba(120,255,160,${.25*pulse})`;X.fill()}}
+  X.restore()}
+
+function drawEnv(){
+  const bg=X.createRadialGradient(W*.5,H*.35,min(W,H)*.1,W*.5,H*.55,max(W,H)*.7);
+  bg.addColorStop(0,'#0e3555');bg.addColorStop(.3,'#0a2840');bg.addColorStop(.6,'#071e32');bg.addColorStop(1,'#030e1a');
+  X.fillStyle=bg;X.fillRect(0,0,W,H);
+  X.save();X.globalCompositeOperation='lighter';
+  for(let i=0;i<6;i++){const x=W*(.1+.8*((sin(t*.05+i*1.1)+1)/2)),sw=20+14*sin(t*.08+i);
+    X.beginPath();X.moveTo(x-sw,0);X.lineTo(x+sw,0);X.lineTo(x+sw*6,H);X.lineTo(x-sw*6,H);
+    const rg=X.createLinearGradient(x,0,x,H);
+    rg.addColorStop(0,'rgba(100,190,210,.015)');rg.addColorStop(.4,'rgba(50,130,170,.006)');
+    rg.addColorStop(1,'rgba(0,0,0,0)');X.fillStyle=rg;X.fill()}
+  X.restore();
+  for(let x=0;x<W;x+=5){const y=3+sin(x*.006+t*.7)*2.5+sin(x*.02+t*.5)*1.8;
+    X.fillStyle=`rgba(140,210,230,${.012+.01*sin(x*.012+t)})`;X.fillRect(x,y,4,H*.006)}}
+
+// ─── MAIN LOOP ──────────────────────────────────────────────
+initFishes();let lt=0,groupTimer=0;
+// Trigger first narrator quote
+narTimer=NAR_INTERVAL-.5;
+function frame(now){
+  const dt=min(.033,(now-lt)/1000);lt=now;t+=dt;
+  upd(dt);
+  // Group detection every 0.5s (cheap — uses existing spatial hash)
+  groupTimer+=dt;if(groupTimer>.5){groupTimer=0;detectGroups();updStateLabel()}
+  updNarrator(dt);
+  drawEnv();
+  const sorted=[...fishes].sort((a,b)=>a.depth-b.depth);
+  for(const f of sorted)drawFish(f);
+  drawBlankets();
+  drawCursor();
+  // Force narrator update on active threat click
+  if(clicking&&mAct&&mMode==='threat'&&narTimer<NAR_INTERVAL-1)narTimer=NAR_INTERVAL-.3;
+  const v=X.createRadialGradient(W/2,H/2,W*.15,W/2,H/2,W*.6);
+  v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,5,10,.35)');
+  X.fillStyle=v;X.fillRect(0,0,W,H);
+  requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+</script>
+</body></html>

@@ -120,5 +120,6 @@ export const ALL_ROUTED_SLUGS = [
   "resources",
   "directory",
   "search",
+  "simulations",
   "sitemap",
 ];

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Self-Evidencing Tree — Active Inference &amp; Morphogenesis</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f4f1eb;overflow:hidden;width:100vw;height:100vh;cursor:grab;font-family:'Cormorant Garamond',Georgia,serif}
+body.dragging{cursor:grabbing}
+canvas{display:block;width:100%;height:100%}
+
+/* ── HUD ── */
+#hud{position:fixed;bottom:16px;left:18px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(35,28,15,.85);line-height:1.9;pointer-events:none;white-space:pre;background:rgba(244,241,235,.82);backdrop-filter:blur(8px);padding:10px 14px;border:1px solid rgba(120,100,70,.10)}
+#fep-hud{position:fixed;bottom:16px;right:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(35,28,15,.75);line-height:1.85;pointer-events:none;text-align:right;white-space:pre;max-width:380px;background:rgba(244,241,235,.82);backdrop-filter:blur(8px);padding:10px 14px;border:1px solid rgba(120,100,70,.10)}
+
+/* ── Title ── */
+#eq{position:fixed;top:18px;left:20px;font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2vw,21px);font-weight:500;letter-spacing:.08em;color:rgba(35,28,15,.80);pointer-events:none;background:rgba(244,241,235,.80);backdrop-filter:blur(8px);padding:8px 14px;border:1px solid rgba(120,100,70,.10)}
+#title{position:fixed;top:18px;right:20px;font-family:'Cormorant Garamond',serif;font-size:clamp(14px,1.6vw,18px);font-weight:500;letter-spacing:.10em;color:rgba(35,28,15,.80);text-align:right;pointer-events:none;line-height:1.6;background:rgba(244,241,235,.80);backdrop-filter:blur(8px);padding:10px 16px;border:1px solid rgba(120,100,70,.10)}
+#zoom-hint{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;letter-spacing:.10em;color:rgba(35,28,15,.60);pointer-events:none;transition:opacity 3s;text-align:center;line-height:2;background:rgba(244,241,235,.75);backdrop-filter:blur(8px);padding:16px 28px;border:1px solid rgba(120,100,70,.08)}
+
+/* ── Narrative bar ── */
+#narrative{position:fixed;bottom:130px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.4vw,24px);font-weight:400;font-style:italic;letter-spacing:.04em;color:rgba(35,28,15,0);text-align:center;pointer-events:none;max-width:660px;line-height:1.7;transition:color 1.5s ease;background:rgba(244,241,235,.85);backdrop-filter:blur(10px);padding:16px 26px;border:1px solid rgba(120,100,70,.08)}
+#narrative.visible{color:rgba(35,28,15,.75)}
+
+/* ── Controls panel ── */
+#controls{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:32px;align-items:flex-end;z-index:15;opacity:0;transition:opacity 1.5s;pointer-events:none;background:rgba(244,241,235,.85);backdrop-filter:blur(12px);padding:16px 28px 14px;border:1px solid rgba(120,100,70,.12)}
+#controls.show{opacity:1;pointer-events:auto}
+.ctrl-group{display:flex;flex-direction:column;align-items:center;gap:5px}
+.ctrl-group label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:rgba(35,28,15,.65);text-transform:uppercase;text-align:center;line-height:1.5;font-weight:400}
+.ctrl-group input[type=range]{-webkit-appearance:none;width:140px;height:3px;background:rgba(100,80,50,.15);border-radius:0;outline:none}
+.ctrl-group input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:rgba(80,65,40,.45);border:1px solid rgba(80,65,40,.25);cursor:pointer;transition:all .2s}
+.ctrl-group input[type=range]::-webkit-slider-thumb:hover{background:rgba(80,65,40,.65);transform:scale(1.15)}
+.ctrl-val{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(35,28,15,.60);font-weight:400}
+
+/* ── Info button ── */
+#info-btn{position:fixed;top:18px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(13px,1.4vw,16px);font-weight:500;letter-spacing:.08em;color:rgba(35,28,15,.70);background:rgba(244,241,235,.88);border:1px solid rgba(120,100,70,.20);padding:9px 24px;border-radius:0;cursor:pointer;z-index:20;transition:all .3s;backdrop-filter:blur(10px)}
+#info-btn:hover{color:rgba(35,28,15,.90);border-color:rgba(120,100,70,.40);background:rgba(248,245,238,.95)}
+
+/* ── Explainer panel ── */
+#explainer{position:fixed;top:0;right:-600px;width:min(560px,92vw);height:100vh;background:rgba(248,245,238,.98);border-left:1px solid rgba(120,100,70,.12);z-index:30;transition:right .5s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:40px 36px 56px;scrollbar-width:thin;scrollbar-color:rgba(120,100,70,.12) transparent}
+#explainer.open{right:0}
+#explainer::-webkit-scrollbar{width:5px}
+#explainer::-webkit-scrollbar-thumb{background:rgba(120,100,70,.12);border-radius:0}
+#ex-close{position:absolute;top:16px;right:20px;font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(40,30,15,.45);cursor:pointer;background:none;border:none;padding:4px 10px;transition:color .2s}
+#ex-close:hover{color:rgba(35,25,10,.7)}
+#explainer h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(22px,3vw,30px);letter-spacing:.15em;color:rgba(35,25,10,.72);margin-bottom:28px}
+#explainer h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(16px,1.9vw,20px);letter-spacing:.06em;color:rgba(35,25,10,.68);margin:32px 0 12px;border-bottom:1px solid rgba(120,100,70,.10);padding-bottom:8px}
+#explainer p{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(16px,1.7vw,19px);color:rgba(30,22,8,.68);line-height:1.85;margin-bottom:16px}
+#explainer em{font-style:italic;color:rgba(30,50,15,.78)}
+#explainer strong{font-weight:500;color:rgba(30,22,8,.78)}
+#explainer code{font-family:'JetBrains Mono',monospace;font-size:.82em;color:rgba(60,45,20,.62);background:rgba(120,100,70,.07);padding:2px 6px;border-radius:0}
+#explainer .eq-block{font-family:'JetBrains Mono',monospace;font-size:clamp(12px,1.3vw,14px);color:rgba(45,35,18,.58);background:rgba(120,100,70,.05);border-left:2px solid rgba(120,100,70,.15);padding:12px 16px;margin:16px 0;line-height:1.85;border-radius:0}
+#explainer .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,1.6vw,18px);color:rgba(30,22,8,.58);background:rgba(120,100,70,.035);border-left:2px solid rgba(120,100,70,.15);padding:14px 18px;margin:18px 0;line-height:1.85}
+#explainer .quote .attr{display:block;font-style:normal;font-size:.82em;color:rgba(50,38,18,.45);margin-top:8px;text-align:right}
+#explainer .note{font-family:'JetBrains Mono',monospace;font-size:clamp(11px,1.2vw,13px);color:rgba(50,38,18,.40);line-height:1.7;margin-top:36px;padding-top:16px;border-top:1px solid rgba(120,100,70,.08)}
+#explainer .glossary-item{margin-bottom:18px}
+#explainer .glossary-term{font-family:'JetBrains Mono',monospace;font-size:13px;color:rgba(35,25,10,.62);letter-spacing:.06em;font-weight:400}
+#explainer .glossary-def{font-family:'Cormorant Garamond',serif;font-size:16px;color:rgba(30,22,8,.58);line-height:1.75;margin-top:4px;padding-left:14px;border-left:1px solid rgba(120,100,70,.10)}
+</style>
+
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body>
+<a href="./" class="aii-floating-back">&#8592; Back to Catalog</a>
+<canvas id="cv"></canvas>
+
+<div id="eq">F = E<sub>Q</sub>[ln Q(μ) − ln P(o, μ)]</div>
+<div id="title">THE SELF-EVIDENCING TREE<br><span style="font-size:.7em;opacity:.6">Active Inference &amp; Morphogenesis</span><br><span style="font-size:.6em;opacity:.4">after Friston, Levin et al. (2015) · Parr, Pezzulo &amp; Friston (2022)</span></div>
+
+<div id="hud"></div>
+<div id="fep-hud"></div>
+<div id="zoom-hint">scroll to zoom · drag to pan · double-click to reseed<br>zoom in = increase precision of observation</div>
+<div id="narrative"></div>
+
+<div id="controls">
+  <div class="ctrl-group">
+    <label>Precision Π<br><span style="font-size:.85em;opacity:.55">confidence in predictions</span></label>
+    <input type="range" id="precisionSlider" min="0.3" max="5" step="0.1" value="1">
+    <span class="ctrl-val" id="precisionVal">Π = 1.00</span>
+  </div>
+  <div class="ctrl-group">
+    <label>Prior Preference<br><span style="font-size:.85em;opacity:.55">C-vector: "grow toward light"</span></label>
+    <input type="range" id="priorSlider" min="0" max="1" step="0.05" value="0.5">
+    <span class="ctrl-val" id="priorVal">C = 0.50</span>
+  </div>
+  <div class="ctrl-group">
+    <label>Epistemic ↔ Pragmatic<br><span style="font-size:.85em;opacity:.55">explore vs exploit</span></label>
+    <input type="range" id="epistemicSlider" min="0" max="1" step="0.05" value="0.5">
+    <span class="ctrl-val" id="epistemicVal">ε = 0.50</span>
+  </div>
+</div>
+
+<button id="info-btn" onclick="document.getElementById('explainer').classList.toggle('open')">✦ what is this tree?</button>
+
+<div id="explainer">
+<button id="ex-close" onclick="this.parentElement.classList.remove('open')">✕</button>
+
+<h2>THE SELF-EVIDENCING TREE</h2>
+
+<p>This is a pedagogical demonstration applying <em>Active Inference</em> to morphogenesis — the process by which biological form emerges from growth. Friston, Levin and colleagues (2015) showed that morphogenesis can be understood through the Free Energy Principle: developing tissues maintain their organisation by minimising variational free energy, just as brains do. Here, every branch tip is an agent that holds a generative model — a prediction about where it should grow — and acts to minimise the discrepancy between that prediction and the world.</p>
+
+<p>The tree doesn't just grow. It <em>expects</em> to grow, and then fulfils that expectation. This is what Hohwy (2016) calls <em>self-evidencing</em>: a system that gathers evidence for its own existence by acting on the world. All concepts and equations presented here are drawn from the Active Inference textbook by Parr, Pezzulo &amp; Friston (2022).</p>
+
+<div class="quote">"By maximizing model evidence — i.e., self-evidencing — an organism ensures that it realises its prior preferences and avoids surprising states."<span class="attr">— Parr, Pezzulo &amp; Friston, <em>Active Inference</em>, Ch. 3</span></div>
+
+<h3>THE GENERATIVE MODEL</h3>
+
+<p>Each branch tip maintains a <em>generative model</em>: a probabilistic description of how its observations are generated from hidden causes. For an above-ground tip, the model says: "I am a branch. I grow toward light. My parent constrains my angle. I will receive brightness proportional to my orientation."</p>
+
+<p>For a root tip, the model says: "I am a root. I grow toward moisture. The soil offers nutrients in a downward gradient."</p>
+
+<p>The model generates <em>predictions</em> about what sensory data the tip should receive. When actual observations differ from predictions, the tip experiences <em>prediction error</em>.</p>
+
+<div class="eq-block">Prediction error: ε = observation − prediction
+Free energy:     F = complexity − accuracy
+                 F ≈ Π × ε  (precision-weighted prediction error)</div>
+
+<p>The tip can resolve this error in two ways:</p>
+
+<p><strong>Perception</strong> — update beliefs about where it is and what's happening. Change your mind to fit the world. <strong>Action</strong> — grow in a direction that makes observations match predictions. Change the world to fit your mind.</p>
+
+<div class="quote">"A fundamental insight of Active Inference is that both perception and action serve the very same objective... minimization of the discrepancy between the model and the world."<span class="attr">— Parr, Pezzulo &amp; Friston, <em>Active Inference</em>, Ch. 2</span></div>
+
+<h3>PRECISION — THE Π SLIDER</h3>
+
+<p>Precision (Π) is the inverse variance of prediction errors: how <em>confident</em> the system is in its predictions. Move the slider and watch:</p>
+
+<p><em>High precision</em> → the tree grows rigidly, exploiting its current model. Each branch is highly constrained by its parent's prediction. This is <em>exploitation</em> — the organism commits to what it already believes.</p>
+
+<p><em>Low precision</em> → the tree grows loosely, exploring widely. Branches splay outward. The model is uncertain, so alternatives are entertained. This is <em>exploration</em>.</p>
+
+<div class="eq-block">Precision:  Π = 1/σ²
+High Π → sharp predictions → narrow branching (exploit)
+Low Π  → vague predictions → wide branching (explore)</div>
+
+<h3>PRIOR PREFERENCES — THE C-VECTOR</h3>
+
+<p>In the POMDP formulation (Chapter 4), the <em>C-matrix</em> encodes prior preferences over observations — what the agent <em>wants</em> to observe. For branches: light from above. For roots: moisture from below.</p>
+
+<p>Move the slider: at high values, the tree grows strongly toward its preferred observations (phototropism above, hydrotropism below). At low values, preferences weaken and growth becomes isotropic.</p>
+
+<p>Above ground, you can see the <em>sun</em> — the source of preferred observations. Below ground, <em>moisture gradients</em> are rendered as blue diffusion. The tree's prior preferences align with these environmental features because evolution has shaped its generative model to expect these regularities.</p>
+
+<h3>EPISTEMIC VS PRAGMATIC VALUE</h3>
+
+<p>The <em>Epistemic ↔ Pragmatic</em> slider controls two components of Expected Free Energy (G):</p>
+
+<p><strong>Epistemic value</strong> (information gain) — branches explore to reduce uncertainty about their environment. "Where <em>might</em> light be? Let me grow sideways to find out."</p>
+
+<p><strong>Pragmatic value</strong> (expected utility) — branches exploit known resources. "I <em>know</em> light is above. Let me grow straight up."</p>
+
+<div class="eq-block">G = epistemic value + pragmatic value
+  = information gain + preferred observations
+  = "how much will I learn?" + "how close to my goals?"</div>
+
+<h3>THE MARKOV BLANKET</h3>
+
+<p>Each branch tip has a <em>Markov blanket</em> — a statistical boundary separating internal states (its beliefs about growth direction) from external states (actual resource gradients). The blanket comprises sensory states (light, chemicals) and active states (growth direction, branching).</p>
+
+<p>The ground line itself is a visible Markov blanket at a larger scale — it separates the above-ground system (branches responding to light) from the below-ground system (roots responding to moisture). Each domain has its own sensory world, its own preferred observations, and its own inference problem.</p>
+
+<div class="quote">"An organism with a Markov blanket appears to model the external environment in a Bayesian sense: its internal states correspond — on average — to an approximate posterior belief about external states."<span class="attr">— Parr, Pezzulo &amp; Friston, <em>Active Inference</em>, Ch. 3</span></div>
+
+<h3>WHY THE TREE HAS LIMITS: VARIATIONAL INFERENCE AND BOUNDED RATIONALITY</h3>
+
+<p>You may notice that the tree cannot grow infinitely deep. When you zoom out, distant branches simplify. When you zoom in, finer structure appears — but only where you look. The tree has <em>limited computational resources</em>. This is not a bug. It is a faithful demonstration of one of the deepest insights in Active Inference.</p>
+
+<p><strong>Exact Bayesian inference is intractable.</strong> The textbook is explicit: for any complex model, computing the exact posterior P(x|y) requires marginalising over all hidden states — a computation that grows exponentially with model complexity. No biological system can do this. No computer can do this for realistic models. Certainly this simulation cannot.</p>
+
+<div class="quote">"Exact Bayesian inference supporting perception and action is computationally intractable in most cases, because two quantities — the model evidence P(y) and the posterior probability P(x|y) — cannot be computed."<span class="attr">— Parr, Pezzulo &amp; Friston, <em>Active Inference</em>, Ch. 2</span></div>
+
+<p>Active Inference's solution is <em>variational inference</em>: substitute the intractable exact posterior with an <em>approximate posterior Q</em> that is tractable to compute. The quality of this approximation is measured by the KL divergence between Q and the true posterior — and minimising variational free energy is precisely the process of making Q as good as possible given finite resources.</p>
+
+<div class="eq-block">F = D_KL[Q(x) || P(x|y)] − ln P(y)
+        ↑                        ↑
+  approximation gap         true surprise
+  (goes to 0 as Q → P)     (fixed by world)</div>
+
+<p>In our tree, you can <em>see</em> this approximation at work:</p>
+
+<p><strong>The 8,000 segment limit</strong> is the tree's finite computational budget — like a brain with a fixed number of neurons. It cannot represent every possible branch. It must allocate resources where they matter most.</p>
+
+<p><strong>Zoom-dependent depth</strong> is <em>precision-weighted resource allocation</em>. Just as the brain devotes more computational resources to attended stimuli (precision-weighting), the tree grows finer structure only where you observe it. Unattended regions remain coarse — like peripheral vision.</p>
+
+<p><strong>Off-screen pruning</strong> is <em>complexity minimisation</em>. The second line of the free energy equation tells us F = complexity − accuracy. Maintaining beliefs about regions that provide no observations is pure complexity cost with zero accuracy benefit. A good variational agent prunes these — exactly as the tree does.</p>
+
+<p>This connects to the textbook's treatment of <em>bounded rationality</em> (Chapter 10): a bounded agent must balance the costs of deliberation against the value of more accurate inference. The "free energy theory of bounded rationality" formalises this trade-off — accuracy improves with more computation, but computation has a complexity cost. The optimum is not infinite precision but the <em>best approximation achievable with available resources</em>.</p>
+
+<div class="quote">"A bounded rational agent has to balance the costs, effort, and timeliness of computation — for example, the information-processing costs of deliberating the best plan."<span class="attr">— Parr, Pezzulo &amp; Friston, <em>Active Inference</em>, Ch. 10</span></div>
+
+<p>So when you see the tree's limits — its finite depth, its attention-dependent detail, its pruning of the unseen — you are watching <em>variational inference in action</em>. The tree is not failing to be a perfect Bayesian. It is succeeding at being a bounded one.</p>
+
+<h3>HIERARCHICAL INFERENCE</h3>
+
+<p>The tree demonstrates <em>hierarchical</em> or <em>deep</em> Active Inference (Chapter 6). The trunk evolves slowly and provides context that constrains faster-timescale branches — exactly like sentences contextualising words, or goals contextualising subgoals.</p>
+
+<p>When you zoom in, you increase the <em>precision of observation</em>. Finer structure resolves at deeper generations — just as attending more closely to a stimulus reveals hierarchical detail that was always latent in the generative model.</p>
+
+<h3>YOUR ATTENTION IS ACTIVE INFERENCE</h3>
+
+<p>Notice: wherever you look <em>first</em> grows the deepest structure. Your act of zooming is itself Active Inference — you sample the world at higher precision to reduce uncertainty.</p>
+
+<p>But each observation <em>commits</em> the system. The prediction error is resolved, the belief is updated, the growth is fixed. The branch architecture <em>is</em> the generative model — and it was shaped by your observation.</p>
+
+<h3>GLOSSARY</h3>
+
+<div class="glossary-item">
+<div class="glossary-term">GENERATIVE MODEL</div>
+<div class="glossary-def">A probabilistic description of how observations are generated from hidden causes. The tree's model: "I grow at angle θ, receiving light proportional to cos(θ), producing observations of brightness."</div>
+</div>
+
+<div class="glossary-item">
+<div class="glossary-term">VARIATIONAL FREE ENERGY (F)</div>
+<div class="glossary-def">The quantity Active Inference agents minimise. F = complexity − accuracy. It bounds surprise from above: F ≥ −ln P(o). Low F means the model fits reality well <em>without being needlessly complex</em>.</div>
+</div>
+
+<div class="glossary-item">
+<div class="glossary-term">PREDICTION ERROR (ε)</div>
+<div class="glossary-def">The difference between predicted and actual observations. Under the Laplace approximation, minimising free energy reduces to minimising precision-weighted prediction errors. The glowing tips show prediction error accumulating before a branching decision.</div>
+</div>
+
+<div class="glossary-item">
+<div class="glossary-term">PRECISION (Π)</div>
+<div class="glossary-def">The inverse variance (1/σ²) of a probability distribution. High precision = sharp, confident predictions. In the brain, precision is associated with neuromodulatory gain (e.g., dopamine). In the tree, high precision constrains branch angles tightly.</div>
+</div>
+
+<div class="glossary-item">
+<div class="glossary-term">PRIOR PREFERENCES (C)</div>
+<div class="glossary-def">Beliefs about desired observations, encoded in the C-vector of a POMDP. The tree's prior: "I observe bright light" (branches) or "I detect moisture" (roots). These are constitutive of the organism — a fish expects water, a tree expects light.</div>
+</div>
+
+<div class="glossary-item">
+<div class="glossary-term">EXPECTED FREE ENERGY (G)</div>
+<div class="glossary-def">Evaluates future policies by combining epistemic value (information gain — "how much will I learn?") and pragmatic value ("how close to my preferences?"). Low G = a policy that both informs and satisfies.</div>
+</div>
+
+<div class="glossary-item">
+<div class="glossary-term">MARKOV BLANKET</div>
+<div class="glossary-def">The statistical boundary separating an agent's internal states from external states, comprising sensory states (input) and active states (output). The ground line is a visible Markov blanket separating two inference domains.</div>
+</div>
+
+<div class="glossary-item">
+<div class="glossary-term">VARIATIONAL APPROXIMATION</div>
+<div class="glossary-def">Since exact Bayesian inference is intractable, Active Inference uses an approximate posterior Q that can be computed efficiently. The simulation's finite segment budget and attention-dependent depth are visible demonstrations of this principle — the tree does the best inference it can with limited resources.</div>
+</div>
+
+<div class="glossary-item">
+<div class="glossary-term">BOUNDED RATIONALITY</div>
+<div class="glossary-def">The recognition that real agents have finite computational resources. The "free energy theory of bounded rationality" shows that optimal behaviour under resource constraints emerges naturally from free energy minimisation — accuracy and complexity trade off against each other.</div>
+</div>
+
+<div class="glossary-item">
+<div class="glossary-term">SELF-EVIDENCING</div>
+<div class="glossary-def">A term introduced by Hohwy (2016) for the process by which a system gathers evidence for its own existence. By acting to minimise surprise, it remains in states consistent with its continued existence. Friston, Levin et al. (2015) showed this applies to morphogenesis: developing tissues self-evidence by maintaining the forms their generative models predict. The tree grows because growing is what trees do — its model predicts growth, and action realises that prediction.</div>
+</div>
+
+<p class="note">§ Active Inference Tutorial — The Self-Evidencing Tree
+Concepts &amp; equations: Parr, Pezzulo &amp; Friston (2022) Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press.
+Morphogenesis framing: Friston, Levin et al. (2015) "Knowing one's place: a free-energy approach to pattern regulation."
+Self-evidencing: Hohwy (2016) "The self-evidencing brain."
+Simulation: Alexander Sabine · Active Inference Institute Board of Directors
+temporalgrammar.ai · Alexander@activeinference.institute</p>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// THE SELF-EVIDENCING TREE
+// Active Inference & Morphogenesis — Pedagogical Simulation
+//
+// GUI Layer: All concepts from peer-reviewed FEP/Active Inference
+//   Parr, Pezzulo & Friston (2022), MIT Press
+//   Morphogenesis: Friston, Levin et al. (2015)
+//   Self-evidencing: Hohwy (2016)
+//
+// Computational Engine: CRR temporal grammar (internal only)
+//   C(x,t) = ∫L(x,τ)dτ     — coherence accumulates
+//   δ(now) when C·Ω = 1     — rupture is instantaneous
+//   R = ∫φ·exp(C/Ω)·Θ dτ   — regeneration weights memory
+//
+// Alexander Sabine · Active Inference Institute
+// temporalgrammar.ai
+// ═══════════════════════════════════════════════════════════════
+
+const cv = document.getElementById('cv');
+const ctx = cv.getContext('2d');
+const hudEl = document.getElementById('hud');
+const fepHudEl = document.getElementById('fep-hud');
+const narrativeEl = document.getElementById('narrative');
+const M = Math;
+const {sin, cos, sqrt, abs, min, max, PI, random: rnd, floor, pow, exp, log, atan2, round} = M;
+const TAU = PI * 2;
+
+let W, H;
+function resize() {
+  const dpr = devicePixelRatio || 1;
+  W = cv.clientWidth; H = cv.clientHeight;
+  cv.width = W * dpr; cv.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+window.addEventListener('resize', resize);
+resize();
+
+// ═══ CRR CONSTANTS (computational engine — internal) ═══
+const OMEGA_BASE = 1 / PI;
+const C_STAR     = PI;
+const SIGMA      = 0.5;
+const CV         = 1 / (2 * PI);
+
+// ═══ FEP PARAMETERS (user-facing controls) ═══
+let userPrecision = 1.0;
+let userPrior     = 0.5;
+let userEpistemic = 0.5;
+
+// ═══ CRR → FEP mapping functions ═══
+function getOmega() { return OMEGA_BASE / max(0.2, userPrecision); }
+function getSpread() { return 2 * getOmega() * (1 + userEpistemic * 0.8); }
+function getLenRatio() { return exp(-getOmega()); }
+function getWidthDecay() { return 1 - CV / max(0.3, userPrecision); }
+
+const FORK_N     = 2;
+const CURVATURE  = CV / C_STAR;
+const BASE_LEN   = 55;
+const BASE_WIDTH  = 7;
+
+// ═══ CAMERA ═══
+let cam = { x: 0, y: 0, zoom: 1 };
+function worldToScreen(wx, wy) {
+  return { x: (wx - cam.x) * cam.zoom + W * 0.5, y: (wy - cam.y) * cam.zoom + H * 0.5 };
+}
+function screenToWorld(sx, sy) {
+  return { x: (sx - W * 0.5) / cam.zoom + cam.x, y: (sy - H * 0.5) / cam.zoom + cam.y };
+}
+
+// ═══ ZOOM + PAN ═══
+let dragging = false, dragX = 0, dragY = 0, hintVisible = true;
+
+cv.addEventListener('wheel', e => {
+  e.preventDefault();
+  if (hintVisible) { document.getElementById('zoom-hint').style.opacity = '0'; hintVisible = false; document.getElementById('controls').classList.add('show'); }
+  const wp = screenToWorld(e.clientX, e.clientY);
+  const factor = e.deltaY < 0 ? 1.12 : 1 / 1.12;
+  cam.zoom = max(0.15, min(50000, cam.zoom * factor));
+  cam.x = wp.x - (e.clientX - W * 0.5) / cam.zoom;
+  cam.y = wp.y - (e.clientY - H * 0.5) / cam.zoom;
+}, { passive: false });
+
+cv.addEventListener('mousedown', e => { if (e.button === 0) { dragging = true; dragX = e.clientX; dragY = e.clientY; document.body.classList.add('dragging'); } });
+window.addEventListener('mousemove', e => { if (!dragging) return; cam.x -= (e.clientX - dragX) / cam.zoom; cam.y -= (e.clientY - dragY) / cam.zoom; dragX = e.clientX; dragY = e.clientY; });
+window.addEventListener('mouseup', () => { dragging = false; document.body.classList.remove('dragging'); });
+
+// Touch
+let lastTouchDist = 0, touching = false;
+cv.addEventListener('touchstart', e => {
+  e.preventDefault();
+  if (hintVisible) { document.getElementById('zoom-hint').style.opacity = '0'; hintVisible = false; document.getElementById('controls').classList.add('show'); }
+  if (e.touches.length === 1) { touching = true; dragX = e.touches[0].clientX; dragY = e.touches[0].clientY; }
+  else if (e.touches.length === 2) { const dx = e.touches[0].clientX - e.touches[1].clientX; const dy = e.touches[0].clientY - e.touches[1].clientY; lastTouchDist = sqrt(dx*dx+dy*dy); }
+}, { passive: false });
+cv.addEventListener('touchmove', e => {
+  e.preventDefault();
+  if (e.touches.length === 1 && touching) { cam.x -= (e.touches[0].clientX - dragX) / cam.zoom; cam.y -= (e.touches[0].clientY - dragY) / cam.zoom; dragX = e.touches[0].clientX; dragY = e.touches[0].clientY; }
+  else if (e.touches.length === 2) { const dx = e.touches[0].clientX-e.touches[1].clientX; const dy = e.touches[0].clientY-e.touches[1].clientY; const dist = sqrt(dx*dx+dy*dy); const cx = (e.touches[0].clientX+e.touches[1].clientX)/2; const cy = (e.touches[0].clientY+e.touches[1].clientY)/2; if(lastTouchDist>0){const wp=screenToWorld(cx,cy);cam.zoom=max(0.15,min(50000,cam.zoom*(dist/lastTouchDist)));cam.x=wp.x-(cx-W*0.5)/cam.zoom;cam.y=wp.y-(cy-H*0.5)/cam.zoom;} lastTouchDist=dist; }
+}, { passive: false });
+cv.addEventListener('touchend', () => { touching = false; lastTouchDist = 0; });
+
+// ═══ CONTROLS ═══
+document.getElementById('precisionSlider').addEventListener('input', e => { userPrecision = parseFloat(e.target.value); document.getElementById('precisionVal').textContent = `Π = ${userPrecision.toFixed(2)}`; });
+document.getElementById('priorSlider').addEventListener('input', e => { userPrior = parseFloat(e.target.value); document.getElementById('priorVal').textContent = `C = ${userPrior.toFixed(2)}`; });
+document.getElementById('epistemicSlider').addEventListener('input', e => { userEpistemic = parseFloat(e.target.value); document.getElementById('epistemicVal').textContent = `ε = ${userEpistemic.toFixed(2)}`; });
+
+// ═══ SEGMENT ═══
+let segments = [], totalRuptures = 0, maxGenUp = 0, maxGenDown = 0, totalFreeEnergy = 0;
+
+function newSegment(x, y, angle, gen, isRoot, parentIdx) {
+  const omega = getOmega(), lenRatio = getLenRatio(), widthDecay = getWidthDecay();
+  const len = BASE_LEN * pow(lenRatio, gen) * (0.92 + rnd() * 0.16);
+  const width = max(0.15, BASE_WIDTH * pow(max(0.5, widthDecay), gen));
+  const rate = 0.35 + gen * CV * 0.4 + rnd() * 0.15;
+  return {
+    x, y, angle, gen, isRoot, parent: parentIdx, len, width,
+    C: 0, omega, rate, ruptured: false, rupT: 0,
+    freeEnergy: 0, precision: userPrecision, predictionError: 0,
+    growth: 0, growRate: 1.6 + rnd() * 1.0,
+    phase: rnd() * TAU, sway: 0,
+    curve: (rnd() - 0.5) * CURVATURE * 2
+  };
+}
+
+function tipPos(s) {
+  const g = min(1, s.growth);
+  return { x: s.x + cos(s.angle + s.sway) * s.len * g, y: s.y + sin(s.angle + s.sway) * s.len * g };
+}
+
+// ═══ RUPTURE → BRANCHING ═══
+function rupture(s, idx) {
+  s.ruptured = true; s.rupT = 0; totalRuptures++;
+  const tip = tipPos(s), spread = getSpread() * (0.9 + rnd() * 0.2);
+  const overshoot = s.C - C_STAR;
+  const nChildren = overshoot > 2 * SIGMA * C_STAR ? 3 : FORK_N;
+
+  for (let i = 0; i < nChildren; i++) {
+    const t = nChildren === 1 ? 0 : (i / (nChildren - 1) - 0.5) * 2;
+    let childAngle = s.angle + t * spread + (rnd() - 0.5) * CURVATURE;
+    childAngle += (rnd() - 0.5) * userEpistemic * 0.3;
+    if (!s.isRoot) childAngle += (-PI/2 - childAngle) * userPrior * 0.15;
+    else childAngle += (PI/2 - childAngle) * userPrior * 0.08;
+    if (s.isRoot) childAngle = max(PI * 0.05, min(PI * 0.95, childAngle));
+    else childAngle = max(-PI * 0.95, min(-PI * 0.05, childAngle));
+    segments.push(newSegment(tip.x, tip.y, childAngle, s.gen + 1, s.isRoot, idx));
+  }
+  if (s.isRoot && s.gen + 1 > maxGenDown) maxGenDown = s.gen + 1;
+  if (!s.isRoot && s.gen + 1 > maxGenUp) maxGenUp = s.gen + 1;
+}
+
+// ═══ SEED ═══
+function seed() {
+  segments = []; totalRuptures = 0; maxGenUp = 0; maxGenDown = 0; totalFreeEnergy = 0;
+  for (let i = 0; i < FORK_N; i++) {
+    const t = (i / (FORK_N - 1 || 1) - 0.5) * 2;
+    segments.push(newSegment(0, 0, -PI/2 + t * getSpread() * 0.3 + (rnd()-.5)*.04, 0, false, -1));
+  }
+  for (let i = 0; i < FORK_N; i++) {
+    const t = (i / (FORK_N - 1 || 1) - 0.5) * 2;
+    segments.push(newSegment(0, 0, PI/2 + t * getSpread() * 0.35 + (rnd()-.5)*.05, 0, true, -1));
+  }
+  cam.x = 0; cam.y = 0; cam.zoom = 1;
+}
+
+function maxGenForZoom() { return min(60, floor(10 + log(max(1, cam.zoom)) / log(1.5) * 2.5)); }
+function isVisible(wx, wy, margin) { const s = worldToScreen(wx, wy); return s.x > -margin && s.x < W + margin && s.y > -margin && s.y < H + margin; }
+const MAX_SEGMENTS = 8000;
+
+// ═══ NARRATIVE ═══
+const narratives = [
+  "Each tip holds a <em>generative model</em> — a prediction about where growth leads.",
+  "Growth is <em>action</em>: changing the world to match the model's predictions.",
+  "When prediction error accumulates, the tip must <em>update its beliefs</em> — and branch.",
+  "Branching is <em>policy selection</em> — the agent chooses between future trajectories.",
+  "The tree expects to grow, and acts accordingly. This is <em>self-evidencing</em>.",
+  "High precision → rigid commitment. Low precision → flexible exploration.",
+  "Your zoom is <em>active inference</em> — sampling the world at higher precision.",
+  "Prior preferences: branches seek light above; roots seek moisture below.",
+  "The ground line is a <em>Markov blanket</em> — separating two inference domains.",
+  "Epistemic value: how much will I learn by growing this way?",
+  "Pragmatic value: how close to my preferences will this path take me?",
+  "Free energy = complexity − accuracy. The tree seeks simple, accurate models.",
+  "Each branch point is an <em>irreversible belief update</em>. The tip has committed.",
+  "The trunk provides slow-timescale context. Twigs are fast-timescale inference.",
+  "The simulation's limits are <em>variational inference</em> — bounded rationality in action.",
+  "Wherever you look first grows deepest — your <em>attention</em> shapes the model.",
+];
+let narIdx = 0, narTimer = 0, narVisible = false;
+
+function advanceNarrative() {
+  narrativeEl.innerHTML = narratives[narIdx % narratives.length];
+  narrativeEl.classList.add('visible');
+  narVisible = true; narTimer = 0; narIdx++;
+}
+
+// ═══ UPDATE ═══
+let t = 0;
+function update(dt) {
+  t += dt;
+  const curMaxGen = maxGenForZoom(), omega = getOmega();
+  let frameFE = 0;
+
+  for (let i = 0; i < segments.length; i++) {
+    const s = segments[i];
+    if (s.growth < 1) s.growth = min(1, s.growth + s.growRate * dt);
+
+    const windBase = sin(t * 0.25) * 0.008 + sin(t * 0.11 + 1.3) * 0.005;
+    const swayAmp = omega * 0.012 * (1 + s.gen * 0.35);
+    s.sway = windBase * (1 + s.gen * 0.25) + sin(t * (0.4 + s.gen * omega * 0.3) + s.phase) * swayAmp;
+
+    if (!s.ruptured && s.growth >= 0.92) {
+      const tip = tipPos(s);
+      const onScreen = isVisible(tip.x, tip.y, 200 / cam.zoom);
+      const withinGen = s.gen < curMaxGen;
+      const withinCap = segments.length < MAX_SEGMENTS;
+      if (withinGen && withinCap && (onScreen || s.gen < 4)) {
+        const L = s.rate * (1 + sin(t * 0.6 + s.phase) * CV);
+        s.C += L * dt;
+        const envSignal = s.isRoot ? 0.5 : (1 - (s.angle + PI/2) / PI);
+        s.predictionError = abs(envSignal - userPrior) * userPrecision;
+        s.freeEnergy = s.C * userPrecision;
+        frameFE += s.freeEnergy;
+        const threshold = C_STAR + (rnd() - 0.5) * 2 * CV * C_STAR;
+        if (s.C >= threshold) rupture(s, i);
+      }
+    }
+    if (s.ruptured) s.rupT += dt;
+  }
+  totalFreeEnergy = frameFE;
+
+  narTimer += dt;
+  if (narVisible && narTimer > 6) { narrativeEl.classList.remove('visible'); narVisible = false; }
+  if (!narVisible && narTimer > 9 && totalRuptures > narIdx * 3) advanceNarrative();
+
+  if (segments.length > MAX_SEGMENTS * 0.92) {
+    let removed = 0;
+    for (let i = segments.length - 1; i >= 0 && removed < 200; i--) {
+      if (segments[i].gen > 5 && !isVisible(segments[i].x, segments[i].y, 500 / cam.zoom)) { segments.splice(i, 1); removed++; }
+    }
+  }
+}
+
+// ═══ ENVIRONMENT RENDERING ═══
+function drawEnvironment() {
+  // ── SKY (above ground) ── soft warm gradient
+  const groundScreen = worldToScreen(0, 0);
+  const gy = groundScreen.y;
+
+  // Sky gradient
+  const skyGrd = ctx.createLinearGradient(0, 0, 0, max(0, gy));
+  skyGrd.addColorStop(0, '#e8dfd4');    // warm off-white top
+  skyGrd.addColorStop(0.5, '#ede6db');
+  skyGrd.addColorStop(1, '#f0ead9');   // slightly yellowed near ground
+  ctx.fillStyle = skyGrd;
+  ctx.fillRect(0, 0, W, max(0, gy));
+
+  // ── SUN ── rendered as soft radial glow, position affected by prior preference
+  const sunX = W * 0.75;
+  const sunY = min(gy * 0.15, 100);
+  const sunR = 60 + userPrior * 30;
+
+  // Outer halo
+  const halo = ctx.createRadialGradient(sunX, sunY, sunR * 0.3, sunX, sunY, sunR * 4);
+  halo.addColorStop(0, `rgba(255,230,140,${0.10 + userPrior * 0.08})`);
+  halo.addColorStop(0.4, `rgba(255,220,120,${0.04 + userPrior * 0.03})`);
+  halo.addColorStop(1, 'rgba(255,220,120,0)');
+  ctx.fillStyle = halo;
+  ctx.fillRect(0, 0, W, max(0, gy));
+
+  // Sun disc
+  const sunGrd = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, sunR);
+  sunGrd.addColorStop(0, `rgba(255,240,180,${0.6 + userPrior * 0.3})`);
+  sunGrd.addColorStop(0.5, `rgba(255,220,130,${0.25 + userPrior * 0.15})`);
+  sunGrd.addColorStop(1, 'rgba(255,210,100,0)');
+  ctx.fillStyle = sunGrd;
+  ctx.beginPath();
+  ctx.arc(sunX, sunY, sunR, 0, TAU);
+  ctx.fill();
+
+  // Light rays (subtle)
+  if (userPrior > 0.2) {
+    ctx.save();
+    ctx.globalAlpha = userPrior * 0.04;
+    for (let r = 0; r < 8; r++) {
+      const a = r * PI / 4 + sin(t * 0.1) * 0.05;
+      const rayLen = sunR * 5;
+      const grd = ctx.createLinearGradient(sunX, sunY, sunX + cos(a) * rayLen, sunY + sin(a) * rayLen);
+      grd.addColorStop(0, 'rgba(255,230,150,0.5)');
+      grd.addColorStop(1, 'rgba(255,230,150,0)');
+      ctx.strokeStyle = grd;
+      ctx.lineWidth = 8 + sin(t * 0.3 + r) * 3;
+      ctx.beginPath();
+      ctx.moveTo(sunX, sunY);
+      ctx.lineTo(sunX + cos(a) * rayLen, sunY + sin(a) * rayLen);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  // ── GROUND ── soil gradient
+  const soilGrd = ctx.createLinearGradient(0, max(0, gy), 0, H);
+  soilGrd.addColorStop(0, '#c2a87d');   // light soil surface
+  soilGrd.addColorStop(0.02, '#b09770');
+  soilGrd.addColorStop(0.15, '#8a7050');
+  soilGrd.addColorStop(0.5, '#6b5540');
+  soilGrd.addColorStop(1, '#4a3a2a');   // deep dark earth
+  ctx.fillStyle = soilGrd;
+  ctx.fillRect(0, max(0, gy), W, H - max(0, gy));
+
+  // ── MOISTURE ── blue diffusion below ground
+  // Moisture increases with depth and varies laterally
+  const moistureCount = 12;
+  for (let m = 0; m < moistureCount; m++) {
+    const mx = W * (0.1 + (m / moistureCount) * 0.8) + sin(t * 0.15 + m * 1.3) * 20;
+    const my = gy + (H - gy) * (0.2 + (m % 3) * 0.25) + sin(t * 0.1 + m) * 10;
+    const mr = 40 + sin(t * 0.08 + m * 0.7) * 15 + userPrior * 15;
+    const mAlpha = 0.04 + userPrior * 0.03 + sin(t * 0.12 + m * 0.5) * 0.01;
+
+    const moistGrd = ctx.createRadialGradient(mx, my, 0, mx, my, mr);
+    moistGrd.addColorStop(0, `rgba(80,130,180,${mAlpha})`);
+    moistGrd.addColorStop(0.6, `rgba(60,110,160,${mAlpha * 0.4})`);
+    moistGrd.addColorStop(1, 'rgba(50,100,150,0)');
+    ctx.fillStyle = moistGrd;
+    ctx.beginPath();
+    ctx.arc(mx, my, mr, 0, TAU);
+    ctx.fill();
+  }
+
+  // Deeper moisture band
+  const deepBand = ctx.createLinearGradient(0, H * 0.7, 0, H);
+  deepBand.addColorStop(0, 'rgba(60,110,160,0)');
+  deepBand.addColorStop(0.5, `rgba(60,110,160,${0.03 + userPrior * 0.02})`);
+  deepBand.addColorStop(1, `rgba(50,90,140,${0.05 + userPrior * 0.03})`);
+  ctx.fillStyle = deepBand;
+  ctx.fillRect(0, gy, W, H - gy);
+
+  // ── GROUND LINE ── Markov blanket
+  ctx.strokeStyle = 'rgba(100,80,50,.25)';
+  ctx.lineWidth = max(1, 2 * cam.zoom * 0.008);
+  ctx.beginPath();
+  ctx.moveTo(gLeft_x, gy);
+  ctx.lineTo(gRight_x, gy);
+  ctx.stroke();
+
+  // Grass tufts along ground line
+  ctx.strokeStyle = 'rgba(90,110,50,.18)';
+  ctx.lineWidth = 1;
+  const grassSpacing = max(8, 20 / cam.zoom);
+  for (let gx = 0; gx < W; gx += grassSpacing) {
+    const wpos = screenToWorld(gx, gy);
+    if (abs(wpos.x) > 800 / cam.zoom) continue;
+    const h = 4 + sin(gx * 0.3 + t * 0.5) * 2;
+    ctx.beginPath();
+    ctx.moveTo(gx, gy);
+    ctx.lineTo(gx + sin(t * 0.4 + gx * 0.1) * 2, gy - h);
+    ctx.stroke();
+  }
+}
+
+// Precompute ground line screen positions
+let gLeft_x = 0, gRight_x = 0;
+
+// ═══ DRAW ═══
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+
+  // Background
+  ctx.fillStyle = '#f4f1eb';
+  ctx.fillRect(0, 0, W, H);
+
+  const gl = worldToScreen(-5000, 0);
+  const gr_pt = worldToScreen(5000, 0);
+  gLeft_x = gl.x;
+  gRight_x = gr_pt.x;
+
+  // Draw environment (sky, sun, soil, moisture)
+  drawEnvironment();
+
+  // Ground glow at base of tree
+  const gc = worldToScreen(0, 0);
+  const glowR = max(30, 120 * cam.zoom);
+  if (gc.x > -glowR && gc.x < W + glowR) {
+    const grd = ctx.createRadialGradient(gc.x, gc.y, 0, gc.x, gc.y, glowR);
+    grd.addColorStop(0, 'rgba(100,80,40,.08)');
+    grd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grd;
+    ctx.fillRect(gc.x - glowR, gc.y - glowR, glowR * 2, glowR * 2);
+  }
+
+  ctx.lineCap = 'round';
+  const maxGen = max(maxGenUp, maxGenDown);
+  const lenRatio = getLenRatio();
+
+  for (let g = 0; g <= maxGen; g++) {
+    const rootSegs = [], branchSegs = [];
+
+    for (let i = 0; i < segments.length; i++) {
+      const s = segments[i];
+      if (s.gen !== g || s.growth < 0.01) continue;
+      const grw = min(1, s.growth);
+      const tip = tipPos(s);
+      const s1 = worldToScreen(s.x, s.y);
+      const s2 = worldToScreen(tip.x, tip.y);
+      const margin = 60;
+      const onScreen = !(s1.x < -margin && s2.x < -margin) && !(s1.x > W + margin && s2.x > W + margin) && !(s1.y < -margin && s2.y < -margin) && !(s1.y > H + margin && s2.y > H + margin);
+      if (!onScreen) continue;
+      const pixLen = sqrt((s2.x - s1.x) ** 2 + (s2.y - s1.y) ** 2);
+      if (pixLen < 0.3) continue;
+      const entry = { s, s1, s2, grw, tip, pixLen };
+      if (s.isRoot) rootSegs.push(entry); else branchSegs.push(entry);
+    }
+
+    // Roots — earthy browns/ambers
+    for (const { s, s1, s2, grw, tip, pixLen } of rootSegs) {
+      const fade = pow(0.88, s.gen);
+      const d = s.gen * 3;
+
+      if (s.ruptured && s.rupT < 0.5) {
+        const flash = max(0, 1 - s.rupT / 0.5);
+        const glR = max(2, (3 + flash * 5) * cam.zoom * pow(lenRatio, s.gen));
+        ctx.beginPath(); ctx.arc(s2.x, s2.y, min(glR, 30), 0, TAU);
+        ctx.fillStyle = `rgba(180,140,60,${flash * 0.3 * fade})`; ctx.fill();
+      }
+      if (!s.ruptured && s.growth >= 0.92 && s.C > 0) {
+        const normC = min(1, s.C / C_STAR);
+        const glR = max(1.5, (2 + normC * 5) * cam.zoom * pow(lenRatio, s.gen));
+        ctx.beginPath(); ctx.arc(s2.x, s2.y, min(glR, 25), 0, TAU);
+        // Blue tint for roots seeking moisture
+        ctx.fillStyle = `rgba(100,140,180,${normC * 0.18 * fade})`; ctx.fill();
+      }
+      const mx = (s1.x + s2.x) / 2 + sin(s.angle + PI / 2) * pixLen * s.curve;
+      const my = (s1.y + s2.y) / 2 + cos(s.angle + PI / 2) * pixLen * s.curve;
+      ctx.beginPath(); ctx.moveTo(s1.x, s1.y); ctx.quadraticCurveTo(mx, my, s2.x, s2.y);
+      ctx.strokeStyle = `rgba(${90 + d * 0.5 | 0},${65 + d * 0.3 | 0},${35 + d * 0.15 | 0},${0.7 * fade})`;
+      ctx.lineWidth = max(0.3, s.width * grw * cam.zoom);
+      ctx.stroke();
+    }
+
+    // Branches — warm greens/browns
+    for (const { s, s1, s2, grw, tip, pixLen } of branchSegs) {
+      const fade = pow(0.88, s.gen);
+      const d = s.gen * 2.5;
+      const precFactor = min(1, userPrecision / 2);
+
+      if (s.ruptured && s.rupT < 0.5) {
+        const flash = max(0, 1 - s.rupT / 0.5);
+        const glR = max(2, (3 + flash * 5) * cam.zoom * pow(lenRatio, s.gen));
+        ctx.beginPath(); ctx.arc(s2.x, s2.y, min(glR, 30), 0, TAU);
+        const epB = 40 + userEpistemic * 100;
+        ctx.fillStyle = `rgba(120,180,${epB|0},${flash * 0.35 * fade})`; ctx.fill();
+      }
+      if (!s.ruptured && s.growth >= 0.92 && s.C > 0) {
+        const normC = min(1, s.C / C_STAR);
+        const glR = max(1.5, (2 + normC * 5) * cam.zoom * pow(lenRatio, s.gen));
+        ctx.beginPath(); ctx.arc(s2.x, s2.y, min(glR, 25), 0, TAU);
+        // Warm amber glow — free energy accumulating
+        ctx.fillStyle = `rgba(200,170,60,${normC * 0.22 * fade})`; ctx.fill();
+      }
+      const mx = (s1.x + s2.x) / 2 + sin(s.angle + PI / 2) * pixLen * s.curve;
+      const my = (s1.y + s2.y) / 2 + cos(s.angle + PI / 2) * pixLen * s.curve;
+      ctx.beginPath(); ctx.moveTo(s1.x, s1.y); ctx.quadraticCurveTo(mx, my, s2.x, s2.y);
+      // Older generations are brown trunk; younger are green tips
+      const greenness = min(1, s.gen / 8);
+      const r = 70 + (1 - greenness) * 30 + d * 0.5;
+      const gn = 55 + greenness * 50 + d * 0.8 + precFactor * 10;
+      const b = 30 + d * 0.2 + userEpistemic * greenness * 20;
+      ctx.strokeStyle = `rgba(${r|0},${gn|0},${b|0},${0.75 * fade})`;
+      ctx.lineWidth = max(0.3, s.width * grw * cam.zoom);
+      ctx.stroke();
+    }
+  }
+
+  // ═══ HUD ═══
+  const tips = segments.filter(s => !s.ruptured);
+  const avgFE = tips.length ? tips.reduce((a, s) => a + s.freeEnergy, 0) / tips.length : 0;
+  const avgPE = tips.length ? tips.reduce((a, s) => a + s.predictionError, 0) / tips.length : 0;
+  const curMaxGen = maxGenForZoom();
+
+  hudEl.textContent =
+    `agents ${segments.length}  active tips ${tips.length}  belief updates ${totalRuptures}\n` +
+    `zoom ${cam.zoom < 10 ? cam.zoom.toFixed(2) : cam.zoom < 1000 ? cam.zoom.toFixed(0) : (cam.zoom/1000).toFixed(1)+'k'}`+
+    `  hierarchy depth ${curMaxGen}  branches ↑${maxGenUp}  roots ↓${maxGenDown}\n` +
+    `avg free energy ${avgFE.toFixed(3)}  avg prediction error ${avgPE.toFixed(3)}`;
+
+  fepHudEl.textContent =
+    `§ ACTIVE INFERENCE\n` +
+    `Precision Π = ${userPrecision.toFixed(2)}\n` +
+    `Prior preference C = ${userPrior.toFixed(2)}\n` +
+    `Epistemic balance ε = ${userEpistemic.toFixed(2)}\n` +
+    `──────────────────────\n` +
+    `F = complexity − accuracy\n` +
+    `Variational bound: F ≥ −ln P(o)\n` +
+    `Computational budget: ${MAX_SEGMENTS} agents\n` +
+    `(bounded rationality in action)`;
+}
+
+// ═══ LOOP ═══
+let lastT = 0;
+seed();
+setTimeout(() => { if (!hintVisible) return; document.getElementById('controls').classList.add('show'); }, 4000);
+
+function frame(ts) {
+  const dt = min(0.05, (ts - lastT) / 1000);
+  lastT = ts;
+  update(dt);
+  draw();
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+let clickT = 0;
+cv.addEventListener('click', e => { const now = performance.now(); if (now - clickT < 350) { seed(); narIdx = 0; } clickT = now; });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('explainer').classList.remove('open'); });
+</script>
+</body>
+</html>

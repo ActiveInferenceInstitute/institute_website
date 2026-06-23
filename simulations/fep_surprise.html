@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Minimization — Active Inference</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@300;400&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #48b8a4;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+        
+        #canvas { width: 100%; height: 100%; display: block; }
+        
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 90vw;
+        }
+        
+        .btn {
+            padding: 14px 24px;
+            background: rgba(15, 60, 55, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.95);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 400;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(15px);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 50, 50, 0.3);
+        }
+        
+        .btn:hover {
+            background: rgba(20, 80, 70, 0.95);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 25px rgba(0, 60, 60, 0.4);
+        }
+        
+        .btn.warning {
+            background: rgba(120, 60, 40, 0.9);
+            border-color: rgba(255, 180, 150, 0.4);
+        }
+        
+        .btn.warning:hover {
+            background: rgba(150, 70, 50, 0.95);
+            border-color: rgba(255, 200, 170, 0.6);
+        }
+        
+        .btn.danger {
+            background: rgba(100, 40, 50, 0.9);
+            border-color: rgba(255, 150, 150, 0.4);
+        }
+        
+        .btn.danger:hover {
+            background: rgba(130, 50, 60, 0.95);
+        }
+        
+        .title-area {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 1000;
+        }
+        
+        .title-area h1 {
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            color: rgba(15, 60, 55, 0.8);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+        }
+        
+        .title-area .mode-name {
+            font-size: 38px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: rgba(10, 80, 60, 0.98);
+            text-shadow: 0 2px 10px rgba(0, 50, 50, 0.3);
+        }
+        
+        .title-area .subtitle {
+            font-size: 15px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(15, 60, 55, 0.7);
+            margin-top: 6px;
+            font-weight: 300;
+        }
+        
+        /* Left panel - Fish's Internal Model */
+        .model-panel {
+            position: fixed;
+            top: 150px;
+            left: 25px;
+            width: 240px;
+            padding: 22px;
+            background: rgba(15, 60, 55, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 50, 50, 0.3);
+            z-index: 1000;
+        }
+        
+        .panel-title {
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            color: rgba(150, 255, 220, 0.7);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        
+        .belief-item {
+            margin-bottom: 16px;
+        }
+        
+        .belief-label {
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 6px;
+        }
+        
+        .belief-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        }
+        
+        .belief-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s ease, background 0.3s ease;
+        }
+        
+        .belief-value {
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .fill-prediction { background: linear-gradient(90deg, rgba(100, 200, 255, 0.6), rgba(100, 180, 255, 0.8)); }
+        .fill-surprise { background: linear-gradient(90deg, rgba(255, 180, 100, 0.6), rgba(255, 120, 80, 0.9)); }
+        .fill-coherence { background: linear-gradient(90deg, rgba(100, 255, 180, 0.6), rgba(100, 255, 200, 0.8)); }
+        .fill-precision { background: linear-gradient(90deg, rgba(180, 150, 255, 0.6), rgba(150, 120, 255, 0.8)); }
+        
+        /* Right panel - Response Stats */
+        .stats-panel {
+            position: fixed;
+            top: 150px;
+            right: 25px;
+            width: 260px;
+            padding: 22px;
+            background: rgba(15, 60, 55, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 50, 50, 0.3);
+            z-index: 1000;
+        }
+        
+        .response-section {
+            margin-bottom: 20px;
+        }
+        
+        .response-label {
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(150, 255, 220, 0.6);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .response-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .response-option.active {
+            background: rgba(100, 255, 180, 0.15);
+            border-left: 3px solid rgba(100, 255, 180, 0.6);
+        }
+        
+        .response-icon {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        
+        .response-text {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .response-desc {
+            font-size: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 2px;
+        }
+        
+        .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 18px 0;
+        }
+        
+        .slider-container {
+            margin-top: 15px;
+        }
+        
+        .slider-label {
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .slider {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: rgba(150, 255, 220, 0.9);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 100, 80, 0.4);
+        }
+        
+        /* Fish thought bubble */
+        .fish-thought {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+        
+        .fish-thought.visible {
+            opacity: 1;
+        }
+        
+        .thought-bubble {
+            max-width: 200px;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 50, 50, 0.2);
+            position: relative;
+        }
+        
+        .thought-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 20px;
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            transform: scale(0.6);
+        }
+        
+        .thought-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 12px;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            transform: scale(0.4);
+        }
+        
+        .thought-text {
+            font-size: 14px;
+            color: rgba(20, 60, 50, 0.9);
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        .thought-surprise {
+            color: rgba(200, 80, 60, 0.95);
+            font-weight: 500;
+        }
+        
+        /* Virtual Karl Friston */
+        .karl-container {
+            position: fixed;
+            bottom: 100px;
+            left: 30px;
+            display: flex;
+            align-items: flex-end;
+            gap: 15px;
+            z-index: 1001;
+        }
+        
+        .karl-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a4a45 0%, #0f3530 100%);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 30px rgba(0, 50, 50, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .karl-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(100, 255, 200, 0.3) 0%, transparent 70%);
+            animation: karlPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes karlPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .speech-bubble {
+            max-width: 360px;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(15, 60, 55, 0.2);
+            border-radius: 4px;
+            box-shadow: 0 4px 40px rgba(0, 50, 50, 0.25);
+            position: relative;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+        }
+        
+        .speech-bubble.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: 18px;
+            left: -8px;
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            border-left: 1px solid rgba(15, 60, 55, 0.2);
+            border-bottom: 1px solid rgba(15, 60, 55, 0.2);
+            transform: rotate(45deg);
+        }
+        
+        .karl-name {
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            color: rgba(15, 80, 70, 0.7);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .karl-quote {
+            font-size: 15px;
+            color: rgba(20, 50, 45, 0.9);
+            line-height: 1.6;
+            font-style: italic;
+            font-weight: 300;
+        }
+        
+        .karl-quote em {
+            font-style: normal;
+            color: rgba(0, 120, 90, 0.95);
+            font-weight: 500;
+        }
+        
+        /* Surprise flash overlay */
+        .surprise-flash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 150, 100, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.1s ease;
+            z-index: 998;
+        }
+        
+        .surprise-flash.active {
+            opacity: 1;
+        }
+        
+        .click-hint {
+            position: fixed;
+            bottom: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(15, 60, 55, 0.6);
+            letter-spacing: 1px;
+        }
+    </style>
+
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body>
+<a href="./" class="aii-floating-back">&#8592; Back to Catalog</a>
+    <canvas id="canvas"></canvas>
+    
+    <div class="surprise-flash" id="surpriseFlash"></div>
+    
+    <div class="title-area">
+        <h1>Active Inference</h1>
+        <div class="mode-name">Surprise Minimization</div>
+        <div class="subtitle">The fish predicts — you decide what happens</div>
+    </div>
+    
+    <div class="model-panel">
+        <div class="panel-title">Fish's Internal Model</div>
+        
+        <div class="belief-item">
+            <div class="belief-label">Prediction Confidence</div>
+            <div class="belief-bar"><div class="belief-fill fill-prediction" id="predictionBar" style="width: 70%"></div></div>
+            <div class="belief-value" id="predictionValue">High — "I know this world"</div>
+        </div>
+        
+        <div class="belief-item">
+            <div class="belief-label">Current Surprise (ε)</div>
+            <div class="belief-bar"><div class="belief-fill fill-surprise" id="surpriseBar" style="width: 10%"></div></div>
+            <div class="belief-value" id="surpriseValue">Low — predictions match reality</div>
+        </div>
+        
+        <div class="belief-item">
+            <div class="belief-label">Model Evidence</div>
+            <div class="belief-bar"><div class="belief-fill fill-coherence" id="coherenceBar" style="width: 50%"></div></div>
+            <div class="belief-value" id="coherenceValue">Building stable model...</div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="belief-item">
+            <div class="belief-label">Expected Food Zones</div>
+            <div class="belief-value" id="foodZoneValue">Upper region (learned)</div>
+        </div>
+        
+        <div class="belief-item">
+            <div class="belief-label">Danger Model</div>
+            <div class="belief-value" id="dangerValue">No threats detected</div>
+        </div>
+    </div>
+    
+    <div class="stats-panel">
+        <div class="panel-title">Response to Surprise</div>
+        
+        <div class="response-section">
+            <div class="response-label">Two ways to minimize free energy</div>
+            
+            <div class="response-option" id="perceptionResponse">
+                <div class="response-icon">🧠</div>
+                <div>
+                    <div class="response-text">Update Beliefs</div>
+                    <div class="response-desc">Change internal model (perception)</div>
+                </div>
+            </div>
+            
+            <div class="response-option" id="actionResponse">
+                <div class="response-icon">🏊</div>
+                <div>
+                    <div class="response-text">Change the World</div>
+                    <div class="response-desc">Move to expected territory (action)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="slider-container">
+            <div class="slider-label">
+                <span>Sensory Precision (π)</span>
+                <span id="flexValue">0.50</span>
+            </div>
+            <input type="range" class="slider" id="flexSlider" min="0.1" max="1.0" step="0.05" value="0.5">
+            <div class="belief-value" style="margin-top: 8px;">Low = trust priors, High = trust sensory data</div>
+        </div>
+    </div>
+    
+    <div class="fish-thought" id="fishThought">
+        <div class="thought-bubble">
+            <div class="thought-text" id="thoughtText">Food usually comes from above...</div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button class="btn" id="dropFood">🍕 Drop Food</button>
+        <button class="btn warning" id="dropWeird">❓ Drop Strange Object</button>
+        <button class="btn danger" id="dropPredator">🦈 Predator Shadow</button>
+        <button class="btn" id="resetBtn">↺ Reset</button>
+    </div>
+    
+    <div class="click-hint">Click anywhere to interact • Watch the fish's predictions update</div>
+    
+    <div class="karl-container">
+        <div class="karl-avatar">
+            <div class="karl-glow"></div>
+            <span>🧠</span>
+        </div>
+        <div class="speech-bubble" id="speechBubble">
+            <div class="karl-name">Prof. Karl Friston</div>
+            <div class="karl-quote" id="karlQuote">
+                The fish doesn't just <em>react</em> to the world — it <em>predicts</em> it...
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        /*
+         * SURPRISE MINIMIZATION — FEP PEDAGOGY SIMULATION
+         * ================================================
+         * 
+         * Core Principle: Living systems minimize surprise (prediction error)
+         * 
+         * THE FISH HAS BELIEFS:
+         *   - Where food appears (learned distribution)
+         *   - What objects are safe vs dangerous
+         *   - Expected environmental patterns
+         * 
+         * TWO RESPONSES TO SURPRISE:
+         *   1. PERCEPTION: Update beliefs to match reality
+         *   2. ACTION: Move to make reality match beliefs
+         * 
+         * IMPLEMENTATION:
+         *   - Precision-weighted prediction error drives belief updates
+         *   - Model evidence accumulates through successful predictions
+         *   - Bayesian belief updating with configurable sensory precision
+         */
+        
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resize() {
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = window.innerWidth * dpr;
+            canvas.height = window.innerHeight * dpr;
+            ctx.scale(dpr, dpr);
+        }
+        resize();
+        window.addEventListener('resize', resize);
+        
+        // =====================================================
+        // THE FISH — An Active Inference Agent
+        // =====================================================
+        
+        const Fish = {
+            x: window.innerWidth / 2,
+            y: window.innerHeight / 2,
+            vx: 0,
+            vy: 0,
+            angle: 0,
+            targetAngle: 0,
+            speed: 1.5,
+            
+            // Body parameters
+            bodyLength: 60,
+            bodyWidth: 25,
+            
+            // Swimming animation
+            swimPhase: 0,
+            
+            // ===== GENERATIVE MODEL (Beliefs) =====
+            beliefs: {
+                // Where food typically appears
+                foodZone: { x: window.innerWidth / 2, y: 150, radius: 200 },
+                foodConfidence: 0.7,
+                
+                // Safe territory
+                safeZone: { x: window.innerWidth / 2, y: window.innerHeight / 2, radius: 300 },
+                
+                // Danger models
+                dangerActive: false,
+                dangerLocation: null,
+                dangerDecay: 0,
+                
+                // Environmental expectations
+                expectedObjects: ['food'], // Known object types
+            },
+            
+            // ===== INTERNAL DYNAMICS =====
+            C: 0,           // Model evidence accumulation
+            C_arch: 0,      // Long-term prior strength  
+            omega: 0.5,     // Precision parameter (user-controlled)
+            R: 1,           // Adaptation rate
+            
+            // ===== ACTIVE INFERENCE STATE =====
+            surprise: 0,           // Current prediction error
+            surpriseDecay: 0.95,   // How fast surprise fades
+            predictionConfidence: 0.7,
+            
+            // Current response mode
+            responseMode: null,    // 'perception' or 'action'
+            
+            // Behavioral state
+            state: 'exploring',    // 'exploring', 'foraging', 'fleeing', 'investigating'
+            target: null,
+            investigationTime: 0,
+            
+            // Thought display
+            currentThought: "Hmm, where's the food today?",
+            thoughtTimer: 0,
+            
+            // ===== CORE UPDATE =====
+            update: function(dt, worldObjects) {
+                this.swimPhase += 0.08;
+                
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                const margin = 100;
+                
+                // ===== PREDICTION & SURPRISE CALCULATION =====
+                this.calculateSurprise(worldObjects);
+                
+                // ===== BELIEF DYNAMICS =====
+                this.updateBeliefDynamics();
+                
+                // ===== DECIDE RESPONSE MODE =====
+                this.decideResponse();
+                
+                // ===== BEHAVIORAL UPDATES =====
+                this.updateBehavior(worldObjects, w, h, margin);
+                
+                // ===== MOVEMENT =====
+                this.updateMovement(w, h, margin);
+                
+                // ===== DECAY & UPDATES =====
+                this.surprise *= this.surpriseDecay;
+                if (this.beliefs.dangerDecay > 0) {
+                    this.beliefs.dangerDecay -= 0.005;
+                    if (this.beliefs.dangerDecay <= 0) {
+                        this.beliefs.dangerActive = false;
+                        this.setThought("The danger seems to have passed...");
+                    }
+                }
+                
+                this.thoughtTimer--;
+            },
+            
+            calculateSurprise: function(worldObjects) {
+                let totalSurprise = 0;
+                
+                worldObjects.forEach(obj => {
+                    if (obj.isNew && !obj.processed) {
+                        // Calculate how unexpected this object is
+                        let objectSurprise = 0;
+                        
+                        if (obj.type === 'food') {
+                            // Food in expected zone = low surprise
+                            const dx = obj.x - this.beliefs.foodZone.x;
+                            const dy = obj.y - this.beliefs.foodZone.y;
+                            const distFromExpected = Math.sqrt(dx*dx + dy*dy);
+                            
+                            if (distFromExpected < this.beliefs.foodZone.radius) {
+                                objectSurprise = 0.1; // Expected!
+                                this.setThought("Food! Right where I expected it.");
+                            } else {
+                                objectSurprise = 0.4; // Unexpected location
+                                this.setThought("Food appeared somewhere unexpected...");
+                            }
+                        } else if (obj.type === 'strange') {
+                            // Strange objects are VERY surprising
+                            objectSurprise = 0.8;
+                            this.setThought("What IS that?! I've never seen anything like it!", true);
+                        } else if (obj.type === 'predator') {
+                            // Predators activate danger model
+                            objectSurprise = 1.0;
+                            this.beliefs.dangerActive = true;
+                            this.beliefs.dangerLocation = { x: obj.x, y: obj.y };
+                            this.beliefs.dangerDecay = 1.0;
+                            this.setThought("DANGER! Must escape!", true);
+                        }
+                        
+                        totalSurprise += objectSurprise;
+                        obj.processed = true;
+                        obj.isNew = false;
+                    }
+                });
+                
+                // Add ongoing surprise from unresolved predictions
+                if (this.beliefs.dangerActive) {
+                    totalSurprise += 0.3 * this.beliefs.dangerDecay;
+                }
+                
+                this.surprise = Math.min(1, this.surprise + totalSurprise);
+            },
+            
+            updateBeliefDynamics: function() {
+                // Evidence accumulates when predictions succeed (low surprise)
+                const predictionSuccess = 1 - this.surprise;
+                this.C += predictionSuccess * 0.02;
+                this.C_arch += predictionSuccess * 0.005;
+                
+                // Phase transition threshold based on precision
+                const transitionThreshold = this.omega * 2;
+                
+                if (this.C >= transitionThreshold) {
+                    // Belief reorganisation moment
+                    this.C = 0;
+                    
+                    // Adaptation weighted by accumulated evidence
+                    this.R = Math.exp(this.C_arch / (this.omega * 5));
+                    this.R = Math.min(this.R, 3);
+                    
+                    // Higher R = more confident predictions after update
+                    this.predictionConfidence = Math.min(0.95, 0.5 + this.R * 0.15);
+                }
+                
+                // High surprise can also trigger reorganisation
+                if (this.surprise > 0.7) {
+                    this.C = 0; // Reset evidence
+                    // But prior strength provides stability
+                    const stability = Math.min(1, this.C_arch / 5);
+                    this.predictionConfidence = 0.3 + stability * 0.4;
+                }
+            },
+            
+            decideResponse: function() {
+                if (this.surprise < 0.2) {
+                    this.responseMode = null;
+                    return;
+                }
+                
+                // High precision = prefer perception (trust data, update beliefs)
+                // Low precision = prefer action (trust priors, change world/flee)
+                
+                const perceptionBias = this.omega;
+                const actionBias = 1 - this.omega;
+                
+                // Also depends on type of surprise
+                if (this.beliefs.dangerActive) {
+                    // Danger always triggers action (flee)
+                    this.responseMode = 'action';
+                } else if (this.surprise > 0.5) {
+                    // High surprise: weighted choice
+                    this.responseMode = Math.random() < perceptionBias ? 'perception' : 'action';
+                } else {
+                    // Moderate surprise: usually update beliefs
+                    this.responseMode = 'perception';
+                }
+                
+                // Update UI
+                document.getElementById('perceptionResponse').classList.toggle('active', this.responseMode === 'perception');
+                document.getElementById('actionResponse').classList.toggle('active', this.responseMode === 'action');
+            },
+            
+            updateBehavior: function(worldObjects, w, h, margin) {
+                // Find relevant objects
+                const foods = worldObjects.filter(o => o.type === 'food' && !o.eaten);
+                const strangeObjects = worldObjects.filter(o => o.type === 'strange' && o.alpha > 0.3);
+                
+                if (this.beliefs.dangerActive && this.beliefs.dangerLocation) {
+                    // FLEEING: Move away from danger
+                    this.state = 'fleeing';
+                    const dx = this.x - this.beliefs.dangerLocation.x;
+                    const dy = this.y - this.beliefs.dangerLocation.y;
+                    this.targetAngle = Math.atan2(dy, dx);
+                    this.speed = 3.5; // Fast!
+                    
+                } else if (strangeObjects.length > 0 && this.responseMode === 'perception') {
+                    // INVESTIGATING: Cautiously approach to update model
+                    this.state = 'investigating';
+                    const obj = strangeObjects[0];
+                    const dx = obj.x - this.x;
+                    const dy = obj.y - this.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    
+                    if (dist > 80) {
+                        this.targetAngle = Math.atan2(dy, dx);
+                        this.speed = 1.0;
+                    } else {
+                        // Close enough to "learn"
+                        this.investigationTime++;
+                        this.speed = 0.3;
+                        
+                        if (this.investigationTime > 60) {
+                            // Update beliefs: strange object is now "known"
+                            if (!this.beliefs.expectedObjects.includes('strange_' + obj.id)) {
+                                this.beliefs.expectedObjects.push('strange_' + obj.id);
+                                this.setThought("Interesting... I'll remember this pattern.");
+                                this.surprise *= 0.3; // Reduce surprise through learning
+                            }
+                            this.investigationTime = 0;
+                        }
+                    }
+                    
+                } else if (foods.length > 0) {
+                    // FORAGING: Pursue food
+                    this.state = 'foraging';
+                    const nearestFood = foods.reduce((nearest, f) => {
+                        const d = Math.sqrt((f.x - this.x)**2 + (f.y - this.y)**2);
+                        return d < nearest.dist ? { food: f, dist: d } : nearest;
+                    }, { food: null, dist: Infinity });
+                    
+                    if (nearestFood.food) {
+                        const dx = nearestFood.food.x - this.x;
+                        const dy = nearestFood.food.y - this.y;
+                        this.targetAngle = Math.atan2(dy, dx);
+                        this.speed = 2.0;
+                        
+                        // Check for eating
+                        if (nearestFood.dist < 30) {
+                            nearestFood.food.eaten = true;
+                            this.setThought("Delicious! My predictions were correct.");
+                            
+                            // Update food zone belief toward this location
+                            const learnRate = 0.1;
+                            this.beliefs.foodZone.x += (nearestFood.food.x - this.beliefs.foodZone.x) * learnRate;
+                            this.beliefs.foodZone.y += (nearestFood.food.y - this.beliefs.foodZone.y) * learnRate;
+                        }
+                    }
+                    
+                } else {
+                    // EXPLORING: Random movement with preference for believed food zone
+                    this.state = 'exploring';
+                    this.speed = 1.2;
+                    
+                    // Occasionally update target
+                    if (Math.random() < 0.02) {
+                        // Bias toward food zone
+                        const foodBias = 0.6;
+                        if (Math.random() < foodBias) {
+                            // Head toward food zone
+                            const dx = this.beliefs.foodZone.x - this.x + (Math.random() - 0.5) * 200;
+                            const dy = this.beliefs.foodZone.y - this.y + (Math.random() - 0.5) * 200;
+                            this.targetAngle = Math.atan2(dy, dx);
+                        } else {
+                            // Random exploration
+                            this.targetAngle += (Math.random() - 0.5) * 1.5;
+                        }
+                    }
+                    
+                    if (this.thoughtTimer <= 0 && Math.random() < 0.005) {
+                        const thoughts = [
+                            "Food usually appears above...",
+                            "I expect food in my usual spot.",
+                            "The world follows predictable patterns.",
+                            "My model of this world is quite good."
+                        ];
+                        this.setThought(thoughts[Math.floor(Math.random() * thoughts.length)]);
+                    }
+                }
+                
+                // Boundary avoidance
+                if (this.x < margin) this.targetAngle = 0;
+                if (this.x > w - margin) this.targetAngle = Math.PI;
+                if (this.y < margin) this.targetAngle = Math.PI / 2;
+                if (this.y > h - margin) this.targetAngle = -Math.PI / 2;
+            },
+            
+            updateMovement: function(w, h, margin) {
+                // Smooth angle pursuit
+                let angleDiff = this.targetAngle - this.angle;
+                while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+                while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+                
+                this.angle += angleDiff * 0.08;
+                
+                this.vx = Math.cos(this.angle) * this.speed;
+                this.vy = Math.sin(this.angle) * this.speed;
+                
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Soft bounds
+                this.x = Math.max(margin * 0.5, Math.min(w - margin * 0.5, this.x));
+                this.y = Math.max(margin * 0.5, Math.min(h - margin * 0.5, this.y));
+            },
+            
+            setThought: function(text, isSurprised = false) {
+                this.currentThought = text;
+                this.thoughtTimer = 180; // Show for ~3 seconds
+                
+                const thoughtEl = document.getElementById('thoughtText');
+                if (isSurprised) {
+                    thoughtEl.innerHTML = `<span class="thought-surprise">${text}</span>`;
+                } else {
+                    thoughtEl.textContent = text;
+                }
+            },
+            
+            draw: function(ctx) {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                
+                // Swimming wave
+                const wave = Math.sin(this.swimPhase) * 0.15;
+                
+                // Body gradient - darker for visibility on light water
+                const bodyGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, this.bodyLength * 0.8);
+                bodyGrad.addColorStop(0, `rgba(20, 100, 80, 0.95)`);
+                bodyGrad.addColorStop(0.5, `rgba(15, 80, 65, 0.9)`);
+                bodyGrad.addColorStop(1, `rgba(10, 60, 50, 0.7)`);
+                
+                // Main body
+                ctx.fillStyle = bodyGrad;
+                ctx.beginPath();
+                ctx.ellipse(0, 0, this.bodyLength * 0.5, this.bodyWidth * 0.5, 0, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Tail
+                ctx.fillStyle = 'rgba(15, 80, 65, 0.85)';
+                ctx.beginPath();
+                const tailWave = Math.sin(this.swimPhase - 2) * 15;
+                ctx.moveTo(-this.bodyLength * 0.4, 0);
+                ctx.quadraticCurveTo(
+                    -this.bodyLength * 0.6, tailWave,
+                    -this.bodyLength * 0.8, tailWave + 15
+                );
+                ctx.quadraticCurveTo(
+                    -this.bodyLength * 0.6, tailWave,
+                    -this.bodyLength * 0.8, tailWave - 15
+                );
+                ctx.closePath();
+                ctx.fill();
+                
+                // Dorsal fin
+                ctx.beginPath();
+                ctx.moveTo(0, -this.bodyWidth * 0.4);
+                ctx.quadraticCurveTo(
+                    -this.bodyLength * 0.1, -this.bodyWidth * 0.8 - wave * 10,
+                    -this.bodyLength * 0.25, -this.bodyWidth * 0.35
+                );
+                ctx.fill();
+                
+                // Eye
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+                ctx.beginPath();
+                ctx.arc(this.bodyLength * 0.25, -this.bodyWidth * 0.1, 6, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.fillStyle = 'rgba(20, 40, 35, 0.95)';
+                ctx.beginPath();
+                ctx.arc(this.bodyLength * 0.27, -this.bodyWidth * 0.1, 3, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Surprise indicator (eye gets bigger when surprised)
+                if (this.surprise > 0.3) {
+                    const eyeScale = 1 + this.surprise * 0.5;
+                    ctx.fillStyle = `rgba(255, 200, 150, ${this.surprise * 0.5})`;
+                    ctx.beginPath();
+                    ctx.arc(this.bodyLength * 0.25, -this.bodyWidth * 0.1, 8 * eyeScale, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                
+                ctx.restore();
+                
+                // Draw thought bubble position
+                this.updateThoughtPosition();
+            },
+            
+            updateThoughtPosition: function() {
+                const thoughtEl = document.getElementById('fishThought');
+                if (this.thoughtTimer > 0) {
+                    thoughtEl.style.left = (this.x + 40) + 'px';
+                    thoughtEl.style.top = (this.y - 80) + 'px';
+                    thoughtEl.classList.add('visible');
+                } else {
+                    thoughtEl.classList.remove('visible');
+                }
+            }
+        };
+        
+        // =====================================================
+        // WORLD OBJECTS
+        // =====================================================
+        
+        class WorldObject {
+            constructor(x, y, type) {
+                this.id = Math.random().toString(36).substr(2, 9);
+                this.x = x;
+                this.y = y;
+                this.type = type; // 'food', 'strange', 'predator'
+                this.alpha = 0;
+                this.targetAlpha = 1;
+                this.size = type === 'predator' ? 80 : (type === 'strange' ? 25 : 15);
+                this.age = 0;
+                this.eaten = false;
+                this.isNew = true;
+                this.processed = false;
+                this.phase = Math.random() * Math.PI * 2;
+                this.vy = type === 'food' ? 0.3 : 0;
+            }
+            
+            update() {
+                this.age++;
+                this.alpha += (this.targetAlpha - this.alpha) * 0.05;
+                this.phase += 0.05;
+                this.y += this.vy;
+                
+                // Predators fade out
+                if (this.type === 'predator' && this.age > 180) {
+                    this.targetAlpha = 0;
+                }
+                
+                // Strange objects slowly fade
+                if (this.type === 'strange' && this.age > 300) {
+                    this.targetAlpha = Math.max(0, this.targetAlpha - 0.003);
+                }
+                
+                return this.alpha > 0.01 && !this.eaten;
+            }
+            
+            draw(ctx) {
+                if (this.type === 'food') {
+                    this.drawFood(ctx);
+                } else if (this.type === 'strange') {
+                    this.drawStrange(ctx);
+                } else if (this.type === 'predator') {
+                    this.drawPredator(ctx);
+                }
+            }
+            
+            drawFood(ctx) {
+                const pulse = 1 + Math.sin(this.phase) * 0.1;
+                const size = this.size * pulse;
+                
+                // Warm glow
+                const glow = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, size * 3);
+                glow.addColorStop(0, `rgba(255, 200, 100, ${this.alpha * 0.6})`);
+                glow.addColorStop(0.5, `rgba(255, 150, 80, ${this.alpha * 0.3})`);
+                glow.addColorStop(1, `rgba(255, 100, 50, 0)`);
+                
+                ctx.fillStyle = glow;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, size * 3, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Core
+                ctx.fillStyle = `rgba(255, 220, 150, ${this.alpha})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            drawStrange(ctx) {
+                const wobble = Math.sin(this.phase * 2) * 5;
+                const size = this.size;
+                
+                // Weird pulsing glow
+                const glow = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, size * 3);
+                glow.addColorStop(0, `rgba(200, 100, 255, ${this.alpha * 0.5})`);
+                glow.addColorStop(0.5, `rgba(150, 50, 200, ${this.alpha * 0.3})`);
+                glow.addColorStop(1, `rgba(100, 0, 150, 0)`);
+                
+                ctx.fillStyle = glow;
+                ctx.beginPath();
+                ctx.arc(this.x + wobble, this.y, size * 3, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Strange shape (not circular)
+                ctx.fillStyle = `rgba(180, 80, 220, ${this.alpha})`;
+                ctx.beginPath();
+                for (let i = 0; i < 7; i++) {
+                    const angle = (i / 7) * Math.PI * 2 + this.phase;
+                    const r = size * (0.7 + Math.sin(angle * 3 + this.phase) * 0.3);
+                    const px = this.x + Math.cos(angle) * r + wobble;
+                    const py = this.y + Math.sin(angle) * r;
+                    if (i === 0) ctx.moveTo(px, py);
+                    else ctx.lineTo(px, py);
+                }
+                ctx.closePath();
+                ctx.fill();
+                
+                // Question mark
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha * 0.8})`;
+                ctx.font = '16px JetBrains Mono';
+                ctx.textAlign = 'center';
+                ctx.fillText('?', this.x + wobble, this.y + 5);
+            }
+            
+            drawPredator(ctx) {
+                // Menacing shadow
+                const size = this.size * (1 + Math.sin(this.phase) * 0.1);
+                
+                // Dark threatening gradient
+                const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, size);
+                grad.addColorStop(0, `rgba(30, 30, 40, ${this.alpha * 0.9})`);
+                grad.addColorStop(0.6, `rgba(20, 20, 30, ${this.alpha * 0.6})`);
+                grad.addColorStop(1, `rgba(10, 10, 20, 0)`);
+                
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.ellipse(this.x, this.y, size, size * 0.4, 0, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Evil eyes
+                const eyeOffset = size * 0.3;
+                ctx.fillStyle = `rgba(255, 50, 50, ${this.alpha})`;
+                ctx.beginPath();
+                ctx.arc(this.x - eyeOffset, this.y - 5, 6, 0, Math.PI * 2);
+                ctx.arc(this.x + eyeOffset, this.y - 5, 6, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // =====================================================
+        // KARL'S NARRATIVE ENGINE
+        // =====================================================
+        
+        const Karl = {
+            C: 0,
+            C_arch: 0,
+            omega: 4.0,
+            lastEvent: null,
+            
+            quotes: {
+                intro: [
+                    "The fish doesn't just <em>react</em> to the world — it <em>predicts</em> it...",
+                    "Every living system carries a <em>generative model</em> of its environment.",
+                    "Watch the fish. It has <em>expectations</em>. It <em>believes</em> things about the world."
+                ],
+                food_expected: [
+                    "Food in the expected zone — <em>low surprise</em>. The model is confirmed.",
+                    "Notice: minimal prediction error. The fish's beliefs match reality.",
+                    "This is the fish's preferred state — predictions fulfilled, free energy minimized."
+                ],
+                food_unexpected: [
+                    "Food appeared somewhere <em>unexpected</em>. The fish must update its beliefs.",
+                    "Prediction error! The fish's model said food appears elsewhere.",
+                    "Now watch: will it <em>update</em> its beliefs, or <em>act</em> to seek expected territory?"
+                ],
+                strange: [
+                    "Something <em>entirely unexpected</em> — maximum surprise!",
+                    "The fish has no model for this. Its free energy spikes dramatically.",
+                    "Watch its response: it might <em>investigate</em> to update its model, or <em>flee</em> to safety."
+                ],
+                predator: [
+                    "<em>Danger!</em> The fish's survival prior overrides everything.",
+                    "Notice: action takes precedence over perception when stakes are high.",
+                    "The fish doesn't need to <em>understand</em> the predator — it needs to <em>escape</em>."
+                ],
+                flexibility_low: [
+                    "Low sensory precision means the fish <em>trusts its priors</em> over incoming data.",
+                    "With low π, prediction errors are downweighted — the fish resists updating its beliefs.",
+                    "Strong priors can be protective — but they resist learning from unexpected evidence."
+                ],
+                flexibility_high: [
+                    "High sensory precision means the fish <em>trusts the data</em> over its priors.",
+                    "With high π, prediction errors drive rapid <em>belief updating</em>.",
+                    "Precise sensory data allows rapid adaptation — but can make behaviour unstable."
+                ],
+                perception_response: [
+                    "The fish chose <em>perception</em>: updating beliefs to match the world.",
+                    "Watch it approach the unexpected. It's <em>learning</em>, reducing free energy through model update.",
+                    "This is epistemic action — moving to <em>reduce uncertainty</em> rather than to confirm expectations."
+                ],
+                action_response: [
+                    "The fish chose <em>action</em>: changing position to match its predictions.",
+                    "By swimming to expected territory, the fish makes reality conform to beliefs.",
+                    "This is pragmatic action — reducing prediction error by <em>controlling outcomes</em>."
+                ]
+            },
+            
+            currentCategory: 'intro',
+            quoteIndex: 0,
+            
+            update: function(fishState) {
+                this.C += 0.01;
+                this.C_arch += 0.002;
+                
+                // Narrative phase transition
+                if (this.C >= this.omega) {
+                    this.C = 0;
+                    this.advanceNarrative(fishState);
+                }
+            },
+            
+            triggerEvent: function(eventType) {
+                this.lastEvent = eventType;
+                this.C = this.omega * 0.8; // Almost rupture
+                this.showQuoteFromCategory(eventType);
+            },
+            
+            advanceNarrative: function(fishState) {
+                // Choose category based on current state
+                let category = 'intro';
+                
+                if (fishState.responseMode === 'perception') {
+                    category = 'perception_response';
+                } else if (fishState.responseMode === 'action') {
+                    category = 'action_response';
+                } else if (fishState.omega < 0.35) {
+                    category = 'flexibility_low';
+                } else if (fishState.omega > 0.65) {
+                    category = 'flexibility_high';
+                }
+                
+                this.showQuoteFromCategory(category);
+            },
+            
+            showQuoteFromCategory: function(category) {
+                const quotes = this.quotes[category];
+                if (!quotes) return;
+                
+                const quote = quotes[Math.floor(Math.random() * quotes.length)];
+                this.showQuote(quote);
+            },
+            
+            showQuote: function(text) {
+                const bubble = document.getElementById('speechBubble');
+                const quoteEl = document.getElementById('karlQuote');
+                
+                bubble.classList.remove('visible');
+                setTimeout(() => {
+                    quoteEl.innerHTML = text;
+                    bubble.classList.add('visible');
+                }, 200);
+            },
+            
+            init: function() {
+                setTimeout(() => {
+                    document.getElementById('speechBubble').classList.add('visible');
+                }, 800);
+            }
+        };
+        
+        // =====================================================
+        // STATE & ENVIRONMENT
+        // =====================================================
+        
+        const state = {
+            objects: [],
+            time: 0,
+            caustics: [],
+            plankton: []
+        };
+        
+        // Initialize caustics
+        for (let i = 0; i < 12; i++) {
+            state.caustics.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                size: 80 + Math.random() * 150,
+                phase: Math.random() * Math.PI * 2,
+                speed: 0.003 + Math.random() * 0.006,
+                intensity: 0.02 + Math.random() * 0.03
+            });
+        }
+        
+        // Initialize plankton
+        for (let i = 0; i < 60; i++) {
+            state.plankton.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                size: 0.5 + Math.random() * 1.5,
+                alpha: 0.1 + Math.random() * 0.15,
+                drift: Math.random() * Math.PI * 2,
+                driftSpeed: 0.01 + Math.random() * 0.02
+            });
+        }
+        
+        // =====================================================
+        // RENDERING
+        // =====================================================
+        
+        function renderEnvironment() {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            
+            // Beautiful viridian water
+            const bg = ctx.createLinearGradient(0, 0, 0, h);
+            bg.addColorStop(0, '#7dd8c4');
+            bg.addColorStop(0.3, '#5cc9b5');
+            bg.addColorStop(0.6, '#48b8a4');
+            bg.addColorStop(1, '#2d9a86');
+            ctx.fillStyle = bg;
+            ctx.fillRect(0, 0, w, h);
+            
+            // Sunlight
+            const light = ctx.createRadialGradient(w * 0.35, -h * 0.1, 0, w * 0.35, h * 0.6, h);
+            light.addColorStop(0, 'rgba(255, 255, 240, 0.3)');
+            light.addColorStop(0.3, 'rgba(255, 255, 220, 0.15)');
+            light.addColorStop(1, 'rgba(200, 255, 240, 0)');
+            ctx.fillStyle = light;
+            ctx.fillRect(0, 0, w, h);
+            
+            // God rays
+            ctx.save();
+            ctx.globalAlpha = 0.06;
+            for (let i = 0; i < 4; i++) {
+                const rayX = w * (0.2 + i * 0.2);
+                const rayWidth = 50 + Math.sin(state.time * 0.01 + i) * 20;
+                
+                const rayGrad = ctx.createLinearGradient(rayX, 0, rayX, h);
+                rayGrad.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
+                rayGrad.addColorStop(0.5, 'rgba(255, 255, 240, 0.3)');
+                rayGrad.addColorStop(1, 'rgba(200, 255, 240, 0)');
+                
+                ctx.fillStyle = rayGrad;
+                ctx.beginPath();
+                ctx.moveTo(rayX - rayWidth/2, 0);
+                ctx.lineTo(rayX + rayWidth/2, 0);
+                ctx.lineTo(rayX + rayWidth * 1.5, h);
+                ctx.lineTo(rayX - rayWidth * 0.5, h);
+                ctx.closePath();
+                ctx.fill();
+            }
+            ctx.restore();
+            
+            // Caustics
+            state.caustics.forEach(c => {
+                c.phase += c.speed;
+                const x = c.x + Math.sin(c.phase) * 40;
+                const y = c.y + Math.cos(c.phase * 0.7) * 25;
+                const intensity = c.intensity * (0.6 + Math.sin(c.phase * 1.3) * 0.4);
+                
+                const grad = ctx.createRadialGradient(x, y, 0, x, y, c.size);
+                grad.addColorStop(0, `rgba(255, 255, 255, ${intensity})`);
+                grad.addColorStop(0.4, `rgba(220, 255, 250, ${intensity * 0.5})`);
+                grad.addColorStop(1, 'rgba(180, 250, 240, 0)');
+                
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.ellipse(x, y, c.size, c.size * 0.6, Math.sin(c.phase * 0.5) * 0.3, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Plankton
+            state.plankton.forEach(p => {
+                p.drift += p.driftSpeed;
+                p.x += Math.sin(p.drift) * 0.3;
+                p.y += Math.cos(p.drift * 0.7) * 0.2;
+                
+                if (p.y < 0) p.y = h;
+                if (p.x < 0) p.x = w;
+                if (p.x > w) p.x = 0;
+                
+                ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha * 0.4})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Draw expected food zone (faint indicator)
+            if (Fish.beliefs.foodConfidence > 0.3) {
+                const zone = Fish.beliefs.foodZone;
+                const zoneGrad = ctx.createRadialGradient(zone.x, zone.y, 0, zone.x, zone.y, zone.radius);
+                zoneGrad.addColorStop(0, `rgba(255, 220, 150, ${Fish.beliefs.foodConfidence * 0.08})`);
+                zoneGrad.addColorStop(0.7, `rgba(255, 200, 100, ${Fish.beliefs.foodConfidence * 0.03})`);
+                zoneGrad.addColorStop(1, 'rgba(255, 180, 80, 0)');
+                
+                ctx.fillStyle = zoneGrad;
+                ctx.beginPath();
+                ctx.arc(zone.x, zone.y, zone.radius, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Subtle border
+                ctx.strokeStyle = `rgba(255, 200, 100, ${Fish.beliefs.foodConfidence * 0.2})`;
+                ctx.lineWidth = 1;
+                ctx.setLineDash([5, 10]);
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+        }
+        
+        function updateUI() {
+            // Prediction confidence
+            const predBar = document.getElementById('predictionBar');
+            const predValue = document.getElementById('predictionValue');
+            predBar.style.width = (Fish.predictionConfidence * 100) + '%';
+            if (Fish.predictionConfidence > 0.7) {
+                predValue.textContent = 'High — "I know this world"';
+            } else if (Fish.predictionConfidence > 0.4) {
+                predValue.textContent = 'Moderate — still learning';
+            } else {
+                predValue.textContent = 'Low — world is unpredictable';
+            }
+            
+            // Surprise
+            const surpriseBar = document.getElementById('surpriseBar');
+            const surpriseValue = document.getElementById('surpriseValue');
+            surpriseBar.style.width = (Fish.surprise * 100) + '%';
+            if (Fish.surprise > 0.7) {
+                surpriseValue.textContent = 'HIGH — predictions violated!';
+            } else if (Fish.surprise > 0.3) {
+                surpriseValue.textContent = 'Moderate — something unexpected';
+            } else {
+                surpriseValue.textContent = 'Low — predictions match reality';
+            }
+            
+            // Coherence (CRR hidden as "model stability")
+            const cohBar = document.getElementById('coherenceBar');
+            const cohValue = document.getElementById('coherenceValue');
+            const cohLevel = (Fish.C / (Fish.omega * 2)) * 100;
+            cohBar.style.width = Math.min(100, cohLevel) + '%';
+            if (Fish.C_arch > 3) {
+                cohValue.textContent = 'Strong accumulated model';
+            } else if (Fish.C_arch > 1) {
+                cohValue.textContent = 'Building stable model...';
+            } else {
+                cohValue.textContent = 'Learning the world...';
+            }
+            
+            // Food zone
+            const foodZoneValue = document.getElementById('foodZoneValue');
+            if (Fish.beliefs.foodZone.y < window.innerHeight * 0.4) {
+                foodZoneValue.textContent = 'Upper region (learned)';
+            } else if (Fish.beliefs.foodZone.y > window.innerHeight * 0.6) {
+                foodZoneValue.textContent = 'Lower region (learned)';
+            } else {
+                foodZoneValue.textContent = 'Center region (learned)';
+            }
+            
+            // Danger
+            const dangerValue = document.getElementById('dangerValue');
+            if (Fish.beliefs.dangerActive) {
+                dangerValue.textContent = '⚠️ THREAT DETECTED';
+                dangerValue.style.color = 'rgba(255, 150, 150, 0.9)';
+            } else {
+                dangerValue.textContent = 'No threats detected';
+                dangerValue.style.color = 'rgba(255, 255, 255, 0.6)';
+            }
+            
+            // Surprise flash
+            const flash = document.getElementById('surpriseFlash');
+            flash.classList.toggle('active', Fish.surprise > 0.5);
+        }
+        
+        // =====================================================
+        // MAIN LOOP
+        // =====================================================
+        
+        function animate() {
+            state.time++;
+            
+            // Update fish
+            Fish.omega = parseFloat(document.getElementById('flexSlider').value);
+            Fish.update(16, state.objects);
+            
+            // Update objects
+            state.objects = state.objects.filter(obj => obj.update());
+            
+            // Update Karl
+            Karl.update(Fish);
+            
+            // Render
+            renderEnvironment();
+            state.objects.forEach(obj => obj.draw(ctx));
+            Fish.draw(ctx);
+            
+            updateUI();
+            
+            requestAnimationFrame(animate);
+        }
+        
+        // =====================================================
+        // EVENT HANDLERS
+        // =====================================================
+        
+        document.getElementById('dropFood').addEventListener('click', () => {
+            const x = Fish.beliefs.foodZone.x + (Math.random() - 0.5) * 150;
+            const y = Math.random() * 200 + 50; // Near top
+            state.objects.push(new WorldObject(x, y, 'food'));
+            Karl.triggerEvent('food_expected');
+        });
+        
+        document.getElementById('dropWeird').addEventListener('click', () => {
+            const x = Math.random() * (window.innerWidth - 300) + 150;
+            const y = Math.random() * (window.innerHeight - 300) + 150;
+            state.objects.push(new WorldObject(x, y, 'strange'));
+            Karl.triggerEvent('strange');
+        });
+        
+        document.getElementById('dropPredator').addEventListener('click', () => {
+            // Predator appears near fish
+            const angle = Math.random() * Math.PI * 2;
+            const dist = 150 + Math.random() * 100;
+            const x = Fish.x + Math.cos(angle) * dist;
+            const y = Fish.y + Math.sin(angle) * dist;
+            state.objects.push(new WorldObject(x, y, 'predator'));
+            Karl.triggerEvent('predator');
+        });
+        
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            state.objects = [];
+            Fish.x = window.innerWidth / 2;
+            Fish.y = window.innerHeight / 2;
+            Fish.beliefs.foodZone = { x: window.innerWidth / 2, y: 150, radius: 200 };
+            Fish.beliefs.dangerActive = false;
+            Fish.surprise = 0;
+            Fish.C = 0;
+            Fish.C_arch = 0;
+            Fish.predictionConfidence = 0.7;
+            Fish.setThought("A fresh start. What will I learn?");
+            Karl.showQuote("Let's begin again. Watch how the fish builds its model of the world...");
+        });
+        
+        document.getElementById('flexSlider').addEventListener('input', (e) => {
+            document.getElementById('flexValue').textContent = parseFloat(e.target.value).toFixed(2);
+            
+            // Trigger relevant Karl commentary about precision
+            if (parseFloat(e.target.value) < 0.3) {
+                Karl.triggerEvent('flexibility_low');
+            } else if (parseFloat(e.target.value) > 0.7) {
+                Karl.triggerEvent('flexibility_high');
+            }
+        });
+        
+        // Click anywhere to drop food at unexpected location
+        canvas.addEventListener('click', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            // Check if click is in expected food zone
+            const dx = x - Fish.beliefs.foodZone.x;
+            const dy = y - Fish.beliefs.foodZone.y;
+            const inExpectedZone = Math.sqrt(dx*dx + dy*dy) < Fish.beliefs.foodZone.radius;
+            
+            state.objects.push(new WorldObject(x, y, 'food'));
+            
+            if (inExpectedZone) {
+                Karl.triggerEvent('food_expected');
+            } else {
+                Karl.triggerEvent('food_unexpected');
+            }
+        });
+        
+        // Initialize
+        Karl.init();
+        animate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dopamine Dial — Neuromodulation as Precision Control</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#e8ddd0;overflow:hidden;font-family:'Cormorant Garamond',Georgia,serif}
+canvas{display:block;width:100vw;height:100vh}
+
+#ui{position:fixed;top:0;left:0;width:250px;height:100vh;
+  background:rgba(245,240,232,.97);border-right:1px solid rgba(120,90,50,.1);
+  padding:12px 12px;overflow-y:auto;z-index:10;
+  scrollbar-width:thin;scrollbar-color:rgba(120,90,50,.1) transparent}
+#ui::-webkit-scrollbar{width:4px}
+#ui::-webkit-scrollbar-thumb{background:rgba(120,90,50,.1);border-radius:2px}
+.sec{margin-bottom:12px;border-bottom:1px solid rgba(120,90,50,.06);padding-bottom:10px}
+.sec:last-child{border-bottom:none}
+.sec h3{color:rgba(150,85,25,.65);font-size:10px;letter-spacing:1.8px;text-transform:uppercase;
+  margin-bottom:7px;font-weight:normal;font-family:'JetBrains Mono',monospace}
+.sg{margin-bottom:9px}
+.sg .lb{display:flex;justify-content:space-between;align-items:center;
+  color:rgba(40,28,12,.85);font-size:11px;margin-bottom:2px}
+.sg .lb .vl{font-size:12px;font-weight:bold;font-family:'JetBrains Mono',monospace}
+.sg .en{display:flex;justify-content:space-between;color:rgba(110,80,45,.4);font-size:7.5px;
+  font-family:'JetBrains Mono',monospace;margin-top:1px}
+.sg .ds{color:rgba(110,80,45,.38);font-size:8px;margin-top:1px;line-height:1.35;
+  font-family:'JetBrains Mono',monospace}
+input[type=range]{-webkit-appearance:none;width:100%;height:3px;border-radius:2px;outline:none;margin:2px 0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;
+  border-radius:50%;cursor:pointer;border:2px solid rgba(245,240,232,.9)}
+.nt-da{color:rgba(210,75,35,.9)}
+.nt-5ht{color:rgba(50,95,185,.9)}
+.nt-oa{color:rgba(185,145,25,.9)}
+.nt-ta{color:rgba(125,55,165,.9)}
+#s_da{background:rgba(210,75,35,.12)}#s_da::-webkit-slider-thumb{background:rgba(210,75,35,.85)}
+#s_5ht{background:rgba(50,95,185,.12)}#s_5ht::-webkit-slider-thumb{background:rgba(50,95,185,.85)}
+#s_oa{background:rgba(185,145,25,.12)}#s_oa::-webkit-slider-thumb{background:rgba(185,145,25,.85)}
+#s_ta{background:rgba(125,55,165,.12)}#s_ta::-webkit-slider-thumb{background:rgba(125,55,165,.85)}
+#s_hum{background:rgba(60,140,180,.12)}#s_hum::-webkit-slider-thumb{background:rgba(60,140,180,.8)}
+.cite-tag{font-size:7.5px;color:rgba(140,100,50,.4);font-family:'JetBrains Mono',monospace;
+  letter-spacing:.4px;margin-top:1px;display:block}
+.stat-row{display:flex;justify-content:space-between;margin-bottom:3px;
+  font-size:10.5px;font-family:'JetBrains Mono',monospace}
+.stat-row .stat-label{color:rgba(80,60,35,.5)}
+.stat-row .stat-val{font-weight:bold}
+.prec-row{margin-bottom:5px}
+.prec-label{display:flex;justify-content:space-between;font-size:9.5px;
+  font-family:'JetBrains Mono',monospace;margin-bottom:1px}
+.prec-bar{height:5px;background:rgba(100,70,40,.06);border-radius:3px;overflow:hidden}
+.prec-fill{height:100%;border-radius:3px;transition:width .15s}
+.btn{padding:5px 10px;background:rgba(100,70,40,.05);border:1px solid rgba(100,70,40,.1);
+  color:rgba(50,35,15,.75);font-family:'JetBrains Mono',monospace;font-size:8.5px;
+  letter-spacing:.8px;text-transform:uppercase;cursor:pointer;border-radius:2px;
+  width:100%;margin-top:3px;transition:all .2s}
+.btn:hover{background:rgba(100,70,40,.1)}
+
+/* Brain inset */
+#brain-inset{position:fixed;bottom:34px;right:12px;z-index:14;
+  width:280px;height:220px;border-radius:3px;overflow:hidden;
+  border:1px solid rgba(80,50,20,.25);box-shadow:0 2px 16px rgba(40,20,5,.15);
+  background:rgba(20,14,8,.92);transition:height .3s ease}
+#brain-inset.open{height:220px}
+#brain-inset.closed{height:20px}
+#brain-inset.closed canvas{display:none}
+#brain-header{height:20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  padding:0 8px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1px;
+  text-transform:uppercase;color:rgba(255,220,160,.55)}
+#brain-header span:last-child{font-size:7px;color:rgba(255,220,160,.35)}
+#brain-inset canvas{width:100%;height:calc(100% - 20px);display:block}
+
+#toggle-ex{position:fixed;top:12px;right:12px;z-index:25;
+  padding:7px 14px;background:rgba(245,240,232,.9);border:1px solid rgba(120,90,50,.12);
+  color:rgba(70,48,22,.75);font-family:'JetBrains Mono',monospace;font-size:9.5px;
+  letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;border-radius:3px;transition:all .25s}
+#toggle-ex:hover{border-color:rgba(180,100,40,.25)}
+#footer{position:fixed;bottom:0;left:250px;right:0;height:26px;
+  background:rgba(240,235,225,.85);border-top:1px solid rgba(120,90,50,.05);
+  display:flex;align-items:center;padding:0 12px;z-index:8;
+  font-family:'JetBrains Mono',monospace;font-size:8.5px;color:rgba(100,75,45,.4)}
+
+/* Explainer */
+#explainer{position:fixed;top:0;right:0;width:0;height:100vh;
+  background:rgba(250,248,242,.97);border-left:1px solid rgba(100,70,40,.08);
+  overflow-y:auto;z-index:20;transition:width .4s cubic-bezier(.4,0,.2,1);
+  scrollbar-width:thin;scrollbar-color:rgba(100,70,40,.1) transparent}
+#explainer.open{width:460px}
+#explainer::-webkit-scrollbar{width:4px}
+#explainer::-webkit-scrollbar-thumb{background:rgba(100,70,40,.1);border-radius:2px}
+#ex-inner{padding:24px 22px;opacity:0;transition:opacity .3s .2s}
+#explainer.open #ex-inner{opacity:1}
+.ex-close{position:absolute;top:10px;right:12px;color:rgba(60,40,18,.45);font-size:18px;
+  cursor:pointer;background:none;border:none;font-family:Georgia;border-radius:3px}
+.ex-close:hover{background:rgba(100,70,40,.06)}
+.tab-bar{display:flex;gap:0;margin-bottom:18px;border-bottom:1px solid rgba(100,70,40,.07)}
+.tab-btn{padding:7px 12px;font-size:9.5px;font-family:'JetBrains Mono',monospace;
+  letter-spacing:1px;text-transform:uppercase;color:rgba(100,70,40,.35);
+  background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
+.tab-btn:hover{color:rgba(80,50,20,.6)}
+.tab-btn.active{color:rgba(190,80,25,.85);border-bottom-color:rgba(210,90,35,.4)}
+.tab-content{display:none}.tab-content.active{display:block}
+.ex-title{font-size:22px;font-weight:400;color:rgba(35,22,8,.9);margin-bottom:5px}
+.ex-subtitle{font-size:10px;font-family:'JetBrains Mono',monospace;
+  color:rgba(160,90,25,.5);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px}
+.ex-section{margin-bottom:20px}
+.ex-section h4{font-size:10px;font-family:'JetBrains Mono',monospace;
+  color:rgba(160,90,25,.6);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;font-weight:normal}
+.ex-section p{font-size:15.5px;color:rgba(35,25,10,.78);line-height:1.7;margin-bottom:10px;font-weight:300}
+.ex-section p em{color:rgba(185,70,18,.82);font-style:italic}
+.ex-section p strong{color:rgba(25,15,5,.92);font-weight:500}
+.eq-box{background:rgba(180,100,40,.04);border:1px solid rgba(180,100,40,.08);
+  border-radius:3px;padding:12px 14px;margin:10px 0;font-family:'JetBrains Mono',monospace}
+.eq-box .eq-main{font-size:12.5px;color:rgba(175,80,18,.8);text-align:center;margin-bottom:3px}
+.eq-box .eq-note{font-size:9.5px;color:rgba(130,90,40,.4);text-align:center}
+.cite{font-size:13.5px;color:rgba(50,38,18,.55);font-style:italic;
+  border-left:2px solid rgba(180,100,40,.18);padding:9px 12px;margin:12px 0;
+  line-height:1.6;background:rgba(180,100,40,.025);border-radius:0 3px 3px 0}
+.cite .cite-src{display:block;font-size:9.5px;font-family:'JetBrains Mono',monospace;
+  color:rgba(150,90,30,.4);margin-top:5px;font-style:normal}
+.gl-item{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(100,70,40,.05)}
+.gl-term{font-size:11px;font-family:'JetBrains Mono',monospace;
+  color:rgba(185,80,22,.75);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.gl-def{font-size:14.5px;color:rgba(45,30,12,.68);line-height:1.6;font-weight:300}
+.gl-def em{color:rgba(185,70,18,.7);font-style:italic}
+
+/* Narrator */
+#narrative{position:fixed;bottom:34px;left:50%;transform:translateX(-50%);
+  z-index:12;max-width:480px;display:flex;align-items:flex-end;gap:9px;
+  opacity:0;transition:opacity .6s;pointer-events:none}
+#narrative.visible{opacity:1}
+#nar-avatar{width:42px;height:42px;flex-shrink:0}
+#nar-avatar svg{width:42px;height:42px}
+#nar-bubble{background:rgba(250,248,242,.94);border:1px solid rgba(180,120,50,.12);
+  border-radius:3px;padding:9px 14px;color:rgba(35,25,10,.82);
+  font-size:13.5px;line-height:1.55;box-shadow:0 2px 12px rgba(60,40,15,.07);position:relative}
+#nar-bubble::before{content:'';position:absolute;left:-6px;bottom:10px;
+  width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;
+  border-right:6px solid rgba(250,248,242,.94)}
+#nar-name{font-size:8px;font-family:'JetBrains Mono',monospace;
+  color:rgba(150,90,25,.5);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+#nar-text em{color:rgba(185,70,18,.82);font-style:italic}
+
+@media(max-width:800px){
+  #ui{width:100vw;height:auto;max-height:50vh;position:fixed;bottom:0;top:auto;
+    border-right:none;border-top:1px solid rgba(120,90,50,.1);
+    transform:translateY(100%);transition:transform .3s ease;z-index:28}
+  #ui.mobile-open{transform:translateY(0)}
+  #footer{left:0}#explainer.open{width:100vw}
+  #brain-inset{width:200px;height:160px;bottom:30px;right:6px}
+  #brain-inset.open{height:160px}
+  #narrative{max-width:82vw;font-size:12px}
+}
+</style>
+
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
+</head><body>
+<a href="./" class="aii-floating-back">&#8592; Back to Catalog</a>
+<canvas id="c"></canvas>
+
+<div id="ui">
+  <div class="sec">
+    <h3>The Dopamine Dial</h3>
+    <div style="color:rgba(40,28,12,.65);font-size:12.5px;line-height:1.5;margin-bottom:3px">
+      Watch one ant's brain chemistry<br>shape its foraging behaviour.</div>
+    <div style="color:rgba(110,80,45,.35);font-size:8px;font-family:'JetBrains Mono',monospace">
+      Friedman et al. (2018) iScience</div>
+  </div>
+
+  <div class="sec">
+    <h3>Biogenic Amines</h3>
+    <div class="sg">
+      <div class="lb"><span class="nt-da">Dopamine</span> <span class="vl nt-da" id="v_da">47</span><span style="font-size:8px;color:rgba(100,70,40,.3);font-family:'JetBrains Mono',monospace">pg</span></div>
+      <input type="range" id="s_da" min="5" max="120" value="47">
+      <div class="en"><span>hesitant</span><span>bold forager</span></div>
+      <div class="ds">Policy precision — confidence in what to do</div>
+    </div>
+    <div class="sg">
+      <div class="lb"><span class="nt-5ht">Serotonin</span> <span class="vl nt-5ht" id="v_5ht">20</span><span style="font-size:8px;color:rgba(100,70,40,.3);font-family:'JetBrains Mono',monospace">pg</span></div>
+      <input type="range" id="s_5ht" min="2" max="60" value="20">
+      <div class="en"><span>reckless</span><span>cautious</span></div>
+      <div class="ds">Prior precision — homeostatic caution</div>
+    </div>
+    <div class="sg">
+      <div class="lb"><span class="nt-oa">Octopamine</span> <span class="vl nt-oa" id="v_oa">36</span><span style="font-size:8px;color:rgba(100,70,40,.3);font-family:'JetBrains Mono',monospace">pg</span></div>
+      <input type="range" id="s_oa" min="5" max="80" value="36">
+      <div class="en"><span>sluggish</span><span>aroused</span></div>
+      <div class="ds">Motor precision — arousal & readiness</div>
+    </div>
+    <div class="sg">
+      <div class="lb"><span class="nt-ta">Tyramine</span> <span class="vl nt-ta" id="v_ta">14</span><span style="font-size:8px;color:rgba(100,70,40,.3);font-family:'JetBrains Mono',monospace">pg</span></div>
+      <input type="range" id="s_ta" min="2" max="40" value="14">
+      <div class="en"><span>low gain</span><span>high gain</span></div>
+      <div class="ds">Baseline neural gain</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h3>Environment</h3>
+    <div class="sg">
+      <div class="lb">Humidity <span class="vl" id="v_hum" style="color:rgba(60,130,170,.85)">60%</span></div>
+      <input type="range" id="s_hum" min="5" max="95" value="60">
+      <div class="en"><span>arid</span><span>humid</span></div>
+    </div>
+    <button class="btn" onclick="boostDA()">Administer dopamine (+30pg)</button>
+    <button class="btn" onclick="inhibitDA()">Inhibit DA (3-iodo-tyrosine)</button>
+    <button class="btn" onclick="resetBrain()">Reset to baseline</button>
+  </div>
+
+  <div class="sec">
+    <h3>Precision Channels</h3>
+    <div class="prec-row"><div class="prec-label"><span class="nt-da">Π<sub>policy</sub></span><span class="nt-da" id="p_da">1.00</span></div>
+      <div class="prec-bar"><div class="prec-fill" id="pb_da" style="width:50%;background:rgba(210,75,35,.55)"></div></div></div>
+    <div class="prec-row"><div class="prec-label"><span class="nt-5ht">Π<sub>prior</sub></span><span class="nt-5ht" id="p_5ht">1.00</span></div>
+      <div class="prec-bar"><div class="prec-fill" id="pb_5ht" style="width:50%;background:rgba(50,95,185,.55)"></div></div></div>
+    <div class="prec-row"><div class="prec-label"><span class="nt-oa">Π<sub>motor</sub></span><span class="nt-oa" id="p_oa">1.00</span></div>
+      <div class="prec-bar"><div class="prec-fill" id="pb_oa" style="width:50%;background:rgba(185,145,25,.55)"></div></div></div>
+  </div>
+
+  <div class="sec">
+    <h3>Foraging State</h3>
+    <div class="stat-row"><span class="stat-label">DA:5-HT</span><span class="stat-val nt-da" id="st_ratio">2.35</span></div>
+    <div class="stat-row"><span class="stat-label">Water risk</span><span class="stat-val" id="st_risk" style="color:rgba(200,60,40,.85)">0.20</span></div>
+    <div class="stat-row"><span class="stat-label">Free energy</span><span class="stat-val" id="st_fe" style="color:rgba(50,35,15,.75)">1.00</span></div>
+    <div class="stat-row"><span class="stat-label">Decision</span><span class="stat-val" id="st_dec" style="color:rgba(50,140,50,.85)">FORAGE</span></div>
+    <div class="stat-row"><span class="stat-label">Seeds found</span><span class="stat-val" id="st_seeds" style="color:rgba(110,80,35,.7)">0</span></div>
+  </div>
+</div>
+
+<button id="toggle-ex">Explainer</button>
+
+<!-- ═══ EXPLAINER ═══ -->
+<div id="explainer">
+  <button class="ex-close" onclick="toggleExplainer()">×</button>
+  <div id="ex-inner">
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="tutorial">Tutorial</button>
+      <button class="tab-btn" data-tab="concepts">Concepts</button>
+      <button class="tab-btn" data-tab="glossary">Glossary</button>
+      <button class="tab-btn" data-tab="refs">References</button>
+    </div>
+    <div class="tab-content active" id="tab-tutorial">
+      <div class="ex-title">The Dopamine Dial</div>
+      <div class="ex-subtitle">Neuromodulation as Precision Control</div>
+      <div class="ex-section"><h4>What You Are Seeing</h4>
+        <p>A single red harvester ant in its desert environment. The <strong>brain inset</strong> (bottom-right) shows its four neurotransmitter channels as a live neural network. Change the sliders and watch the ant's behaviour change in real time — the same animal, the same algorithm, but different <em>precision settings</em>.</p></div>
+      <div class="cite">"The increases in forager brain dopamine seemed to increase individual ant foraging."<span class="cite-src">— Daniel Friedman, Stanford University (2018)</span></div>
+      <div class="ex-section"><h4>Try This</h4>
+        <p>1. Set <strong>DA low (~15)</strong> and <strong>humidity low (~20%)</strong>. The ant huddles near the nest — low policy precision means no confident action plan.</p>
+        <p>2. Click <strong>"Administer dopamine"</strong>. Watch the ant surge outward — the precision spike gives it confidence to forage.</p>
+        <p>3. Set DA high (~90) and click the button again. The effect is <em>much smaller</em> — diminishing returns, exactly as Friedman et al. observed.</p>
+        <p>4. Raise <strong>serotonin</strong> — the ant becomes cautious, retreating in dry conditions. 5-HT weights homeostatic priors.</p>
+        <p>5. Drop <strong>octopamine</strong> to minimum. The ant knows what to do but can't initiate movement — motor precision too low.</p></div>
+      <div class="cite">"Precision and attention are synonyms."<span class="cite-src">— Parr, Pezzulo & Friston (2022), Ch.5 p.95</span></div>
+    </div>
+    <div class="tab-content" id="tab-concepts">
+      <div class="ex-title">Core Concepts</div><div class="ex-subtitle">From Molecules to Decisions</div>
+      <div class="ex-section"><h4>Neurotransmitters as Precision</h4>
+        <div class="eq-box"><div class="eq-main">Π = 1/σ² — Precision = Inverse Variance</div><div class="eq-note">Higher precision → sharper predictions → more influence on behaviour</div></div>
+        <p><strong class="nt-da">Dopamine → Π<sub>policy</sub></strong> — confidence in <em>what to do</em>.</p>
+        <p><strong class="nt-5ht">Serotonin → Π<sub>prior</sub></strong> — confidence in <em>homeostatic preferences</em>.</p>
+        <p><strong class="nt-oa">Octopamine → Π<sub>motor</sub></strong> — confidence in <em>state transitions</em> (motor readiness).</p>
+        <p><strong class="nt-ta">Tyramine → Π<sub>gain</sub></strong> — baseline <em>neural excitability</em>.</p></div>
+      <div class="cite">"The dopaminergic system signals confidence in what to do."<span class="cite-src">— Parr, Pezzulo & Friston (2022), Ch.5 p.97</span></div>
+      <div class="ex-section"><h4>The DA:5-HT Ratio</h4>
+        <div class="eq-box"><div class="eq-main">DA:5-HT ↑ → Explore (forage despite risk)</div><div class="eq-note">DA:5-HT ↓ → Exploit safety (stay home)</div></div>
+        <p>This ratio maps directly to the <em>explore-exploit balance</em> — epistemic value (DA) vs pragmatic value (5-HT) in expected free energy decomposition.</p></div>
+      <div class="ex-section"><h4>Why Low-DA Colonies Respond More</h4>
+        <p>Low baseline DA means low policy precision — the ant is uncertain what to do. Adding exogenous DA produces a <em>large</em> precision shift because the system was far from saturation. High baseline DA means the ant is already confident — additional DA produces diminishing returns. This is a natural consequence of precision being a nonlinear function of neuromodulator concentration.</p>
+        <div class="eq-box"><div class="eq-main">ΔΠ ∝ 1/DA² — marginal gain decreases with baseline</div><div class="eq-note">Friedman et al. (2018): low-DA colonies responded MORE to exogenous DA</div></div></div>
+    </div>
+    <div class="tab-content" id="tab-glossary">
+      <div class="ex-title">Glossary</div><div class="ex-subtitle">Molecules to behaviour</div>
+      <div class="gl-item"><div class="gl-term">Precision (Π)</div><div class="gl-def">Inverse variance. In neural terms: <em>synaptic gain</em>. Neuromodulators implement precision by controlling how strongly prediction errors influence belief updates. (Ch.4-5)</div></div>
+      <div class="gl-item"><div class="gl-term">Biogenic Amines</div><div class="gl-def">Dopamine, serotonin, octopamine, tyramine. Small-molecule neurotransmitters that control precision across different inference channels. Daniel measured all four in single ant brains. (Shin et al. 2020)</div></div>
+      <div class="gl-item"><div class="gl-term">DA:5-HT Ratio</div><div class="gl-def">The ratio between policy precision and prior precision. Controls explore-exploit balance. High ratio = explore. Low ratio = stay safe. Varies between colonies. (Friedman et al. 2020)</div></div>
+      <div class="gl-item"><div class="gl-term">Sensory Attenuation</div><div class="gl-def">Downweighting sensory errors to initiate movement. Without it, the belief "I am moving" is immediately corrected. OA (motor precision) enables this. (Ch.5, Ch.8 Box 8.1)</div></div>
+      <div class="gl-item"><div class="gl-term">Expected Free Energy (G)</div><div class="gl-def">Evaluates future policies. Decomposes into epistemic value (DA-weighted) and pragmatic value (5-HT-weighted). The ant picks the policy minimising G. (Ch.7)</div></div>
+    </div>
+    <div class="tab-content" id="tab-refs">
+      <div class="ex-title">References</div><div class="ex-subtitle">Primary sources</div>
+      <div class="ex-section"><p style="font-size:14px;line-height:1.6">Parr, T., Pezzulo, G., & Friston, K. J. (2022). <em>Active Inference.</em> MIT Press.</p></div>
+      <div class="ex-section"><p style="font-size:14px;line-height:1.6">Friedman, D. A. et al. (2018). The Role of Dopamine in the Collective Regulation of Foraging in Harvester Ants. <em>iScience,</em> 8, 283–294.</p></div>
+      <div class="ex-section"><p style="font-size:14px;line-height:1.6">Friedman, D. A. et al. (2020). Gene expression variation in the brains of harvester ant foragers. <em>Comms Biology,</em> 3, 100.</p></div>
+      <div class="ex-section"><p style="font-size:14px;line-height:1.6">Shin, M. et al. (2020). Neurotransmitter tissue content in red harvester ant brains. <em>Anal. Chem.,</em> 92(7).</p></div>
+      <div class="ex-section"><p style="font-size:14px;line-height:1.6">Developed by Alexander Sabine · <strong>temporalgrammar.ai</strong><br><span style="font-size:11px;color:rgba(100,75,45,.4)">Alexander@activeinference.institute</span></p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Brain inset -->
+<div id="brain-inset" class="open">
+  <div id="brain-header" onclick="toggleBrain()"><span>Neural State</span><span id="brain-toggle">▼</span></div>
+  <canvas id="bc" width="560" height="400"></canvas>
+</div>
+
+<!-- Narrator -->
+<div id="narrative">
+  <div id="nar-avatar"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="24" cy="34" rx="8" ry="6" fill="#5a3a1a" opacity=".85"/>
+    <ellipse cx="24" cy="27" rx="6" ry="5" fill="#6b4520" opacity=".8"/>
+    <circle cx="24" cy="19" r="7" fill="#4a2a10" opacity=".85"/>
+    <circle cx="21" cy="18" r="3.2" fill="none" stroke="rgba(180,160,120,.7)" stroke-width=".8"/>
+    <circle cx="27" cy="18" r="3.2" fill="none" stroke="rgba(180,160,120,.7)" stroke-width=".8"/>
+    <line x1="24.2" y1="18" x2="23.8" y2="18" stroke="rgba(180,160,120,.6)" stroke-width=".6"/>
+    <circle cx="21" cy="17.5" r="1" fill="#1a0a00"/><circle cx="27" cy="17.5" r="1" fill="#1a0a00"/>
+    <path d="M21.5 21 Q24 23.5 26.5 21" fill="none" stroke="#3a1a05" stroke-width=".6"/>
+    <path d="M20 13 Q17 7 14 5" fill="none" stroke="#4a2a10" stroke-width=".8"/>
+    <path d="M28 13 Q31 7 34 5" fill="none" stroke="#4a2a10" stroke-width=".8"/>
+    <circle cx="14" cy="5" r="1.2" fill="#6b4520"/><circle cx="34" cy="5" r="1.2" fill="#6b4520"/>
+  </svg></div>
+  <div id="nar-bubble"><div id="nar-name">Daniel Friedman · Active Inference Institute</div><div id="nar-text"></div></div>
+</div>
+
+<div id="footer"><span id="status-bar"></span></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  THE DOPAMINE DIAL — Neuromodulation as Precision Control
+//  Alexander Sabine · Active Inference Institute · 2025
+//  www.temporalgrammar.ai
+//
+//  COMPUTATIONAL METHOD: CRR (Coherence-Rupture-Regeneration)
+//  Ω_i = K / [NT]_i — inverse concentration IS the Ω parameter
+//  Π_i = (1/Ω_i) · exp(C_i/Ω_i) — precision at any moment
+//  Rupture at C·Ω = 1 — belief update event
+//
+//  GUI: peer-reviewed FEP / Active Inference concepts only.
+// ═══════════════════════════════════════════════════════════════
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+const bc=document.getElementById('bc'),bctx=bc.getContext('2d');
+let W,H;const PI=Math.PI,TAU=PI*2;
+const{sin,cos,sqrt,abs,min,max,pow,log,floor,ceil,random:R,atan2,exp}=Math;
+function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}
+resize();addEventListener('resize',resize);
+
+// ─── STATE ───────────────────────────────────────────────
+const BASE={da:47,ht:20,oa:36,ta:14};
+let nt={da:47,ht:20,oa:36,ta:14};
+let humidity=60,seeds=0;
+const K_OM=50;
+
+// CRR Channel
+class NTC{
+  constructor(k,col){this.k=k;this.col=col;this.C=0;this.st=0;this.rup=0;this.tRup=0;
+    this.amp=0;this.sAmp=0;this.prec=1;this.om=1;this.rt=0}
+  get conc(){return nt[this.k]}
+  step(sig,dt){
+    this.om=K_OM/max(1,this.conc);
+    this.prec=(1/this.om)*exp(min(this.C/this.om,6));
+    const cv=this.om/2;
+    if(this.st===0){this.C+=sig*(1+sin(t*1.5+this.rup)*.15)*dt;
+      if(this.C>=(1/this.om)*(1+(R()-.5)*2*cv)){this.st=1;this.amp=1;this.rup++;this.tRup++}}
+    else if(this.st===1){this.st=2;this.rt=0}
+    else{this.rt+=dt;if(this.rt>.07){this.st=0;this.C*=.35}}
+    this.sAmp+=(this.amp-this.sAmp)*min(1,dt*10);this.amp*=pow(.05,dt);
+  }
+  get prog(){return min(1,this.C*this.om)}
+}
+const ch={da:new NTC('da','210,75,35'),ht:new NTC('ht','50,95,185'),
+  oa:new NTC('oa','185,145,25'),ta:new NTC('ta','125,55,165')};
+let t=0;
+
+// ─── ANT STATE ───────────────────────────────────────────
+const UL=260; // UI left edge
+let nestX,nestY,ant={};
+let foodSources=[];
+
+function initWorld(){
+  nestX=UL+(W-UL)*.25;nestY=H*.6;
+  ant={x:nestX,y:nestY,angle:0,speed:0,legPhase:0,bodyPhase:R()*TAU,
+    state:'idle',target:null,hasFood:false,trail:[]};
+  foodSources=[];
+  for(let i=0;i<5;i++){
+    const a=TAU/5*i+R()*.5;
+    const d=120+R()*180;
+    let fx=nestX+cos(a)*d,fy=nestY+sin(a)*d;
+    // Keep food away from UI edge and screen edges
+    fx=max(UL+50,min(W-40,fx));
+    fy=max(40,min(H-50,fy));
+    foodSources.push({x:fx,y:fy,seeds:3+floor(R()*5),r:8+R()*4});
+  }
+  seeds=0;
+}
+initWorld();
+
+// Decision
+let decision='IDLE',waterRisk=0,freeE=1;
+
+function computeDecision(){
+  const piDA=ch.da.prec,pi5HT=ch.ht.prec,piOA=ch.oa.prec;
+  const ratio=nt.da/max(1,nt.ht);
+  waterRisk=min(1,(1-humidity/100)*pi5HT*.12);
+  const G_forage=-ratio*.15-piDA*.05+waterRisk;
+  const G_stay=-.05;
+  freeE=max(0,min(2,G_forage+.8));
+  const motorOK=piOA>.6;
+  decision=(G_forage<G_stay&&motorOK)?'FORAGE':'STAY';
+}
+
+// ─── ANT BEHAVIOUR ──────────────────────────────────────
+function updateAnt(dt){
+  computeDecision();
+  const spd=(0.3+ch.oa.prec*.15)*60*dt;
+  ant.bodyPhase+=dt*2;
+
+  if(decision==='STAY'){
+    // Drift near nest
+    ant.state='idle';
+    const dx=nestX-ant.x,dy=nestY-ant.y;
+    const d=sqrt(dx*dx+dy*dy);
+    if(d>25){ant.x+=(dx/d)*spd*.5;ant.y+=(dy/d)*spd*.5}
+    else{ant.x+=sin(t*1.2+ant.bodyPhase)*.3;ant.y+=cos(t*.9+ant.bodyPhase)*.2}
+    ant.angle=atan2(sin(t*.8)*.5,cos(t*.6)*.5);
+    ant.speed=.2;ant.legPhase+=dt*2;
+    return;
+  }
+
+  // FORAGE mode
+  if(ant.hasFood){
+    ant.state='returning';
+    const dx=nestX-ant.x,dy=nestY-ant.y;
+    const d=sqrt(dx*dx+dy*dy);
+    ant.angle=atan2(dy,dx);
+    ant.x+=cos(ant.angle)*spd;ant.y+=sin(ant.angle)*spd;
+    ant.speed=spd/dt/60;ant.legPhase+=spd*.4;
+    // Record trail
+    ant.trail.push({x:ant.x,y:ant.y,age:0});
+    if(d<20){ant.hasFood=false;seeds++;ant.state='foraging';ant.target=null}
+  }else{
+    ant.state='foraging';
+    // Find nearest food
+    if(!ant.target){
+      let best=null,bestD=Infinity;
+      for(const f of foodSources){if(f.seeds<=0)continue;
+        const d=sqrt((ant.x-f.x)**2+(ant.y-f.y)**2);if(d<bestD){bestD=d;best=f}}
+      ant.target=best;
+    }
+    if(ant.target){
+      const dx=ant.target.x-ant.x,dy=ant.target.y-ant.y;
+      const d=sqrt(dx*dx+dy*dy);
+      // Add exploration noise scaled by epistemic drive
+      const noise=(1-ch.da.prec*.08)*.15;
+      ant.angle=atan2(dy,dx)+(R()-.5)*noise;
+      ant.x+=cos(ant.angle)*spd;ant.y+=sin(ant.angle)*spd;
+      ant.speed=spd/dt/60;ant.legPhase+=spd*.4;
+      // Pick up food
+      if(d<ant.target.r+3){ant.target.seeds--;ant.hasFood=true;ant.target=null}
+    }else{
+      // Random explore
+      ant.angle+=(R()-.5)*.2;
+      ant.x+=cos(ant.angle)*spd*.5;ant.y+=sin(ant.angle)*spd*.5;
+      ant.legPhase+=spd*.2;
+    }
+  }
+  // Bounds with angle correction — prevent getting stuck at edges
+  const margin=15;
+  if(ant.x<UL+margin){ant.x=UL+margin;ant.angle=abs(ant.angle)<PI/2?ant.angle:PI-ant.angle;if(cos(ant.angle)<0)ant.angle=R()*PI-PI/2}
+  if(ant.x>W-margin){ant.x=W-margin;ant.angle=PI-ant.angle}
+  if(ant.y<margin){ant.y=margin;ant.angle=-ant.angle}
+  if(ant.y>H-margin){ant.y=H-margin;ant.angle=-ant.angle}
+  while(ant.angle>PI)ant.angle-=TAU;while(ant.angle<-PI)ant.angle+=TAU;
+  // Trail age
+  for(const p of ant.trail)p.age+=dt;
+  ant.trail=ant.trail.filter(p=>p.age<8);
+}
+
+// ─── RENDER ENVIRONMENT ─────────────────────────────────
+function renderWorld(t){
+  // Desert ground
+  ctx.fillStyle='#e8ddd0';ctx.fillRect(0,0,W,H);
+  // Subtle texture
+  ctx.fillStyle='rgba(200,180,155,.08)';
+  for(let i=0;i<30;i++){const x=((sin(i*13.7)*500+W/2)%W+W)%W,y=((cos(i*17.3)*300+H/2)%H+H)%H;
+    ctx.beginPath();ctx.arc(x,y,15+R()*20,0,TAU);ctx.fill()}
+
+  // Humidity haze (top, blue tint)
+  const humAlpha=humidity/100*.12;
+  ctx.fillStyle=`rgba(140,180,210,${humAlpha})`;ctx.fillRect(UL,0,W-UL,H);
+  // Dryness cracks when low humidity
+  if(humidity<40){
+    ctx.strokeStyle=`rgba(160,130,90,${(.4-humidity/100)*.3})`;ctx.lineWidth=.5;
+    for(let i=0;i<15;i++){
+      const cx=UL+50+R()*(W-UL-100),cy=50+R()*(H-100);
+      ctx.beginPath();ctx.moveTo(cx,cy);
+      ctx.lineTo(cx+R()*30-15,cy+R()*20-10);
+      ctx.lineTo(cx+R()*20-10,cy+R()*30-15);ctx.stroke()}}
+
+  // Pheromone trail
+  for(const p of ant.trail){
+    const alpha=max(0,(1-p.age/8)*.25);
+    ctx.fillStyle=`rgba(180,140,60,${alpha})`;
+    ctx.beginPath();ctx.arc(p.x,p.y,2,0,TAU);ctx.fill()}
+
+  // Nest
+  const nPulse=1+sin(t*1.2)*.03;
+  const grd=ctx.createRadialGradient(nestX,nestY,8,nestX,nestY,35*nPulse);
+  grd.addColorStop(0,'rgba(120,80,35,.35)');grd.addColorStop(1,'rgba(100,70,30,0)');
+  ctx.fillStyle=grd;ctx.beginPath();ctx.arc(nestX,nestY,35*nPulse,0,TAU);ctx.fill();
+  ctx.fillStyle='rgba(100,65,25,.4)';ctx.beginPath();ctx.arc(nestX,nestY,18,0,TAU);ctx.fill();
+  ctx.fillStyle='rgba(55,30,12,.45)';ctx.beginPath();ctx.ellipse(nestX,nestY,8,5,0,0,TAU);ctx.fill();
+  ctx.fillStyle='rgba(100,70,30,.35)';ctx.font="9px 'JetBrains Mono',monospace";ctx.textAlign='center';
+  ctx.fillText('NEST',nestX,nestY+28);
+
+  // Food sources
+  for(const f of foodSources){
+    if(f.seeds<=0)continue;
+    const fill=f.seeds/8;
+    ctx.fillStyle=`rgba(160,140,80,${.15+fill*.2})`;
+    ctx.beginPath();ctx.arc(f.x,f.y,f.r+4,0,TAU);ctx.fill();
+    // Individual seeds
+    for(let i=0;i<f.seeds;i++){
+      const sa=TAU/f.seeds*i;const sr=f.r*.4;
+      ctx.fillStyle='rgba(140,120,60,.6)';
+      ctx.beginPath();ctx.ellipse(f.x+cos(sa)*sr,f.y+sin(sa)*sr,2.5,1.5,sa,0,TAU);ctx.fill()}
+    ctx.fillStyle='rgba(130,110,60,.35)';ctx.font="8px 'JetBrains Mono',monospace";
+    ctx.fillText(floor(f.seeds)+' seeds',f.x,f.y+f.r+12)}
+
+  // ─ THE ANT ─
+  const a=ant;
+  ctx.save();ctx.translate(a.x,a.y);ctx.rotate(a.angle);
+  const sc=1.8;ctx.scale(sc,sc);
+  const legT=a.legPhase;
+  const isActive=decision==='FORAGE';
+  const dark=isActive?'rgba(55,25,8,.85)':'rgba(80,55,35,.5)';
+  const mid=isActive?'rgba(90,40,15,.8)':'rgba(100,70,45,.45)';
+
+  // Legs
+  ctx.strokeStyle=dark;ctx.lineWidth=.7;
+  for(let i=0;i<3;i++){const lx=-3+i*3;const ph=legT+i*PI/3;const lift=sin(ph)*1.8;
+    ctx.beginPath();ctx.moveTo(lx,0);ctx.quadraticCurveTo(lx-1,3.5+lift*.3,lx-2+sin(ph)*.8,5.5+lift);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(lx,0);ctx.quadraticCurveTo(lx-1,-3.5-lift*.3,lx-2-sin(ph)*.8,-5.5-lift);ctx.stroke()}
+  // Gaster
+  ctx.fillStyle=mid;ctx.beginPath();ctx.ellipse(-6.5,0,5,3.5,0,0,TAU);ctx.fill();
+  ctx.strokeStyle='rgba(120,60,20,.15)';ctx.lineWidth=.4;
+  for(let i=0;i<3;i++){ctx.beginPath();ctx.moveTo(-8.5+i*1.5,-2.5);ctx.lineTo(-8.5+i*1.5,2.5);ctx.stroke()}
+  // Petiole
+  ctx.fillStyle=dark;ctx.beginPath();ctx.ellipse(-2.5,0,1.5,1.2,0,0,TAU);ctx.fill();
+  // Thorax
+  ctx.fillStyle=mid;ctx.beginPath();ctx.ellipse(.5,0,3.5,2.5,.05,0,TAU);ctx.fill();
+  // Head
+  ctx.fillStyle=dark;ctx.beginPath();ctx.ellipse(5,0,2.8,2.3,0,0,TAU);ctx.fill();
+  ctx.fillStyle='rgba(25,12,4,.45)';ctx.beginPath();ctx.arc(6,1.5,.6,0,TAU);ctx.fill();
+  ctx.beginPath();ctx.arc(6,-1.5,.6,0,TAU);ctx.fill();
+  // Mandibles
+  const mo=.15+sin(a.bodyPhase*2)*.1;
+  ctx.strokeStyle=dark;ctx.lineWidth=.6;
+  ctx.beginPath();ctx.moveTo(7,1);ctx.lineTo(8.5,1.5+mo);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(7,-1);ctx.lineTo(8.5,-1.5-mo);ctx.stroke();
+  // Antennae
+  const asw=sin(a.bodyPhase*1.5)*.35;
+  ctx.lineWidth=.5;
+  ctx.beginPath();ctx.moveTo(6.5,1.5);ctx.quadraticCurveTo(9,3+asw*.5,11,5+asw);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(6.5,-1.5);ctx.quadraticCurveTo(9,-3-asw*.5,11,-5-asw);ctx.stroke();
+  // Food
+  if(a.hasFood){ctx.fillStyle='rgba(160,140,60,.85)';ctx.beginPath();ctx.ellipse(8.5,0,2.5,1.5,.2,0,TAU);ctx.fill()}
+  ctx.restore();
+
+  // State label above ant
+  ctx.fillStyle=isActive?'rgba(50,130,50,.55)':'rgba(160,80,40,.45)';
+  ctx.font="10px 'JetBrains Mono',monospace";ctx.textAlign='center';
+  const stateText=a.hasFood?'RETURNING':decision==='FORAGE'?'FORAGING':'STAYING HOME';
+  ctx.fillText(stateText,a.x,a.y-22);
+
+  // Humidity label
+  ctx.fillStyle='rgba(60,120,160,.35)';ctx.font="10px 'JetBrains Mono',monospace";ctx.textAlign='right';
+  ctx.fillText('Humidity: '+humidity+'%',W-15,20);
+
+  // Water risk bar
+  if(waterRisk>.05){
+    ctx.fillStyle='rgba(200,60,40,.08)';
+    ctx.fillRect(UL,H-6,min((W-UL),waterRisk*(W-UL)),6);
+    ctx.fillStyle='rgba(200,60,40,.3)';ctx.font="8px 'JetBrains Mono',monospace";ctx.textAlign='left';
+    ctx.fillText('WATER RISK',UL+4,H-10)}
+}
+
+// ─── RENDER BRAIN INSET ─────────────────────────────────
+const BW=560,BH=400;
+function renderBrain(t){
+  const cx=bctx;
+  cx.fillStyle='rgba(18,12,6,.95)';cx.fillRect(0,0,BW,BH);
+
+  // Network layout: 4 nodes in a diamond + central decision node
+  const nodes=[
+    {k:'da',x:BW/2,y:60,label:'DA',sub:'Π policy',col:'210,75,35'},
+    {k:'ht',x:BW-80,y:BH/2,label:'5-HT',sub:'Π prior',col:'50,95,185'},
+    {k:'oa',x:BW/2,y:BH-60,label:'OA',sub:'Π motor',col:'185,145,25'},
+    {k:'ta',x:80,y:BH/2,label:'TA',sub:'Π gain',col:'125,55,165'},
+  ];
+  const center={x:BW/2,y:BH/2};
+
+  // Edges: each NT connects to center (decision node)
+  for(const n of nodes){
+    const c=ch[n.k];
+    const intensity=min(1,c.prec*.1);
+    const alpha=.08+intensity*.2+c.sAmp*.3;
+    cx.strokeStyle=`rgba(${n.col},${alpha})`;
+    cx.lineWidth=1+intensity*3+c.sAmp*4;
+    cx.beginPath();cx.moveTo(n.x,n.y);cx.lineTo(center.x,center.y);cx.stroke();
+
+    // Pulse along edge
+    const pulsePos=(.5+sin(t*2+c.rup)*.5);
+    const px=n.x+(center.x-n.x)*pulsePos;
+    const py=n.y+(center.y-n.y)*pulsePos;
+    const pr=3+intensity*4;
+    const pgrd=cx.createRadialGradient(px,py,0,px,py,pr);
+    pgrd.addColorStop(0,`rgba(${n.col},${alpha*1.5})`);pgrd.addColorStop(1,`rgba(${n.col},0)`);
+    cx.fillStyle=pgrd;cx.beginPath();cx.arc(px,py,pr,0,TAU);cx.fill();
+  }
+
+  // Cross-connections (DA↔5HT, DA↔OA)
+  const crossPairs=[[0,1],[0,2],[1,3]];
+  for(const[i,j]of crossPairs){
+    const a=nodes[i],b=nodes[j];
+    const avgPrec=(ch[a.k].prec+ch[b.k].prec)/2;
+    cx.strokeStyle=`rgba(200,180,150,${min(.1,avgPrec*.01)})`;cx.lineWidth=.5;
+    cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}
+
+  // NT nodes
+  for(const n of nodes){
+    const c=ch[n.k];
+    const conc=c.conc;
+    const maxC=n.k==='da'?120:n.k==='ht'?60:n.k==='oa'?80:40;
+    const fill=conc/maxC;
+    const nodeR=18+fill*12;
+
+    // Glow
+    const grd=cx.createRadialGradient(n.x,n.y,nodeR*.3,n.x,n.y,nodeR*2);
+    grd.addColorStop(0,`rgba(${n.col},${.1+fill*.15+c.sAmp*.2})`);
+    grd.addColorStop(1,`rgba(${n.col},0)`);
+    cx.fillStyle=grd;cx.beginPath();cx.arc(n.x,n.y,nodeR*2,0,TAU);cx.fill();
+
+    // Node circle
+    cx.fillStyle=`rgba(${n.col},${.15+fill*.3})`;
+    cx.beginPath();cx.arc(n.x,n.y,nodeR,0,TAU);cx.fill();
+    cx.strokeStyle=`rgba(${n.col},${.3+fill*.3})`;cx.lineWidth=1.5;
+    cx.beginPath();cx.arc(n.x,n.y,nodeR,0,TAU);cx.stroke();
+
+    // Coherence progress ring
+    if(c.prog>.01){
+      cx.strokeStyle=`rgba(${n.col},${min(.7,c.prog*.8)})`;cx.lineWidth=3;
+      cx.beginPath();cx.arc(n.x,n.y,nodeR+4,-PI/2,-PI/2+TAU*c.prog);cx.stroke()}
+
+    // Rupture flash
+    if(c.sAmp>.1){
+      cx.fillStyle=`rgba(${n.col},${c.sAmp*.4})`;
+      cx.beginPath();cx.arc(n.x,n.y,nodeR*(1+c.sAmp*.5),0,TAU);cx.fill()}
+
+    // Labels
+    cx.fillStyle=`rgba(${n.col},.75)`;cx.font="bold 13px 'JetBrains Mono',monospace";
+    cx.textAlign='center';cx.fillText(n.label,n.x,n.y+4);
+    cx.fillStyle=`rgba(${n.col},.4)`;cx.font="9px 'JetBrains Mono',monospace";
+    cx.fillText(n.sub,n.x,n.y+16);
+    cx.fillText(conc+'pg',n.x,n.y-nodeR-6);
+  }
+
+  // Central decision node
+  const decCol=decision==='FORAGE'?'50,160,50':'180,70,40';
+  const decR=22+sin(t*3)*.5;
+  cx.fillStyle=`rgba(${decCol},.12)`;
+  cx.beginPath();cx.arc(center.x,center.y,decR,0,TAU);cx.fill();
+  cx.strokeStyle=`rgba(${decCol},.35)`;cx.lineWidth=2;
+  cx.beginPath();cx.arc(center.x,center.y,decR,0,TAU);cx.stroke();
+  cx.fillStyle=`rgba(${decCol},.8)`;cx.font="bold 11px 'JetBrains Mono',monospace";
+  cx.textAlign='center';cx.fillText(decision,center.x,center.y+4);
+
+  // DA:5HT ratio display
+  const ratio=(nt.da/max(1,nt.ht)).toFixed(1);
+  cx.fillStyle='rgba(255,220,160,.3)';cx.font="9px 'JetBrains Mono',monospace";
+  cx.fillText('DA:5-HT = '+ratio,center.x,center.y+decR+14);
+
+  // Free energy
+  cx.fillText('F = '+freeE.toFixed(2),center.x,center.y+decR+26);
+}
+
+// ─── SLIDERS ─────────────────────────────────────────────
+document.getElementById('s_da').oninput=function(){nt.da=+this.value;document.getElementById('v_da').textContent=nt.da};
+document.getElementById('s_5ht').oninput=function(){nt.ht=+this.value;document.getElementById('v_5ht').textContent=nt.ht};
+document.getElementById('s_oa').oninput=function(){nt.oa=+this.value;document.getElementById('v_oa').textContent=nt.oa};
+document.getElementById('s_ta').oninput=function(){nt.ta=+this.value;document.getElementById('v_ta').textContent=nt.ta};
+document.getElementById('s_hum').oninput=function(){humidity=+this.value;document.getElementById('v_hum').textContent=humidity+'%'};
+function boostDA(){nt.da=min(120,nt.da+30);document.getElementById('s_da').value=nt.da;document.getElementById('v_da').textContent=nt.da;
+  advanceNarrative("Dopamine boost! Watch the ant — if baseline was low, this is a <em>dramatic</em> precision shift. If it was already high, diminishing returns.")}
+function inhibitDA(){nt.da=max(5,nt.da-25);document.getElementById('s_da').value=nt.da;document.getElementById('v_da').textContent=nt.da;
+  advanceNarrative("DA inhibited — the ant loses policy confidence. In our field experiments, 3-iodo-tyrosine made ants forage <em>less</em>.")}
+function resetBrain(){nt={...BASE};
+  ['s_da','s_5ht','s_oa','s_ta'].forEach((id,i)=>{const ks=['da','ht','oa','ta'];
+    document.getElementById(id).value=nt[ks[i]];document.getElementById(['v_da','v_5ht','v_oa','v_ta'][i]).textContent=nt[ks[i]]});
+  initWorld()}
+
+// ─── EXPLAINER / BRAIN TOGGLE ────────────────────────────
+function toggleExplainer(){document.getElementById('explainer').classList.toggle('open')}
+document.getElementById('toggle-ex').onclick=toggleExplainer;
+document.querySelectorAll('.tab-btn').forEach(b=>{b.onclick=function(){
+  document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(x=>x.classList.remove('active'));
+  this.classList.add('active');document.getElementById('tab-'+this.dataset.tab).classList.add('active')}});
+function toggleBrain(){const el=document.getElementById('brain-inset');
+  el.classList.toggle('open');el.classList.toggle('closed');
+  document.getElementById('brain-toggle').textContent=el.classList.contains('open')?'▼':'▲'}
+
+// ─── NARRATIVE ───────────────────────────────────────────
+const narTextEl=document.getElementById('nar-text');
+const narrativeEl=document.getElementById('narrative');
+const narratives=[
+  "Welcome! You're watching a single forager in the Arizona desert. Its brain chemistry — shown in the inset — determines whether it ventures out or stays home.",
+  "Dopamine sets <em>policy precision</em>. Low DA = the ant huddles by the nest, uncertain what to do. High DA = confident foraging. Watch it happen live.",
+  "The DA:5-HT ratio is key. We found it varies between colonies and correlates with humidity sensitivity. It maps directly to <em>explore vs exploit</em>.",
+  "Serotonin weights <em>prior preferences</em> — the ant's belief that it should stay safe. In dry conditions, high 5-HT means 'water loss risk is too important to ignore.'",
+  "Octopamine is motor readiness. Drop it to zero — the ant KNOWS what to do (DA is fine) but CAN'T initiate movement. Motor precision too low for sensory attenuation.",
+  "Try the dopamine boost at different baselines. Low DA → huge effect. High DA → small effect. That's exactly what we found in the field. The math predicts it.",
+  "Each ring in the brain inset shows <em>evidence accumulation</em> in that channel. When it fills, a <em>belief update</em> fires — precision-weighted prediction error driving inference. That's Active Inference at the molecular scale.",
+  "This is why I got into Active Inference from ant biology. One framework connects molecules, single neurons, individual behaviour, and colony decisions.",
+];
+let narIdx=0,narTimer=0,narVisible=false;
+function advanceNarrative(custom){
+  narTextEl.innerHTML=custom||narratives[narIdx%narratives.length];
+  narrativeEl.classList.add('visible');narVisible=true;narTimer=0;if(!custom)narIdx++}
+
+// ─── STATS ───────────────────────────────────────────────
+function updateStats(){
+  document.getElementById('st_ratio').textContent=(nt.da/max(1,nt.ht)).toFixed(2);
+  document.getElementById('st_risk').textContent=waterRisk.toFixed(2);
+  document.getElementById('st_fe').textContent=freeE.toFixed(2);
+  document.getElementById('st_dec').textContent=decision;
+  document.getElementById('st_dec').style.color=decision==='FORAGE'?'rgba(50,140,50,.85)':'rgba(180,70,40,.85)';
+  document.getElementById('st_seeds').textContent=seeds;
+  for(const[k,c]of Object.entries(ch)){
+    const id=k==='ht'?'5ht':k;const v=min(10,c.prec);
+    if(document.getElementById('p_'+id)){
+      document.getElementById('p_'+id).textContent=v.toFixed(2);
+      document.getElementById('pb_'+id).style.width=min(100,v*10)+'%'}}
+}
+
+// ─── MAIN LOOP ───────────────────────────────────────────
+let lastTime=0,statT=0,narAutoT=0;
+function frame(now){
+  const dt=min(.05,(now-lastTime)/1000);lastTime=now;t+=dt;
+
+  // CRR step
+  const foodSig=.5+(ant.hasFood?.3:0);
+  ch.da.step(foodSig+ch.ta.prec*.08,dt);
+  ch.ht.step(max(0,1-humidity/100)+.2,dt);
+  ch.oa.step(foodSig*.4+ch.da.prec*.08,dt);
+  ch.ta.step(.4+sin(t*.3)*.08,dt);
+
+  updateAnt(dt);
+  renderWorld(t);
+  if(document.getElementById('brain-inset').classList.contains('open'))renderBrain(t);
+
+  statT+=dt;if(statT>.25){statT=0;updateStats();
+    document.getElementById('status-bar').textContent=
+      `DA:${nt.da} 5-HT:${nt.ht} OA:${nt.oa} TA:${nt.ta} · DA:5-HT=${(nt.da/max(1,nt.ht)).toFixed(2)} · ${decision} · Seeds:${seeds}`}
+
+  narAutoT+=dt;
+  if(narVisible){narTimer+=dt;if(narTimer>10){narrativeEl.classList.remove('visible');narVisible=false}}
+  if(narAutoT>18&&!narVisible){narAutoT=0;advanceNarrative()}
+
+  // Replenish food slowly
+  for(const f of foodSources)if(f.seeds<8)f.seeds+=dt*.02;
+
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body></html>

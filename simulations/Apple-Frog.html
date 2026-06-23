@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple or Frog? — Active Inference Tutorial</title>
+    <style>
+        :root {
+            --bg-deep: #0d1117;
+            --bg-panel: #161b22;
+            --bg-card: #1c2128;
+            --border: rgba(139, 148, 158, 0.2);
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --apple-red: #e85d4c;
+            --apple-red-soft: rgba(232, 93, 76, 0.15);
+            --frog-green: #3fb950;
+            --frog-green-soft: rgba(63, 185, 80, 0.15);
+            --accent-gold: #d4a574;
+            --accent-blue: #58a6ff;
+            --error-orange: #f0883e;
+            --success: #3fb950;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--bg-panel);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 22px;
+            font-weight: normal;
+            color: var(--accent-gold);
+            letter-spacing: 0.5px;
+        }
+
+        .chapter-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 0;
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 0;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        .btn:hover {
+            background: #2d333b;
+            border-color: var(--text-muted);
+        }
+
+        .btn-primary {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4393e8;
+        }
+
+        /* ===== MAIN LAYOUT ===== */
+        .main-container {
+            display: grid;
+            grid-template-columns: 320px 1fr 300px;
+            gap: 24px;
+            padding: 24px;
+            max-width: 1600px;
+            margin: 0 auto;
+            min-height: calc(100vh - 70px);
+        }
+
+        /* ===== LEFT PANEL - TUTORIAL ===== */
+        .tutorial-panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 0;
+            padding: 24px;
+            overflow-y: auto;
+            max-height: calc(100vh - 118px);
+        }
+
+        .tutorial-step {
+            display: none;
+        }
+
+        .tutorial-step.active {
+            display: block;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 0;
+            background: var(--accent-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .step-title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 20px;
+            font-weight: normal;
+            color: var(--text-primary);
+        }
+
+        .tutorial-content p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .tutorial-content strong {
+            color: var(--text-primary);
+        }
+
+        .quote-box {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent-gold);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0;
+        }
+
+        .quote-box p {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 15px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .quote-source {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: normal;
+        }
+
+        .concept-highlight {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0;
+            padding: 16px;
+            margin: 16px 0;
+        }
+
+        .concept-highlight h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .equation {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: var(--bg-deep);
+            padding: 12px 16px;
+            border-radius: 0;
+            margin: 12px 0;
+            font-size: 14px;
+            color: var(--accent-blue);
+            text-align: center;
+        }
+
+        .tutorial-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .progress-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 0;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .progress-dot.active {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .progress-dot.completed {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        /* ===== CENTER - SIMULATION ===== */
+        .simulation-area {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stimulus-container {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 0;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-height: 400px;
+        }
+
+        .stimulus-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .stimulus-canvas {
+            width: 280px;
+            height: 280px;
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        #stimulus-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .stimulus-info {
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .current-observation {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 24px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .observation-detail {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* ===== CONTROLS ===== */
+        .controls-panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 0;
+            padding: 24px;
+        }
+
+        .controls-header {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .control-group {
+            margin-bottom: 24px;
+        }
+
+        .control-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .control-label span {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .control-label .value {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: var(--accent-blue);
+            font-size: 12px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 0;
+            background: var(--bg-deep);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 0;
+            background: var(--accent-blue);
+            cursor: pointer;
+            border: 2px solid var(--bg-panel);
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .action-btn {
+            padding: 16px;
+            border-radius: 0;
+            border: 2px solid var(--border);
+            background: var(--bg-card);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .action-btn.perception {
+            border-color: rgba(88, 166, 255, 0.3);
+        }
+
+        .action-btn.perception:hover {
+            background: rgba(88, 166, 255, 0.1);
+            border-color: var(--accent-blue);
+        }
+
+        .action-btn.action {
+            border-color: rgba(212, 165, 116, 0.3);
+        }
+
+        .action-btn.action:hover {
+            background: rgba(212, 165, 116, 0.1);
+            border-color: var(--accent-gold);
+        }
+
+        .action-btn h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .action-btn p {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .action-btn.perception h4 { color: var(--accent-blue); }
+        .action-btn.action h4 { color: var(--accent-gold); }
+
+        /* ===== RIGHT PANEL - METRICS ===== */
+        .metrics-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .metric-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 0;
+            padding: 20px;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .metric-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 14px;
+            color: var(--accent-blue);
+        }
+
+        /* Distribution bars */
+        .distribution-container {
+            margin-top: 12px;
+        }
+
+        .dist-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .dist-label {
+            width: 50px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .dist-bar-container {
+            flex: 1;
+            height: 24px;
+            background: var(--bg-deep);
+            border-radius: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dist-bar {
+            height: 100%;
+            border-radius: 0;
+            transition: width 0.5s ease;
+        }
+
+        .dist-bar.apple {
+            background: linear-gradient(90deg, var(--apple-red), #f06050);
+        }
+
+        .dist-bar.frog {
+            background: linear-gradient(90deg, var(--frog-green), #50c060);
+        }
+
+        .dist-value {
+            width: 45px;
+            text-align: right;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Free Energy Gauge */
+        .fe-gauge {
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .fe-bar-container {
+            width: 100%;
+            height: 80px;
+            background: var(--bg-deep);
+            border-radius: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .fe-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, var(--success), var(--error-orange));
+            transition: height 0.5s ease;
+            border-radius: 0;
+        }
+
+        .fe-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .fe-scale {
+            position: absolute;
+            right: -30px;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 9px;
+            color: var(--text-muted);
+        }
+
+        /* Prediction Error */
+        .pe-indicator {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .pe-visual {
+            width: 60px;
+            height: 60px;
+            border-radius: 0;
+            border: 3px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .pe-visual.low {
+            border-color: var(--success);
+            background: rgba(63, 185, 80, 0.1);
+        }
+
+        .pe-visual.medium {
+            border-color: var(--accent-gold);
+            background: rgba(212, 165, 116, 0.1);
+        }
+
+        .pe-visual.high {
+            border-color: var(--error-orange);
+            background: rgba(240, 136, 62, 0.1);
+        }
+
+        .pe-icon {
+            font-size: 24px;
+        }
+
+        .pe-details {
+            flex: 1;
+        }
+
+        .pe-magnitude {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 20px;
+            font-weight: normal;
+            color: var(--text-primary);
+        }
+
+        .pe-status {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* History Log */
+        .history-log {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            padding: 10px 12px;
+            background: var(--bg-card);
+            border-radius: 0;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+
+        .history-item .action-type {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .history-item.perception .action-type {
+            color: var(--accent-blue);
+        }
+
+        .history-item.action .action-type {
+            color: var(--accent-gold);
+        }
+
+        .history-item .result {
+            color: var(--text-muted);
+        }
+
+        /* ===== MODAL OVERLAY ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 0;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-content h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 28px;
+            font-weight: normal;
+            margin-bottom: 24px;
+            color: var(--accent-gold);
+        }
+
+        .modal-content p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .start-btn {
+            width: 100%;
+            padding: 16px;
+            margin-top: 24px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* ===== FEEDBACK TOAST ===== */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 0;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .toast.visible {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast-icon {
+            font-size: 24px;
+        }
+
+        .toast-message {
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .tutorial-panel {
+                max-height: none;
+            }
+        }
+    </style>
+
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body>
+<a href="./" class="aii-floating-back">&#8592; Back to Catalog</a>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">Active Inference</div>
+            <span class="chapter-badge">Chapter 2: The Low Road</span>
+        </div>
+        <div class="header-right">
+            <button class="btn" onclick="resetSimulation()">↻ Reset</button>
+            <button class="btn btn-primary" onclick="showIntroModal()">? Help</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+        <!-- LEFT: TUTORIAL PANEL -->
+        <div class="tutorial-panel">
+            <div class="progress-dots">
+                <div class="progress-dot active" data-step="1" onclick="goToStep(1)"></div>
+                <div class="progress-dot" data-step="2" onclick="goToStep(2)"></div>
+                <div class="progress-dot" data-step="3" onclick="goToStep(3)"></div>
+                <div class="progress-dot" data-step="4" onclick="goToStep(4)"></div>
+                <div class="progress-dot" data-step="5" onclick="goToStep(5)"></div>
+                <div class="progress-dot" data-step="6" onclick="goToStep(6)"></div>
+            </div>
+
+            <!-- STEP 1: Introduction -->
+            <div class="tutorial-step active" data-step="1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Perception as Inference</h3>
+                </div>
+                <div class="tutorial-content">
+                    <p>Welcome to the <strong>Low Road to Active Inference</strong>. This tutorial demonstrates how perception works as a form of statistical inference.</p>
+                    
+                    <div class="quote-box">
+                        <p>"Perception is not a passive outside-in process—in which information is extracted from impressions on our sensory epithelia from 'out there.' It is a constructive inside-out process—in which sensations are used to confirm or disconfirm hypotheses about how they were generated."</p>
+                        <span class="quote-source">— Parr, Pezzulo & Friston (2022)</span>
+                    </div>
+
+                    <p>The brain doesn't passively receive sensations. It actively <strong>predicts</strong> what it expects to see, then compares these predictions with actual sensory input.</p>
+
+                    <div class="concept-highlight">
+                        <h4>Key Insight</h4>
+                        <p>You don't see the world directly. You see your brain's best guess about what's causing your sensations.</p>
+                    </div>
+                </div>
+                <div class="tutorial-nav">
+                    <span></span>
+                    <button class="btn btn-primary" onclick="nextStep()">Next →</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: The Generative Model -->
+            <div class="tutorial-step" data-step="2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">The Generative Model</h3>
+                </div>
+                <div class="tutorial-content">
+                    <p>Your brain maintains a <strong>generative model</strong>—a probabilistic representation of how hidden causes in the world produce sensations.</p>
+
+                    <div class="equation">P(y, x) = P(y | x) · P(x)</div>
+
+                    <p>This model has two components:</p>
+
+                    <div class="concept-highlight">
+                        <h4>Prior P(x)</h4>
+                        <p>What you <em>expect</em> to see before any sensory evidence. Your beliefs about what's likely to be "out there."</p>
+                    </div>
+
+                    <div class="concept-highlight">
+                        <h4>Likelihood P(y|x)</h4>
+                        <p>How sensory observations are generated from hidden states. Given a certain cause, what sensations would it produce?</p>
+                    </div>
+
+                    <p>Try adjusting the <strong>Prior Belief slider</strong> on the right. Notice how it changes what you "expect" to see.</p>
+                </div>
+                <div class="tutorial-nav">
+                    <button class="btn" onclick="prevStep()">← Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Next →</button>
+                </div>
+            </div>
+
+            <!-- STEP 3: Prediction Error -->
+            <div class="tutorial-step" data-step="3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Prediction Error</h3>
+                </div>
+                <div class="tutorial-content">
+                    <p>When your prediction doesn't match your sensation, a <strong>prediction error</strong> occurs. This is the discrepancy between what you expected and what you observe.</p>
+
+                    <div class="quote-box">
+                        <p>"Consider a person who expects to see an apple. She generates a top-down visual prediction (e.g., about seeing something red and not jumping). This visual prediction is compared with a sensation (e.g., something jumping)—and this comparison results in a discrepancy."</p>
+                        <span class="quote-source">— Chapter 2, Active Inference Textbook</span>
+                    </div>
+
+                    <p>Look at the <strong>Prediction Error</strong> indicator on the right. It shows the magnitude of the mismatch between your belief and the actual stimulus.</p>
+
+                    <div class="concept-highlight">
+                        <h4>The Problem</h4>
+                        <p>Prediction errors are metabolically costly. The brain—and all living systems—are driven to minimize them.</p>
+                    </div>
+                </div>
+                <div class="tutorial-nav">
+                    <button class="btn" onclick="prevStep()">← Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Next →</button>
+                </div>
+            </div>
+
+            <!-- STEP 4: Two Solutions -->
+            <div class="tutorial-step" data-step="4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Two Ways to Resolve</h3>
+                </div>
+                <div class="tutorial-content">
+                    <p>There are exactly <strong>two ways</strong> to minimize prediction error:</p>
+
+                    <div class="concept-highlight">
+                        <h4>1. Perception (Update Belief)</h4>
+                        <p>Change your <em>mind</em> to fit the <em>world</em>. If you expected an apple but see something jumping, update your belief: "It's a frog!"</p>
+                    </div>
+
+                    <div class="concept-highlight">
+                        <h4>2. Action (Change Sampling)</h4>
+                        <p>Change the <em>world</em> to fit your <em>mind</em>. Look somewhere else where an actual apple might be. Make your prediction come true.</p>
+                    </div>
+
+                    <div class="quote-box">
+                        <p>"The person can resolve this discrepancy in two ways. First, she could change her mind about what she is seeing (i.e., a frog) to fit the world. Second, she could foveate the nearest apple tree and see something that looks very much like an apple."</p>
+                        <span class="quote-source">— Chapter 2, Active Inference Textbook</span>
+                    </div>
+                </div>
+                <div class="tutorial-nav">
+                    <button class="btn" onclick="prevStep()">← Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Next →</button>
+                </div>
+            </div>
+
+            <!-- STEP 5: Free Energy -->
+            <div class="tutorial-step" data-step="5">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Free Energy</h3>
+                </div>
+                <div class="tutorial-content">
+                    <p>Both perception and action serve the <strong>same objective</strong>: minimizing <strong>variational free energy</strong>.</p>
+
+                    <div class="equation">F = D_KL[Q(μ) || P(μ|o)] − ln P(o)</div>
+
+                    <p>Free energy is an upper bound on surprise. It increases when:</p>
+                    <ul style="margin: 16px 0 16px 20px; color: var(--text-secondary); font-size: 14px;">
+                        <li>Your beliefs diverge from the true state</li>
+                        <li>Observations are unexpected under your model</li>
+                    </ul>
+
+                    <div class="concept-highlight">
+                        <h4>The Fundamental Insight</h4>
+                        <p>Living organisms minimize free energy by actively controlling their action-perception loops. This is the "active" in Active Inference.</p>
+                    </div>
+
+                    <p>Watch the <strong>Free Energy gauge</strong>. It decreases when you successfully resolve prediction errors.</p>
+                </div>
+                <div class="tutorial-nav">
+                    <button class="btn" onclick="prevStep()">← Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()">Next →</button>
+                </div>
+            </div>
+
+            <!-- STEP 6: Try It -->
+            <div class="tutorial-step" data-step="6">
+                <div class="step-header">
+                    <div class="step-number">6</div>
+                    <h3 class="step-title">Your Turn</h3>
+                </div>
+                <div class="tutorial-content">
+                    <p>Now experiment with the simulation:</p>
+
+                    <div class="concept-highlight">
+                        <h4>Instructions</h4>
+                        <ol style="margin: 12px 0 0 20px; color: var(--text-secondary); font-size: 14px; line-height: 2;">
+                            <li>Set your <strong>Prior Belief</strong> (what you expect)</li>
+                            <li>Observe the <strong>Stimulus</strong> (what's actually there)</li>
+                            <li>Note the <strong>Prediction Error</strong></li>
+                            <li>Choose: <strong>Update Belief</strong> or <strong>Look Elsewhere</strong></li>
+                            <li>Watch <strong>Free Energy</strong> decrease</li>
+                        </ol>
+                    </div>
+
+                    <p style="margin-top: 20px;">Notice how both strategies reduce prediction error, but in fundamentally different ways:</p>
+
+                    <p><strong style="color: var(--accent-blue);">Perception</strong> = Model fits world<br>
+                    <strong style="color: var(--accent-gold);">Action</strong> = World fits model</p>
+
+                    <div class="quote-box" style="margin-top: 20px;">
+                        <p>"A fundamental insight of Active Inference is that both perception and action serve the very same objective."</p>
+                        <span class="quote-source">— Chapter 2, Active Inference Textbook</span>
+                    </div>
+                </div>
+                <div class="tutorial-nav">
+                    <button class="btn" onclick="prevStep()">← Back</button>
+                    <button class="btn btn-primary" onclick="goToStep(1)">Restart Tutorial</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CENTER: SIMULATION -->
+        <div class="simulation-area">
+            <div class="stimulus-container">
+                <div class="stimulus-label">Sensory Observation</div>
+                <div class="stimulus-canvas">
+                    <svg id="stimulus-svg" viewBox="0 0 280 280">
+                        <!-- Apple SVG -->
+                        <g id="apple-group" opacity="0.5">
+                            <ellipse cx="140" cy="160" rx="75" ry="80" fill="#e85d4c"/>
+                            <ellipse cx="140" cy="160" rx="75" ry="80" fill="url(#apple-gradient)"/>
+                            <path d="M140 80 Q150 60 145 45 Q155 55 165 50" stroke="#5a3825" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            <ellipse cx="170" cy="75" rx="25" ry="15" fill="#3fb950" transform="rotate(-30 170 75)"/>
+                            <ellipse cx="115" cy="130" rx="15" ry="25" fill="rgba(255,255,255,0.2)"/>
+                        </g>
+                        <!-- Frog SVG -->
+                        <g id="frog-group" opacity="0.5">
+                            <ellipse cx="140" cy="180" rx="70" ry="50" fill="#3fb950"/>
+                            <ellipse cx="140" cy="180" rx="70" ry="50" fill="url(#frog-gradient)"/>
+                            <!-- Eyes -->
+                            <circle cx="105" cy="130" r="25" fill="#3fb950"/>
+                            <circle cx="175" cy="130" r="25" fill="#3fb950"/>
+                            <circle cx="105" cy="130" r="18" fill="white"/>
+                            <circle cx="175" cy="130" r="18" fill="white"/>
+                            <circle cx="105" cy="130" r="10" fill="#1a1a1a"/>
+                            <circle cx="175" cy="130" r="10" fill="#1a1a1a"/>
+                            <!-- Nostrils -->
+                            <circle cx="125" cy="165" r="4" fill="#2d8a3e"/>
+                            <circle cx="155" cy="165" r="4" fill="#2d8a3e"/>
+                            <!-- Mouth -->
+                            <path d="M100 195 Q140 210 180 195" stroke="#2d8a3e" stroke-width="3" fill="none"/>
+                            <!-- Legs hint -->
+                            <ellipse cx="75" cy="210" rx="20" ry="12" fill="#3fb950"/>
+                            <ellipse cx="205" cy="210" rx="20" ry="12" fill="#3fb950"/>
+                        </g>
+                        <!-- Gradients -->
+                        <defs>
+                            <radialGradient id="apple-gradient" cx="35%" cy="35%">
+                                <stop offset="0%" stop-color="rgba(255,255,255,0.3)"/>
+                                <stop offset="100%" stop-color="rgba(0,0,0,0.1)"/>
+                            </radialGradient>
+                            <radialGradient id="frog-gradient" cx="35%" cy="35%">
+                                <stop offset="0%" stop-color="rgba(255,255,255,0.2)"/>
+                                <stop offset="100%" stop-color="rgba(0,0,0,0.1)"/>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="stimulus-info">
+                    <div class="current-observation" id="observation-text">Ambiguous Stimulus</div>
+                    <div class="observation-detail" id="observation-detail">The stimulus morphs between apple and frog</div>
+                </div>
+            </div>
+
+            <div class="controls-panel">
+                <h3 class="controls-header">Generative Model Parameters</h3>
+                
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Prior Belief P(apple)</span>
+                        <span class="value" id="prior-value">50%</span>
+                    </div>
+                    <input type="range" id="prior-slider" min="0" max="100" value="50">
+                    <div style="display: flex; justify-content: space-between; margin-top: 4px;">
+                        <span style="font-size: 11px; color: var(--frog-green);">Expect Frog</span>
+                        <span style="font-size: 11px; color: var(--apple-red);">Expect Apple</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Stimulus State (Reality)</span>
+                        <span class="value" id="stimulus-value">50%</span>
+                    </div>
+                    <input type="range" id="stimulus-slider" min="0" max="100" value="50">
+                    <div style="display: flex; justify-content: space-between; margin-top: 4px;">
+                        <span style="font-size: 11px; color: var(--frog-green);">Frog</span>
+                        <span style="font-size: 11px; color: var(--apple-red);">Apple</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn perception" onclick="performPerception()">
+                        <h4>Update Belief</h4>
+                        <p>Change mind to fit world</p>
+                    </button>
+                    <button class="action-btn action" onclick="performAction()">
+                        <h4>Look Elsewhere</h4>
+                        <p>Change world to fit mind</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: METRICS -->
+        <div class="metrics-panel">
+            <!-- Posterior Belief -->
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Posterior Belief P(x|y)</span>
+                </div>
+                <div class="distribution-container">
+                    <div class="dist-row">
+                        <span class="dist-label" style="color: var(--apple-red);">Apple</span>
+                        <div class="dist-bar-container">
+                            <div class="dist-bar apple" id="posterior-apple-bar" style="width: 50%;"></div>
+                        </div>
+                        <span class="dist-value" id="posterior-apple-val">50%</span>
+                    </div>
+                    <div class="dist-row">
+                        <span class="dist-label" style="color: var(--frog-green);">Frog</span>
+                        <div class="dist-bar-container">
+                            <div class="dist-bar frog" id="posterior-frog-bar" style="width: 50%;"></div>
+                        </div>
+                        <span class="dist-value" id="posterior-frog-val">50%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prediction Error -->
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Prediction Error ε</span>
+                </div>
+                <div class="pe-indicator">
+                    <div class="pe-visual low" id="pe-visual">
+                        <span class="pe-icon" id="pe-icon">✓</span>
+                    </div>
+                    <div class="pe-details">
+                        <div class="pe-magnitude" id="pe-magnitude">0.00</div>
+                        <div class="pe-status" id="pe-status">Predictions match observations</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Free Energy -->
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Variational Free Energy F</span>
+                    <span class="metric-value" id="fe-value">0.00</span>
+                </div>
+                <div class="fe-gauge">
+                    <div class="fe-bar-container">
+                        <div class="fe-bar" id="fe-bar" style="height: 10%;"></div>
+                    </div>
+                    <div class="fe-labels">
+                        <span>Low (Good)</span>
+                        <span>High (Bad)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History -->
+            <div class="metric-card" style="flex: 1;">
+                <div class="metric-header">
+                    <span class="metric-title">Action History</span>
+                </div>
+                <div class="history-log" id="history-log">
+                    <div class="history-item" style="background: transparent; text-align: center; color: var(--text-muted);">
+                        No actions yet. Try resolving the prediction error!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTRO MODAL -->
+    <div class="modal-overlay visible" id="intro-modal">
+        <div class="modal-content">
+            <h2>Apple or Frog?</h2>
+            <p>This interactive tutorial demonstrates a core principle of <strong>Active Inference</strong>: perception is not passive reception of sensory data, but an active process of hypothesis testing.</p>
+            
+            <p>Imagine walking through an orchard. You expect to see apples. But something moves in your peripheral vision...</p>
+            
+            <p>Is it an apple swaying in the breeze? Or a frog that jumped? Your brain must resolve this ambiguity—and it has exactly <strong>two strategies</strong>:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0;">
+                <div style="background: var(--bg-card); padding: 16px; border-radius: 0; border-left: 3px solid var(--accent-blue);">
+                    <h4 style="color: var(--accent-blue); margin-bottom: 8px;">Perception</h4>
+                    <p style="font-size: 13px; margin: 0;">Update your belief to match reality. "It's a frog!"</p>
+                </div>
+                <div style="background: var(--bg-card); padding: 16px; border-radius: 0; border-left: 3px solid var(--accent-gold);">
+                    <h4 style="color: var(--accent-gold); margin-bottom: 8px;">Action</h4>
+                    <p style="font-size: 13px; margin: 0;">Look elsewhere until you find an actual apple.</p>
+                </div>
+            </div>
+            
+            <p>Both strategies minimize the same quantity: <strong>variational free energy</strong>—the discrepancy between your model and the world.</p>
+            
+            <button class="btn btn-primary start-btn" onclick="closeIntroModal()">Begin Tutorial →</button>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <span class="toast-icon" id="toast-icon">✓</span>
+        <span class="toast-message" id="toast-message">Action complete!</span>
+    </div>
+
+    <script>
+        /**
+         * ============================================================================
+         * APPLE OR FROG — Active Inference Tutorial
+         * ============================================================================
+         * 
+         * Demonstrates the Low Road to Active Inference (Chapter 2)
+         * - Perception as inference
+         * - Prediction error and free energy
+         * - Two ways to minimize discrepancy: perception vs action
+         * 
+         * Part of the Active Inference Institute pedagogical simulations
+         * Framework: Alexander Sabine | www.temporalgrammar.ai
+         * 
+         * GUI displays peer-reviewed FEP concepts only
+         * CRR used internally as computational method where helpful
+         * 
+         * ============================================================================
+         */
+
+        // ========== STATE ==========
+        let state = {
+            prior: 0.5,           // P(apple) prior belief
+            stimulus: 0.5,        // True state (0 = frog, 1 = apple)
+            posterior: 0.5,       // Updated belief after inference
+            predictionError: 0,   // |posterior - stimulus|
+            freeEnergy: 0,        // Variational free energy
+            
+            // CRR internal tracking (not shown in GUI)
+            coherence: 0,         // Accumulated alignment between belief and world
+            omega: 0.3,           // Rupture threshold
+            
+            currentStep: 1,
+            history: []
+        };
+
+        // ========== DOM ELEMENTS ==========
+        const elements = {
+            priorSlider: document.getElementById('prior-slider'),
+            priorValue: document.getElementById('prior-value'),
+            stimulusSlider: document.getElementById('stimulus-slider'),
+            stimulusValue: document.getElementById('stimulus-value'),
+            appleGroup: document.getElementById('apple-group'),
+            frogGroup: document.getElementById('frog-group'),
+            observationText: document.getElementById('observation-text'),
+            observationDetail: document.getElementById('observation-detail'),
+            posteriorAppleBar: document.getElementById('posterior-apple-bar'),
+            posteriorFrogBar: document.getElementById('posterior-frog-bar'),
+            posteriorAppleVal: document.getElementById('posterior-apple-val'),
+            posteriorFrogVal: document.getElementById('posterior-frog-val'),
+            peVisual: document.getElementById('pe-visual'),
+            peIcon: document.getElementById('pe-icon'),
+            peMagnitude: document.getElementById('pe-magnitude'),
+            peStatus: document.getElementById('pe-status'),
+            feBar: document.getElementById('fe-bar'),
+            feValue: document.getElementById('fe-value'),
+            historyLog: document.getElementById('history-log'),
+            introModal: document.getElementById('intro-modal'),
+            toast: document.getElementById('toast'),
+            toastIcon: document.getElementById('toast-icon'),
+            toastMessage: document.getElementById('toast-message')
+        };
+
+        // ========== INITIALIZATION ==========
+        function init() {
+            elements.priorSlider.addEventListener('input', onPriorChange);
+            elements.stimulusSlider.addEventListener('input', onStimulusChange);
+            updateAll();
+        }
+
+        // ========== EVENT HANDLERS ==========
+        function onPriorChange(e) {
+            state.prior = e.target.value / 100;
+            elements.priorValue.textContent = `${e.target.value}%`;
+            updateAll();
+        }
+
+        function onStimulusChange(e) {
+            state.stimulus = e.target.value / 100;
+            elements.stimulusValue.textContent = `${e.target.value}%`;
+            updateStimulus();
+            updateAll();
+        }
+
+        // ========== CORE COMPUTATIONS ==========
+        
+        /**
+         * Compute posterior using Bayesian update
+         * P(apple|y) ∝ P(y|apple) * P(apple)
+         * 
+         * The likelihood P(y|x) is modeled as how well the sensory
+         * evidence matches each hypothesis
+         */
+        function computePosterior() {
+            // Likelihood: how well does stimulus match each hypothesis?
+            // If stimulus = 1 (apple), likelihood of apple is high
+            // If stimulus = 0 (frog), likelihood of frog is high
+            const likelihoodApple = state.stimulus;
+            const likelihoodFrog = 1 - state.stimulus;
+            
+            // Bayesian update
+            const unnormApple = likelihoodApple * state.prior;
+            const unnormFrog = likelihoodFrog * (1 - state.prior);
+            const normConstant = unnormApple + unnormFrog;
+            
+            state.posterior = normConstant > 0 ? unnormApple / normConstant : 0.5;
+        }
+
+        /**
+         * Compute prediction error
+         * ε = |expected - observed|
+         * 
+         * This is the discrepancy between what we believe and what's there
+         */
+        function computePredictionError() {
+            // Prediction error is mismatch between belief and reality
+            state.predictionError = Math.abs(state.posterior - state.stimulus);
+        }
+
+        /**
+         * Compute variational free energy
+         * F = D_KL[Q||P] - ln P(o)
+         * 
+         * Simplified: F ≈ prediction_error² + complexity
+         * 
+         * CRR internal: coherence = -∫dF/dt
+         * As free energy decreases, coherence increases
+         */
+        function computeFreeEnergy() {
+            // Simplified free energy computation
+            // Includes prediction error and a complexity term
+            const predictionTerm = state.predictionError * state.predictionError;
+            
+            // Complexity: KL divergence between posterior and prior
+            // D_KL = posterior * ln(posterior/prior) + (1-posterior) * ln((1-posterior)/(1-prior))
+            const p = Math.max(0.01, Math.min(0.99, state.posterior));
+            const q = Math.max(0.01, Math.min(0.99, state.prior));
+            const klDiv = p * Math.log(p / q) + (1 - p) * Math.log((1 - p) / (1 - q));
+            
+            state.freeEnergy = predictionTerm + 0.3 * Math.max(0, klDiv);
+            
+            // CRR: Update coherence (internal only)
+            // Coherence increases as free energy decreases
+            const dF = -state.freeEnergy;
+            state.coherence = Math.max(0, state.coherence + dF * 0.1);
+        }
+
+        // ========== UI UPDATES ==========
+        function updateAll() {
+            computePosterior();
+            computePredictionError();
+            computeFreeEnergy();
+            updatePosteriorDisplay();
+            updatePredictionErrorDisplay();
+            updateFreeEnergyDisplay();
+        }
+
+        function updateStimulus() {
+            const appleOpacity = state.stimulus;
+            const frogOpacity = 1 - state.stimulus;
+            
+            elements.appleGroup.setAttribute('opacity', appleOpacity);
+            elements.frogGroup.setAttribute('opacity', frogOpacity);
+            
+            // Update observation text
+            if (state.stimulus > 0.7) {
+                elements.observationText.textContent = "Looks like an Apple";
+                elements.observationText.style.color = 'var(--apple-red)';
+                elements.observationDetail.textContent = "Red, round, stationary";
+            } else if (state.stimulus < 0.3) {
+                elements.observationText.textContent = "Looks like a Frog";
+                elements.observationText.style.color = 'var(--frog-green)';
+                elements.observationDetail.textContent = "Green, bulbous, might jump";
+            } else {
+                elements.observationText.textContent = "Ambiguous Stimulus";
+                elements.observationText.style.color = 'var(--text-primary)';
+                elements.observationDetail.textContent = "Could be either... hard to tell";
+            }
+        }
+
+        function updatePosteriorDisplay() {
+            const applePercent = Math.round(state.posterior * 100);
+            const frogPercent = 100 - applePercent;
+            
+            elements.posteriorAppleBar.style.width = `${applePercent}%`;
+            elements.posteriorFrogBar.style.width = `${frogPercent}%`;
+            elements.posteriorAppleVal.textContent = `${applePercent}%`;
+            elements.posteriorFrogVal.textContent = `${frogPercent}%`;
+        }
+
+        function updatePredictionErrorDisplay() {
+            const pe = state.predictionError;
+            elements.peMagnitude.textContent = pe.toFixed(2);
+            
+            if (pe < 0.2) {
+                elements.peVisual.className = 'pe-visual low';
+                elements.peIcon.textContent = '✓';
+                elements.peStatus.textContent = 'Predictions match observations';
+            } else if (pe < 0.5) {
+                elements.peVisual.className = 'pe-visual medium';
+                elements.peIcon.textContent = '~';
+                elements.peStatus.textContent = 'Moderate discrepancy';
+            } else {
+                elements.peVisual.className = 'pe-visual high';
+                elements.peIcon.textContent = '!';
+                elements.peStatus.textContent = 'Large prediction error!';
+            }
+        }
+
+        function updateFreeEnergyDisplay() {
+            const fePercent = Math.min(100, state.freeEnergy * 100);
+            elements.feBar.style.height = `${fePercent}%`;
+            elements.feValue.textContent = state.freeEnergy.toFixed(2);
+        }
+
+        // ========== ACTIONS ==========
+        
+        /**
+         * PERCEPTION: Update belief to match world
+         * "Change your mind to fit the world"
+         * 
+         * Mechanism: Shift posterior toward the stimulus
+         */
+        function performPerception() {
+            const oldPrior = state.prior;
+            const oldPE = state.predictionError;
+            
+            // Perceptual update: prior moves toward stimulus
+            // This represents "changing your mind"
+            state.prior = state.prior * 0.3 + state.stimulus * 0.7;
+            elements.priorSlider.value = Math.round(state.prior * 100);
+            elements.priorValue.textContent = `${Math.round(state.prior * 100)}%`;
+            
+            updateAll();
+            
+            // Log action
+            const newPE = state.predictionError;
+            addHistoryItem('perception', 
+                `Belief updated: ${Math.round(oldPrior * 100)}% → ${Math.round(state.prior * 100)}% apple`,
+                `Prediction error: ${oldPE.toFixed(2)} → ${newPE.toFixed(2)}`
+            );
+            
+            showToast('✓', 'Belief updated to match sensory evidence', 'var(--accent-blue)');
+        }
+
+        /**
+         * ACTION: Change sampling (look elsewhere)
+         * "Change the world to fit your mind"
+         * 
+         * Mechanism: New stimulus that matches our prior
+         */
+        function performAction() {
+            const oldStimulus = state.stimulus;
+            const oldPE = state.predictionError;
+            
+            // Action: sample new stimulus that matches our belief
+            // Add some noise to make it interesting
+            const targetStimulus = state.prior;
+            const noise = (Math.random() - 0.5) * 0.2;
+            state.stimulus = Math.max(0, Math.min(1, targetStimulus + noise));
+            
+            elements.stimulusSlider.value = Math.round(state.stimulus * 100);
+            elements.stimulusValue.textContent = `${Math.round(state.stimulus * 100)}%`;
+            
+            updateStimulus();
+            updateAll();
+            
+            // Log action
+            const newPE = state.predictionError;
+            const foundWhat = state.stimulus > 0.5 ? 'apple' : 'frog';
+            addHistoryItem('action',
+                `Looked elsewhere and found: ${foundWhat}`,
+                `Prediction error: ${oldPE.toFixed(2)} → ${newPE.toFixed(2)}`
+            );
+            
+            showToast('👁', 'Sampled new observation matching expectations', 'var(--accent-gold)');
+        }
+
+        function addHistoryItem(type, action, result) {
+            const log = elements.historyLog;
+            
+            // Clear "no actions" message if present
+            if (state.history.length === 0) {
+                log.innerHTML = '';
+            }
+            
+            state.history.push({ type, action, result });
+            
+            const item = document.createElement('div');
+            item.className = `history-item ${type}`;
+            item.innerHTML = `
+                <div class="action-type">${type === 'perception' ? '🧠 Perception' : '🎯 Action'}</div>
+                <div class="result">${action}<br>${result}</div>
+            `;
+            
+            log.insertBefore(item, log.firstChild);
+            
+            // Keep only last 10
+            while (log.children.length > 10) {
+                log.removeChild(log.lastChild);
+            }
+        }
+
+        // ========== TUTORIAL NAVIGATION ==========
+        function goToStep(step) {
+            // Update dots
+            document.querySelectorAll('.progress-dot').forEach((dot, i) => {
+                dot.classList.remove('active', 'completed');
+                if (i + 1 < step) dot.classList.add('completed');
+                if (i + 1 === step) dot.classList.add('active');
+            });
+            
+            // Update content
+            document.querySelectorAll('.tutorial-step').forEach(s => {
+                s.classList.remove('active');
+            });
+            document.querySelector(`.tutorial-step[data-step="${step}"]`).classList.add('active');
+            
+            state.currentStep = step;
+        }
+
+        function nextStep() {
+            if (state.currentStep < 6) {
+                goToStep(state.currentStep + 1);
+            }
+        }
+
+        function prevStep() {
+            if (state.currentStep > 1) {
+                goToStep(state.currentStep - 1);
+            }
+        }
+
+        // ========== MODALS & TOASTS ==========
+        function showIntroModal() {
+            elements.introModal.classList.add('visible');
+        }
+
+        function closeIntroModal() {
+            elements.introModal.classList.remove('visible');
+        }
+
+        function showToast(icon, message, color) {
+            elements.toastIcon.textContent = icon;
+            elements.toastIcon.style.color = color;
+            elements.toastMessage.textContent = message;
+            elements.toast.classList.add('visible');
+            
+            setTimeout(() => {
+                elements.toast.classList.remove('visible');
+            }, 3000);
+        }
+
+        // ========== RESET ==========
+        function resetSimulation() {
+            state.prior = 0.5;
+            state.stimulus = 0.5;
+            state.posterior = 0.5;
+            state.predictionError = 0;
+            state.freeEnergy = 0;
+            state.coherence = 0;
+            state.history = [];
+            
+            elements.priorSlider.value = 50;
+            elements.priorValue.textContent = '50%';
+            elements.stimulusSlider.value = 50;
+            elements.stimulusValue.textContent = '50%';
+            
+            elements.historyLog.innerHTML = `
+                <div class="history-item" style="background: transparent; text-align: center; color: var(--text-muted);">
+                    No actions yet. Try resolving the prediction error!
+                </div>
+            `;
+            
+            updateStimulus();
+            updateAll();
+            goToStep(1);
+            
+            showToast('↻', 'Simulation reset', 'var(--text-secondary)');
+        }
+
+        // ========== START ==========
+        init();
+        updateStimulus();
+    </script>
+
+    <footer class="footer">
+        <p>Active Inference Institute | Pedagogy by <a href="https://www.temporalgrammar.ai" target="_blank">Alexander Sabine</a> | Based on Parr, Pezzulo & Friston (2022)</p>
+    </footer>
+</body>
+</html>

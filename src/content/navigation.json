@@ -41,6 +41,10 @@
         "slug": "activities"
       },
       {
+        "label": "Simulations",
+        "slug": "simulations"
+      },
+      {
         "label": "Learning Resources",
         "slug": "resources",
         "anchor": "learning"

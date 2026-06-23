@@ -79,6 +79,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
       <input type="search" id="site-search-input" placeholder="Search the Institute…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Search the site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Search results" hidden></div>
     </div>
+    <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Listen to this page" title="Listen to this page"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch theme" aria-pressed="false" title="Toggle light/dark theme"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
   </header>
   <main id="main">
@@ -107,6 +108,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
     <p class="build-stamp">v${escapeHtml(SITE_VERSION)}${SOURCE_FINGERPRINT ? ` · build ${escapeHtml(SOURCE_FINGERPRINT)}` : ""}</p>
   </footer>
   <script src="${prefix}assets/js/theme.js" defer></script>
+  <script src="${prefix}assets/js/tts.js" defer></script>
   <script src="${prefix}assets/js/site.js" defer></script>
   <script src="${prefix}assets/js/search-data.js" defer></script>
   <script src="${prefix}assets/js/search.js" defer></script>${searchPageScript}${graphScript}

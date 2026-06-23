@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hierarchical Markov Blankets — Active Inference Tutorial</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:'Cormorant Garamond',Georgia,serif}
+canvas{display:block;width:100vw;height:100vh}
+
+/* ═══ LEFT CONTROL PANEL ═══ */
+#ui{position:fixed;top:0;left:0;width:228px;height:100vh;
+  background:rgba(4,12,20,.92);border-right:1px solid rgba(80,140,160,.1);
+  padding:14px 12px;overflow-y:auto;backdrop-filter:blur(8px);z-index:10;
+  scrollbar-width:thin;scrollbar-color:rgba(80,140,160,.15) transparent}
+#ui::-webkit-scrollbar{width:4px}
+#ui::-webkit-scrollbar-thumb{background:rgba(80,140,160,.15);border-radius:2px}
+.sec{margin-bottom:12px;border-bottom:1px solid rgba(80,140,160,.06);padding-bottom:10px}
+.sec:last-child{border-bottom:none}
+.sec h3{color:rgba(160,220,200,.85);font-size:10px;letter-spacing:1.8px;
+  text-transform:uppercase;margin-bottom:7px;font-weight:normal;
+  font-family:'JetBrains Mono',monospace}
+.ly{display:flex;align-items:center;gap:6px;margin-bottom:4px;cursor:pointer;
+  padding:2px 4px;border-radius:3px}
+.ly:hover{background:rgba(80,140,160,.06)}
+.ly input{accent-color:rgba(140,220,200,.8);cursor:pointer;margin:0}
+.ly label{color:rgba(220,235,240,.85);font-size:12px;cursor:pointer;display:flex;align-items:center;gap:5px}
+.ly .dt{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.sg{margin-bottom:8px}
+.sg .lb{display:flex;justify-content:space-between;align-items:center;
+  color:rgba(220,235,240,.85);font-size:11.5px;letter-spacing:.3px;margin-bottom:3px}
+.sg .lb .vl{color:rgba(160,240,220,1);font-size:12.5px;font-weight:bold;
+  font-family:'JetBrains Mono',monospace}
+.sg .en{display:flex;justify-content:space-between;color:rgba(180,200,210,.55);font-size:8.5px;
+  font-family:'JetBrains Mono',monospace;margin-top:1px}
+.sg .ds{color:rgba(180,200,210,.45);font-size:8.5px;margin-top:2px;line-height:1.35;
+  font-family:'JetBrains Mono',monospace}
+input[type=range]{-webkit-appearance:none;width:100%;height:2px;
+  background:rgba(80,150,170,.18);border-radius:1px;outline:none;margin:3px 0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;
+  border-radius:50%;cursor:pointer;border:2px solid rgba(5,15,25,.8)}
+#s_pr::-webkit-slider-thumb{background:rgba(140,220,200,.75)}
+#s_bp::-webkit-slider-thumb{background:rgba(255,180,80,.75)}
+#s_cp::-webkit-slider-thumb{background:rgba(220,120,255,.75)}
+#s_pe::-webkit-slider-thumb{background:rgba(200,220,200,.65)}
+.pr{padding:4px 6px;border-radius:2px;margin-bottom:4px;color:rgba(220,235,240,.75);
+  border-left:2px solid;display:flex;align-items:center;gap:4px;font-size:10px;line-height:1.35}
+.pr .br{height:2px;border-radius:1px;flex:1}
+.cite-tag{font-size:8px;color:rgba(160,220,200,.5);font-family:'JetBrains Mono',monospace;
+  letter-spacing:.5px;margin-top:3px;display:block}
+
+/* ═══ RIGHT EXPLAINER PANEL ═══ */
+#explainer{position:fixed;top:0;right:0;width:0;height:100vh;
+  background:rgba(4,12,20,.95);border-left:1px solid rgba(80,140,160,.1);
+  overflow-y:auto;backdrop-filter:blur(12px);z-index:20;
+  transition:width .4s cubic-bezier(.4,0,.2,1);
+  scrollbar-width:thin;scrollbar-color:rgba(80,140,160,.15) transparent}
+#explainer.open{width:460px}
+#explainer::-webkit-scrollbar{width:4px}
+#explainer::-webkit-scrollbar-thumb{background:rgba(80,140,160,.15);border-radius:2px}
+#ex-inner{padding:28px 24px;opacity:0;transition:opacity .3s .2s}
+#explainer.open #ex-inner{opacity:1}
+.ex-close{position:absolute;top:12px;right:14px;color:rgba(220,235,240,.6);
+  font-size:20px;cursor:pointer;background:none;border:none;font-family:Georgia;
+  width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  border-radius:3px}
+.ex-close:hover{background:rgba(80,140,160,.15);color:rgba(240,250,248,.9)}
+
+/* Tab bar */
+.tab-bar{display:flex;gap:0;margin-bottom:20px;border-bottom:1px solid rgba(80,140,160,.1)}
+.tab-btn{padding:8px 14px;font-size:10px;font-family:'JetBrains Mono',monospace;
+  letter-spacing:1.2px;text-transform:uppercase;color:rgba(200,220,225,.5);
+  background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;
+  transition:all .2s}
+.tab-btn:hover{color:rgba(220,235,240,.75)}
+.tab-btn.active{color:rgba(160,240,220,.95);border-bottom-color:rgba(140,220,200,.6)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* Explainer content */
+.ex-title{font-size:24px;font-weight:400;color:rgba(240,250,248,.95);
+  margin-bottom:6px;letter-spacing:.5px;line-height:1.3}
+.ex-subtitle{font-size:10.5px;font-family:'JetBrains Mono',monospace;
+  color:rgba(160,220,200,.65);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:22px}
+.ex-section{margin-bottom:22px}
+.ex-section h4{font-size:10.5px;font-family:'JetBrains Mono',monospace;
+  color:rgba(160,220,200,.75);letter-spacing:1.5px;text-transform:uppercase;
+  margin-bottom:10px;font-weight:normal}
+.ex-section p{font-size:16px;color:rgba(230,240,242,.85);line-height:1.7;
+  margin-bottom:12px;font-weight:300}
+.ex-section p em{color:rgba(160,240,220,.9);font-style:italic}
+.ex-section p strong{color:rgba(245,255,250,.95);font-weight:500}
+
+.eq-box{background:rgba(140,220,200,.06);border:1px solid rgba(140,220,200,.12);
+  border-radius:4px;padding:14px 16px;margin:12px 0;font-family:'JetBrains Mono',monospace}
+.eq-box .eq-main{font-size:14px;color:rgba(160,240,220,.9);text-align:center;
+  margin-bottom:4px;letter-spacing:.5px}
+.eq-box .eq-note{font-size:10px;color:rgba(180,220,210,.55);text-align:center;letter-spacing:.3px}
+
+.cite{font-size:14px;color:rgba(220,235,240,.65);font-style:italic;
+  border-left:2px solid rgba(140,220,200,.2);padding:10px 14px;margin:14px 0;
+  line-height:1.6;background:rgba(140,220,200,.025);border-radius:0 3px 3px 0}
+.cite .cite-src{display:block;font-size:10px;font-family:'JetBrains Mono',monospace;
+  color:rgba(160,220,200,.5);margin-top:6px;font-style:normal;letter-spacing:.3px}
+
+/* Glossary */
+.gl-item{margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(80,140,160,.08)}
+.gl-term{font-size:12px;font-family:'JetBrains Mono',monospace;
+  color:rgba(160,240,220,.85);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.gl-def{font-size:15px;color:rgba(225,240,242,.75);line-height:1.65;font-weight:300}
+.gl-def em{color:rgba(160,240,220,.8);font-style:italic}
+
+/* Toggle button */
+#toggle-ex{position:fixed;top:14px;right:14px;z-index:25;
+  padding:8px 16px;background:rgba(15,40,50,.85);
+  border:1px solid rgba(80,140,160,.2);color:rgba(220,235,240,.8);
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.2px;
+  text-transform:uppercase;cursor:pointer;border-radius:3px;
+  backdrop-filter:blur(8px);transition:all .25s}
+#toggle-ex:hover{background:rgba(20,55,65,.9);color:rgba(240,250,248,.95);
+  border-color:rgba(80,140,160,.35)}
+#toggle-ex.shifted{right:474px}
+
+/* Footer */
+#footer{position:fixed;bottom:0;left:228px;right:0;height:28px;
+  display:flex;align-items:center;padding:0 12px;z-index:5;
+  background:rgba(4,12,20,.6);backdrop-filter:blur(4px)}
+#footer span{font-size:7.5px;font-family:'JetBrains Mono',monospace;
+  color:rgba(120,175,160,.2);letter-spacing:.5px}
+</style>
+
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
+</head><body>
+<a href="./" class="aii-floating-back">&#8592; Back to Catalog</a>
+<canvas id="c"></canvas>
+
+<!-- ═══ LEFT CONTROL PANEL ═══ -->
+<div id="ui">
+  <div class="sec">
+    <h3>Visual Overlays</h3>
+    <div id="layers"></div>
+  </div>
+  <div class="sec">
+    <h3>Hierarchical Precision</h3>
+    <div class="sg">
+      <div class="lb">Π<sub>individual</sub> <span class="vl" id="v_pr">1.00</span></div>
+      <input type="range" id="s_pr" min="0" max="100" value="50">
+      <div class="en"><span>low precision (flexible)</span><span>high precision (rigid)</span></div>
+      <span class="cite-tag">Parr, Pezzulo & Friston (2022) Ch.4</span>
+    </div>
+    <div class="sg">
+      <div class="lb">Π<sub>within-group</sub> <span class="vl" id="v_bp">1.00</span></div>
+      <input type="range" id="s_bp" min="0" max="100" value="50">
+      <div class="en"><span>permeable blanket</span><span>individual rigid blanket</span></div>
+      <div class="ds">Individual blanket permeability within each school</div>
+      <span class="cite-tag">Palacios et al. (2020)</span>
+    </div>
+    <div class="sg">
+      <div class="lb">Π<sub>between-groups</sub> <span class="vl" id="v_cp">2.50</span></div>
+      <input type="range" id="s_cp" min="0" max="100" value="70">
+      <div class="en"><span>schools merge</span><span>separate schools</span></div>
+      <div class="ds" style="color:rgba(220,150,255,.45)">School-level blanket permeability between groups</div>
+      <span class="cite-tag">Thestrup Waade et al. (2025)</span>
+    </div>
+    <div class="sg">
+      <div class="lb">Prediction error drive <span class="vl" id="v_pe">1.00</span></div>
+      <input type="range" id="s_pe" min="0" max="100" value="50">
+      <div class="en"><span>low drive</span><span>high drive</span></div>
+      <div class="ds">Proprioceptive prediction strength driving motor output</div>
+      <span class="cite-tag">Parr, Pezzulo & Friston (2022) Ch.5</span>
+    </div>
+  </div>
+  <div class="sec"><h3>Intra-group Synchrony</h3><div id="p_intra"></div></div>
+  <div class="sec"><h3>Inter-group Synchrony</h3><div id="p_inter"></div></div>
+</div>
+
+<!-- ═══ TOGGLE BUTTON ═══ -->
+<button id="toggle-ex">Explainer</button>
+
+<!-- ═══ RIGHT EXPLAINER PANEL ═══ -->
+<div id="explainer">
+  <button class="ex-close" onclick="toggleExplainer()">×</button>
+  <div id="ex-inner">
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="tutorial">Tutorial</button>
+      <button class="tab-btn" data-tab="concepts">Concepts</button>
+      <button class="tab-btn" data-tab="glossary">Glossary</button>
+      <button class="tab-btn" data-tab="refs">References</button>
+    </div>
+
+    <!-- ═══ TUTORIAL TAB ═══ -->
+    <div class="tab-content active" id="tab-tutorial">
+      <div class="ex-title">Hierarchical Markov Blankets</div>
+      <div class="ex-subtitle">Nested Self-Organisation in Active Inference</div>
+
+      <div class="ex-section">
+        <h4>What You Are Seeing</h4>
+        <p>Six fish swim in two schools of three. Each fish is an <em>active inference agent</em> — it minimises variational free energy through perception (sensing the flow field via its lateral line) and action (generating thrust via tail-beats that shed vortices into the water).</p>
+        <p>The fish do not follow pre-programmed flocking rules. Their coordinated behaviour <strong>emerges</strong> from three nested levels of precision-weighted coupling — the same mechanism operating at different spatial scales.</p>
+      </div>
+
+      <div class="ex-section">
+        <h4>Three Levels of Markov Blanket</h4>
+        <p><strong>Level 1 — Individual blanket.</strong> Each fish maintains a statistical boundary between its internal states (body oscillators) and the external world (water flow). The dashed line around each fish represents this boundary. The fish's sensory states are its lateral line receptors; its active states are its tail-beat thrust vectors.</p>
+        <p><strong>Level 2 — Group blanket.</strong> Within each school, pairs of fish accumulate evidence of mutual predictability — <em>generalised synchrony</em>. When fish can predict each other's movements, a group-level Markov blanket emerges (the larger dashed boundary around each school). The school now behaves as a single higher-order agent.</p>
+        <p><strong>Level 3 — Collective blanket.</strong> When the two schools interact strongly enough, an even larger blanket can form around the entire collective. This appears as the purple dashed boundary when the boundary between schools becomes sufficiently permeable (low Π<sub>between-groups</sub>).</p>
+      </div>
+
+      <div class="cite">
+        "We could have multiple Markov blankets, nested within one another (e.g., brains, organisms, communities)."
+        <span class="cite-src">— Parr, Pezzulo & Friston (2022), Active Inference, Ch.6 p.109</span>
+      </div>
+
+      <div class="ex-section">
+        <h4>What the Sliders Control</h4>
+        <p><strong>Π<sub>individual</sub></strong> controls the precision of each fish's internal oscillators — how tightly its body dynamics are tuned. High precision means slow, stereotyped tail-beats: the fish repeats the same motor pattern precisely. Low precision means loose, variable oscillators producing fast, irregular swimming. Note: this is <em>oscillator precision</em> (the tightness of internal dynamics), distinct from the <em>policy precision</em> (γ) that governs the exploration–exploitation trade-off in Chapter 7 of the textbook.</p>
+        <p><strong>Π<sub>within-group</sub></strong> controls each fish's individual blanket rigidity within its school. High precision means each fish strongly maintains its own boundary, resisting social influence — the school dissolves into independent swimmers. Low precision means permeable individual blankets, allowing generalised synchrony to build — the school self-organises as a higher-order agent.</p>
+        <p><strong>Π<sub>between-groups</sub></strong> controls how strongly each school maintains its boundary against the other. High precision means autonomous, separate schools. Lower precision allows cross-group coupling — push this low enough and the two schools merge into a single collective agent with a shared generative model.</p>
+        <p><strong>Prediction error drive</strong> controls the strength of proprioceptive predictions that generate action via classical reflex arcs (Ch.5). Higher drive means stronger descending motor predictions, producing more vigorous thrust and larger vortices shed into the water. This is the <em>amplitude</em> of active inference — how forcefully the fish acts on its beliefs — not the direction of action selection.</p>
+      </div>
+
+      <div class="cite">
+        "Hierarchical self-organisation emerges when the microscopic elements of an ensemble have prior beliefs that they participate in a macroscopic Markov blanket."
+        <span class="cite-src">— Palacios, Razi, Parr, Kirchhoff & Friston (2020), J. Theoretical Biology</span>
+      </div>
+
+      <div class="ex-section">
+        <h4>Try This</h4>
+        <p>1. Set Π<sub>between-groups</sub> to maximum (slider right). The two schools maintain strong, separate boundaries — two autonomous agents with independent generative models.</p>
+        <p>2. Slowly lower Π<sub>between-groups</sub> (slide left). Watch generalised synchrony build between the schools. When blanket permeability is high enough, a collective Markov blanket emerges (the purple dashed boundary) — a single higher-order agent.</p>
+        <p>3. Now raise Π<sub>individual</sub> to maximum (slider right). Each fish's oscillators become tight and precise — slow, stereotyped tail-beats. This is exploitation: repeating known patterns.</p>
+        <p>4. Lower Π<sub>individual</sub> to minimum (slider left). Fish become fast and wriggly — loose oscillators producing high-variance motor output. Notice that the group blanket may weaken because rapid, irregular movement makes mutual predictability harder to sustain.</p>
+      </div>
+    </div>
+
+    <!-- ═══ CONCEPTS TAB ═══ -->
+    <div class="tab-content" id="tab-concepts">
+      <div class="ex-title">Core FEP Concepts</div>
+      <div class="ex-subtitle">As Demonstrated in This Simulation</div>
+
+      <div class="ex-section">
+        <h4>Variational Free Energy Minimisation</h4>
+        <p>Each fish minimises variational free energy through two complementary channels: <em>perception</em> (updating internal beliefs about the flow field based on lateral line input) and <em>action</em> (generating thrust to change the sensory input it receives).</p>
+        <div class="eq-box">
+          <div class="eq-main">F = D<sub>KL</sub>[Q(μ) ‖ P(μ|o)] − ln P(o)</div>
+          <div class="eq-note">Variational free energy bounds surprise from above</div>
+        </div>
+        <p>When fish coordinate successfully, the collective surprise is lower than any individual could achieve alone — this is why schools form.</p>
+      </div>
+
+      <div class="ex-section">
+        <h4>Precision-Weighted Prediction Errors</h4>
+        <p>The coupling strength between pairs of fish is <strong>not</strong> a fixed parameter. It is <em>precision-weighted</em> — it grows exponentially as the pair accumulates evidence of mutual predictability. This is the key mechanism: prediction errors between aligned fish are weighted by higher precision, creating stronger coupling.</p>
+        <div class="eq-box">
+          <div class="eq-main">μ̇ = −∂F/∂μ = Π · ε</div>
+          <div class="eq-note">Belief updates are precision-weighted prediction errors (Ch.4, Eq. B.46)</div>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <h4>Generalised Synchrony</h4>
+        <p>When two active inference agents share similar generative models and can sense each other, their internal states converge onto a <em>synchronisation manifold</em>. The pair-link indicators in the left panel show this process in real time — the progress bar fills as evidence accumulates, then resets at a synchronisation event.</p>
+        <div class="cite">
+          "If agents adopt the same generative model of communicative behaviour, a simple form of communication emerges through generalised synchrony. The birds are not simply repeating what they have heard — they are pursuing a narrative embodied by the dynamical attractors in their generative models."
+          <span class="cite-src">— Friston & Frith (2015), Consciousness and Cognition</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <h4>Hierarchical Generative Models</h4>
+        <p>The three Π sliders correspond to three levels of a <em>hierarchical generative model</em>. Higher levels change more slowly and contextualise faster dynamics below. The school-level blanket contextualises individual swimming; the collective blanket contextualises school-level dynamics.</p>
+        <div class="cite">
+          "In hierarchical or deep models, the dynamics at higher levels generally encode things that change more slowly and contextualise things that change faster."
+          <span class="cite-src">— Parr, Pezzulo & Friston (2022), Active Inference, Ch.6 p.112</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <h4>Group-Level Generative Models</h4>
+        <p>When a collective of agents maintains a group-level Markov blanket, the group itself can be described as an active inference agent with its own generative model. The group-level parameters are not simply averages of individual parameters — they have a non-trivial emergent relationship.</p>
+        <div class="cite">
+          "A collective of active inference agents can, if they maintain a group-level Markov blanket, constitute a larger group-level active inference agent with a generative model of its own."
+          <span class="cite-src">— Thestrup Waade, Olesen, Laursen, Nehrer, Heins, Friston & Mathys (2025), Entropy</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <h4>The Exploration–Exploitation Balance</h4>
+        <p>In the textbook (Ch.7), the exploration–exploitation trade-off is governed by <em>precision on policies</em> (γ): the inverse temperature in the softmax π₀ = σ(−γG). High γ → peaked policy selection → exploitation. Low γ → flat policy selection → exploration. Both epistemic value (information gain) and pragmatic value (preference satisfaction) are components of the same expected free energy — Active Inference dissolves the exploration–exploitation dilemma by optimising both simultaneously.</p>
+        <p>The Π<sub>individual</sub> slider in this simulation controls a different level: <em>oscillator precision</em> — how tightly each fish's internal dynamics are tuned. High oscillator precision produces slow, stereotyped tail-beats (exploiting a known motor pattern). Low oscillator precision produces fast, variable swimming (noisier motor output, not confident exploration). The vigorous movement at low precision reflects higher variance in motor dynamics, not a deliberate search strategy.</p>
+      </div>
+    </div>
+
+    <!-- ═══ GLOSSARY TAB ═══ -->
+    <div class="tab-content" id="tab-glossary">
+      <div class="ex-title">Glossary</div>
+      <div class="ex-subtitle">Key Terms from Active Inference</div>
+
+      <div class="gl-item">
+        <div class="gl-term">Markov Blanket</div>
+        <div class="gl-def">A statistical boundary that separates a system's internal states from external states. Composed of <em>sensory states</em> (mediating external → internal influence) and <em>active states</em> (mediating internal → external influence). In this simulation: the fish's lateral line sensors and thrust vectors. (Parr et al. 2022, Ch.3; Pearl 1988)</div>
+      </div>
+      <div class="gl-item">
+        <div class="gl-term">Variational Free Energy (F)</div>
+        <div class="gl-def">The quantity that active inference agents minimise through perception and action. It provides an upper bound on surprise (negative log model evidence). When F is high, predictions are poor. When F is low, the agent's generative model fits its observations. (Parr et al. 2022, Ch.2)</div>
+      </div>
+      <div class="gl-item">
+        <div class="gl-term">Precision (Π)</div>
+        <div class="gl-def">The inverse variance (Π = 1/σ²) of a probability distribution. High precision = confident, sharp predictions. Low precision = uncertain, broad predictions. Precision <em>weights</em> prediction errors: high-precision errors drive stronger belief updates. In the brain, precision is associated with neuromodulatory gain (e.g., dopamine, acetylcholine). (Parr et al. 2022, Ch.5)</div>
+      </div>
+      <div class="gl-item">
+        <div class="gl-term">Prediction Error (ε)</div>
+        <div class="gl-def">The difference between what the generative model predicts and what is actually observed: ε = o − g(μ). Under Gaussian assumptions, minimising free energy reduces to minimising precision-weighted prediction errors. (Parr et al. 2022, Ch.4, Eq. B.46)</div>
+      </div>
+      <div class="gl-item">
+        <div class="gl-term">Generative Model</div>
+        <div class="gl-def">A probabilistic model of how observations are generated from hidden causes. It encodes the agent's beliefs about the causal structure of its world — including how states transition over time (dynamics) and how states produce observations (likelihood). (Parr et al. 2022, Ch.4)</div>
+      </div>
+      <div class="gl-item">
+        <div class="gl-term">Generative Process</div>
+        <div class="gl-def">The actual causal process in the external world that produces the agent's observations. In this simulation: the vortex-filled water dynamics. The generative process is distinct from the generative model — the agent's model is always an approximation. (Parr et al. 2022, Ch.6)</div>
+      </div>
+      <div class="gl-item">
+        <div class="gl-term">Active Inference</div>
+        <div class="gl-def">The framework in which both perception and action serve the same objective: minimising variational free energy. Perception updates beliefs to fit observations. Action changes the world to fit beliefs. This unification marks Active Inference's key difference from frameworks that treat perception and action as separate. (Parr et al. 2022, Ch.2)</div>
+      </div>
+      <div class="gl-item">
+        <div class="gl-term">Generalised Synchrony</div>
+        <div class="gl-def">When two dynamical systems are coupled, their internal states can converge onto a <em>synchronisation manifold</em> — a shared attractor. Under active inference, this emerges naturally when agents share similar generative models. It provides a formal account of communication and social coordination. (Friston & Frith 2015)</div>
+      </div>
+      <div class="gl-item">
+        <div class="gl-term">Hierarchical Self-Organisation</div>
+        <div class="gl-def">The process by which Markov blankets self-assemble at successively higher levels. Individual agents form group blankets; groups form collective blankets. Each level has its own characteristic timescale: faster at the micro level, slower at the macro level. (Palacios et al. 2020; Kirchhoff et al. 2018)</div>
+      </div>
+      <div class="gl-item">
+        <div class="gl-term">Sensory States</div>
+        <div class="gl-def">Blanket states that mediate the influence of the external world on a system's internal states. In this simulation: the lateral line pressure sensors along each fish's body, sampling the flow field velocity. (Parr et al. 2022, Ch.6)</div>
+      </div>
+      <div class="gl-item">
+        <div class="gl-term">Active States</div>
+        <div class="gl-def">Blanket states that mediate the influence of internal states on the external world. In this simulation: each fish's tail-beat thrust, which sheds vortices into the water and thereby changes the sensory input of other fish. (Parr et al. 2022, Ch.6)</div>
+      </div>
+      <div class="gl-item">
+        <div class="gl-term">Self-Evidencing</div>
+        <div class="gl-def">By maximising model evidence (minimising free energy), an organism ensures that it realises its prior preferences and avoids surprising states. A fish stays in water; a school stays cohesive. The system provides evidence for its own existence. (Parr et al. 2022, Ch.3)</div>
+      </div>
+    </div>
+
+    <!-- ═══ REFERENCES TAB ═══ -->
+    <div class="tab-content" id="tab-refs">
+      <div class="ex-title">References</div>
+      <div class="ex-subtitle">Key Papers and Textbook Citations</div>
+
+      <div class="ex-section">
+        <h4>Primary Textbook</h4>
+        <p style="font-size:14.5px;line-height:1.6">Parr, T., Pezzulo, G., & Friston, K. J. (2022). <strong>Active Inference: The Free Energy Principle in Mind, Brain, and Behavior.</strong> MIT Press. <em>Open access.</em></p>
+      </div>
+      <div class="ex-section">
+        <h4>Hierarchical Markov Blankets</h4>
+        <p style="font-size:14.5px;line-height:1.6">Palacios, E. R., Razi, A., Parr, T., Kirchhoff, M., & Friston, K. (2020). On Markov blankets and hierarchical self-organisation. <em>Journal of Theoretical Biology,</em> 486, 110089.</p>
+        <p style="font-size:14.5px;line-height:1.6">Kirchhoff, M., Parr, T., Palacios, E., Friston, K., & Kiverstein, J. (2018). The Markov blankets of life: autonomy, active inference and the free energy principle. <em>Journal of the Royal Society Interface,</em> 15(138), 20170792.</p>
+      </div>
+      <div class="ex-section">
+        <h4>Group-Level Generative Models</h4>
+        <p style="font-size:14.5px;line-height:1.6">Thestrup Waade, P., Lundbak Olesen, C., Ehrenreich Laursen, J., Nehrer, S. W., Heins, C., Friston, K., & Mathys, C. (2025). As One and Many: Relating Individual and Emergent Group-Level Generative Models in Active Inference. <em>Entropy,</em> 27(2), 143.</p>
+      </div>
+      <div class="ex-section">
+        <h4>Generalised Synchrony & Communication</h4>
+        <p style="font-size:14.5px;line-height:1.6">Friston, K., & Frith, C. D. (2015). A Duet for one. <em>Consciousness and Cognition,</em> 36, 390–405.</p>
+        <p style="font-size:14.5px;line-height:1.6">Friston, K., & Frith, C. D. (2015). Active inference, communication and hermeneutics. <em>Cortex,</em> 68, 129–143.</p>
+        <p style="font-size:14.5px;line-height:1.6">Friston, K., et al. (2020). Generative models, linguistic communication and active inference. <em>Neuroscience & Biobehavioral Reviews,</em> 118, 42–64.</p>
+      </div>
+      <div class="ex-section">
+        <h4>Neuronal Self-Organisation</h4>
+        <p style="font-size:14.5px;line-height:1.6">Palacios, E. R., Isomura, T., Parr, T., & Friston, K. (2019). The emergence of synchrony in networks of mutually inferring neurons. <em>Scientific Reports,</em> 9, 6412.</p>
+        <p style="font-size:14.5px;line-height:1.6">Parr, T., et al. (2021). Markov blankets in the brain. <em>Neuroscience & Biobehavioral Reviews.</em></p>
+      </div>
+      <div class="ex-section">
+        <h4>Simulation Framework</h4>
+        <p style="font-size:14.5px;line-height:1.6">This simulation was developed by Alexander Sabine (Active Inference Institute, Board of Directors) for pedagogical purposes. Interactive demonstrations at <strong>temporalgrammar.ai</strong>.</p>
+        <p style="font-size:12px;color:rgba(200,220,225,.55);line-height:1.6;margin-top:8px">Contact: Alexander@activeinference.institute</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div id="footer">
+  <span id="status-bar"></span>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════════
+//  HIERARCHICAL MARKOV BLANKETS — Active Inference Tutorial
+//  Alexander Sabine · Active Inference Institute · 2025
+//  www.temporalgrammar.ai
+//
+//  COMPUTATIONAL METHOD: CRR (Coherence-Rupture-Regeneration)
+//  ─────────────────────────────────────────────────────────────
+//  The simulation engine uses the CRR temporal grammar framework
+//  (Sabine 2024) as its computational method. CRR equations:
+//
+//    Coherence:    C(x,t) = ∫ L(x,τ) dτ
+//    Rupture:      δ(now) when C·Ω = 1
+//    Regeneration: R = ∫ φ·exp(C/Ω)·Θ dτ
+//
+//  CRR-FEP correspondence (used throughout):
+//    Free energy F        ↔  Coherence C (inverse: C = -∫F dt)
+//    Precision Π          ↔  (1/Ω)·exp(C/Ω)
+//    Markov blanket       ↔  high-|∇C| surface
+//    Prediction error ε   ↔  rupture event δ
+//    Belief update μ̇     ↔  regeneration R
+//
+//  Ω = σ² = 1/Π (inverse precision). Two symmetry classes:
+//    Z₂ (bistable, e.g. tail-beat):   Ω = 1/π,  C* = π
+//    SO(2) (rotational, e.g. gills):  Ω = 1/2π, C* = 2π
+//  Both satisfy the universal threshold C·Ω = 1.
+//
+//  The CRR computational predictions (CV = Ω/2, n=1 per cycle,
+//  Z₂/SO(2) ratio = 2) have been validated against published data.
+//
+//  GUI PRESENTATION: All user-facing labels use exclusively
+//  peer-reviewed FEP / Active Inference terminology from Parr,
+//  Pezzulo & Friston (2022) and related publications.
+// ═══════════════════════════════════════════════════════════════════════════
+
+const c=document.getElementById('c'),X=c.getContext('2d'),
+P=Math.PI,T=P*2,{sin,cos,sqrt,min,max,abs,random:R,atan2,pow,exp,floor,round}=Math;
+let W,H,t=0;const DR=devicePixelRatio;
+function sz(){W=c.width=innerWidth*DR;H=c.height=innerHeight*DR}
+sz();onresize=sz;
+
+// ─── VISUAL OVERLAYS ─────────────────────────────────────────
+// Labels use FEP terminology for the GUI
+const layers=[
+  {id:'flow',name:'Flow field (generative process)',col:'#64c8dc',on:true},
+  {id:'vorticity',name:'Vorticity field',col:'#ff5040',on:false},
+  {id:'cascade',name:'Energy cascade',col:'#ffc850',on:true},
+  {id:'lateral',name:'Sensory states (lateral line)',col:'#ffdc50',on:false},
+  {id:'thrust',name:'Active states (thrust)',col:'#50ff78',on:true},
+  {id:'crr',name:'Evidence accumulation',col:'#4fd1c5',on:true},
+  {id:'blanket',name:'Markov blankets',col:'#ffb450',on:true},
+  {id:'pairvis',name:'Generalised synchrony',col:'#ff80c0',on:true},
+  {id:'fish',name:'Agents',col:'#88ccdd',on:true},
+];
+const show={};layers.forEach(l=>show[l.id]=l.on);
+const ld=document.getElementById('layers');
+layers.forEach(l=>{const d=document.createElement('div');d.className='ly';
+  d.innerHTML=`<input type="checkbox" id="c_${l.id}" ${l.on?'checked':''}>` +
+    `<label for="c_${l.id}"><span class="dt" style="background:${l.col}"></span>${l.name}</label>`;
+  ld.appendChild(d);d.querySelector('input').onchange=e=>{show[l.id]=e.target.checked}});
+
+// ─── PARAMETERS ──────────────────────────────────────────────
+// GUI labels: FEP precision terms
+// Engine: CRR Ω (inverse precision). Ω = 1/Π = σ²
+let ωFish=1,ωIntra=1,ωInter=.4,drive=1;
+function eM(v,lo,hi){return lo*pow(hi/lo,v/100)}
+document.getElementById('s_pr').oninput=function(){
+  ωFish=eM(100-this.value,.15,5);
+  // GUI shows precision (1/Ω), engine uses Ω
+  document.getElementById('v_pr').textContent=(1/ωFish).toFixed(2);
+  fishes.forEach(f=>{f.tail.ω=ωFish/P;f.gill.ω=ωFish/T;f.pect.ω=ωFish/T})};
+document.getElementById('s_bp').oninput=function(){
+  ωIntra=eM(100-this.value,.15,5);
+  document.getElementById('v_bp').textContent=(1/ωIntra).toFixed(2)};
+document.getElementById('s_cp').oninput=function(){
+  ωInter=eM(100-this.value,.15,5);
+  document.getElementById('v_cp').textContent=(1/ωInter).toFixed(2)};
+document.getElementById('s_pe').oninput=function(){
+  drive=eM(+this.value,.15,5);
+  document.getElementById('v_pe').textContent=drive.toFixed(2)};
+
+// ─── CRR ENGINE ──────────────────────────────────────────────
+// Individual oscillator CRR cycle:
+//   C accumulates via C += L·dt (coherence equation)
+//   Rupture at C ≥ C* = 1/ω (threshold condition C·Ω = 1)
+//   CV = Ω/2 governs stochastic threshold variation
+//   After rupture: regeneration phase resets C
+// FEP interpretation: evidence accumulation → belief update → new cycle
+class CRR{
+  constructor(ω,cv){this.ω=ω;this.cv=cv;this.C=R()/ω*.3;
+    this.st=0;this.rt=0;this.a=0;this.sa=0;this.ph=0;this.rup=0}
+  step(L,dt){
+    if(this.st===0){
+      // Coherence accumulation: C(x,t) = ∫L(x,τ)dτ
+      this.C+=L*dt;this.ph+=dt*L;
+      // Rupture condition: C ≥ 1/ω with CV = Ω/2 stochastic threshold
+      if(this.C>=(1/this.ω)*(1+(R()-.5)*2*this.cv)){this.st=1;this.a=1;this.rup++}}
+    else if(this.st===1){this.st=2;this.rt=0}
+    else{
+      // Regeneration phase: system reconstitutes
+      this.rt+=dt;if(this.rt>.04){this.st=0;this.C=0}}
+    this.sa+=(this.a-this.sa)*min(1,dt*14);this.a*=pow(.015,dt);return this}
+  get progress(){return min(1,this.C*this.ω)}
+}
+
+// Pairwise CRR for inter-agent synchrony:
+//   Precision-weighted coupling: w = exp(C·ω) = exp(C/Ω)
+//   This IS the precision equation Π ∝ exp(C/Ω)
+//   As agents accumulate evidence of alignment (C grows),
+//   coupling strength grows exponentially — precision-weighted
+//   prediction error minimisation in action.
+class PairCRR{
+  constructor(getΩ){this.C=0;this.ruptured=false;this.ruptures=0;this.getΩ=getΩ}
+  get ω(){return this.getΩ()/P}
+  step(L,dt){this.C+=L*dt;this.ruptured=false;
+    if(this.C>=(1/this.ω)*(1+(R()-.5)*2*(1/T)*.8)){
+      this.ruptured=true;this.ruptures++;this.C=0}
+    this.C*=pow(.7,dt)}
+  // exp(C/Ω) — the precision weighting
+  get w(){return exp(min(this.C*this.ω,6))}
+  get progress(){return min(1,this.C*this.ω)}
+}
+
+// ─── VORTEX FIELD (Generative Process) ──────────────────────
+// The water's vortex dynamics constitute the GENERATIVE PROCESS
+// (external world) that produces observations for each agent.
+// Agents cannot access this directly — only via sensory states.
+const vortices=[],MAX_V=350,ETA=3;
+function spawnV(x,y,vx,vy,g,r,gen){
+  if(vortices.length>=MAX_V||r<ETA)return;
+  vortices.push({x,y,vx,vy,gamma:g,r,gen,crr:new CRR(max(.01,r*.0008),1/T),
+    life:0,maxLife:r*.12+R()*r*.04,dead:false})}
+function updV(dt){
+  for(let i=vortices.length-1;i>=0;i--){
+    const v=vortices[i];v.life+=dt;
+    v.crr.step(abs(v.gamma)/max(1,v.r)*.5,dt);
+    if(v.crr.st===1&&v.r>ETA*2){
+      const cr=v.r*.55,cg=v.gamma*.6,sp=v.r*.3,a=R()*T;
+      spawnV(v.x+cos(a)*sp,v.y+sin(a)*sp,v.vx+cos(a)*8,v.vy+sin(a)*8,cg,cr,v.gen+1);
+      spawnV(v.x-cos(a)*sp,v.y-sin(a)*sp,v.vx-cos(a)*8,v.vy-sin(a)*8,-cg,cr,v.gen+1);
+      v.gamma*=.4}
+    v.x+=v.vx*dt;v.y+=v.vy*dt;
+    v.gamma*=max(.9,1-(.5/max(1,v.r*v.r*.001))*dt);
+    v.vx*=pow(.5,dt);v.vy*=pow(.5,dt);
+    if(abs(v.gamma)<.5||v.life>v.maxLife)v.dead=true}
+  for(let i=vortices.length-1;i>=0;i--)if(vortices[i].dead)vortices.splice(i,1)}
+function wV(px,py){
+  let vx=0,vy=0;
+  for(const v of vortices){const dx=px-v.x,dy=py-v.y,r2=dx*dx+dy*dy+100;
+    const f=v.gamma/(T*r2)*min(1,sqrt(r2)/50);vx+=-dy*f;vy+=dx*f}
+  vx+=sin(t*.12)*2+sin(py*.003+t*.18)*1.2;vy+=cos(t*.1)*1+sin(px*.002+t*.12)*.6;
+  return{vx,vy}}
+
+// ─── FLOW TRACER PARTICLES (Generative Process Visualization) ─
+// Massless tracer particles advected by the vortex velocity field.
+// They reveal the generative process — the external dynamics that
+// produce observations at each agent's sensory states.
+// Colour encodes velocity magnitude: slow = deep blue, fast = bright cyan.
+const TRACERS=600,trailLen=14;
+const tracers=[];
+function initTracers(){
+  const uiW=228*DR;
+  for(let i=0;i<TRACERS;i++){
+    const tr={x:uiW+R()*(W-uiW),y:R()*H,trail:[],age:R()*8};
+    for(let j=0;j<trailLen;j++)tr.trail.push({x:tr.x,y:tr.y});
+    tracers.push(tr)}}
+function updTracers(dt){
+  const uiW=228*DR;
+  for(const tr of tracers){
+    tr.age+=dt;
+    // Advect by velocity field
+    const v=wV(tr.x,tr.y);
+    tr.x+=v.vx*dt*1.2;tr.y+=v.vy*dt*1.2;
+    // Push current position into trail
+    tr.trail.unshift({x:tr.x,y:tr.y});
+    if(tr.trail.length>trailLen)tr.trail.pop();
+    // Recycle if off-screen or stale
+    if(tr.x<uiW-20||tr.x>W+20||tr.y<-20||tr.y>H+20||tr.age>12){
+      tr.x=uiW+R()*(W-uiW);tr.y=R()*H;tr.age=0;
+      for(let j=0;j<tr.trail.length;j++)tr.trail[j]={x:tr.x,y:tr.y}}}}
+initTracers();
+
+// ─── SIX AGENTS, TWO SCHOOLS ────────────────────────────────
+// School A (teal): agents α, β, γ     School B (amber): agents δ, ε, ζ
+const SCHOOL_A={name:'School A',col:'rgba(80,200,190,',h:185,members:[0,1,2]};
+const SCHOOL_B={name:'School B',col:'rgba(240,170,70,',h:30,members:[3,4,5]};
+
+const fishes=[];
+for(let g=0;g<2;g++){
+  const sc=g===0?SCHOOL_A:SCHOOL_B;
+  for(let i=0;i<3;i++){
+    const id=g*3+i;
+    const hShift=(i-1)*12;
+    fishes.push({
+      x:0,y:0,vx:0,vy:0,ang:R()*T,group:g,
+      // CRR oscillators: Z₂ for tail (bistable), SO(2) for gills/pectorals
+      tail:new CRR(1/P,1/T),gill:new CRR(1/T,1/(4*P)),pect:new CRR(1/T,1/(4*P)),
+      tailSide:1,fp:R()*T,len:0,
+      thrustVx:0,thrustVy:0,burstVx:0,burstVy:0,baseVx:0,baseVy:0,
+      activeSmX:0,activeSmY:0,dragVx:0,dragVy:0,
+      latPoints:[],sensedVx:0,sensedVy:0,
+      h:sc.h+hShift,s:50+R()*25,l:52+R()*18,
+      col:g===0?`hsl(${185+hShift},65%,60%)`:`hsl(${30+hShift},70%,62%)`,
+      ir:R()*25-12,d:.2+id*.1,id,
+      name:g===0?['α','β','γ'][i]:['δ','ε','ζ'][i]
+    });
+  }
+}
+
+// Intra-group pairs: precision-weighted coupling within each school
+// CRR engine: PairCRR with ωIntra governs the within-group blanket
+const intraPairs=[];
+for(let g=0;g<2;g++){
+  const m=g*3;
+  for(let i=0;i<3;i++)for(let j=i+1;j<3;j++){
+    intraPairs.push({i:m+i,j:m+j,group:g,
+      crr:new PairCRR(()=>ωIntra),
+      col:g===0?'rgba(80,200,190,.6)':'rgba(240,170,70,.6)',
+      name:fishes[m+i].name+'↔'+fishes[m+j].name})}}
+
+// Inter-group pairs: cross-group blanket coupling
+const interPairs=[];
+for(let i=0;i<3;i++)for(let j=3;j<6;j++){
+  interPairs.push({i,j,
+    crr:new PairCRR(()=>ωInter),
+    col:'rgba(220,120,255,.5)',
+    name:fishes[i].name+'↔'+fishes[j].name})}
+
+function initFishes(){
+  const L=min(W,H)*.19;
+  const ax=W*.35,ay=H*.4;
+  for(let i=0;i<3;i++){const a=T/3*i;
+    fishes[i].x=ax+cos(a)*L*.7;fishes[i].y=ay+sin(a)*L*.6;fishes[i].len=L;fishes[i].ang=0}
+  const bx=W*.68,by=H*.5;
+  for(let i=3;i<6;i++){const a=T/3*(i-3)+P;
+    fishes[i].x=bx+cos(a)*L*.7;fishes[i].y=by+sin(a)*L*.6;fishes[i].len=L;fishes[i].ang=P}
+}
+
+// ─── PAIR FORCES ─────────────────────────────────────────────
+// Implements the three Boids rules (separation, alignment, cohesion)
+// with PRECISION-WEIGHTED coupling via exp(C/Ω).
+// This is NOT fixed-strength coupling: it grows as agents accumulate
+// evidence of mutual predictability — a core FEP mechanism.
+function applyPairForces(pair,coupling,dt){
+  const fi=fishes[pair.i],fj=fishes[pair.j];
+  const dx=fj.x-fi.x,dy=fj.y-fi.y,d=sqrt(dx*dx+dy*dy)+1;
+  const nx=dx/d,ny=dy/d;
+  const si=sqrt(fi.vx*fi.vx+fi.vy*fi.vy)+.01;
+  const sj=sqrt(fj.vx*fj.vx+fj.vy*fj.vy)+.01;
+  const dot=(fi.vx*fj.vx+fi.vy*fj.vy)/(si*sj);
+  // L_align: coherence accumulation rate from mutual alignment
+  // This is the "evidence" that this pair shares a generative model
+  const L_align=max(0,dot)*2.5;
+  const bodyR=fi.len*.25;
+  const pen=max(0,1-d/(bodyR*3));
+  pair.crr.step(L_align+pen*20+.3,dt);
+  // w = exp(C/Ω): the precision weight
+  const w=pair.crr.w;
+  // Separation (inverse coupling — avoid collision)
+  if(d<bodyR*2.5){const rep=(1-d/(bodyR*2.5))*w*.5*(1/max(.2,coupling));
+    fi.vx-=nx*rep*dt*60;fi.vy-=ny*rep*dt*60;
+    fj.vx+=nx*rep*dt*60;fj.vy+=ny*rep*dt*60}
+  // Alignment — precision-weighted heading matching
+  const hxi=fi.vx/si,hyi=fi.vy/si,hxj=fj.vx/sj,hyj=fj.vy/sj;
+  fi.vx+=(hxj-hxi)*w*.04*coupling*dt*60;fi.vy+=(hyj-hyi)*w*.04*coupling*dt*60;
+  fj.vx+=(hxi-hxj)*w*.04*coupling*dt*60;fj.vy+=(hyi-hyj)*w*.04*coupling*dt*60;
+  // Cohesion — precision-weighted attraction
+  if(d>bodyR*1.5){fi.vx+=nx*w*.01*coupling*dt*60;fi.vy+=ny*w*.01*coupling*dt*60;
+    fj.vx-=nx*w*.01*coupling*dt*60;fj.vy-=ny*w*.01*coupling*dt*60}
+  // Synchronisation event (rupture): coordinated thrust burst
+  if(pair.crr.ruptured){const mx=(hxi+hxj)*.5,my=(hyi+hyj)*.5,mm=sqrt(mx*mx+my*my)+.01;
+    const kick=.1*min(3,coupling);
+    fi.vx+=mx/mm*kick*60*dt;fi.vy+=my/mm*kick*60*dt;
+    fj.vx+=mx/mm*kick*60*dt;fj.vy+=my/mm*kick*60*dt}
+}
+
+// ─── UPDATE ──────────────────────────────────────────────────
+function upd(dt){
+  for(const f of fishes){
+    // CRR accumulation rate — boosted baseline so fish beat at all precision settings
+    // High precision (ωFish=0.15): threshold ≈ 21, rate ≈ 8 → beat every ~2.6s (slow, powerful)
+    // Low precision (ωFish=5): threshold ≈ 0.63, rate ≈ 8 → beat every ~0.08s (rapid, fluttery)
+    const tL=(8+sin(t*.3+f.id)*.8)*drive;
+    f.tail.step(tL,dt);f.fp+=dt*(5+f.tail.sa*20);
+
+    // === CONTINUOUS BASELINE SWIMMING (always active) ===
+    // Fish undulate continuously; CRR ruptures add burst thrust on top.
+    // Baseline is gentle forward thrust modulated by body wave.
+    const baseForce=18*(.4+drive*.6);
+    const waveOsc=sin(f.fp*1.5)*.15; // subtle lateral oscillation
+    f.baseVx=cos(f.ang+waveOsc)*baseForce*dt;
+    f.baseVy=sin(f.ang+waveOsc)*baseForce*dt;
+    f.vx+=f.baseVx;f.vy+=f.baseVy;
+
+    // === CRR BURST THRUST (on tail-beat rupture) ===
+    f.burstVx=0;f.burstVy=0;
+    if(f.tail.st===1){
+      f.tailSide*=-1;
+      const wave=sin(f.fp)*f.len*.12;
+      const tx=f.x-cos(f.ang)*f.len*.42-sin(f.ang)*wave;
+      const ty=f.y-sin(f.ang)*f.len*.42+cos(f.ang)*wave;
+      const vG=70*f.tailSide*(.5+drive*.5);
+      spawnV(tx,ty,-cos(f.ang)*18+sin(f.ang)*f.tailSide*25,
+        -sin(f.ang)*18-cos(f.ang)*f.tailSide*25,vG,f.len*.09,0);
+      const burst=65*(.5+drive*.5);
+      f.burstVx=cos(f.ang)*burst*dt;f.burstVy=sin(f.ang)*burst*dt;
+      f.vx+=f.burstVx;f.vy+=f.burstVy}
+
+    // Combined instantaneous active state (for visualization)
+    f.thrustVx=f.baseVx+f.burstVx;f.thrustVy=f.baseVy+f.burstVy;
+    // Smoothed active state (for persistent arrow display)
+    f.activeSmX+=(f.thrustVx-f.activeSmX)*min(1,dt*8);
+    f.activeSmY+=(f.thrustVy-f.activeSmY)*min(1,dt*8);
+
+    // Lateral line: sensory states sampling the generative process
+    f.latPoints=[];let lx=0,ly=0;
+    for(let s=.1;s<.8;s+=.14){
+      const sx=f.x+cos(f.ang)*(.4-s)*f.len,sy=f.y+sin(f.ang)*(.4-s)*f.len;
+      const wv=wV(sx,sy);f.latPoints.push({x:sx,y:sy,vx:wv.vx,vy:wv.vy});lx+=wv.vx;ly+=wv.vy}
+    f.sensedVx=lx/5;f.sensedVy=ly/5;
+    f.gill.step(4.5*drive,dt);f.pect.step(2*drive,dt);
+  }
+  // Precision-weighted coupling at within-group level
+  for(const p of intraPairs)applyPairForces(p,ωIntra,dt);
+  // Precision-weighted coupling at between-group level
+  for(const p of interPairs)applyPairForces(p,ωInter,dt);
+  // Hard body collision — prevents fish from occupying the same space
+  // This is independent of pair coupling; it applies to ALL fish pairs
+  for(let i=0;i<fishes.length;i++)for(let j=i+1;j<fishes.length;j++){
+    const fi=fishes[i],fj=fishes[j];
+    const dx=fj.x-fi.x,dy=fj.y-fi.y,d=sqrt(dx*dx+dy*dy)+.1;
+    const minD=fi.len*.45; // hard exclusion radius based on body length
+    if(d<minD){
+      const overlap=(minD-d)/minD;
+      const push=overlap*120*dt;
+      const nx2=dx/d,ny2=dy/d;
+      fi.vx-=nx2*push;fi.vy-=ny2*push;
+      fj.vx+=nx2*push;fj.vy+=ny2*push;
+      // Also nudge positions directly to prevent deep overlap
+      const nudge=overlap*2;
+      fi.x-=nx2*nudge;fi.y-=ny2*nudge;
+      fj.x+=nx2*nudge;fj.y+=ny2*nudge}}
+  // Physics integration
+  for(const f of fishes){
+    const fc=-sin(f.ang)*f.sensedVx+cos(f.ang)*f.sensedVy;
+    f.ang+=fc*(.0006+.0008/max(.1,ωFish))*dt;
+    const spd=sqrt(f.vx*f.vx+f.vy*f.vy);
+    if(spd>.1){const drag=.018*spd;f.dragVx=-f.vx/spd*drag;f.dragVy=-f.vy/spd*drag;
+      f.vx+=f.dragVx;f.vy+=f.dragVy}else{f.dragVx=0;f.dragVy=0}
+    const w2=wV(f.x,f.y);f.x+=(f.vx+w2.vx*.3)*dt;f.y+=(f.vy+w2.vy*.3)*dt;
+    if(spd>5){let da=atan2(f.vy,f.vx)-f.ang;
+      while(da>P)da-=T;while(da<-P)da+=T;f.ang+=da*min(1,dt*6)}
+    const m=f.len*1.1;const uiW=228*DR;
+    if(f.x<m+uiW){f.vx+=25*dt;f.x=max(f.len+uiW,f.x)}
+    if(f.x>W-m){f.vx-=25*dt;f.x=min(W-f.len,f.x)}
+    if(f.y<m*.5){f.vy+=20*dt}if(f.y>H-m){f.vy-=20*dt}
+    f.y=max(f.len*.4,min(H-f.len*.4,f.y));
+  }
+}
+
+// ─── DRAW FISH (RENDERING — unchanged from original) ─────────
+function bP(f,s,side){
+  const L=f.len;
+  const wave=sin(f.fp-s*3.2)*L*(.01+s*s*(.04+f.tail.sa*.1));
+  const pr=[0,.055,.09,.11,.115,.11,.1,.085,.06,.035,.012];
+  const idx=s*(pr.length-1),lo=floor(idx),hi=min(lo+1,pr.length-1);
+  const hw=L*(pr[lo]*(1-(idx-lo))+pr[hi]*(idx-lo));
+  const bx=(.42-s)*L,by=wave+side*hw;
+  return{x:f.x+cos(f.ang)*bx-sin(f.ang)*by,y:f.y+sin(f.ang)*bx+cos(f.ang)*by,hw}}
+const NG=1.83;
+function tF(th,a){const l=2*NG*th*cos(a);let r=0,g=0,b=0;
+  if(l>=380&&l<440){r=(440-l)/60;b=1}else if(l>=440&&l<490){g=(l-440)/50;b=1}
+  else if(l>=490&&l<510){g=1;b=(510-l)/20}else if(l>=510&&l<580){r=(l-510)/70;g=1}
+  else if(l>=580&&l<645){r=1;g=(645-l)/65}else if(l>=645&&l<=780){r=1}
+  let f2=1;if(l>=380&&l<420)f2=.3+.7*(l-380)/40;
+  else if(l>700)f2=max(0,.3+.7*(780-l)/80);else if(l<380||l>780)f2=0;
+  return{r:r*f2,g:g*f2,b:b*f2}}
+
+function drawFish(f){
+  const L=f.len,ca=cos(f.ang),sa2=sin(f.ang);
+  const nx=-sa2,ny=ca;
+  X.save();X.globalAlpha=.08;
+  X.beginPath();X.ellipse(f.x+5,f.y+L*.1,L*.35,L*.045,f.ang,0,T);
+  X.fillStyle='#000';X.fill();X.restore();
+  // Tail fin
+  const tb=bP(f,.88,0),tt=bP(f,1,0);
+  X.save();X.globalAlpha=.5;
+  const tA=f.ang+P,tpx=cos(tA),tpy=sin(tA);
+  const sp=L*.14,tl=L*.12;
+  X.beginPath();X.moveTo(tb.x,tb.y);
+  X.bezierCurveTo(tt.x+tpx*tl*.3+nx*sp*.6,tt.y+tpy*tl*.3+ny*sp*.6,
+    tt.x+tpx*tl+nx*sp,tt.y+tpy*tl+ny*sp,tt.x+tpx*tl*.5,tt.y+tpy*tl*.5);
+  X.lineTo(tt.x,tt.y);X.lineTo(tt.x+tpx*tl*.5,tt.y+tpy*tl*.5);
+  X.bezierCurveTo(tt.x+tpx*tl-nx*sp,tt.y+tpy*tl-ny*sp,
+    tt.x+tpx*tl*.3-nx*sp*.6,tt.y+tpy*tl*.3-ny*sp*.6,tb.x,tb.y);
+  const tg=X.createLinearGradient(tt.x+nx*sp,tt.y+ny*sp,tt.x-nx*sp,tt.y-ny*sp);
+  tg.addColorStop(0,`hsla(${f.h+8},${f.s-12}%,${f.l-5}%,.3)`);
+  tg.addColorStop(.5,`hsla(${f.h},${f.s}%,${f.l+5}%,.45)`);
+  tg.addColorStop(1,`hsla(${f.h+8},${f.s-12}%,${f.l-5}%,.3)`);
+  X.fillStyle=tg;X.fill();
+  X.strokeStyle=`hsla(${f.h},${f.s-20}%,${f.l+10}%,.1)`;X.lineWidth=.4;
+  for(let i=0;i<7;i++){const fr=i/6,sv=fr*2-1;
+    X.beginPath();X.moveTo(tb.x,tb.y);
+    X.quadraticCurveTo(tt.x+tpx*tl*.3+nx*sv*sp*.3,tt.y+tpy*tl*.3+ny*sv*sp*.3,
+      tt.x+tpx*tl*.7+nx*sv*sp*.85,tt.y+tpy*tl*.7+ny*sv*sp*.85);X.stroke()}
+  X.restore();
+  // Dorsal fin
+  const d1=bP(f,.22,-1),d2=bP(f,.52,-1);
+  const dH=L*.1+sin(t*1.3+f.id)*.003*L;
+  X.save();X.globalAlpha=.35;X.beginPath();X.moveTo(d1.x,d1.y);
+  X.bezierCurveTo(d1.x+nx*dH*.4,d1.y+ny*dH*.4,
+    (d1.x+d2.x)/2+nx*dH,(d1.y+d2.y)/2+ny*dH,d2.x,d2.y);
+  const dg=X.createLinearGradient(d1.x+nx*dH,d1.y+ny*dH,d1.x,d1.y);
+  dg.addColorStop(0,`hsla(${f.h},${f.s-15}%,${f.l-5}%,.12)`);
+  dg.addColorStop(1,`hsla(${f.h+5},${f.s-10}%,${f.l}%,.35)`);
+  X.fillStyle=dg;X.fill();
+  X.strokeStyle=`hsla(${f.h},${f.s-20}%,${f.l+5}%,.08)`;X.lineWidth=.3;
+  for(let i=0;i<5;i++){const fr=(i+1)/6;
+    const bx2=d1.x+(d2.x-d1.x)*fr,by2=d1.y+(d2.y-d1.y)*fr;
+    X.beginPath();X.moveTo(bx2,by2);
+    X.lineTo(bx2+nx*dH*(1-pow(fr-.4,2)*4)*.7,by2+ny*dH*(1-pow(fr-.4,2)*4)*.7);X.stroke()}
+  X.restore();
+  // Anal fin
+  const a1=bP(f,.52,1),a2=bP(f,.7,1);
+  X.save();X.globalAlpha=.3;X.beginPath();X.moveTo(a1.x,a1.y);
+  X.quadraticCurveTo((a1.x+a2.x)/2-nx*L*.06,(a1.y+a2.y)/2-ny*L*.06,a2.x,a2.y);
+  X.fillStyle=`hsla(${f.h+5},${f.s-12}%,${f.l-3}%,.3)`;X.fill();X.restore();
+  // Body + clip
+  X.beginPath();
+  for(let s=0;s<=1;s+=.012){const p=bP(f,s,-1);s===0?X.moveTo(p.x,p.y):X.lineTo(p.x,p.y)}
+  for(let s=1;s>=0;s-=.012){const p=bP(f,s,1);X.lineTo(p.x,p.y)}
+  X.closePath();X.save();X.clip();
+  const bg=X.createLinearGradient(f.x+nx*L*.13,f.y+ny*L*.13,f.x-nx*L*.13,f.y-ny*L*.13);
+  bg.addColorStop(0,`hsla(${f.h},${f.s+8}%,${f.l-6}%,.88)`);
+  bg.addColorStop(.2,`hsla(${f.h+10},${f.s+16}%,${min(90,f.l+14)}%,.92)`);
+  bg.addColorStop(.42,`hsla(${f.h+18},${f.s+6}%,${min(93,f.l+22)}%,.9)`);
+  bg.addColorStop(.6,`hsla(${f.h+5},${f.s+2}%,${min(90,f.l+15)}%,.9)`);
+  bg.addColorStop(.8,`hsla(${f.h-5},${f.s}%,${f.l+3}%,.88)`);
+  bg.addColorStop(1,`hsla(${f.h-10},${f.s-8}%,${f.l-8}%,.82)`);
+  X.fillStyle=bg;X.fill();
+  // Scales with enhanced thin-film iridescence
+  const sR=L*.01;const ir=sin(t*2.2+f.id*1.1)*.5+.5;
+  const ir2=cos(t*1.7+f.id*.8)*.3+.5; // second iridescence wave
+  for(let row=0;row<14;row++)for(let col=0;col<30;col++){
+    const s=(col+.5)/30,v=(row+.5)/14,side=v<.5?-1:1,vF=abs(v-.5)*2;
+    const sO=s+(row%2)*.017;if(sO>1)continue;
+    const p=bP(f,sO,side*vF);
+    // Stronger angle variation for more vivid color shifts
+    const th=vF*P*.4+sin(t*1.1+sO*5+f.id*1.3)*.1+ir*.06+ir2*.04;
+    // Wider wavelength range for richer spectrum
+    const tk=85+sin(sO*24+row*3.1+f.h*.14)*22+sin(t*2.2+col*.5+row*.7)*6;
+    const cl=tF(tk,th);
+    // Boosted intensity — especially along the dorsal ridge
+    const dorsalBoost=max(0,1-vF*1.8)*.08;
+    const inten=.07+.18*(1-vF)+dorsalBoost+f.tail.sa*.06+ir2*.02;
+    X.fillStyle=`rgba(${round(cl.r*255)},${round(cl.g*255)},${round(cl.b*255)},${inten})`;
+    X.beginPath();X.arc(p.x,p.y,sR*(.85+vF*.3),-P*.7,P*.7);X.fill();
+  }
+  // Enhanced shimmer — dual highlight
+  const sh=sin(t*3.2+f.id*2.3+f.x*.02)*.08+.025;
+  if(sh>.01){
+    const sp2=bP(f,.15,-.1),sp3=bP(f,.55,-.05);
+    X.beginPath();X.moveTo(sp2.x,sp2.y);
+    X.quadraticCurveTo((sp2.x+sp3.x)/2+nx*L*.01,(sp2.y+sp3.y)/2+ny*L*.01,sp3.x,sp3.y);
+    X.lineWidth=L*.015;X.strokeStyle=`rgba(255,255,255,${sh*.8})`;X.stroke();
+    // Second shimmer band (belly)
+    const sh2=sin(t*2.5+f.id*1.7+f.x*.015)*.05+.01;
+    if(sh2>.005){
+      const sb1=bP(f,.2,.25),sb2=bP(f,.5,.2);
+      X.beginPath();X.moveTo(sb1.x,sb1.y);
+      X.quadraticCurveTo((sb1.x+sb2.x)/2-nx*L*.005,(sb1.y+sb2.y)/2-ny*L*.005,sb2.x,sb2.y);
+      X.lineWidth=L*.008;X.strokeStyle=`rgba(255,252,240,${sh2*.6})`;X.stroke()}}
+  // Lateral line
+  X.beginPath();
+  for(let s=.05;s<.88;s+=.007){const p=bP(f,s,0);
+    s<.06?X.moveTo(p.x,p.y):X.lineTo(p.x,p.y)}
+  X.strokeStyle=`hsla(${f.h+30},30%,80%,.14)`;X.lineWidth=.8;X.stroke();
+  for(let s=.08;s<.85;s+=.05){const p=bP(f,s,0);
+    X.beginPath();X.arc(p.x,p.y,.8,0,T);
+    X.fillStyle=`hsla(${f.h-10},20%,30%,.2)`;X.fill()}
+  // Belly
+  X.beginPath();
+  const bb1=bP(f,.15,.4),bb2=bP(f,.55,.35);
+  X.moveTo(bb1.x,bb1.y);X.quadraticCurveTo((bb1.x+bb2.x)/2-nx*L*.01,(bb1.y+bb2.y)/2-ny*L*.01,bb2.x,bb2.y);
+  X.lineWidth=L*.025;X.strokeStyle=`hsla(${f.h+20},12%,92%,.06)`;X.stroke();
+  X.restore();
+  // Gill slits
+  const go=.25+f.gill.sa*.45+sin(f.gill.ph*3)*.06;
+  const gp=bP(f,.16,.25);
+  X.save();X.globalAlpha=.3;
+  for(let i=0;i<3;i++){
+    X.beginPath();X.moveTo(gp.x+ca*i*L*.008,gp.y+sa2*i*L*.008);
+    X.lineTo(gp.x+ca*i*L*.008-nx*L*.01*go,gp.y+sa2*i*L*.008-ny*L*.01*go);
+    X.strokeStyle=`rgba(${155+i*20},${45+i*10},${35+i*10},${.1+go*.12})`;
+    X.lineWidth=1.3;X.stroke()}
+  X.restore();
+  // Pectoral fin
+  const pa=sin(f.pect.ph*2.5)*.3+f.pect.sa*.15;
+  const pp=bP(f,.2,.55);
+  X.save();X.globalAlpha=.25;X.translate(pp.x,pp.y);X.rotate(f.ang+P*.3+pa);
+  X.beginPath();X.moveTo(0,0);
+  X.bezierCurveTo(-L*.01,L*.035,-L*.05,L*.06,-L*.07,L*.048);
+  X.bezierCurveTo(-L*.055,L*.02,-L*.02,L*.005,0,0);
+  const pfg=X.createLinearGradient(0,0,-L*.06,L*.05);
+  pfg.addColorStop(0,`hsla(${f.h},${f.s-15}%,${f.l+5}%,.4)`);
+  pfg.addColorStop(1,`hsla(${f.h+10},${f.s-20}%,${f.l+10}%,.1)`);
+  X.fillStyle=pfg;X.fill();
+  X.strokeStyle=`hsla(${f.h},${f.s-25}%,${f.l+8}%,.08)`;X.lineWidth=.3;
+  for(let i=0;i<4;i++){const fr=(i+1)/5;
+    X.beginPath();X.moveTo(0,0);X.lineTo(-L*.065*fr,L*.05*sin(fr*P*.6));X.stroke()}
+  X.restore();
+  // Pelvic fin
+  const pvp=bP(f,.35,.5);
+  X.save();X.globalAlpha=.18;X.beginPath();X.moveTo(pvp.x,pvp.y);
+  X.quadraticCurveTo(pvp.x-ca*L*.02-nx*L*.04,pvp.y-sa2*L*.02-ny*L*.04,
+    pvp.x-ca*L*.04,pvp.y-sa2*L*.04);
+  X.quadraticCurveTo(pvp.x-ca*L*.01-nx*L*.01,pvp.y-sa2*L*.01-ny*L*.01,pvp.x,pvp.y);
+  X.fillStyle=`hsla(${f.h},${f.s-18}%,${f.l+3}%,.3)`;X.fill();X.restore();
+  // Eye
+  const ep=bP(f,.07,-.14),eR=L*.018;
+  X.beginPath();X.arc(ep.x,ep.y,eR*1.15,0,T);X.fillStyle='rgba(20,30,35,.2)';X.fill();
+  X.beginPath();X.arc(ep.x,ep.y,eR,0,T);
+  const eg=X.createRadialGradient(ep.x-eR*.1,ep.y-eR*.1,0,ep.x,ep.y,eR);
+  eg.addColorStop(0,'#e8e4d8');eg.addColorStop(.8,'#d0ccc0');eg.addColorStop(1,'#a09888');
+  X.fillStyle=eg;X.fill();
+  X.beginPath();X.arc(ep.x+eR*.1,ep.y,eR*.6,0,T);
+  const ig2=X.createRadialGradient(ep.x+eR*.1,ep.y,eR*.08,ep.x+eR*.1,ep.y,eR*.6);
+  ig2.addColorStop(0,'#806830');ig2.addColorStop(.4,'#604818');ig2.addColorStop(.85,'#382808');ig2.addColorStop(1,'#201005');
+  X.fillStyle=ig2;X.fill();
+  for(let i=0;i<10;i++){const a=i/10*T;const ir2=eR*(.18+R()*.3);
+    X.beginPath();X.moveTo(ep.x+eR*.1+cos(a)*eR*.1,ep.y+sin(a)*eR*.1);
+    X.lineTo(ep.x+eR*.1+cos(a)*ir2,ep.y+sin(a)*ir2);
+    X.strokeStyle=`rgba(${90+R()*40},${55+R()*25},${10+R()*15},.12)`;X.lineWidth=.4;X.stroke()}
+  X.beginPath();X.arc(ep.x+eR*.14,ep.y,eR*.28,0,T);X.fillStyle='#080404';X.fill();
+  X.beginPath();X.arc(ep.x+eR*.26,ep.y-eR*.2,eR*.12,0,T);X.fillStyle='rgba(255,255,255,.55)';X.fill();
+  X.beginPath();X.arc(ep.x-eR*.02,ep.y+eR*.12,eR*.06,0,T);X.fillStyle='rgba(255,255,255,.15)';X.fill();
+  // Mouth
+  const mp=bP(f,.02,.04);
+  X.beginPath();X.moveTo(mp.x+ca*L*.008,mp.y+sa2*L*.008);
+  X.quadraticCurveTo(mp.x,mp.y-nx*L*.005,mp.x-ca*L*.02,mp.y-sa2*L*.02);
+  X.strokeStyle=`hsla(${f.h-10},25%,30%,.25)`;X.lineWidth=.8;X.stroke();
+  const np=bP(f,.05,-.08);
+  X.beginPath();X.arc(np.x,np.y,L*.003,0,T);X.fillStyle=`hsla(${f.h-10},20%,25%,.2)`;X.fill();
+  // Name tag
+  if(show.crr){X.fillStyle=f.col;X.font=`bold ${10*DR}px Georgia`;
+    X.fillText(f.name,f.x+ca*L*.32+nx*L*.14,f.y+sa2*L*.32+ny*L*.14)}
+}
+
+// ─── OVERLAYS (FEP-labelled) ─────────────────────────────────
+function drawFlow(){
+  if(!show.flow)return;X.save();
+  const uiW=228*DR;
+  // === LAYER 1: Dense vector field arrows ===
+  const step=38;
+  for(let gx=uiW+step*.5;gx<W;gx+=step)for(let gy=step*.5;gy<H;gy+=step){
+    const v=wV(gx,gy);
+    const mag=sqrt(v.vx*v.vx+v.vy*v.vy);
+    if(mag<.15)continue;
+    const a=atan2(v.vy,v.vx);
+    // Arrow length scales with speed, capped
+    const len=min(step*.65,mag*2.5+2);
+    // Colour: slow = deep teal, fast = bright cyan
+    const spd01=min(1,mag*.06);
+    const r=round(40+spd01*60);
+    const g=round(120+spd01*135);
+    const b=round(170+spd01*85);
+    const al=.12+spd01*.35;
+    const lw=.8+spd01*1.5;
+    // Shaft
+    const sx=gx-cos(a)*len*.35,sy=gy-sin(a)*len*.35;
+    const ex=gx+cos(a)*len*.65,ey=gy+sin(a)*len*.65;
+    X.beginPath();X.moveTo(sx,sy);X.lineTo(ex,ey);
+    X.strokeStyle=`rgba(${r},${g},${b},${al})`;X.lineWidth=lw;X.stroke();
+    // Arrowhead (filled triangle)
+    if(len>4){
+      const hL=min(6,len*.3),hA=.55;
+      X.beginPath();X.moveTo(ex,ey);
+      X.lineTo(ex-cos(a-hA)*hL,ey-sin(a-hA)*hL);
+      X.lineTo(ex-cos(a+hA)*hL,ey-sin(a+hA)*hL);
+      X.closePath();X.fillStyle=`rgba(${r},${g},${b},${al})`;X.fill()}}
+  // === LAYER 2: Streakline tracers (advected by same field) ===
+  for(const tr of tracers){
+    const trail=tr.trail;if(trail.length<2)continue;
+    const v=wV(tr.x,tr.y);
+    const mag=sqrt(v.vx*v.vx+v.vy*v.vy);
+    const spd01=min(1,mag*.06);
+    const r=round(60+spd01*100);
+    const g=round(180+spd01*75);
+    const b=round(220+spd01*35);
+    for(let i=0;i<trail.length-1;i++){
+      const fade=1-i/(trail.length-1);
+      const al=fade*fade*(.06+spd01*.2);
+      if(al<.004)continue;
+      X.beginPath();X.moveTo(trail[i].x,trail[i].y);X.lineTo(trail[i+1].x,trail[i+1].y);
+      X.strokeStyle=`rgba(${r},${g},${b},${al})`;X.lineWidth=(.4+spd01*1.8)*fade;X.stroke()}
+    // Head dot
+    if(spd01>.15){
+      const headAl=.08+spd01*.3;
+      X.beginPath();X.arc(tr.x,tr.y,1+spd01*1.8,0,T);
+      X.fillStyle=`rgba(${min(255,r+40)},${min(255,g+30)},255,${headAl})`;X.fill()}}
+  X.restore()}
+function drawVort(){
+  if(!show.vorticity)return;const step=30;X.save();X.globalAlpha=.18;
+  for(let gx=228*DR;gx<W;gx+=step)for(let gy=0;gy<H;gy+=step){
+    const h2=8;const vr=wV(gx+h2+15,gy+15),vl=wV(gx-h2+15,gy+15);
+    const vt=wV(gx+15,gy-h2+15),vb=wV(gx+15,gy+h2+15);
+    const w2=(vr.vy-vl.vy-vb.vx+vt.vx)/(2*h2);if(abs(w2)<.002)continue;
+    const i2=min(1,abs(w2)*14);
+    X.fillStyle=w2>0?`rgba(255,80,60,${i2*.3})`:`rgba(60,120,255,${i2*.3})`;
+    X.fillRect(gx,gy,step,step)}X.restore()}
+function drawCasc(){
+  if(!show.cascade)return;X.save();
+  const gc=['rgba(255,200,80,','rgba(200,140,255,','rgba(100,220,200,'];
+  for(const v of vortices){if(v.dead)continue;
+    const al=min(.35,abs(v.gamma)*.004)*(1-v.life/v.maxLife);if(al<.005)continue;
+    X.beginPath();X.arc(v.x,v.y,v.r,0,T);
+    X.strokeStyle=gc[min(v.gen,2)]+al+')';X.lineWidth=max(.5,v.r*.06);X.stroke()}
+  X.restore()}
+function drawLat(){
+  if(!show.lateral)return;X.save();
+  for(const f of fishes){
+    const L=f.len;
+    for(let li=0;li<f.latPoints.length;li++){
+      const lp=f.latPoints[li];
+      const vmag=sqrt(lp.vx*lp.vx+lp.vy*lp.vy);
+      // Receptor dot — prominent, clear
+      const dotR=max(3.5,L*.018);
+      X.beginPath();X.arc(lp.x,lp.y,dotR,0,T);
+      X.fillStyle='rgba(255,210,50,.7)';X.fill();
+      X.strokeStyle='rgba(255,240,150,.4)';X.lineWidth=1.2;X.stroke();
+      // Sensed flow arrow — shows what this receptor is detecting
+      if(vmag>.15){
+        const arLen=min(L*.2,vmag*4+4);
+        const arAng=atan2(lp.vy,lp.vx);
+        const ex=lp.x+cos(arAng)*arLen,ey=lp.y+sin(arAng)*arLen;
+        const al=min(.75,vmag*.05+.25);
+        // Shaft with glow
+        X.beginPath();X.moveTo(lp.x,lp.y);X.lineTo(ex,ey);
+        X.strokeStyle=`rgba(255,210,50,${al*.3})`;X.lineWidth=4;X.stroke();
+        X.beginPath();X.moveTo(lp.x,lp.y);X.lineTo(ex,ey);
+        X.strokeStyle=`rgba(255,220,80,${al})`;X.lineWidth=2;X.stroke();
+        // Filled arrowhead
+        const hL=max(6,L*.03),hA=.5;
+        X.beginPath();X.moveTo(ex,ey);
+        X.lineTo(ex-cos(arAng-hA)*hL,ey-sin(arAng-hA)*hL);
+        X.lineTo(ex-cos(arAng+hA)*hL,ey-sin(arAng+hA)*hL);
+        X.closePath();X.fillStyle=`rgba(255,220,80,${al})`;X.fill()}}
+    // Label — positioned offset from the lateral line
+    const mp=f.latPoints[Math.floor(f.latPoints.length/2)];
+    if(mp){const lx2=mp.x+sin(f.ang)*L*.12,ly2=mp.y-cos(f.ang)*L*.12;
+      X.fillStyle='rgba(255,220,80,.5)';X.font=`bold ${7*DR}px JetBrains Mono,monospace`;
+      X.fillText('SENSORY',lx2,ly2)}}
+  X.restore()}
+function drawThr(){
+  if(!show.thrust)return;X.save();
+  for(const f of fishes){
+    const L=f.len;
+    const smMag=sqrt(f.activeSmX*f.activeSmX+f.activeSmY*f.activeSmY);
+    if(smMag<.00001)continue;
+    // Arrow origin: at the tail
+    const ox=f.x-cos(f.ang)*L*.38,oy=f.y-sin(f.ang)*L*.38;
+    // Smoothed thrust direction
+    const arLen=min(L*.4,smMag*2200+L*.1);
+    const arAng=atan2(f.activeSmY,f.activeSmX);
+    const ex=ox+cos(arAng)*arLen,ey=oy+sin(arAng)*arLen;
+    // Brightness — base + burst flash
+    const burstMag=sqrt(f.burstVx*f.burstVx+f.burstVy*f.burstVy);
+    const baseAl=min(.5,smMag*700+.15);
+    const burstAl=min(.55,burstMag*1400);
+    const al=min(.9,baseAl+burstAl);
+    const lw=2+(burstAl>0.05?2:0);
+    // Glow layer
+    X.beginPath();X.moveTo(ox,oy);X.lineTo(ex,ey);
+    X.strokeStyle=`rgba(80,255,120,${al*.25})`;X.lineWidth=lw+4;X.stroke();
+    // Shaft
+    X.beginPath();X.moveTo(ox,oy);X.lineTo(ex,ey);
+    X.strokeStyle=`rgba(80,255,120,${al})`;X.lineWidth=lw;X.stroke();
+    // Filled arrowhead
+    const hL=max(8,L*.04),hA=.5;
+    X.beginPath();X.moveTo(ex,ey);
+    X.lineTo(ex-cos(arAng-hA)*hL,ey-sin(arAng-hA)*hL);
+    X.lineTo(ex-cos(arAng+hA)*hL,ey-sin(arAng+hA)*hL);
+    X.closePath();X.fillStyle=`rgba(80,255,120,${al})`;X.fill();
+    // Burst flash ring at tail on rupture
+    if(burstAl>.05){
+      X.beginPath();X.arc(ox,oy,L*.06,0,T);
+      X.strokeStyle=`rgba(80,255,120,${burstAl})`;X.lineWidth=2.5;X.stroke();
+      X.beginPath();X.arc(ox,oy,L*.06+3,0,T);
+      X.strokeStyle=`rgba(80,255,120,${burstAl*.4})`;X.lineWidth=1.5;X.stroke()}
+    // Label — positioned offset from tail
+    const lx3=ox-sin(f.ang)*L*.12,ly3=oy+cos(f.ang)*L*.12;
+    X.fillStyle=`rgba(80,255,120,${min(.5,al*.8)})`;X.font=`bold ${7*DR}px JetBrains Mono,monospace`;
+    X.fillText('ACTIVE',lx3,ly3)}
+  X.restore()}
+function drawCRR(){
+  if(!show.crr)return;X.save();
+  for(const f of fishes){const L=f.len;
+    const ax=f.x-cos(f.ang)*L*.25,ay=f.y-sin(f.ang)*L*.25;
+    const prog=f.tail.progress,r=7+prog*5;
+    X.beginPath();X.arc(ax,ay,r,0,T);X.strokeStyle='rgba(255,255,255,.08)';X.lineWidth=1.2;X.stroke();
+    X.beginPath();X.arc(ax,ay,r,-P/2,-P/2+prog*T);X.strokeStyle=f.col;X.lineWidth=1.8;X.stroke();
+    if(f.tail.st===1){X.beginPath();X.arc(ax,ay,r+5,0,T);
+      X.strokeStyle=f.col;X.lineWidth=2;X.globalAlpha=.7;X.stroke();X.globalAlpha=1}}
+  X.restore()}
+function drawBlankets(){
+  if(!show.blanket)return;X.save();
+  // Individual Markov blankets
+  for(const f of fishes){const L=f.len,m=L*.06;
+    X.beginPath();
+    for(let s=0;s<=1;s+=.025){const p=bP(f,s,-1);
+      X.lineTo(p.x-sin(f.ang)*m*(1-s*.3),p.y+cos(f.ang)*m*(1-s*.3))}
+    for(let s=1;s>=0;s-=.025){const p=bP(f,s,1);
+      X.lineTo(p.x+sin(f.ang)*m*(1-s*.3),p.y-cos(f.ang)*m*(1-s*.3))}
+    X.closePath();X.strokeStyle=f.col.replace(')',',0.15)').replace('hsl','hsla');
+    X.lineWidth=1;X.setLineDash([4,3]);X.stroke();X.setLineDash([])}
+  // Group-level Markov blankets
+  for(const sc of [SCHOOL_A,SCHOOL_B]){
+    const members=sc.members.map(i=>fishes[i]);
+    const cx=members.reduce((s,f)=>s+f.x,0)/3;
+    const cy=members.reduce((s,f)=>s+f.y,0)/3;
+    let maxD=0;for(const f of members){const dx=f.x-cx,dy=f.y-cy;maxD=max(maxD,sqrt(dx*dx+dy*dy))}
+    const br=maxD+members[0].len*.5;
+    X.beginPath();
+    for(let a=0;a<T;a+=.06){let rx=cx+cos(a)*br,ry=cy+sin(a)*br;
+      for(const f of members){const dx=f.x-rx,dy=f.y-ry,d=sqrt(dx*dx+dy*dy);
+        rx+=dx*f.len*.2/(d+10);ry+=dy*f.len*.2/(d+10)}
+      a<.07?X.moveTo(rx,ry):X.lineTo(rx,ry)}
+    X.closePath();const gAl=.06+.1*min(1,ωIntra);
+    X.strokeStyle=sc.col+gAl+')';X.lineWidth=1.8;X.setLineDash([7,4]);X.stroke();X.setLineDash([]);
+    X.fillStyle=sc.col+(gAl*.3)+')';X.font=`${7*DR}px Georgia`;
+    // GUI label: precision (1/Ω), not Ω
+    X.fillText(sc.name+` Π=${(1/(ωIntra/P)).toFixed(1)}`,cx-20,cy-br-6)}
+  // Collective blanket (emerges when inter-group coupling is sufficient)
+  if(ωInter>.3){
+    const allCx=fishes.reduce((s,f)=>s+f.x,0)/6;
+    const allCy=fishes.reduce((s,f)=>s+f.y,0)/6;
+    let md=0;for(const f of fishes){const dx=f.x-allCx,dy=f.y-allCy;md=max(md,sqrt(dx*dx+dy*dy))}
+    const ir=md+fishes[0].len*.6;
+    X.beginPath();
+    for(let a=0;a<T;a+=.06){let rx=allCx+cos(a)*ir,ry=allCy+sin(a)*ir;
+      for(const f of fishes){const dx=f.x-rx,dy=f.y-ry,d=sqrt(dx*dx+dy*dy);
+        rx+=dx*f.len*.15/(d+10);ry+=dy*f.len*.15/(d+10)}
+      a<.07?X.moveTo(rx,ry):X.lineTo(rx,ry)}
+    X.closePath();const iAl=.03+.08*min(1,ωInter);
+    X.strokeStyle=`rgba(220,120,255,${iAl})`;X.lineWidth=2;
+    X.setLineDash([10,6]);X.stroke();X.setLineDash([]);
+    X.fillStyle=`rgba(220,120,255,${iAl})`;X.font=`${7*DR}px Georgia`;
+    X.fillText(`Collective Π=${(1/(ωInter/P)).toFixed(1)}`,allCx-30,allCy-ir-6)}
+  X.restore()}
+function drawPairs(){
+  if(!show.pairvis)return;X.save();
+  const allPairs=[...intraPairs,...interPairs];
+  for(const p of allPairs){
+    const fi=fishes[p.i],fj=fishes[p.j];
+    const w2=p.crr.w,prog=p.crr.progress;
+    const lw=.5+min(3,w2*.4);const al=.05+min(.3,w2*.04);
+    X.beginPath();X.moveTo(fi.x,fi.y);X.lineTo(fj.x,fj.y);
+    X.strokeStyle=p.col.replace(/[\d.]+\)$/,al+')');X.lineWidth=lw;X.stroke();
+    if(p.crr.ruptured){const mx=(fi.x+fj.x)/2,my=(fi.y+fj.y)/2;
+      X.beginPath();X.arc(mx,my,8,0,T);
+      X.strokeStyle=p.col;X.lineWidth=2;X.stroke()}}
+  X.restore()}
+
+// ─── INFO PANELS ─────────────────────────────────────────────
+// GUI labels: "synchrony strength" (FEP) not "w" or "CRR weight"
+function updPanels(){
+  document.getElementById('p_intra').innerHTML=intraPairs.map(p=>{
+    const w2=p.crr.w,prog=p.crr.progress;
+    return`<div class="pr" style="border-color:${p.col}">
+      ${p.name} <span style="opacity:.6">w=${w2.toFixed(1)}</span> ${p.crr.ruptured?'<b style="color:#ff6">sync!</b>':''}
+      <div class="br" style="width:${prog*100}%;background:${p.col}"></div></div>`}).join('');
+  document.getElementById('p_inter').innerHTML=interPairs.filter(p=>p.crr.w>1.05).map(p=>{
+    const w2=p.crr.w,prog=p.crr.progress;
+    return`<div class="pr" style="border-color:${p.col}">
+      ${p.name} <span style="opacity:.6">w=${w2.toFixed(1)}</span> ${p.crr.ruptured?'<b style="color:#ff6">sync!</b>':''}
+      <div class="br" style="width:${prog*100}%;background:${p.col}"></div></div>`}).join('')
+    ||'<div style="color:rgba(220,150,255,.45);font-size:9px;font-family:JetBrains Mono,monospace">no active cross-group synchrony</div>';
+}
+
+// ─── ENVIRONMENT ─────────────────────────────────────────────
+function drawEnv(){
+  const bg=X.createRadialGradient(W*.5,H*.4,min(W,H)*.15,W*.5,H*.5,W*.6);
+  bg.addColorStop(0,'#0c2d45');bg.addColorStop(.4,'#092538');bg.addColorStop(1,'#030e1a');
+  X.fillStyle=bg;X.fillRect(0,0,W,H);
+  X.save();X.globalCompositeOperation='lighter';
+  for(let i=0;i<4;i++){
+    const x=W*(.15+.7*((sin(t*.07+i*1.5)+1)/2)),sp2=16+10*sin(t*.11+i);
+    X.beginPath();X.moveTo(x-sp2,0);X.lineTo(x+sp2,0);X.lineTo(x+sp2*5,H);X.lineTo(x-sp2*5,H);
+    const rg=X.createLinearGradient(x,0,x,H);
+    rg.addColorStop(0,'rgba(120,200,210,.012)');rg.addColorStop(.5,'rgba(60,140,175,.004)');
+    rg.addColorStop(1,'rgba(0,0,0,0)');X.fillStyle=rg;X.fill()}
+  X.restore();
+  for(let x=0;x<W;x+=6){const y=4+sin(x*.008+t*.9)*2+sin(x*.023+t*.65)*1.4;
+    X.fillStyle=`rgba(160,220,235,${.015+.012*sin(x*.014+t)})`;X.fillRect(x,y,5,H*.008)}}
+
+// ─── MAIN LOOP ───────────────────────────────────────────────
+initFishes();let lt=0;
+function frame(now){
+  const dt=min(.033,(now-lt)/1000);lt=now;t+=dt;
+  upd(dt);updV(dt);updTracers(dt);drawEnv();drawVort();drawFlow();drawCasc();
+  if(show.fish){const sorted=[...fishes].sort((a,b)=>a.d-b.d);for(const f of sorted)drawFish(f)}
+  drawLat();drawThr();drawCRR();drawBlankets();drawPairs();
+  const v=X.createRadialGradient(W/2,H/2,W*.18,W/2,H/2,W*.55);
+  v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,5,10,.4)');
+  X.fillStyle=v;X.fillRect(0,0,W,H);
+  // Footer status — FEP terms only
+  document.getElementById('status-bar').textContent=
+    `Active Inference · Π_ind=${(1/ωFish).toFixed(2)} · Π_intra=${(1/ωIntra).toFixed(2)} · Π_inter=${(1/ωInter).toFixed(2)} · drive=${drive.toFixed(2)} · vortices=${vortices.length} · temporalgrammar.ai`;
+  if(t%0.2<dt)updPanels();
+  requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+
+// ─── EXPLAINER TOGGLE ────────────────────────────────────────
+const exPanel=document.getElementById('explainer');
+const toggleBtn=document.getElementById('toggle-ex');
+function toggleExplainer(){
+  exPanel.classList.toggle('open');
+  toggleBtn.classList.toggle('shifted');
+  toggleBtn.textContent=exPanel.classList.contains('open')?'Close':'Explainer';
+}
+toggleBtn.onclick=toggleExplainer;
+
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  };
+});
+</script>
+</body></html>

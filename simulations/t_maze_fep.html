@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Inference — Chapter 7: T-Maze</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@300;400&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #0d1825;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+        
+        /* Tab Navigation */
+        .tab-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            z-index: 2000;
+            background: rgba(15, 35, 50, 0.98);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .tab-btn {
+            padding: 0 32px;
+            height: 48px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab-btn:hover { color: rgba(255, 255, 255, 0.85); background: rgba(255, 255, 255, 0.05); }
+        .tab-btn.active { color: #4af; border-bottom-color: #4af; background: rgba(100, 200, 255, 0.08); }
+        
+        .tab-content { 
+            display: none; 
+            position: fixed; 
+            top: 48px; left: 0; right: 0; bottom: 0;
+            overflow: hidden;
+        }
+        .tab-content.active { display: block; }
+        
+        /* ==================== TAB 1: SIMULATION ==================== */
+        #tab1 {
+            display: none;
+            background: #0d1825;
+        }
+        #tab1.active {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            grid-template-rows: 1fr;
+        }
+        
+        .tutorial-panel {
+            background: rgba(15, 30, 45, 0.98);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .step-header {
+            padding: 16px 20px;
+            background: rgba(10, 25, 40, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .step-progress { display: flex; gap: 5px; margin-bottom: 10px; }
+        
+        .step-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .step-dot.active { background: #4af; box-shadow: 0 0 8px #4af; }
+        .step-dot.complete { background: #6c8; }
+        
+        .step-title { font-size: 1.15rem; color: #fff; font-style: italic; }
+        
+        .tutorial-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 18px;
+        }
+        
+        .tutorial-content::-webkit-scrollbar { width: 5px; }
+        .tutorial-content::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+        .tutorial-content::-webkit-scrollbar-thumb { background: rgba(100,200,255,0.3); border-radius: 3px; }
+        
+        .step-content { display: none; }
+        .step-content.active { display: block; }
+        
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: rgba(150, 200, 255, 0.7);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .tutorial-text {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .tutorial-text strong { color: #6fc; font-weight: 500; }
+        
+        .concept-card {
+            background: rgba(0, 30, 50, 0.5);
+            border: 1px solid rgba(100, 180, 255, 0.2);
+            border-radius: 6px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        
+        .concept-card h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #4af;
+            margin-bottom: 5px;
+            font-weight: 400;
+        }
+        
+        .concept-card p { font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.5; }
+        
+        .equation-box {
+            background: rgba(0, 20, 35, 0.8);
+            border: 1px solid rgba(100, 200, 255, 0.3);
+            border-radius: 6px;
+            padding: 12px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        
+        .equation-box .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: rgba(100, 200, 255, 0.7);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .equation-box .formula { font-size: 16px; color: #fff; font-style: italic; }
+        
+        .key-insight {
+            background: rgba(100, 255, 180, 0.08);
+            border-left: 3px solid rgba(100, 255, 180, 0.5);
+            border-radius: 0 6px 6px 0;
+            padding: 12px;
+            margin: 12px 0;
+        }
+        
+        .key-insight::before {
+            content: '💡 KEY INSIGHT';
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: #6c8;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .key-insight p { font-size: 13px; color: rgba(255, 255, 255, 0.85); font-style: italic; line-height: 1.5; }
+        
+        .real-world-box {
+            background: rgba(150, 100, 255, 0.08);
+            border: 1px solid rgba(150, 100, 255, 0.25);
+            border-radius: 6px;
+            padding: 12px;
+            margin: 12px 0;
+        }
+        
+        .real-world-box::before {
+            content: '🌍 REAL-WORLD CUES';
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: rgba(180, 150, 255, 0.8);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .real-world-box ul { font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-left: 16px; line-height: 1.7; }
+        
+        .citation {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.3);
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tutorial-nav {
+            padding: 14px 18px;
+            background: rgba(10, 25, 40, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            flex: 1;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .nav-btn:hover { background: rgba(255, 255, 255, 0.12); }
+        .nav-btn.primary { background: rgba(100, 200, 255, 0.2); border-color: rgba(100, 200, 255, 0.4); }
+        .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        
+        /* Simulation Area */
+        .sim-area { 
+            display: flex; 
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .sim-header {
+            padding: 8px 16px;
+            background: rgba(15, 30, 45, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .sim-title { font-size: 12px; color: #fff; font-style: italic; }
+        .sim-controls { display: flex; gap: 6px; }
+        
+        .sim-btn {
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .sim-btn:hover { background: rgba(255, 255, 255, 0.15); }
+        .sim-btn.active { background: rgba(100, 200, 255, 0.2); border-color: #4af; }
+        
+        .control-panel {
+            padding: 10px 16px;
+            background: rgba(15, 30, 45, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 24px;
+            flex-shrink: 0;
+        }
+        
+        .control-group { flex: 1; }
+        
+        .control-group label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 5px;
+        }
+        
+        .control-group label strong { color: #4af; }
+        
+        .slider-row { display: flex; align-items: center; gap: 8px; }
+        
+        .slider-row input[type="range"] {
+            flex: 1;
+            height: 3px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: linear-gradient(90deg, rgba(150, 100, 255, 0.5), rgba(255, 180, 100, 0.5));
+            border-radius: 2px;
+        }
+        
+        .slider-row input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px; height: 12px;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .slider-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #4af;
+            min-width: 28px;
+            text-align: right;
+        }
+        
+        .canvas-wrap { 
+            flex: 1; 
+            position: relative; 
+            background: #0a1520;
+            min-height: 200px;
+        }
+        #simCanvas { width: 100%; height: 100%; display: block; }
+        
+        .thought {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            color: #0d1825;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            max-width: 140px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            font-style: italic;
+        }
+        
+        .thought.show { opacity: 1; }
+        
+        /* Data Panels */
+        .data-panels {
+            display: flex;
+            gap: 10px;
+            padding: 10px 16px;
+            background: rgba(10, 25, 40, 0.98);
+            flex-shrink: 0;
+        }
+        
+        .data-panel {
+            flex: 1;
+            background: rgba(0, 20, 35, 0.7);
+            border: 1px solid rgba(100, 180, 255, 0.15);
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .data-panel h5 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            color: #4af;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        
+        .belief-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+        
+        .belief-item {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 3px;
+            padding: 5px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .belief-item.active { background: rgba(100, 200, 255, 0.12); box-shadow: inset 0 0 0 1px rgba(100, 200, 255, 0.3); }
+        
+        .belief-item .loc { font-family: 'JetBrains Mono', monospace; font-size: 7px; color: rgba(255, 255, 255, 0.4); }
+        .belief-item .prob { font-size: 13px; color: #fff; }
+        
+        .efe-row {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 2px;
+            margin-bottom: 4px;
+        }
+        
+        .efe-row.selected { background: rgba(100, 255, 180, 0.1); border-radius: 3px; }
+        
+        .efe-row .name { font-family: 'JetBrains Mono', monospace; font-size: 9px; width: 45px; color: rgba(255, 255, 255, 0.6); }
+        .efe-row.selected .name { color: #6c8; }
+        
+        .efe-bar {
+            flex: 1;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 2px;
+            overflow: hidden;
+            display: flex;
+        }
+        
+        .efe-bar .e { background: rgba(150, 100, 255, 0.7); height: 100%; transition: width 0.3s; }
+        .efe-bar .p { background: rgba(255, 180, 100, 0.7); height: 100%; transition: width 0.3s; }
+        
+        .stats-bar {
+            padding: 6px 16px;
+            background: rgba(10, 20, 35, 0.98);
+            display: flex;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+        
+        .stats-bar .stat { display: flex; gap: 4px; }
+        .stats-bar .stat-l { color: rgba(255, 255, 255, 0.3); }
+        .stats-bar .stat-v { color: #4af; }
+        
+        /* ==================== TAB 2: PHASE SPACE ==================== */
+        #tab2 {
+            background: linear-gradient(135deg, #0d1825 0%, #1a2a3a 100%);
+            overflow-y: auto;
+        }
+        
+        .phase-container {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: calc(100vh - 48px - 120px);
+        }
+        
+        .phase-left {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .phase-title { text-align: center; }
+        .phase-title h2 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 4px; }
+        .phase-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(150, 200, 255, 0.7); letter-spacing: 1px; }
+        
+        .phase-canvas-wrap {
+            flex: 1;
+            background: rgba(0, 10, 20, 0.9);
+            border: 1px solid rgba(100, 180, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            min-height: 400px;
+        }
+        
+        #phaseCanvas { width: 100%; height: 100%; display: block; }
+        
+        .phase-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        
+        .legend-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+        }
+        
+        .legend-dot.epistemic { background: #b084ff; box-shadow: 0 0 8px #b084ff; }
+        .legend-dot.pragmatic { background: #ffb870; box-shadow: 0 0 8px #ffb870; }
+        .legend-dot.agent { background: #fff; box-shadow: 0 0 10px #fff; }
+        
+        .legend-line {
+            width: 20px; height: 2px;
+            background: linear-gradient(90deg, rgba(150,100,255,0.5), rgba(255,180,100,0.5));
+        }
+        
+        .phase-right {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .phase-controls {
+            background: rgba(0, 20, 35, 0.8);
+            border: 1px solid rgba(100, 180, 255, 0.2);
+            border-radius: 10px;
+            padding: 18px;
+        }
+        
+        .phase-controls h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #4af;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        
+        .phase-control { margin-bottom: 16px; }
+        .phase-control:last-of-type { margin-bottom: 12px; }
+        
+        .phase-control label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3px;
+        }
+        
+        .phase-control label strong { color: #4af; }
+        
+        .control-desc {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        
+        .phase-control .slider-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .slider-end {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            color: rgba(255, 255, 255, 0.35);
+            min-width: 45px;
+        }
+        
+        .slider-end:last-child { text-align: right; }
+        
+        .phase-control input[type="range"] {
+            flex: 1;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+        
+        .phase-control input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px; height: 16px;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        
+        .slider-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #4af;
+            text-align: center;
+            margin-top: 4px;
+        }
+        
+        .phase-btn {
+            width: 100%;
+            padding: 10px;
+            background: rgba(100, 200, 255, 0.15);
+            border: 1px solid rgba(100, 200, 255, 0.3);
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .phase-btn:hover { background: rgba(100, 200, 255, 0.25); }
+        
+        .phase-readout {
+            background: rgba(0, 20, 35, 0.8);
+            border: 1px solid rgba(100, 180, 255, 0.2);
+            border-radius: 10px;
+            padding: 18px;
+        }
+        
+        .phase-readout h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #4af;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        
+        .readout-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .readout-row.total { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); }
+        
+        .readout-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.5);
+            min-width: 85px;
+        }
+        
+        .readout-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .readout-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+        
+        .readout-fill.epistemic { background: linear-gradient(90deg, #8060cc, #b084ff); }
+        .readout-fill.pragmatic { background: linear-gradient(90deg, #cc9050, #ffb870); }
+        .readout-fill.total { background: linear-gradient(90deg, #3080cc, #4af); }
+        
+        .readout-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #fff;
+            min-width: 40px;
+            text-align: right;
+        }
+        
+        .phase-insight {
+            background: rgba(100, 255, 180, 0.08);
+            border: 1px solid rgba(100, 255, 180, 0.2);
+            border-radius: 10px;
+            padding: 14px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .insight-icon { font-size: 18px; }
+        
+        .phase-insight p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+            font-style: italic;
+        }
+        
+        .phase-quote {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 20px;
+            background: rgba(0, 20, 35, 0.6);
+            border: 1px solid rgba(100, 180, 255, 0.2);
+            border-radius: 8px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .phase-quote p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .phase-quote p em { color: #6fc; font-style: normal; }
+        
+        .phase-quote .source {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.3);
+            margin-top: 8px;
+            text-align: right;
+        }
+        
+        /* ==================== TAB 3: GLOSSARY ==================== */
+        #tab3 {
+            background: linear-gradient(135deg, #1a2a3a 0%, #0d1825 100%);
+            overflow-y: auto;
+            padding: 25px 35px 50px;
+        }
+        
+        .glossary-container { max-width: 1100px; margin: 0 auto; }
+        
+        .glossary-title { text-align: center; margin-bottom: 25px; }
+        .glossary-title h2 { font-size: 26px; font-weight: 300; color: #fff; margin-bottom: 5px; }
+        .glossary-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(150, 200, 255, 0.7); letter-spacing: 1px; }
+        
+        .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+        
+        .glossary-card {
+            background: rgba(0, 20, 35, 0.8);
+            border: 1px solid rgba(100, 180, 255, 0.2);
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .glossary-card:hover {
+            border-color: rgba(100, 200, 255, 0.4);
+            box-shadow: 0 4px 16px rgba(0, 100, 150, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .glossary-card .term {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: #6fc;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(100, 255, 200, 0.2);
+        }
+        
+        .glossary-card .definition { font-size: 13px; color: rgba(255, 255, 255, 0.8); line-height: 1.5; }
+        
+        .glossary-card .definition em {
+            font-style: normal;
+            color: rgba(150, 220, 255, 0.95);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+        }
+        
+        .glossary-card .analogy {
+            display: block;
+            margin-top: 8px;
+            padding: 8px 10px;
+            background: rgba(100, 200, 255, 0.08);
+            border-left: 3px solid rgba(100, 200, 255, 0.4);
+            border-radius: 0 4px 4px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: rgba(180, 220, 255, 0.8);
+            line-height: 1.4;
+        }
+        
+        /* Credit */
+        .credit {
+            position: fixed;
+            bottom: 4px; right: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            color: rgba(255, 255, 255, 0.2);
+            z-index: 9999;
+        }
+        
+        .credit a { color: rgba(150, 200, 255, 0.35); text-decoration: none; }
+    </style>
+
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body>
+<a href="./" class="aii-floating-back">&#8592; Back to Catalog</a>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-btn active" data-tab="tab1">T-Maze Simulation</button>
+        <button class="tab-btn" data-tab="tab2">EFE Phase Space</button>
+        <button class="tab-btn" data-tab="tab3">Glossary</button>
+    </div>
+    
+    <!-- ==================== TAB 1: SIMULATION ==================== -->
+    <div id="tab1" class="tab-content active">
+        <div class="tutorial-panel">
+            <div class="step-header">
+                <div class="step-progress" id="stepProgress"></div>
+                <div class="step-title" id="stepTitle">The T-Maze Problem</div>
+            </div>
+            <div class="tutorial-content">
+                <!-- Step 0 -->
+                <div class="step-content active" data-step="0">
+                    <div class="section-label">Exploration vs Exploitation</div>
+                    <div class="tutorial-text">A <strong>rat in a T-maze</strong> faces a choice: one arm contains cheese (reward), the other a shock (punishment). A <strong>cue in the central arm</strong> reveals which side has the reward.</div>
+                    <div class="concept-card"><h4>Option 1: Go Directly (Exploit)</h4><p>Gamble on 50/50 odds—might get cheese, might get shocked.</p></div>
+                    <div class="concept-card"><h4>Option 2: Seek Information First (Explore)</h4><p>Visit the cue first, learn where the reward is, then go there.</p></div>
+                    <div class="key-insight"><p>"This choice speaks to the classical exploration-exploitation dilemma: a dilemma <strong>resolved under Active Inference</strong>."</p></div>
+                    <div class="citation">— Parr, Pezzulo & Friston (2022), Chapter 7, p.130</div>
+                </div>
+                
+                <!-- Step 1 -->
+                <div class="step-content" data-step="1">
+                    <div class="section-label">Information-Gathering Actions</div>
+                    <div class="tutorial-text">The <strong>cue</strong> is any observation that <strong>resolves uncertainty</strong> before a consequential choice. It's an <em>epistemic action</em>—taken for information, not immediate reward.</div>
+                    <div class="real-world-box">
+                        <ul>
+                            <li><strong>Checking a calendar</strong> before deciding which café</li>
+                            <li><strong>Reading reviews</strong> before purchasing</li>
+                            <li><strong>Asking a question</strong> before committing</li>
+                            <li><strong>Checking the weather</strong> before dressing</li>
+                        </ul>
+                    </div>
+                    <div class="key-insight"><p>"If he does not know what day it is, he has to first select an action with <strong>epistemic value</strong>."</p></div>
+                    <div class="citation">— Parr, Pezzulo & Friston (2022), Chapter 2, p.34</div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step-content" data-step="2">
+                    <div class="section-label">Building a POMDP</div>
+                    <div class="tutorial-text">The task is formalised as a <strong>Partially Observable Markov Decision Process</strong>:</div>
+                    <div class="concept-card"><h4>A-matrices (Likelihood)</h4><p>Map hidden states to observations. What will I see?</p></div>
+                    <div class="concept-card"><h4>B-matrices (Transitions)</h4><p>How states change given actions.</p></div>
+                    <div class="concept-card"><h4>C-vectors (Preferences)</h4><p>Cheese: +6, Shock: −6.</p></div>
+                    <div class="concept-card"><h4>D-vectors (Initial Beliefs)</h4><p>Both contexts equally likely (50/50).</p></div>
+                    <div class="citation">— Chapter 7, p.131-135</div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step-content" data-step="3">
+                    <div class="section-label">Policy Selection</div>
+                    <div class="tutorial-text">Policies minimise <strong>expected free energy G(π)</strong>:</div>
+                    <div class="equation-box"><div class="label">Expected Free Energy</div><div class="formula">G(π) = −Epistemic − Pragmatic</div></div>
+                    <div class="concept-card"><h4>Epistemic Value</h4><p>How much will this <strong>reduce uncertainty</strong>?</p></div>
+                    <div class="concept-card"><h4>Pragmatic Value</h4><p>How likely to bring <strong>preferred outcomes</strong>?</p></div>
+                    <div class="key-insight"><p>"We <strong>do not need to balance</strong> exploration and exploitation. Both serve the same function."</p></div>
+                    <div class="citation">— Chapter 7, p.131</div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="step-content" data-step="4">
+                    <div class="section-label">Controlling the Balance</div>
+                    <div class="tutorial-text"><strong>Precision (γ)</strong> controls how deterministic policy selection is:</div>
+                    <div class="equation-box"><div class="label">Policy Probability</div><div class="formula">P(π) = σ(−γ · G(π))</div></div>
+                    <div class="concept-card"><h4>Low Precision (γ → 0)</h4><p>More <strong>random/exploratory</strong>.</p></div>
+                    <div class="concept-card"><h4>High Precision (γ → ∞)</h4><p>More <strong>deterministic</strong>.</p></div>
+                    <div class="tutorial-text"><strong>Try the Precision slider!</strong></div>
+                    <div class="citation">— Chapter 4, p.72</div>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="step-content" data-step="5">
+                    <div class="section-label">Active Inference in Action</div>
+                    <div class="concept-card"><h4>Step 1: Go to Cue (Epistemic)</h4><p>Visit the <strong>informative cue</strong> first.</p></div>
+                    <div class="concept-card"><h4>Step 2: Go to Reward (Pragmatic)</h4><p>After seeing cue, go to correct arm.</p></div>
+                    <div class="key-insight"><p>"The rat chooses to sample the informative cue—the location with <strong>greatest epistemic value</strong>."</p></div>
+                    <div class="tutorial-text">Press <strong>"AUTO"</strong> to watch!</div>
+                    <div class="citation">— Chapter 7, p.135</div>
+                </div>
+            </div>
+            <div class="tutorial-nav">
+                <button class="nav-btn" id="prevBtn" disabled>← PREV</button>
+                <button class="nav-btn primary" id="nextBtn">NEXT →</button>
+            </div>
+        </div>
+        
+        <div class="sim-area">
+            <div class="sim-header">
+                <div class="sim-title">T-Maze Environment</div>
+                <div class="sim-controls">
+                    <button class="sim-btn" id="stepBtn">STEP</button>
+                    <button class="sim-btn" id="runBtn">▶ AUTO</button>
+                    <button class="sim-btn" id="resetBtn">↺ RESET</button>
+                </div>
+            </div>
+            
+            <div class="control-panel">
+                <div class="control-group">
+                    <label><strong>Precision (γ)</strong> — Policy determinism</label>
+                    <div class="slider-row">
+                        <input type="range" id="precSlider" min="0.5" max="8" step="0.25" value="4">
+                        <span class="slider-value" id="precVal">4.0</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label><strong>Epistemic Weight</strong> — Value of information</label>
+                    <div class="slider-row">
+                        <input type="range" id="epiSlider" min="0" max="3" step="0.1" value="1.5">
+                        <span class="slider-value" id="epiVal">1.5</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="canvas-wrap">
+                <canvas id="simCanvas"></canvas>
+                <div class="thought" id="thought"></div>
+            </div>
+            
+            <div class="data-panels">
+                <div class="data-panel">
+                    <h5>Beliefs Q(s)</h5>
+                    <div class="belief-grid">
+                        <div class="belief-item active" data-loc="center"><div class="loc">CENTRE</div><div class="prob" id="bC">100%</div></div>
+                        <div class="belief-item" data-loc="cue"><div class="loc">CUE</div><div class="prob" id="bQ">0%</div></div>
+                        <div class="belief-item" data-loc="left"><div class="loc">LEFT</div><div class="prob" id="bL">0%</div></div>
+                        <div class="belief-item" data-loc="right"><div class="loc">RIGHT</div><div class="prob" id="bR">0%</div></div>
+                    </div>
+                </div>
+                <div class="data-panel">
+                    <h5>Expected Free Energy G(π)</h5>
+                    <div class="efe-row" id="rCue"><span class="name">→ Cue</span><div class="efe-bar"><div class="e" id="eCue"></div><div class="p" id="pCue"></div></div></div>
+                    <div class="efe-row" id="rLeft"><span class="name">← Left</span><div class="efe-bar"><div class="e" id="eLeft"></div><div class="p" id="pLeft"></div></div></div>
+                    <div class="efe-row" id="rRight"><span class="name">→ Right</span><div class="efe-bar"><div class="e" id="eRight"></div><div class="p" id="pRight"></div></div></div>
+                </div>
+                <div class="data-panel">
+                    <h5>Prior Preferences C</h5>
+                    <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.8;">
+                        🧀 Attractive: <span style="color:#6c8">+6</span><br>
+                        ⚡ Aversive: <span style="color:#f66">−6</span><br>
+                        ○ Neutral: 0
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-bar">
+                <div class="stat"><span class="stat-l">TRIAL</span><span class="stat-v" id="sTrial">1</span></div>
+                <div class="stat"><span class="stat-l">STEP</span><span class="stat-v" id="sStep">1</span></div>
+                <div class="stat"><span class="stat-l">CONTEXT</span><span class="stat-v" id="sCtx">Unknown</span></div>
+                <div class="stat"><span class="stat-l">🧀</span><span class="stat-v" id="sRew">0</span></div>
+                <div class="stat"><span class="stat-l">⚡</span><span class="stat-v" id="sShk">0</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ==================== TAB 2: PHASE SPACE VISUALIZATION ==================== -->
+    <div id="tab2" class="tab-content">
+        <div class="phase-container">
+            <div class="phase-left">
+                <div class="phase-title">
+                    <h2>EFE in Phase Space</h2>
+                    <div class="phase-subtitle">Watch an agent navigate epistemic & pragmatic landscapes</div>
+                </div>
+                
+                <div class="phase-canvas-wrap">
+                    <canvas id="phaseCanvas"></canvas>
+                </div>
+                
+                <div class="phase-legend">
+                    <div class="legend-item"><span class="legend-dot epistemic"></span> Epistemic attractor (information)</div>
+                    <div class="legend-item"><span class="legend-dot pragmatic"></span> Pragmatic attractor (reward)</div>
+                    <div class="legend-item"><span class="legend-dot agent"></span> Agent minimising G(π)</div>
+                    <div class="legend-item"><span class="legend-line"></span> EFE gradient flow</div>
+                </div>
+            </div>
+            
+            <div class="phase-right">
+                <div class="phase-controls">
+                    <h3>Parameters</h3>
+                    
+                    <div class="phase-control">
+                        <label><strong>Belief about Reward Location</strong></label>
+                        <div class="control-desc">Where does the agent think the reward is?</div>
+                        <div class="slider-row">
+                            <span class="slider-end">🧀 LEFT</span>
+                            <input type="range" id="phaseUnc" min="0" max="1" step="0.01" value="0.5">
+                            <span class="slider-end">RIGHT 🧀</span>
+                        </div>
+                        <div class="slider-val" id="phaseUncVal">50/50 (uncertain)</div>
+                    </div>
+                    
+                    <div class="phase-control">
+                        <label><strong>Epistemic Weight</strong></label>
+                        <div class="control-desc">How much does the agent value information?</div>
+                        <div class="slider-row">
+                            <span class="slider-end">Ignore</span>
+                            <input type="range" id="phaseEpi" min="0" max="2" step="0.05" value="1">
+                            <span class="slider-end">Seek</span>
+                        </div>
+                        <div class="slider-val" id="phaseEpiVal">1.0</div>
+                    </div>
+                    
+                    <div class="phase-control">
+                        <label><strong>Pragmatic Weight</strong></label>
+                        <div class="control-desc">How much does the agent value reward?</div>
+                        <div class="slider-row">
+                            <span class="slider-end">Ignore</span>
+                            <input type="range" id="phasePrag" min="0" max="2" step="0.05" value="1">
+                            <span class="slider-end">Seek</span>
+                        </div>
+                        <div class="slider-val" id="phasePragVal">1.0</div>
+                    </div>
+                    
+                    <div class="phase-control">
+                        <label><strong>Precision (γ)</strong></label>
+                        <div class="control-desc">How deterministic is policy selection?</div>
+                        <div class="slider-row">
+                            <span class="slider-end">Random</span>
+                            <input type="range" id="phasePrec" min="0.5" max="5" step="0.1" value="2">
+                            <span class="slider-end">Decisive</span>
+                        </div>
+                        <div class="slider-val" id="phasePrecVal">2.0</div>
+                    </div>
+                    
+                    <button class="phase-btn" id="phaseReset">↺ Reset Agent</button>
+                </div>
+                
+                <div class="phase-readout">
+                    <h3>Live EFE Values</h3>
+                    <div class="readout-row">
+                        <span class="readout-label">Epistemic (INFO):</span>
+                        <div class="readout-bar"><div class="readout-fill epistemic" id="readoutE"></div></div>
+                        <span class="readout-val" id="readoutEVal">0.00</span>
+                    </div>
+                    <div class="readout-row">
+                        <span class="readout-label">Pragmatic LEFT:</span>
+                        <div class="readout-bar"><div class="readout-fill pragmatic" id="readoutPL"></div></div>
+                        <span class="readout-val" id="readoutPLVal">0.00</span>
+                    </div>
+                    <div class="readout-row">
+                        <span class="readout-label">Pragmatic RIGHT:</span>
+                        <div class="readout-bar"><div class="readout-fill pragmatic" id="readoutPR"></div></div>
+                        <span class="readout-val" id="readoutPRVal">0.00</span>
+                    </div>
+                    <div class="readout-row total">
+                        <span class="readout-label">Winner:</span>
+                        <div class="readout-bar"><div class="readout-fill total" id="readoutG"></div></div>
+                        <span class="readout-val" id="readoutWinner">INFO</span>
+                    </div>
+                </div>
+                
+                <div class="phase-insight">
+                    <div class="insight-icon">💡</div>
+                    <p id="phaseInsight">High uncertainty → agent seeks information first (epistemic), then reward (pragmatic).</p>
+                </div>
+                
+                <div class="phase-outcome" id="phaseOutcome" style="
+                    text-align: center;
+                    padding: 10px;
+                    font-family: 'JetBrains Mono', monospace;
+                    font-size: 12px;
+                    opacity: 0.3;
+                    transition: all 0.3s;
+                ">Watching agent...</div>
+            </div>
+        </div>
+        
+        <div class="phase-quote">
+            <p>"The fact that utility and the value of information emerge as two components of expected free energy means we <em>do not need to worry about balancing exploration and exploitation</em>."</p>
+            <div class="source">— Parr, Pezzulo & Friston (2022), Chapter 7, p.131</div>
+        </div>
+    </div>
+    
+    <!-- ==================== TAB 3: GLOSSARY ==================== -->
+    <div id="tab3" class="tab-content">
+        <div class="glossary-container">
+            <div class="glossary-title">
+                <h2>Glossary of Terms</h2>
+                <div class="glossary-subtitle">Chapter 7 concepts in friendly language</div>
+            </div>
+            
+            <div class="glossary-grid">
+                <div class="glossary-card">
+                    <div class="term">Expected Free Energy (G)</div>
+                    <div class="definition">Expected surprise about <em>future</em> observations. Policies are selected to minimise G.
+                        <span class="analogy">"If I do this, how surprised will I be?"</span>
+                    </div>
+                </div>
+                <div class="glossary-card">
+                    <div class="term">Epistemic Value</div>
+                    <div class="definition">Expected <em>information gain</em>. High = action reduces uncertainty.
+                        <span class="analogy">Checking calendar has high epistemic value.</span>
+                    </div>
+                </div>
+                <div class="glossary-card">
+                    <div class="term">Pragmatic Value</div>
+                    <div class="definition">Expected <em>preference satisfaction</em>: <em>E[ln P(o|C)]</em>.
+                        <span class="analogy">Going to favourite restaurant = high pragmatic value.</span>
+                    </div>
+                </div>
+                <div class="glossary-card">
+                    <div class="term">POMDP</div>
+                    <div class="definition"><em>Partially Observable Markov Decision Process</em>. Decision-making with uncertain state.
+                        <span class="analogy">Life: you never see reality directly.</span>
+                    </div>
+                </div>
+                <div class="glossary-card">
+                    <div class="term">Policy (π)</div>
+                    <div class="definition">A sequence of actions. Agents evaluate trajectories, not single actions.
+                        <span class="analogy">Not "turn left?" but the whole plan.</span>
+                    </div>
+                </div>
+                <div class="glossary-card">
+                    <div class="term">Precision (γ)</div>
+                    <div class="definition">Policy selection determinism. <em>P(π) ∝ exp(−γG)</em>.
+                        <span class="analogy">High = decisive. Low = exploratory.</span>
+                    </div>
+                </div>
+                <div class="glossary-card">
+                    <div class="term">A-Matrix</div>
+                    <div class="definition">Likelihood mapping: states → observations.
+                        <span class="analogy">Rain (state) → wet streets (observation).</span>
+                    </div>
+                </div>
+                <div class="glossary-card">
+                    <div class="term">B-Matrix</div>
+                    <div class="definition">Transition mapping: (state, action) → next state.
+                        <span class="analogy">Button press → floor changes.</span>
+                    </div>
+                </div>
+                <div class="glossary-card">
+                    <div class="term">C-Vector</div>
+                    <div class="definition">Prior preferences. Not expectations, but <em>desires</em>.
+                        <span class="analogy">Your values encoded numerically.</span>
+                    </div>
+                </div>
+                <div class="glossary-card">
+                    <div class="term">D-Vector</div>
+                    <div class="definition">Initial beliefs about state. Rat: 50/50 context uncertainty.
+                        <span class="analogy">Know location, not context.</span>
+                    </div>
+                </div>
+                <div class="glossary-card">
+                    <div class="term">Exploration-Exploitation</div>
+                    <div class="definition">Gather info vs act on knowledge. Active inference <em>dissolves</em> this dilemma.
+                        <span class="analogy">Both serve the same objective: minimise G.</span>
+                    </div>
+                </div>
+                <div class="glossary-card">
+                    <div class="term">Information Gain</div>
+                    <div class="definition">Uncertainty reduction after observation. Cue has high info gain.
+                        <span class="analogy">Window → weather knowledge.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="credit">Temporal Grammar | Alexander Sabine | <a href="https://activeinference.org">Active Inference Institute</a> | <a href="https://temporalgrammar.ai">temporalgrammar.ai</a></div>
+
+<script>
+// ============================================================================
+// UTILITY
+// ============================================================================
+const $ = id => document.getElementById(id);
+
+// ============================================================================
+// TAB NAVIGATION
+// ============================================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const id = btn.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(id).classList.add('active');
+        
+        if (id === 'tab1') setTimeout(() => render.resize(), 10);
+        if (id === 'tab2') setTimeout(resizePhaseCanvas, 10);
+    });
+});
+
+// ============================================================================
+// TUTORIAL NAVIGATION
+// ============================================================================
+const totalSteps = 6;
+let currentStep = 0;
+
+// Build step dots
+const progressEl = $('stepProgress');
+for (let i = 0; i < totalSteps; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'step-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goToStep(i);
+    progressEl.appendChild(dot);
+}
+
+const stepTitles = [
+    "The T-Maze Problem",
+    "What is the 'Cue'?",
+    "The Generative Model",
+    "Expected Free Energy",
+    "Precision",
+    "The Rat's Behaviour"
+];
+
+function goToStep(i) {
+    currentStep = i;
+    
+    // Update dots
+    document.querySelectorAll('.step-dot').forEach((d, j) => {
+        d.classList.remove('active', 'complete');
+        if (j < i) d.classList.add('complete');
+        if (j === i) d.classList.add('active');
+    });
+    
+    // Update title
+    $('stepTitle').textContent = stepTitles[i];
+    
+    // Show correct content
+    document.querySelectorAll('.step-content').forEach((c, j) => {
+        c.classList.toggle('active', j === i);
+    });
+    
+    // Update buttons
+    $('prevBtn').disabled = i === 0;
+    $('nextBtn').textContent = i === totalSteps - 1 ? 'RESTART ↺' : 'NEXT →';
+}
+
+$('prevBtn').onclick = () => { if (currentStep > 0) goToStep(currentStep - 1); };
+$('nextBtn').onclick = () => { goToStep(currentStep < totalSteps - 1 ? currentStep + 1 : 0); };
+
+// ============================================================================
+// RAT AGENT
+// ============================================================================
+class Rat {
+    constructor() {
+        this.locs = {center:{x:.5,y:.72}, cue:{x:.5,y:.35}, left:{x:.18,y:.35}, right:{x:.82,y:.35}};
+        this.prec = 4; this.epiW = 1.5; this.pref = {r:6, s:-6};
+        this.rew = 0; this.shk = 0; this.tri = 0;
+        this.reset();
+    }
+    
+    reset() {
+        this.loc = 'center'; 
+        this.x = .5; this.y = .72; 
+        this.tx = .5; this.ty = .72;
+        this.ang = 0; this.mov = false; this.ph = 0; this.step = 1;
+        this.cueObs = false; 
+        this.ctx = Math.random() < .5 ? 'left' : 'right';
+        this.bel = {loc:{center:1,cue:0,left:0,right:0}, ctx:{left:.5,right:.5}};
+        this.tri++;
+    }
+    
+    entropy() { 
+        const p = this.bel.ctx.left; 
+        if (p <= 0.01 || p >= 0.99) return 0; 
+        return -p * Math.log2(p) - (1-p) * Math.log2(1-p); 
+    }
+    
+    efe(pol) {
+        let e = 0, p = 0;
+        if (pol === 'cue') { 
+            e = this.entropy() * this.epiW * 2; 
+        } else if (pol === 'left') { 
+            e = 0.05 * this.epiW; 
+            p = this.bel.ctx.left * this.pref.r + this.bel.ctx.right * this.pref.s; 
+        } else { 
+            e = 0.05 * this.epiW; 
+            p = this.bel.ctx.right * this.pref.r + this.bel.ctx.left * this.pref.s; 
+        }
+        return {e, p, t: e + p};
+    }
+    
+    validPolicies() { 
+        if (this.loc === 'center') return ['cue', 'left', 'right']; 
+        if (this.loc === 'cue') return ['left', 'right']; 
+        return []; 
+    }
+    
+    selectPolicy() {
+        const ps = this.validPolicies();
+        if (!ps.length) return null;
+        
+        const efes = {};
+        let maxG = -Infinity;
+        ps.forEach(p => { efes[p] = this.efe(p); if (efes[p].t > maxG) maxG = efes[p].t; });
+        
+        let sum = 0;
+        const exp = {};
+        ps.forEach(p => { exp[p] = Math.exp(this.prec * (efes[p].t - maxG)); sum += exp[p]; });
+        
+        const probs = {};
+        ps.forEach(p => probs[p] = exp[p] / sum);
+        
+        const r = Math.random();
+        let cumulative = 0;
+        for (const p of ps) {
+            cumulative += probs[p];
+            if (r < cumulative) return {pol: p, probs, efes};
+        }
+        return {pol: ps[0], probs, efes};
+    }
+    
+    execute(pol) {
+        this.loc = pol;
+        const l = this.locs[pol];
+        this.tx = l.x; this.ty = l.y;
+        this.mov = true;
+        this.step++;
+        
+        Object.keys(this.bel.loc).forEach(k => this.bel.loc[k] = k === pol ? 1 : 0);
+        
+        if (pol === 'cue' && !this.cueObs) {
+            this.cueObs = true;
+            this.bel.ctx = this.ctx === 'left' ? {left: 0.98, right: 0.02} : {left: 0.02, right: 0.98};
+        }
+        
+        if (pol === 'left' || pol === 'right') {
+            if (pol === this.ctx) this.rew++;
+            else this.shk++;
+        }
+    }
+    
+    update(dt) {
+        this.ph += dt * 5;
+        if (this.mov) {
+            const dx = this.tx - this.x;
+            const dy = this.ty - this.y;
+            const d = Math.sqrt(dx*dx + dy*dy);
+            if (d > 0.008) {
+                const speed = 0.35 * dt;
+                this.x += (dx / d) * speed;
+                this.y += (dy / d) * speed;
+                this.ang = Math.atan2(dy, dx);
+            } else {
+                this.x = this.tx;
+                this.y = this.ty;
+                this.mov = false;
+            }
+        }
+    }
+}
+
+// ============================================================================
+// RENDERER
+// ============================================================================
+class Render {
+    constructor(canvas, rat) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.rat = rat;
+        this.resize();
+    }
+    
+    resize() {
+        const parent = this.canvas.parentElement;
+        this.canvas.width = parent.clientWidth;
+        this.canvas.height = parent.clientHeight;
+    }
+    
+    draw() {
+        const ctx = this.ctx;
+        const w = this.canvas.width;
+        const h = this.canvas.height;
+        const r = this.rat;
+        
+        // Background
+        ctx.fillStyle = '#0a1520';
+        ctx.fillRect(0, 0, w, h);
+        
+        // Grid
+        ctx.strokeStyle = 'rgba(255,255,255,0.015)';
+        for (let i = 0; i < w; i += 40) { ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, h); ctx.stroke(); }
+        for (let i = 0; i < h; i += 40) { ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(w, i); ctx.stroke(); }
+        
+        // Maze floor
+        ctx.fillStyle = 'rgba(60,100,140,0.08)';
+        ctx.fillRect(w * 0.38, h * 0.25, w * 0.24, h * 0.55);
+        ctx.fillRect(w * 0.08, h * 0.25, w * 0.84, h * 0.18);
+        
+        // Maze walls
+        ctx.shadowColor = '#4af';
+        ctx.shadowBlur = 8;
+        ctx.strokeStyle = 'rgba(100,180,255,0.25)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(w * 0.08, h * 0.25);
+        ctx.lineTo(w * 0.08, h * 0.43);
+        ctx.lineTo(w * 0.38, h * 0.43);
+        ctx.lineTo(w * 0.38, h * 0.8);
+        ctx.lineTo(w * 0.62, h * 0.8);
+        ctx.lineTo(w * 0.62, h * 0.43);
+        ctx.lineTo(w * 0.92, h * 0.43);
+        ctx.lineTo(w * 0.92, h * 0.25);
+        ctx.lineTo(w * 0.08, h * 0.25);
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+        
+        // Location labels
+        const drawLabel = (px, py, text, active) => {
+            ctx.fillStyle = active ? 'rgba(100,200,255,0.1)' : 'rgba(255,255,255,0.02)';
+            ctx.beginPath();
+            ctx.arc(px, py - 8, 20, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = active ? '#4af' : 'rgba(255,255,255,0.2)';
+            ctx.font = '8px JetBrains Mono, monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(text, px, py + 16);
+        };
+        drawLabel(w * 0.5, h * 0.74, 'CENTRE', r.loc === 'center');
+        drawLabel(w * 0.5, h * 0.32, 'CUE', r.loc === 'cue');
+        drawLabel(w * 0.18, h * 0.32, 'LEFT', r.loc === 'left');
+        drawLabel(w * 0.82, h * 0.32, 'RIGHT', r.loc === 'right');
+        
+        // Stimuli
+        const drawStim = (px, py, isReward) => {
+            const size = w * 0.02;
+            if (isReward) {
+                ctx.fillStyle = '#ffd700';
+                ctx.shadowColor = '#ffd700';
+                ctx.shadowBlur = 8;
+                ctx.beginPath();
+                ctx.moveTo(px - size, py + size * 0.5);
+                ctx.lineTo(px + size, py + size * 0.5);
+                ctx.lineTo(px + size * 0.5, py - size * 0.5);
+                ctx.closePath();
+                ctx.fill();
+            } else {
+                ctx.fillStyle = '#f44';
+                ctx.shadowColor = '#f44';
+                ctx.shadowBlur = 6;
+                ctx.font = `${size * 1.4}px sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('⚡', px, py);
+            }
+            ctx.shadowBlur = 0;
+        };
+        drawStim(w * 0.18, h * 0.38, r.ctx === 'left');
+        drawStim(w * 0.82, h * 0.38, r.ctx === 'right');
+        
+        // Cue indicator
+        if (r.cueObs) {
+            const dir = r.ctx === 'left' ? -1 : 1;
+            const s = w * 0.015;
+            ctx.fillStyle = '#4af';
+            ctx.shadowColor = '#4af';
+            ctx.shadowBlur = 5;
+            ctx.beginPath();
+            ctx.moveTo(w * 0.5 + dir * s * 1.5, h * 0.38);
+            ctx.lineTo(w * 0.5 - dir * s * 0.5, h * 0.38 - s * 0.7);
+            ctx.lineTo(w * 0.5 - dir * s * 0.5, h * 0.38 + s * 0.7);
+            ctx.closePath();
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        } else {
+            ctx.fillStyle = 'rgba(180,130,255,0.6)';
+            ctx.font = `italic ${w * 0.025}px Cormorant Garamond, serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('?', w * 0.5, h * 0.38);
+        }
+        
+        // Rat
+        const rx = r.x * w;
+        const ry = r.y * h;
+        const scale = Math.min(w, h) * 0.04;
+        
+        ctx.save();
+        ctx.translate(rx, ry);
+        ctx.rotate(r.ang - Math.PI / 2);
+        
+        const breath = 1 + Math.sin(r.ph) * 0.02;
+        
+        // Shadow
+        ctx.fillStyle = 'rgba(0,0,0,0.2)';
+        ctx.beginPath();
+        ctx.ellipse(2, 2, scale * 0.5, scale * 0.25, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Tail
+        ctx.strokeStyle = '#e8b4b4';
+        ctx.lineWidth = scale * 0.04;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(0, scale * 0.3);
+        ctx.quadraticCurveTo(scale * 0.15 * Math.sin(r.ph * 2), scale * 0.7, 0, scale * 0.9);
+        ctx.stroke();
+        
+        // Body
+        const bodyGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, scale);
+        bodyGrad.addColorStop(0, '#d4a574');
+        bodyGrad.addColorStop(0.7, '#b8956a');
+        bodyGrad.addColorStop(1, '#9a7b5a');
+        ctx.fillStyle = bodyGrad;
+        ctx.beginPath();
+        ctx.ellipse(0, scale * 0.06, scale * 0.32 * breath, scale * 0.4, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Head
+        ctx.fillStyle = '#dbb896';
+        ctx.beginPath();
+        ctx.ellipse(0, -scale * 0.32, scale * 0.25 * breath, scale * 0.28, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Snout
+        ctx.fillStyle = '#e8ceb8';
+        ctx.beginPath();
+        ctx.ellipse(0, -scale * 0.52, scale * 0.1, scale * 0.07, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Nose
+        ctx.fillStyle = '#f99';
+        ctx.beginPath();
+        ctx.ellipse(0, -scale * 0.58, scale * 0.04, scale * 0.03, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Ears
+        ctx.fillStyle = '#c4a27e';
+        ctx.beginPath();
+        ctx.ellipse(-scale * 0.16, -scale * 0.4, scale * 0.09, scale * 0.12, -0.3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(scale * 0.16, -scale * 0.4, scale * 0.09, scale * 0.12, 0.3, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Inner ears
+        ctx.fillStyle = '#ffb4b4';
+        ctx.beginPath();
+        ctx.ellipse(-scale * 0.16, -scale * 0.4, scale * 0.05, scale * 0.08, -0.3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(scale * 0.16, -scale * 0.4, scale * 0.05, scale * 0.08, 0.3, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Eyes
+        ctx.fillStyle = '#fff';
+        ctx.beginPath();
+        ctx.arc(-scale * 0.07, -scale * 0.34, scale * 0.045, 0, Math.PI * 2);
+        ctx.arc(scale * 0.07, -scale * 0.34, scale * 0.045, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.fillStyle = '#0d1825';
+        ctx.beginPath();
+        ctx.arc(-scale * 0.07, -scale * 0.36, scale * 0.025, 0, Math.PI * 2);
+        ctx.arc(scale * 0.07, -scale * 0.36, scale * 0.025, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.restore();
+    }
+}
+
+// ============================================================================
+// SIMULATION
+// ============================================================================
+const canvas = $('simCanvas');
+const rat = new Rat();
+const render = new Render(canvas, rat);
+let lastTime = 0;
+let autoRun = false;
+
+$('precSlider').oninput = e => { rat.prec = parseFloat(e.target.value); $('precVal').textContent = rat.prec.toFixed(1); };
+$('epiSlider').oninput = e => { rat.epiW = parseFloat(e.target.value); $('epiVal').textContent = rat.epiW.toFixed(1); };
+
+function showThought(result) {
+    const thought = $('thought');
+    let text = '';
+    if (result.pol === 'cue') text = "Let me check the cue...";
+    else if (result.pol === 'left') text = rat.cueObs && rat.bel.ctx.left > 0.5 ? "Cue says left!" : "Going left!";
+    else text = rat.cueObs && rat.bel.ctx.right > 0.5 ? "Cue says right!" : "Going right!";
+    
+    thought.textContent = text;
+    thought.style.left = `${rat.x * canvas.width - 70}px`;
+    thought.style.top = `${rat.y * canvas.height - 60}px`;
+    thought.classList.add('show');
+    setTimeout(() => thought.classList.remove('show'), 1500);
+}
+
+$('stepBtn').onclick = () => {
+    if (!rat.mov && rat.validPolicies().length) {
+        const result = rat.selectPolicy();
+        if (result) {
+            rat.execute(result.pol);
+            showThought(result);
+        }
+    }
+};
+
+$('runBtn').onclick = () => {
+    autoRun = !autoRun;
+    $('runBtn').textContent = autoRun ? '⏸ PAUSE' : '▶ AUTO';
+    $('runBtn').classList.toggle('active', autoRun);
+};
+
+$('resetBtn').onclick = () => {
+    rat.reset();
+    autoRun = false;
+    $('runBtn').textContent = '▶ AUTO';
+    $('runBtn').classList.remove('active');
+    updateUI();
+};
+
+function updateUI() {
+    $('bC').textContent = Math.round(rat.bel.loc.center * 100) + '%';
+    $('bQ').textContent = Math.round(rat.bel.loc.cue * 100) + '%';
+    $('bL').textContent = Math.round(rat.bel.loc.left * 100) + '%';
+    $('bR').textContent = Math.round(rat.bel.loc.right * 100) + '%';
+    
+    document.querySelectorAll('.belief-item').forEach(b => {
+        b.classList.toggle('active', b.dataset.loc === rat.loc);
+    });
+    
+    const ec = rat.efe('cue'), el = rat.efe('left'), er = rat.efe('right');
+    const maxE = Math.max(ec.e, el.e, er.e, 0.1);
+    const maxP = Math.max(Math.abs(ec.p), Math.abs(el.p), Math.abs(er.p), 0.1);
+    
+    $('eCue').style.width = (ec.e / maxE) * 45 + '%';
+    $('eLeft').style.width = (el.e / maxE) * 45 + '%';
+    $('eRight').style.width = (er.e / maxE) * 45 + '%';
+    $('pCue').style.width = Math.max(0, ec.p / maxP) * 45 + '%';
+    $('pLeft').style.width = Math.max(0, el.p / maxP) * 45 + '%';
+    $('pRight').style.width = Math.max(0, er.p / maxP) * 45 + '%';
+    
+    const sel = rat.selectPolicy();
+    $('rCue').classList.toggle('selected', sel?.pol === 'cue');
+    $('rLeft').classList.toggle('selected', sel?.pol === 'left');
+    $('rRight').classList.toggle('selected', sel?.pol === 'right');
+    
+    $('sTrial').textContent = rat.tri;
+    $('sStep').textContent = rat.step;
+    $('sRew').textContent = rat.rew;
+    $('sShk').textContent = rat.shk;
+    $('sCtx').textContent = rat.cueObs ? (rat.ctx === 'left' ? '← 🧀' : '🧀 →') : '50/50';
+}
+
+function loop(time) {
+    const dt = Math.min(0.1, (time - lastTime) / 1000);
+    lastTime = time;
+    
+    rat.update(dt);
+    
+    if (autoRun && !rat.mov) {
+        const policies = rat.validPolicies();
+        if (policies.length) {
+            setTimeout(() => {
+                if (autoRun) {
+                    const result = rat.selectPolicy();
+                    if (result) {
+                        rat.execute(result.pol);
+                        showThought(result);
+                    }
+                }
+            }, 400);
+        } else {
+            setTimeout(() => { if (autoRun) { rat.reset(); updateUI(); } }, 800);
+        }
+    }
+    
+    render.draw();
+    updateUI();
+    requestAnimationFrame(loop);
+}
+
+// ============================================================================
+// TAB 2: PHASE SPACE VISUALIZATION
+// ============================================================================
+const phaseCanvas = $('phaseCanvas');
+let phaseCtx = null;
+
+const phase = {
+    uncertainty: 0.5,   // 0 = believes left, 0.5 = uncertain, 1 = believes right
+    epiWeight: 1.0,
+    pragWeight: 1.0,
+    precision: 2.0,
+    agent: { x: 0.5, y: 0.85, vx: 0, vy: 0, trail: [] },
+    time: 0
+};
+
+// Attractor positions with rgba colors for gradients
+const attractors = {
+    epistemic: { x: 0.5, y: 0.25, label: 'INFO', color: '#b084ff', rgba: 'rgba(176,132,255,' },
+    pragLeft: { x: 0.15, y: 0.25, label: 'LEFT', color: '#66ffcc', rgba: 'rgba(102,255,204,' },
+    pragRight: { x: 0.85, y: 0.25, label: 'RIGHT', color: '#ffb870', rgba: 'rgba(255,184,112,' }
+};
+
+function calcPhaseEFE() {
+    const u = phase.uncertainty;  // 0 = knows left, 0.5 = max uncertain, 1 = knows right
+    const eW = phase.epiWeight;
+    const pW = phase.pragWeight;
+    
+    // Belief distribution based on slider position
+    // u=0: pLeft=1.0 (certain LEFT has reward)
+    // u=0.5: pLeft=0.5 (completely uncertain - 50/50)
+    // u=1: pLeft=0.0 (certain RIGHT has reward)
+    const pLeft = 1.0 - u;
+    const pRight = u;
+    
+    // Entropy peaks at u=0.5 (max uncertainty)
+    let entropy = 0;
+    if (pLeft > 0.01 && pLeft < 0.99) {
+        entropy = -pLeft * Math.log2(pLeft) - pRight * Math.log2(pRight);
+    }
+    
+    // Epistemic value of INFO (high when uncertain)
+    const epistemic = entropy * eW * 2;
+    
+    // Pragmatic values: expected utility given beliefs
+    // Reward = +6, Shock = -6
+    const pragLeft = (pLeft - pRight) * pW;   // positive when believe left, negative when believe right
+    const pragRight = (pRight - pLeft) * pW;  // positive when believe right, negative when believe left
+    
+    return { epistemic, pragLeft, pragRight };
+}
+
+function getForces() {
+    const efe = calcPhaseEFE();
+    const ax = phase.agent.x;
+    const ay = phase.agent.y;
+    
+    let fx = 0, fy = 0;
+    
+    // Epistemic attractor pull (always positive or zero)
+    const eDx = attractors.epistemic.x - ax;
+    const eDy = attractors.epistemic.y - ay;
+    const eDist = Math.sqrt(eDx*eDx + eDy*eDy) + 0.01;
+    const eForce = Math.max(0, efe.epistemic) * 0.8;
+    fx += (eDx / eDist) * eForce;
+    fy += (eDy / eDist) * eForce;
+    
+    // Pragmatic LEFT: positive = attract, negative = repel
+    const lDx = attractors.pragLeft.x - ax;
+    const lDy = attractors.pragLeft.y - ay;
+    const lDist = Math.sqrt(lDx*lDx + lDy*lDy) + 0.01;
+    const lForce = efe.pragLeft * 0.6;  // Can be negative (repulsion)
+    fx += (lDx / lDist) * lForce;
+    fy += (lDy / lDist) * lForce;
+    
+    // Pragmatic RIGHT: positive = attract, negative = repel
+    const rDx = attractors.pragRight.x - ax;
+    const rDy = attractors.pragRight.y - ay;
+    const rDist = Math.sqrt(rDx*rDx + rDy*rDy) + 0.01;
+    const rForce = efe.pragRight * 0.6;  // Can be negative (repulsion)
+    fx += (rDx / rDist) * rForce;
+    fy += (rDy / rDist) * rForce;
+    
+    // Normalize and scale by precision
+    const fMag = Math.sqrt(fx*fx + fy*fy) + 0.001;
+    const scale = Math.min(fMag, 1.5) * phase.precision * 0.0008;
+    
+    return { 
+        fx: (fx / fMag) * scale, 
+        fy: (fy / fMag) * scale,
+        epistemic: efe.epistemic,
+        pragLeft: efe.pragLeft,
+        pragRight: efe.pragRight
+    };
+}
+
+function updateInsight() {
+    const u = phase.uncertainty;
+    const eW = phase.epiWeight;
+    const pW = phase.pragWeight;
+    let text = '';
+    
+    // Special case: both weights low = aimless wandering
+    if (eW < 0.3 && pW < 0.3) {
+        text = '⚠️ LOW EPISTEMIC + LOW PRAGMATIC → Agent wanders aimlessly! May stumble into danger.';
+    } else if (u < 0.15) {
+        text = 'Believes LEFT 🧀 → attracted to LEFT, repelled from RIGHT ⚡. No need for INFO (already certain).';
+    } else if (u > 0.85) {
+        text = 'Believes RIGHT 🧀 → attracted to RIGHT, repelled from LEFT ⚡. No need for INFO (already certain).';
+    } else if (u > 0.4 && u < 0.6) {
+        if (eW < 0.3) {
+            text = 'Uncertain but LOW epistemic weight → ignores INFO, gambles randomly! Risky behavior.';
+        } else {
+            text = 'Maximum uncertainty (50/50) → neither side attractive. INFO has highest value!';
+        }
+    } else if (eW < 0.3) {
+        text = 'Low epistemic weight → ignores INFO, goes with gut feeling despite uncertainty.';
+    } else if (pW < 0.3) {
+        text = 'Low pragmatic weight → doesn\'t care about reward/danger, mainly seeks information.';
+    } else if (u < 0.5) {
+        text = 'Leaning LEFT but uncertain → mild attraction to LEFT, mild repulsion from RIGHT, INFO still valuable.';
+    } else {
+        text = 'Leaning RIGHT but uncertain → mild attraction to RIGHT, mild repulsion from LEFT, INFO still valuable.';
+    }
+    
+    $('phaseInsight').textContent = text;
+}
+
+function resizePhaseCanvas() {
+    if (!phaseCanvas) return;
+    const wrap = phaseCanvas.parentElement;
+    phaseCanvas.width = wrap.clientWidth;
+    phaseCanvas.height = wrap.clientHeight;
+    phaseCtx = phaseCanvas.getContext('2d');
+}
+
+function drawPhaseSpace() {
+    if (!phaseCtx) return;
+    const ctx = phaseCtx;
+    const w = phaseCanvas.width;
+    const h = phaseCanvas.height;
+    
+    // Background
+    ctx.fillStyle = '#050a12';
+    ctx.fillRect(0, 0, w, h);
+    
+    // Grid
+    ctx.strokeStyle = 'rgba(100, 180, 255, 0.04)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i < w; i += 40) { ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, h); ctx.stroke(); }
+    for (let i = 0; i < h; i += 40) { ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(w, i); ctx.stroke(); }
+    
+    const forces = getForces();
+    
+    // Draw flow field
+    ctx.strokeStyle = 'rgba(150, 100, 255, 0.08)';
+    ctx.lineWidth = 1;
+    for (let gx = 0.1; gx < 1; gx += 0.08) {
+        for (let gy = 0.15; gy < 0.95; gy += 0.08) {
+            const px = gx * w;
+            const py = gy * h;
+            
+            // Temporarily move agent to calculate local force
+            const oldX = phase.agent.x, oldY = phase.agent.y;
+            phase.agent.x = gx; phase.agent.y = gy;
+            const localF = getForces();
+            phase.agent.x = oldX; phase.agent.y = oldY;
+            
+            const fLen = 15;
+            const fMag = Math.sqrt(localF.fx*localF.fx + localF.fy*localF.fy) + 0.0001;
+            const fx = (localF.fx / fMag) * fLen;
+            const fy = (localF.fy / fMag) * fLen;
+            
+            ctx.beginPath();
+            ctx.moveTo(px, py);
+            ctx.lineTo(px + fx * 500, py + fy * 500);
+            ctx.stroke();
+        }
+    }
+    
+    // Draw attractors (positive = attractive, negative = repulsive)
+    const drawAttractor = (att, strength, type) => {
+        const px = att.x * w;
+        const py = att.y * h;
+        const isRepulsive = strength < -0.1;
+        const absStrength = Math.abs(strength);
+        const safeStrength = Math.min(absStrength, 2); // Cap for visual sizing
+        const baseR = 25;
+        const r = baseR + safeStrength * 25;
+        
+        // Choose colors based on attractive vs repulsive
+        const baseColor = isRepulsive ? 'rgba(255,80,80,' : att.rgba;
+        const coreColor = isRepulsive ? '#ff4444' : att.color;
+        
+        // Glow
+        const grad = ctx.createRadialGradient(px, py, 0, px, py, Math.max(1, r * 1.5));
+        grad.addColorStop(0, baseColor + '0.3)');
+        grad.addColorStop(0.5, baseColor + '0.1)');
+        grad.addColorStop(1, 'transparent');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(px, py, Math.max(1, r * 1.5), 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Core
+        ctx.fillStyle = coreColor;
+        ctx.shadowColor = coreColor;
+        ctx.shadowBlur = 15 + safeStrength * 10;
+        ctx.beginPath();
+        ctx.arc(px, py, Math.max(4, 8 + safeStrength * 10), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        
+        // Repulsion indicator (X pattern)
+        if (isRepulsive) {
+            ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+            ctx.lineWidth = 2;
+            const s = 6;
+            ctx.beginPath();
+            ctx.moveTo(px - s, py - s); ctx.lineTo(px + s, py + s);
+            ctx.moveTo(px + s, py - s); ctx.lineTo(px - s, py + s);
+            ctx.stroke();
+        }
+        
+        // Dynamic label with cheese/danger indicator
+        let label = att.label;
+        if (type === 'left') {
+            if (phase.uncertainty < 0.3) label = 'LEFT 🧀';
+            else if (phase.uncertainty > 0.7) label = 'LEFT ⚡';
+        } else if (type === 'right') {
+            if (phase.uncertainty > 0.7) label = 'RIGHT 🧀';
+            else if (phase.uncertainty < 0.3) label = 'RIGHT ⚡';
+        } else if (type === 'info' && phase.uncertainty > 0.3 && phase.uncertainty < 0.7) {
+            label = 'INFO ❓';
+        }
+        
+        ctx.fillStyle = isRepulsive ? '#ff8888' : '#fff';
+        ctx.font = '10px JetBrains Mono';
+        ctx.textAlign = 'center';
+        ctx.fillText(label, px, py + r + 18);
+        
+        // Strength value (show + or - clearly)
+        ctx.fillStyle = 'rgba(255,255,255,0.5)';
+        ctx.font = '9px JetBrains Mono';
+        const sign = strength >= 0 ? '+' : '';
+        ctx.fillText(sign + strength.toFixed(2), px, py + r + 30);
+    };
+    
+    drawAttractor(attractors.epistemic, forces.epistemic, 'info');
+    drawAttractor(attractors.pragLeft, forces.pragLeft, 'left');
+    drawAttractor(attractors.pragRight, forces.pragRight, 'right');
+    
+    // Draw agent trail
+    if (phase.agent.trail.length > 1) {
+        ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(phase.agent.trail[0].x * w, phase.agent.trail[0].y * h);
+        for (let i = 1; i < phase.agent.trail.length; i++) {
+            ctx.lineTo(phase.agent.trail[i].x * w, phase.agent.trail[i].y * h);
+        }
+        ctx.stroke();
+    }
+    
+    // Draw agent
+    const ax = phase.agent.x * w;
+    const ay = phase.agent.y * h;
+    
+    // Agent glow
+    const agentGrad = ctx.createRadialGradient(ax, ay, 0, ax, ay, 30);
+    agentGrad.addColorStop(0, 'rgba(255,255,255,0.6)');
+    agentGrad.addColorStop(0.5, 'rgba(255,255,255,0.1)');
+    agentGrad.addColorStop(1, 'transparent');
+    ctx.fillStyle = agentGrad;
+    ctx.beginPath();
+    ctx.arc(ax, ay, 30, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Agent core
+    ctx.fillStyle = '#fff';
+    ctx.shadowColor = '#fff';
+    ctx.shadowBlur = 15;
+    ctx.beginPath();
+    ctx.arc(ax, ay, 10, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    
+    // Direction arrow
+    if (Math.abs(phase.agent.vx) + Math.abs(phase.agent.vy) > 0.0001) {
+        const vMag = Math.sqrt(phase.agent.vx**2 + phase.agent.vy**2);
+        const vx = phase.agent.vx / vMag;
+        const vy = phase.agent.vy / vMag;
+        ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(ax, ay);
+        ctx.lineTo(ax + vx * 25, ay + vy * 25);
+        ctx.stroke();
+    }
+    
+    // Update readouts - show all three values and determine winner
+    const eVal = forces.epistemic;
+    const lVal = forces.pragLeft;
+    const rVal = forces.pragRight;
+    
+    // Determine winner (highest positive value)
+    let winner = 'INFO';
+    let maxVal = eVal;
+    if (lVal > maxVal) { winner = 'LEFT 🧀'; maxVal = lVal; }
+    if (rVal > maxVal) { winner = 'RIGHT 🧀'; maxVal = rVal; }
+    
+    // Update bars (handle negative values with different styling)
+    $('readoutE').style.width = Math.min(100, Math.max(0, eVal) * 50) + '%';
+    $('readoutPL').style.width = Math.min(100, Math.max(0, lVal + 1) * 50) + '%';
+    $('readoutPL').style.background = lVal < 0 ? 'linear-gradient(90deg, #cc4444, #ff6666)' : 'linear-gradient(90deg, #cc9050, #ffb870)';
+    $('readoutPR').style.width = Math.min(100, Math.max(0, rVal + 1) * 50) + '%';
+    $('readoutPR').style.background = rVal < 0 ? 'linear-gradient(90deg, #cc4444, #ff6666)' : 'linear-gradient(90deg, #cc9050, #ffb870)';
+    $('readoutG').style.width = Math.min(100, Math.max(0, maxVal + 1) * 50) + '%';
+    
+    // Update values with +/- signs
+    $('readoutEVal').textContent = '+' + eVal.toFixed(2);
+    $('readoutPLVal').textContent = (lVal >= 0 ? '+' : '') + lVal.toFixed(2);
+    $('readoutPRVal').textContent = (rVal >= 0 ? '+' : '') + rVal.toFixed(2);
+    $('readoutWinner').textContent = winner;
+}
+
+function updatePhaseAgent() {
+    const forces = getForces();
+    
+    // Calculate total force magnitude
+    const forceMag = Math.sqrt(forces.fx*forces.fx + forces.fy*forces.fy);
+    
+    // Check if both weights are low (aimless agent)
+    const bothWeightsLow = phase.epiWeight < 0.4 && phase.pragWeight < 0.4;
+    
+    // Base noise increases when forces are weak (aimless wandering)
+    // Also scales inversely with precision (lower precision = more random)
+    // Much higher noise when both weights are low
+    const baseNoise = bothWeightsLow ? 0.003 : 0.0008;
+    const forceWeakness = Math.max(0, 1 - forceMag * 1000); // 0-1, higher when forces weak
+    const noise = baseNoise * (1 + forceWeakness * 3) / Math.sqrt(phase.precision);
+    
+    // Apply forces + noise
+    phase.agent.vx += forces.fx + (Math.random() - 0.5) * noise;
+    phase.agent.vy += forces.fy + (Math.random() - 0.5) * noise;
+    
+    // When aimless, add a slight upward drift so agent eventually reaches arms
+    if (bothWeightsLow && phase.uncertainty > 0.3 && phase.uncertainty < 0.7) {
+        phase.agent.vy -= 0.0001; // Slight upward bias
+    }
+    
+    // Damping
+    phase.agent.vx *= 0.96;
+    phase.agent.vy *= 0.96;
+    
+    // Update position
+    phase.agent.x += phase.agent.vx;
+    phase.agent.y += phase.agent.vy;
+    
+    // Bounds
+    phase.agent.x = Math.max(0.05, Math.min(0.95, phase.agent.x));
+    phase.agent.y = Math.max(0.1, Math.min(0.95, phase.agent.y));
+    
+    // Trail
+    phase.agent.trail.push({ x: phase.agent.x, y: phase.agent.y });
+    if (phase.agent.trail.length > 100) phase.agent.trail.shift();
+    
+    // Check if agent reached an attractor (for feedback)
+    const distToLeft = Math.sqrt((phase.agent.x - 0.15)**2 + (phase.agent.y - 0.25)**2);
+    const distToRight = Math.sqrt((phase.agent.x - 0.85)**2 + (phase.agent.y - 0.25)**2);
+    const distToInfo = Math.sqrt((phase.agent.x - 0.5)**2 + (phase.agent.y - 0.25)**2);
+    
+    // Update outcome indicator
+    const outcomeEl = $('phaseOutcome');
+    if (outcomeEl) {
+        const u = phase.uncertainty;
+        if (distToLeft < 0.08) {
+            if (u < 0.3) {
+                outcomeEl.textContent = '🧀 Found cheese on LEFT! (Correct belief)';
+                outcomeEl.style.color = '#6c8';
+            } else if (u > 0.7) {
+                outcomeEl.textContent = '⚡ SHOCK on LEFT! (Believed RIGHT had cheese)';
+                outcomeEl.style.color = '#f66';
+            } else {
+                outcomeEl.textContent = '🎲 Reached LEFT while uncertain — 50% chance of shock!';
+                outcomeEl.style.color = '#fa0';
+            }
+            outcomeEl.style.opacity = '1';
+        } else if (distToRight < 0.08) {
+            if (u > 0.7) {
+                outcomeEl.textContent = '🧀 Found cheese on RIGHT! (Correct belief)';
+                outcomeEl.style.color = '#6c8';
+            } else if (u < 0.3) {
+                outcomeEl.textContent = '⚡ SHOCK on RIGHT! (Believed LEFT had cheese)';
+                outcomeEl.style.color = '#f66';
+            } else {
+                outcomeEl.textContent = '🎲 Reached RIGHT while uncertain — 50% chance of shock!';
+                outcomeEl.style.color = '#fa0';
+            }
+            outcomeEl.style.opacity = '1';
+        } else if (distToInfo < 0.08) {
+            outcomeEl.textContent = '❓ Gathered information — now knows where cheese is!';
+            outcomeEl.style.color = '#b084ff';
+            outcomeEl.style.opacity = '1';
+        } else {
+            outcomeEl.style.opacity = '0.3';
+            outcomeEl.textContent = 'Watching agent...';
+        }
+    }
+}
+
+function phaseLoop() {
+    phase.time++;
+    if (document.querySelector('#tab2.active')) {
+        updatePhaseAgent();
+        drawPhaseSpace();
+    }
+    requestAnimationFrame(phaseLoop);
+}
+
+// Slider handlers
+$('phaseUnc').oninput = e => {
+    phase.uncertainty = parseFloat(e.target.value);
+    const u = phase.uncertainty;
+    let txt;
+    if (u < 0.2) txt = 'Believes LEFT 🧀';
+    else if (u < 0.4) txt = 'Leans LEFT';
+    else if (u <= 0.6) txt = '50/50 (uncertain)';
+    else if (u < 0.8) txt = 'Leans RIGHT';
+    else txt = 'Believes RIGHT 🧀';
+    $('phaseUncVal').textContent = txt;
+    updateInsight();
+};
+
+$('phaseEpi').oninput = e => {
+    phase.epiWeight = parseFloat(e.target.value);
+    $('phaseEpiVal').textContent = phase.epiWeight.toFixed(1);
+    updateInsight();
+};
+
+$('phasePrag').oninput = e => {
+    phase.pragWeight = parseFloat(e.target.value);
+    $('phasePragVal').textContent = phase.pragWeight.toFixed(1);
+    updateInsight();
+};
+
+$('phasePrec').oninput = e => {
+    phase.precision = parseFloat(e.target.value);
+    $('phasePrecVal').textContent = phase.precision.toFixed(1);
+};
+
+$('phaseReset').onclick = () => {
+    phase.agent = { x: 0.5, y: 0.85, vx: 0, vy: 0, trail: [] };
+};
+
+// ============================================================================
+// INIT
+// ============================================================================
+window.addEventListener('resize', () => {
+    render.resize();
+    resizePhaseCanvas();
+});
+
+goToStep(0);
+setTimeout(resizePhaseCanvas, 100);
+updateInsight();
+requestAnimationFrame(loop);
+requestAnimationFrame(phaseLoop);
+</script>
+</body>
+</html>

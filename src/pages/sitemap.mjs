@@ -17,6 +17,7 @@ const SITEMAP_SECTION_LABELS = {
   resources: "Resources",
   directory: "Directory",
   search: "Search",
+  simulations: "Simulations",
   sitemap: "Sitemap",
 };
 

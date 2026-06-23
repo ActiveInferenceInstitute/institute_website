@@ -1,0 +1,2624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Inference — Chapter 3: The High Road</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #48b8a4;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+        
+        #canvas { width: 100%; height: 100%; display: block; }
+        
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+        }
+        
+        .btn {
+            padding: 16px 32px;
+            background: rgba(15, 60, 55, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.95);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 400;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(15px);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 50, 50, 0.3);
+        }
+        
+        .btn:hover {
+            background: rgba(20, 80, 70, 0.95);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 25px rgba(0, 60, 60, 0.4);
+        }
+        
+        .btn.active {
+            background: rgba(20, 100, 80, 0.85);
+            border-color: rgba(150, 255, 220, 0.6);
+            color: rgba(180, 255, 230, 1);
+            box-shadow: 0 0 35px rgba(100, 255, 200, 0.3);
+        }
+        
+        .title-area {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 1000;
+        }
+        
+        .title-area h1 {
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            color: rgba(15, 60, 55, 0.8);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+        }
+        
+        .title-area .mode-name {
+            font-size: 38px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            transition: all 0.5s ease;
+            text-shadow: 0 2px 10px rgba(0, 50, 50, 0.3);
+        }
+        
+        .title-area .mode-name.passive { color: rgba(80, 40, 100, 0.95); }
+        .title-area .mode-name.active-inf { color: rgba(10, 80, 60, 0.98); }
+        
+        .title-area .subtitle {
+            font-size: 15px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(15, 60, 55, 0.7);
+            margin-top: 6px;
+            font-weight: 300;
+        }
+        
+        /* Left panel - Environment */
+        .env-panel {
+            position: fixed;
+            top: 150px;
+            left: 25px;
+            width: 220px;
+            padding: 22px;
+            background: rgba(15, 60, 55, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 50, 50, 0.3);
+            z-index: 1000;
+        }
+        
+        .panel-title {
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            color: rgba(150, 255, 220, 0.7);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        
+        .env-stat {
+            margin-bottom: 16px;
+        }
+        
+        .env-stat-label {
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 4px;
+        }
+        
+        .env-stat-value {
+            font-size: 24px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .env-stat-unit {
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(255, 255, 255, 0.5);
+            margin-left: 4px;
+        }
+        
+        /* Right panel - System stats */
+        .stats-panel {
+            position: fixed;
+            top: 150px;
+            right: 25px;
+            width: 280px;
+            padding: 22px;
+            background: rgba(15, 60, 55, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 50, 50, 0.3);
+            z-index: 1000;
+        }
+        
+        .system-label {
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 18px;
+        }
+        
+        .system-label.passive {
+            background: rgba(180, 130, 200, 0.15);
+            color: rgba(220, 180, 240, 0.95);
+            border: 1px solid rgba(180, 130, 200, 0.3);
+        }
+        
+        .system-label.active-inf {
+            background: rgba(100, 255, 180, 0.12);
+            color: rgba(150, 255, 220, 0.95);
+            border: 1px solid rgba(100, 255, 180, 0.3);
+        }
+        
+        .stat-row {
+            margin-bottom: 16px;
+        }
+        
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+        
+        .stat-name {
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .stat-symbol {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 16px;
+            color: rgba(150, 255, 220, 0.7);
+            margin-right: 6px;
+        }
+        
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .stat-bar {
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1px;
+            overflow: hidden;
+        }
+        
+        .stat-bar-fill {
+            height: 100%;
+            border-radius: 1px;
+            transition: width 0.3s ease;
+        }
+        
+        .bar-entropy { background: linear-gradient(90deg, rgba(180, 130, 200, 0.6), rgba(220, 150, 200, 0.8)); }
+        .bar-vfe { background: linear-gradient(90deg, rgba(255, 180, 100, 0.6), rgba(255, 140, 100, 0.8)); }
+        .bar-pred-err { background: linear-gradient(90deg, rgba(255, 150, 150, 0.6), rgba(255, 120, 120, 0.8)); }
+        .bar-precision { background: linear-gradient(90deg, rgba(100, 200, 255, 0.6), rgba(100, 180, 255, 0.8)); }
+        .bar-blanket { background: linear-gradient(90deg, rgba(100, 255, 180, 0.6), rgba(100, 255, 200, 0.8)); }
+        
+        .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 18px 0;
+        }
+        
+        .state-indicator {
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 2px;
+        }
+        
+        .click-hint {
+            position: fixed;
+            bottom: 95px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(15, 60, 55, 0.7);
+            letter-spacing: 1px;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Virtual Karl Friston */
+        .karl-container {
+            position: fixed;
+            bottom: 130px;
+            left: 30px;
+            display: flex;
+            align-items: flex-end;
+            gap: 15px;
+            z-index: 1001;
+            transition: all 0.5s ease;
+        }
+        
+        .karl-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a4a45 0%, #0f3530 100%);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 30px rgba(0, 50, 50, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .karl-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(100, 255, 200, 0.3) 0%, transparent 70%);
+            animation: karlPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes karlPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .speech-bubble {
+            max-width: 380px;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(15, 60, 55, 0.2);
+            border-radius: 4px;
+            box-shadow: 0 4px 40px rgba(0, 50, 50, 0.25);
+            position: relative;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+        }
+        
+        .speech-bubble.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: -8px;
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            border-left: 1px solid rgba(15, 60, 55, 0.2);
+            border-bottom: 1px solid rgba(15, 60, 55, 0.2);
+            transform: rotate(45deg);
+        }
+        
+        .karl-name {
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            color: rgba(15, 80, 70, 0.7);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .karl-quote {
+            font-size: 16px;
+            color: rgba(20, 50, 45, 0.9);
+            line-height: 1.7;
+            font-style: italic;
+            font-weight: 300;
+        }
+        
+        .karl-quote em {
+            font-style: normal;
+            color: rgba(0, 120, 90, 0.95);
+            font-weight: 500;
+        }
+        
+        /* Fish mode indicator */
+        .fish-indicator {
+            position: fixed;
+            top: 125px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(10, 80, 60, 0.85);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.4);
+        }
+        
+        .fish-indicator.visible {
+            opacity: 1;
+        }
+    
+        /* Tab Navigation */
+        .tab-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            z-index: 2000;
+            background: rgba(15, 50, 45, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+        }
+        
+        .tab-btn {
+            padding: 14px 32px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 400;
+            cursor: pointer;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab-btn:hover {
+            color: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .tab-btn.active {
+            color: rgba(150, 255, 220, 1);
+            border-bottom: 2px solid rgba(150, 255, 220, 0.8);
+            background: rgba(100, 255, 200, 0.08);
+        }
+        
+        .tab-content {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Adjust title-area for tab nav */
+        .title-area {
+            top: 70px !important;
+        }
+        
+        .env-panel, .stats-panel {
+            top: 190px !important;
+        }
+        
+        .fish-indicator {
+            top: 165px !important;
+        }
+        
+        /* ==================== TAB 2: FIGURE 3.3 STYLES ==================== */
+        #tab2 {
+            background: linear-gradient(135deg, #1a3a4a 0%, #0d2535 100%);
+            position: fixed;
+            top: 48px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: auto;
+        }
+        
+        .fig33-layout {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            padding: 20px 40px 120px;
+        }
+        
+        .fig33-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .sim-panel {
+            background: rgba(0, 20, 30, 0.8);
+            border: 1px solid rgba(100, 200, 255, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .sim-panel h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .sim-panel.steady h3 { color: rgba(100, 255, 180, 0.9); }
+        .sim-panel.dissipating h3 { color: rgba(255, 150, 150, 0.9); }
+        .sim-panel.contour h3 { color: rgba(150, 200, 255, 0.9); }
+        
+        .sim-canvas {
+            border-radius: 4px;
+            background: rgba(0, 10, 20, 0.9);
+        }
+        
+        .sim-stats {
+            margin-top: 15px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+        
+        .fig33-title {
+            text-align: center;
+            padding: 15px 0;
+        }
+        
+        .fig33-title h2 {
+            font-size: 28px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        
+        .fig33-title .chapter-ref {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(150, 200, 255, 0.7);
+            letter-spacing: 2px;
+        }
+        
+        .fig33-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .fig33-legend {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .legend-dot.steady { background: rgba(100, 255, 180, 0.9); }
+        .legend-dot.dissipating { background: rgba(255, 100, 100, 0.9); }
+        
+        .param-slider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .param-slider label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .param-slider input[type="range"] {
+            width: 120px;
+            -webkit-appearance: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            height: 4px;
+        }
+        
+        .param-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            background: rgba(100, 200, 255, 0.9);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        /* Quotation panel - horizontal above simulations */
+        .fig33-quote-panel {
+            background: rgba(0, 20, 30, 0.9);
+            border: 1px solid rgba(100, 200, 255, 0.3);
+            border-radius: 8px;
+            padding: 20px 30px;
+            margin: 10px auto 0;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .quote-header {
+            grid-column: 1 / -1;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: rgba(150, 200, 255, 0.8);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(100, 200, 255, 0.2);
+            margin-bottom: 5px;
+        }
+        
+        .quote-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+            padding-left: 12px;
+            border-left: 2px solid rgba(100, 255, 180, 0.4);
+        }
+        
+        .quote-text.highlight-red {
+            border-left-color: rgba(255, 100, 100, 0.5);
+        }
+        
+        .quote-text em {
+            font-style: normal;
+            color: rgba(150, 255, 220, 0.95);
+        }
+        
+        .quote-source {
+            grid-column: 1 / -1;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.4);
+            text-align: right;
+            padding-top: 10px;
+            border-top: 1px solid rgba(100, 200, 255, 0.2);
+            margin-top: 5px;
+        }
+        
+        /* Inline equation in controls */
+        .fig33-equation-inline {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px 15px;
+            background: rgba(0, 20, 30, 0.8);
+            border: 1px solid rgba(100, 200, 255, 0.2);
+            border-radius: 4px;
+            margin-left: 15px;
+        }
+        
+        .fig33-equation-inline .eq-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: rgba(150, 200, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        
+        .fig33-equation-inline .eq-formula {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+        
+        .fig33-equation-inline .eq-note {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* ==================== TAB 3: GLOSSARY STYLES ==================== */
+        #tab3 {
+            background: linear-gradient(135deg, #1a2a3a 0%, #0d1825 100%);
+            position: fixed;
+            top: 48px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: auto;
+        }
+        
+        .glossary-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 40px 60px;
+        }
+        
+        .glossary-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .glossary-title h2 {
+            font-size: 32px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        
+        .glossary-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: rgba(150, 200, 255, 0.7);
+            letter-spacing: 1px;
+        }
+        
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+        
+        .glossary-card {
+            background: rgba(0, 20, 35, 0.8);
+            border: 1px solid rgba(100, 180, 255, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .glossary-card:hover {
+            border-color: rgba(100, 200, 255, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 100, 150, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .glossary-card .term {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 400;
+            color: rgba(100, 255, 200, 0.95);
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(100, 255, 200, 0.2);
+        }
+        
+        .glossary-card .definition {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+        
+        .glossary-card .definition em {
+            font-style: normal;
+            color: rgba(150, 220, 255, 0.95);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+        }
+        
+        .glossary-card .analogy {
+            display: block;
+            margin-top: 12px;
+            padding: 10px 12px;
+            background: rgba(100, 200, 255, 0.08);
+            border-left: 3px solid rgba(100, 200, 255, 0.4);
+            border-radius: 0 4px 4px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(180, 220, 255, 0.8);
+            line-height: 1.5;
+        }
+
+    </style>
+
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body>
+<a href="./" class="aii-floating-back">&#8592; Back to Catalog</a>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-btn active" data-tab="tab1">Ink in Water</button>
+        <button class="tab-btn" data-tab="tab2">Figure 3.3: Steady State</button>
+        <button class="tab-btn" data-tab="tab3">Glossary</button>
+    </div>
+    
+    <!-- TAB 1: Original Ink Simulation -->
+    <div id="tab1" class="tab-content active">
+    <canvas id="canvas"></canvas>
+    
+    <div class="title-area">
+        <h1>Free Energy Principle</h1>
+        <div class="mode-name passive" id="modeName">Passive Matter</div>
+        <div class="subtitle" id="modeSubtitle">Second Law — entropy maximization</div>
+    </div>
+    
+    <div class="fish-indicator" id="fishIndicator">🐟 Life emerges from the ink</div>
+    
+    <div class="env-panel">
+        <div class="panel-title">Environment</div>
+        <div class="env-stat">
+            <div class="env-stat-label">Temperature</div>
+            <div><span class="env-stat-value" id="temperature">298</span><span class="env-stat-unit">K</span></div>
+        </div>
+        <div class="env-stat">
+            <div class="env-stat-label">Thermal Energy</div>
+            <div><span class="env-stat-value" id="thermalEnergy">4.1</span><span class="env-stat-unit">×10⁻²¹ J</span></div>
+        </div>
+        <div class="env-stat">
+            <div class="env-stat-label">Water Molecules</div>
+            <div><span class="env-stat-value" id="waterCount">~10²¹</span></div>
+        </div>
+        <div class="env-stat">
+            <div class="env-stat-label">Fluctuation Rate</div>
+            <div><span class="env-stat-value" id="fluctRate">1.0</span><span class="env-stat-unit">σ</span></div>
+        </div>
+    </div>
+    
+    <div class="stats-panel">
+        <div class="panel-title">System</div>
+        <div class="system-label passive" id="systemLabel">Passive Matter</div>
+        
+        <!-- For passive matter (ink) -->
+        <div id="passiveStats">
+            <div class="stat-row">
+                <div class="stat-header">
+                    <span class="stat-name">Thermodynamic Entropy</span>
+                    <span><span class="stat-symbol">S</span><span class="stat-value" id="entropy">0.00</span></span>
+                </div>
+                <div class="stat-bar"><div class="stat-bar-fill bar-entropy" id="entropyBar" style="width: 0%"></div></div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-header">
+                    <span class="stat-name">Spatial Spread</span>
+                    <span class="stat-value" id="spread">0</span><span class="env-stat-unit"> px</span>
+                </div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-header">
+                    <span class="stat-name">Particles</span>
+                    <span class="stat-value" id="particleCount">0</span>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="state-indicator" id="passiveState">
+                Equilibrating with environment...
+            </div>
+        </div>
+        
+        <!-- For active inference (living) -->
+        <div id="activeStats" style="display: none;">
+            <div class="stat-row">
+                <div class="stat-header">
+                    <span class="stat-name">Variational Free Energy</span>
+                    <span><span class="stat-symbol">F</span><span class="stat-value" id="vfe">0.00</span></span>
+                </div>
+                <div class="stat-bar"><div class="stat-bar-fill bar-vfe" id="vfeBar" style="width: 0%"></div></div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-header">
+                    <span class="stat-name">Prediction Error</span>
+                    <span><span class="stat-symbol">ε</span><span class="stat-value" id="predErr">0.00</span></span>
+                </div>
+                <div class="stat-bar"><div class="stat-bar-fill bar-pred-err" id="predErrBar" style="width: 0%"></div></div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-header">
+                    <span class="stat-name">Precision</span>
+                    <span><span class="stat-symbol">π</span><span class="stat-value" id="precision">0.00</span></span>
+                </div>
+                <div class="stat-bar"><div class="stat-bar-fill bar-precision" id="precisionBar" style="width: 0%"></div></div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-header">
+                    <span class="stat-name">Markov Blanket</span>
+                    <span class="stat-value" id="blanket">0%</span>
+                </div>
+                <div class="stat-bar"><div class="stat-bar-fill bar-blanket" id="blanketBar" style="width: 0%"></div></div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-header">
+                    <span class="stat-name">Particles</span>
+                    <span class="stat-value" id="particleCountActive">0</span>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="state-indicator" id="activeState">
+                Minimizing free energy...
+            </div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button class="btn" id="dropBtn">💧 Drop Ink</button>
+        <button class="btn" id="modeBtn">🧬 Life Emerges</button>
+        <button class="btn" id="clearBtn">✕ Clear</button>
+    </div>
+    
+    <div class="click-hint">Click anywhere to add particles</div>
+    
+    <div class="karl-container" id="karlContainer">
+        <div class="karl-avatar" id="karlAvatar">
+            <div class="karl-glow" id="karlGlow"></div>
+            <span>🧠</span>
+        </div>
+        <div class="speech-bubble" id="speechBubble">
+            <div class="karl-name">Prof. Karl Friston</div>
+            <div class="karl-quote" id="karlQuote">
+                Think of a drop of ink in a glass of water...
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        /*
+         * ACTIVE INFERENCE — LIFE EMERGES FROM INK
+         * ==========================================
+         * 
+         * The core insight: A living system is ink that refuses to dissolve.
+         * 
+         * PASSIVE MATTER (Ink):
+         *   - No internal model, no agency
+         *   - Obeys Langevin dynamics: dx = √(2D)·dW
+         *   - Entropy increases (Second Law)
+         * 
+         * ACTIVE INFERENCE (Fish):
+         *   - Has generative model of itself as a FISH
+         *   - Particles organize to form body, fins, tail
+         *   - Minimizes F = prediction error + complexity
+         *   - Swims by updating preferred states over time
+         *   - Markov blanket = the fish's boundary
+         * 
+         * The fish EMERGES from active inference:
+         *   - Each particle knows where it "should" be (belief)
+         *   - All particles coordinate via shared generative model
+         *   - Movement = collective updating of preferred states
+         */
+        
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resize() {
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = window.innerWidth * dpr;
+            canvas.height = window.innerHeight * dpr;
+            ctx.scale(dpr, dpr);
+        }
+        resize();
+        window.addEventListener('resize', resize);
+        
+        // =====================================================
+        // FISH GENERATIVE MODEL
+        // The fish is defined by its preferred morphology
+        // =====================================================
+        
+        const Fish = {
+            // Position and movement
+            x: window.innerWidth / 2,
+            y: window.innerHeight / 2,
+            vx: 0,
+            vy: 0,
+            angle: 0,        // Current heading
+            targetAngle: 0,  // Where fish wants to go
+            speed: 0,
+            
+            // Swimming dynamics
+            swimPhase: 0,
+            swimFreq: 0.08,
+            
+            // Size parameters
+            bodyLength: 100,
+            bodyWidth: 40,
+            tailLength: 50,
+            finSize: 25,
+            
+            // Active inference parameters
+            omega: 3.0,        // High Ω = coherent form
+            explorationDrive: 0.5,
+            hunger: 0.5,       // Drives food-seeking behavior
+            satiation: 0,      // Temporary satisfaction after eating
+            
+            // Preferred free energy gradient (fish seeks interesting areas)
+            preferredX: window.innerWidth / 2,
+            preferredY: window.innerHeight / 2,
+            
+            // Current target (food or exploration point)
+            targetFood: null,
+            explorationTarget: null,
+            lastExplorationChange: 0,
+            
+            // Morphological template: relative positions for each particle
+            // Returns { x, y, type } where type is 'body', 'fin', 'tail', 'eye'
+            getPreferredPosition: function(index, totalParticles) {
+                // Distribute particles across fish anatomy
+                const t = index / totalParticles;
+                
+                // Swimming wave propagates from head to tail
+                const wave = Math.sin(this.swimPhase - t * 4) * 0.3;
+                
+                // Fish anatomy mapping
+                let localX, localY, type, scale;
+                
+                if (t < 0.08) {
+                    // Eye region
+                    type = 'eye';
+                    const eyeAngle = (index % 2 === 0 ? 1 : -1) * 0.4;
+                    localX = this.bodyLength * 0.35;
+                    localY = Math.sin(eyeAngle) * this.bodyWidth * 0.25;
+                    scale = 0.8;
+                } else if (t < 0.5) {
+                    // Main body (elliptical)
+                    type = 'body';
+                    const bodyT = (t - 0.08) / 0.42;
+                    localX = this.bodyLength * (0.3 - bodyT * 0.8);
+                    const bodyProfile = Math.sqrt(1 - Math.pow(bodyT - 0.3, 2) / 0.5);
+                    const spreadAngle = (index * 2.39996) % (Math.PI * 2); // Golden angle
+                    localY = Math.sin(spreadAngle) * this.bodyWidth * 0.5 * bodyProfile;
+                    localY += wave * 10 * bodyT;
+                    scale = 1 + bodyProfile * 0.3;
+                } else if (t < 0.7) {
+                    // Dorsal and ventral fins
+                    type = 'fin';
+                    const finT = (t - 0.5) / 0.2;
+                    localX = this.bodyLength * (-0.1 - finT * 0.2);
+                    const finDir = (index % 2 === 0 ? 1 : -1);
+                    localY = finDir * (this.bodyWidth * 0.4 + this.finSize * Math.sin(finT * Math.PI));
+                    localY += wave * 15;
+                    scale = 0.7;
+                } else if (t < 0.85) {
+                    // Side fins (pectoral)
+                    type = 'fin';
+                    const pectT = (t - 0.7) / 0.15;
+                    const finDir = (index % 2 === 0 ? 1 : -1);
+                    const finAngle = Math.sin(this.swimPhase * 0.5) * 0.4;
+                    localX = this.bodyLength * 0.1;
+                    localY = finDir * (this.bodyWidth * 0.35 + this.finSize * 0.8 * pectT);
+                    localX += Math.cos(finAngle) * this.finSize * 0.5 * pectT;
+                    scale = 0.6;
+                } else {
+                    // Tail (caudal fin)
+                    type = 'tail';
+                    const tailT = (t - 0.85) / 0.15;
+                    localX = -this.bodyLength * 0.4 - this.tailLength * tailT;
+                    const tailSpread = tailT * this.tailLength * 0.8;
+                    const tailWave = Math.sin(this.swimPhase - 3 - tailT * 2) * tailSpread * 0.5;
+                    const spreadAngle = ((index * 1.5) % Math.PI) - Math.PI / 2;
+                    localY = Math.sin(spreadAngle) * tailSpread + tailWave;
+                    scale = 0.5 + (1 - tailT) * 0.3;
+                }
+                
+                // Rotate to fish's heading
+                const cos = Math.cos(this.angle);
+                const sin = Math.sin(this.angle);
+                const worldX = this.x + localX * cos - localY * sin;
+                const worldY = this.y + localX * sin + localY * cos;
+                
+                return { x: worldX, y: worldY, type, scale };
+            },
+            
+            // Find nearest food
+            findNearestFood: function(foodItems) {
+                let nearest = null;
+                let nearestDist = Infinity;
+                
+                foodItems.forEach(food => {
+                    if (!food.eaten) {
+                        const dx = food.x - this.x;
+                        const dy = food.y - this.y;
+                        const dist = Math.sqrt(dx*dx + dy*dy);
+                        if (dist < nearestDist) {
+                            nearestDist = dist;
+                            nearest = food;
+                        }
+                    }
+                });
+                
+                return nearest;
+            },
+            
+            // Update fish behavior (active inference over movement)
+            update: function(dt, foodItems) {
+                // Swimming animation
+                this.swimPhase += this.swimFreq * (1 + this.speed * 0.5);
+                
+                // Hunger increases over time, decreases after eating
+                this.hunger = Math.min(1, this.hunger + 0.0003);
+                this.satiation = Math.max(0, this.satiation - 0.002);
+                
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                const margin = 150;
+                
+                // === ACTIVE INFERENCE: Minimize expected free energy ===
+                // The fish has beliefs about good states (food, exploration)
+                // and acts to minimize prediction error
+                
+                // Find food if hungry enough
+                const effectiveHunger = this.hunger * (1 - this.satiation);
+                this.targetFood = null;
+                
+                if (effectiveHunger > 0.3 && foodItems) {
+                    this.targetFood = this.findNearestFood(foodItems);
+                }
+                
+                // Decide behavior based on internal states
+                if (this.targetFood && effectiveHunger > 0.3) {
+                    // FORAGING: Pursue food (high precision goal)
+                    const dx = this.targetFood.x - this.x;
+                    const dy = this.targetFood.y - this.y;
+                    this.targetAngle = Math.atan2(dy, dx);
+                    
+                    // Check if we caught the food
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 40) {
+                        this.targetFood.eaten = true;
+                        this.targetFood.eatenTime = Date.now();
+                        this.satiation = 1;
+                        this.hunger = Math.max(0, this.hunger - 0.4);
+                        
+                        // Absorb food particles into fish
+                        if (this.targetFood.onEaten) {
+                            this.targetFood.onEaten();
+                        }
+                    }
+                } else {
+                    // EXPLORATION: Active inference over spatial states
+                    // Generate exploration targets that minimize expected surprise
+                    
+                    if (!this.explorationTarget || 
+                        Date.now() - this.lastExplorationChange > 3000 + Math.random() * 4000) {
+                        // Pick new exploration target
+                        // Prefer areas away from edges and unexplored regions
+                        this.explorationTarget = {
+                            x: margin + Math.random() * (w - margin * 2),
+                            y: margin + Math.random() * (h - margin * 2)
+                        };
+                        this.lastExplorationChange = Date.now();
+                    }
+                    
+                    // Gentle pursuit of exploration target
+                    const dx = this.explorationTarget.x - this.x;
+                    const dy = this.explorationTarget.y - this.y;
+                    const targetAngle = Math.atan2(dy, dx);
+                    
+                    // Add some wandering noise (exploration vs exploitation)
+                    const noiseAmount = 0.3 * (1 - effectiveHunger);
+                    this.targetAngle = targetAngle + (Math.random() - 0.5) * noiseAmount;
+                    
+                    // If close to target, get new one
+                    if (Math.sqrt(dx*dx + dy*dy) < 100) {
+                        this.lastExplorationChange = 0; // Force new target
+                    }
+                }
+                
+                // Boundary avoidance (strong prior against hitting walls)
+                let boundaryForce = { x: 0, y: 0 };
+                const boundaryStrength = 0.1;
+                
+                if (this.x < margin) boundaryForce.x = boundaryStrength * (margin - this.x);
+                if (this.x > w - margin) boundaryForce.x = -boundaryStrength * (this.x - (w - margin));
+                if (this.y < margin) boundaryForce.y = boundaryStrength * (margin - this.y);
+                if (this.y > h - margin) boundaryForce.y = -boundaryStrength * (this.y - (h - margin));
+                
+                // Apply boundary corrections to target angle
+                if (boundaryForce.x !== 0 || boundaryForce.y !== 0) {
+                    const boundaryAngle = Math.atan2(boundaryForce.y, boundaryForce.x);
+                    const boundaryMag = Math.sqrt(boundaryForce.x**2 + boundaryForce.y**2);
+                    this.targetAngle = this.targetAngle * (1 - boundaryMag * 0.5) + boundaryAngle * boundaryMag * 0.5;
+                }
+                
+                // Smooth angle pursuit (predictive coding for heading)
+                let angleDiff = this.targetAngle - this.angle;
+                while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+                while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+                
+                // Turn faster when chasing food
+                const turnRate = this.targetFood ? 0.06 : 0.03;
+                this.angle += angleDiff * turnRate;
+                
+                // Speed varies with context
+                const turningCost = Math.abs(angleDiff);
+                let baseSpeed = this.targetFood ? 2.5 : 1.5; // Faster when hunting
+                this.speed = baseSpeed - turningCost * 0.3;
+                this.speed = Math.max(0.5, Math.min(3.0, this.speed));
+                
+                // Update velocity
+                this.vx = Math.cos(this.angle) * this.speed;
+                this.vy = Math.sin(this.angle) * this.speed;
+                
+                // Update position
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Keep in bounds (soft)
+                this.x = Math.max(margin * 0.5, Math.min(w - margin * 0.5, this.x));
+                this.y = Math.max(margin * 0.5, Math.min(h - margin * 0.5, this.y));
+            }
+        };
+        
+        // =====================================================
+        // FOOD SYSTEM - Ink droplets the fish can eat
+        // =====================================================
+        
+        class FoodParticle {
+            constructor(x, y) {
+                this.x = x || Math.random() * (window.innerWidth - 300) + 150;
+                this.y = y || Math.random() * (window.innerHeight - 300) + 150;
+                this.size = 8 + Math.random() * 6;
+                this.eaten = false;
+                this.eatenTime = 0;
+                this.alpha = 0;
+                this.targetAlpha = 0.9;
+                this.age = 0;
+                this.drift = Math.random() * Math.PI * 2;
+                this.pulsePhase = Math.random() * Math.PI * 2;
+                
+                // Ink-like appearance
+                this.hue = 260 + Math.random() * 30; // Purple-ish
+            }
+            
+            update() {
+                this.age++;
+                
+                // Fade in
+                this.alpha += (this.targetAlpha - this.alpha) * 0.02;
+                
+                // Gentle drifting
+                this.drift += 0.01;
+                this.x += Math.sin(this.drift) * 0.3;
+                this.y += Math.cos(this.drift * 0.7) * 0.2;
+                
+                // Pulse
+                this.pulsePhase += 0.05;
+                
+                // Boundary wrap
+                const margin = 100;
+                if (this.x < margin) this.x = margin;
+                if (this.x > window.innerWidth - margin) this.x = window.innerWidth - margin;
+                if (this.y < margin) this.y = margin;
+                if (this.y > window.innerHeight - margin) this.y = window.innerHeight - margin;
+                
+                return !this.eaten;
+            }
+            
+            draw(ctx) {
+                if (this.eaten) return;
+                
+                const pulse = 1 + Math.sin(this.pulsePhase) * 0.15;
+                const size = this.size * pulse;
+                
+                // Outer glow
+                const glow = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, size * 3);
+                glow.addColorStop(0, `hsla(${this.hue}, 60%, 30%, ${this.alpha * 0.4})`);
+                glow.addColorStop(0.5, `hsla(${this.hue}, 50%, 20%, ${this.alpha * 0.2})`);
+                glow.addColorStop(1, `hsla(${this.hue}, 40%, 15%, 0)`);
+                
+                ctx.fillStyle = glow;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, size * 3, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Core
+                const core = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, size);
+                core.addColorStop(0, `hsla(${this.hue}, 70%, 25%, ${this.alpha})`);
+                core.addColorStop(0.6, `hsla(${this.hue}, 60%, 18%, ${this.alpha * 0.8})`);
+                core.addColorStop(1, `hsla(${this.hue}, 50%, 12%, 0)`);
+                
+                ctx.fillStyle = core;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Bright center highlight
+                ctx.fillStyle = `hsla(${this.hue + 20}, 50%, 50%, ${this.alpha * 0.3})`;
+                ctx.beginPath();
+                ctx.arc(this.x - size * 0.2, this.y - size * 0.2, size * 0.3, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // =====================================================
+        // VIRTUAL KARL FRISTON
+        // =====================================================
+        
+        const Karl = {
+            C: 0,
+            C_arch: 0,
+            omega: 4.0,
+            R: 1,
+            L: 0,
+            
+            currentQuoteIndex: 0,
+            lastMode: null,
+            
+            passiveQuotes: [
+                "Think of a drop of ink in a glass of water. The ink molecules will <em>disperse</em> throughout the container...",
+                "Without a Markov blanket, we're just <em>hot gas dissipating</em> into the ether.",
+                "The ink has no model of itself. It simply <em>equilibrates</em> with its environment.",
+                "This is the Second Law in action — entropy increases, disorder wins.",
+                "There's no 'self' here to preserve. No boundary. No <em>thing</em>.",
+                "The ink doesn't minimize free energy because it has no <em>expectations</em> to violate."
+            ],
+            
+            activeQuotes: [
+                "But if the ink is <em>alive</em>, something remarkable happens — it organizes itself...",
+                "Watch: the particles form a <em>fish</em>. Each one knows where it should be.",
+                "This is <em>morphogenesis</em> through active inference. Form emerges from prediction.",
+                "The fish maintains its <em>Markov blanket</em> — a boundary between self and world.",
+                "Notice how it <em>swims</em>. Movement is just updating preferred states over time.",
+                "Every particle minimizes its own <em>surprise</em>. Collectively, they become a fish.",
+                "The fish doesn't just exist — it <em>expects</em> to exist, and acts accordingly.",
+                "This is what it means to be alive: to have a model of yourself, and to maintain it.",
+                "The boundary isn't imposed — it <em>emerges</em> from coordinated belief updating.",
+                "Active inference gives us morphogenesis, metabolism, movement — all from one principle.",
+                "Watch it <em>forage</em>. The fish has beliefs about where food might be.",
+                "Hunger is just <em>interoceptive prediction error</em> — a belief that eating should happen.",
+                "Exploration and exploitation: the fish balances <em>epistemic</em> and <em>pragmatic</em> value.",
+                "When it spots food, precision increases. The goal becomes <em>sharply defined</em>.",
+                "Eating reduces free energy by fulfilling the prediction: <em>'I will be fed.'</em>"
+            ],
+            
+            transitionToActive: [
+                "Now watch what happens when we give the ink a <em>generative model</em> of itself...",
+                "Let's add something remarkable: <em>selfhood</em>. A model that says 'I am a fish.'",
+                "What if the ink knew what shape it <em>should</em> be?"
+            ],
+            
+            transitionToPassive: [
+                "And now, let's remove the model. Back to <em>passive</em> matter...",
+                "Without active inference, the fish <em>dissolves</em>...",
+                "Watch the Markov blanket fade. The self disperses into nothing."
+            ],
+            
+            update: function(simState) {
+                this.L = 0.01 + (simState.particles.length / 500) * 0.02;
+                this.C += this.L;
+                this.C_arch += this.L * 0.05;
+                
+                if (this.C >= this.omega) {
+                    this.C = 0;
+                    this.R = Math.exp(this.C_arch / (this.omega * 5));
+                    this.advanceNarrative(simState);
+                }
+                
+                if (this.lastMode !== simState.livingMode) {
+                    this.handleModeTransition(simState);
+                    this.lastMode = simState.livingMode;
+                }
+                
+                this.updateVisual();
+            },
+            
+            advanceNarrative: function(simState) {
+                const quotes = simState.livingMode ? this.activeQuotes : this.passiveQuotes;
+                this.currentQuoteIndex = (this.currentQuoteIndex + 1) % quotes.length;
+                this.showQuote(quotes[this.currentQuoteIndex]);
+            },
+            
+            handleModeTransition: function(simState) {
+                const transitionQuotes = simState.livingMode ? 
+                    this.transitionToActive : this.transitionToPassive;
+                const quote = transitionQuotes[Math.floor(Math.random() * transitionQuotes.length)];
+                this.showQuote(quote);
+                this.currentQuoteIndex = 0;
+                this.C_arch += 0.5;
+            },
+            
+            showQuote: function(text) {
+                const bubble = document.getElementById('speechBubble');
+                const quoteEl = document.getElementById('karlQuote');
+                bubble.classList.remove('visible');
+                setTimeout(() => {
+                    quoteEl.innerHTML = text;
+                    bubble.classList.add('visible');
+                }, 300);
+            },
+            
+            updateVisual: function() {
+                const glow = document.getElementById('karlGlow');
+                if (glow) {
+                    const intensity = 0.3 + (this.R - 1) * 0.2;
+                    glow.style.background = `radial-gradient(circle, rgba(100, 200, 255, ${intensity}) 0%, transparent 70%)`;
+                }
+            },
+            
+            init: function() {
+                setTimeout(() => {
+                    document.getElementById('speechBubble').classList.add('visible');
+                }, 1000);
+            }
+        };
+        
+        // =====================================================
+        // STATE
+        // =====================================================
+        
+        const ENV = {
+            temperature: 298,
+            kT: 4.11e-21,
+            viscosity: 1e-3,
+            fluctuationRate: 1.0,
+        };
+        
+        const state = {
+            particles: [],
+            waterMolecules: [],
+            caustics: [],
+            plankton: [],
+            food: [],           // Ink food particles
+            livingMode: false,
+            time: 0,
+            lastFoodSpawn: 0,
+            
+            origin: { x: window.innerWidth/2, y: window.innerHeight/2 },
+            
+            thermodynamicEntropy: 0,
+            spatialSpread: 0,
+            
+            variationalFreeEnergy: 0,
+            predictionError: 0,
+            precision: 0,
+            blanketIntegrity: 0,
+            
+            vfeHistory: [],
+            initialVFE: null,
+        };
+        
+        // Initialize water molecules
+        for (let i = 0; i < 150; i++) {
+            state.waterMolecules.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                vx: (Math.random() - 0.5) * 1.5,
+                vy: (Math.random() - 0.5) * 1.5,
+                size: 1 + Math.random() * 2,
+                alpha: 0.02 + Math.random() * 0.04,
+            });
+        }
+        
+        // Caustic light patterns
+        for (let i = 0; i < 15; i++) {
+            state.caustics.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                size: 100 + Math.random() * 200,
+                phase: Math.random() * Math.PI * 2,
+                speed: 0.003 + Math.random() * 0.008,
+                intensity: 0.015 + Math.random() * 0.025,
+            });
+        }
+        
+        // Ambient plankton (tiny particles in water)
+        for (let i = 0; i < 80; i++) {
+            state.plankton.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                size: 0.5 + Math.random() * 1.5,
+                alpha: 0.1 + Math.random() * 0.2,
+                drift: Math.random() * Math.PI * 2,
+                driftSpeed: 0.01 + Math.random() * 0.02,
+            });
+        }
+        
+        // =====================================================
+        // PARTICLE CLASS
+        // =====================================================
+        
+        class Particle {
+            constructor(x, y, isLiving = false, index = 0, total = 1) {
+                this.originX = x;
+                this.originY = y;
+                this.x = x + (Math.random() - 0.5) * 5;
+                this.y = y + (Math.random() - 0.5) * 5;
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 2;
+                
+                this.size = 3 + Math.random() * 3;
+                this.alpha = 0.8;
+                this.hue = isLiving ? 170 : 270;
+                
+                this.isLiving = isLiving;
+                this.index = index;
+                this.totalParticles = total;
+                
+                // CRR state
+                this.C = 0;
+                this.C_arch = 0;
+                this.omega = isLiving ? 2.5 : 0.03;
+                this.R = 1;
+                
+                // Active inference
+                this.beliefs = { x: x, y: y };
+                this.preferredScale = 1;
+                this.predictionError = 0;
+                this.type = 'body';
+                
+                this.life = 1;
+                this.age = 0;
+            }
+            
+            update(dt, totalParticles) {
+                this.age++;
+                this.totalParticles = totalParticles;
+                
+                // Environmental perturbation
+                const noise = ENV.fluctuationRate * Math.sqrt(2 * 0.1);
+                const thermalForceX = (Math.random() - 0.5) * noise;
+                const thermalForceY = (Math.random() - 0.5) * noise;
+                
+                // CRR dynamics
+                this.C += 0.01 + Math.random() * 0.02;
+                this.C_arch += 0.005;
+                
+                if (this.isLiving) {
+                    // Get preferred position from fish generative model
+                    const preferred = Fish.getPreferredPosition(this.index, this.totalParticles);
+                    this.beliefs.x = preferred.x;
+                    this.beliefs.y = preferred.y;
+                    this.type = preferred.type;
+                    this.preferredScale = preferred.scale;
+                    
+                    // Prediction error
+                    const dx = this.x - this.beliefs.x;
+                    const dy = this.y - this.beliefs.y;
+                    this.predictionError = Math.sqrt(dx*dx + dy*dy);
+                    
+                    // CRR rupture
+                    if (this.C >= this.omega) {
+                        this.C = 0;
+                        this.R = Math.exp(this.C_arch / (this.omega * 3));
+                        this.R = Math.min(this.R, 3);
+                    }
+                    
+                    // Active inference force
+                    const precision = this.R * 1.5;
+                    const dist = this.predictionError + 1;
+                    const strength = 0.25; // Strong attraction to preferred position
+                    const activeForceX = -precision * (dx / dist) * strength;
+                    const activeForceY = -precision * (dy / dist) * strength;
+                    
+                    this.vx += thermalForceX * 0.3 + activeForceX;
+                    this.vy += thermalForceY * 0.3 + activeForceY;
+                    
+                    // Higher damping = tighter formation
+                    this.vx *= 0.88;
+                    this.vy *= 0.88;
+                    
+                    // Color by anatomy type
+                    if (this.type === 'eye') {
+                        this.hue = 200;
+                        this.size = 4;
+                    } else if (this.type === 'fin') {
+                        this.hue = 150;
+                        this.size = 2.5 + Math.random();
+                    } else if (this.type === 'tail') {
+                        this.hue = 140;
+                        this.size = 2 + Math.random();
+                    } else {
+                        this.hue = 165 + this.R * 10;
+                        this.size = 3 + Math.random() * 2;
+                    }
+                    
+                } else {
+                    // Passive matter (Brownian)
+                    if (this.C >= this.omega) {
+                        this.C = 0;
+                        this.vx += (Math.random() - 0.5) * 1.5;
+                        this.vy += (Math.random() - 0.5) * 1.5;
+                    }
+                    
+                    this.vx += thermalForceX;
+                    this.vy += thermalForceY;
+                    this.vx *= 0.98;
+                    this.vy *= 0.98;
+                    this.vy += 0.01;
+                    
+                    this.life -= 0.0008;
+                    this.alpha = Math.max(0, this.life * 0.7);
+                }
+                
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Soft boundaries
+                const margin = 50;
+                const bounce = 0.3;
+                if (this.x < margin) { this.x = margin; this.vx *= -bounce; }
+                if (this.x > window.innerWidth - margin) { this.x = window.innerWidth - margin; this.vx *= -bounce; }
+                if (this.y < margin) { this.y = margin; this.vy *= -bounce; }
+                if (this.y > window.innerHeight - margin) { this.y = window.innerHeight - margin; this.vy *= -bounce; }
+                
+                return this.life > 0 && this.alpha > 0.02;
+            }
+            
+            draw(ctx) {
+                const gradient = ctx.createRadialGradient(
+                    this.x, this.y, 0,
+                    this.x, this.y, this.size * 3
+                );
+                
+                if (this.isLiving) {
+                    const sat = 65;
+                    const lit = 40 + this.R * 10;
+                    
+                    if (this.type === 'eye') {
+                        // Eyes are bright and distinct
+                        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.alpha})`);
+                        gradient.addColorStop(0.3, `rgba(200, 240, 255, ${this.alpha * 0.8})`);
+                        gradient.addColorStop(1, `rgba(100, 200, 220, 0)`);
+                    } else {
+                        gradient.addColorStop(0, `hsla(${this.hue}, ${sat}%, ${lit}%, ${this.alpha})`);
+                        gradient.addColorStop(0.4, `hsla(${this.hue}, ${sat-10}%, ${lit-5}%, ${this.alpha * 0.6})`);
+                        gradient.addColorStop(1, `hsla(${this.hue}, ${sat-20}%, ${lit-10}%, 0)`);
+                    }
+                } else {
+                    gradient.addColorStop(0, `rgba(60, 20, 80, ${this.alpha})`);
+                    gradient.addColorStop(0.3, `rgba(40, 10, 60, ${this.alpha * 0.7})`);
+                    gradient.addColorStop(0.6, `rgba(25, 5, 45, ${this.alpha * 0.3})`);
+                    gradient.addColorStop(1, `rgba(15, 0, 30, 0)`);
+                }
+                
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Inner glow for living particles
+                if (this.isLiving && this.R > 1.2) {
+                    const glow = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 1.5);
+                    glow.addColorStop(0, `rgba(150, 255, 220, ${(this.R - 1) * 0.3})`);
+                    glow.addColorStop(1, 'rgba(100, 255, 200, 0)');
+                    ctx.fillStyle = glow;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * 1.5, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+        }
+        
+        // =====================================================
+        // SIMULATION FUNCTIONS
+        // =====================================================
+        
+        function dropParticles(x, y, count = 80) {
+            state.origin = { x, y };
+            state.initialVFE = null;
+            state.vfeHistory = [];
+            
+            // Initialize fish position near drop
+            if (state.livingMode) {
+                Fish.x = x;
+                Fish.y = y;
+                Fish.angle = Math.random() * Math.PI * 2;
+            }
+            
+            const existingCount = state.particles.length;
+            
+            for (let i = 0; i < count; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const r = Math.random() * 12;
+                state.particles.push(new Particle(
+                    x + Math.cos(angle) * r,
+                    y + Math.sin(angle) * r,
+                    state.livingMode,
+                    existingCount + i,
+                    existingCount + count
+                ));
+            }
+            
+            // Update indices for all particles
+            state.particles.forEach((p, i) => {
+                p.index = i;
+                p.totalParticles = state.particles.length;
+            });
+        }
+        
+        function computeStatistics() {
+            const n = state.particles.length;
+            if (n === 0) {
+                state.thermodynamicEntropy = 0;
+                state.spatialSpread = 0;
+                state.variationalFreeEnergy = 0;
+                state.predictionError = 0;
+                state.precision = 0;
+                state.blanketIntegrity = 0;
+                return;
+            }
+            
+            // Centroid
+            let cx = 0, cy = 0;
+            state.particles.forEach(p => { cx += p.x; cy += p.y; });
+            cx /= n;
+            cy /= n;
+            
+            // Spread
+            let variance = 0;
+            state.particles.forEach(p => {
+                variance += (p.x - cx) ** 2 + (p.y - cy) ** 2;
+            });
+            state.spatialSpread = Math.sqrt(variance / n);
+            
+            if (state.livingMode) {
+                let totalPredErr = 0;
+                let totalR = 0;
+                state.particles.forEach(p => {
+                    totalPredErr += p.predictionError;
+                    totalR += p.R;
+                });
+                state.predictionError = totalPredErr / n / 100;
+                state.precision = totalR / n;
+                
+                const complexity = 0.1;
+                const rawVFE = state.predictionError + complexity;
+                
+                state.vfeHistory.push(rawVFE);
+                if (state.vfeHistory.length > 60) state.vfeHistory.shift();
+                
+                if (state.initialVFE === null && state.vfeHistory.length > 5) {
+                    state.initialVFE = state.vfeHistory[0];
+                }
+                
+                state.variationalFreeEnergy = state.vfeHistory.reduce((a,b) => a+b, 0) / state.vfeHistory.length;
+                
+                // Markov blanket: based on fish form coherence
+                const bodyParticles = state.particles.filter(p => p.type === 'body');
+                const finParticles = state.particles.filter(p => p.type === 'fin' || p.type === 'tail');
+                
+                let blanketScore = 0;
+                // Blanket integrity based on how well particles match their preferred positions
+                state.particles.forEach(p => {
+                    const dist = p.predictionError;
+                    if (dist < 30) {
+                        blanketScore += (1 - dist/30) * p.R;
+                    }
+                });
+                state.blanketIntegrity = Math.min(1, blanketScore / (n * 0.7));
+                
+            } else {
+                state.thermodynamicEntropy = Math.log(state.spatialSpread + 1) / 4;
+            }
+        }
+        
+        // =====================================================
+        // RENDERING
+        // =====================================================
+        
+        function renderEnvironment() {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            
+            // Light viridian water - like a sunlit pool or clear tropical water
+            const bg = ctx.createLinearGradient(0, 0, 0, h);
+            bg.addColorStop(0, '#7dd8c4');    // Light viridian/seafoam at top
+            bg.addColorStop(0.25, '#5cc9b5'); // Bright turquoise
+            bg.addColorStop(0.5, '#48b8a4');  // Clear viridian
+            bg.addColorStop(0.75, '#3aa894'); // Slightly deeper
+            bg.addColorStop(1, '#2d9a86');    // Rich teal at bottom
+            ctx.fillStyle = bg;
+            ctx.fillRect(0, 0, w, h);
+            
+            // Bright sunlight from above
+            const lightX = w * 0.35;
+            const lightY = -h * 0.15;
+            const light = ctx.createRadialGradient(lightX, lightY, 0, lightX, h * 0.7, h);
+            light.addColorStop(0, 'rgba(255, 255, 240, 0.35)');
+            light.addColorStop(0.2, 'rgba(255, 255, 220, 0.2)');
+            light.addColorStop(0.5, 'rgba(200, 255, 240, 0.1)');
+            light.addColorStop(1, 'rgba(150, 240, 220, 0)');
+            ctx.fillStyle = light;
+            ctx.fillRect(0, 0, w, h);
+            
+            // Secondary light source
+            const light2 = ctx.createRadialGradient(w * 0.7, -h * 0.05, 0, w * 0.7, h * 0.5, h * 0.8);
+            light2.addColorStop(0, 'rgba(255, 255, 255, 0.2)');
+            light2.addColorStop(0.3, 'rgba(220, 255, 250, 0.1)');
+            light2.addColorStop(1, 'rgba(180, 240, 230, 0)');
+            ctx.fillStyle = light2;
+            ctx.fillRect(0, 0, w, h);
+            
+            // God rays - bright shafts of light through water
+            ctx.save();
+            ctx.globalAlpha = 0.08;
+            for (let i = 0; i < 5; i++) {
+                const rayX = w * (0.15 + i * 0.18);
+                const rayWidth = 60 + Math.sin(state.time * 0.008 + i) * 25;
+                
+                const rayGrad = ctx.createLinearGradient(rayX, 0, rayX + rayWidth * 0.5, h);
+                rayGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+                rayGrad.addColorStop(0.3, 'rgba(255, 255, 240, 0.5)');
+                rayGrad.addColorStop(0.6, 'rgba(200, 255, 240, 0.2)');
+                rayGrad.addColorStop(1, 'rgba(150, 240, 220, 0)');
+                
+                ctx.fillStyle = rayGrad;
+                ctx.beginPath();
+                ctx.moveTo(rayX - rayWidth/2, 0);
+                ctx.lineTo(rayX + rayWidth/2, 0);
+                ctx.lineTo(rayX + rayWidth * 1.8, h);
+                ctx.lineTo(rayX - rayWidth * 0.6, h);
+                ctx.closePath();
+                ctx.fill();
+            }
+            ctx.restore();
+            
+            // Caustics - dancing light patterns on pool floor
+            state.caustics.forEach(c => {
+                c.phase += c.speed;
+                const x = c.x + Math.sin(c.phase) * 50;
+                const y = c.y + Math.cos(c.phase * 0.7) * 30;
+                const intensity = (c.intensity * 2.5) * (0.6 + Math.sin(c.phase * 1.3) * 0.4);
+                
+                const grad = ctx.createRadialGradient(x, y, 0, x, y, c.size);
+                grad.addColorStop(0, `rgba(255, 255, 255, ${intensity})`);
+                grad.addColorStop(0.3, `rgba(220, 255, 250, ${intensity * 0.6})`);
+                grad.addColorStop(0.6, `rgba(180, 250, 240, ${intensity * 0.3})`);
+                grad.addColorStop(1, 'rgba(150, 240, 230, 0)');
+                
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.ellipse(x, y, c.size, c.size * 0.6, Math.sin(c.phase * 0.5) * 0.3, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Plankton / suspended particles
+            state.plankton.forEach(p => {
+                p.drift += p.driftSpeed;
+                p.x += Math.sin(p.drift) * 0.3;
+                p.y += Math.cos(p.drift * 0.7) * 0.2 - 0.1;
+                
+                if (p.y < 0) p.y = h;
+                if (p.x < 0) p.x = w;
+                if (p.x > w) p.x = 0;
+                
+                ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha * 0.4})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Water molecules - sparkling particles
+            state.waterMolecules.forEach(m => {
+                m.vx += (Math.random() - 0.5) * 0.2 * ENV.fluctuationRate;
+                m.vy += (Math.random() - 0.5) * 0.2 * ENV.fluctuationRate;
+                m.vy -= 0.015;
+                m.vx *= 0.96;
+                m.vy *= 0.96;
+                m.x += m.vx;
+                m.y += m.vy;
+                
+                if (m.x < 0) m.x = w;
+                if (m.x > w) m.x = 0;
+                if (m.y < 0) m.y = h;
+                if (m.y > h) m.y = 0;
+                
+                const sparkle = 0.5 + Math.sin(state.time * 0.05 + m.x * 0.01) * 0.5;
+                const alpha = m.alpha * (1 + sparkle * 0.5);
+                
+                const particleGrad = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.size * 2);
+                particleGrad.addColorStop(0, `rgba(255, 255, 255, ${alpha * 1.5})`);
+                particleGrad.addColorStop(0.5, `rgba(220, 255, 250, ${alpha})`);
+                particleGrad.addColorStop(1, 'rgba(180, 250, 240, 0)');
+                
+                ctx.fillStyle = particleGrad;
+                ctx.beginPath();
+                ctx.arc(m.x, m.y, m.size * 2, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Subtle wave pattern overlay
+            ctx.save();
+            ctx.globalAlpha = 0.03;
+            for (let y = 0; y < h; y += 50) {
+                const waveOffset = Math.sin(state.time * 0.015 + y * 0.008) * 15;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                for (let x = 0; x < w; x += 25) {
+                    const yOffset = Math.sin(state.time * 0.012 + x * 0.015 + y * 0.004) * 4;
+                    ctx.lineTo(x, y + yOffset + waveOffset);
+                }
+                ctx.stroke();
+            }
+            ctx.restore();
+        }
+        
+        function renderMarkovBlanket() {
+            if (!state.livingMode || state.blanketIntegrity < 0.1) return;
+            if (state.particles.length < 10) return;
+            
+            // Fish outline glow - darker for contrast on light water
+            const grad = ctx.createRadialGradient(
+                Fish.x, Fish.y, 0, 
+                Fish.x, Fish.y, Fish.bodyLength * 1.5
+            );
+            grad.addColorStop(0, `rgba(0, 80, 60, ${state.blanketIntegrity * 0.15})`);
+            grad.addColorStop(0.5, `rgba(0, 100, 70, ${state.blanketIntegrity * 0.08})`);
+            grad.addColorStop(1, 'rgba(0, 80, 60, 0)');
+            
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(Fish.x, Fish.y, Fish.bodyLength * 1.5, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Subtle boundary line tracing the fish shape
+            if (state.blanketIntegrity > 0.5) {
+                ctx.strokeStyle = `rgba(0, 100, 70, ${state.blanketIntegrity * 0.4})`;
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([4, 10]);
+                ctx.beginPath();
+                
+                // Trace approximate fish outline
+                const points = 32;
+                for (let i = 0; i <= points; i++) {
+                    const t = i / points;
+                    const angle = t * Math.PI * 2;
+                    const r = Fish.bodyLength * 0.6 * (1 + 0.3 * Math.cos(angle * 2));
+                    const px = Fish.x + Math.cos(angle + Fish.angle) * r;
+                    const py = Fish.y + Math.sin(angle + Fish.angle) * r * 0.5;
+                    
+                    if (i === 0) ctx.moveTo(px, py);
+                    else ctx.lineTo(px, py);
+                }
+                ctx.closePath();
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+        }
+        
+        function updateUI() {
+            document.getElementById('fluctRate').textContent = ENV.fluctuationRate.toFixed(1);
+            
+            document.getElementById('particleCount').textContent = state.particles.length;
+            document.getElementById('particleCountActive').textContent = state.particles.length;
+            
+            if (state.livingMode) {
+                document.getElementById('vfe').textContent = state.variationalFreeEnergy.toFixed(3);
+                document.getElementById('predErr').textContent = state.predictionError.toFixed(3);
+                document.getElementById('precision').textContent = state.precision.toFixed(2);
+                document.getElementById('blanket').textContent = Math.round(state.blanketIntegrity * 100) + '%';
+                
+                document.getElementById('vfeBar').style.width = `${Math.min(100, state.variationalFreeEnergy * 200)}%`;
+                document.getElementById('predErrBar').style.width = `${Math.min(100, state.predictionError * 200)}%`;
+                document.getElementById('precisionBar').style.width = `${Math.min(100, (state.precision - 1) * 50)}%`;
+                document.getElementById('blanketBar').style.width = `${state.blanketIntegrity * 100}%`;
+                
+                const stateEl = document.getElementById('activeState');
+                if (Fish.targetFood && Fish.hunger > 0.3) {
+                    stateEl.textContent = '🎯 Hunting — pursuing food source';
+                } else if (state.initialVFE && state.variationalFreeEnergy < state.initialVFE * 0.8) {
+                    stateEl.textContent = '✓ Fish formed — exploring environment';
+                } else if (state.particles.length > 0) {
+                    stateEl.textContent = 'Assembling morphology...';
+                } else {
+                    stateEl.textContent = 'Awaiting particles...';
+                }
+            } else {
+                document.getElementById('entropy').textContent = state.thermodynamicEntropy.toFixed(3);
+                document.getElementById('spread').textContent = Math.round(state.spatialSpread);
+                document.getElementById('entropyBar').style.width = `${Math.min(100, state.thermodynamicEntropy * 80)}%`;
+                
+                const stateEl = document.getElementById('passiveState');
+                if (state.particles.length === 0) {
+                    stateEl.textContent = 'Awaiting particles...';
+                } else if (state.thermodynamicEntropy > 1) {
+                    stateEl.textContent = 'Approaching equilibrium...';
+                } else {
+                    stateEl.textContent = 'Equilibrating with environment...';
+                }
+            }
+        }
+        
+        function render() {
+            renderEnvironment();
+            
+            // Draw food particles
+            state.food.forEach(f => f.draw(ctx));
+            
+            renderMarkovBlanket();
+            state.particles.forEach(p => p.draw(ctx));
+            updateUI();
+        }
+        
+        // =====================================================
+        // ANIMATION
+        // =====================================================
+        
+        function spawnFood() {
+            // Spawn food periodically when in living mode
+            if (state.livingMode && state.food.length < 5) {
+                if (state.time - state.lastFoodSpawn > 180 + Math.random() * 120) { // Every 3-5 seconds
+                    state.food.push(new FoodParticle());
+                    state.lastFoodSpawn = state.time;
+                }
+            }
+        }
+        
+        function animate() {
+            state.time++;
+            
+            // Spawn and update food
+            spawnFood();
+            state.food = state.food.filter(f => f.update());
+            
+            // Update fish movement if in living mode
+            if (state.livingMode && state.particles.length > 0) {
+                Fish.update(16, state.food);
+            }
+            
+            // Update particles
+            const totalParticles = state.particles.length;
+            state.particles = state.particles.filter(p => p.update(16, totalParticles));
+            
+            // Re-index after filtering
+            state.particles.forEach((p, i) => {
+                p.index = i;
+                p.totalParticles = state.particles.length;
+            });
+            
+            computeStatistics();
+            Karl.update(state);
+            render();
+            requestAnimationFrame(animate);
+        }
+        
+        // =====================================================
+        // EVENT HANDLERS
+        // =====================================================
+        
+        document.getElementById('dropBtn').addEventListener('click', () => {
+            dropParticles(
+                window.innerWidth / 2 + (Math.random() - 0.5) * 100,
+                window.innerHeight / 2 + (Math.random() - 0.5) * 100
+            );
+        });
+        
+        document.getElementById('modeBtn').addEventListener('click', () => {
+            state.livingMode = !state.livingMode;
+            
+            const btn = document.getElementById('modeBtn');
+            const modeName = document.getElementById('modeName');
+            const modeSubtitle = document.getElementById('modeSubtitle');
+            const systemLabel = document.getElementById('systemLabel');
+            const passiveStats = document.getElementById('passiveStats');
+            const activeStats = document.getElementById('activeStats');
+            const fishIndicator = document.getElementById('fishIndicator');
+            
+            if (state.livingMode) {
+                btn.textContent = '💀 Dissolve';
+                btn.classList.add('active');
+                modeName.textContent = 'Life Emerges';
+                modeName.className = 'mode-name active-inf';
+                modeSubtitle.textContent = 'Active inference — foraging behavior';
+                systemLabel.textContent = 'Living System';
+                systemLabel.className = 'system-label active-inf';
+                passiveStats.style.display = 'none';
+                activeStats.style.display = 'block';
+                fishIndicator.classList.add('visible');
+                
+                // Initialize fish at particle centroid
+                if (state.particles.length > 0) {
+                    let cx = 0, cy = 0;
+                    state.particles.forEach(p => { cx += p.x; cy += p.y; });
+                    Fish.x = cx / state.particles.length;
+                    Fish.y = cy / state.particles.length;
+                }
+                
+                // Spawn initial food particles
+                state.food = [];
+                for (let i = 0; i < 3; i++) {
+                    state.food.push(new FoodParticle());
+                }
+                state.lastFoodSpawn = state.time;
+                Fish.hunger = 0.5;
+                Fish.satiation = 0;
+            } else {
+                btn.textContent = '🧬 Life Emerges';
+                btn.classList.remove('active');
+                modeName.textContent = 'Passive Matter';
+                modeName.className = 'mode-name passive';
+                modeSubtitle.textContent = 'Second Law — entropy maximization';
+                systemLabel.textContent = 'Passive Matter';
+                systemLabel.className = 'system-label passive';
+                passiveStats.style.display = 'block';
+                activeStats.style.display = 'none';
+                fishIndicator.classList.remove('visible');
+                
+                // Clear food when leaving living mode
+                state.food = [];
+            }
+            
+            // Convert existing particles
+            state.particles.forEach((p, i) => {
+                p.isLiving = state.livingMode;
+                p.omega = state.livingMode ? 2.5 : 0.03;
+                p.hue = state.livingMode ? 170 : 270;
+                p.index = i;
+                p.totalParticles = state.particles.length;
+                if (state.livingMode) {
+                    p.life = 1;
+                }
+            });
+            
+            state.vfeHistory = [];
+            state.initialVFE = null;
+        });
+        
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            state.particles = [];
+            state.vfeHistory = [];
+            state.initialVFE = null;
+        });
+        
+        canvas.addEventListener('click', (e) => {
+            dropParticles(e.clientX, e.clientY, 60);
+        });
+        
+        // Initialize
+        Karl.init();
+        setTimeout(() => dropParticles(window.innerWidth / 2, window.innerHeight / 2), 500);
+        animate();
+    </script>
+
+    </div>
+    
+    <!-- TAB 2: Figure 3.3 -->
+    <div id="tab2" class="tab-content">
+        <div class="fig33-layout">
+            <div class="fig33-title">
+                <h2>Nonequilibrium Steady State vs Dissipation</h2>
+                <div class="chapter-ref">Figure 3.3 — Chapter 3: The High Road to Active Inference</div>
+            </div>
+            
+            <!-- Quotation panel - horizontal above simulations -->
+            <div class="fig33-quote-panel">
+                <div class="quote-header">From the Textbook</div>
+                <div class="quote-text">
+                    "Path taken by a 2-dimensional random dynamical system with a <em>nonequilibrium steady state</em>. 
+                    This can be interpreted as minimizing its surprise."
+                </div>
+                <div class="quote-text">
+                    "The center is the <em>least surprising</em> region; the circles moving away from the center 
+                    represent progressively more surprising regions."
+                </div>
+                <div class="quote-text highlight-red">
+                    "In contrast, [the dissipating system's] dynamics bear no relation to surprise. 
+                    Not only does it enter <em>more surprising regions</em> of space; it also fails to achieve 
+                    any sort of steady state, <em>dissipating in an unconstrained fashion</em> over time."
+                </div>
+                <div class="quote-text">
+                    "The scope of Active Inference is restricted to systems like [the steady state]—which 
+                    <em>counter random fluctuations</em> with their average flow and thereby <em>retain their form</em> over time."
+                </div>
+                <div class="quote-source">— Parr, Pezzulo & Friston (2022), p.48-49</div>
+            </div>
+            
+            <div class="fig33-container">
+                <div class="sim-panel steady">
+                    <h3>Steady State System</h3>
+                    <canvas id="canvasSteady" class="sim-canvas" width="300" height="300"></canvas>
+                    <div class="sim-stats">
+                        Surprise: <span id="steadySurprise">0.00</span> | 
+                        Position: (<span id="steadyX">0</span>, <span id="steadyY">0</span>)
+                    </div>
+                </div>
+                
+                <div class="sim-panel dissipating">
+                    <h3>Dissipating System</h3>
+                    <canvas id="canvasDissipate" class="sim-canvas" width="300" height="300"></canvas>
+                    <div class="sim-stats">
+                        Surprise: <span id="dissipSurprise">0.00</span> | 
+                        Position: (<span id="dissipX">0</span>, <span id="dissipY">0</span>)
+                    </div>
+                </div>
+                
+                <div class="sim-panel contour">
+                    <h3>Surprise Landscape ℑ(y)</h3>
+                    <canvas id="canvasContour" class="sim-canvas" width="300" height="300"></canvas>
+                    <div class="sim-stats">
+                        Center = Low Surprise (High Probability)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fig33-legend">
+                <div class="legend-item">
+                    <div class="legend-dot steady"></div>
+                    <span>Steady state: counters fluctuations, retains form</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot dissipating"></div>
+                    <span>Dissipating: no attractor, disperses over time</span>
+                </div>
+            </div>
+            
+            <div class="fig33-controls">
+                <button class="btn" id="resetFig33">Reset</button>
+                <div class="param-slider">
+                    <label>Noise σ: <span id="noiseValue">1.0</span></label>
+                    <input type="range" id="noiseSlider" min="0.1" max="3" step="0.1" value="1.0">
+                </div>
+                <div class="param-slider">
+                    <label>Flow Strength: <span id="flowValue">1.0</span></label>
+                    <input type="range" id="flowSlider" min="0.1" max="2" step="0.1" value="1.0">
+                </div>
+                <button class="btn" id="toggleTrails">Show Trails</button>
+                <div class="fig33-equation-inline">
+                    <span class="eq-label">Dynamics:</span>
+                    <span class="eq-formula">dx = f(x)dt + σdW</span>
+                    <span class="eq-note">Steady: f(x) = −(Γ−Q)∇ℑ</span>
+                    <span class="eq-note">Dissipating: f(x) = 0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- TAB 3: Glossary -->
+    <div id="tab3" class="tab-content">
+        <div class="glossary-container">
+            <div class="glossary-title">
+                <h2>Glossary of Terms</h2>
+                <div class="glossary-subtitle">Key concepts explained in friendly language</div>
+            </div>
+            
+            <div class="glossary-grid">
+                <div class="glossary-card">
+                    <div class="term">Surprise (ℑ)</div>
+                    <div class="definition">
+                        How unexpected something is. Mathematically, it's the negative log probability: <em>ℑ(y) = −ln P(y)</em>. 
+                        If something is very likely (high probability), it has low surprise. If something is unlikely, it has high surprise.
+                        <span class="analogy">Think of it like: seeing a fish in the ocean = low surprise. Seeing a fish in your living room = high surprise!</span>
+                    </div>
+                </div>
+                
+                <div class="glossary-card">
+                    <div class="term">Free Energy (F)</div>
+                    <div class="definition">
+                        An upper bound on surprise that a system can actually compute. Living systems minimize free energy because they can't directly measure surprise. 
+                        It combines two things: how wrong your predictions are (prediction error) and how complex your beliefs are (complexity).
+                        <span class="analogy">It's like a proxy for "how badly am I doing at predicting the world right now?"</span>
+                    </div>
+                </div>
+                
+                <div class="glossary-card">
+                    <div class="term">Steady State</div>
+                    <div class="definition">
+                        A condition where a system maintains its overall pattern over time, even while constantly fluctuating. 
+                        The system doesn't freeze—it keeps moving—but it stays within a recognizable region of possibilities.
+                        <span class="analogy">Like a fish swimming in place in a current: always moving, but staying roughly where it is.</span>
+                    </div>
+                </div>
+                
+                <div class="glossary-card">
+                    <div class="term">Nonequilibrium</div>
+                    <div class="definition">
+                        A system that maintains order by constantly exchanging energy/matter with its environment. 
+                        Unlike a rock (equilibrium), living things are always processing, metabolizing, and adapting.
+                        <span class="analogy">A candle flame is nonequilibrium—it maintains its shape only by continuously burning fuel.</span>
+                    </div>
+                </div>
+                
+                <div class="glossary-card">
+                    <div class="term">Markov Blanket</div>
+                    <div class="definition">
+                        A statistical boundary that separates "inside" from "outside." It's the set of variables that mediate 
+                        all interactions between a system and its environment. Everything inside the blanket is conditionally 
+                        independent of everything outside, given the blanket itself.
+                        <span class="analogy">Like your skin: the outside world can only affect your internal organs through your skin (and other sensory surfaces).</span>
+                    </div>
+                </div>
+                
+                <div class="glossary-card">
+                    <div class="term">Active Inference</div>
+                    <div class="definition">
+                        The idea that living systems act to confirm their predictions about the world. Instead of just passively 
+                        updating beliefs based on sensory input, organisms actively change the world (or sample it differently) 
+                        to reduce prediction errors.
+                        <span class="analogy">If you predict it's warm outside and feel cold, you can either update your belief OR put on a coat (change the world to match your prediction).</span>
+                    </div>
+                </div>
+                
+                <div class="glossary-card">
+                    <div class="term">Generative Model</div>
+                    <div class="definition">
+                        An internal model of how sensory data is generated by hidden causes in the world. 
+                        It captures your brain's "theory" about what's out there and how it produces the signals you receive.
+                        <span class="analogy">Your brain's implicit guess about "what kind of world would produce these sights, sounds, and feelings?"</span>
+                    </div>
+                </div>
+                
+                <div class="glossary-card">
+                    <div class="term">Prediction Error (ε)</div>
+                    <div class="definition">
+                        The difference between what you predicted you would sense and what you actually sensed. 
+                        These errors drive learning and belief updating—and action, if you're doing active inference.
+                        <span class="analogy">Expected a sweet taste, got sour? That mismatch is prediction error.</span>
+                    </div>
+                </div>
+                
+                <div class="glossary-card">
+                    <div class="term">Precision (π)</div>
+                    <div class="definition">
+                        How much confidence or weight you give to certain predictions or prediction errors. 
+                        High precision means "pay attention to this signal, it's reliable." Low precision means "this is noisy, don't trust it too much."
+                        <span class="analogy">Like turning up the volume on important information and muting the background noise.</span>
+                    </div>
+                </div>
+                
+                <div class="glossary-card">
+                    <div class="term">Entropy</div>
+                    <div class="definition">
+                        A measure of disorder or uncertainty. In thermodynamics, it tends to increase (Second Law). 
+                        In information theory, it measures how spread out a probability distribution is. 
+                        Living systems are special because they resist entropy increase locally.
+                        <span class="analogy">A dropped egg spreads out (high entropy). Living systems are like eggs that somehow un-scramble themselves.</span>
+                    </div>
+                </div>
+                
+                <div class="glossary-card">
+                    <div class="term">Solenoidal Flow</div>
+                    <div class="definition">
+                        Rotational movement that doesn't increase or decrease surprise—it just moves along contours of equal probability. 
+                        The "Q" term in the dynamics equation. This is what makes the steady-state system spiral counterclockwise.
+                        <span class="analogy">Like a marble rolling around the inside of a bowl without climbing up or falling down—just orbiting.</span>
+                    </div>
+                </div>
+                
+                <div class="glossary-card">
+                    <div class="term">Gradient Descent</div>
+                    <div class="definition">
+                        Moving in the direction that most rapidly decreases some quantity (like surprise or free energy). 
+                        The "−Γ∇ℑ" part of the steady-state dynamics—the system flows "downhill" toward less surprising states.
+                        <span class="analogy">Like a ball rolling down a hill, always seeking the lowest point.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Credit -->
+    <div style="position: fixed; bottom: 5px; right: 10px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.3); z-index: 9999;">
+        Temporal Grammar | Alexander Sabine | Active Inference Institute | <a href="https://temporalgrammar.ai" style="color: rgba(150,200,255,0.5);">temporalgrammar.ai</a>
+    </div>
+
+    <script>
+        // =====================================================
+        // TAB NAVIGATION
+        // =====================================================
+        
+        let activeTab = 'tab1';
+        let tab1Running = true;
+        let tab2Running = false;
+        let fig33Initialized = false;
+        
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.dataset.tab;
+                
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+                
+                activeTab = tabId;
+                tab1Running = (tabId === 'tab1');
+                tab2Running = (tabId === 'tab2');
+                
+                if (tab2Running && !fig33Initialized) {
+                    initFig33();
+                    fig33Initialized = true;
+                }
+            });
+        });
+        
+        // =====================================================
+        // TAB 2: FIGURE 3.3 - STEADY STATE VS DISSIPATION
+        // =====================================================
+        
+        const canvasSteady = document.getElementById('canvasSteady');
+        const ctxSteady = canvasSteady.getContext('2d');
+        const canvasDissip = document.getElementById('canvasDissipate');
+        const ctxDissip = canvasDissip.getContext('2d');
+        const canvasContour = document.getElementById('canvasContour');
+        const ctxContour = canvasContour.getContext('2d');
+        
+        const fig33 = {
+            steadyState: { x: 0, y: 0, trail: [] },
+            dissipating: { x: 0, y: 0, trail: [] },
+            noise: 1.0,
+            flowStrength: 1.0,
+            showTrails: false,
+            time: 0
+        };
+        
+        function surprise(x, y) {
+            return 0.5 * (x*x + y*y);
+        }
+        
+        function gradSurprise(x, y) {
+            return { x: x, y: y };
+        }
+        
+        function solenoidalFlow(x, y) {
+            return { x: -y * 0.5, y: x * 0.5 };
+        }
+        
+        function initFig33() {
+            fig33.steadyState = { x: 5, y: 5, trail: [] };
+            fig33.dissipating = { x: 5, y: 5, trail: [] };
+            fig33.time = 0;
+            drawContourMap();
+            animateFig33();
+        }
+        
+        function drawContourMap() {
+            const w = 300, h = 300;
+            const scale = 15;
+            
+            for (let i = 0; i < w; i++) {
+                for (let j = 0; j < h; j++) {
+                    const x = (i - w/2) / scale;
+                    const y = (j - h/2) / scale;
+                    const s = surprise(x, y);
+                    
+                    const intensity = Math.exp(-s * 0.1);
+                    const r = Math.floor(20 + (1 - intensity) * 80);
+                    const g = Math.floor(40 + intensity * 150);
+                    const b = Math.floor(80 + intensity * 100);
+                    
+                    ctxContour.fillStyle = `rgb(${r}, ${g}, ${b})`;
+                    ctxContour.fillRect(i, j, 1, 1);
+                }
+            }
+            
+            ctxContour.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctxContour.lineWidth = 1;
+            for (let level = 1; level <= 5; level++) {
+                const radius = Math.sqrt(2 * level) * scale;
+                ctxContour.beginPath();
+                ctxContour.arc(w/2, h/2, radius, 0, Math.PI * 2);
+                ctxContour.stroke();
+            }
+            
+            ctxContour.fillStyle = 'rgba(255, 255, 255, 0.7)';
+            ctxContour.font = '10px JetBrains Mono';
+            ctxContour.fillText('ℑ(y) = -ln P(y)', 10, 20);
+            ctxContour.fillText('Low surprise', 120, 160);
+        }
+        
+        function updateFig33() {
+            const dt = 0.05;
+            const noise = fig33.noise;
+            const flow = fig33.flowStrength;
+            
+            const gradS = gradSurprise(fig33.steadyState.x, fig33.steadyState.y);
+            const solS = solenoidalFlow(fig33.steadyState.x, fig33.steadyState.y);
+            
+            const fxS = -gradS.x * flow + solS.x * flow;
+            const fyS = -gradS.y * flow + solS.y * flow;
+            
+            fig33.steadyState.x += fxS * dt + (Math.random() - 0.5) * noise * Math.sqrt(dt) * 2;
+            fig33.steadyState.y += fyS * dt + (Math.random() - 0.5) * noise * Math.sqrt(dt) * 2;
+            
+            if (fig33.showTrails) {
+                fig33.steadyState.trail.push({ x: fig33.steadyState.x, y: fig33.steadyState.y });
+                if (fig33.steadyState.trail.length > 500) fig33.steadyState.trail.shift();
+            }
+            
+            fig33.dissipating.x += (Math.random() - 0.5) * noise * Math.sqrt(dt) * 2;
+            fig33.dissipating.y += (Math.random() - 0.5) * noise * Math.sqrt(dt) * 2;
+            
+            if (fig33.showTrails) {
+                fig33.dissipating.trail.push({ x: fig33.dissipating.x, y: fig33.dissipating.y });
+                if (fig33.dissipating.trail.length > 500) fig33.dissipating.trail.shift();
+            }
+            
+            fig33.time++;
+        }
+        
+        function drawFig33System(ctx, system, color, label) {
+            const w = 300, h = 300;
+            const scale = 15;
+            
+            ctx.fillStyle = 'rgba(0, 15, 25, 0.95)';
+            ctx.fillRect(0, 0, w, h);
+            
+            ctx.strokeStyle = 'rgba(100, 150, 180, 0.2)';
+            ctx.lineWidth = 1;
+            for (let level = 1; level <= 5; level++) {
+                const radius = Math.sqrt(2 * level) * scale;
+                ctx.beginPath();
+                ctx.arc(w/2, h/2, radius, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+            ctx.beginPath();
+            ctx.moveTo(0, h/2);
+            ctx.lineTo(w, h/2);
+            ctx.moveTo(w/2, 0);
+            ctx.lineTo(w/2, h);
+            ctx.stroke();
+            
+            if (fig33.showTrails && system.trail.length > 1) {
+                ctx.strokeStyle = color.replace('0.9', '0.3');
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                for (let i = 0; i < system.trail.length; i++) {
+                    const px = w/2 + system.trail[i].x * scale;
+                    const py = h/2 + system.trail[i].y * scale;
+                    if (i === 0) ctx.moveTo(px, py);
+                    else ctx.lineTo(px, py);
+                }
+                ctx.stroke();
+            }
+            
+            const px = w/2 + system.x * scale;
+            const py = h/2 + system.y * scale;
+            
+            const glow = ctx.createRadialGradient(px, py, 0, px, py, 20);
+            glow.addColorStop(0, color);
+            glow.addColorStop(1, 'transparent');
+            ctx.fillStyle = glow;
+            ctx.beginPath();
+            ctx.arc(px, py, 20, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(px, py, 6, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.font = '10px JetBrains Mono';
+            ctx.fillText('y₁', w - 15, h/2 - 5);
+            ctx.fillText('y₂', w/2 + 5, 15);
+        }
+        
+        function renderFig33() {
+            drawFig33System(ctxSteady, fig33.steadyState, 'rgba(100, 255, 180, 0.9)', 'Steady State');
+            drawFig33System(ctxDissip, fig33.dissipating, 'rgba(255, 100, 100, 0.9)', 'Dissipating');
+            
+            document.getElementById('steadySurprise').textContent = surprise(fig33.steadyState.x, fig33.steadyState.y).toFixed(2);
+            document.getElementById('steadyX').textContent = fig33.steadyState.x.toFixed(1);
+            document.getElementById('steadyY').textContent = fig33.steadyState.y.toFixed(1);
+            
+            document.getElementById('dissipSurprise').textContent = surprise(fig33.dissipating.x, fig33.dissipating.y).toFixed(2);
+            document.getElementById('dissipX').textContent = fig33.dissipating.x.toFixed(1);
+            document.getElementById('dissipY').textContent = fig33.dissipating.y.toFixed(1);
+        }
+        
+        function animateFig33() {
+            if (tab2Running) {
+                updateFig33();
+                renderFig33();
+            }
+            requestAnimationFrame(animateFig33);
+        }
+        
+        document.getElementById('resetFig33').addEventListener('click', () => {
+            fig33.steadyState = { x: 5, y: 5, trail: [] };
+            fig33.dissipating = { x: 5, y: 5, trail: [] };
+        });
+        
+        document.getElementById('noiseSlider').addEventListener('input', (e) => {
+            fig33.noise = parseFloat(e.target.value);
+            document.getElementById('noiseValue').textContent = fig33.noise.toFixed(1);
+        });
+        
+        document.getElementById('flowSlider').addEventListener('input', (e) => {
+            fig33.flowStrength = parseFloat(e.target.value);
+            document.getElementById('flowValue').textContent = fig33.flowStrength.toFixed(1);
+        });
+        
+        document.getElementById('toggleTrails').addEventListener('click', () => {
+            fig33.showTrails = !fig33.showTrails;
+            const btn = document.getElementById('toggleTrails');
+            btn.textContent = fig33.showTrails ? 'Hide Trails' : 'Show Trails';
+            if (fig33.showTrails) btn.classList.add('active');
+            else btn.classList.remove('active');
+            
+            if (!fig33.showTrails) {
+                fig33.steadyState.trail = [];
+                fig33.dissipating.trail = [];
+            }
+        });
+    </script>
+
+</body>
+</html>
