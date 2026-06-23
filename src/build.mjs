@@ -19,6 +19,7 @@ import { directoryPage } from "./pages/directory.mjs";
 import { resourcesPage } from "./pages/resources.mjs";
 import { searchPage } from "./pages/search.mjs";
 import { simulationsPage } from "./pages/simulations.mjs";
+import { calendarPage } from "./pages/calendar.mjs";
 import { sitemapPage } from "./pages/sitemap.mjs";
 
 function build() {
@@ -32,6 +33,7 @@ function build() {
     ["directory", directoryPage],
     ["search", searchPage],
     ["simulations", simulationsPage],
+    ["calendar", calendarPage],
     ["sitemap", sitemapPage],
     ...ecosystemDomainPages().map((page) => [page.slug, () => page.html]),
   ];

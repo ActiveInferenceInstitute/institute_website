@@ -41,6 +41,10 @@
         "slug": "activities"
       },
       {
+        "label": "Calendar",
+        "slug": "calendar"
+      },
+      {
         "label": "Simulations",
         "slug": "simulations"
       },

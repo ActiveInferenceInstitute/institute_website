@@ -1486,6 +1486,28 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-09T15:00:00Z"
+    },
+    {
+      "id": "calendar-ics",
+      "label": "Institute public calendar (iCal feed)",
+      "category": "Community",
+      "url": "https://calendar.google.com/calendar/ical/c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com/public/basic.ics",
+      "sourceBasis": "Public Google Calendar iCal feed for Institute-scale activities and events.",
+      "finalUrl": "https://calendar.google.com/calendar/ical/c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com/public/basic.ics",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-23T00:00:00Z"
+    },
+    {
+      "id": "calendar-embed",
+      "label": "Institute public calendar (Google Calendar view)",
+      "category": "Community",
+      "url": "https://calendar.google.com/calendar/embed?src=c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com&ctz=UTC",
+      "sourceBasis": "Public Google Calendar web view for Institute-scale activities and events.",
+      "finalUrl": "https://calendar.google.com/calendar/embed?src=c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com&ctz=UTC",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-23T00:00:00Z"
     }
   ]
 }

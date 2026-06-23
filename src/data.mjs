@@ -87,6 +87,7 @@ export const siteData = {
     governanceGraph: loadJson(path.join("instituteos", "governance_graph.json")),
     domainProjects: loadJson(path.join("instituteos", "domain_projects.json")),
     narratives: loadJson(path.join("instituteos", "narratives_public.json")),
+    calendar: loadJson(path.join("instituteos", "calendar.json")),
   },
   pages,
 };
@@ -121,5 +122,6 @@ export const ALL_ROUTED_SLUGS = [
   "directory",
   "search",
   "simulations",
+  "calendar",
   "sitemap",
 ];

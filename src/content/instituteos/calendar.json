@@ -1,0 +1,2779 @@
+{
+  "calendarName": "~ Open Participation ~ Active Inference Institute ~",
+  "description": "Public-safe upcoming/past events from the Institute's public Google Calendar.",
+  "embedUrl": "https://calendar.google.com/calendar/embed?src=c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com&ctz=UTC",
+  "icsUrl": "https://calendar.google.com/calendar/ical/c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com/public/basic.ics",
+  "records": [
+    {
+      "allDay": false,
+      "end": "2024-01-05T19:00:00+00:00",
+      "id": "c6d4dc6b180889d2",
+      "start": "2024-01-05T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Weekly Open Hour ~ Active Inference Institute",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-08T16:00:00+00:00",
+      "id": "7b3039412078b0dd",
+      "start": "2024-01-08T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Audio-Visual Production ~ Open Meeting & Co-Working",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-08T17:00:00+00:00",
+      "id": "4f20d0f7d8347052",
+      "start": "2024-01-08T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Blockference ~ Open Meeting & Co-Working",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-11T17:30:00+00:00",
+      "id": "0b9c18e2fcd54aac",
+      "start": "2024-01-11T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Vicente Raja & Jeff Beck ~ Active Inference Insights 007 ~ The Markov Blanket Trick Debate",
+      "url": "https://youtu.be/1wxxhVjSo6w"
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-12T19:00:00",
+      "id": "1c5e3760f1f68677",
+      "start": "2024-01-12T18:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "Asia/Yerevan",
+      "title": "Journal DevOps meeting",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-12T19:00:00",
+      "id": "97d68205ef5a0e04",
+      "start": "2024-01-12T18:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "Asia/Yerevan",
+      "title": "Journal DevOps meeting",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-16T01:00:00+00:00",
+      "id": "9b967f75d05ae731",
+      "start": "2024-01-16T00:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference Ontology ~ Open Meeting & Co-Working",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-23T00:30:00+00:00",
+      "id": "82fd3af3ffe8f918",
+      "start": "2024-01-22T23:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "OrgStream #006.1 ~ d20 Governance",
+      "url": "https://www.youtube.com/watch?v=SerC9wYOMHs"
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-23T01:30:00+00:00",
+      "id": "9b967f75d05ae731",
+      "start": "2024-01-23T00:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference Ontology ~ Open Meeting & Co-Working",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-23T15:30:00+00:00",
+      "id": "bb07ba4e6255dbed",
+      "start": "2024-01-23T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Darius Parvizi-Wayne",
+      "url": "https://www.youtube.com/watch?v=3QpD4fXqQ7w"
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-25T18:00:00+00:00",
+      "id": "21fa5d9db65cacef",
+      "start": "2024-01-25T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Alexander Ororbia ~ Active Inference Insights 008 ~ Mortal Computation, Cybernetics, AI",
+      "url": "https://www.youtube.com/watch?v=oJZSGW2kCYY"
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-26T15:00:00+00:00",
+      "id": "876a8dac394bfe17",
+      "start": "2024-01-26T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathStream ~ Richard Servajean \"Introduction to Bayesian mechanics: state-based formalism (part 1)\"",
+      "url": "https://www.youtube.com/watch?v=bXOAOqJxujs"
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-29T15:00:00+00:00",
+      "id": "d4d6ed82ecd9b995",
+      "start": "2024-01-29T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 5) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-30T00:00:00+00:00",
+      "id": "56e9412d80373a11",
+      "start": "2024-01-29T23:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 6) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-02T15:00:00+00:00",
+      "id": "876a8dac394bfe17",
+      "start": "2024-02-02T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathStream ~ Richard Servajean \"Introduction to Bayesian mechanics: path-based formalism (part 2)\"",
+      "url": "https://www.youtube.com/watch?v=S-6qpCNq4uA"
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-05T15:00:00+00:00",
+      "id": "56e9412d80373a11",
+      "start": "2024-02-05T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 6) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-06T00:00:00+00:00",
+      "id": "d4d6ed82ecd9b995",
+      "start": "2024-02-05T23:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 5) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-06T18:30:00+00:00",
+      "id": "7e1d58b67c25fcb9",
+      "start": "2024-02-06T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream ~ Andrew McLuhan",
+      "url": "https://www.youtube.com/watch?v=Q0ySDpKFrPA"
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-07T17:00:00+00:00",
+      "id": "09680666b6ac3c93",
+      "start": "2024-02-07T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Action Research on Collective Foraging (Negotiation Affordances) ~ Active Inference Institute",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-08T15:00:00+00:00",
+      "id": "7da88277d87d814e",
+      "start": "2024-02-08T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl @ Active Inference Institute",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-08T18:00:00+00:00",
+      "id": "715f6a78a1d2f55c",
+      "start": "2024-02-08T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Lance Da Costa ~ Active Inference Insights 010 ~ Mathematics, Time, Selfhood",
+      "url": "https://youtu.be/kLLMB91DMPA"
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-08T22:00:00+00:00",
+      "id": "7b468e9751240fdd",
+      "start": "2024-02-08T21:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Ontology ~ Entropy Discussion",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-09T20:30:00+00:00",
+      "id": "4cba97b7e9adc4ba",
+      "start": "2024-02-09T19:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream ~ Jerry Michalski",
+      "url": "https://www.youtube.com/watch?v=FNgAL97_uwE"
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-15T21:00:00+00:00",
+      "id": "f1e4d8ecc33cadc0",
+      "start": "2024-02-15T20:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream #066.2 ~ \"Evolution of Freedom\"",
+      "url": "https://www.youtube.com/watch?v=UAtfOc3Q4_0"
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-19T15:00:00+00:00",
+      "id": "56e9412d80373a11",
+      "start": "2024-02-19T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 6) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-20T00:00:00+00:00",
+      "id": "d4d6ed82ecd9b995",
+      "start": "2024-02-19T23:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 5) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-22T18:00:00+00:00",
+      "id": "26435fc88fd4daeb",
+      "start": "2024-02-22T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Insights #012 ~ Ronald Sladky",
+      "url": "https://youtu.be/kNel8V3TFZs"
+    },
+    {
+      "allDay": false,
+      "end": "2024-02-22T22:30:00+00:00",
+      "id": "8c434e116e1dda21",
+      "start": "2024-02-22T21:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ \"The empirical status of predictive coding and active inference\"",
+      "url": "https://www.youtube.com/watch?v=nss0y1P3nso"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-02T00:00:00+00:00",
+      "id": "2cad6ebbfcef6f3c",
+      "start": "2024-03-01T23:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Open Source AI: The truth is the first casualty in war.",
+      "url": "https://www.youtube.com/watch?v=jI3wnTbpkNo"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-03T20:30:00+00:00",
+      "id": "8f52e2677cd88f5c",
+      "start": "2024-03-03T19:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Lachlan Kent",
+      "url": "https://youtube.com/live/ps3B2dfmK5Y"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-04T15:00:00+00:00",
+      "id": "56e9412d80373a11",
+      "start": "2024-03-04T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 6) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-05T00:00:00+00:00",
+      "id": "d4d6ed82ecd9b995",
+      "start": "2024-03-04T23:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 5) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-05T23:30:00+00:00",
+      "id": "24cf19c19585c246",
+      "start": "2024-03-05T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Jonathan Gorard ~ Livestream",
+      "url": "https://www.youtube.com/watch?v=I3rhsT-8isk"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-06T19:30:00+00:00",
+      "id": "47cc2cabb85ad5ed",
+      "start": "2024-03-06T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Narrative Fallacy and Other Limitations of Psychodynamic Case Formulation",
+      "url": "https://www.youtube.com/watch?v=XX61J32RT9g"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-07T18:00:00+00:00",
+      "id": "cb7ae13020c0584f",
+      "start": "2024-03-07T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Alex Kiefer ~ Active Inference Insights 014 ~ Representations, Predictive Coding, Teleology",
+      "url": "https://youtu.be/HIvGyLlZx4I"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-14T01:30:00+00:00",
+      "id": "f1264b8dae8fc248",
+      "start": "2024-03-14T00:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream ~ Tadayuki Matsumura 松村忠幸, Hiroyuki Mizuno 水野弘之, Kanako Esaki 江﨑佳奈子",
+      "url": "https://www.youtube.com/watch?v=vixLMftkUK0"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-14T15:00:00+00:00",
+      "id": "7da88277d87d814e",
+      "start": "2024-03-14T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl @ Active Inference Institute",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-14T16:00:00+00:00",
+      "id": "4768adee22f2de8b",
+      "start": "2024-03-14T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Michael Levin & Franz Kuchling ~ Active Inference Insights 015 ~ Morphogenesis, Bayesian, Teleonomy",
+      "url": "https://youtu.be/v6ddfMkuSpo"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-18T15:00:00+00:00",
+      "id": "56e9412d80373a11",
+      "start": "2024-03-18T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 6) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-19T00:00:00+00:00",
+      "id": "d4d6ed82ecd9b995",
+      "start": "2024-03-18T23:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 5) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-20T20:30:00+00:00",
+      "id": "0ad79ec380fdf83c",
+      "start": "2024-03-20T19:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Jamie Joyce & John Ash",
+      "url": "https://www.youtube.com/watch?v=cPv4TVBFANc"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-21T15:00:00+00:00",
+      "id": "7da88277d87d814e",
+      "start": "2024-03-21T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl @ Active Inference Institute",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-21T15:30:00+00:00",
+      "id": "490685b1f1740d46",
+      "start": "2024-03-21T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Wanja Wiese ~ Active Inference Insights 016 ~ Consciousness, Information Geometry, Ethical AI",
+      "url": "https://youtu.be/uO1QgxI9B3g"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-26T13:00:00+00:00",
+      "id": "be1db793e5bd57f7",
+      "start": "2024-03-26T12:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Wellness Science through the Lens of Active Inference",
+      "url": "https://www.youtube.com/watch?v=E6DZTYdQJik"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-28T15:00:00+00:00",
+      "id": "13fafa74185d7dca",
+      "start": "2024-03-28T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl @ Active Inference Institute",
+      "url": "http://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-28T15:30:00+00:00",
+      "id": "2c0357cb417c6ea5",
+      "start": "2024-03-28T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Mark Solms ~ Active Inference Insights 017 ~ Affect, Consciousness, Dreams",
+      "url": "https://youtu.be/gpUuttKJoDM"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-29T14:30:00+00:00",
+      "id": "1c7ad6244f40bd5d",
+      "start": "2024-03-29T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathStream: \"Generalized Decomposition of Multivariate Information\"",
+      "url": "https://www.youtube.com/watch?v=3iY8ICcmd2E"
+    },
+    {
+      "allDay": false,
+      "end": "2024-03-29T18:00:00+00:00",
+      "id": "8da26b1344ad81f0",
+      "start": "2024-03-29T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RoundTable 2024.1",
+      "url": "https://www.youtube.com/watch?v=Ln_g3qynnbA"
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-01T15:00:00+00:00",
+      "id": "56e9412d80373a11",
+      "start": "2024-04-01T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 6) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-02T00:00:00+00:00",
+      "id": "d4d6ed82ecd9b995",
+      "start": "2024-04-01T23:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 5) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-03T13:30:00+00:00",
+      "id": "24482b1e31da5e38",
+      "start": "2024-04-03T12:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream: \"The Police Hunch: The Bayesian Brain, Active Inference, and the Free Energy Principle in Action\"",
+      "url": "https://www.youtube.com/watch?v=xgMW47d8H2k"
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-03T16:30:00+00:00",
+      "id": "8f18885f06066912",
+      "start": "2024-04-03T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream: \"What could come before time? Intertwining affectivity and temporality at the basis of intentionality\"",
+      "url": "https://www.youtube.com/watch?v=BcepTxAv_xI"
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-04T00:30:00+00:00",
+      "id": "ace2982dba395e50",
+      "start": "2024-04-03T23:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream ~ \"Meta-representations as representations of processes\"",
+      "url": "https://www.youtube.com/watch?v=7AtInJ-q7Hk"
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-04T13:30:00+00:00",
+      "id": "a2f554099a9fbb9a",
+      "start": "2024-04-04T12:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ModelStream 010.1 ~ Building a Drone with RxInfer.jl",
+      "url": "https://www.youtube.com/watch?v=TZNXs5jP9hE"
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-09T00:30:00+00:00",
+      "id": "9b967f75d05ae731",
+      "start": "2024-04-09T00:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference Ontology ~ Open Meeting & Co-Working",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-09T18:00:00+00:00",
+      "id": "2e352b47b13f0a88",
+      "start": "2024-04-09T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "OrgStream ~ Governable Spaces: Democratic Design for Online Life",
+      "url": "https://www.youtube.com/watch?v=KwFpamHzmUc"
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-15T15:00:00+00:00",
+      "id": "56e9412d80373a11",
+      "start": "2024-04-15T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 6) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-16T00:00:00+00:00",
+      "id": "d4d6ed82ecd9b995",
+      "start": "2024-04-15T23:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Textbook Group (Cohort 5) ~ Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-18T16:30:00+00:00",
+      "id": "6a67970b141f47f9",
+      "start": "2024-04-18T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Kathryn Nave ~ Agency, Vision, Life",
+      "url": "https://youtu.be/2hLeKUdOUrg"
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-22T14:30:00+00:00",
+      "id": "0e7ad596a0dafb6c",
+      "start": "2024-04-22T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream ~ ActInf goes to school",
+      "url": "https://www.youtube.com/watch?v=viJt9sFqWdg"
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-24T03:30:00+00:00",
+      "id": "fb2e7efb07792091",
+      "start": "2024-04-24T02:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #081.1 ~ Arousal coherence, uncertainty, and well-being: an active inference account",
+      "url": "https://www.youtube.com/watch?v=Q-_YCWfO0b0"
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-25T17:00:00+00:00",
+      "id": "535e43d255e49a16",
+      "start": "2024-04-25T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Thomas Metzinger ~ Active Inference Insights 021 ~ Pure Awareness, Self-Models, Phenomenal Transparency",
+      "url": "https://youtu.be/IjWBAyJeCsc"
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-26T14:30:00+00:00",
+      "id": "fcab34ab6af9e526",
+      "start": "2024-04-26T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Order and change in art",
+      "url": "https://www.youtube.com/watch?v=q_fAglCMvPw"
+    },
+    {
+      "allDay": false,
+      "end": "2024-04-29T14:30:00+00:00",
+      "id": "28ab3c18a9d6a56e",
+      "start": "2024-04-29T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream ~ Robert Worden, Bayesian Model-Based Cognition: The Requirement Equation",
+      "url": "https://www.youtube.com/watch?v=6gw6KEX10vo"
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-03T18:00:00+00:00",
+      "id": "a0b578ff894984b1",
+      "start": "2024-05-03T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt at the Institute ~ Initial Planning Meeting",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-10T18:30:00+00:00",
+      "id": "5f1ea4dfd55488a6",
+      "start": "2024-05-10T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Simon Wardley ~ GuestStream #083.1",
+      "url": "https://www.youtube.com/watch?v=15n6WN9jGrY"
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-16T14:30:00+00:00",
+      "id": "732e00f76fc0a301",
+      "start": "2024-05-16T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl @ Active Inference Institute",
+      "url": "http://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-16T15:30:00+00:00",
+      "id": "8cf2609e938cc496",
+      "start": "2024-05-16T14:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ModelStream #010.2",
+      "url": "https://www.youtube.com/watch?v=ygmAhA18mkQ"
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-17T13:30:00+00:00",
+      "id": "50bab018f8eb6cab",
+      "start": "2024-05-17T12:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "2024 Textbook Group ~ Intermission collaboration",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-17T18:00:00+00:00",
+      "id": "25cd44d2195b0246",
+      "start": "2024-05-17T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt ~ Introducing MathArt Conversations",
+      "url": "https://www.youtube.com/watch?v=9DNxiBDYLzg"
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-17T18:00:00+00:00",
+      "id": "25cd44d2195b0246",
+      "start": "2024-05-17T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt ~ Weekly meeting",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-21T14:00:00+00:00",
+      "id": "b69760c76bafc4b3",
+      "start": "2024-05-21T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Audio-Visual Production ~ Open Meeting & Co-Working",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-22T14:00:00+00:00",
+      "id": "0d121e4e0dcb2679",
+      "start": "2024-05-22T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "2024 Textbook Group ~ Intermission collaboration",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-23T21:00:00+00:00",
+      "id": "abf104867a224bbf",
+      "start": "2024-05-23T20:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Blockference ~ Open Meeting & Co-Working",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-24T14:00:00+00:00",
+      "id": "a13b8535102f540b",
+      "start": "2024-05-24T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference Ontology ~ Open Meeting & Co-Working",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-24T19:30:00+00:00",
+      "id": "25cd44d2195b0246",
+      "start": "2024-05-24T18:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt ~ Towards Tractable Insights: Dynamics and Immersion in, out and between MathArt",
+      "url": "https://www.youtube.com/watch?v=XQKjFV-pCXQ"
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-24T21:30:00+00:00",
+      "id": "bab459747d280c37",
+      "start": "2024-05-24T20:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream #057.0",
+      "url": "https://www.youtube.com/watch?v=GoXtkxLGkjQ"
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-28T18:00:00+00:00",
+      "id": "f040567a49e43fef",
+      "start": "2024-05-28T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream #057.1",
+      "url": "https://www.youtube.com/watch?v=N0ozoxTgWD0"
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-29T00:00:00+00:00",
+      "id": "a7e9f78715ff638f",
+      "start": "2024-05-28T23:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "2024 Textbook Group ~ Intermission collaboration",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-30T21:00:00+00:00",
+      "id": "c1d95790d3d645f6",
+      "start": "2024-05-30T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Jesse G \"The Nature of Habits and Agential Systems\"",
+      "url": "https://www.youtube.com/watch?v=Fc7bUNNdTfY"
+    },
+    {
+      "allDay": false,
+      "end": "2024-05-31T18:00:00+00:00",
+      "id": "25cd44d2195b0246",
+      "start": "2024-05-31T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt ~ Categorical Mental Imagery: Visualizing the 4th Spatial Dimension",
+      "url": "https://www.youtube.com/live/WnC3mZ1TAxk"
+    },
+    {
+      "allDay": false,
+      "end": "2024-06-03T14:30:00+00:00",
+      "id": "e2e1df436408e88d",
+      "start": "2024-06-03T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream #082.2 ~ Robert Worden",
+      "url": "https://www.youtube.com/watch?v=gMPa_xoOctU"
+    },
+    {
+      "allDay": false,
+      "end": "2024-06-04T17:00:00+00:00",
+      "id": "fa0154afa6543628",
+      "start": "2024-06-04T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream #057.2",
+      "url": "https://www.youtube.com/watch?v=qztkjHf2g3g"
+    },
+    {
+      "allDay": false,
+      "end": "2024-06-20T16:00:00+00:00",
+      "id": "dc4fa4a1ac178e90",
+      "start": "2024-06-20T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Audio-Visual Production ~ Open Meeting & Co-Working",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-06-20T22:00:00+00:00",
+      "id": "b8662289993b09e7",
+      "start": "2024-06-20T21:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Blockference ~ Open Meeting & Co-Working",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-06-21T19:00:00+00:00",
+      "id": "e3244a4f563320ae",
+      "start": "2024-06-21T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference Ontology ~ Open Meeting & Co-Working",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-06-26T18:30:00+00:00",
+      "id": "c41d5e36d569bec1",
+      "start": "2024-06-26T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ModelStream ~ Hadi Vafaii",
+      "url": "https://www.youtube.com/live/Y9hP79tBXHo"
+    },
+    {
+      "allDay": false,
+      "end": "2024-06-27T01:30:00+00:00",
+      "id": "d7dec05d591fb89c",
+      "start": "2024-06-27T00:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ An Active Inference Model of the Optimism Bias",
+      "url": "https://www.youtube.com/live/u0y-NFl8emU"
+    },
+    {
+      "allDay": false,
+      "end": "2024-06-28T20:00:00+00:00",
+      "id": "838748062a698573",
+      "start": "2024-06-28T19:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "2024 Quarterly Roundtable #2",
+      "url": "https://youtube.com/live/VLP_jV_KRhc"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-03T17:00:00+00:00",
+      "id": "08fcb4f3e9a23229",
+      "start": "2024-07-03T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Open discussion & Updates from Research Fellows",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-03T17:00:00+00:00",
+      "id": "08fcb4f3e9a23229",
+      "start": "2024-07-03T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Open discussion & Updates from Research Fellows",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-08T14:30:00+00:00",
+      "id": "ee2be73d32c8220e",
+      "start": "2024-07-08T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ArtStream ~ Aenne Brielmann",
+      "url": "https://www.youtube.com/live/UD-VfVJ41WA"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-08T17:00:00+00:00",
+      "id": "ee9416434c0bbf48",
+      "start": "2024-07-08T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference Insights 024 ~ Darius Parvizi-Wayne (Season Finale // Reflection)",
+      "url": "https://www.youtube.com/live/1Xu8jYKWsGM"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-10T17:00:00+00:00",
+      "id": "b9cb0749d6b0443c",
+      "start": "2024-07-10T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Open discussion & Updates from Research Fellows",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-12T18:00:00+00:00",
+      "id": "25cd44d2195b0246",
+      "start": "2024-07-12T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt ~ Kirby Urner: “Dimension” in Synergetics",
+      "url": "https://www.youtube.com/live/i9oij02oje0"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-15T14:00:00+00:00",
+      "id": "5a466967cbaf4ea0",
+      "start": "2024-07-15T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohorts 6 & 7",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-15T23:00:00+00:00",
+      "id": "7d65fa82aeedc39f",
+      "start": "2024-07-15T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohorts 6 & 7",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-17T14:00:00+00:00",
+      "id": "cb81345000fa79ae",
+      "start": "2024-07-17T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream ~ Joshua Bongard",
+      "url": "https://www.youtube.com/live/yknM6SFlPPc"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-18T15:30:00+00:00",
+      "id": "02cd537628c0ad38",
+      "start": "2024-07-18T14:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Anna Pereira ~ GuestStream #076.2",
+      "url": "https://www.youtube.com/live/s8MLTd_HzRc"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-19T15:00:00+00:00",
+      "id": "d0fda82245e5aaaf",
+      "start": "2024-07-19T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Math Discussion with Octopus",
+      "url": "https://octopus.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-22T12:30:00+00:00",
+      "id": "2675cadc75691788",
+      "start": "2024-07-22T11:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf GuestStream ~ Milliere & Rathkopf",
+      "url": "https://www.youtube.com/live/Wn65WcYGQSA"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-22T17:30:00+00:00",
+      "id": "8e4c16cf5c25c323",
+      "start": "2024-07-22T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream ~ The Projective Wave Theory of Consciousness",
+      "url": "https://www.youtube.com/live/IvY4acL8YeA"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-23T13:00:00+00:00",
+      "id": "8f664e63c7106f78",
+      "start": "2024-07-23T12:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Math Discussion with Octopus",
+      "url": "https://octopus.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-26T18:00:00+00:00",
+      "id": "25cd44d2195b0246",
+      "start": "2024-07-26T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArtStream 5 ~ Visualizing the 4th Dimension II: Retinal Path and 5D",
+      "url": "https://www.youtube.com/live/MUcsN43HPoI"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-29T17:30:00+00:00",
+      "id": "0072d17b9ee57741",
+      "start": "2024-07-29T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream #082.4 ~ Active Inference Institute",
+      "url": "https://www.youtube.com/live/zqOcywx40n8"
+    },
+    {
+      "allDay": false,
+      "end": "2024-07-31T17:00:00+00:00",
+      "id": "b9cb0749d6b0443c",
+      "start": "2024-07-31T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Open discussion & Updates from Research Fellows",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-02T18:00:00+00:00",
+      "id": "1967e1d36c3a6606",
+      "start": "2024-08-02T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt 6 ~ Dementors, Animagus and Episodic Memory: an Active Inference exploration of “Harry Potter and the Prisoner of Azkaban",
+      "url": "https://www.youtube.com/live/qDilepcGCNs"
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-02T18:00:00+00:00",
+      "id": "1967e1d36c3a6606",
+      "start": "2024-08-02T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt ~ Weekly meeting",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-05T17:30:00+00:00",
+      "id": "6349869b7da8e3a9",
+      "start": "2024-08-05T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "FieldSHIFT-2: Fully Synthetic Dissertations for All-by-All Shifted Domains",
+      "url": "https://www.youtube.com/live/6E4CpJvzddg"
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-05T19:30:00+00:00",
+      "id": "2d4b65234012bc7c",
+      "start": "2024-08-05T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf GuestStream 085.1 ~ David Bloomin: \"[Deep] Learning Active Inference\"",
+      "url": "https://www.youtube.com/live/UB-TIIlmwlU"
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-12T17:30:00+00:00",
+      "id": "cabb0979ef545be1",
+      "start": "2024-08-12T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf MathStream #011.1 ~ Structured Active Inference",
+      "url": "https://www.youtube.com/live/IPiazKlNZ4g"
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-14T17:00:00+00:00",
+      "id": "b9cb0749d6b0443c",
+      "start": "2024-08-14T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Open discussion & Updates from Research Fellows",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-16T18:00:00+00:00",
+      "id": "1967e1d36c3a6606",
+      "start": "2024-08-16T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt ~ Dementors, Animagus and Episodic Memory: an Active Inference exploration of Harry Potter and the Prisoner of Azkaban Part II",
+      "url": "https://www.youtube.com/live/dtw7RaxaFTo"
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-19T23:00:00+00:00",
+      "id": "7d65fa82aeedc39f",
+      "start": "2024-08-19T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 7 ~ Open/General session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-20T01:30:00+00:00",
+      "id": "4478326ecb3054bf",
+      "start": "2024-08-20T00:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Biological Neurons Compete with Deep Reinforcement Learning in Sample Efficiency in a Simulated Gameworld",
+      "url": "https://www.youtube.com/live/pYJUgEqS42U"
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-21T23:30:00+00:00",
+      "id": "b881bbee955d25f1",
+      "start": "2024-08-21T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Neurodivergent Learning",
+      "url": "https://meet.google.com/rxw-wqsj-wyf"
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-23T20:30:00+00:00",
+      "id": "096fb39ecdcef2f8",
+      "start": "2024-08-23T19:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ModelStream #013.1 ~ Synthesizing the Born rule with reinforcement learning",
+      "url": "https://www.youtube.com/live/MUaKYWKs0kk"
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-26T14:00:00+00:00",
+      "id": "5a466967cbaf4ea0",
+      "start": "2024-08-26T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 7 ~ Chapter 3",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-26T23:00:00+00:00",
+      "id": "7d65fa82aeedc39f",
+      "start": "2024-08-26T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 6 ~ Chapter 8",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-08-31T23:00:00+00:00",
+      "id": "f618e12c6eb12fa3",
+      "start": "2024-08-31T21:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream 003.1 ~ Systems Within Systems: Blake, FOIA, Cognitive Sovereignty, and PyMDP",
+      "url": "https://www.youtube.com/live/_OYKnrktAOU"
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-02T14:00:00+00:00",
+      "id": "5a466967cbaf4ea0",
+      "start": "2024-09-02T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 6 ~ Chapter 8",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-02T23:00:00+00:00",
+      "id": "7d65fa82aeedc39f",
+      "start": "2024-09-02T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 7 ~ Chapter 3",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-05T20:30:00+00:00",
+      "id": "b8dd2a144f9ab556",
+      "start": "2024-09-05T19:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #087.1",
+      "url": "https://www.youtube.com/live/0Cx5MTNxs-0"
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-06T17:30:00+00:00",
+      "id": "1967e1d36c3a6606",
+      "start": "2024-09-06T16:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt Stream #8",
+      "url": "https://www.youtube.com/live/yIS0OW2o18s"
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-09T14:00:00+00:00",
+      "id": "5a466967cbaf4ea0",
+      "start": "2024-09-09T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 7 ~ Open/General session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-09T15:30:00+00:00",
+      "id": "c69ba314934747bc",
+      "start": "2024-09-09T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ArtStream #003.1 ~ A model of time-varying music engagement",
+      "url": "https://www.youtube.com/live/ZfGRa_n4gB4"
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-09T23:00:00+00:00",
+      "id": "7d65fa82aeedc39f",
+      "start": "2024-09-09T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 6 ~ Applying Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-10T17:30:00+00:00",
+      "id": "efcdc518243fdb19",
+      "start": "2024-09-10T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #087.2",
+      "url": "https://www.youtube.com/live/52eHP5ReG34"
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-13T20:30:00+00:00",
+      "id": "d84268a0b6dbc66e",
+      "start": "2024-09-13T19:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream: Ran Wei \"Value of Information and Reward Specification in Active Inference and POMDPs\"",
+      "url": "https://www.youtube.com/live/Me3BitlU6Vs"
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-16T14:00:00+00:00",
+      "id": "5a466967cbaf4ea0",
+      "start": "2024-09-16T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 6 ~ Chapter 9",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-16T23:00:00+00:00",
+      "id": "7d65fa82aeedc39f",
+      "start": "2024-09-16T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 7 ~ Chapter 4",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-17T14:30:00+00:00",
+      "id": "b1249843f43ab772",
+      "start": "2024-09-17T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference Livestream ~ Abdulrahman: What is the Limit of Our Brains in Predicting Future Events?",
+      "url": "https://www.youtube.com/live/m__QjVPk98Y"
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-18T17:00:00+00:00",
+      "id": "b9cb0749d6b0443c",
+      "start": "2024-09-18T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Open discussion & Updates from Research Fellows",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-23T14:00:00+00:00",
+      "id": "5a466967cbaf4ea0",
+      "start": "2024-09-23T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 7 ~ Chapter 4",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-23T23:00:00+00:00",
+      "id": "7d65fa82aeedc39f",
+      "start": "2024-09-23T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 6 ~ Chapter 9",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-30T14:00:00+00:00",
+      "id": "5a466967cbaf4ea0",
+      "start": "2024-09-30T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 6 ~ Applying Active Inference",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-30T15:30:00+00:00",
+      "id": "107a837f411ba9d0",
+      "start": "2024-09-30T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #089.1 ~ Generic framework for a coherent integration of experience and exposure rating in reinsurance",
+      "url": "https://www.youtube.com/live/esn5C4i9Jlc"
+    },
+    {
+      "allDay": false,
+      "end": "2024-09-30T23:00:00+00:00",
+      "id": "7d65fa82aeedc39f",
+      "start": "2024-09-30T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 7 ~ Open/General session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-01T17:00:00+00:00",
+      "id": "ebae75b9f7031ef5",
+      "start": "2024-10-01T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Institute Roundtable 3",
+      "url": "https://youtube.com/live/tlDnkNGVK1Y"
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-04T19:00:00",
+      "id": "5aaffccc59668e82",
+      "start": "2024-10-04T18:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "Asia/Yerevan",
+      "title": "Journal DevOps meeting",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-07T14:00:00+00:00",
+      "id": "5a466967cbaf4ea0",
+      "start": "2024-10-07T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 7 ~ Chapter 5",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-07T23:00:00+00:00",
+      "id": "7d65fa82aeedc39f",
+      "start": "2024-10-07T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 6 ~ Chapter 10",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-11T15:00:00+00:00",
+      "id": "cc975f4653fef5ad",
+      "start": "2024-10-11T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "FarmWorks ~ Active Inference modeling",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-14T14:00:00+00:00",
+      "id": "5a466967cbaf4ea0",
+      "start": "2024-10-14T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 6 ~ Chapter 10",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-14T23:00:00+00:00",
+      "id": "7d65fa82aeedc39f",
+      "start": "2024-10-14T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 7 ~ Chapter 5",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-16T14:00:00+00:00",
+      "id": "904fc24f0fe2f378",
+      "start": "2024-10-16T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "The UBI Experiment ~ Open meetings",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-17T02:00:00+00:00",
+      "id": "c1530ef663466009",
+      "start": "2024-10-17T00:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream 005.1 ~ FORMINDEX: FORMIS INtegrated Database EXploration",
+      "url": "https://www.youtube.com/live/gWJ-rG8UuFg"
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-21T14:00:00+00:00",
+      "id": "5a466967cbaf4ea0",
+      "start": "2024-10-21T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 7 ~ Open/General session",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-21T23:00:00+00:00",
+      "id": "7d65fa82aeedc39f",
+      "start": "2024-10-21T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf Textbook Group ~ Cohort 6 ~ Applying Active Inference & Next steps",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-22T23:00:00+00:00",
+      "id": "aca31b1a0ff7b1b3",
+      "start": "2024-10-22T21:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ModelStream #015.0",
+      "url": "https://www.youtube.com/live/wAd-ARzquj8"
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-23T17:00:00+00:00",
+      "id": "d5bfffc9b58b02c1",
+      "start": "2024-10-23T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Open discussion & Updates from Research Fellows",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-25T18:00:00+00:00",
+      "id": "24d13cfbb6babff1",
+      "start": "2024-10-25T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt Stream ~ All things mirrored bɘɿoɿɿim ƨϱniʜɈ llA: A speculation into the effects of reflection(s), duplication and symmetry through Active Inference",
+      "url": "https://www.youtube.com/live/irpsxu304-0"
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-29T16:00:00+00:00",
+      "id": "463bb1ba1c54d1fa",
+      "start": "2024-10-29T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "#058.0 ~ From pixels to planning: scale-free active inference",
+      "url": "https://www.youtube.com/live/_zW1BrLwACY"
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-30T17:00:00+00:00",
+      "id": "96cfb5e8eca1384b",
+      "start": "2024-10-30T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Open discussion & Updates from Research Fellows",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-30T17:45:00+00:00",
+      "id": "1d5eb3a33cf355d9",
+      "start": "2024-10-30T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "CogNarr Ecosystem project",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2024-10-31T20:00:00+00:00",
+      "id": "ec204dcaab180d3d",
+      "start": "2024-10-31T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream: Benjamin Nelson",
+      "url": "https://www.youtube.com/live/8mGBPhgYGCo"
+    },
+    {
+      "allDay": false,
+      "end": "2024-11-01T18:00:00+00:00",
+      "id": "a47a690307fac31a",
+      "start": "2024-11-01T16:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference Livestream ~ Dall'Aglio et al. Consciousness Enjoying Uncertainty: Lacan, Neuropsychoanalysis, and Dual-Aspect Monism",
+      "url": "https://www.youtube.com/live/b8meLjc8XHE"
+    },
+    {
+      "allDay": false,
+      "end": "2024-11-04T02:00:00+00:00",
+      "id": "c3db9fc80244e448",
+      "start": "2024-11-04T00:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream 006.1 ~ Towards (Open Source, Active Inference) Bioregional Biofirm Modeling",
+      "url": "https://www.youtube.com/live/QyOslBrs2qA"
+    },
+    {
+      "allDay": false,
+      "end": "2024-11-07T17:00:00+00:00",
+      "id": "eb43dc4cee4f357f",
+      "start": "2024-11-07T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream #058.1 ~ From pixels to planning: scale-free active inference",
+      "url": "https://www.youtube.com/live/OPapscuD05s"
+    },
+    {
+      "allDay": false,
+      "end": "2024-11-12T02:30:00+00:00",
+      "id": "bf4af8106e3e04c6",
+      "start": "2024-11-12T01:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream ~ Max Aifer",
+      "url": "https://www.youtube.com/live/DAZNlhxOhSg"
+    },
+    {
+      "allDay": false,
+      "end": "2024-11-14T00:00:00+00:00",
+      "id": "5120ceda7c2a54d8",
+      "start": "2024-11-13T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Applied Active Inference Symposium ~ Livestream 1",
+      "url": "https://www.youtube.com/live/ee6_mNOfP38"
+    },
+    {
+      "allDay": false,
+      "end": "2024-11-15T00:00:00+00:00",
+      "id": "de34b10db2daed35",
+      "start": "2024-11-14T12:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Applied Active Inference Symposium ~ Livestream 2",
+      "url": "https://www.youtube.com/live/fWOuX8NuQck"
+    },
+    {
+      "allDay": false,
+      "end": "2024-12-06T18:30:00+00:00",
+      "id": "8170261616cf436e",
+      "start": "2024-12-06T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ModelStream ~ Eli Sennesh",
+      "url": "https://www.youtube.com/live/pNfQqKXUdic"
+    },
+    {
+      "allDay": false,
+      "end": "2024-12-10T14:30:00+00:00",
+      "id": "720a1a17798a9fd3",
+      "start": "2024-12-10T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference ArtStream ~ Karin Kukkonen",
+      "url": "https://www.youtube.com/watch?v=x6rwST67ugU"
+    },
+    {
+      "allDay": false,
+      "end": "2024-12-13T14:30:00+00:00",
+      "id": "f99a3c5c537d4b0f",
+      "start": "2024-12-13T13:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf GuestStream 093.1 ~ Nassim Dehouche \"Enhancing Population-based Search with Active Inference\"",
+      "url": "https://www.youtube.com/live/GVsBiTn_E6o"
+    },
+    {
+      "allDay": false,
+      "end": "2024-12-13T18:00:00+00:00",
+      "id": "f871c292ed6e82a4",
+      "start": "2024-12-13T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt Stream ~ Mathematical Holiday Poetry",
+      "url": "https://www.youtube.com/live/8_6mkCB-Mr0"
+    },
+    {
+      "allDay": false,
+      "end": "2024-12-16T02:00:00+00:00",
+      "id": "08224b3d8f7bc8cb",
+      "start": "2024-12-16T01:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream 008.1 ~ Onboarding to Active Inference across backgrounds & languages",
+      "url": "https://www.youtube.com/live/h_tO7gZH2Ks"
+    },
+    {
+      "allDay": false,
+      "end": "2024-12-17T17:30:00+00:00",
+      "id": "635c335ce76dba74",
+      "start": "2024-12-17T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Free Energy Projective Simulation (FEPS): Active inference with interpretability",
+      "url": "https://www.youtube.com/live/1Qr7um2W-Rc"
+    },
+    {
+      "allDay": false,
+      "end": "2024-12-19T18:30:00+00:00",
+      "id": "df0adf29d2c2de02",
+      "start": "2024-12-19T17:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Quarterly Roundtable 4",
+      "url": "https://www.youtube.com/watch?v=bK3lIWs23RE"
+    },
+    {
+      "allDay": false,
+      "end": "2024-12-20T19:30:00+00:00",
+      "id": "5c938948cd390528",
+      "start": "2024-12-20T18:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "2024 ReviewStream",
+      "url": "https://www.youtube.com/live/S8z_Y95WBeE"
+    },
+    {
+      "allDay": false,
+      "end": "2024-12-27T02:00:00+00:00",
+      "id": "d5756c1d4e3bd928",
+      "start": "2024-12-27T01:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream #009.1",
+      "url": "https://www.youtube.com/live/cmPPvfElkCE"
+    },
+    {
+      "allDay": false,
+      "end": "2025-01-08T14:00:00+00:00",
+      "id": "d532b351dda055aa",
+      "start": "2025-01-08T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "The UBI Experiment ~ Open meetings",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-01-09T18:00:00+00:00",
+      "id": "267460f1633dbc41",
+      "start": "2025-01-09T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Blockference ~ Open project meeting",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-01-09T19:00:00+00:00",
+      "id": "fcecb0b97cf6b6ca",
+      "start": "2025-01-09T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Open Discussion Hour",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-01-14T17:00:00+00:00",
+      "id": "288db552028bef31",
+      "start": "2025-01-14T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Biofirm ~ Open project meeting",
+      "url": "http://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-01-14T17:00:00+00:00",
+      "id": "96d52f5911ab8902",
+      "start": "2025-01-14T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Multi-agent Modeling ~ Open meeting",
+      "url": "http://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-01-16T16:00:00+00:00",
+      "id": "52062a1dc79fe15a",
+      "start": "2025-01-16T14:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Rithvik Prakki ~ GuestStream: Active Inference for Self-Organizing Multi-LLM Systems",
+      "url": "https://www.youtube.com/live/Y76dco2nAkQ"
+    },
+    {
+      "allDay": false,
+      "end": "2025-01-17T22:30:00+00:00",
+      "id": "fa57ae4b6a7986c4",
+      "start": "2025-01-17T21:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Ron Itelman: \"Cognitive Experience Design (CXD): Designing AI Systems for Trust \"",
+      "url": "https://www.youtube.com/live/kCmC4i-drEY"
+    },
+    {
+      "allDay": false,
+      "end": "2025-01-29T17:30:00+00:00",
+      "id": "d86b06fdb542fbf1",
+      "start": "2025-01-29T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Matthew Sims ~ GuestStream",
+      "url": "https://www.youtube.com/live/VLTXPOsrg_s"
+    },
+    {
+      "allDay": false,
+      "end": "2025-02-05T21:30:00+00:00",
+      "id": "f300935b3bbc14e8",
+      "start": "2025-02-05T20:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "MathArt Stream 11 ~ Feedback Welcome",
+      "url": "https://www.youtube.com/live/dP5MwxvYSno"
+    },
+    {
+      "allDay": false,
+      "end": "2025-02-07T21:30:00+00:00",
+      "id": "95e92c6f486b0d99",
+      "start": "2025-02-07T20:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream 010.1 ~ plain_text for active_inference: Modeling, Learning, and Exploration",
+      "url": "https://www.youtube.com/live/ed9iSi4cD3o"
+    },
+    {
+      "allDay": false,
+      "end": "2025-02-10T17:30:00+00:00",
+      "id": "6d75d3e618429193",
+      "start": "2025-02-10T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #098.1 ~ Active Inference and Human-Computer Interaction",
+      "url": "https://www.youtube.com/live/tU2PfMNp-OI"
+    },
+    {
+      "allDay": false,
+      "end": "2025-02-22T00:00:00+00:00",
+      "id": "de11d7c590de9024",
+      "start": "2025-02-21T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Decoding the ARC: The Evolution of Reason in the Abstract Reasoning Corpus",
+      "url": "https://www.youtube.com/live/E3vyVxMZanA"
+    },
+    {
+      "allDay": false,
+      "end": "2025-02-23T23:00:00+00:00",
+      "id": "a30d678acf3ea710",
+      "start": "2025-02-23T21:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream #010.2 ~ plain_text too: Learning Paths, Application Guides, and More Things.",
+      "url": "https://www.youtube.com/live/Gl7yd2MRjmk"
+    },
+    {
+      "allDay": false,
+      "end": "2025-03-09T15:30:00+00:00",
+      "id": "bcebfaba20979302",
+      "start": "2025-03-09T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream 100.1 ~ From Contextuality to Social Constraints",
+      "url": "https://www.youtube.com/live/NZnlrI-6mS8"
+    },
+    {
+      "allDay": false,
+      "end": "2025-03-15T06:30:00+00:00",
+      "id": "ece50ebc42a4a107",
+      "start": "2025-03-15T05:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream ~ The free energy principle and its implications to language learning and education",
+      "url": "https://youtube.com/live/BN2akPkfNxA"
+    },
+    {
+      "allDay": false,
+      "end": "2025-03-18T17:30:00+00:00",
+      "id": "288db552028bef31",
+      "start": "2025-03-18T16:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Biofirm ~ Open project meeting",
+      "url": "http://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-03-21T14:30:00+00:00",
+      "id": "10fe2c3cd57c3111",
+      "start": "2025-03-21T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf ModelStream 017.1 ~ What's Wrong with Active Inference and How Lazy Dynamics Is Set to Solve It",
+      "url": "https://www.youtube.com/live/pwfJQRN6iIc"
+    },
+    {
+      "allDay": false,
+      "end": "2025-03-28T18:00:00+00:00",
+      "id": "9004045cb5db732c",
+      "start": "2025-03-28T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Quarterly Roundtable #1 in 2025",
+      "url": "https://www.youtube.com/live/aEe8y9Ebs10"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-02T14:00:00+00:00",
+      "id": "f8887a2cebd424f9",
+      "start": "2025-04-02T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "The UBI Experiment ~ Open meetings",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-02T16:00:00+00:00",
+      "id": "f8887a2cebd424f9",
+      "start": "2025-04-02T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "The UBI Experiment ~ Open meetings",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-03T00:00:00+00:00",
+      "id": "75ab3ab89cb266b0",
+      "start": "2025-04-02T22:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "April Agents Bring May Simulations: OpenManus, RxInfer.jl, and AgentLaboratory",
+      "url": "https://www.youtube.com/live/9LKWp5nydnA"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-08T01:15:00+00:00",
+      "id": "9d90a2555398e08c",
+      "start": "2025-04-07T23:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "CEREBRUM: Case-Enabled Reasoning Engine with Bayesian Representations for Unified Modeling",
+      "url": "https://www.youtube.com/live/8Ohlb8iTW0k"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-08T19:30:00+00:00",
+      "id": "4cb244b7d0c292c8",
+      "start": "2025-04-08T18:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream ~ \"Navigating Autonomous Vehicle\", Jafari et al.",
+      "url": "https://www.youtube.com/live/eZPshFv24_g"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-09T18:00:00+00:00",
+      "id": "74fa5a086b2003e0",
+      "start": "2025-04-09T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Guest Stream ~ Scientific Explanation, Causality, and Agency: A Free Energy Account",
+      "url": "https://www.youtube.com/live/gSL8PWN4soc"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-10T17:30:00+00:00",
+      "id": "f2754d44cf445bbc",
+      "start": "2025-04-10T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Math Stream ~ Variational Bayes with Stein Mixture Inference",
+      "url": "https://www.youtube.com/live/h6426dEKaMg"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-14T15:00:00+00:00",
+      "id": "61abeb8e91359b61",
+      "start": "2025-04-14T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf GuestStream 082.5 ~ Robert Worden \"Computers, Meaning and Consciousness\"",
+      "url": "https://www.youtube.com/live/p7iq4AAIwjc"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-16T16:45:00+00:00",
+      "id": "a06d726bd93e4fcf",
+      "start": "2025-04-16T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "CogNarr Ecosystem project",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-16T21:30:00+00:00",
+      "id": "9e46108336a89677",
+      "start": "2025-04-16T20:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream 012.2 ~ Case of the Evolving CEREBRUM: The Curious Language of the Incident",
+      "url": "https://www.youtube.com/live/EIOIMEo8vOY"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-21T12:30:00+00:00",
+      "id": "2c89cc2fb40ee0e5",
+      "start": "2025-04-21T11:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream 103.1 ~ The Mind in Motion: A Systems Model of Real-Time Cognitive Transitions",
+      "url": "https://www.youtube.com/live/ZRNQ8ZzMc_c"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-22T12:30:00+00:00",
+      "id": "464ba44ddedcdca5",
+      "start": "2025-04-22T11:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf GuestStream 104.1 ~ Tadahiro Taniguchi: Collective Predictive Coding and Active Inference",
+      "url": "https://www.youtube.com/live/veGQUGE0hLI"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-25T23:00:00+00:00",
+      "id": "7c5a1b1c387877c5",
+      "start": "2025-04-25T21:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream 013.1 ~ NoOrg is a Real Org",
+      "url": "https://www.youtube.com/live/nT11dSbr6QE"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-28T14:30:00+00:00",
+      "id": "935156d96c0a0276",
+      "start": "2025-04-28T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference ModelStream ~ Robust Decision-Making Via Free Energy Minimization",
+      "url": "https://www.youtube.com/live/7vbtSdkDgc8"
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-29T10:00:00",
+      "id": "4bce6360d6c3ceed",
+      "start": "2025-04-29T09:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "America/Los_Angeles",
+      "title": "Multiagent ~ Open Source collaboration",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2025-04-30T13:00:00",
+      "id": "d09ab9ce8ca72571",
+      "start": "2025-04-30T12:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "America/Los_Angeles",
+      "title": "Multi-agent ~ Open Source collaboration",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2025-05-02T13:30:00+00:00",
+      "id": "13cc219c9f421dd0",
+      "start": "2025-05-02T12:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ Systemic Deviation, A Key to Explain Systemic Failures",
+      "url": "https://www.youtube.com/live/TKksAVCOUCU"
+    },
+    {
+      "allDay": false,
+      "end": "2025-05-05T14:30:00+00:00",
+      "id": "baa86a79d2257d7c",
+      "start": "2025-05-05T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #106.1 ~ Advances and Challenges in Foundation Agents: From Brain-Inspired Intelligence to Evolutionary, Collaborative, and Safe Systems",
+      "url": "https://www.youtube.com/live/pqMph8eEUs4"
+    },
+    {
+      "allDay": false,
+      "end": "2025-05-15T22:00:00+00:00",
+      "id": "54d782d8e5f8b179",
+      "start": "2025-05-15T20:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream #014.1 ~ Generalized Notation Notation: From Plaintext to Triple Play",
+      "url": "https://www.youtube.com/live/3tYOBVIOLyU"
+    },
+    {
+      "allDay": false,
+      "end": "2025-05-20T15:30:00+00:00",
+      "id": "ef5874604f573e84",
+      "start": "2025-05-20T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf MathStream 013.1 ~ Alexis Toumi: \"DisCoPy: Monoidal Categories for Active Inference\"",
+      "url": "https://www.youtube.com/live/_8xNPQEqnKE"
+    },
+    {
+      "allDay": false,
+      "end": "2025-05-21T19:00:00+00:00",
+      "id": "5c39ff950b9de01c",
+      "start": "2025-05-21T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf GuestStream 107.1 ~ David Benrimoh \"The Role of Affective States in Computational Psychiatry\"",
+      "url": "https://www.youtube.com/live/3a01ltP-p9I"
+    },
+    {
+      "allDay": false,
+      "end": "2025-05-22T16:30:00+00:00",
+      "id": "a23f5ca553b6d050",
+      "start": "2025-05-22T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #107.1 ~ Next-Generation Artificial Intelligence for Emergent Semantic Communications",
+      "url": "https://www.youtube.com/live/_YRRB5basok"
+    },
+    {
+      "allDay": false,
+      "end": "2025-05-23T20:30:00+00:00",
+      "id": "0c6340dad312b81b",
+      "start": "2025-05-23T19:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf GuestStream 107.1 ~ Hemming: \"Free Energy, Attentional Narrowing, and Cognitive Rigidity\"",
+      "url": "https://www.youtube.com/live/aRT9n16N4J8"
+    },
+    {
+      "allDay": false,
+      "end": "2025-05-30T14:30:00+00:00",
+      "id": "fcae3bb2d0d1acdc",
+      "start": "2025-05-30T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Livestream ~ A concise mathematical description of active inference in discrete time",
+      "url": "https://www.youtube.com/live/kDLBmwMikfk"
+    },
+    {
+      "allDay": false,
+      "end": "2025-06-04T02:30:00+00:00",
+      "id": "5de0cd19af439d77",
+      "start": "2025-06-04T01:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf GuestStream 107.1 ~ Triple equivalence for the emergence of biological intelligence (Isomura)",
+      "url": "https://www.youtube.com/live/gS_WocoCJvI"
+    },
+    {
+      "allDay": false,
+      "end": "2025-06-08T22:30:00+00:00",
+      "id": "b332e1dffc2cde46",
+      "start": "2025-06-08T21:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream #014.2",
+      "url": "https://www.youtube.com/live/Y3-FMoaEZYE"
+    },
+    {
+      "allDay": false,
+      "end": "2025-06-09T18:00:00+00:00",
+      "id": "d684caa085a72c2a",
+      "start": "2025-06-09T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Audio-Visual Production (Open Meeting)",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2025-06-11T22:30:00+00:00",
+      "id": "5d1d119107aaa8a4",
+      "start": "2025-06-11T21:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #111.1",
+      "url": "https://www.youtube.com/live/sSStRTOxuWk"
+    },
+    {
+      "allDay": false,
+      "end": "2025-06-18T17:30:00+00:00",
+      "id": "4765ecdb307f9bc6",
+      "start": "2025-06-18T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf OrgStream 009.1 ~ The Value of Open Source Software (Hoffmann, Nagle, Zhou)",
+      "url": "https://www.youtube.com/live/q3kUt1xR_fo"
+    },
+    {
+      "allDay": false,
+      "end": "2025-06-23T21:30:00+00:00",
+      "id": "00cbcde5942b2fde",
+      "start": "2025-06-23T20:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream 014.3 ~ The Sound of Uncertainty: Auditory Rendering of Generative Models in the Field of Streams",
+      "url": "https://www.youtube.com/live/L0kFneuINsg"
+    },
+    {
+      "allDay": false,
+      "end": "2025-06-25T18:30:00+00:00",
+      "id": "69b1d51abd8b061f",
+      "start": "2025-06-25T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf GuestStream 112.1 ~ Brain-like variational inference (Hadi Vafaii)",
+      "url": "https://www.youtube.com/live/fTg-S81Ymto"
+    },
+    {
+      "allDay": false,
+      "end": "2025-06-26T19:30:00+00:00",
+      "id": "8739e47f1565e02c",
+      "start": "2025-06-26T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf GuestStream 113.1 ~ Bayesian Mechanics of Economic Choice (Ernesto Moya-Albor et al.)",
+      "url": "https://www.youtube.com/live/vgSYGS9l8nI"
+    },
+    {
+      "allDay": false,
+      "end": "2025-06-27T18:30:00+00:00",
+      "id": "702d9e708f614137",
+      "start": "2025-06-27T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "2025 Quarterly Roundtable #2",
+      "url": "https://www.youtube.com/live/-cKpXSZLvMQ"
+    },
+    {
+      "allDay": false,
+      "end": "2025-07-17T15:30:00+00:00",
+      "id": "066c8083008c00fe",
+      "start": "2025-07-17T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream #114.1 ~ How do inner screens enable imaginative experience? Applying the free-energy principle directly to the study of conscious experience",
+      "url": "https://www.youtube.com/live/C1NxyfMDP4U"
+    },
+    {
+      "allDay": false,
+      "end": "2025-07-30T19:30:00+00:00",
+      "id": "6057e48022fc1c29",
+      "start": "2025-07-30T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #115.1 ~ Energy-Based Transformers are Scalable Learners and Thinkers",
+      "url": "https://www.youtube.com/live/85ob-jrG7xQ"
+    },
+    {
+      "allDay": false,
+      "end": "2025-08-06T16:00:00+00:00",
+      "id": "e37c98340d723d29",
+      "start": "2025-08-06T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Generalized Notation Notation ~ open collaboration",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-08-06T21:30:00+00:00",
+      "id": "08229e7013ba7cf6",
+      "start": "2025-08-06T20:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #116.1 ~ Solving the compute crisis with physics-based ASICs",
+      "url": "https://www.youtube.com/live/0h_mf5usgvg"
+    },
+    {
+      "allDay": false,
+      "end": "2025-08-08T15:00:00+00:00",
+      "id": "ee0b499336af3499",
+      "start": "2025-08-08T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GEO-INFER (Open Source Geospatial Active Inference)",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-08-15T15:00:00+00:00",
+      "id": "ee0b499336af3499",
+      "start": "2025-08-15T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GEO-INFER (Open Source Geospatial Active Inference)",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-08-19T17:30:00+00:00",
+      "id": "52c061cb525b9602",
+      "start": "2025-08-19T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #117.1 ~ Active Inference and Artificial Spin Ice: Control Processes and State Selection",
+      "url": "https://www.youtube.com/live/rj3iBEnZvGU"
+    },
+    {
+      "allDay": false,
+      "end": "2025-08-21T01:30:00+00:00",
+      "id": "c25b29bb90d50f0a",
+      "start": "2025-08-21T00:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream ~ Co-Creative Learning via Metropolis-Hastings Interaction between Humans and AI",
+      "url": "https://www.youtube.com/live/0t14D4epcuw"
+    },
+    {
+      "allDay": false,
+      "end": "2025-08-21T16:00:00+00:00",
+      "id": "dc22c1c83531e79e",
+      "start": "2025-08-21T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-08-21T23:00:00+00:00",
+      "id": "3c0f8fb3f0d0fb01",
+      "start": "2025-08-21T22:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-09-04T01:30:00+00:00",
+      "id": "86741d172af1f325",
+      "start": "2025-09-04T00:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "START/HERE: A Map & What Might Happen Next",
+      "url": "https://www.youtube.com/live/0cOV7-St2Ws"
+    },
+    {
+      "allDay": false,
+      "end": "2025-09-05T15:00:00+00:00",
+      "id": "46702161aa1bdbde",
+      "start": "2025-09-05T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GEO-INFER (Open Source Geospatial Active Inference)",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-09-08T12:00:00+00:00",
+      "id": "ee5fe1aaca0c0fc6",
+      "start": "2025-09-08T11:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #119.1 ~ Thermal Macroeconomics: An axiomatic theory of aggregate economic phenomena",
+      "url": "https://www.youtube.com/live/O4JkF40yvqU"
+    },
+    {
+      "allDay": false,
+      "end": "2025-09-17T19:30:00+00:00",
+      "id": "6d3dc004fecd5a8e",
+      "start": "2025-09-17T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #120.1 ~ Temporal Cognition and the Emergent Properties of Consciousness",
+      "url": "https://www.youtube.com/live/vwppypTticY"
+    },
+    {
+      "allDay": false,
+      "end": "2025-09-23T16:30:00+00:00",
+      "id": "e93a25961e9d3d46",
+      "start": "2025-09-23T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #121.1 ~ Conscious active inference II: Quantum orchestrated objective reduction among intraneuronal microtubules naturally accounts for discrete perceptual cycles",
+      "url": "https://www.youtube.com/live/FeD_L8oOhIk"
+    },
+    {
+      "allDay": false,
+      "end": "2025-09-26T18:30:00+00:00",
+      "id": "b4b98fe6c090ad05",
+      "start": "2025-09-26T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Quarterly Roundtable #3",
+      "url": "https://www.youtube.com/live/PPKFlARc7gY"
+    },
+    {
+      "allDay": false,
+      "end": "2025-10-15T14:30:00+00:00",
+      "id": "3b7a525e3e331615",
+      "start": "2025-10-15T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream #082.6 ~ A Unified Theory of Language",
+      "url": "https://www.youtube.com/live/vUO6t1pD0Hg"
+    },
+    {
+      "allDay": false,
+      "end": "2025-10-15T18:00:00+00:00",
+      "id": "65ecadadd499cbff",
+      "start": "2025-10-15T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #122.1 ~ Radical Relation, Scaling without Hierarchies, Models without the Meat",
+      "url": "https://www.youtube.com/live/iaKDs6TQj0Q"
+    },
+    {
+      "allDay": false,
+      "end": "2025-10-29T14:30:00+00:00",
+      "id": "52e4a2c8a84f87c6",
+      "start": "2025-10-29T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream #082.7 ~ A Unified Theory of Language",
+      "url": "https://www.youtube.com/live/nFnZSIqoFv4"
+    },
+    {
+      "allDay": false,
+      "end": "2025-10-30T20:00:00+00:00",
+      "id": "2da1333c45665747",
+      "start": "2025-10-30T19:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Open Discussion",
+      "url": "http://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2025-11-05T19:30:00+00:00",
+      "id": "de4e2b2a0078b7a0",
+      "start": "2025-11-05T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream #122.1 ~ Learning in Physical Systems",
+      "url": "https://www.youtube.com/live/No0GIVMujik"
+    },
+    {
+      "allDay": false,
+      "end": "2025-11-12T23:00:00+00:00",
+      "id": "4a7a00cbbfba444c",
+      "start": "2025-11-12T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Applied Active Inference Symposium ~ Day 1",
+      "url": "https://www.youtube.com/live/VTivWre-8Kk"
+    },
+    {
+      "allDay": false,
+      "end": "2025-11-14T01:00:00+00:00",
+      "id": "654157c2aa70fadc",
+      "start": "2025-11-13T12:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Applied Active Inference Symposium ~ Day 2",
+      "url": "https://www.youtube.com/live/1q40Jqk1HYs"
+    },
+    {
+      "allDay": false,
+      "end": "2025-11-15T00:00:00+00:00",
+      "id": "be1e61e87b6bde09",
+      "start": "2025-11-14T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Applied Active Inference Symposium ~ Day 3",
+      "url": "https://www.youtube.com/live/v7aSUMX1nfs"
+    },
+    {
+      "allDay": false,
+      "end": "2025-12-02T20:00:00+00:00",
+      "id": "6199a3d0cb1263d9",
+      "start": "2025-12-02T18:30:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream #016.1: Actionable Template-driven Research: Operational Meta-Scientific Arts & Crafts",
+      "url": "https://www.youtube.com/live/GNAoP8T9WW4"
+    },
+    {
+      "allDay": false,
+      "end": "2025-12-04T18:15:00+00:00",
+      "id": "76124fdea64e0f60",
+      "start": "2025-12-04T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream: PCT vs. FEP: A Comparison Between Reorganization Theory and Bayesian Inferenc",
+      "url": "https://www.youtube.com/live/AKyK7kKgI28"
+    },
+    {
+      "allDay": false,
+      "end": "2025-12-10T19:15:00+00:00",
+      "id": "099932b02cfd3bcd",
+      "start": "2025-12-10T18:15:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "CogNarr Ecosystem project",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2025-12-16T20:30:00+00:00",
+      "id": "e24b8481b5b2d20f",
+      "start": "2025-12-16T19:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream #016.2: Generative Education for Today and Tomorrow: What Will We Do With Our Faculties?",
+      "url": "https://www.youtube.com/live/vUraSyZnsDo"
+    },
+    {
+      "allDay": false,
+      "end": "2025-12-17T16:30:00+00:00",
+      "id": "4cf36fbf34ec0208",
+      "start": "2025-12-17T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference GuestStream #125.1 ~ \"From Charles Darwin’s “Root Brain” to Nikola Tesla’s “6G World Brain” and XAI-native 6G Networks\"",
+      "url": "https://www.youtube.com/live/LmgPFAlNHNQ"
+    },
+    {
+      "allDay": false,
+      "end": "2025-12-18T17:30:00+00:00",
+      "id": "fea9b7008347187c",
+      "start": "2025-12-18T16:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ReviewStream 2025",
+      "url": "https://www.youtube.com/live/gS-qhMNFm84"
+    },
+    {
+      "allDay": false,
+      "end": "2025-12-19T19:30:00+00:00",
+      "id": "8d7b07e3dcb94637",
+      "start": "2025-12-19T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "2025 Quarterly Roundtable #4",
+      "url": "https://www.youtube.com/live/09FfbL1YYOI"
+    },
+    {
+      "allDay": false,
+      "end": "2026-01-15T19:30:00+00:00",
+      "id": "fa2f675f2d0f1a77",
+      "start": "2026-01-15T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ModelStream #019.1 ~ Active Inference in Discrete State Spaces from First Principles",
+      "url": "https://www.youtube.com/live/q6Z-4aXO36U"
+    },
+    {
+      "allDay": false,
+      "end": "2026-01-29T16:30:00+00:00",
+      "id": "91d7637607396b03",
+      "start": "2026-01-29T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #0126.1 ~ Active Inference Institute ~ Distributed Information and Computation in Generic Quantum Systems",
+      "url": "https://www.youtube.com/live/jm70DuWHUI0"
+    },
+    {
+      "allDay": false,
+      "end": "2026-01-30T15:30:00+00:00",
+      "id": "fcc69bf76667b176",
+      "start": "2026-01-30T14:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf ModelStream 020.1: Variational Inference Optimized Using the Curved Geometry of Coupled Free Energy",
+      "url": "https://www.youtube.com/live/CFqMSSJ1X5g"
+    },
+    {
+      "allDay": false,
+      "end": "2026-02-05T14:00:00+00:00",
+      "id": "8877670dfbed3147",
+      "start": "2026-02-05T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl ~ Learning session",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-02-06T14:00:00+00:00",
+      "id": "e1ae4db62c6bf3ab",
+      "start": "2026-02-06T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl ~ Projects session",
+      "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-02-14T23:00:00+00:00",
+      "id": "650a623dd65a0d5e",
+      "start": "2026-02-14T21:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active InferAnt Stream #017.1 ~ \"Of Course I Can\": Active Inference Courses for All",
+      "url": "https://www.youtube.com/live/GngvdY7-w10"
+    },
+    {
+      "allDay": false,
+      "end": "2026-02-25T19:30:00+00:00",
+      "id": "572cc263b790d77e",
+      "start": "2026-02-25T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #015.4 ~ Bobby Azarian",
+      "url": "https://www.youtube.com/live/dTcuDE6nUpg"
+    },
+    {
+      "allDay": false,
+      "end": "2026-02-26T14:00:00+00:00",
+      "id": "50716578322b9812",
+      "start": "2026-02-26T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl ~ Learning session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-02-27T14:00:00+00:00",
+      "id": "b7ccc4ebc80eea0a",
+      "start": "2026-02-27T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl ~ Projects session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-03-05T14:30:00+00:00",
+      "id": "337acd509f758a4c",
+      "start": "2026-03-05T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ActInf ModelStream 021.1: Melih Kandemir: \"Distributional Active Inference\"",
+      "url": "https://www.youtube.com/live/2NB7hTsp_F0"
+    },
+    {
+      "allDay": false,
+      "end": "2026-03-26T18:30:00+00:00",
+      "id": "1e6ff082e8498a28",
+      "start": "2026-03-26T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream ~ On biological and artificial consciousness: A case for biological computationalism",
+      "url": "https://www.youtube.com/live/yFaRYAvix_Q"
+    },
+    {
+      "allDay": false,
+      "end": "2026-03-27T19:00:00+00:00",
+      "id": "fb52b33c97e173bf",
+      "start": "2026-03-27T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "2026 ~ 1st Quarterly Roundtable Livestream",
+      "url": "https://www.youtube.com/live/_HkuQ0HhikQ"
+    },
+    {
+      "allDay": false,
+      "end": "2026-04-01T18:00:00+00:00",
+      "id": "1fac75c3eceab8b4",
+      "start": "2026-04-01T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "CogNarr Ecosystem project",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-04-09T16:30:00+00:00",
+      "id": "e7bef6706876d636",
+      "start": "2026-04-09T15:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ModelStream #007.3 ~ pymdp",
+      "url": "https://www.youtube.com/live/dBAx-VDVcPQ"
+    },
+    {
+      "allDay": false,
+      "end": "2026-04-19T18:00:00+00:00",
+      "id": "b3888a3827403577",
+      "start": "2026-04-19T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Project Meeting: Energy Modeling Human Brain Metabolism",
+      "url": "http://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-04-21T18:00:00+00:00",
+      "id": "76aeeeccc6acc62b",
+      "start": "2026-04-21T17:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-04-24T14:00:00+00:00",
+      "id": "8c531d425129af1b",
+      "start": "2026-04-24T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-05-28T14:00:00+00:00",
+      "id": "668d6d5f1c279fcb",
+      "start": "2026-05-28T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl ~ Learning session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-06-12T02:30:00+00:00",
+      "id": "765687b309139acc",
+      "start": "2026-06-12T01:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "Active Inference ModelStream #008.1 ~ Online Generalised Predictive Coding",
+      "url": "https://www.youtube.com/live/0pKxmZg5qXA"
+    },
+    {
+      "allDay": false,
+      "end": "2026-06-18T13:30:00+00:00",
+      "id": "79d2018104ca070f",
+      "start": "2026-06-18T12:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ModelStream #008.1 ~ Formal Verification of Discrete Active Inference Systems in PRISM",
+      "url": "https://www.youtube.com/live/-q8XqVxQqXQ"
+    },
+    {
+      "allDay": false,
+      "end": "2026-06-26T19:00:00+00:00",
+      "id": "678b6595036b9915",
+      "start": "2026-06-26T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "2026 ~ 2nd Quarterly Roundtable Livestream",
+      "url": "https://www.youtube.com/live/nmu_ZVvv_-A"
+    },
+    {
+      "allDay": false,
+      "end": "2026-07-02T13:30:00+00:00",
+      "id": "6514f7463f1c0638",
+      "start": "2026-07-02T12:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #067.2 ~ Who Judges the Judges?",
+      "url": "https://www.youtube.com/live/t2TgSuYH-K8"
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-25T19:00:00+00:00",
+      "id": "6d0ebabddf296257",
+      "start": "2026-09-25T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "2026 ~ 3rd Quarterly Roundtable Livestream",
+      "url": "https://www.youtube.com/live/WrixYErQot0"
+    },
+    {
+      "allDay": false,
+      "end": "2026-12-04T19:00:00+00:00",
+      "id": "565af64a9aa760b4",
+      "start": "2026-12-04T18:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "2026 ~ 4th Quarterly Roundtable Livestream",
+      "url": "https://www.youtube.com/live/jhIzOXA1ZFg"
+    }
+  ],
+  "source": "instituteos/library/registries/calendar.json"
+}
