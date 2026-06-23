@@ -1166,3 +1166,80 @@ body{transition:background-color 200ms,color 200ms}
     transform: none;
   }
 }
+
+/* Calendar page — public events list (server-baked, CSP-safe). */
+.event-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.event-row {
+  display: grid;
+  grid-template-columns: minmax(11rem, 14rem) 1fr;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--surface-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.event-row.is-cancelled {
+  opacity: 0.55;
+}
+
+.event-when {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.event-when time {
+  font-weight: 600;
+  color: inherit;
+}
+
+.event-status.cancelled {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+}
+
+.event-body h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.event-link {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+.event-link .event-url {
+  color: var(--red);
+}
+
+.past-events > summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 0;
+}
+
+@media (max-width: 640px) {
+  .event-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
