@@ -18,6 +18,21 @@ CONTENT_DIR = PROJECT_ROOT / "src" / "content"
 # generated, first-party pages are validated here.
 EXCLUDED_PARTS = {".git", ".cache", "node_modules", "__pycache__", "src", "scripts", "simulations"}
 DISALLOWED_TAGS = {"form", "iframe", "object", "embed"}
+# Public, well-known destination hosts that may back an external anchor WITHOUT a
+# per-URL live-sources.json entry. Used for data-driven links from public feeds
+# (e.g. per-event YouTube/Zoom livestream links on the calendar) where the exact
+# URL set is unbounded and cannot be hand-vetted. Anchors to these hosts still
+# must carry target=_blank + rel="noopener noreferrer", and Coda is still banned.
+VETTED_ANCHOR_HOST_SUFFIXES = (
+    "youtube.com",
+    "youtu.be",
+    "activeinference.institute",
+    "github.com",
+    "zoom.us",
+    "meet.google.com",
+    "twitch.tv",
+    "odysee.com",
+)
 ALLOWED_INSTITUTEOS_ASSETS = {"ActInferServe.png", "Dark_ActInfServe.png"}
 REQUIRED_CSP_DIRECTIVES = {
     "default-src 'self'",
@@ -99,6 +114,12 @@ def generated_html_files() -> list[Path]:
 
 def external_url(value: str) -> bool:
     return urlparse(value).scheme in {"http", "https"}
+
+
+def vetted_anchor_host(value: str) -> bool:
+    """True when the URL's host is on the public vetted-host allowlist."""
+    host = (urlparse(value).hostname or "").lower()
+    return any(host == suffix or host.endswith(f".{suffix}") for suffix in VETTED_ANCHOR_HOST_SUFFIXES)
 
 
 def local_url(value: str) -> bool:
@@ -196,8 +217,13 @@ def check_security() -> int:
             if "coda.io" in href.lower():
                 errors.append(f"{relative}: direct Coda anchor is not allowed: {href}")
                 continue
-            if href not in allowed_live_urls and href.rstrip("/") not in allowed_live_urls:
-                errors.append(f"{relative}: external anchor is not backed by live-sources.json: {href}")
+            backed = (
+                href in allowed_live_urls
+                or href.rstrip("/") in allowed_live_urls
+                or vetted_anchor_host(href)
+            )
+            if not backed:
+                errors.append(f"{relative}: external anchor is not backed by live-sources.json or a vetted host: {href}")
             if anchor.get("target") != "_blank":
                 errors.append(f"{relative}: external anchor missing target=_blank: {href}")
             rel_tokens = set(anchor.get("rel", "").split())

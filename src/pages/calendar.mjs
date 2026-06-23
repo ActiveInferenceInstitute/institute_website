@@ -39,21 +39,26 @@ function linkLabel(url) {
   return host || "Link";
 }
 
-function eventCard(event, currentDir) {
+function eventCard(event, kind) {
   const title = escapeHtml(event.title || "Untitled event");
   const when = escapeHtml(formatEventDate(event));
   const status = String(event.status || "").toUpperCase();
   const cancelled = status === "CANCELLED";
   const statusTag = cancelled ? '<span class="event-status cancelled">Cancelled</span>' : "";
-  // The site CSP/security contract requires every external anchor to be vetted in
-  // live-sources.json. Per-event video/meeting URLs are unvetted public links, so
-  // they are rendered as selectable text (with the URL in title=) rather than as
-  // clickable external anchors — CSP-safe and contract-clean. The whole calendar
-  // is reachable via the two registered Subscribe links at the top of the page.
+  // Per-event links are clickable anchors. The sync gate restricts event URLs to
+  // a public-host allowlist (YouTube/Zoom/Meet/Institute/…), and the static-security
+  // checker accepts those vetted hosts as external-anchor backing — so these pass
+  // the contract without a per-URL live-sources entry. target/rel are mandatory.
   const link = event.url
-    ? `<p class="event-link" title="${escapeHtml(event.url)}">▶ ${escapeHtml(linkLabel(event.url))}: <span class="event-url">${escapeHtml(event.url)}</span></p>`
+    ? `<p class="event-link"><a href="${escapeHtml(event.url)}" target="_blank" rel="noopener noreferrer">▶ ${escapeHtml(linkLabel(event.url))} ↗</a></p>`
     : "";
-  return `<li class="event-row${cancelled ? " is-cancelled" : ""}">
+  // data-calendar-search powers the on-page filter (site.js); data-calendar-kind
+  // ("upcoming"/"past") drives the kind selector. Search blob is pre-lowercased.
+  const blob = `${event.title || ""} ${formatEventDate(event)} ${event.status || ""} ${linkLabel(event.url || "")}`
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+  return `<li class="event-row${cancelled ? " is-cancelled" : ""}" data-calendar-row data-calendar-kind="${kind}" data-calendar-search="${escapeHtml(blob)}">
     <div class="event-when"><time datetime="${escapeHtml(String(event.start || ""))}">${when}</time>${statusTag}</div>
     <div class="event-body"><h3>${title}</h3>${link}</div>
   </li>`;
@@ -82,17 +87,33 @@ export function calendarPage() {
     );
   }
 
-  const upcomingList = upcoming.length
-    ? `<ul class="event-list">${upcoming.map((event) => eventCard(event, currentDir)).join("")}</ul>`
-    : `<p>No upcoming events are currently published. Subscribe above to be notified when new events are added.</p>`;
+  // One chronological list: upcoming first (ascending), then past (most recent
+  // first). Each row is tagged upcoming/past so the on-page filter can scope by
+  // kind; the search box (site.js) matches across every row regardless of kind.
+  const rowsHtml = [
+    ...upcoming.map((event) => eventCard(event, "upcoming")),
+    ...past.map((event) => eventCard(event, "past")),
+  ].join("");
+  const list = events.length
+    ? `<ul class="event-list" id="calendar-list">${rowsHtml}</ul>`
+    : `<p>No events are currently published. Subscribe above to be notified when new events are added.</p>`;
 
-  const pastSection = past.length
-    ? `<section class="content-band">
-        <details class="past-events">
-          <summary>Past events (${past.length})</summary>
-          <ul class="event-list">${past.map((event) => eventCard(event, currentDir)).join("")}</ul>
-        </details>
-      </section>`
+  const filterBar = events.length
+    ? `<div class="calendar-tools" aria-label="Event filters">
+        <label>
+          <span>Search events</span>
+          <input id="calendar-search" type="search" placeholder="Search by title, date, or topic" autocomplete="off" spellcheck="false">
+        </label>
+        <label>
+          <span>Show</span>
+          <select id="calendar-kind">
+            <option value="upcoming">Upcoming (${upcoming.length})</option>
+            <option value="past">Past (${past.length})</option>
+            <option value="all">All events (${events.length})</option>
+          </select>
+        </label>
+        <p id="calendar-count" class="result-count" aria-live="polite">${upcoming.length} ${upcoming.length === 1 ? "event" : "events"} shown</p>
+      </div>`
     : "";
 
   const body = `
@@ -100,14 +121,14 @@ export function calendarPage() {
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><span>Calendar</span></nav>
     <p class="eyebrow">Public events</p>
     <h1>Calendar</h1>
-    <p>Livestreams, roundtables, model streams, and open hours from the public <strong>${calName}</strong> calendar. Times are shown as published (UTC unless a timezone is noted).</p>
+    <p>Livestreams, roundtables, model streams, and open hours from the public <strong>${calName}</strong> calendar. Times are shown as published (UTC unless a timezone is noted). Use the read-aloud button to listen, or subscribe to get updates.</p>
     ${subscribe.length ? `<div class="hero-actions">${subscribe.join("")}</div>` : ""}
   </section>
   <section class="content-band">
-    ${sectionHeading({ eyebrow: "Schedule", title: `Upcoming events (${upcoming.length})`, text: "Pulled from the Institute's public Google Calendar and rendered statically — no tracking, no third-party embeds." })}
-    ${upcomingList}
-  </section>
-  ${pastSection}`;
+    ${sectionHeading({ eyebrow: "Schedule", title: "Find an event", text: "Pulled from the Institute's public Google Calendar and rendered statically — no tracking, no third-party embeds. Type to search across all events." })}
+    ${filterBar}
+    ${list}
+  </section>`;
 
   return layout({
     title: "Calendar",

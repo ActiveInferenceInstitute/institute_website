@@ -33,6 +33,23 @@ export function buildSearchIndex() {
   }
   // Canonical /search/ URL so the header quick-search can offer a "See all
   // results" link (CSP-safe: a self-origin internal href, no fetch).
+  // Calendar: the page itself plus every public event, so the header search and
+  // /search/ page surface events by title (self-origin /calendar/ destination).
+  const calendarUrl = absoluteUrl(outputPathForSlug("calendar"));
+  entries.push({
+    t: "Calendar",
+    u: calendarUrl,
+    k: "events livestreams roundtables model streams open hours schedule",
+    c: "Page",
+  });
+  for (const record of osm.calendar?.records || []) {
+    entries.push({
+      t: record.title,
+      u: calendarUrl,
+      k: `${String(record.start || "").slice(0, 10)} ${record.status || ""} event`.trim().slice(0, 180),
+      c: "Event",
+    });
+  }
   const searchPageUrl = absoluteUrl(outputPathForSlug("search"));
   // Synonym/alias expansion map: a canonical token to equivalent query terms.
   // Used by search.js/search-page.js to BOOST matches (never to require them).

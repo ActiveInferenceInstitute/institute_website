@@ -1168,6 +1168,48 @@ body{transition:background-color 200ms,color 200ms}
 }
 
 /* Calendar page — public events list (server-baked, CSP-safe). */
+.calendar-tools {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.6fr) minmax(150px, 0.8fr) max-content;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.calendar-tools label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.calendar-tools input,
+.calendar-tools select {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+  color: inherit;
+  font: inherit;
+}
+
+.calendar-tools .result-count {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 720px) {
+  .calendar-tools {
+    grid-template-columns: 1fr;
+  }
+}
+
 .event-list {
   list-style: none;
   margin: 0;
@@ -1221,14 +1263,20 @@ body{transition:background-color 200ms,color 200ms}
 }
 
 .event-link {
-  margin: 0;
+  margin: 0.15rem 0 0;
   font-size: 0.85rem;
-  color: var(--muted);
   word-break: break-word;
 }
 
-.event-link .event-url {
+.event-link a {
   color: var(--red);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.event-link a:hover,
+.event-link a:focus-visible {
+  text-decoration: underline;
 }
 
 .past-events > summary {

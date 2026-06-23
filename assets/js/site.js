@@ -228,9 +228,43 @@ for (const button of tagButtons) {
     updateResourceFilters();
   });
 }
+const calendarSearch = document.querySelector("#calendar-search");
+const calendarKind = document.querySelector("#calendar-kind");
+const calendarCount = document.querySelector("#calendar-count");
+const calendarRows = [...document.querySelectorAll("[data-calendar-row]")];
+
+function updateCalendarFilters() {
+  if (!calendarRows.length) {
+    return;
+  }
+  const query = (calendarSearch?.value || "").trim().toLowerCase();
+  const kind = calendarKind?.value || "upcoming";
+  let visible = 0;
+
+  for (const row of calendarRows) {
+    const matchesQuery = !query || (row.dataset.calendarSearch || "").includes(query);
+    // A non-empty query searches across every event; an empty query respects the
+    // kind selector (default: upcoming) so the page opens clean, not 277 rows.
+    const matchesKind = query ? true : kind === "all" || row.dataset.calendarKind === kind;
+    const show = matchesQuery && matchesKind;
+    row.hidden = !show;
+    if (show) {
+      visible += 1;
+    }
+  }
+
+  if (calendarCount) {
+    const scope = query ? "match" : kind === "all" ? "event" : `${kind} event`;
+    calendarCount.textContent = `${visible} ${scope}${visible === 1 ? "" : "s"} shown`;
+  }
+}
+
 repoSort?.addEventListener("change", sortRepositories);
 knowledgeSearch?.addEventListener("input", updateKnowledgeFilters);
 knowledgeKind?.addEventListener("change", updateKnowledgeFilters);
+calendarSearch?.addEventListener("input", updateCalendarFilters);
+calendarKind?.addEventListener("change", updateCalendarFilters);
 updateResourceFilters();
 sortRepositories();
 updateKnowledgeFilters();
+updateCalendarFilters();

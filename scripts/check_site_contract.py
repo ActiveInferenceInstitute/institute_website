@@ -272,6 +272,27 @@ def internal_site_href(href: str) -> bool:
     return href.startswith(CANONICAL_BASE)
 
 
+# Public destination hosts allowed to back an external anchor without a per-URL
+# live-sources.json entry — for unbounded data-driven links (e.g. per-event
+# YouTube/Zoom livestream links on the calendar). Kept in sync with the same
+# allowlist in scripts/check_static_security.py.
+VETTED_ANCHOR_HOST_SUFFIXES = (
+    "youtube.com",
+    "youtu.be",
+    "activeinference.institute",
+    "github.com",
+    "zoom.us",
+    "meet.google.com",
+    "twitch.tv",
+    "odysee.com",
+)
+
+
+def vetted_anchor_host(href: str) -> bool:
+    host = (urlparse(href).hostname or "").lower()
+    return any(host == suffix or host.endswith(f".{suffix}") for suffix in VETTED_ANCHOR_HOST_SUFFIXES)
+
+
 def live_source_urls(manifest: dict) -> set[str]:
     urls: set[str] = set()
     for item in manifest.get("sources", []):
@@ -949,7 +970,11 @@ def check_external_anchors(root: Path, errors: list[str]) -> None:
         for href, _class_name in parse_html(html_path).anchors:
             if href.startswith("mailto:") or not external_href(href) or internal_site_href(href):
                 continue
-            if href not in allowed_live_urls and href.rstrip("/") not in allowed_live_urls:
+            if (
+                href not in allowed_live_urls
+                and href.rstrip("/") not in allowed_live_urls
+                and not vetted_anchor_host(href)
+            ):
                 errors.append(f"{html_path.relative_to(root)} external anchor is not in live-sources.json: {href}")
 
 
