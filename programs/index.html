@@ -80,6 +80,18 @@
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Search results" hidden></div>
     </div>
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Listen to this page" title="Listen to this page"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
+    <div class="accent-control">
+      <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choose highlight color" title="Choose highlight color"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
+      <div id="accent-menu" class="accent-menu" role="menu" aria-label="Highlight color" hidden>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="red" aria-checked="true" aria-label="Red highlight (default)" title="Red"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="amber" aria-checked="false" aria-label="Amber highlight" title="Amber"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="green" aria-checked="false" aria-label="Green highlight" title="Green"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="teal" aria-checked="false" aria-label="Teal highlight" title="Teal"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="blue" aria-checked="false" aria-label="Blue highlight" title="Blue"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="violet" aria-checked="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="magenta" aria-checked="false" aria-label="Magenta highlight" title="Magenta"></button>
+      </div>
+    </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch theme" aria-pressed="false" title="Toggle light/dark theme"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
   </header>
   <main id="main">
@@ -500,6 +512,7 @@
     <p class="build-stamp">v2.6.0 · build fc6fd8db82ff</p>
   </footer>
   <script src="../assets/js/theme.js" defer></script>
+  <script src="../assets/js/accent.js" defer></script>
   <script src="../assets/js/tts.js" defer></script>
   <script src="../assets/js/site.js" defer></script>
   <script src="../assets/js/search-data.js" defer></script>

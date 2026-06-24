@@ -2134,5 +2134,8 @@ updateInsight();
 requestAnimationFrame(loop);
 requestAnimationFrame(phaseLoop);
 </script>
+<button type="button" id="tts-toggle" class="tts-fab" hidden aria-pressed="false" aria-label="Listen to this page" title="Listen to this page"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
+<style>.tts-fab{position:fixed;top:12px;right:12px;z-index:2147483600;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;font-size:18px;line-height:1;background:rgba(255,255,255,.92);color:#111;border:1px solid rgba(0,0,0,.2);border-radius:8px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18)}.tts-fab[hidden]{display:none}.tts-fab:hover{background:#fff}.tts-fab.is-speaking{background:#dc2626;color:#fff;border-color:#dc2626}</style>
+<script src="../assets/js/tts.js" defer></script>
 </body>
 </html>

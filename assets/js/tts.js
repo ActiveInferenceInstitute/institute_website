@@ -35,13 +35,15 @@
 
   // Collect the readable text of the main content region. Hidden elements and
   // the search/results widgets are skipped so the reader stays on the article.
+  // Standalone pages without a #main region (the self-contained simulations)
+  // fall back to <body> so read-aloud still works there.
   function pageText() {
-    var main = document.getElementById("main");
-    if (!main) {
+    var root = document.getElementById("main") || document.body;
+    if (!root) {
       return "";
     }
-    var clone = main.cloneNode(true);
-    var drop = clone.querySelectorAll("script, style, [aria-hidden='true'], .site-search-results");
+    var clone = root.cloneNode(true);
+    var drop = clone.querySelectorAll("script, style, noscript, [aria-hidden='true'], .site-search-results, #tts-toggle, .tts-fab");
     for (var i = 0; i < drop.length; i += 1) {
       drop[i].parentNode.removeChild(drop[i]);
     }

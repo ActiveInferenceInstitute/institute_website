@@ -1092,9 +1092,21 @@ select:focus-visible {
 .tts-toggle:hover{background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)}
 .tts-toggle.is-speaking{background:rgba(239,68,68,.18);border-color:rgba(239,68,68,.6);color:var(--red)}
 .tts-toggle-icon{display:inline-block}
+/* Highlight-color picker — mirrors the toggle buttons. Swatch + dot background
+   colors are painted by accent.js via the CSSOM (the strict style-src CSP blocks
+   inline style attributes), so no palette hexes live in this stylesheet. */
+.accent-control{flex:0 0 auto;position:relative;display:inline-flex}
+.accent-toggle{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:var(--radius);cursor:pointer;padding:.45rem .6rem;line-height:1;transition:background-color 200ms,color 200ms,border-color 200ms}
+.accent-toggle:hover{background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)}
+.accent-toggle-dot{display:inline-block;width:1rem;height:1rem;border-radius:50%;border:1px solid var(--line);background-color:var(--red)}
+.accent-menu{position:absolute;top:calc(100% + .4rem);right:0;z-index:50;display:flex;gap:.4rem;padding:.5rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.accent-menu[hidden]{display:none}
+.accent-swatch{width:1.4rem;height:1.4rem;padding:0;border-radius:50%;border:1px solid var(--line);cursor:pointer;transition:transform 120ms}
+.accent-swatch:hover{transform:scale(1.12)}
+.accent-swatch[aria-checked="true"]{outline:2px solid var(--ink);outline-offset:2px}
 /* Soften the theme switch (and the FOUC from external defer scripts). */
 body{transition:background-color 200ms,color 200ms}
-@media (max-width:720px){.theme-toggle{order:4}.tts-toggle{order:3}}
+@media (max-width:720px){.theme-toggle{order:5}.accent-control{order:4}.tts-toggle{order:3}}
 
 
 /* Back-to-top control (created by site.js on long pages, CSP-safe). */
