@@ -159,6 +159,27 @@ html.theme-light, .ds-theme-light {
 .ds-mode-active-inference { --ds-accent: var(--ds-mode-active-inference); }
 .ds-mode-agent { --ds-accent: var(--ds-mode-agent); }
 
+/* ── Board-status badge accents (compose with .ds-badge.ds-badge--solid) ── */
+.ds-badge.ds-status-exploring { --ds-badge-dot: var(--ds-status-exploring); }
+.ds-badge.ds-status-drafting { --ds-badge-dot: var(--ds-status-drafting); }
+.ds-badge.ds-status-proposed { --ds-badge-dot: var(--ds-status-proposed); }
+.ds-badge.ds-status-for-vote { --ds-badge-dot: var(--ds-status-for-vote); }
+.ds-badge.ds-status-accepted { --ds-badge-dot: var(--ds-status-accepted); }
+.ds-badge.ds-status-amended { --ds-badge-dot: var(--ds-status-amended); }
+.ds-badge.ds-status-superseded { --ds-badge-dot: var(--ds-status-superseded); }
+.ds-badge.ds-status-retired { --ds-badge-dot: var(--ds-status-retired); }
+
+/* ── Policy-category tag accents (compose with .ds-tag) ── */
+.ds-tag.ds-category-governance-ethics { color: var(--ds-category-governance-ethics); border-color: var(--ds-category-governance-ethics); }
+.ds-tag.ds-category-legal-risk-compliance { color: var(--ds-category-legal-risk-compliance); border-color: var(--ds-category-legal-risk-compliance); }
+.ds-tag.ds-category-financial-investment { color: var(--ds-category-financial-investment); border-color: var(--ds-category-financial-investment); }
+.ds-tag.ds-category-procurement-vendor { color: var(--ds-category-procurement-vendor); border-color: var(--ds-category-procurement-vendor); }
+.ds-tag.ds-category-human-resources { color: var(--ds-category-human-resources); border-color: var(--ds-category-human-resources); }
+.ds-tag.ds-category-it-security { color: var(--ds-category-it-security); border-color: var(--ds-category-it-security); }
+.ds-tag.ds-category-operations { color: var(--ds-category-operations); border-color: var(--ds-category-operations); }
+.ds-tag.ds-category-sales-marketing { color: var(--ds-category-sales-marketing); border-color: var(--ds-category-sales-marketing); }
+.ds-tag.ds-category-esg-values { color: var(--ds-category-esg-values); border-color: var(--ds-category-esg-values); }
+
 /* InstituteOS component primitives — plain CSS classes keyed to design tokens.
  * Every value resolves through a --ds-* custom property, so these classes
  * re-theme automatically under .ds-theme-light and re-tint under .ds-mode-*.

@@ -16,6 +16,26 @@ import { sourceAnchor } from "./sources.mjs";
 import { listText } from "./text.mjs";
 import { isVerifiedExternalUrl } from "./urls.mjs";
 
+// Governance board-status badge — a solid pill tinted by the board-status token
+// through the design-system .ds-status-<slug> utility class. Class-only (no inline
+// style) to stay inside the strict style-src 'self' CSP. Matches the design-system
+// StatusBadge component's appearance, sourced from the same tokens.
+function statusBadge(status) {
+  const raw = String(status || "");
+  if (!raw) return "";
+  const slug = raw.toLowerCase().replace(/_/g, "-");
+  return `<span class="ds-badge ds-badge--solid ds-status-${escapeHtml(slug)}">${escapeHtml(title_case_token_js(raw))}</span>`;
+}
+
+// Policy-category chip — a .ds-tag tinted by the policy-category token, mirroring
+// the design-system CategoryChip. Class-only for CSP safety.
+function categoryTag(category) {
+  const raw = String(category || "");
+  if (!raw) return "";
+  const slug = raw.toLowerCase().replace(/_/g, "-");
+  return `<span class="ds-tag ds-category-${escapeHtml(slug)}">${escapeHtml(title_case_token_js(raw.replace(/_/g, " ")))}</span>`;
+}
+
 export function tableRows(items, columns) {
   return items
     .map((item) => {
@@ -167,8 +187,8 @@ export function publicationsTable(rows = communicationRows()) {
 export function policiesTable(rows = policyRows()) {
   const columns = [
     { label: "Policy", render: (item) => `<a href="#${escapeHtml(item.rowId)}">${escapeHtml(item.title)}</a>` },
-    { label: "Category", render: (item) => escapeHtml(title_case_token_js((item.category || "").replace(/_/g, " "))) },
-    { label: "Status", render: (item) => escapeHtml(title_case_token_js(item.status || "")) },
+    { label: "Category", render: (item) => categoryTag(item.category) },
+    { label: "Status", render: (item) => statusBadge(item.status) },
     { label: "Version", render: (item) => escapeHtml(item.currentVersion || "") },
     { label: "Description", render: (item) => escapeHtml(sanitizePublicProse(item.description || "").slice(0, 120)) },
     { label: "Tags", render: (item) => escapeHtml(listText(item.tags)) },
