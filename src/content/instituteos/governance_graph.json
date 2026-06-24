@@ -7,7 +7,8 @@
       "meta": {
         "category": "governance_ethics",
         "status": "accepted"
-      }
+      },
+      "href": "knowledge.html#policy-bylaws"
     },
     {
       "id": "policy:code-of-conduct",
@@ -16,7 +17,8 @@
       "meta": {
         "category": "governance_ethics",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-code-of-conduct"
     },
     {
       "id": "policy:conflict-of-interest",
@@ -25,7 +27,8 @@
       "meta": {
         "category": "governance_ethics",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-conflict-of-interest"
     },
     {
       "id": "policy:whistleblower",
@@ -34,7 +37,8 @@
       "meta": {
         "category": "governance_ethics",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-whistleblower"
     },
     {
       "id": "policy:anti-bribery-corruption",
@@ -43,7 +47,8 @@
       "meta": {
         "category": "governance_ethics",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-anti-bribery-corruption"
     },
     {
       "id": "policy:corporate-governance",
@@ -52,7 +57,8 @@
       "meta": {
         "category": "governance_ethics",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-corporate-governance"
     },
     {
       "id": "policy:privacy-policy",
@@ -61,7 +67,8 @@
       "meta": {
         "category": "legal_risk_compliance",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-privacy-policy"
     },
     {
       "id": "policy:data-protection-information-security",
@@ -70,7 +77,8 @@
       "meta": {
         "category": "legal_risk_compliance",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-data-protection-information-security"
     },
     {
       "id": "policy:records-retention-destruction",
@@ -79,7 +87,8 @@
       "meta": {
         "category": "legal_risk_compliance",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-records-retention-destruction"
     },
     {
       "id": "policy:risk-management",
@@ -88,7 +97,8 @@
       "meta": {
         "category": "legal_risk_compliance",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-risk-management"
     },
     {
       "id": "policy:regulatory-compliance",
@@ -97,7 +107,8 @@
       "meta": {
         "category": "legal_risk_compliance",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-regulatory-compliance"
     },
     {
       "id": "policy:litigation-hold",
@@ -106,7 +117,8 @@
       "meta": {
         "category": "legal_risk_compliance",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-litigation-hold"
     },
     {
       "id": "policy:financial-controls",
@@ -115,7 +127,8 @@
       "meta": {
         "category": "financial_investment",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-financial-controls"
     },
     {
       "id": "policy:investment-policy",
@@ -124,7 +137,8 @@
       "meta": {
         "category": "financial_investment",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-investment-policy"
     },
     {
       "id": "policy:expense-reimbursement",
@@ -133,7 +147,8 @@
       "meta": {
         "category": "financial_investment",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-expense-reimbursement"
     },
     {
       "id": "policy:budgeting-forecasting",
@@ -142,7 +157,8 @@
       "meta": {
         "category": "financial_investment",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-budgeting-forecasting"
     },
     {
       "id": "policy:anti-fraud",
@@ -151,7 +167,8 @@
       "meta": {
         "category": "financial_investment",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-anti-fraud"
     },
     {
       "id": "policy:grant-procedure",
@@ -160,7 +177,8 @@
       "meta": {
         "category": "financial_investment",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-grant-procedure"
     },
     {
       "id": "policy:procurement",
@@ -169,7 +187,8 @@
       "meta": {
         "category": "procurement_vendor",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-procurement"
     },
     {
       "id": "policy:vendor-due-diligence",
@@ -178,7 +197,8 @@
       "meta": {
         "category": "procurement_vendor",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-vendor-due-diligence"
     },
     {
       "id": "policy:third-party-risk-management",
@@ -187,7 +207,8 @@
       "meta": {
         "category": "procurement_vendor",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-third-party-risk-management"
     },
     {
       "id": "policy:contract-approval-management",
@@ -196,7 +217,8 @@
       "meta": {
         "category": "procurement_vendor",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-contract-approval-management"
     },
     {
       "id": "policy:employee-handbook",
@@ -205,7 +227,8 @@
       "meta": {
         "category": "human_resources",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-employee-handbook"
     },
     {
       "id": "policy:eeo-policy",
@@ -214,7 +237,8 @@
       "meta": {
         "category": "human_resources",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-eeo-policy"
     },
     {
       "id": "policy:anti-harassment-discrimination",
@@ -223,7 +247,8 @@
       "meta": {
         "category": "human_resources",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-anti-harassment-discrimination"
     },
     {
       "id": "policy:workplace-health-safety",
@@ -232,7 +257,8 @@
       "meta": {
         "category": "human_resources",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-workplace-health-safety"
     },
     {
       "id": "policy:remote-work",
@@ -241,7 +267,8 @@
       "meta": {
         "category": "human_resources",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-remote-work"
     },
     {
       "id": "policy:compensation-benefits",
@@ -250,7 +277,8 @@
       "meta": {
         "category": "human_resources",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-compensation-benefits"
     },
     {
       "id": "policy:performance-management",
@@ -259,7 +287,8 @@
       "meta": {
         "category": "human_resources",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-performance-management"
     },
     {
       "id": "policy:disciplinary-termination",
@@ -268,7 +297,8 @@
       "meta": {
         "category": "human_resources",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-disciplinary-termination"
     },
     {
       "id": "policy:training-professional-development",
@@ -277,7 +307,8 @@
       "meta": {
         "category": "human_resources",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-training-professional-development"
     },
     {
       "id": "policy:acceptable-use",
@@ -286,7 +317,8 @@
       "meta": {
         "category": "it_security",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-acceptable-use"
     },
     {
       "id": "policy:cybersecurity",
@@ -295,7 +327,8 @@
       "meta": {
         "category": "it_security",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-cybersecurity"
     },
     {
       "id": "policy:access-control-identity",
@@ -304,7 +337,8 @@
       "meta": {
         "category": "it_security",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-access-control-identity"
     },
     {
       "id": "policy:byod",
@@ -313,7 +347,8 @@
       "meta": {
         "category": "it_security",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-byod"
     },
     {
       "id": "policy:incident-response-breach",
@@ -322,7 +357,8 @@
       "meta": {
         "category": "it_security",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-incident-response-breach"
     },
     {
       "id": "policy:business-continuity-disaster-recovery",
@@ -331,7 +367,8 @@
       "meta": {
         "category": "it_security",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-business-continuity-disaster-recovery"
     },
     {
       "id": "policy:operational-procedures-sops",
@@ -340,7 +377,8 @@
       "meta": {
         "category": "operations",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-operational-procedures-sops"
     },
     {
       "id": "policy:quality-assurance",
@@ -349,7 +387,8 @@
       "meta": {
         "category": "operations",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-quality-assurance"
     },
     {
       "id": "policy:customer-complaints-escalation",
@@ -358,7 +397,8 @@
       "meta": {
         "category": "operations",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-customer-complaints-escalation"
     },
     {
       "id": "policy:intellectual-property",
@@ -367,7 +407,8 @@
       "meta": {
         "category": "operations",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-intellectual-property"
     },
     {
       "id": "policy:document-management",
@@ -376,7 +417,8 @@
       "meta": {
         "category": "operations",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-document-management"
     },
     {
       "id": "policy:marketing-communications",
@@ -385,7 +427,8 @@
       "meta": {
         "category": "sales_marketing",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-marketing-communications"
     },
     {
       "id": "policy:social-media",
@@ -394,7 +437,8 @@
       "meta": {
         "category": "sales_marketing",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-social-media"
     },
     {
       "id": "policy:brand-usage",
@@ -403,7 +447,8 @@
       "meta": {
         "category": "sales_marketing",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-brand-usage"
     },
     {
       "id": "policy:sales-ethics",
@@ -412,7 +457,8 @@
       "meta": {
         "category": "sales_marketing",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-sales-ethics"
     },
     {
       "id": "policy:client-data-handling",
@@ -421,7 +467,8 @@
       "meta": {
         "category": "sales_marketing",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-client-data-handling"
     },
     {
       "id": "policy:environmental-sustainability",
@@ -430,7 +477,8 @@
       "meta": {
         "category": "esg_values",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-environmental-sustainability"
     },
     {
       "id": "policy:accessibility-policy",
@@ -439,7 +487,8 @@
       "meta": {
         "category": "esg_values",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-accessibility-policy"
     },
     {
       "id": "policy:digital-accessibility-technical-policy",
@@ -448,7 +497,8 @@
       "meta": {
         "category": "it_security",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-digital-accessibility-technical-policy"
     },
     {
       "id": "policy:human-rights",
@@ -457,7 +507,8 @@
       "meta": {
         "category": "esg_values",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-human-rights"
     },
     {
       "id": "policy:corporate-social-responsibility",
@@ -466,7 +517,8 @@
       "meta": {
         "category": "esg_values",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-corporate-social-responsibility"
     },
     {
       "id": "policy:meta-policy",
@@ -475,7 +527,8 @@
       "meta": {
         "category": "governance_ethics",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-meta-policy"
     },
     {
       "id": "policy:active-inference-policy-development-standard",
@@ -484,7 +537,8 @@
       "meta": {
         "category": "governance_ethics",
         "status": "superseded"
-      }
+      },
+      "href": "knowledge.html#policy-active-inference-policy-development-standard"
     },
     {
       "id": "policy:ai-instructions",
@@ -493,7 +547,8 @@
       "meta": {
         "category": "governance_ethics",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-ai-instructions"
     },
     {
       "id": "policy:policy-template",
@@ -502,7 +557,8 @@
       "meta": {
         "category": "governance_ethics",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-policy-template"
     },
     {
       "id": "policy:tiering-recommendation-packet",
@@ -511,7 +567,8 @@
       "meta": {
         "category": "governance_ethics",
         "status": "drafting"
-      }
+      },
+      "href": "knowledge.html#policy-tiering-recommendation-packet"
     },
     {
       "id": "process:annual-report-preparation",
@@ -520,7 +577,8 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-annual-report-preparation"
     },
     {
       "id": "process:board-policy-approval",
@@ -529,7 +587,8 @@
       "meta": {
         "category": "governance",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-board-policy-approval"
     },
     {
       "id": "process:california-operations-registration",
@@ -538,7 +597,8 @@
       "meta": {
         "category": "legal_compliance",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-california-operations-registration"
     },
     {
       "id": "process:delaware-incorporation",
@@ -547,7 +607,8 @@
       "meta": {
         "category": "legal_compliance",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-delaware-incorporation"
     },
     {
       "id": "process:ecosystem-support-access-provisioning",
@@ -556,7 +617,8 @@
       "meta": {
         "category": "it_security",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-ecosystem-support-access-provisioning"
     },
     {
       "id": "process:ecosystem-support-checkin",
@@ -565,7 +627,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-ecosystem-support-checkin"
     },
     {
       "id": "process:ecosystem-support-offboarding",
@@ -574,7 +637,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-ecosystem-support-offboarding"
     },
     {
       "id": "process:ecosystem-support-onboarding",
@@ -583,7 +647,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-ecosystem-support-onboarding"
     },
     {
       "id": "process:employee-onboarding",
@@ -592,7 +657,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-employee-onboarding"
     },
     {
       "id": "process:federal-501c3-registration",
@@ -601,7 +667,8 @@
       "meta": {
         "category": "legal_compliance",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-federal-501c3-registration"
     },
     {
       "id": "process:fellows-checkin",
@@ -610,7 +677,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-fellows-checkin"
     },
     {
       "id": "process:fellows-offboarding",
@@ -619,7 +687,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-fellows-offboarding"
     },
     {
       "id": "process:fellows-onboarding",
@@ -628,7 +697,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-fellows-onboarding"
     },
     {
       "id": "process:generate-communications",
@@ -637,7 +707,8 @@
       "meta": {
         "category": "communications",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-generate-communications"
     },
     {
       "id": "process:grant-opportunity-relevance",
@@ -646,7 +717,8 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-grant-opportunity-relevance"
     },
     {
       "id": "process:grants-application",
@@ -655,7 +727,8 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-grants-application"
     },
     {
       "id": "process:grants-onboarding",
@@ -664,7 +737,8 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-grants-onboarding"
     },
     {
       "id": "process:grants-publication",
@@ -673,7 +747,8 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-grants-publication"
     },
     {
       "id": "process:grants-review",
@@ -682,7 +757,8 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-grants-review"
     },
     {
       "id": "process:incident-response",
@@ -691,7 +767,8 @@
       "meta": {
         "category": "it_security",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-incident-response"
     },
     {
       "id": "process:internship-checkin",
@@ -700,7 +777,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-internship-checkin"
     },
     {
       "id": "process:internship-checkin-offboarding",
@@ -709,7 +787,8 @@
       "meta": {
         "category": "education",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-internship-checkin-offboarding"
     },
     {
       "id": "process:internship-completion",
@@ -718,7 +797,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-internship-completion"
     },
     {
       "id": "process:internship-education",
@@ -727,7 +807,8 @@
       "meta": {
         "category": "education",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-internship-education"
     },
     {
       "id": "process:internship-onboarding",
@@ -736,7 +817,8 @@
       "meta": {
         "category": "education",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-internship-onboarding"
     },
     {
       "id": "process:internship-research",
@@ -745,7 +827,8 @@
       "meta": {
         "category": "research",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-internship-research"
     },
     {
       "id": "process:mentorship-application",
@@ -754,7 +837,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-mentorship-application"
     },
     {
       "id": "process:mentorship-checkin",
@@ -763,7 +847,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-mentorship-checkin"
     },
     {
       "id": "process:mentorship-matching",
@@ -772,7 +857,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-mentorship-matching"
     },
     {
       "id": "process:newsletter-publication",
@@ -781,7 +867,8 @@
       "meta": {
         "category": "communications",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-newsletter-publication"
     },
     {
       "id": "process:open-source-checkin",
@@ -790,7 +877,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-open-source-checkin"
     },
     {
       "id": "process:open-source-offboarding",
@@ -799,7 +887,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-open-source-offboarding"
     },
     {
       "id": "process:open-source-onboarding",
@@ -808,7 +897,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-open-source-onboarding"
     },
     {
       "id": "process:partnership-checkin",
@@ -817,7 +907,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-partnership-checkin"
     },
     {
       "id": "process:partnership-offboarding",
@@ -826,7 +917,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-partnership-offboarding"
     },
     {
       "id": "process:partnership-onboarding",
@@ -835,7 +927,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-partnership-onboarding"
     },
     {
       "id": "process:partnership-planning",
@@ -844,7 +937,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-partnership-planning"
     },
     {
       "id": "process:pay-organizational-taxes",
@@ -853,7 +947,8 @@
       "meta": {
         "category": "legal_compliance",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-pay-organizational-taxes"
     },
     {
       "id": "process:philanthropy-donation-processing",
@@ -862,7 +957,8 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-philanthropy-donation-processing"
     },
     {
       "id": "process:philanthropy-onboarding",
@@ -871,7 +967,8 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-philanthropy-onboarding"
     },
     {
       "id": "process:philanthropy-recognition",
@@ -880,7 +977,8 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-philanthropy-recognition"
     },
     {
       "id": "process:policy-lifecycle-management",
@@ -889,7 +987,8 @@
       "meta": {
         "category": "governance",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-policy-lifecycle-management"
     },
     {
       "id": "process:research-fellow-application-review",
@@ -898,7 +997,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-research-fellow-application-review"
     },
     {
       "id": "process:research-project-initiation",
@@ -907,7 +1007,8 @@
       "meta": {
         "category": "research",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-research-project-initiation"
     },
     {
       "id": "process:vendor-onboarding",
@@ -916,7 +1017,8 @@
       "meta": {
         "category": "procurement",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-vendor-onboarding"
     },
     {
       "id": "process:volunteer-checkin",
@@ -925,7 +1027,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-volunteer-checkin"
     },
     {
       "id": "process:volunteer-offboarding",
@@ -934,7 +1037,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-volunteer-offboarding"
     },
     {
       "id": "process:volunteer-onboarding",
@@ -943,7 +1047,8 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-volunteer-onboarding"
     },
     {
       "id": "process:write-grant-application",
@@ -952,7 +1057,8 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      }
+      },
+      "href": "knowledge.html#process-write-grant-application"
     },
     {
       "id": "entity:daniel-friedman",
@@ -961,7 +1067,8 @@
       "meta": {
         "entity_type": "person",
         "title": "President & Treasurer"
-      }
+      },
+      "href": "knowledge.html#member-daniel-friedman"
     },
     {
       "id": "entity:board-secretary",
@@ -970,7 +1077,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Secretary"
-      }
+      },
+      "href": "knowledge.html#member-board-secretary"
     },
     {
       "id": "entity:board-vice-president",
@@ -979,7 +1087,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Vice President"
-      }
+      },
+      "href": "knowledge.html#member-board-vice-president"
     },
     {
       "id": "entity:compliance-officer",
@@ -988,7 +1097,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Compliance Officer"
-      }
+      },
+      "href": "knowledge.html#member-compliance-officer"
     },
     {
       "id": "entity:data-protection-officer",
@@ -997,7 +1107,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Data Protection Officer (DPO)"
-      }
+      },
+      "href": "knowledge.html#member-data-protection-officer"
     },
     {
       "id": "entity:hr-lead",
@@ -1006,7 +1117,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Human Resources Lead"
-      }
+      },
+      "href": "knowledge.html#member-hr-lead"
     },
     {
       "id": "entity:it-security-lead",
@@ -1015,7 +1127,8 @@
       "meta": {
         "entity_type": "person",
         "title": "IT Security Lead"
-      }
+      },
+      "href": "knowledge.html#member-it-security-lead"
     },
     {
       "id": "entity:eduactive-director",
@@ -1024,7 +1137,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Director, EduActive"
-      }
+      },
+      "href": "knowledge.html#member-eduactive-director"
     },
     {
       "id": "entity:reinference-director",
@@ -1033,7 +1147,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Director, ReInference"
-      }
+      },
+      "href": "knowledge.html#member-reinference-director"
     },
     {
       "id": "entity:procurement-manager",
@@ -1042,7 +1157,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Procurement & Vendor Manager"
-      }
+      },
+      "href": "knowledge.html#member-procurement-manager"
     },
     {
       "id": "entity:communications-lead",
@@ -1051,7 +1167,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Marketing & Communications Lead"
-      }
+      },
+      "href": "knowledge.html#member-communications-lead"
     },
     {
       "id": "entity:esg-coordinator",
@@ -1060,7 +1177,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Environmental, Social & Governance Coordinator"
-      }
+      },
+      "href": "knowledge.html#member-esg-coordinator"
     },
     {
       "id": "entity:active-inference-institute",
@@ -1068,7 +1186,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-active-inference-institute"
     },
     {
       "id": "entity:board-of-directors",
@@ -1076,7 +1195,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-board-of-directors"
     },
     {
       "id": "entity:scientific-advisory-board",
@@ -1084,7 +1204,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-scientific-advisory-board"
     },
     {
       "id": "entity:eduactive",
@@ -1092,7 +1213,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-eduactive"
     },
     {
       "id": "entity:reinference",
@@ -1100,7 +1222,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-reinference"
     },
     {
       "id": "entity:administrative-unit",
@@ -1108,7 +1231,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-administrative-unit"
     },
     {
       "id": "entity:irs",
@@ -1116,7 +1240,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-irs"
     },
     {
       "id": "entity:state-of-delaware",
@@ -1124,7 +1249,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-state-of-delaware"
     },
     {
       "id": "entity:state-of-california",
@@ -1132,7 +1258,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-state-of-california"
     },
     {
       "id": "entity:eu-data-protection",
@@ -1140,7 +1267,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-eu-data-protection"
     },
     {
       "id": "entity:github",
@@ -1148,7 +1276,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-github"
     },
     {
       "id": "entity:discord",
@@ -1172,7 +1301,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-youtube"
     },
     {
       "id": "entity:ollama",
@@ -1180,7 +1310,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-ollama"
     },
     {
       "id": "entity:aii-certificate-training-department",
@@ -1188,7 +1319,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-aii-certificate-training-department"
     },
     {
       "id": "entity:aii-consultancy-services-department",
@@ -1196,7 +1328,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-aii-consultancy-services-department"
     },
     {
       "id": "entity:aii-publishing-data-access-department",
@@ -1204,7 +1337,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-aii-publishing-data-access-department"
     },
     {
       "id": "entity:aii-membership-department",
@@ -1212,7 +1346,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-aii-membership-department"
     },
     {
       "id": "entity:accreditation-organization",
@@ -1220,7 +1355,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-accreditation-organization"
     },
     {
       "id": "entity:vladimir-baulin",
@@ -1229,7 +1365,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Board Member"
-      }
+      },
+      "href": "knowledge.html#member-vladimir-baulin"
     },
     {
       "id": "entity:bleu-knight",
@@ -1238,7 +1375,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Board Member"
-      }
+      },
+      "href": "knowledge.html#member-bleu-knight"
     },
     {
       "id": "entity:alianna-maren",
@@ -1247,7 +1385,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Board Member"
-      }
+      },
+      "href": "knowledge.html#member-alianna-maren"
     },
     {
       "id": "entity:alexander-sabine",
@@ -1256,7 +1395,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Board Member"
-      }
+      },
+      "href": "knowledge.html#member-alexander-sabine"
     },
     {
       "id": "entity:ana-magdalena-hurtado",
@@ -1265,7 +1405,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Board Member"
-      }
+      },
+      "href": "knowledge.html#member-ana-magdalena-hurtado"
     },
     {
       "id": "entity:ann-stapleton",
@@ -1274,7 +1415,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Board Member"
-      }
+      },
+      "href": "knowledge.html#member-ann-stapleton"
     },
     {
       "id": "entity:ed-ober",
@@ -1283,7 +1425,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Board Member"
-      }
+      },
+      "href": "knowledge.html#member-ed-ober"
     },
     {
       "id": "entity:austin-cook",
@@ -1292,7 +1435,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Board Member"
-      }
+      },
+      "href": "knowledge.html#member-austin-cook"
     },
     {
       "id": "entity:ellynne-dec",
@@ -1301,7 +1445,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Board Member"
-      }
+      },
+      "href": "knowledge.html#member-ellynne-dec"
     },
     {
       "id": "entity:alexandra-mikhailova",
@@ -1310,7 +1455,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Vice President & Secretary"
-      }
+      },
+      "href": "knowledge.html#member-alexandra-mikhailova"
     },
     {
       "id": "entity:v-bleu-knight",
@@ -1319,7 +1465,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Secretary"
-      }
+      },
+      "href": "knowledge.html#member-v-bleu-knight"
     },
     {
       "id": "entity:alexander-vyatkin",
@@ -1328,7 +1475,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Vice President"
-      }
+      },
+      "href": "knowledge.html#member-alexander-vyatkin"
     },
     {
       "id": "entity:dean-tickles",
@@ -1336,7 +1484,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-dean-tickles"
     },
     {
       "id": "entity:john-clippinger",
@@ -1344,7 +1493,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-john-clippinger"
     },
     {
       "id": "entity:mike-smith",
@@ -1352,7 +1502,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-mike-smith"
     },
     {
       "id": "entity:rafael-kaufmann",
@@ -1360,7 +1511,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-rafael-kaufmann"
     },
     {
       "id": "entity:adam-safron",
@@ -1369,7 +1521,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Primary point of contact / IE project facilitator for AICACP"
-      }
+      },
+      "href": "knowledge.html#member-adam-safron"
     },
     {
       "id": "entity:adeel-razi",
@@ -1377,7 +1530,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-adeel-razi"
     },
     {
       "id": "entity:alexander-ororbia",
@@ -1385,7 +1539,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-alexander-ororbia"
     },
     {
       "id": "entity:ali-rahmjoo",
@@ -1393,7 +1548,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-ali-rahmjoo"
     },
     {
       "id": "entity:andrew-pashea",
@@ -1401,7 +1557,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-andrew-pashea"
     },
     {
       "id": "entity:antonio-lucas-alba",
@@ -1409,7 +1566,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-antonio-lucas-alba"
     },
     {
       "id": "entity:arun-niranjan",
@@ -1417,7 +1575,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-arun-niranjan"
     },
     {
       "id": "entity:avel-guenin-carlut",
@@ -1425,7 +1584,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-avel-guenin-carlut"
     },
     {
       "id": "entity:bradly-alicea",
@@ -1433,7 +1593,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-bradly-alicea"
     },
     {
       "id": "entity:candice-pattisapu",
@@ -1441,7 +1602,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-candice-pattisapu"
     },
     {
       "id": "entity:chris-fields",
@@ -1449,7 +1611,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-chris-fields"
     },
     {
       "id": "entity:christo-kurisummoottil-thomas",
@@ -1457,7 +1620,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-christo-kurisummoottil-thomas"
     },
     {
       "id": "entity:cory-slater",
@@ -1465,7 +1629,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-cory-slater"
     },
     {
       "id": "entity:elliott-hauser",
@@ -1473,7 +1638,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-elliott-hauser"
     },
     {
       "id": "entity:haris-neophytou",
@@ -1481,7 +1647,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-haris-neophytou"
     },
     {
       "id": "entity:hector-manrique",
@@ -1489,7 +1656,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-hector-manrique"
     },
     {
       "id": "entity:holly-grimm",
@@ -1497,7 +1665,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-holly-grimm"
     },
     {
       "id": "entity:ian-tennant",
@@ -1505,7 +1674,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-ian-tennant"
     },
     {
       "id": "entity:jana-lumi",
@@ -1513,7 +1683,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-jana-lumi"
     },
     {
       "id": "entity:joel-dietz",
@@ -1521,7 +1692,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-joel-dietz"
     },
     {
       "id": "entity:joshua-shane",
@@ -1529,7 +1701,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-joshua-shane"
     },
     {
       "id": "entity:karl-john-friston",
@@ -1537,7 +1710,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-karl-john-friston"
     },
     {
       "id": "entity:luca-possati",
@@ -1545,7 +1719,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-luca-possati"
     },
     {
       "id": "entity:matt-brown",
@@ -1553,7 +1728,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-matt-brown"
     },
     {
       "id": "entity:maxwell-j-d-ramstead",
@@ -1561,7 +1737,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-maxwell-j-d-ramstead"
     },
     {
       "id": "entity:michael-lennon",
@@ -1569,7 +1746,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-michael-lennon"
     },
     {
       "id": "entity:scott-david",
@@ -1577,7 +1755,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-scott-david"
     },
     {
       "id": "entity:sebastian-alvarado",
@@ -1585,7 +1764,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-sebastian-alvarado"
     },
     {
       "id": "entity:shady-el-damaty",
@@ -1593,7 +1773,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-shady-el-damaty"
     },
     {
       "id": "entity:thomas-kehler",
@@ -1601,7 +1782,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-thomas-kehler"
     },
     {
       "id": "entity:pablofm",
@@ -1609,7 +1791,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-pablofm"
     },
     {
       "id": "entity:jesse-g",
@@ -1617,7 +1800,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-jesse-g"
     },
     {
       "id": "entity:anna-pereira",
@@ -1625,7 +1809,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "person"
-      }
+      },
+      "href": "knowledge.html#member-anna-pereira"
     },
     {
       "id": "entity:jeremy-cooper",
@@ -1634,7 +1819,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Primary point of contact / IE project facilitator for Active Inference Account of Belief Updating in PTSD"
-      }
+      },
+      "href": "knowledge.html#member-jeremy-cooper"
     },
     {
       "id": "entity:jean-francois-cloutier",
@@ -1643,7 +1829,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Primary point of contact / IE project facilitator for Symbolic cognitive robotics"
-      }
+      },
+      "href": "knowledge.html#member-jean-francois-cloutier"
     },
     {
       "id": "entity:shagor-shaggy-rahman",
@@ -1652,7 +1839,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Primary point of contact / IE project facilitator for Humanity's Story of an Uncertain Self"
-      }
+      },
+      "href": "knowledge.html#member-shagor-shaggy-rahman"
     },
     {
       "id": "entity:fraser-paterson",
@@ -1661,7 +1849,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Primary point of contact / IE project facilitator for Improving RxInfer.jl's Model Visualization Capabilities"
-      }
+      },
+      "href": "knowledge.html#member-fraser-paterson"
     },
     {
       "id": "entity:john-boik",
@@ -1670,7 +1859,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Primary point of contact / IE project facilitator for CogNarr Ecosystem: Facilitating Group Cognition at Scale"
-      }
+      },
+      "href": "knowledge.html#member-john-boik"
     },
     {
       "id": "entity:robert-worden",
@@ -1679,7 +1869,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Primary point of contact / IE project facilitator for Model-Centric cognition"
-      }
+      },
+      "href": "knowledge.html#member-robert-worden"
     },
     {
       "id": "entity:theodoros-aliferis",
@@ -1688,7 +1879,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Primary point of contact / IE project facilitator for The Einstein Model of a Solid as a Model of the Mental Apparatus from the Economic Perspective of Psychoanalytic Theory"
-      }
+      },
+      "href": "knowledge.html#member-theodoros-aliferis"
     },
     {
       "id": "entity:ivan-metelkin",
@@ -1697,7 +1889,8 @@
       "meta": {
         "entity_type": "person",
         "title": "Primary point of contact / IE project facilitator for Active Inference for Built Environments & CooperActive Systems"
-      }
+      },
+      "href": "knowledge.html#member-ivan-metelkin"
     },
     {
       "id": "entity:beren-millidge-fep-papers",
@@ -1705,7 +1898,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-beren-millidge-fep-papers"
     },
     {
       "id": "entity:obsidian",
@@ -1713,7 +1907,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-obsidian"
     },
     {
       "id": "entity:zenodo",
@@ -1721,7 +1916,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-zenodo"
     },
     {
       "id": "entity:arxiv",
@@ -1729,7 +1925,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-arxiv"
     },
     {
       "id": "entity:bluesky",
@@ -1737,7 +1934,8 @@
       "type": "entity",
       "meta": {
         "entity_type": "organization"
-      }
+      },
+      "href": "knowledge.html#org-bluesky"
     }
   ],
   "edges": [
