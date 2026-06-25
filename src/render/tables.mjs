@@ -164,8 +164,8 @@ export function governanceMembersTable(rows = entityPeopleRows()) {
 export function processesTable(rows = processRows()) {
   const columns = [
     { label: "Process", render: (item) => `<a href="#${escapeHtml(item.rowId)}">${escapeHtml(item.title)}</a>` },
-    { label: "Category", render: (item) => escapeHtml(title_case_token_js(item.category || "")) },
-    { label: "Status", render: (item) => escapeHtml(title_case_token_js(item.status || "")) },
+    { label: "Category", render: (item) => categoryTag(item.category) },
+    { label: "Status", render: (item) => statusBadge(item.status) },
     { label: "Steps", render: (item) => String(item.stepCount || 0) },
     { label: "SLA days", render: (item) => item.slaDays != null ? String(item.slaDays) : "—" },
     { label: "Description", render: (item) => escapeHtml(sanitizePublicProse(item.description || "").slice(0, 120)) },
