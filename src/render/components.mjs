@@ -1,6 +1,7 @@
 import { escapeHtml, slugifyAnchor } from "../lib/text.mjs";
 import { hrefForSlug } from "../url-taxonomy.mjs";
 import { linkChips, linkList } from "./page-sections.mjs";
+import { cardIcon } from "./icons.mjs";
 
 export function sectionHeading({ eyebrow, title, text }) {
   const parts = ['<div class="section-heading">'];
@@ -19,8 +20,14 @@ export function cardGrid(cards = [], currentDir = "") {
   return `<div class="card-grid">${cards
     .map((card) => {
       const links = linkChips(card.links, currentDir);
-      return `<article class="info-card">
-        <h3>${escapeHtml(card.title)}</h3>
+      const icon = cardIcon(card.icon);
+      // Icon (when present) and heading share a flex header row so the glyph
+      // sits in a small accent badge to the left of the title.
+      const header = icon
+        ? `<div class="card-head"><span class="card-icon-badge">${icon}</span><h3>${escapeHtml(card.title)}</h3></div>`
+        : `<h3>${escapeHtml(card.title)}</h3>`;
+      return `<article class="info-card${icon ? " has-icon" : ""}">
+        ${header}
         <p>${escapeHtml(card.text)}</p>${links ? `\n        ${links}` : ""}
       </article>`;
     })

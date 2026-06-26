@@ -5,6 +5,16 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Added
+- **Link-card icons** — the section/navigation link cards (`info-card`) now
+  carry an optional inline-SVG glyph in a small red accent badge to the left of
+  the title. A curated, theme-aware icon set lives in `src/render/icons.mjs`
+  (`cardIcon(name)`); cards opt in via an `icon` field, and the homepage "Core
+  areas" grid (Institute, Programs, Projects, Learning, Ecosystem, Open Source
+  Map, Directory) is wired up. Icons are plain markup — no external request, no
+  new binary asset, nothing for the strict CSP / static-security gate to flag.
+  Cards without an `icon` render unchanged.
+
 ### Internal
 - **Modularized the static generator** — `src/build.mjs` (a 2691-line monolith)
   was decomposed into 35 focused ES modules under `src/` (`data.mjs` foundation,

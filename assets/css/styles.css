@@ -615,6 +615,42 @@ select:focus-visible {
   color: var(--muted);
 }
 
+/* Link-card icons: a small accent badge to the left of the heading. The glyph
+   inherits the brand red; the badge is a tinted rounded square. Inline SVG
+   (CSP-safe, no external request). Cards without an icon are unaffected. */
+.info-card .card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 0.6rem;
+}
+
+.info-card .card-head h3 {
+  margin: 0;
+}
+
+.card-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.7rem;
+  color: var(--accent-text);
+  background: rgba(220, 38, 38, 0.12);
+  border: 1px solid rgba(220, 38, 38, 0.32);
+}
+
+.info-card:hover .card-icon-badge {
+  background: rgba(220, 38, 38, 0.2);
+  border-color: var(--red);
+}
+
+.card-icon {
+  display: block;
+}
+
 .resource-card {
   display: block;
   color: inherit;
