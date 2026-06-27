@@ -15,6 +15,10 @@
         "slug": "ecosystem"
       },
       {
+        "label": "InstituteOS Interface",
+        "slug": "instituteos"
+      },
+      {
         "label": "Global Directory",
         "slug": "directory"
       },
@@ -125,6 +129,11 @@
       {
         "label": "Open Source Map",
         "slug": "knowledge"
+      },
+      {
+        "label": "Public Export Gate",
+        "slug": "instituteos",
+        "anchor": "public-export-gate"
       },
       {
         "label": "Official Pages",

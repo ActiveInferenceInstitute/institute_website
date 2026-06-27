@@ -1,0 +1,172 @@
+{
+  "slug": "instituteos",
+  "title": "InstituteOS Public Interface",
+  "subtitle": "How private InstituteOS docs and library records become public, navigable website surfaces.",
+  "audience": "Maintainers, contributors, and partners who need the public boundary for InstituteOS content.",
+  "lede": "InstituteOS keeps operational knowledge in the private docs and library trees, then exports only public-safe slices into this static website. This page makes the interface explicit: authored public copy, sanitized public tables, exported graphs, public project pages, and the checks that block private material before publication.",
+  "order": 4,
+  "primaryActions": [
+    {
+      "label": "Open public map",
+      "href": "/knowledge/"
+    },
+    {
+      "label": "Website repository",
+      "sourceId": "repo-institute-website"
+    },
+    {
+      "label": "Global directory",
+      "href": "/directory/"
+    }
+  ],
+  "relatedSlugs": [
+    "about",
+    "structure",
+    "projects",
+    "learning",
+    "ecosystem"
+  ],
+  "resourceGroups": [
+    "institute",
+    "projects",
+    "tools",
+    "research"
+  ],
+  "externalSourceIds": [
+    "official-activeinference-org",
+    "github-org",
+    "repo-institute-website",
+    "start-docs",
+    "ecosystem"
+  ],
+  "sections": [
+    {
+      "heading": "Source Ownership",
+      "body": "Private InstituteOS docs hold operating guidance, implementation notes, and verification records. The library tree holds registries for projects, policies, processes, communications, narratives, strategies, and graphs. The public website does not mirror those sources directly; it receives only authored public pages and exporter-produced public slices.",
+      "links": [
+        {
+          "label": "Open public map",
+          "href": "/knowledge/"
+        },
+        {
+          "label": "View public projects",
+          "href": "/projects/"
+        }
+      ]
+    },
+    {
+      "heading": "Export Boundary",
+      "body": "All structured private-to-public data must pass through the InstituteOS website export pipeline or the public Open Source Map sync. The gate rejects contact details, direct private-platform destinations, private operational fields, raw task detail, nonpublic stewardship records, working documents, demos, recordings, and internal UI captures.",
+      "links": [
+        {
+          "label": "Public website repository",
+          "sourceId": "repo-institute-website"
+        },
+        {
+          "label": "Website contract",
+          "href": "/instituteos/#public-export-gate"
+        }
+      ]
+    },
+    {
+      "heading": "Best Public Interfaces",
+      "body": "The site exposes the best public interface for each audience: curated pages for visitors, the resource directory for search and filtering, the Open Source Map for structured public rows, project pages for public project context, feeds for communications, and version metadata for provenance.",
+      "links": [
+        {
+          "label": "Resource directory",
+          "href": "/resources/"
+        },
+        {
+          "label": "Open Source Map",
+          "href": "/knowledge/"
+        },
+        {
+          "label": "Version metadata",
+          "href": "../version.json"
+        }
+      ]
+    },
+    {
+      "heading": "Release Checks",
+      "body": "A public refresh is complete only after the sync/export checks, static build, internal-link check, site contract, static-security check, design-system check, and browser inspection pass. Generated root HTML is rebuilt from source, not hand-edited.",
+      "links": [
+        {
+          "label": "Global index",
+          "href": "/directory/"
+        },
+        {
+          "label": "Search the site",
+          "href": "/search/"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Docs stay private by default",
+      "icon": "institute",
+      "text": "Private docs may inform public copy, but they are not copied into the site as working material.",
+      "links": [
+        {
+          "label": "About the Institute",
+          "href": "/about/"
+        }
+      ]
+    },
+    {
+      "title": "Library records are projected",
+      "icon": "directory",
+      "text": "Projects, strategies, narratives, communications, and graph records become public only through explicit exporters.",
+      "links": [
+        {
+          "label": "View projects",
+          "href": "/projects/"
+        }
+      ]
+    },
+    {
+      "title": "PublicGate blocks leaks",
+      "icon": "resources",
+      "text": "The strict union gate scans payloads before public JSON artifacts are written or checked.",
+      "links": [
+        {
+          "label": "Gate details",
+          "href": "/instituteos/#public-export-gate"
+        }
+      ]
+    },
+    {
+      "title": "Open Source Map is searchable",
+      "icon": "map",
+      "text": "Public people, repositories, research links, ideas, and ontology relationships are exposed as filtered tables.",
+      "links": [
+        {
+          "label": "Open Source Map",
+          "href": "/knowledge/"
+        }
+      ]
+    },
+    {
+      "title": "Design system is inherited",
+      "icon": "projects",
+      "text": "The public site consumes the InstituteOS design-system token export and checks it before release.",
+      "links": [
+        {
+          "label": "Website repository",
+          "sourceId": "repo-institute-website"
+        }
+      ]
+    },
+    {
+      "title": "Generated outputs are rebuilt",
+      "icon": "search",
+      "text": "Root HTML, sitemap files, feeds, search data, and version metadata are generated from source during the build.",
+      "links": [
+        {
+          "label": "Sitemap",
+          "href": "/sitemap/"
+        }
+      ]
+    }
+  ]
+}

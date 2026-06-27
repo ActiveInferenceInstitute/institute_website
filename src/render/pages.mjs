@@ -19,7 +19,7 @@ import { publicPagePager } from "./pager.mjs";
 import { resourceCards } from "./resources.mjs";
 import { layout } from "./layout.mjs";
 import { slugToHref, resolveInternalHref } from "./urls.mjs";
-import { instituteosFeatureSections } from "./feature-sections.mjs";
+import { homeInstituteosGate, instituteosFeatureSections } from "./feature-sections.mjs";
 import { knowledgePreview } from "./knowledge.mjs";
 import { relatedProjectsSection } from "../pages/projects.mjs";
 
@@ -105,6 +105,7 @@ export function homePage() {
   const projectPage = siteData.pages.find((page) => page.slug === "projects");
   const learningPage = siteData.pages.find((page) => page.slug === "learning");
   const ecosystemPage = siteData.pages.find((page) => page.slug === "ecosystem");
+  const instituteosPage = siteData.pages.find((page) => page.slug === "instituteos");
   const featuredResources = uniqueEntries(allResourceEntries().filter((resource) => resource.featured || resource.priority <= 12)).slice(0, 12);
   const body = `
   <section class="hero">
@@ -142,12 +143,14 @@ export function homePage() {
         <a href="${hrefForSlug("directory", currentDir)}"><strong>Global index</strong><span>Every page, resource, official link, and repository</span></a>
         <a href="${hrefForSlug("resources", currentDir)}"><strong>Filter resources</strong><span>Search by type, category, audience, and tag</span></a>
         <a href="${hrefForSlug("knowledge", currentDir)}"><strong>Open Source Map</strong><span>Public people, repositories, research, ideas, and ontology tables</span></a>
+        <a href="${hrefForSlug("instituteos", currentDir)}"><strong>Public export gate</strong><span>How private docs and library records become public-safe website surfaces</span></a>
         <a href="${hrefForSlug("get-involved", currentDir)}"><strong>Participate</strong><span>Channels, activities, support, and contact</span></a>
       </aside>
     </div>
   </section>
 
   ${audiencePathwaySection(currentDir)}
+  ${homeInstituteosGate(currentDir)}
 
   <section class="content-band muted">
     ${sectionHeading({ eyebrow: "Core areas", title: "How the public work is organized" })}
@@ -157,6 +160,7 @@ export function homePage() {
       { title: "Projects", icon: "projects", text: projectPage.lede, links: [{ label: "Projects", href: "projects.html" }, { label: "Repositories", href: "directory.html#repositories" }] },
       { title: "Learning", icon: "learning", text: learningPage.lede, links: [{ label: "Learning", href: "learning.html" }, { label: "Learning resources", href: "resources.html#learning" }] },
       { title: "Ecosystem", icon: "ecosystem", text: ecosystemPage.lede, links: [{ label: "Ecosystem", href: "ecosystem.html" }] },
+      { title: "InstituteOS Interface", icon: "resources", text: instituteosPage.lede, links: [{ label: "Export gate", href: "instituteos.html" }, { label: "Open Source Map", href: "knowledge.html" }] },
       { title: "Open Source Map", icon: "map", text: "Structured public tables for people, repositories, research links, ideas, and ontology relationships.", links: [{ label: "Open Source Map", href: "knowledge.html" }] },
       { title: "Directory", icon: "directory", text: "A complete global index of public pages, resource groups, repositories, and verified external links.", links: [{ label: "Global directory", href: "directory.html" }] },
     ], currentDir)}

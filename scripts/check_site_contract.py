@@ -371,6 +371,10 @@ def instituteos_data(root: Path) -> dict[str, dict]:
     }
 
 
+def export_manifest(root: Path) -> dict:
+    return load_json(root / "data" / "export-manifest.json")
+
+
 def research_resource_records(root: Path) -> list[dict]:
     resources = load_json(root / "src" / "content" / "resources.json").get("resources", [])
     live = {source["id"]: source for source in live_manifest(root).get("sources", [])}
@@ -407,7 +411,7 @@ def check_content_model(root: Path, errors: list[str]) -> None:
     # Navigation items now reference clean-URL slugs (+ optional anchor), not flat
     # <slug>.html literals. Validate the required destination slugs are present.
     nav_slugs = {item.get("slug") for group in navigation for item in group.get("items", [])}
-    for required_slug in {"directory", "resources", "projects", "get-involved"}:
+    for required_slug in {"directory", "resources", "projects", "get-involved", "instituteos"}:
         if required_slug not in nav_slugs:
             errors.append(f"navigation.json missing required destination {required_slug}")
 
@@ -1039,6 +1043,89 @@ def check_version(root: Path, errors: list[str]) -> None:
             f"version.json site_version {version.get('site_version')!r} does not match "
             f"package.json version {package.get('version')!r}"
         )
+    sitemap_route_count = (root / "sitemap.xml").read_text(encoding="utf-8").count("<loc>")
+    if version.get("pages") != sitemap_route_count:
+        errors.append(
+            f"version.json pages {version.get('pages')!r} does not match sitemap route count "
+            f"{sitemap_route_count}"
+        )
+
+
+def check_instituteos_interface(root: Path, errors: list[str]) -> None:
+    html_path = html_path_for_slug(root, "instituteos")
+    if not html_path.exists():
+        errors.append("instituteos/index.html is missing")
+        return
+
+    page_source = root / "src" / "content" / "pages" / "institute" / "instituteos.json"
+    if not page_source.exists():
+        errors.append("src/content/pages/institute/instituteos.json is missing")
+        return
+
+    html = html_path.read_text(encoding="utf-8")
+    info = parse_html(html_path)
+    required_ids = {
+        "source-ownership",
+        "export-boundary",
+        "best-public-interfaces",
+        "release-checks",
+        "public-export-gate",
+        "export-snapshot",
+    }
+    missing_ids = required_ids - info.ids
+    if missing_ids:
+        errors.append(f"instituteos/index.html missing interface ids {sorted(missing_ids)}")
+
+    manifest = export_manifest(root)
+    files = manifest.get("files", [])
+    if not files:
+        errors.append("data/export-manifest.json has no files for the InstituteOS interface")
+        return
+
+    if not manifest.get("gate_version"):
+        errors.append("data/export-manifest.json missing gate_version")
+    if not manifest.get("source_fingerprint"):
+        errors.append("data/export-manifest.json missing source_fingerprint")
+    if not manifest.get("generated_at"):
+        errors.append("data/export-manifest.json missing generated_at")
+
+    exported_records = sum(int(file.get("record_count", 0)) for file in files)
+    if f"{len(files)} artifacts, {exported_records} manifest records" not in html:
+        errors.append("instituteos/index.html does not surface export manifest artifact and record totals")
+    if f"Gate version {manifest.get('gate_version')}" not in html:
+        errors.append("instituteos/index.html does not surface the export gate version")
+    if f"source fingerprint {manifest.get('source_fingerprint')}" not in html:
+        errors.append("instituteos/index.html does not surface the export source fingerprint")
+
+    for file in files:
+        name = str(file.get("name", ""))
+        output_path = str(file.get("output_path", ""))
+        record_count = int(file.get("record_count", 0))
+        if name not in html:
+            errors.append(f"instituteos/index.html missing manifest artifact name {name}")
+        if output_path not in html:
+            errors.append(f"instituteos/index.html missing manifest artifact path {output_path}")
+        if f"{record_count:,} records" not in html and f"{record_count} records" not in html:
+            errors.append(f"instituteos/index.html missing manifest record count for {name}")
+
+    index_html = (root / "index.html").read_text(encoding="utf-8")
+    data = instituteos_data(root)
+    open_map_rows = (
+        len(data["people"].get("records", []))
+        + len(data["projects"].get("records", []))
+        + len(data["ideas"].get("records", []))
+        + len(data["ontology"].get("edges", []))
+    )
+    required_home_snippets = {
+        'id="public-interface"',
+        'href="instituteos/#export-snapshot"',
+        'href="instituteos/#public-export-gate"',
+        f">{open_map_rows:,}<",
+        f">{len(files):,}<",
+    }
+    for snippet in required_home_snippets:
+        if snippet not in index_html:
+            errors.append(f"index.html missing InstituteOS interface homepage snippet {snippet!r}")
 
 
 def check_site_contract(root: Path) -> int:
@@ -1050,6 +1137,7 @@ def check_site_contract(root: Path) -> int:
     check_resource_directory(root, errors)
     check_knowledge_page(root, errors)
     check_directory_page(root, errors)
+    check_instituteos_interface(root, errors)
     check_navigation(root, errors)
     check_design_system_contract(root, errors)
     check_canonical_outputs(root, errors)

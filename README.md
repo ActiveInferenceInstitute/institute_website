@@ -19,6 +19,7 @@ This site helps visitors quickly find:
 - Verified public resources, official web surfaces, public repositories, channels, and media links.
 - Audience-specific pathways for newcomers, learners, researchers, developers, contributors, partners, and supporters.
 - Structured public tables for public GitHub people, open-source repositories, research links, ideas, and ontology relationships.
+- A visible InstituteOS public-interface page that explains how private `docs/` and `library/` sources are projected, gated, and verified before they reach the public site.
 
 The site is intentionally a static GitHub Pages build: no runtime framework, no server dependency, and no client-side requirement beyond the small navigation and resource-filter script.
 
@@ -30,7 +31,7 @@ Volatile public links are centralized in `src/content/live-sources.json`. Templa
 
 Visitor-facing links must not point directly at resolved Coda destinations. If an official `*.activeinference.institute` shortlink redirects to a Coda page, render the shortlink and keep the resolved destination only as verification metadata in `live-sources.json`.
 
-InstituteOS-adjacent data may be injected only through the public sync script. The sync output is intentionally sanitized: it may include public GitHub profile rows, public repository rows, concept nodes, relationship rows, and approved brand marks, but it must exclude nonpublic rosters, private operational fields, raw task detail, nonpublic stewardship records, and internal UI captures.
+InstituteOS-adjacent data may be injected only through the public sync script or the private InstituteOS website export pipeline. The sync and export outputs are intentionally sanitized: they may include public GitHub profile rows, public repository rows, concept nodes, relationship rows, approved brand marks, public project summaries, public narrative excerpts, graph rows, strategy summaries, and public communications, but they must exclude nonpublic rosters, private operational fields, raw task detail, nonpublic stewardship records, working documents, demos, recordings, and internal UI captures.
 
 ## Architecture
 
@@ -106,6 +107,7 @@ Public resources are split by purpose:
 - `src/content/repositories.json` contains all reachable public `ActiveInferenceInstitute` repositories.
 - `src/content/audience-pathways.json` contains homepage routes for visitor intent.
 - `src/content/instituteos/*.json` contains sanitized Open Source Map tables: public GitHub people, public repositories, ideas, ontology relationships, and brand assets.
+- `src/content/pages/institute/instituteos.json` documents the public export boundary and links visitors to the public map, directory, and provenance surfaces.
 - `src/content/live-sources.json` remains the canonical registry for external URLs and verification status. Its `url` field is the public display URL; `finalUrl` records redirect verification only and is never rendered.
 
 Rendered resources use stable fields: `sourceId`, `type`, `category`, `audience`, `tags`, `summary`, `relatedSlugs`, `priority`, and `promoted`.
@@ -125,6 +127,17 @@ npm run check:instituteos
 ```
 
 The sync creates `src/content/instituteos/people.json`, `projects.json`, `ideas.json`, `ontology.json`, and `assets.json`, plus brand-only images under `assets/img/instituteos/`. People rows must be externally visible public GitHub profiles. Project rows must come from public repositories. Only `ActInferServe.png` and `Dark_ActInfServe.png` are copied. Do not copy working documents, demos, recordings, nonpublic rosters, or internal UI captures into the public website.
+
+Additional private `library/` exports are owned by the InstituteOS package, not by hand edits in this repo:
+
+```bash
+uv run instituteos export-website
+uv run instituteos export-website --check
+```
+
+Those commands write or verify public artifacts behind the strict `PublicGate`. The generated `data/export-manifest.json` records the gate version, source fingerprint, output paths, record counts, and artifact hashes that the public `/instituteos/` page surfaces for operators and visitors.
+
+The `/instituteos/` page and homepage export-gate band are covered by `npm run check:site`; the checker verifies the route, page anchors, manifest totals, per-artifact rows, gate version, source fingerprint, and homepage links.
 
 ## Local Workflow
 
