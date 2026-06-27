@@ -92,7 +92,7 @@ function build() {
         exported_at: EXPORTED_AT || null,
         source_fingerprint: SOURCE_FINGERPRINT || null,
         pages: urls.length,
-        commit: process.env.GITHUB_SHA || null,
+        commit: null,
       },
       null,
       2,
