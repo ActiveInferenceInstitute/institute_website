@@ -51,6 +51,18 @@ BRAND_ASSETS = {
         "theme": "dark",
     },
 }
+REQUIRED_PUBLIC_JSON_FILES = (
+    "people.json",
+    "projects.json",
+    "ideas.json",
+    "ontology.json",
+    "entities.json",
+    "processes.json",
+    "communications.json",
+    "policies.json",
+    "assets.json",
+)
+OPTIONAL_PUBLIC_JSON_FILES = ("calendar.json",)
 PRIVATE_KEYS = {
     "contacts",
     "interactions",
@@ -660,6 +672,38 @@ def check_results(results: list[SyncResult]) -> int:
     return 0
 
 
+def check_committed_public_payloads() -> int:
+    errors = []
+    json_files = [CONTENT_OUT / name for name in REQUIRED_PUBLIC_JSON_FILES]
+    json_files.extend(CONTENT_OUT / name for name in OPTIONAL_PUBLIC_JSON_FILES if (CONTENT_OUT / name).exists())
+
+    for path in json_files:
+        if not path.exists():
+            errors.append(f"missing {path.relative_to(PROJECT_ROOT)}")
+            continue
+        try:
+            validate_public_payload(load_json(path), path.name)
+        except (OSError, json.JSONDecodeError, ValueError) as exc:
+            errors.append(f"{path.relative_to(PROJECT_ROOT)} failed public-safety validation: {exc}")
+
+    for filename in BRAND_ASSETS:
+        path = ASSET_OUT / filename
+        if not path.exists() or path.stat().st_size == 0:
+            errors.append(f"missing or empty {path.relative_to(PROJECT_ROOT)}")
+
+    if errors:
+        print("InstituteOS committed public data check failed:", file=sys.stderr)
+        for error in errors:
+            print(f"- {error}", file=sys.stderr)
+        return 1
+
+    print(
+        "InstituteOS registry source not available; validated committed public "
+        f"payloads ({len(json_files)} JSON files, {len(BRAND_ASSETS)} brand assets)."
+    )
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--instituteos-root", type=Path, default=DEFAULT_INSTITUTEOS_ROOT)
@@ -668,6 +712,11 @@ def main() -> int:
 
     instituteos_root = args.instituteos_root.expanduser().resolve()
     if not (instituteos_root / "library" / "registries").exists():
+        explicit_root = os.environ.get("INSTITUTEOS_ROOT") or any(
+            arg == "--instituteos-root" or arg.startswith("--instituteos-root=") for arg in sys.argv[1:]
+        )
+        if args.check and not explicit_root:
+            return check_committed_public_payloads()
         raise SystemExit(f"InstituteOS registry directory not found: {instituteos_root}")
 
     results = build_results(instituteos_root)
