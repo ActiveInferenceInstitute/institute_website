@@ -11,14 +11,14 @@
       "name": "domain_projects.json",
       "output_path": "src/content/instituteos/domain_projects.json",
       "record_count": 22,
-      "sha256": "6dec397abb8b65dbba8e02e5636d7ff9a043706e177fab347b2d9fe580628a14",
+      "sha256": "19e77630113c1fe78d634b5c2ac1250c4270ee0958d70f13da33eaca9d7f18bf",
       "target": "content"
     },
     {
       "name": "governance_graph.json",
       "output_path": "src/content/instituteos/governance_graph.json",
       "record_count": 200,
-      "sha256": "2ed526d29fb13ddf981bfa496bca8d6f22e4dc90bcaf5a0a3830a8be83b29fab",
+      "sha256": "640e65b96bb6ad132c22c633ec2347c7be4f8dfb757aced45d42ab34144e94b6",
       "target": "content"
     },
     {
@@ -32,14 +32,14 @@
       "name": "ontology_graph.json",
       "output_path": "src/content/instituteos/ontology_graph.json",
       "record_count": 30,
-      "sha256": "fd46d52b4451eda4a66538b4ad39f5841473c4cea0169adc8bed7e2a23d6d1c1",
+      "sha256": "7694adc197b61c65d31fecbea5adc600ce53f806d5320ebbe2e239042e96435d",
       "target": "content"
     },
     {
       "name": "projects.json",
       "output_path": "data/projects.json",
       "record_count": 67,
-      "sha256": "e2d44a1362589b62173d577c4ac4acca20d27af642730b27aec3e8b97b89b12f",
+      "sha256": "cd0144c03f948a7eae7c1f29c56cd664ae261970fd66d6404d94b41c2812d0a8",
       "target": "data"
     },
     {
@@ -53,11 +53,11 @@
       "name": "tech_tree_graph.json",
       "output_path": "src/content/instituteos/tech_tree_graph.json",
       "record_count": 30,
-      "sha256": "dadb9a9d4e3087ece8d70fc5b42f88cef9946b3bcad7a558cfaabb0424af5394",
+      "sha256": "4bec7ebea84a5df248b65c7a34fd234275d284167a8c76c5ed042c295488313e",
       "target": "content"
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-06-20T21:42:21.964329+00:00",
-  "source_fingerprint": "fc6fd8db82ff"
+  "generated_at": "2026-06-26T18:53:20.076471+00:00",
+  "source_fingerprint": "99f9dcb3791d"
 }

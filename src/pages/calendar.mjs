@@ -39,6 +39,78 @@ function linkLabel(url) {
   return host || "Link";
 }
 
+// Escape iCal text per RFC 5545 (backslash, semicolon, comma, newline).
+function icalText(value) {
+  return String(value || "")
+    .replace(/\\/g, "\\\\")
+    .replace(/;/g, "\\;")
+    .replace(/,/g, "\\,")
+    .replace(/\r?\n/g, "\\n");
+}
+
+// Format a sanitized ISO start/end to an iCal stamp. All-day → YYYYMMDD (DATE);
+// timed → YYYYMMDDTHHMMSS, with a trailing Z only when the source is UTC. No
+// Date()/locale, timezone-stable to match formatEventDate.
+function icalStamp(iso, allDay) {
+  const s = String(iso || "");
+  const date = s.slice(0, 10).replace(/-/g, "");
+  if (!/^\d{8}$/.test(date)) return allDay ? "19700101" : "19700101T000000Z";
+  if (allDay || s.length <= 10) return date;
+  const time = s.slice(11, 19).replace(/:/g, "");
+  if (!/^\d{6}$/.test(time)) return `${date}T000000`;
+  const utc = s.endsWith("Z") || s.includes("+00:00");
+  return `${date}T${time}${utc ? "Z" : ""}`;
+}
+
+function safeToken(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+}
+
+function eventUid(event) {
+  const id = safeToken(event.id) || safeToken(`${event.start || ""}-${event.title || ""}`) || "event";
+  return `${id}@activeinference.institute`;
+}
+
+function eventIcsFilename(event) {
+  const date = safeToken(String(event.start || "").slice(0, 10).replace(/-/g, "")) || "event";
+  const title = safeToken(event.title).slice(0, 48) || "active-inference-event";
+  return `${date}-${title}.ics`;
+}
+
+// Build a minimal, public-safe VEVENT from SANITIZED fields only: title, start,
+// optional end, all-day flag, and the already-hashed event id as UID. Never emits
+// DESCRIPTION, the raw calendar UID, or any event URL (allowlisted or not) — so a
+// downloaded .ics can carry no private free-text or unvetted link.
+export function buildEventIcs(event) {
+  const allDay = Boolean(event.allDay) || String(event.start || "").length <= 10;
+  const uid = eventUid(event);
+  const lines = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Active Inference Institute//Public Calendar//EN",
+    "BEGIN:VEVENT",
+    `UID:${uid}`,
+    `DTSTAMP:${icalStamp(EXPORTED_AT, false)}`,
+    `${allDay ? "DTSTART;VALUE=DATE:" : "DTSTART:"}${icalStamp(event.start, allDay)}`,
+  ];
+  if (event.end) {
+    lines.push(`${allDay ? "DTEND;VALUE=DATE:" : "DTEND:"}${icalStamp(event.end, allDay)}`);
+  }
+  lines.push(`SUMMARY:${icalText(event.title || "Untitled event")}`, "END:VEVENT", "END:VCALENDAR");
+  return lines.join("\r\n");
+}
+
+// Same-origin data: URI download — CSP-safe (the static-security gate skips
+// non-http(s) anchor schemes), so no external host and no build-time file needed.
+function icsDownloadLink(event) {
+  const uri = `data:text/calendar;charset=utf-8,${encodeURIComponent(buildEventIcs(event))}`;
+  return `<p class="event-ics"><a href="${uri}" download="${escapeHtml(eventIcsFilename(event))}">📅 Add to calendar (.ics)</a></p>`;
+}
+
 function eventCard(event, kind) {
   const title = escapeHtml(event.title || "Untitled event");
   const when = escapeHtml(formatEventDate(event));
@@ -60,7 +132,7 @@ function eventCard(event, kind) {
     .trim();
   return `<li class="event-row${cancelled ? " is-cancelled" : ""}" data-calendar-row data-calendar-kind="${kind}" data-calendar-search="${escapeHtml(blob)}">
     <div class="event-when"><time datetime="${escapeHtml(String(event.start || ""))}">${when}</time>${statusTag}</div>
-    <div class="event-body"><h3>${title}</h3>${link}</div>
+    <div class="event-body"><h3>${title}</h3>${link}${cancelled ? "" : icsDownloadLink(event)}</div>
   </li>`;
 }
 

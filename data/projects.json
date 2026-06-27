@@ -253,6 +253,9 @@
           "linked_process_id": "research-project-initiation",
           "linked_step_id": "proposal-submission",
           "due": null,
+          "start": null,
+          "duration_days": null,
+          "event_id": null,
           "agent_hint": null
         },
         {
@@ -264,6 +267,9 @@
           "linked_process_id": "research-project-initiation",
           "linked_step_id": "scientific-merit-review",
           "due": null,
+          "start": null,
+          "duration_days": null,
+          "event_id": null,
           "agent_hint": null
         }
       ]
@@ -1055,6 +1061,9 @@
           "linked_process_id": "grant-opportunity-relevance",
           "linked_step_id": "opportunity-identification",
           "due": null,
+          "start": null,
+          "duration_days": null,
+          "event_id": null,
           "agent_hint": "Use grant-opportunity-relevance process SKILL"
         },
         {
@@ -1066,6 +1075,9 @@
           "linked_process_id": "write-grant-application",
           "linked_step_id": "kickoff-meeting",
           "due": null,
+          "start": null,
+          "duration_days": null,
+          "event_id": null,
           "agent_hint": null
         },
         {
@@ -1077,6 +1089,9 @@
           "linked_process_id": "write-grant-application",
           "linked_step_id": "draft-narrative",
           "due": null,
+          "start": null,
+          "duration_days": null,
+          "event_id": null,
           "agent_hint": null
         }
       ]
@@ -1211,6 +1226,9 @@
           "linked_process_id": "annual-report-preparation",
           "linked_step_id": "data-collection",
           "due": null,
+          "start": null,
+          "duration_days": null,
+          "event_id": null,
           "agent_hint": null
         },
         {
@@ -1222,6 +1240,9 @@
           "linked_process_id": "annual-report-preparation",
           "linked_step_id": "narrative-drafting",
           "due": null,
+          "start": null,
+          "duration_days": null,
+          "event_id": null,
           "agent_hint": null
         }
       ]
@@ -1805,6 +1826,9 @@
           "linked_process_id": "grant-opportunity-relevance",
           "linked_step_id": "opportunity-identification",
           "due": null,
+          "start": null,
+          "duration_days": null,
+          "event_id": null,
           "agent_hint": null
         },
         {
@@ -1816,6 +1840,9 @@
           "linked_process_id": "grant-opportunity-relevance",
           "linked_step_id": "mission-alignment-check",
           "due": null,
+          "start": null,
+          "duration_days": null,
+          "event_id": null,
           "agent_hint": null
         }
       ]
