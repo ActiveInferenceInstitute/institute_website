@@ -4,7 +4,7 @@
   "tagline": "Act. Infer. Serve.",
   "description": "A participatory open science institute supporting education, research, training, and applications related to Active Inference.",
   "email": "blanket@activeinference.institute",
-  "baseUrl": "https://activeinferenceinstitute.github.io/institute_website/",
+  "baseUrl": "https://activeinference.institute/",
   "repository": "https://github.com/ActiveInferenceInstitute/institute_website",
   "resourcePolicy": "Public resource hub: institutional summaries are maintained as visitor-facing copy, and public links are checked through the live resource registry before publication."
 }

@@ -13,7 +13,19 @@ from urllib.parse import urlparse
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CONTENT_DIR = PROJECT_ROOT / "src" / "content"
-CANONICAL_BASE = "https://activeinferenceinstitute.github.io/institute_website/"
+
+
+def _canonical_base() -> str:
+    """The canonical site origin+base, read from site.json (single source of truth).
+
+    Tracks the deployment domain automatically across the Squarespace → GitHub
+    Pages cutover (project-page base → apex domain) without a hardcoded host.
+    """
+    base = json.loads((CONTENT_DIR / "site.json").read_text(encoding="utf-8"))["baseUrl"]
+    return base if base.endswith("/") else base + "/"
+
+
+CANONICAL_BASE = _canonical_base()
 
 # Clean-URL taxonomy mirror of src/build.mjs (via src/url-taxonomy.mjs). Maps a
 # page slug to its output directory (no .html). The output file is always
@@ -24,15 +36,34 @@ CANONICAL_BASE = "https://activeinferenceinstitute.github.io/institute_website/"
 _TAXONOMY = json.loads((PROJECT_ROOT / "src" / "url-taxonomy.json").read_text(encoding="utf-8"))
 PROGRAM_SUBPAGE_SLUGS = set(_TAXONOMY["programSubpageSlugs"])
 
+# Locale registry mirror of src/i18n/locales.json. Non-default locales live in
+# their own /<code>/ subtree, so the active-locale URL prefix mirrors
+# src/url-taxonomy.mjs's localePrefix(). Internal links stay within a locale, so
+# href resolution infers the locale from the CALLER's directory.
+_LOCALES = json.loads((PROJECT_ROOT / "src" / "i18n" / "locales.json").read_text(encoding="utf-8"))
+DEFAULT_LOCALE = _LOCALES["defaultLocale"]
+LOCALE_CODES = {locale["code"] for locale in _LOCALES["locales"] if locale["code"] != DEFAULT_LOCALE}
 
-def url_dir_for_slug(slug: str) -> str:
+
+def locale_of_dir(current_dir: str) -> str:
+    """The non-default locale code a page dir sits under, or '' for the root tree."""
+    first = current_dir.split("/", 1)[0] if current_dir else ""
+    return first if first in LOCALE_CODES else ""
+
+
+def url_dir_for_slug(slug: str, locale: str = "") -> str:
     if slug == "index":
-        return ""
-    if slug.startswith("project-"):
-        return f"projects/{slug[len('project-') :]}"
-    if slug in PROGRAM_SUBPAGE_SLUGS:
-        return f"programs/{slug}"
-    return slug
+        base = ""
+    elif slug.startswith("project-"):
+        base = f"projects/{slug[len('project-') :]}"
+    elif slug in PROGRAM_SUBPAGE_SLUGS:
+        base = f"programs/{slug}"
+    else:
+        base = slug
+    prefix = f"{locale}/" if locale and locale != DEFAULT_LOCALE else ""
+    if not base:
+        return prefix[:-1] if prefix else ""
+    return f"{prefix}{base}"
 
 
 def output_path_for_slug(slug: str) -> str:
@@ -57,10 +88,14 @@ def dir_for_html_path(root: Path, html_path: Path) -> str:
 
 
 def href_for_slug(target_slug: str, current_dir: str = "", anchor: str = "") -> str:
-    """Caller-relative clean href from current_dir to target_slug (mirrors build.mjs)."""
+    """Caller-relative clean href from current_dir to target_slug (mirrors build.mjs).
+
+    Internal links stay within a locale subtree, so the target is resolved in the
+    same locale the caller's directory sits under.
+    """
     import posixpath
 
-    target_dir = url_dir_for_slug(target_slug)
+    target_dir = url_dir_for_slug(target_slug, locale_of_dir(current_dir))
     rel = posixpath.relpath(target_dir or ".", current_dir or ".")
     if rel == ".":
         rel = "./"

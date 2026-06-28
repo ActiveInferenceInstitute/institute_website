@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -45,7 +46,27 @@ def generated_html_files(root: Path) -> list[Path]:
     return sorted(files)
 
 
-def resolve_local_reference(source: Path, raw_url: str, root: Path) -> tuple[Path | None, str]:
+def site_base_prefix(root: Path) -> str:
+    """Deployment base path that maps the repo root to the served origin.
+
+    GitHub Pages serves this repo under the pathname of site.json's baseUrl
+    (e.g. "/institute_website/" on the project page, "/" on the apex domain).
+    Absolute references in the built HTML therefore carry that prefix and must
+    have it stripped before resolving against the repo root.
+    """
+    try:
+        base_url = json.loads((root / "src" / "content" / "site.json").read_text(encoding="utf-8"))["baseUrl"]
+        prefix = urlparse(base_url).path
+    except (OSError, ValueError, KeyError):
+        return "/"
+    if not prefix.startswith("/"):
+        prefix = "/" + prefix
+    if not prefix.endswith("/"):
+        prefix += "/"
+    return prefix
+
+
+def resolve_local_reference(source: Path, raw_url: str, root: Path, base_prefix: str = "/") -> tuple[Path | None, str]:
     """Resolve a local reference to (target file, fragment).
 
     Returns (None, fragment) for external/empty/protocol-relative references and
@@ -64,6 +85,10 @@ def resolve_local_reference(source: Path, raw_url: str, root: Path) -> tuple[Pat
 
     target_path = unquote(parsed.path)
     if target_path.startswith("/"):
+        # Strip the deployment base prefix: an absolute "/institute_website/x"
+        # (or "/x" on the apex domain) maps to repo-root "x".
+        if base_prefix != "/" and target_path.startswith(base_prefix):
+            target_path = "/" + target_path[len(base_prefix):]
         target = root / target_path.lstrip("/")
     else:
         target = source.parent / target_path
@@ -93,6 +118,7 @@ def fragments_for(path: Path, cache: dict[Path, set[str]]) -> set[str]:
 def check_links(root: Path) -> int:
     errors: list[str] = []
     html_files = generated_html_files(root)
+    base_prefix = site_base_prefix(root)
     fragment_cache: dict[Path, set[str]] = {}
     for html_file in html_files:
         parser = LinkParser()
@@ -100,7 +126,7 @@ def check_links(root: Path) -> int:
         fragment_cache[html_file] = parser.fragments
         for tag, raw_url in parser.links:
             try:
-                target, fragment = resolve_local_reference(html_file, raw_url, root)
+                target, fragment = resolve_local_reference(html_file, raw_url, root, base_prefix)
             except ValueError as exc:
                 errors.append(f"{html_file.relative_to(root)} {tag} {exc}")
                 continue
