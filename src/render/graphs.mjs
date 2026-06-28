@@ -107,6 +107,22 @@ export function ontologyGraphSection(currentDir = "") {
   </section>`;
 }
 
+// Full Active Inference Ontology term graph (v5 CSV), for the ontology project
+// page. Nodes are terms typed by their tag (so the renderer clusters/colors by
+// tag); edges are the term-to-term references parsed from the Connections field.
+export function ontologyTermsGraphSection(currentDir = "") {
+  const graph = siteData.ontologyTerms.graph;
+  return `<section class="content-band" id="ontology-terms-graph">
+    ${sectionHeading({
+      eyebrow: "Graph view",
+      title: "The ontology as a connected concept map",
+      text: "Every term in the Active Inference Ontology, colored by tag, with the connections declared between them. Select a concept to highlight what it links to; the full definitions are in the table below.",
+    })}
+    ${graphFigure("ontology-terms", graph, currentDir)}
+    <p class="section-link"><a href="#ontology-terms-table">Jump to the full ontology terms table</a></p>
+  </section>`;
+}
+
 // Governance network graph for the structure page (entities, policies, processes).
 export function governanceGraphSection(currentDir = "") {
   const graph = siteData.instituteos.governanceGraph;

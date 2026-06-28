@@ -124,6 +124,18 @@ export function ontologyTable(rows = ontologyRows()) {
   return dataTable({ caption: "Public ontology relationship table from the Active Inference concept graph.", columns, rows });
 }
 
+// Full Active Inference Ontology term table (v5 CSV): one row per term, each row
+// carries id={term-slug} so the companion graph's node links resolve to it.
+export function ontologyTermsTable(rows) {
+  const columns = [
+    { label: "Term", render: (item) => `<a href="#${escapeHtml(item.id)}">${escapeHtml(item.term)}</a>` },
+    { label: "Tag", render: (item) => escapeHtml(item.tag) },
+    { label: "Definition", render: (item) => escapeHtml(item.definition || item.definition2 || "") },
+    { label: "Example", render: (item) => escapeHtml(item.examples || "") },
+  ];
+  return dataTable({ caption: "Active Inference Ontology (v5) terms with tags, definitions, and examples.", columns, rows });
+}
+
 export function researchTable(rows = researchRows()) {
   const columns = [
     { label: "Research link", render: (item) => sourceAnchor(item.sourceId, item.label) },

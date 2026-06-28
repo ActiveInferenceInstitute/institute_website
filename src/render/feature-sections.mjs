@@ -1,4 +1,5 @@
-import { techTreeExplorerSection, governanceGraphSection } from "./graphs.mjs";
+import { techTreeExplorerSection, governanceGraphSection, ontologyTermsGraphSection } from "./graphs.mjs";
+import { tableSection, ontologyTermsTable } from "./tables.mjs";
 import { narrativeSection } from "./narrative.mjs";
 import { domainProjectsSection } from "../pages/ecosystem.mjs";
 import { EXPORT_PROVENANCE, siteData } from "../data.mjs";
@@ -123,10 +124,28 @@ function instituteosInterfaceSection(currentDir = "") {
 // InstituteOS feature blocks injected into a curated public page, keyed by slug.
 // Returns markup inserted between the article stack and the key-surfaces band so
 // the required curated section ordering stays intact.
+function ontologyTermsFeature(currentDir = "") {
+  const data = siteData.ontologyTerms;
+  const rows = (data.terms || []).map((term) => ({ ...term, rowId: term.id }));
+  return (
+    ontologyTermsGraphSection(currentDir) +
+    tableSection({
+      id: "ontology-terms-table",
+      eyebrow: "Ontology terms",
+      title: `All ${rows.length} Active Inference Ontology terms`,
+      text: "The full public ontology (v5): each term with its tag, definition, and a correct example. The graph above shows how the terms connect.",
+      countLabel: `${rows.length} terms across ${(data.tags || []).length} tags`,
+      tableHtml: ontologyTermsTable(rows),
+    })
+  );
+}
+
 export function instituteosFeatureSections(page, currentDir = "") {
   switch (page.slug) {
     case "instituteos":
       return instituteosInterfaceSection(currentDir);
+    case "project-active-inference-ontology":
+      return ontologyTermsFeature(currentDir);
     case "learning":
       return techTreeExplorerSection(currentDir);
     case "structure":
