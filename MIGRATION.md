@@ -150,14 +150,13 @@ forwarding), each a permanent redirect to its form:
 | Subdomain to create | Forward (permanent redirect) to |
 | --- | --- |
 | `measureform.activeinference.institute` | `https://coda.io/form/Short-Measurement-form-Active-Inference-Institute_dlds-rELtKp` |
-| `prepareform.activeinference.institute` | the Preparation form URL — **to be provided** (the value pasted earlier came through garbled) |
+| `prepareform.activeinference.institute` | `https://coda.io/form/Project-Preparation-Form-Active-Inference-Institute_dqfSwp8CGPs` |
 
 Both are already registered in `live-sources.json` (`measureform`, `prepareform`)
-and rendered on the pages, so the on-site links work the moment the forwards go
-live. Action items: (1) create both subdomain forwards; (2) send the correct
-Preparation form URL so its `finalUrl` can be recorded. Until the forwards exist,
-the page buttons resolve to `*.activeinference.institute` hosts that 404 — set up
-the redirects to complete them.
+with their form URLs recorded as `finalUrl`, and rendered on the pages — so the
+on-site links work the moment the forwards go live. Remaining action: create the
+two subdomain forwards above. Until they exist, the page buttons resolve to
+`*.activeinference.institute` hosts that 404.
 
 ---
 

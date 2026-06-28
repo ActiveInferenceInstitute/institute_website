@@ -1690,8 +1690,8 @@
       "label": "Preparation form",
       "category": "Participate",
       "url": "https://prepareform.activeinference.institute",
-      "sourceBasis": "Public Institute form shortlink forwarding to the short Preparation form (destination form URL to be confirmed by maintainer).",
-      "finalUrl": "",
+      "sourceBasis": "Public Institute form shortlink forwarding to the short Preparation form.",
+      "finalUrl": "https://coda.io/form/Project-Preparation-Form-Active-Inference-Institute_dqfSwp8CGPs",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-28T20:03:20Z"
