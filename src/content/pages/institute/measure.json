@@ -3,7 +3,7 @@
   "title": "Project Measurement",
   "subtitle": "How the Institute tracks the health and progress of its projects.",
   "audience": "Facilitators, project contributors, and community members who want to understand how Institute projects are tracked and reviewed.",
-  "lede": "Project Measurement is how the Active Inference Institute tracks the health and progress of its projects. Through regular project updates, reporting, and structured review, projects are measured against a shared lifecycle so that work stays visible, accountable, and aligned with the Institute's mission to Act, Infer, and Serve.",
+  "lede": "Project Measurement is how the Active Inference Institute tracks the health and progress of its projects. Through regular project updates, reporting, and structured review, projects are measured against a shared lifecycle so that work stays visible, accountable, and aligned with the Institute's mission to Act, Infer, and Serve. As a participatory, open-science nonprofit, the Institute treats this transparency not as overhead but as part of how it serves its community.",
   "order": 81,
   "relatedSlugs": [
     "projects",
@@ -14,10 +14,13 @@
     "projects",
     "institute"
   ],
+  "externalSourceIds": [
+    "official-measure"
+  ],
   "sections": [
     {
       "heading": "What Project Measurement Is",
-      "body": "Project Measurement is the Institute's practice for tracking how its projects are doing over time. Rather than treating progress as informal or invisible, it brings together regular project updates, reporting, and review so that contributors and facilitators share a common picture of where each project stands. As an open-science nonprofit, the Institute treats this transparency as part of how it serves its community.",
+      "body": "Project Measurement is the Institute's practice for tracking how its projects are doing over time. Rather than treating progress as informal or invisible, it brings together regular project updates, reporting, and review so that contributors and facilitators share a common picture of where each project stands. The aim is not to grade people or rank work against each other, but to give every project a clear, honest reflection of its own health and trajectory. As an open-science nonprofit, the Institute treats this kind of transparency as part of how it serves its community.",
       "links": [
         {
           "label": "All projects",
@@ -27,13 +30,38 @@
     },
     {
       "heading": "The Project Lifecycle",
-      "body": "Measurement is organized around a shared project lifecycle with four stages: preparation, active work, measurement, and reporting. Preparation sets up a project and its aims; active work is where the project's contributions happen; measurement reviews health and progress against the project's own goals; and reporting communicates that status outward. Reviewing each project against this lifecycle keeps assessment consistent across very different kinds of work.",
-      "links": []
+      "body": "Measurement is organized around a shared project lifecycle with four stages: preparation, active work, measurement, and reporting. Preparation sets up a project and its aims; active work is where the project's contributions happen; measurement reviews health and progress against the project's own goals; and reporting communicates that status outward. Because every project moves through the same stages, a contributor joining one project can quickly understand where any other project sits, and review stays consistent across very different kinds of work — from research and software to education and operations.",
+      "links": [
+        {
+          "label": "All projects",
+          "href": "/projects/"
+        }
+      ]
     },
     {
       "heading": "Updates, Reporting, and Review",
-      "body": "The core rhythm of Project Measurement is regular updates and review. Projects contribute periodic updates on their status, those updates feed into reporting, and the reporting is reviewed against the lifecycle stage a project is in. The specific metrics tracked, the cadence of updates, and the templates used for reporting are part of the detailed framework rather than fixed here, so the practice can adapt to the needs of each project and program unit.",
+      "body": "The core rhythm of Project Measurement is regular updates and review. Projects contribute periodic updates on their status, those updates feed into reporting, and the reporting is reviewed against the lifecycle stage a project is in. This loop keeps small problems from becoming silent ones: a stalled milestone, a shifted scope, or a need for more contributors surfaces through the normal reporting cadence rather than being discovered late. The specific metrics tracked, the cadence of updates, and the templates used for reporting are part of the detailed framework rather than fixed here, so the practice can adapt to the needs of each project and program unit.",
       "links": []
+    },
+    {
+      "heading": "Why Measurement Matters",
+      "body": "For a participatory, open-science nonprofit, measurement is a form of accountability to the community. Projects are carried out in public and for the public, so keeping their health visible lets contributors, collaborators, and members see where effort is going and what it is producing. Measurement also protects the people doing the work: a clear, shared record of status makes it easier to celebrate progress, ask for help, and make honest decisions about what to continue, pause, or close. In this sense, tracking is less about control and more about keeping the Institute's work legible and aligned with its mission to Act, Infer, and Serve.",
+      "links": [
+        {
+          "label": "About the Institute",
+          "href": "/about/"
+        }
+      ]
+    },
+    {
+      "heading": "Measurement Across the Institute",
+      "body": "Project Measurement is a shared practice rather than the responsibility of any single unit. Projects span the Institute's three units — EduActive for education, ReInference for research, and Administrative for operations — and the common lifecycle lets work be reviewed coherently even when it lives in very different parts of the organization. This shared frame connects measurement to the broader governance and structure of the Institute, so that project-level review fits into how the organization as a whole understands and steers its work.",
+      "links": [
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        }
+      ]
     },
     {
       "heading": "Full materials",
@@ -65,6 +93,25 @@
           "href": "/structure/"
         }
       ]
+    },
+    {
+      "title": "Transparency as service",
+      "text": "Public, honest tracking is how an open-science nonprofit stays accountable to its community.",
+      "links": [
+        {
+          "label": "About the Institute",
+          "href": "/about/"
+        }
+      ]
+    },
+    {
+      "title": "Detailed framework",
+      "text": "Metrics, cadence, and reporting templates live on the measurement hub and are migrating in.",
+      "links": [
+        {
+          "sourceId": "official-measure"
+        }
+      ]
     }
   ],
   "primaryActions": [
@@ -75,8 +122,5 @@
     {
       "sourceId": "official-measure"
     }
-  ],
-  "externalSourceIds": [
-    "official-measure"
   ]
 }

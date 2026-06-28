@@ -2,18 +2,18 @@
   "slug": "video",
   "title": "Videos and Podcasts",
   "subtitle": "The Institute's public library of recorded videos and podcasts.",
-  "audience": "Learners, researchers, and community members who want to watch or listen to Institute sessions, interviews, and presentations.",
-  "lede": "The Active Inference Institute publishes an extensive library of videos and podcasts — recorded livestreams, learning-group sessions, interviews, and presentations. Public video is hosted on the Institute's YouTube channel, and audio episodes are distributed through podcast platforms. The full curated catalogue is maintained on the video hub.",
+  "audience": "Learners, researchers, and community members who want to watch or listen to Institute sessions, interviews, lectures, and presentations.",
+  "lede": "The Active Inference Institute publishes an extensive library of videos and podcasts — recorded livestreams, learning-group sessions, interviews, lectures, and presentations. Public video is hosted on the Institute's YouTube channel, and audio episodes are distributed through podcast platforms. Produced as part of the Institute's open, participatory model, the library lets anyone follow the work as it happens or return to it later. The full curated catalogue is maintained on the video hub.",
   "order": 85,
   "sections": [
     {
       "heading": "What we publish",
-      "body": "The Institute's media library spans recorded livestreams, learning-group sessions, interviews, and presentations produced across its education and research activities. Together these recordings form an open, participatory archive that lets anyone follow the Institute's ongoing work in Active Inference, whether by watching a session in full or revisiting a single conversation.",
+      "body": "The Institute's media library spans recorded livestreams, learning-group sessions, interviews, lectures, and presentations produced across its education and research activities. Some recordings capture a full working session as it unfolds; others are focused conversations or talks that stand on their own. Together they form an open, participatory archive that lets anyone follow the Institute's ongoing work in Active Inference — watching a session in full, sampling a single discussion, or tracing a topic across many recordings.",
       "links": []
     },
     {
       "heading": "Where to watch and listen",
-      "body": "Public video lives on the Institute's YouTube channel, where livestreams and presentations are posted and organized for browsing. Audio versions are distributed on podcast platforms for listening on the go. These open channels reflect the Institute's commitment to open science and free public access to its educational and research output.",
+      "body": "Public video lives on the Institute's YouTube channel, where livestreams, lectures, and presentations are posted and organized for browsing. Audio versions of many sessions are distributed on podcast platforms for listening on the go — during a commute, a walk, or anywhere a screen is impractical. Offering the same material as both video and audio reflects the Institute's commitment to open science and free public access to its educational and research output.",
       "links": [
         {
           "sourceId": "youtube"
@@ -21,8 +21,32 @@
       ]
     },
     {
+      "heading": "How the media supports learning",
+      "body": "The library is built to be used, not just archived. Recorded sessions accompany and extend the Institute's learning pathways, giving newcomers an on-ramp into Active Inference and giving returning learners a way to revisit harder material at their own pace. Watching a concept worked through in a live session — questions, detours, and corrections included — often makes ideas land in a way that text alone cannot.",
+      "links": [
+        {
+          "label": "Learning",
+          "href": "/learning/"
+        },
+        {
+          "label": "Active Inference",
+          "href": "/active-inference/"
+        }
+      ]
+    },
+    {
+      "heading": "An open, participatory archive",
+      "body": "The media library is a direct expression of how the Institute works: in the open, with participation welcomed at every stage. Because sessions are recorded and published rather than held privately, contributions made in a live setting become a lasting public resource, and people who could not attend can still take part by watching or listening afterward. This open record is part of what makes the Institute a participatory, open-science community rather than a closed institution.",
+      "links": [
+        {
+          "label": "About the Institute",
+          "href": "/about/"
+        }
+      ]
+    },
+    {
       "heading": "Recurring media",
-      "body": "Much of the library comes from recurring activities — regular livestreams and learning-group meetings that are recorded and published on an ongoing basis. The on-site Activities page summarizes these recurring media streams and points to the rhythms of the Institute's public programming.",
+      "body": "Much of the library comes from recurring activities — regular livestreams and learning-group meetings that are recorded and published on an ongoing basis. New recordings are added continuously as these sessions take place, so the library grows alongside the Institute's public programming. The on-site Activities page summarizes these recurring media streams and points to the rhythms behind them.",
       "links": [
         {
           "label": "Activities",
@@ -43,10 +67,19 @@
   "cards": [
     {
       "title": "YouTube channel",
-      "text": "Watch livestreams, interviews, and presentations on the Institute's public channel.",
+      "text": "Watch livestreams, interviews, lectures, and presentations on the Institute's public channel.",
       "links": [
         {
           "sourceId": "youtube"
+        }
+      ]
+    },
+    {
+      "title": "Listen as a podcast",
+      "text": "Audio versions of many sessions are distributed on podcast platforms for listening on the go.",
+      "links": [
+        {
+          "sourceId": "video"
         }
       ]
     },
@@ -57,6 +90,16 @@
         {
           "label": "Activities",
           "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "title": "Use it to learn",
+      "text": "Pair the recordings with the Institute's learning pathways to go deeper into Active Inference.",
+      "links": [
+        {
+          "label": "Learning",
+          "href": "/learning/"
         }
       ]
     }

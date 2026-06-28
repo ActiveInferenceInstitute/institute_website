@@ -2,50 +2,83 @@
   "slug": "2026",
   "title": "2026",
   "subtitle": "The Active Inference Institute's annual overview for the year 2026.",
-  "audience": "Members, collaborators, and visitors who want a consolidated view of the Institute's plans, programs, and direction for 2026.",
-  "lede": "The 2026 page is the Institute's annual overview for the year — a single consolidated view of planned activities, programs, and overall direction. It gathers the year's work across the Institute's three program units into one place. The detailed plan, goals, milestones, and event calendar are maintained on the 2026 hub and are being migrated onto this site.",
+  "audience": "Members, collaborators, and visitors who want a consolidated, year-level view of the Institute's plans, programs, and direction for 2026.",
+  "lede": "This is the Institute's annual overview for 2026 — a single entry point to the year's planned activities, programs, and overall direction. It gathers work across the Institute's three program units into one place so that members, collaborators, and visitors can see how the year fits together. The detailed plan, goals, milestones, and event calendar are maintained on the 2026 hub and are being migrated onto this site.",
   "order": 88,
   "sections": [
     {
       "heading": "What this page covers",
-      "body": "This annual overview consolidates the year's direction for the Active Inference Institute, a participatory, open-science 501(c)(3) nonprofit guided by its motto, Act. Infer. Serve. Rather than tracking a single project, it gives a year-level view: the kinds of activities planned, the programs carrying them out, and how the year's work fits the Institute's broader mission. Specific goals, milestones, and dates are maintained on the 2026 hub linked below.",
-      "links": []
+      "body": "This annual overview consolidates the year's direction for the Active Inference Institute, a participatory, open-science 501(c)(3) nonprofit guided by its motto, Act. Infer. Serve. Rather than tracking a single project, it offers a year-level view: the kinds of activities planned, the program units carrying them out, and how the year's work connects to the Institute's broader mission. Specific goals, milestones, and dates are not asserted here — they are maintained on the 2026 hub linked at the foot of this page.",
+      "links": [
+        {
+          "label": "About the Institute",
+          "href": "/about/"
+        }
+      ]
     },
     {
       "heading": "Programs across the year",
-      "body": "The Institute's work in 2026 is carried out through its three program units. EduActive leads education-oriented activities such as learning groups and course development. ReInference leads research-oriented activities and projects. The Administrative unit supports operations, governance, and coordination across the year. Together these units organize the planned activities reflected in this annual overview.",
+      "body": "The Institute's work in 2026 is carried out through its three program units. EduActive leads education-oriented activities such as learning groups and course development. ReInference leads research-oriented activities and projects. The Administrative unit supports operations, governance, and coordination throughout the year. Together these units organize the planned activities reflected in this overview, and the structure page describes how they fit within the wider organization.",
       "links": [
         {
           "label": "Institute structure",
           "href": "/structure/"
         },
         {
+          "label": "EduActive",
+          "href": "/edactive/"
+        },
+        {
           "label": "ReInference",
           "href": "/reinference/"
-        },
+        }
+      ]
+    },
+    {
+      "heading": "Activities and direction",
+      "body": "A year-level view is most useful as a way to see across the activities that would otherwise be scattered. The activities page gathers the recurring sessions, working groups, and public events that make up the Institute's ongoing rhythm, while the projects page shows the concrete lines of work those activities support. Reading them alongside this overview gives a sense of where the year's energy is directed without committing to specifics that are still being finalized on the hub.",
+      "links": [
         {
           "label": "Activities",
           "href": "/activities/"
+        },
+        {
+          "label": "Projects",
+          "href": "/projects/"
         }
       ]
     },
     {
       "heading": "Participate in 2026",
-      "body": "As a participatory, open-science organization, the Institute invites contributors to take part in the year's activities. Ways to engage span learning, research, and operational support across the program units, and the calendar of public sessions and events is maintained alongside the annual plan. To find current opportunities and see how to join, start with the get-involved and calendar pages.",
+      "body": "As a participatory, open-science organization, the Institute invites contributors to take part in the year's work. Ways to engage span learning, research, and operational support across the three program units, and most participation begins with a single step into an existing activity or group. The get-involved page is the best starting point for finding current opportunities, and the learning resources offer an on-ramp for anyone new to Active Inference who wants context before joining.",
       "links": [
         {
           "label": "Get involved",
           "href": "/get-involved/"
         },
         {
+          "label": "Learning",
+          "href": "/learning/"
+        }
+      ]
+    },
+    {
+      "heading": "Stay current with the calendar and ecosystem",
+      "body": "The calendar maintains the schedule of public sessions and events alongside the annual plan, and it is the most reliable way to track what is happening week to week as the year unfolds. Much of the Institute's 2026 work also connects outward to a broader ecosystem of collaborators and aligned organizations, so the ecosystem page is worth reading next for a view of the partnerships and shared efforts that the year's activities touch.",
+      "links": [
+        {
           "label": "Calendar",
           "href": "/calendar/"
+        },
+        {
+          "label": "Ecosystem",
+          "href": "/ecosystem/"
         }
       ]
     },
     {
       "heading": "Full materials",
-      "body": "The complete, authoritative materials for the 2026 annual overview — including the detailed plan, goals, milestones, and event calendar — are currently maintained at the linked 2026 hub and are being migrated onto this site. Until that migration is complete, the hub is the source of truth for year-level specifics.",
+      "body": "The complete, authoritative materials for the 2026 annual overview — including the detailed plan, goals, milestones, and event calendar — are currently maintained at the linked 2026 hub and are being migrated onto this site. Until that migration is complete, the hub is the source of truth for year-level specifics; this page intentionally defers to it rather than restating details that may still be in flux.",
       "links": [
         {
           "sourceId": "shortlink-2026"
@@ -75,13 +108,28 @@
       ]
     },
     {
+      "title": "Calendar",
+      "text": "The schedule of public sessions and events maintained alongside the annual plan.",
+      "links": [
+        {
+          "label": "Calendar",
+          "href": "/calendar/"
+        }
+      ]
+    },
+    {
       "title": "2026 hub",
-      "text": "The detailed 2026 plan, goals, milestones, and event calendar.",
+      "text": "The detailed 2026 plan, goals, milestones, and event calendar — the source of truth being migrated in.",
       "links": [
         {
           "sourceId": "shortlink-2026"
         }
       ]
+    }
+  ],
+  "primaryActions": [
+    {
+      "sourceId": "shortlink-2026"
     }
   ],
   "relatedSlugs": [
@@ -91,11 +139,6 @@
   ],
   "resourceGroups": [
     "institute"
-  ],
-  "primaryActions": [
-    {
-      "sourceId": "shortlink-2026"
-    }
   ],
   "externalSourceIds": [
     "shortlink-2026"

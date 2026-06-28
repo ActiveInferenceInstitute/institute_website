@@ -3,7 +3,7 @@
   "title": "Strategy",
   "subtitle": "How the Active Inference Institute turns its mission into coordinated action through Act, Infer, Serve.",
   "audience": "Members, partners, funders, and prospective contributors who want to understand the Institute's strategic direction and how its work is organized.",
-  "lede": "The Institute's strategy is organized around its motto — Act. Infer. Serve. — and its mission to advance Active Inference as a scientific, educational, and applied practice. Strategy is enacted through three program units and through open-source, participatory infrastructure and ecosystem partnerships, with the specific current priorities maintained on the strategy hub.",
+  "lede": "The Institute's strategy is organized around its motto — Act. Infer. Serve. — and its mission to advance Active Inference as a scientific, educational, and applied practice. It is enacted through three program units and through open-source, participatory infrastructure and ecosystem partnerships, treating reproducibility, accessibility, and open participation as strategic commitments rather than afterthoughts. Strategy connects directly to the Institute's projects, education programs, governance, and the broader Active Inference Ecosystem. The specific current priorities and plans are maintained on the strategy hub and are being migrated onto this site.",
   "order": 80,
   "relatedSlugs": [
     "about",
@@ -14,24 +14,35 @@
   "resourceGroups": [
     "institute"
   ],
+  "externalSourceIds": [
+    "shortlink-strategy"
+  ],
   "sections": [
     {
       "heading": "Mission and Motto",
-      "body": "The Institute's strategy follows directly from its mission: to advance Active Inference as a scientific, educational, and applied practice; to strengthen cognitive security and healthy information ecosystems; to make research more reproducible and accessible; and to teach and mentor broadly, including under-served communities. The motto — Act. Infer. Serve. — names the orientation that holds these aims together: acting in the world, inferring through rigorous modeling and study, and serving the communities and ecosystems the Institute works with.",
+      "body": "The Institute's strategy follows directly from its mission: to advance Active Inference as a scientific, educational, and applied practice; to strengthen cognitive security and healthy information ecosystems; to make research more reproducible and accessible; and to teach and mentor broadly, including under-served communities. The motto — Act. Infer. Serve. — names the orientation that holds these aims together: acting in the world, inferring through rigorous modeling and study, and serving the communities and ecosystems the Institute works with. Every program and partnership is meant to express one or more of these aims, so that the strategy stays legible even as the specific work evolves.",
       "links": [
         {
           "label": "About the Institute",
           "href": "/about/"
+        },
+        {
+          "label": "Active Inference",
+          "href": "/active-inference/"
         }
       ]
     },
     {
       "heading": "Enacted Through Three Program Units",
-      "body": "As a 501(c)(3) nonprofit, the Institute carries out its strategy through three program units: EduActive for education, ReInference for research, and Administrative for operations. This division lets strategic aims become concrete programs — educational pathways, research activity, and the operational backbone that supports both — while keeping the work coordinated under a single mission. Each unit translates the broad strategic direction into the specific activities it is responsible for.",
+      "body": "As a participatory, open-science 501(c)(3) nonprofit, the Institute carries out its strategy through three program units: EduActive for education, ReInference for research, and Administrative for operations. This division lets strategic aims become concrete programs — educational pathways, research activity, and the operational backbone that supports both — while keeping the work coordinated under a single mission. Each unit translates the broad strategic direction into the specific activities it is responsible for, which is what keeps high-level intent connected to day-to-day execution.",
       "links": [
         {
           "label": "ReInference Unit",
           "href": "/reinference/"
+        },
+        {
+          "label": "Education programs",
+          "href": "/edactive/"
         },
         {
           "label": "Institute structure",
@@ -41,7 +52,7 @@
     },
     {
       "heading": "Open-Source and Participatory by Design",
-      "body": "Strategy is enacted not only through internal programs but through open-source, participatory infrastructure and partnerships across the broader Active Inference Ecosystem. The Institute treats reproducibility, accessibility, and open participation as strategic commitments rather than afterthoughts: materials are public, contribution pathways are open, and progress depends on collaboration with researchers, learners, and partner organizations. This approach lets the strategy compound through shared, reusable work.",
+      "body": "Strategy is enacted not only through internal programs but through open-source, participatory infrastructure and partnerships across the broader Active Inference Ecosystem. The Institute treats reproducibility, accessibility, and open participation as strategic commitments rather than afterthoughts: materials are public, contribution pathways are open, and progress depends on collaboration with researchers, learners, and partner organizations. This approach lets the strategy compound through shared, reusable work, so that contributions made by one participant become durable resources for many others.",
       "links": [
         {
           "label": "Active Inference Ecosystem",
@@ -50,6 +61,38 @@
         {
           "label": "Get involved",
           "href": "/get-involved/"
+        }
+      ]
+    },
+    {
+      "heading": "Reproducibility and Accessibility as Strategic Commitments",
+      "body": "Making research more reproducible and more accessible is part of the strategy itself, not a side effect of it. Reproducibility means that methods, models, and results are shared in forms others can examine, rerun, and build upon; accessibility means lowering the barriers — of cost, prerequisite knowledge, geography, and language — that keep people from engaging with Active Inference. Teaching and mentoring broadly, including reaching under-served communities, follows from the same commitment: a healthier, more capable field is one that more people can actually participate in. These commitments shape how projects are scoped and how outputs are published.",
+      "links": [
+        {
+          "label": "Projects",
+          "href": "/projects/"
+        },
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "heading": "Connected to Ecosystem, Projects, and Governance",
+      "body": "Strategy does not sit apart from the rest of the Institute — it links to the ecosystem the Institute is part of, the projects through which work actually happens, the education programs that grow the field, and the governance that keeps the organization accountable. Reading the strategy alongside the Institute's structure and project portfolio shows how intent becomes coordinated action: governance sets the frame, projects carry out the work, education extends its reach, and ecosystem partnerships multiply its effect. This connectedness is what allows a small set of strategic aims to organize a wide range of activity.",
+      "links": [
+        {
+          "label": "Projects",
+          "href": "/projects/"
+        },
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        },
+        {
+          "label": "Ecosystem",
+          "href": "/ecosystem/"
         }
       ]
     },
@@ -93,6 +136,16 @@
           "href": "/get-involved/"
         }
       ]
+    },
+    {
+      "title": "Coordinated by governance",
+      "text": "Three units and open governance keep strategic aims connected to day-to-day work.",
+      "links": [
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        }
+      ]
     }
   ],
   "primaryActions": [
@@ -103,8 +156,5 @@
     {
       "sourceId": "shortlink-strategy"
     }
-  ],
-  "externalSourceIds": [
-    "shortlink-strategy"
   ]
 }

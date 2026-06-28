@@ -3,12 +3,12 @@
   "title": "2025",
   "subtitle": "Annual overview of the Active Inference Institute for the year 2025.",
   "audience": "Members, participants, collaborators, and the public who want a consolidated view of the Institute's year in 2025.",
-  "lede": "2025 is the Active Inference Institute's annual overview for the year — a consolidated view of activities, programs, and direction across the organization. It brings together the work of the Institute's three program units under the motto Act. Infer. Serve. The detailed goals, milestones, and event record for the year are maintained on the 2025 hub and are being migrated onto this site.",
+  "lede": "2025 is the Active Inference Institute's annual overview for the year — a single, consolidated entry point to the activities, programs, and direction that ran across the organization. It brings the work of the Institute's three program units together under the motto Act. Infer. Serve., and it points toward where that work happened in the open. The detailed goals, milestones, and event record for the year are maintained on the 2025 hub and are being migrated onto this site.",
   "order": 87,
   "sections": [
     {
       "heading": "A Year in Review",
-      "body": "This page gathers the Institute's 2025 activity into a single annual overview. Rather than tracking any one project, it offers a consolidated view of how education, research, and operations advanced together over the year. As a participatory, open-science nonprofit, the Institute conducts its work in public, and this overview points toward the records, materials, and outputs produced across the year. The authoritative and continuously updated record of specific goals, milestones, and events lives on the 2025 hub.",
+      "body": "This page gathers the Institute's 2025 work into a single annual overview. Rather than tracking any one project, it offers a consolidated view of how education, research, and operations advanced together over the year. As a participatory, open-science 501(c)(3) nonprofit, the Institute conducts its work in public, so this overview is best read as a map: it orients you to the records, materials, and outputs produced through the year and shows where to look for specifics. The authoritative, continuously updated record of goals, milestones, and events lives on the 2025 hub.",
       "links": [
         {
           "label": "About the Institute",
@@ -22,7 +22,7 @@
     },
     {
       "heading": "Across the Three Program Units",
-      "body": "The Institute carries out its work through three program units, and 2025 reflects the contributions of each. EduActive supports the Institute's education programs, ReInference supports its research, and the Administrative unit supports operations that hold the whole together. Reviewing the year through these units shows how learning, inquiry, and stewardship reinforce one another. For the structure that organizes this work, see the Institute structure overview.",
+      "body": "The Institute carries out its work through three program units, and the year reflects the contribution of each. EduActive supports the Institute's education programs, ReInference supports its research, and the Administrative unit supports the operations that hold the whole together. Reading the year through these units shows how learning, inquiry, and stewardship reinforce one another rather than running on separate tracks. For the structure that organizes this work and how the units relate, see the Institute structure overview.",
       "links": [
         {
           "label": "Institute structure",
@@ -35,8 +35,36 @@
       ]
     },
     {
+      "heading": "What Happened During the Year",
+      "body": "An annual overview answers a simple question: what did the year actually contain? Because the Institute works openly and on a recurring rhythm, the most reliable picture of 2025 comes from the live records rather than a fixed summary. The Activities page tracks the ongoing programs, sessions, and collaborations that made up the year of work, and the public Calendar holds the scheduled gatherings and recurring events. Together they are the day-to-day texture behind this overview; consult them for what took place and when.",
+      "links": [
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        },
+        {
+          "label": "Calendar",
+          "href": "/calendar/"
+        }
+      ]
+    },
+    {
+      "heading": "Working in the Open",
+      "body": "Open science is not a slogan here but a working method, and the year reflects it. The Institute's outputs — research, educational materials, and the conversations around them — are produced so that others can find, follow, and build on them. That is what makes an annual overview possible at all: the year is legible because so much of it happened in public. This page consolidates the threads, while the underlying materials remain distributed across the programs and projects that generated them.",
+      "links": [
+        {
+          "label": "Projects",
+          "href": "/projects/"
+        },
+        {
+          "label": "Active Inference",
+          "href": "/active-inference/"
+        }
+      ]
+    },
+    {
       "heading": "Direction and Participation",
-      "body": "An annual overview is also a chance to look forward. The Institute is participatory by design, and its direction emerges from the people who take part across learning groups, projects, and operations. Anyone interested in contributing to the year's ongoing work — or to what comes next — can find current pathways through the Institute's participation programs.",
+      "body": "An annual overview is also a chance to look forward. The Institute is participatory by design, and its direction emerges from the people who take part across learning groups, projects, and operations. The year's momentum carries into what comes next, and the paths to contribute stay open between years rather than resetting. Anyone interested in joining the ongoing work — or shaping where it heads — can find current pathways through the Institute's participation programs.",
       "links": [
         {
           "label": "Get involved",
@@ -46,7 +74,7 @@
     },
     {
       "heading": "Full materials",
-      "body": "The complete, authoritative materials for the 2025 annual overview — including the detailed goals, milestones, and event record for the year — are currently maintained at the linked 2025 hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for specifics.",
+      "body": "The complete, authoritative materials for the 2025 annual overview — including the detailed goals, milestones, and event record for the year — are currently maintained at the linked 2025 hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for specifics, and this page will continue to fill in as the record moves over.",
       "links": [
         {
           "sourceId": "shortlink-2025"
@@ -67,11 +95,21 @@
     },
     {
       "title": "Activities",
-      "text": "The ongoing activities that make up the Institute's year of work.",
+      "text": "The ongoing programs and collaborations that made up the Institute's year of work.",
       "links": [
         {
           "label": "Activities",
           "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "title": "Calendar",
+      "text": "The public schedule of gatherings and recurring events across the year.",
+      "links": [
+        {
+          "label": "Calendar",
+          "href": "/calendar/"
         }
       ]
     },

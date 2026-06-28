@@ -1,83 +1,75 @@
 {
   "slug": "prepare",
   "title": "Project Preparation",
-  "subtitle": "The onboarding pathway for starting a new project or research activity at the Institute.",
-  "audience": "Prospective contributors, facilitators, and collaborators who have an idea and want to turn it into an active Institute project.",
-  "lede": "Project Preparation is how an idea becomes an active project at the Active Inference Institute. It guides a proposal through scoping and readiness so it can launch within the EduActive education unit or the ReInference research unit. The detailed steps, templates, and checklists live on the preparation hub and are being migrated onto this site.",
+  "subtitle": "The onboarding pathway for turning an idea into an active project or research activity at the Institute.",
+  "audience": "Prospective contributors, facilitators, and collaborators who have an idea and want to turn it into an active Institute project in the EduActive or ReInference unit.",
+  "lede": "Project Preparation is how an idea becomes an active project at the Active Inference Institute. It guides a proposal through scoping and readiness review so the work can launch within the EduActive education unit or the ReInference research unit. The pathway is open and participatory: anyone can understand how projects come to life, and how preparation connects to funding discovery and the public projects registry. The detailed steps, proposal templates, and readiness checklists live on the preparation hub and are being migrated onto this site.",
   "order": 82,
   "sections": [
     {
       "heading": "From idea to active project",
-      "body": "Project Preparation is the structured onboarding pathway for starting a new project or research activity. It moves an initial idea through proposal, scoping, and readiness review until it is ready to operate as an active project. The pathway helps clarify what a project intends to do, which Institute unit it belongs in, and what is needed before it begins — turning loosely held intentions into something the community can support and sustain. As an open-science, participatory organization, the Institute keeps this pathway transparent so anyone can understand how projects come to life.",
+      "body": "Project Preparation is the structured onboarding pathway that moves an initial idea through proposal, scoping, and readiness review until it is ready to operate as an active project. The pathway helps clarify what a project intends to do, which Institute unit it belongs in, and what is needed before it begins, turning loosely held intentions into something the community can support and sustain. As a participatory, open-science nonprofit guided by the motto Act. Infer. Serve., the Institute keeps this pathway transparent so that contributors at any stage can see the route from a first idea to a working project listed alongside everything else under way.",
       "links": [
         {
-          "label": "All Projects",
+          "label": "All projects",
           "href": "/projects/"
         }
       ]
     },
     {
-      "heading": "Where projects live: EduActive and ReInference",
-      "body": "Prepared projects launch within one of the Institute's two program units. The EduActive unit hosts education-oriented activities, while the ReInference unit hosts research-oriented work; both operate alongside the Administrative unit under the Institute's 501(c)(3) nonprofit governance. Part of preparation is determining which unit best fits a project's aims, so that once it becomes active it connects to the right facilitation, community, and resources.",
+      "heading": "Where prepared projects live: EduActive and ReInference",
+      "body": "Prepared projects launch within one of the Institute's two program units. The EduActive unit hosts education-oriented activities such as courses, learning resources, and community programs, while the ReInference unit hosts research-oriented work such as studies, software, and applied investigation. Both operate alongside the Administrative unit under the Institute's 501(c)(3) nonprofit governance. A central part of preparation is determining which unit best fits a project's aims, so that once it becomes active it connects to the right facilitation, community, and resources.",
       "links": [
         {
-          "label": "ReInference Unit",
+          "label": "EduActive unit",
+          "href": "/edactive/"
+        },
+        {
+          "label": "ReInference unit",
           "href": "/reinference/"
         }
       ]
     },
     {
-      "heading": "Proposals, scoping, and funding",
-      "body": "Preparation includes drafting a proposal, scoping the work, and assessing readiness — describing the kind of activity, the people involved, and the resources required. Where a project may seek financial support, the Institute's grants and funding pages describe the relevant pathways. Detailed proposal templates and readiness checklists are maintained on the preparation hub and referenced as projects move through onboarding.",
+      "heading": "The preparation arc: proposal, scoping, readiness",
+      "body": "Preparation typically progresses through a few connected stages. A proposal describes the idea: what the activity is, who would be involved, and why it matters. Scoping then sharpens that description into a workable shape, defining boundaries, expected outputs, and the unit it belongs in. Readiness review checks that the pieces needed to begin are in place before the project is treated as active. The specific stages, the forms each takes, and the criteria that mark a project as ready are described in detail on the preparation hub, which the pathway references as a project moves through onboarding.",
       "links": [
         {
-          "label": "Grants",
-          "href": "/grants/"
-        },
-        {
-          "label": "Get involved",
-          "href": "/get-involved/"
-        }
-      ]
-    },
-    {
-      "heading": "Full materials",
-      "body": "The complete, authoritative materials for Project Preparation — including the detailed preparation steps, proposal templates, and readiness checklists — are currently maintained at the linked preparation hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for this topic.",
-      "links": [
-        {
-          "sourceId": "shortlink-prepare"
-        }
-      ]
-    }
-  ],
-  "cards": [
-    {
-      "title": "Explore current projects",
-      "text": "See the projects already active across the EduActive and ReInference units.",
-      "links": [
-        {
-          "label": "All Projects",
+          "label": "All projects",
           "href": "/projects/"
         }
       ]
     },
     {
-      "title": "Funding pathways",
-      "text": "Learn how projects can seek financial support through the Institute.",
+      "heading": "Funding discovery and resources",
+      "body": "Many projects need resources to operate, and preparation is the right moment to consider how a project might be supported. The Institute's grants and funding pages describe the pathways available for discovering and pursuing financial support, and preparation connects directly to them so that scoping and funding can be considered together rather than in isolation. Describing the kind of resources a project requires during scoping makes it easier to match an idea to the funding routes that fit it.",
       "links": [
         {
-          "label": "Grants",
+          "label": "Grants and funding",
           "href": "/grants/"
         }
       ]
     },
     {
-      "title": "Get involved",
-      "text": "Find ways to participate, contribute, and connect with the community.",
+      "heading": "Open and participatory by design",
+      "body": "Because the Institute is participatory and open by design, the preparation pathway is meant to be approachable rather than gated. Contributors do not need an existing affiliation to begin shaping an idea; the pathway exists precisely to help newcomers and established participants alike move work toward an active footing. The broader activities, structure, and ways to get involved across the Institute provide the surrounding context, so a prepared project arrives already connected to the community and governance that will sustain it.",
       "links": [
         {
           "label": "Get involved",
           "href": "/get-involved/"
+        },
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "heading": "Full materials",
+      "body": "The complete, authoritative materials for Project Preparation, including the detailed preparation steps, proposal templates, and readiness checklists, are currently maintained at the linked preparation hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for this topic.",
+      "links": [
+        {
+          "sourceId": "shortlink-prepare"
         }
       ]
     }
@@ -91,16 +83,57 @@
     "participation",
     "projects"
   ],
+  "externalSourceIds": [
+    "shortlink-prepare"
+  ],
+  "cards": [
+    {
+      "title": "Explore current projects",
+      "text": "See the projects already active across the EduActive and ReInference units.",
+      "links": [
+        {
+          "label": "All projects",
+          "href": "/projects/"
+        }
+      ]
+    },
+    {
+      "title": "Funding pathways",
+      "text": "Learn how projects can discover and seek financial support through the Institute.",
+      "links": [
+        {
+          "label": "Grants and funding",
+          "href": "/grants/"
+        }
+      ]
+    },
+    {
+      "title": "Get involved",
+      "text": "Find ways to participate, contribute, and connect with the community.",
+      "links": [
+        {
+          "label": "Get involved",
+          "href": "/get-involved/"
+        }
+      ]
+    },
+    {
+      "title": "Preparation hub",
+      "text": "The detailed steps, proposal templates, and readiness checklists, maintained on the hub while migration continues.",
+      "links": [
+        {
+          "sourceId": "shortlink-prepare"
+        }
+      ]
+    }
+  ],
   "primaryActions": [
     {
-      "label": "All Projects",
+      "label": "All projects",
       "href": "/projects/"
     },
     {
       "sourceId": "shortlink-prepare"
     }
-  ],
-  "externalSourceIds": [
-    "shortlink-prepare"
   ]
 }

@@ -3,22 +3,48 @@
   "title": "Weekly",
   "subtitle": "The Institute's recurring weekly cadence of public meetings, learning groups, and project sessions.",
   "audience": "Participants and visitors who want to join the Institute's regular weekly activities and find out what is happening this week.",
-  "lede": "The Active Inference Institute runs a weekly cadence of recurring public meetings, learning groups, and project sessions. The live schedule of what happens each week is maintained on the weekly hub, and meeting times appear on the on-site Calendar. Everyone is welcome to follow along and join in.",
+  "lede": "The Active Inference Institute runs on a weekly rhythm. Each week brings a recurring cadence of public meetings, learning groups, and project working sessions, all open to anyone who wants to take part. The live, current schedule of what happens each week is maintained on the weekly hub, and exact meeting times appear on the on-site Calendar. Whether you want to join in or simply follow along, there is a standing place to show up.",
   "order": 86,
   "sections": [
     {
       "heading": "A Weekly Rhythm",
-      "body": "Much of the Institute's participatory, open-science work happens through a steady weekly rhythm. Across the three program units — EduActive for education, ReInference for research, and Administrative for operations — recurring gatherings give contributors a predictable place to learn, collaborate, and move projects forward. These sessions include public meetings, learning groups, and project working sessions that repeat week to week, so newcomers and regulars alike know where and when to show up.",
+      "body": "Much of the Institute's participatory, open-science work happens through a steady weekly rhythm. As a 501(c)(3) nonprofit built around the motto Act. Infer. Serve., the Institute organizes its recurring gatherings across three program units — EduActive for education, ReInference for research, and the Administrative unit for operations. Each unit hosts sessions that repeat week to week, giving contributors a predictable place to learn, collaborate, and move projects forward. This cadence is the connective tissue of the community: newcomers and regulars alike know where and when to show up.",
       "links": [
         {
           "label": "Activities",
           "href": "/activities/"
+        },
+        {
+          "label": "EduActive",
+          "href": "/edactive/"
+        },
+        {
+          "label": "ReInference",
+          "href": "/reinference/"
+        }
+      ]
+    },
+    {
+      "heading": "What Happens Each Week",
+      "body": "The weekly cadence is made up of a few distinct kinds of gatherings. Public meetings bring the wider community together to share updates and discuss directions. Learning groups work through material together — readings, lectures, models, and core concepts in Active Inference — at a sustainable pace. Project working sessions give active contributors focused time to advance specific research, educational, and applied efforts. Because the activities span all three units, a single week can include something to learn, something to build, and something to coordinate, with each session repeating on a regular schedule so people can plan around it.",
+      "links": [
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        },
+        {
+          "label": "Projects",
+          "href": "/projects/"
+        },
+        {
+          "label": "Learning",
+          "href": "/learning/"
         }
       ]
     },
     {
       "heading": "Find This Week's Schedule",
-      "body": "The specific lineup of meetings, learning groups, and project sessions changes over time, so the live, current schedule is maintained on the weekly hub rather than duplicated here. To see exact dates and times in your own context, use the on-site Calendar, which lists when each recurring activity takes place. Checking the Calendar is the most reliable way to know what is happening this week.",
+      "body": "The specific lineup of meetings, learning groups, and project sessions evolves over time, so the live, current schedule is maintained on the weekly hub rather than duplicated and risk going stale here. To see exact dates and times in your own context, use the on-site Calendar, which lists when each recurring activity takes place. Checking the Calendar is the most reliable way to know what is happening this week and to plan which sessions to attend.",
       "links": [
         {
           "label": "Calendar",
@@ -28,7 +54,7 @@
     },
     {
       "heading": "How to Join",
-      "body": "The weekly sessions are public and participatory. If you would like to take part, the best path is to find a session on the Calendar and connect through the Institute's community. The Get Involved page explains the ways to participate and how to join ongoing activities, whether you want to attend a learning group, contribute to a project, or simply observe and learn.",
+      "body": "The weekly sessions are public and participatory — participation, not credentials, is the entry point. If you would like to take part, the best path is to find a session on the Calendar and connect through the Institute's community. The Get Involved page explains the ways to participate and how to join ongoing activities, whether you want to attend a learning group, contribute to a project, or simply observe and learn. There is no wrong way to start: many regular contributors began by quietly following one weekly session before going deeper.",
       "links": [
         {
           "label": "Get involved",
@@ -41,8 +67,22 @@
       ]
     },
     {
+      "heading": "Why a Steady Cadence Matters",
+      "body": "Open, participatory science depends on continuity, and a predictable weekly rhythm is how the Institute provides it. Recurring sessions lower the barrier to contributing: instead of waiting for a one-off event, anyone can join a standing meeting and pick up where the community left off. The cadence also keeps work transparent and accessible, since meetings, learning groups, and project sessions happen in the open and accumulate into a shared, public body of practice. For an organization that works across the broader Active Inference Ecosystem, this dependable rhythm is what turns scattered interest into sustained collaboration.",
+      "links": [
+        {
+          "label": "Active Inference",
+          "href": "/active-inference/"
+        },
+        {
+          "label": "Ecosystem",
+          "href": "/ecosystem/"
+        }
+      ]
+    },
+    {
       "heading": "Full materials",
-      "body": "The complete, authoritative materials for the weekly cadence — including the live schedule of recurring meetings, learning groups, and project sessions — are currently maintained at the linked weekly hub and are being migrated onto this site. Until that migration is complete, please use the hub for the current week's details.",
+      "body": "The complete, authoritative materials for the weekly cadence — including the live schedule of recurring meetings, learning groups, and project sessions — are currently maintained at the linked weekly hub and are being migrated onto this site. Until that migration is complete, please use the hub for the current week's details and times.",
       "links": [
         {
           "sourceId": "weekly"
@@ -53,7 +93,7 @@
   "cards": [
     {
       "title": "This week's schedule",
-      "text": "See the live lineup of recurring meetings, learning groups, and project sessions.",
+      "text": "See the live lineup of recurring meetings, learning groups, and project sessions on the weekly hub.",
       "links": [
         {
           "sourceId": "weekly"
@@ -77,6 +117,16 @@
         {
           "label": "Get involved",
           "href": "/get-involved/"
+        }
+      ]
+    },
+    {
+      "title": "Explore the activities",
+      "text": "Browse the kinds of public meetings, learning groups, and project sessions that recur each week.",
+      "links": [
+        {
+          "label": "Activities",
+          "href": "/activities/"
         }
       ]
     }
