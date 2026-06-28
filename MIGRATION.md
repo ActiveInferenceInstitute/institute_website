@@ -97,6 +97,11 @@ whose current destination is already off-platform stays on that off-platform
 destination (unchanged); every shortlink currently pointing at Coda is repointed
 to the new on-site page (the two tables above and below).
 
+**Redirect type:** every repointed on-site forward is a **Permanent (301)** — this
+includes `strategy`, which was historically Temporary (302) and is now a stable
+on-site page. The only forward that stays **Temporary (302)** is `zoom` (an
+ephemeral external meeting room).
+
 | Subdomain | Keep pointing at |
 | --- | --- |
 | `newsletter` | Substack (`https://activeinferenceinstitute.substack.com/`) |
