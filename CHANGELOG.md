@@ -6,6 +6,38 @@ This project follows [Semantic Versioning](https://semver.org/).
 ## Unreleased
 
 ### Added
+- **Squarespace → GitHub Pages migration** — switch of `activeinference.institute`
+  off Squarespace. Adds a `CNAME` and flips `site.json` `baseUrl` to the apex
+  domain. Legacy Squarespace page URLs are caught by a base-path-aware,
+  CSP-safe redirect script (`assets/js/redirects.js`) loaded only on `404.html`
+  (GitHub Pages' catch-all), mapping 30+ old paths (`/fellowship`, `/tnb`,
+  `/board-of-directors`, `/about-us`, …) to their new clean-URL homes and falling
+  through to the informative 404 otherwise. New on-site pages were authored for
+  shortlink topics that previously only existed on Coda — `/strategy/`,
+  `/measure/`, `/prepare/`, `/video/`, `/weekly/`, `/2025/`, `/2026/`,
+  `/projects/affordances/`, `/projects/wave-hypothesis/` — each linking onward to
+  its registered shortlink for materials still being migrated; `/structure/`
+  gained live Board/SAB roster links and `/projects/aicacp/` was deepened. Five
+  shortlink sources were registered in `live-sources.json`. Full runbook and the
+  subdomain-forward repoint table live in [`MIGRATION.md`](MIGRATION.md). The
+  site-contract and internal-link checks now read the canonical base from
+  `site.json` so they track the domain automatically.
+- **Multilingual site (build-time i18n)** — English is canonical; every locale in
+  `src/i18n/locales.json` (currently Spanish, French, German, Portuguese,
+  Italian, Russian, Chinese, Japanese, Korean, Hindi, Arabic) is pre-rendered
+  into its own `/<code>/…` subtree with a CSP-safe `<details>` language switcher,
+  per-locale `<html lang dir>`, `hreflang` alternates, and a machine-translation
+  provenance note. Routing is locale-aware through a single point
+  (`urlDirForSlug` in `src/url-taxonomy.mjs`); render code wraps visible strings
+  in `tr()` (`src/i18n/index.mjs`) against committed catalogs at
+  `src/content/i18n/<code>.json` with graceful English fallback. Translation is
+  an offline step (`scripts/i18n_translate.mjs`) using a local Ollama model by
+  default or any OpenAI-compatible hosted API (`I18N_PROVIDER=openai`); the build
+  never calls a model, so it stays byte-stable, and the strict CSP
+  (`connect-src 'none'`) is preserved. New scripts: `npm run i18n:extract`,
+  `npm run i18n:translate`. Arabic exercises the RTL path. The static-security,
+  internal-link, and site-contract gates all pass over the full multilingual
+  output. See [INTERNATIONALIZATION.md](INTERNATIONALIZATION.md).
 - **Link-card icons** — the section/navigation link cards (`info-card`) now
   carry an optional inline-SVG glyph in a small red accent badge to the left of
   the title. A curated, theme-aware icon set lives in `src/render/icons.mjs`

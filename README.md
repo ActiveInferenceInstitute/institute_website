@@ -2,11 +2,15 @@
 
 Static public resource hub for the Active Inference Institute.
 
-Canonical deployment:
-[https://activeinferenceinstitute.github.io/institute_website/](https://activeinferenceinstitute.github.io/institute_website/)
+Canonical deployment (post-cutover):
+[https://activeinference.institute/](https://activeinference.institute/)
+— migrating from Squarespace to GitHub Pages; see [SWITCHOVER.md](SWITCHOVER.md).
 
 Canonical repository:
 [https://github.com/ActiveInferenceInstitute/institute_website](https://github.com/ActiveInferenceInstitute/institute_website)
+
+For contributors and agents: start at [AGENTS.md](AGENTS.md) (documentation map)
+and the agent skill at `.claude/skills/institute-website/SKILL.md`.
 
 ## Purpose
 
@@ -176,7 +180,26 @@ Serve locally from the repository root:
 python3 -m http.server 4173
 ```
 
-Open [http://localhost:4173/](http://localhost:4173/).
+Open [http://localhost:4173/](http://localhost:4173/). Non-English locales are
+served under their own path, e.g. [/es/about/](http://localhost:4173/es/about/).
+
+## Internationalization
+
+The site is multilingual: English is canonical, and every other language is
+pre-rendered at build time into its own URL subtree (`/es/…`, `/zh/…`, …) with a
+language switcher on every page. Runtime/browser translation is impossible under
+the site's CSP (`connect-src 'none'`), so translation happens **offline** via a
+local Ollama model (or a hosted API) and is committed as reviewable JSON
+catalogs; the build itself never calls a model.
+
+```bash
+npm run i18n:extract                 # collect translatable strings after content changes
+npm run i18n:translate -- --all      # fill every locale via local Ollama
+npm run build                        # render all locale subtrees
+```
+
+Full architecture, the add-a-language recipe, model recommendations, and the
+hosted-API setup are in **[INTERNATIONALIZATION.md](INTERNATIONALIZATION.md)**.
 
 ## Deployment
 

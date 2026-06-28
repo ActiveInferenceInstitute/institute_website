@@ -1,8 +1,33 @@
 # Agent Guide — Active Inference Institute Website
 
-This repository builds the public GitHub Pages website for the Active Inference Institute:
+This repository builds the public GitHub Pages website for the Active Inference Institute.
+Canonical domain (post-cutover): **[https://activeinference.institute/](https://activeinference.institute/)**
+(during the Squarespace → Pages migration; pre-cutover it served at
+`activeinferenceinstitute.github.io/institute_website/`). See [SWITCHOVER.md](SWITCHOVER.md).
 
-[https://activeinferenceinstitute.github.io/institute_website/](https://activeinferenceinstitute.github.io/institute_website/)
+## Documentation map
+
+Start here, then open the most specific doc for your task:
+
+| Doc | Use it for |
+| --- | --- |
+| **[`.claude/skills/institute-website/SKILL.md`](.claude/skills/institute-website/SKILL.md)** | The invokable agent skill — golden rules + task workflows. Read this first for any change. |
+| This file (`AGENTS.md`) | Operating contract, build/content/design model, gates. |
+| [`README.md`](README.md) | Human-facing overview. |
+| [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) | Colors, tokens, the design-system export contract. |
+| [`INTERNATIONALIZATION.md`](INTERNATIONALIZATION.md) | Locales, `tr()`, offline translation. |
+| [`MIGRATION.md`](MIGRATION.md) | Redirect map + subdomain-forward repoint table. |
+| [`SWITCHOVER.md`](SWITCHOVER.md) | Cutover handoff: done / can-do / needs-human, DNS records. |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`CHANGELOG.md`](CHANGELOG.md) · [`TODO.md`](TODO.md) | Contribution flow, history, backlog. |
+
+Per-folder guides: [`src/AGENTS.md`](src/AGENTS.md) ·
+[`src/render/AGENTS.md`](src/render/AGENTS.md) ·
+[`src/lib/AGENTS.md`](src/lib/AGENTS.md) ·
+[`src/content/AGENTS.md`](src/content/AGENTS.md) ·
+[`src/content/pages/AGENTS.md`](src/content/pages/AGENTS.md)
+(+ [`_TEMPLATES.md`](src/content/pages/_TEMPLATES.md)) ·
+[`scripts/AGENTS.md`](scripts/AGENTS.md) ·
+[`assets/AGENTS.md`](assets/AGENTS.md).
 
 ## Operating Contract
 
@@ -38,6 +63,17 @@ The site is static:
 Since v2.0 the site serves clean URLs: every routed page is written as
 `<section>/index.html` (and `<section>/<slug>/index.html` for child pages), so
 the only flat HTML files at the repository root are `index.html` and `404.html`.
+
+The site is multilingual: English is canonical at the root, and each other
+locale in `src/i18n/locales.json` is pre-rendered into its own `/<code>/…`
+subtree (e.g. `es/about/index.html`). Routing is locale-aware through a single
+point (`urlDirForSlug` in `src/url-taxonomy.mjs`); render code wraps visible
+English strings in `tr()` (`src/i18n/index.mjs`), which looks up committed
+catalogs at `src/content/i18n/<code>.json` and falls back to English. Translation
+is an **offline** step (`scripts/i18n_translate.mjs`, Ollama or a hosted API) —
+never the build. When adding visible UI text, wrap the English source in `tr()`,
+then run `npm run i18n:extract`. Full guide:
+[INTERNATIONALIZATION.md](INTERNATIONALIZATION.md).
 
 Generated public files should be limited to:
 
@@ -157,4 +193,6 @@ GitHub Pages serves from `main` at `/`. After a verified commit is pushed to `or
 - `/sitemap.xml`
 - `/robots.txt`
 
-No custom domain is configured for this pass.
+The custom apex domain `activeinference.institute` is configured via the `CNAME`
+file and `site.json` `baseUrl`. The cutover (push + DNS) is a human step — see
+[SWITCHOVER.md](SWITCHOVER.md).

@@ -1,0 +1,124 @@
+# Agent Guide — Content Page Authoring
+
+This directory holds the **source of truth** for every public content page. Each
+page is one JSON file under `src/content/pages/`. `node src/build.mjs` reads
+these files and writes HTML to the repo root (`about/index.html`,
+`projects/<slug>/index.html`, …) plus the flat `index.html` and `404.html`. The
+built output is committed because GitHub Pages serves the repo root of `main`.
+
+**Edit the JSON here. Never edit a built `*/index.html`.** Built pages are
+regenerated and your hand edits will be lost. After editing, run
+`node src/build.mjs` then `npm run check` (see [Gates](#gates)).
+
+For copyable skeletons see [`_TEMPLATES.md`](./_TEMPLATES.md). For the full
+add/edit procedure see
+[`../../../.claude/skills/institute-website/Workflows/AddOrEditPage.md`](../../../.claude/skills/institute-website/Workflows/AddOrEditPage.md).
+
+## Folder groupings (organizational only)
+
+Folder nesting does **not** affect the URL — the slug does (see [Taxonomy](#slug--url-taxonomy)).
+Files are grouped by topic for human navigation only:
+
+| Folder | Holds |
+| --- | --- |
+| `institute/` | Institute-facing pages — about, structure, ecosystem, units, year pages |
+| `programs/` | Program subpages — fellowship, internship, mentorship, partnership, philanthropy |
+| `participate/` | Participation pathways — get-involved, volunteer, grants, prepare, measure |
+| `projects/` | Per-project pages, slug-prefixed `project-*` |
+
+## Page schema
+
+Every page object supports these fields (string fields are display copy):
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `slug` | string | Drives the URL. See taxonomy below. Required, unique. |
+| `title` | string | Page H1. Required. |
+| `subtitle` | string | One-line descriptor under the title. |
+| `audience` | string | Who the page is for. |
+| `lede` | string | Opening summary paragraph. |
+| `primaryActions[]` | link[] | Non-empty. Hero call-to-action buttons (max 3 rendered). |
+| `sections[]` | object[] | Body: `{ heading, body, links[] }`. |
+| `cards[]` | object[] | Card grid: `{ title, text, links[] }`. |
+| `order` | number | Sort position within nav listings. |
+| `relatedSlugs[]` | string[] | Slugs of related pages (cross-links + pager). |
+| `externalSourceIds[]` | string[] | All `sourceId`s referenced on the page. |
+| `resourceGroups[]` | string[] | live-source **categories** used to filter the `/resources/` view (e.g. `projects`, `community`, `support`). First entry seeds the page's "Filtered resources" next-action. |
+
+Short example:
+
+```json
+{
+  "slug": "project-aicacp",
+  "title": "AICACP",
+  "subtitle": "AI capabilities, alignment, and care practices.",
+  "audience": "Researchers and policy-oriented contributors.",
+  "lede": "AICACP is an Institute project organized around AI capabilities…",
+  "primaryActions": [
+    { "label": "Project page", "sourceId": "official-participation" },
+    { "label": "ReInference Unit", "href": "/reinference/" }
+  ],
+  "sections": [
+    { "heading": "Overview", "body": "AICACP addresses…",
+      "links": [ { "sourceId": "github-org" } ] }
+  ],
+  "order": 21,
+  "relatedSlugs": ["reinference", "projects"],
+  "externalSourceIds": ["github-org", "official-participation"],
+  "resourceGroups": ["projects", "research"]
+}
+```
+
+## Slug → URL taxonomy
+
+Routing lives in [`../../url-taxonomy.mjs`](../../url-taxonomy.mjs) +
+`url-taxonomy.json`. Folder location is irrelevant; the slug decides the URL:
+
+| Slug shape | Output dir | URL | Page type |
+| --- | --- | --- | --- |
+| `index` | repo root | `/` | Home |
+| `project-<x>` | `projects/<x>/` | `/projects/<x>/` | Project page |
+| program subpage (`fellowship`, `internship`, `mentorship`, `partnership`, `philanthropy`) | `programs/<slug>/` | `/programs/<slug>/` | Program page |
+| any other slug `<x>` | `<x>/` | `/<x>/` | Top-level page (about, structure, get-involved, …) |
+
+To add a new program subpage slug, register it in
+`url-taxonomy.json` → `programSubpageSlugs` (read by both the JS build and the
+Python contract checker).
+
+## Link rules
+
+A link descriptor is **either** of these — never both:
+
+- `{ "sourceId": "discord" }` — references a registered, link-checked entry in
+  [`../live-sources.json`](../live-sources.json). **All external links MUST use
+  `sourceId`.** A raw external `href` fails `check:links`, even for vetted hosts.
+- `{ "label": "ReInference Unit", "href": "/reinference/" }` — for **internal**
+  links only. Use absolute clean paths (`/structure/`, `/structure/#officers`).
+
+Rules that the gates enforce:
+
+- `primaryActions` must be non-empty, and **at least one** primaryAction must be
+  backed by a `sourceId`.
+- Every `sourceId` you reference anywhere on the page must also be listed in
+  `externalSourceIds[]`.
+- `resourceGroups[]` values must be valid live-source categories (lowercased),
+  used to build the page's filtered-resource next-actions.
+
+## Constraints
+
+Strict CSP: no inline script/style, no `iframe`/`object`/`embed`/`form`, no
+client-side fetch. Page-specific behavior must be an external
+`assets/js/*.js` referenced conditionally from
+[`../../render/layout.mjs`](../../render/layout.mjs). Legacy Squarespace URLs are
+redirected by `assets/js/redirects.js`, loaded only on `404.html`.
+
+## Gates
+
+Run before committing:
+
+```bash
+node src/build.mjs
+npm run check   # check:links, check:instituteos, check:design-system, check:site, check:security
+```
+
+No network is used; all checks are local (python + node).
