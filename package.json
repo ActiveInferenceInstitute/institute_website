@@ -6,6 +6,8 @@
   "description": "GitHub Pages website for public Active Inference Institute information.",
   "scripts": {
     "build": "node src/build.mjs",
+    "i18n:extract": "I18N_EXTRACT=1 node src/build.mjs",
+    "i18n:translate": "node scripts/i18n_translate.mjs",
     "check": "node --check src/build.mjs && python3 -m py_compile scripts/check_internal_links.py scripts/check_live_sources.py scripts/check_site_contract.py scripts/check_static_security.py scripts/sync_instituteos_public_data.py && npm run check:links && npm run check:instituteos && npm run check:design-system && npm run check:site && npm run check:security",
     "check:links": "python3 scripts/check_internal_links.py",
     "check:sources": "python3 scripts/check_live_sources.py src/content/live-sources.json",

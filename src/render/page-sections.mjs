@@ -1,26 +1,29 @@
 import { siteData } from "../data.mjs";
 import { escapeHtml, slugifyAnchor } from "../lib/text.mjs";
 import { hrefForSlug } from "../url-taxonomy.mjs";
+import { tr } from "../i18n/index.mjs";
 import { linkAttrs, resolveLink, resolveLinks } from "./links.mjs";
 import { resolveInternalHref } from "./urls.mjs";
 
 export function nav(currentDir = "") {
   const groups = siteData.navigation
     .map((group, index) => {
+      // The DOM id is derived from the stable English label so anchors stay
+      // identical across locales; only the visible text is translated.
       const id = `nav-menu-${index}-${slugifyAnchor(group.label)}`;
       const items = (group.items || [])
-        .map((item) => `<a href="${escapeHtml(hrefForSlug(item.slug, currentDir, item.anchor || ""))}">${escapeHtml(item.label)}</a>`)
+        .map((item) => `<a href="${escapeHtml(hrefForSlug(item.slug, currentDir, item.anchor || ""))}">${escapeHtml(tr(item.label))}</a>`)
         .join("");
       return `<div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="${id}" data-nav-toggle>
-          <span>${escapeHtml(group.label)}</span>
+          <span>${escapeHtml(tr(group.label))}</span>
           <span aria-hidden="true">+</span>
         </button>
         <div class="nav-menu" id="${id}">${items}</div>
       </div>`;
     })
     .join("");
-  return `<nav class="nav" aria-label="Primary">${groups}</nav>`;
+  return `<nav class="nav" aria-label="${escapeHtml(tr("Primary"))}">${groups}</nav>`;
 }
 
 export function socialLinks() {

@@ -1276,7 +1276,25 @@ select:focus-visible {
 .accent-swatch[aria-checked="true"]{outline:2px solid var(--ink);outline-offset:2px}
 /* Soften the theme switch (and the FOUC from external defer scripts). */
 body{transition:background-color 200ms,color 200ms}
-@media (max-width:720px){.theme-toggle{order:5}.accent-control{order:4}.tts-toggle{order:3}}
+
+/* Language switcher — a CSP-safe <details> dropdown (no JS, pure links) styled
+   to match the theme/accent controls. */
+.lang-switcher{flex:0 0 auto;position:relative;display:inline-flex}
+.lang-switcher>summary{display:inline-flex;align-items:center;gap:.35rem;list-style:none;background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:var(--radius);cursor:pointer;padding:.45rem .6rem;line-height:1;font-size:.85rem;transition:background-color 200ms,color 200ms,border-color 200ms}
+.lang-switcher>summary::-webkit-details-marker{display:none}
+.lang-switcher>summary:hover{background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)}
+.lang-globe{font-size:1rem;line-height:1}
+.lang-current{font-weight:600;letter-spacing:.02em}
+.lang-menu{position:absolute;top:calc(100% + .4rem);right:0;z-index:50;display:flex;flex-direction:column;min-width:9rem;gap:.1rem;padding:.4rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.lang-menu a{display:block;padding:.4rem .55rem;border-radius:calc(var(--radius) - 2px);color:var(--ink);text-decoration:none;font-size:.9rem;white-space:nowrap}
+.lang-menu a:hover{background:rgba(239,68,68,.14)}
+.lang-menu a[aria-current="true"]{font-weight:700;color:var(--red)}
+
+/* Machine-translation provenance note shown atop non-English pages. */
+.mt-notice{margin:0 0 1rem;padding:.55rem .8rem;font-size:.85rem;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-inline-start:3px solid var(--red);border-radius:var(--radius)}
+.mt-notice a{color:var(--red)}
+
+@media (max-width:720px){.theme-toggle{order:5}.accent-control{order:4}.lang-switcher{order:6}.tts-toggle{order:3}}
 
 
 /* Back-to-top control (created by site.js on long pages, CSP-safe). */

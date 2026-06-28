@@ -55,6 +55,12 @@ export function resolveInternalHref(href = "", currentDir = "") {
     if (ROUTED_SLUG_SET.has(lastSegment)) {
       return hrefForSlug(lastSegment, currentDir, anchor);
     }
+    // Root-absolute reference to a generated root FILE (e.g. /version.json,
+    // /feed.xml): resolve against the true site root via relPrefix so it stays
+    // correct from any depth, including non-default-locale subtrees.
+    if (/\.[a-z0-9]+$/i.test(dir)) {
+      return `${relPrefix(currentDir)}${dir}${anchor}`;
+    }
   }
   return href;
 }

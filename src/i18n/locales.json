@@ -1,0 +1,17 @@
+{
+  "defaultLocale": "en",
+  "locales": [
+    { "code": "en", "name": "English", "nativeName": "English", "dir": "ltr", "machine": false },
+    { "code": "es", "name": "Spanish", "nativeName": "Español", "dir": "ltr", "machine": true },
+    { "code": "fr", "name": "French", "nativeName": "Français", "dir": "ltr", "machine": true },
+    { "code": "de", "name": "German", "nativeName": "Deutsch", "dir": "ltr", "machine": true },
+    { "code": "pt", "name": "Portuguese", "nativeName": "Português", "dir": "ltr", "machine": true },
+    { "code": "it", "name": "Italian", "nativeName": "Italiano", "dir": "ltr", "machine": true },
+    { "code": "ru", "name": "Russian", "nativeName": "Русский", "dir": "ltr", "machine": true },
+    { "code": "zh", "name": "Chinese", "nativeName": "中文", "dir": "ltr", "machine": true },
+    { "code": "ja", "name": "Japanese", "nativeName": "日本語", "dir": "ltr", "machine": true },
+    { "code": "ko", "name": "Korean", "nativeName": "한국어", "dir": "ltr", "machine": true },
+    { "code": "hi", "name": "Hindi", "nativeName": "हिन्दी", "dir": "ltr", "machine": true },
+    { "code": "ar", "name": "Arabic", "nativeName": "العربية", "dir": "rtl", "machine": true }
+  ]
+}

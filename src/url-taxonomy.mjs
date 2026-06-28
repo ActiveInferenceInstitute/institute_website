@@ -11,6 +11,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { activeLocale, DEFAULT_LOCALE } from "./i18n/index.mjs";
 
 const _dir = path.dirname(fileURLToPath(import.meta.url));
 const _data = JSON.parse(fs.readFileSync(path.join(_dir, "url-taxonomy.json"), "utf8"));
@@ -18,7 +19,18 @@ const _data = JSON.parse(fs.readFileSync(path.join(_dir, "url-taxonomy.json"), "
 // Slugs that route under /programs/<slug>/ rather than /<slug>/.
 export const PROGRAM_SUBPAGE_SLUGS = new Set(_data.programSubpageSlugs);
 
-export function urlDirForSlug(slug) {
+// Per-locale URL prefix. The default locale lives at the site root (""); every
+// other locale gets its own self-contained subtree (e.g. "es/"). Because the
+// prefix is applied to BOTH the current page dir and every link target, the
+// existing relative-link math in hrefForSlug stays correct within a locale, and
+// relPrefix still counts the extra segment so asset paths reach the true root.
+export function localePrefix(code = activeLocale()) {
+  return code && code !== DEFAULT_LOCALE ? `${code}/` : "";
+}
+
+// Locale-agnostic clean directory for a slug (no locale prefix). Mirrors the
+// shared contract checker's url_dir_for_slug exactly.
+export function baseDirForSlug(slug) {
   if (slug === "index") {
     return "";
   }
@@ -34,10 +46,61 @@ export function urlDirForSlug(slug) {
   return slug;
 }
 
-// The output file path for a slug: <dir>/index.html (root index.html for home).
-export function outputPathForSlug(slug) {
-  const dir = urlDirForSlug(slug);
+// The slug's output directory under a SPECIFIC locale (defaults to the active
+// locale). The home slug maps to "" at root, "<code>" for a non-default locale.
+export function localeDirForSlug(slug, code = activeLocale()) {
+  const base = baseDirForSlug(slug);
+  const prefix = localePrefix(code);
+  if (!base) {
+    return prefix ? prefix.slice(0, -1) : "";
+  }
+  return `${prefix}${base}`;
+}
+
+// Active-locale clean directory for a slug. Every existing caller routes through
+// here, so a single active-locale switch in the build relocates the whole site.
+export function urlDirForSlug(slug) {
+  return localeDirForSlug(slug, activeLocale());
+}
+
+// Strip the active locale prefix from a current page dir, yielding the
+// locale-agnostic base dir. Code that infers page STRUCTURE from the dir (parent
+// section for breadcrumbs / JSON-LD) must run on the base dir so the locale
+// segment is not mistaken for a section slug.
+export function stripLocalePrefix(currentDir = "", code = activeLocale()) {
+  const prefix = localePrefix(code);
+  if (prefix && (currentDir === prefix.slice(0, -1) || currentDir.startsWith(prefix))) {
+    return currentDir.slice(prefix.length);
+  }
+  return currentDir;
+}
+
+// The output file path for a slug under a specific locale: <dir>/index.html
+// (root index.html for the default-locale home, <code>/index.html otherwise).
+export function localeOutputPathForSlug(slug, code = activeLocale()) {
+  const dir = localeDirForSlug(slug, code);
   return dir ? `${dir}/index.html` : "index.html";
+}
+
+// The output file path for a slug under the active locale.
+export function outputPathForSlug(slug) {
+  return localeOutputPathForSlug(slug, activeLocale());
+}
+
+// Caller-relative clean href from the current page dir to the same slug in a
+// DIFFERENT locale (the language switcher). Both dirs are absolute-from-root, so
+// the relative result is valid regardless of how deep the current page sits.
+export function crossLocaleHref(targetSlug, currentDir = "", code, anchor = "") {
+  const targetDir = localeDirForSlug(targetSlug, code);
+  let rel = path.posix.relative(currentDir, targetDir);
+  if (rel === "") {
+    rel = "./";
+  }
+  if (!rel.endsWith("/")) {
+    rel += "/";
+  }
+  const hash = anchor ? (anchor.startsWith("#") ? anchor : `#${anchor}`) : "";
+  return `${rel}${hash}`;
 }
 
 // Caller-relative clean href from the CURRENT page directory to a target slug.

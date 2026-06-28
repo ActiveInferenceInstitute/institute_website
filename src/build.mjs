@@ -1,4 +1,5 @@
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { outputPathForSlug, hrefForSlug } from "./url-taxonomy.mjs";
 import {
   SITE_VERSION,
@@ -6,6 +7,7 @@ import {
   EXPORTED_AT,
   siteData,
 } from "./data.mjs";
+import { LOCALES, DEFAULT_LOCALE, setActiveLocale, writeExtracted, extractedStrings } from "./i18n/index.mjs";
 import { writeFile } from "./lib/output.mjs";
 import { absoluteUrl } from "./render/urls.mjs";
 import { layout } from "./render/layout.mjs";
@@ -35,11 +37,24 @@ function build() {
     ["simulations", simulationsPage],
     ["calendar", calendarPage],
     ["sitemap", sitemapPage],
-    ...ecosystemDomainPages().map((page) => [page.slug, () => page.html]),
+    ...ecosystemDomainPages().map((page) => [page.slug, page.render]),
   ];
-  for (const [slug, render] of slugRenderers) {
-    writeFile(outputPathForSlug(slug), render());
+  // Render every routed page once per locale. The default locale writes to the
+  // site root; each non-default locale writes to its own /<code>/ subtree. The
+  // active-locale switch is the ONLY thing that moves: every renderer derives
+  // its currentDir from urlDirForSlug, which is now locale-aware, so all internal
+  // links and asset prefixes resolve correctly within each locale with no
+  // per-renderer changes. Root-level singletons (sitemap, feeds, search index,
+  // 404, …) are emitted once, below, in the default-locale pass only.
+  let pageCount = 0;
+  for (const locale of LOCALES) {
+    setActiveLocale(locale.code);
+    for (const [slug, render] of slugRenderers) {
+      writeFile(outputPathForSlug(slug), render());
+      pageCount += 1;
+    }
   }
+  setActiveLocale(DEFAULT_LOCALE);
   // 404 stays a flat root file (GitHub Pages requires /404.html). Its links use
   // the root-relative clean paths (currentDir "").
   writeFile(
@@ -49,6 +64,7 @@ function build() {
       currentDir: "",
       canonicalPath: "404.html",
       robots: "noindex",
+      redirects: true,
       body: `<section class="page-hero compact"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", "")}">Home</a><span aria-hidden="true">/</span><span aria-current="page">404</span></nav><p class="eyebrow">404</p><h1>Page not found</h1><p>That page has moved or never existed. Use the search box above, or jump to a main destination:</p><div class="mini-links"><a href="${hrefForSlug("index", "")}">Home</a><a href="${hrefForSlug("directory", "")}">Directory</a><a href="${hrefForSlug("resources", "")}">Resources</a><a href="${hrefForSlug("knowledge", "")}">Open Source Map</a><a href="${hrefForSlug("get-involved", "")}">Get involved</a><a href="${hrefForSlug("search", "")}">Search</a></div><a class="button primary" href="${hrefForSlug("index", "")}">Back to home</a></section>`,
     }),
   );
@@ -105,7 +121,15 @@ function build() {
   writeFile("manifest.webmanifest", buildManifest());
   writeFile(path.join(".well-known", "security.txt"), buildSecurityTxt());
   writeFile(path.join("assets", "js", "search-data.js"), buildSearchIndex());
-  console.log(`Built ${urls.length} public pages plus 404.html`);
+  const localeNote = LOCALES.length > 1 ? ` across ${LOCALES.length} locales (${LOCALES.map((l) => l.code).join(", ")})` : "";
+  console.log(`Built ${pageCount} public pages${localeNote} plus 404.html`);
+  // Extraction mode: dump the exact set of translatable source strings collected
+  // during this build so the translate pipeline knows what to translate.
+  if (process.env.I18N_EXTRACT === "1") {
+    const stringsFile = path.join(path.dirname(fileURLToPath(import.meta.url)), "content", "i18n", "_strings.json");
+    const count = writeExtracted(stringsFile);
+    console.log(`Extracted ${count} translatable strings -> ${path.relative(process.cwd(), stringsFile)} (${extractedStrings().length} unique)`);
+  }
 }
 
 build();

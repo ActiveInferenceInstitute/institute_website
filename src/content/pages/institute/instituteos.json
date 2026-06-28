@@ -82,7 +82,7 @@
         },
         {
           "label": "Version metadata",
-          "href": "../version.json"
+          "href": "/version.json"
         }
       ]
     },

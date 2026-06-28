@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { loadProjectsData, siteData } from "../data.mjs";
 import { out } from "../lib/paths.mjs";
-import { outputPathForSlug, urlDirForSlug } from "../url-taxonomy.mjs";
+import { outputPathForSlug, urlDirForSlug, stripLocalePrefix, localeOutputPathForSlug } from "../url-taxonomy.mjs";
 import { resolveLink } from "./links.mjs";
 import { absoluteUrl } from "./urls.mjs";
 
@@ -156,8 +156,12 @@ export function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", de
       ],
     });
   }
-  const items = [{ "@type": "ListItem", position: 1, name: "Home", item: base }];
-  const parts = currentDir.split("/").filter(Boolean);
+  // The Home crumb points to the CURRENT locale's home, and section structure is
+  // read from the locale-agnostic base dir so a locale prefix is not mistaken for
+  // a section. Section crumb URLs are resolved through the locale-aware taxonomy.
+  const localeHome = absoluteUrl(localeOutputPathForSlug("index"));
+  const items = [{ "@type": "ListItem", position: 1, name: "Home", item: localeHome }];
+  const parts = stripLocalePrefix(currentDir).split("/").filter(Boolean);
   let position = 2;
   if (parts.length === 2) {
     const section = parts[0];
@@ -165,7 +169,7 @@ export function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", de
       "@type": "ListItem",
       position: position++,
       name: section.charAt(0).toUpperCase() + section.slice(1),
-      item: absoluteUrl(`${section}/index.html`),
+      item: absoluteUrl(localeOutputPathForSlug(section)),
     });
   }
   items.push({ "@type": "ListItem", position, name: rawTitle, item: canonicalUrl });
@@ -182,7 +186,7 @@ export function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", de
   // CollectionPage + ItemList of their child pages so crawlers see the listing.
   // Exact-equality on currentDir guarantees only the hub matches — detail pages
   // have currentDir like "projects/<name>" and keep their project node above.
-  if (currentDir === "projects" || currentDir === "programs") {
+  if (stripLocalePrefix(currentDir) === "projects" || stripLocalePrefix(currentDir) === "programs") {
     return jsonLdScript({
       "@context": "https://schema.org",
       "@graph": [breadcrumb, ...collectionStructuredNode(currentDir, canonicalUrl, rawTitle, description), orgNode],

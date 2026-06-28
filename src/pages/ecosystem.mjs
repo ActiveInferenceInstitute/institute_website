@@ -1,6 +1,7 @@
 import { urlDirForSlug, hrefForSlug } from "../url-taxonomy.mjs";
 import { siteData } from "../data.mjs";
 import { escapeHtml, sanitizePublicProse, slugifyAnchor } from "../lib/text.mjs";
+import { tr } from "../i18n/index.mjs";
 import { slugToHref } from "../render/urls.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
@@ -53,41 +54,49 @@ export function domainProjectsSection(currentDir = "") {
 export function ecosystemDomainPages() {
   const domains = (siteData.instituteos.domainProjects.domains || []).filter((domain) => (domain.projects || []).length);
   const slugToPage = new Set(siteData.pages.map((page) => page.slug));
+  // Return a lazy renderer per page (not pre-rendered HTML): the build calls
+  // render() once per locale, so currentDir, internal links, asset prefixes, and
+  // the language switcher all resolve under the active locale. Rendering eagerly
+  // here would bake the default locale's paths into every locale tree.
   return domains.map((domain) => {
     const routedSlug = `ecosystem/${domain.slug}`;
-    const currentDir = urlDirForSlug(routedSlug);
     const domainName = sanitizePublicProse(domain.domain);
-    const cards = (domain.projects || [])
-      .map((project) => {
-        const pageSlug = projectPageSlugForDataId(project.id);
-        const label = escapeHtml(sanitizePublicProse(project.title || project.id));
-        if (pageSlug && slugToPage.has(pageSlug)) {
-          return `<a class="resource-card internal-card" href="${slugToHref(pageSlug, currentDir)}"><strong>${label}</strong></a>`;
-        }
-        return `<article class="resource-card"><strong>${label}</strong></article>`;
-      })
-      .join("");
-    const body = `
+    const count = (domain.projects || []).length;
+    const render = () => {
+      const currentDir = urlDirForSlug(routedSlug);
+      const cards = (domain.projects || [])
+        .map((project) => {
+          const pageSlug = projectPageSlugForDataId(project.id);
+          const label = escapeHtml(sanitizePublicProse(project.title || project.id));
+          if (pageSlug && slugToPage.has(pageSlug)) {
+            return `<a class="resource-card internal-card" href="${slugToHref(pageSlug, currentDir)}"><strong>${label}</strong></a>`;
+          }
+          return `<article class="resource-card"><strong>${label}</strong></article>`;
+        })
+        .join("");
+      const countLine = tr(`{n} public projects mapped to the {domain} domain of application.`)
+        .replace("{n}", count)
+        .replace("{domain}", escapeHtml(domainName));
+      const body = `
   <section class="page-hero compact">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><a href="${hrefForSlug("ecosystem", currentDir)}">Ecosystem</a><span aria-hidden="true">/</span><span>${escapeHtml(domainName)}</span></nav>
-    <p class="eyebrow">Domain of application</p>
+    <nav class="breadcrumb" aria-label="${escapeHtml(tr("Breadcrumb"))}"><a href="${hrefForSlug("index", currentDir)}">${escapeHtml(tr("Home"))}</a><span aria-hidden="true">/</span><a href="${hrefForSlug("ecosystem", currentDir)}">${escapeHtml(tr("Ecosystem"))}</a><span aria-hidden="true">/</span><span>${escapeHtml(domainName)}</span></nav>
+    <p class="eyebrow">${escapeHtml(tr("Domain of application"))}</p>
     <h1>${escapeHtml(domainName)}</h1>
-    <p>${(domain.projects || []).length} public project${(domain.projects || []).length === 1 ? "" : "s"} mapped to the ${escapeHtml(domainName)} domain of application.</p>
+    <p>${countLine}</p>
   </section>
   <section class="content-band" id="domain-projects">
     ${sectionHeading({ eyebrow: "Projects", title: `Projects in ${domainName}` })}
     <div class="resource-grid">${cards}</div>
-    <p class="mini-links"><a href="${hrefForSlug("ecosystem", currentDir)}">Back to the ecosystem overview</a></p>
+    <p class="mini-links"><a href="${hrefForSlug("ecosystem", currentDir)}">${escapeHtml(tr("Back to the ecosystem overview"))}</a></p>
   </section>`;
-    return {
-      slug: routedSlug,
-      html: layout({
+      return layout({
         title: domainName,
         description: `Public Active Inference Institute projects in the ${domainName} domain of application.`,
         currentDir,
         body,
         slug: routedSlug,
-      }),
+      });
     };
+    return { slug: routedSlug, render };
   });
 }
