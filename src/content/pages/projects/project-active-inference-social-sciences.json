@@ -11,7 +11,7 @@
     },
     {
       "label": "EduActive Unit",
-      "href": "/edactive/"
+      "href": "/eduactive/"
     }
   ],
   "sections": [
@@ -45,14 +45,14 @@
         },
         {
           "label": "EduActive Unit",
-          "href": "/edactive/"
+          "href": "/eduactive/"
         }
       ]
     }
   ],
   "order": 32,
   "relatedSlugs": [
-    "edactive",
+    "eduactive",
     "projects",
     "project-educational-course-development",
     "active-inference"

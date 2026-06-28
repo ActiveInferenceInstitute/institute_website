@@ -38,7 +38,7 @@
       "links": [
         {
           "label": "EduActive Unit",
-          "href": "/edactive/"
+          "href": "/eduactive/"
         },
         {
           "label": "Textbook Group",
@@ -208,7 +208,7 @@
   ],
   "order": 5,
   "relatedSlugs": [
-    "edactive",
+    "eduactive",
     "reinference",
     "learning",
     "ecosystem",

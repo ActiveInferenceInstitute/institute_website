@@ -29,7 +29,7 @@ function resourceGroupsFor(slug, data) {
     .toLowerCase();
   const groups = new Set(["projects"]);
   if (/research|active-inference|model|science|paper|ontology|theory|cognitive/.test(signal)) groups.add("research");
-  if (/learn|education|course|textbook|edactive|mentor|fellow|curriculum/.test(signal)) groups.add("learning");
+  if (/learn|education|course|textbook|eduactive|mentor|fellow|curriculum/.test(signal)) groups.add("learning");
   if (/repo-|tool|software|implementation|library|\bcode\b|engine/.test(signal)) groups.add("tools");
   return [...groups].filter((group) => VALID_RESOURCE_GROUPS.has(group)).slice(0, 3);
 }
@@ -41,7 +41,7 @@ function resourceGroupsFor(slug, data) {
 // root-absolute clean paths ("/projects/<name>/", "/reinference/") which build.mjs
 // re-resolves to caller-relative clean URLs per page.
 function subfolderFor(slug) {
-  if (slug === "edactive" || slug === "reinference") {
+  if (slug === "eduactive" || slug === "reinference") {
     return "programs";
   }
   if (slug.startsWith("project-")) {
@@ -63,7 +63,7 @@ function write(slug, data) {
 
 // ── Unit pages ──────────────────────────────────────────────────────────────
 
-write("edactive", {
+write("eduactive", {
   title: "EduActive Unit",
   subtitle: "The Active Inference Institute's education-focused organizational unit.",
   audience: "Learners, educators, course developers, textbook contributors, and anyone interested in Active Inference education.",
@@ -165,7 +165,7 @@ write("reinference", {
     { title: "RxInfer.jl", text: "Learning and development around the RxInfer.jl probabilistic programming system.", links: [{ sourceId: "shortlink-rxinfer" }] }
   ],
   order: 19,
-  relatedSlugs: ["edactive", "projects", "structure", "active-inference", "learning"],
+  relatedSlugs: ["eduactive", "projects", "structure", "active-inference", "learning"],
   externalSourceIds: ["github-org", "official-activeinference-org", "discord"]
 });
 
@@ -251,7 +251,7 @@ write("project-symposium", {
     {
       heading: "Present and Future",
       body: "The 6th Applied Active Inference Symposium takes place in 2026. The Symposium is a joint project between the EduActive and ReInference units, reflecting its role at the intersection of education, research, and community building.",
-      links: [{ sourceId: "official-symposium-shortlink" }, { label: "EduActive", href: "/edactive/" }, { label: "ReInference", href: "/reinference/" }]
+      links: [{ sourceId: "official-symposium-shortlink" }, { label: "EduActive", href: "/eduactive/" }, { label: "ReInference", href: "/reinference/" }]
     },
     {
       heading: "Participate",
@@ -265,7 +265,7 @@ write("project-symposium", {
     { title: "Sponsor or present", text: "Opportunities for speakers, sponsors, and volunteers.", links: [{ sourceId: "official-symposium-page" }] }
   ],
   order: 22,
-  relatedSlugs: ["edactive", "reinference", "projects", "fellowship", "partnership"],
+  relatedSlugs: ["eduactive", "reinference", "projects", "fellowship", "partnership"],
   externalSourceIds: ["official-symposium-page", "official-symposium-shortlink", "repo-symposium", "youtube", "official-partnership"]
 });
 
@@ -547,7 +547,7 @@ write("project-active-inference-social-sciences", {
   lede: "Active Inference for Social Sciences develops courses, curricula, research, and writing connecting Active Inference to the social sciences. The project produced a 2023 course and continues to build educational and research resources for social scientists engaging with the Active Inference framework.",
   primaryActions: [
     { label: "Courses", sourceId: "official-courses" },
-    { label: "EduActive Unit", href: "/edactive/" }
+    { label: "EduActive Unit", href: "/eduactive/" }
   ],
   sections: [
     {
@@ -563,11 +563,11 @@ write("project-active-inference-social-sciences", {
     {
       heading: "Participate",
       body: "Social scientists, educators, and interdisciplinary researchers interested in connecting Active Inference to their domains are welcome to contribute.",
-      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/edactive/" }]
+      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/eduactive/" }]
     }
   ],
   order: 32,
-  relatedSlugs: ["edactive", "projects", "project-educational-course-development", "active-inference"],
+  relatedSlugs: ["eduactive", "projects", "project-educational-course-development", "active-inference"],
   externalSourceIds: ["official-courses", "repo-courses", "discord"]
 });
 
@@ -593,7 +593,7 @@ write("project-active-inference-journal", {
     }
   ],
   order: 33,
-  relatedSlugs: ["edactive", "projects", "project-active-inference-ontology"],
+  relatedSlugs: ["eduactive", "projects", "project-active-inference-ontology"],
   externalSourceIds: ["journal", "repo-activeinferencejournal", "discord"]
 });
 
@@ -620,11 +620,11 @@ write("project-active-inference-ontology", {
     {
       heading: "Participate",
       body: "Ontologists, knowledge engineers, and researchers who work with formal knowledge representation are welcome to contribute. Background in description logics, RDF/OWL, or conceptual modeling is helpful.",
-      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/edactive/" }]
+      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/eduactive/" }]
     }
   ],
   order: 34,
-  relatedSlugs: ["edactive", "projects", "project-knowledge-engineering", "active-inference"],
+  relatedSlugs: ["eduactive", "projects", "project-knowledge-engineering", "active-inference"],
   externalSourceIds: ["shortlink-ontology", "repo-active-inference-ontology", "github-org", "discord"]
 });
 
@@ -655,7 +655,7 @@ write("project-audio-visual-production", {
     }
   ],
   order: 35,
-  relatedSlugs: ["edactive", "projects", "volunteer", "programs"],
+  relatedSlugs: ["eduactive", "projects", "volunteer", "programs"],
   externalSourceIds: ["video", "youtube", "official-livestreams", "discord"]
 });
 
@@ -682,11 +682,11 @@ write("project-educational-course-development", {
     {
       heading: "Participate",
       body: "Educators, instructional designers, subject matter experts, and learners interested in contributing to course development are welcome.",
-      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/edactive/" }]
+      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/eduactive/" }]
     }
   ],
   order: 36,
-  relatedSlugs: ["edactive", "projects", "project-textbook-group", "project-seasonal-school", "learning"],
+  relatedSlugs: ["eduactive", "projects", "project-textbook-group", "project-seasonal-school", "learning"],
   externalSourceIds: ["official-courses", "repo-courses", "shortlink-obsidian", "discord"]
 });
 
@@ -697,7 +697,7 @@ write("project-physics-course", {
   lede: "The Physics Course is an Institute education project developing course materials on the physical foundations of Active Inference and the Free Energy Principle — covering thermodynamics, information theory, and the physics underlying biological self-organization.",
   primaryActions: [
     { label: "Courses", sourceId: "official-courses" },
-    { label: "EduActive Unit", href: "/edactive/" }
+    { label: "EduActive Unit", href: "/eduactive/" }
   ],
   sections: [
     {
@@ -708,11 +708,11 @@ write("project-physics-course", {
     {
       heading: "Participate",
       body: "Physicists, mathematicians, and quantitatively-oriented learners interested in the theoretical foundations of Active Inference are welcome.",
-      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/edactive/" }]
+      links: [{ sourceId: "discord" }, { label: "EduActive Unit", href: "/eduactive/" }]
     }
   ],
   order: 37,
-  relatedSlugs: ["edactive", "projects", "project-educational-course-development", "active-inference"],
+  relatedSlugs: ["eduactive", "projects", "project-educational-course-development", "active-inference"],
   externalSourceIds: ["official-courses", "discord"]
 });
 
@@ -723,7 +723,7 @@ write("project-seasonal-school", {
   lede: "The Seasonal School is an Institute educational program providing intensive, structured, and in-depth engagement with Active Inference theory, modeling, and applications. It has run multiple cohorts and developed a track record as a concentrated learning experience for participants from varied backgrounds.",
   primaryActions: [
     { label: "Seasonal School page", sourceId: "official-education" },
-    { label: "EduActive Unit", href: "/edactive/" }
+    { label: "EduActive Unit", href: "/eduactive/" }
   ],
   sections: [
     {
@@ -743,7 +743,7 @@ write("project-seasonal-school", {
     }
   ],
   order: 38,
-  relatedSlugs: ["edactive", "projects", "project-educational-course-development", "project-textbook-group", "programs"],
+  relatedSlugs: ["eduactive", "projects", "project-educational-course-development", "project-textbook-group", "programs"],
   externalSourceIds: ["official-education", "youtube", "official-livestreams", "official-newsletter", "discord"]
 });
 
@@ -779,7 +779,7 @@ write("project-textbook-group", {
     { title: "Open enrollment", text: "Register for the next cohort.", links: [{ sourceId: "official-textbook-group-shortlink" }] }
   ],
   order: 39,
-  relatedSlugs: ["edactive", "projects", "project-educational-course-development", "project-seasonal-school", "learning"],
+  relatedSlugs: ["eduactive", "projects", "project-educational-course-development", "project-seasonal-school", "learning"],
   externalSourceIds: ["official-textbook-group-shortlink", "official-textbook-group", "repo-parr-et-al-2022-actinf-textbook", "repo-fundamentals", "discord"]
 });
 
@@ -790,7 +790,7 @@ write("project-video-improvement", {
   lede: "The Video Improvement Project focuses on enhancing the quality, organization, and accessibility of the Institute's extensive video library — covering hundreds of livestreams, educational sessions, and project recordings from 2020 onward.",
   primaryActions: [
     { label: "YouTube", sourceId: "youtube" },
-    { label: "EduActive Unit", href: "/edactive/" }
+    { label: "EduActive Unit", href: "/eduactive/" }
   ],
   sections: [
     {
@@ -805,7 +805,7 @@ write("project-video-improvement", {
     }
   ],
   order: 40,
-  relatedSlugs: ["edactive", "projects", "project-audio-visual-production"],
+  relatedSlugs: ["eduactive", "projects", "project-audio-visual-production"],
   externalSourceIds: ["youtube", "video", "discord"]
 });
 
@@ -1175,7 +1175,7 @@ write("project-collective-foraging", {
     { heading: "Participate", body: "Ecologists, behavioral scientists, and Active Inference modelers interested in collective behavior are welcome.", links: [{ sourceId: "discord" }] }
   ],
   order: 59,
-  relatedSlugs: ["edactive", "projects", "project-active-inferants", "active-inference"],
+  relatedSlugs: ["eduactive", "projects", "project-active-inferants", "active-inference"],
   externalSourceIds: ["ecosystem", "discord"]
 });
 
@@ -1194,7 +1194,7 @@ write("project-cycle-book", {
     { heading: "Participate", body: "Writers, educators, and practitioners interested in Active Inference as personal development framework are welcome.", links: [{ sourceId: "discord" }] }
   ],
   order: 60,
-  relatedSlugs: ["edactive", "projects", "active-inference"],
+  relatedSlugs: ["eduactive", "projects", "active-inference"],
   externalSourceIds: ["ecosystem", "discord"]
 });
 
@@ -1213,7 +1213,7 @@ write("project-creativity-fep", {
     { heading: "Participate", body: "Artists, cognitive scientists, and creativity researchers interested in Active Inference are welcome.", links: [{ sourceId: "discord" }] }
   ],
   order: 61,
-  relatedSlugs: ["edactive", "projects", "active-inference"],
+  relatedSlugs: ["eduactive", "projects", "active-inference"],
   externalSourceIds: ["ecosystem", "discord"]
 });
 
@@ -1232,7 +1232,7 @@ write("project-froebel", {
     { heading: "Participate", body: "Education researchers, historians, and pedagogically-oriented Active Inference practitioners are welcome.", links: [{ sourceId: "discord" }] }
   ],
   order: 62,
-  relatedSlugs: ["edactive", "projects", "project-educational-course-development", "active-inference"],
+  relatedSlugs: ["eduactive", "projects", "project-educational-course-development", "active-inference"],
   externalSourceIds: ["ecosystem", "discord"]
 });
 
@@ -1254,7 +1254,7 @@ write("project-fundamentals-active-inference", {
     { heading: "Participate", body: "Join the current Textbook Group cohort or contribute to supplementary materials.", links: [{ sourceId: "official-textbook-group-shortlink" }, { sourceId: "discord" }] }
   ],
   order: 63,
-  relatedSlugs: ["edactive", "projects", "project-textbook-group", "learning"],
+  relatedSlugs: ["eduactive", "projects", "project-textbook-group", "learning"],
   externalSourceIds: ["repo-fundamentals", "official-textbook-group-shortlink", "discord"]
 });
 
@@ -1273,7 +1273,7 @@ write("project-mathart", {
     { heading: "Participate", body: "Mathematicians, artists, educators, and anyone drawn to math-art dialogue are welcome.", links: [{ sourceId: "discord" }] }
   ],
   order: 64,
-  relatedSlugs: ["edactive", "projects", "active-inference"],
+  relatedSlugs: ["eduactive", "projects", "active-inference"],
   externalSourceIds: ["ecosystem", "discord"]
 });
 
@@ -1292,7 +1292,7 @@ write("project-neurodivergent-learning", {
     { heading: "Participate", body: "Neurodivergent learners, educators, and accessibility advocates are welcome.", links: [{ sourceId: "discord" }] }
   ],
   order: 65,
-  relatedSlugs: ["edactive", "projects", "project-educational-course-development", "active-inference"],
+  relatedSlugs: ["eduactive", "projects", "project-educational-course-development", "active-inference"],
   externalSourceIds: ["ecosystem", "discord"]
 });
 
@@ -1311,7 +1311,7 @@ write("project-numinia", {
     { heading: "Participate", body: "Game developers, AI researchers, and educators interested in Active Inference in educational environments are welcome.", links: [{ sourceId: "discord" }] }
   ],
   order: 66,
-  relatedSlugs: ["edactive", "projects", "active-inference"],
+  relatedSlugs: ["eduactive", "projects", "active-inference"],
   externalSourceIds: ["ecosystem", "discord"]
 });
 
@@ -1330,7 +1330,7 @@ write("project-tower-of-babel", {
     { heading: "Participate", body: "Linguists, philosophers, scientists, and cross-domain thinkers are welcome.", links: [{ sourceId: "discord" }] }
   ],
   order: 67,
-  relatedSlugs: ["edactive", "projects", "active-inference"],
+  relatedSlugs: ["eduactive", "projects", "active-inference"],
   externalSourceIds: ["ecosystem", "discord"]
 });
 
@@ -1349,7 +1349,7 @@ write("project-three-mosqueteers", {
     { heading: "Participate", body: "Science communicators, educators, and live stream contributors are welcome.", links: [{ sourceId: "discord" }] }
   ],
   order: 68,
-  relatedSlugs: ["edactive", "projects", "project-audio-visual-production"],
+  relatedSlugs: ["eduactive", "projects", "project-audio-visual-production"],
   externalSourceIds: ["ecosystem", "discord"]
 });
 

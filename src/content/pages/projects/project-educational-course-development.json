@@ -48,14 +48,14 @@
         },
         {
           "label": "EduActive Unit",
-          "href": "/edactive/"
+          "href": "/eduactive/"
         }
       ]
     }
   ],
   "order": 36,
   "relatedSlugs": [
-    "edactive",
+    "eduactive",
     "projects",
     "project-textbook-group",
     "project-seasonal-school",

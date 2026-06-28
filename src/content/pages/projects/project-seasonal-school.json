@@ -11,7 +11,7 @@
     },
     {
       "label": "EduActive Unit",
-      "href": "/edactive/"
+      "href": "/eduactive/"
     }
   ],
   "sections": [
@@ -51,7 +51,7 @@
   ],
   "order": 38,
   "relatedSlugs": [
-    "edactive",
+    "eduactive",
     "projects",
     "project-educational-course-development",
     "project-textbook-group",

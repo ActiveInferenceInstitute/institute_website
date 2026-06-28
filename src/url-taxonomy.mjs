@@ -41,7 +41,7 @@ export function baseDirForSlug(slug) {
     return `programs/${slug}`;
   }
   // projects, programs, about, structure, ecosystem, active-inference, learning,
-  // activities, get-involved, volunteer, grants, edactive, reinference,
+  // activities, get-involved, volunteer, grants, eduactive, reinference,
   // resources, directory, knowledge -> root-level directory.
   return slug;
 }

@@ -1563,6 +1563,116 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-28T15:37:55Z"
+    },
+    {
+      "id": "paper-worden-projective-wave-2024",
+      "label": "Worden 2024 — The Projective Wave Theory of Consciousness",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2405.12071",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "finalUrl": "https://arxiv.org/abs/2405.12071",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T19:42:04Z"
+    },
+    {
+      "id": "paper-worden-assessing-bwh-2024",
+      "label": "Worden 2024 — Assessing the Brain Wave Hypothesis: Call for Commentary",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2408.04636",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "finalUrl": "https://arxiv.org/abs/2408.04636",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T19:42:04Z"
+    },
+    {
+      "id": "paper-worden-testing-bwh-2024",
+      "label": "Worden 2024 — Testing the Brain Wave Hypothesis",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2408.05368",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "finalUrl": "https://arxiv.org/abs/2408.05368",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T19:42:04Z"
+    },
+    {
+      "id": "gueststream-082-1",
+      "label": "GuestStream #082.1 — Bayesian Model-Based Cognition: The Requirement Equation",
+      "category": "Media",
+      "url": "https://www.youtube.com/watch?v=6gw6KEX10vo",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "finalUrl": "https://www.youtube.com/watch?v=6gw6KEX10vo",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T19:42:04Z"
+    },
+    {
+      "id": "gueststream-082-2",
+      "label": "GuestStream #082.2 — Three-dimensional Spatial Cognition: Bees and Bats",
+      "category": "Media",
+      "url": "https://www.youtube.com/watch?v=gMPa_xoOctU",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "finalUrl": "https://www.youtube.com/watch?v=gMPa_xoOctU",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T19:42:04Z"
+    },
+    {
+      "id": "gueststream-082-3",
+      "label": "GuestStream #082.3 — The Projective Wave Theory of Consciousness",
+      "category": "Media",
+      "url": "https://www.youtube.com/live/IvY4acL8YeA",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "finalUrl": "https://www.youtube.com/live/IvY4acL8YeA",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T19:42:04Z"
+    },
+    {
+      "id": "gueststream-082-4",
+      "label": "GuestStream #082.4 — Assessment of the Brain Wave Hypothesis",
+      "category": "Media",
+      "url": "https://www.youtube.com/live/zqOcywx40n8",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "finalUrl": "https://www.youtube.com/live/zqOcywx40n8",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T19:42:04Z"
+    },
+    {
+      "id": "gueststream-082-5",
+      "label": "GuestStream #082.5 — Computers, Meaning and Consciousness",
+      "category": "Media",
+      "url": "https://www.youtube.com/live/p7iq4AAIwjc",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "finalUrl": "https://www.youtube.com/live/p7iq4AAIwjc",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T19:42:04Z"
+    },
+    {
+      "id": "gueststream-082-6",
+      "label": "GuestStream #082.6 — A Unified Theory of Language",
+      "category": "Media",
+      "url": "https://www.youtube.com/live/vUO6t1pD0Hg",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "finalUrl": "https://www.youtube.com/live/vUO6t1pD0Hg",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T19:42:04Z"
+    },
+    {
+      "id": "gueststream-082-7",
+      "label": "GuestStream #082.7 — Language and Human Nature",
+      "category": "Media",
+      "url": "https://www.youtube.com/live/nFnZSIqoFv4",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "finalUrl": "https://www.youtube.com/live/nFnZSIqoFv4",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T19:42:04Z"
     }
   ]
 }

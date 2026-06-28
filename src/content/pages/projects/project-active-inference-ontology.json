@@ -48,14 +48,14 @@
         },
         {
           "label": "EduActive Unit",
-          "href": "/edactive/"
+          "href": "/eduactive/"
         }
       ]
     }
   ],
   "order": 34,
   "relatedSlugs": [
-    "edactive",
+    "eduactive",
     "projects",
     "project-knowledge-engineering",
     "active-inference"

@@ -72,7 +72,7 @@ URL (prefix with `https://activeinference.institute`).
 
 | Subdomain(s) | New target |
 | --- | --- |
-| `eduactive` | `/edactive/` |
+| `eduactive` | `/eduactive/` |
 | `activities`, `projects` | `/projects/` (or `/activities/`) |
 | `ecosystem` | `/ecosystem/` |
 | `structure` | `/structure/` |

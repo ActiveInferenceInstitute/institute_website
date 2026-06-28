@@ -56,7 +56,7 @@
       "links": [
         {
           "label": "EduActive Unit",
-          "href": "/edactive/"
+          "href": "/eduactive/"
         },
         {
           "label": "ReInference Unit",
@@ -139,7 +139,7 @@
     "about",
     "programs",
     "projects",
-    "edactive",
+    "eduactive",
     "reinference",
     "get-involved"
   ],

@@ -11,7 +11,7 @@
     },
     {
       "label": "EduActive Unit",
-      "href": "/edactive/"
+      "href": "/eduactive/"
     }
   ],
   "sections": [
@@ -43,7 +43,7 @@
   ],
   "order": 40,
   "relatedSlugs": [
-    "edactive",
+    "eduactive",
     "projects",
     "project-audio-visual-production"
   ],

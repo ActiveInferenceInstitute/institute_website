@@ -1,9 +1,9 @@
 {
   "slug": "project-wave-hypothesis",
   "title": "Wave Hypothesis",
-  "subtitle": "An Institute research thread exploring wave-based framings of dynamics for Active Inference and theoretical neurobiology.",
-  "audience": "Researchers, students, and contributors interested in Active Inference, theoretical neurobiology, and the dynamics of adaptive systems.",
-  "lede": "The Wave Hypothesis is an Active Inference Institute research thread that investigates wave-based framings of dynamics relevant to Active Inference and theoretical neurobiology. It is an open, exploratory line of inquiry rather than a settled result: it sits at the intersection of dynamical-systems thinking, theoretical neurobiology, and Active Inference. The full hypothesis statement and supporting materials are maintained on a dedicated public hub, and the work is ongoing — carried in the spirit of the Institute's motto, Act. Infer. Serve.",
+  "subtitle": "Robert Worden's Brain Wave Hypothesis and Projective Wave Theory of Consciousness, presented and discussed at the Institute.",
+  "audience": "Researchers and participants interested in theories of consciousness, brain dynamics, and their relation to Active Inference.",
+  "lede": "The Wave Hypothesis thread gathers Robert Worden's work on the Brain Wave Hypothesis and the Projective Wave Theory of Consciousness, which he presented at the Active Inference Institute during 2024 through the GuestStream #082 series. These are Worden's proposals; the Institute hosts the presentations, links the underlying papers, and invites public commentary on the ideas.",
   "order": 84,
   "relatedSlugs": [
     "projects",
@@ -15,68 +15,79 @@
     "research"
   ],
   "externalSourceIds": [
-    "shortlink-wave-hypothesis"
-  ],
-  "primaryActions": [
-    {
-      "sourceId": "shortlink-wave-hypothesis"
-    },
-    {
-      "label": "ReInference Unit",
-      "href": "/reinference/"
-    }
+    "shortlink-wave-hypothesis",
+    "paper-worden-projective-wave-2024",
+    "paper-worden-assessing-bwh-2024",
+    "paper-worden-testing-bwh-2024",
+    "gueststream-082-1",
+    "gueststream-082-2",
+    "gueststream-082-3",
+    "gueststream-082-4",
+    "gueststream-082-5",
+    "gueststream-082-6",
+    "gueststream-082-7"
   ],
   "sections": [
     {
-      "heading": "Overview",
-      "body": "The Wave Hypothesis asks how wave-based framings of dynamics might illuminate questions in Active Inference and theoretical neurobiology. Rather than asserting fixed conclusions, the thread organizes a developing line of inquiry — drawing connections between wave-oriented descriptions of change and the modeling traditions of Active Inference. The specific scientific claims, formulations, and supporting arguments are maintained on the dedicated hub, where they can be discussed and revised as the work matures. Treating it as a living research question, rather than a finished answer, is part of the point.",
-      "links": [
-        {
-          "sourceId": "shortlink-wave-hypothesis"
-        }
-      ]
-    },
-    {
-      "heading": "Where it sits",
-      "body": "The thread lives at the meeting point of three traditions. Dynamical-systems thinking offers a vocabulary for how states evolve over time — trajectories, oscillations, stability, and the propagation of change. Theoretical neurobiology asks how the structure and activity of nervous systems can be described and explained at multiple scales. Active Inference provides a formal framing in which perception, action, and learning are understood as a single process of minimizing prediction error under a generative model. The Wave Hypothesis explores what becomes visible when wave-based descriptions of dynamics are brought into conversation with these framings — without committing in advance to any one formulation.",
+      "heading": "About the Wave Hypothesis",
+      "body": "Robert Worden (whose work is collected at bayeslanguage.org) develops a Projective Wave Theory of Consciousness and a Brain Wave Hypothesis — proposals about how wave-based mechanisms might underlie cognition and conscious experience, with connections to Bayesian model-based cognition and language. During 2024 he presented a series of livestreams at the Institute setting out the theory, its assessment, and how it might be tested. This page collects the papers and recordings so the proposals can be examined, discussed, and critiqued; the ideas are Worden's, and the Institute's role is to host the presentations and invite commentary.",
       "links": [
         {
           "label": "Active Inference",
           "href": "/active-inference/"
-        }
-      ]
-    },
-    {
-      "heading": "How it fits the program",
-      "body": "The Wave Hypothesis is carried as a research thread within the Institute's ReInference Unit, the research arm of a participatory, open-science 501(c)(3) nonprofit organized around three units: EduActive for education, ReInference for research, and Administrative for operations. ReInference supports research projects and theoretical inquiry across the Active Inference Ecosystem, and this thread connects to the Institute's broader catalog of projects. As open science, the work is meant to be examined, reused, and improved in public rather than held privately.",
-      "links": [
+        },
         {
           "label": "ReInference Unit",
           "href": "/reinference/"
-        },
-        {
-          "label": "All projects",
-          "href": "/projects/"
         }
       ]
     },
     {
-      "heading": "Why it matters",
-      "body": "Bringing a new descriptive lens to familiar dynamics is one of the ways a research program renews itself. If wave-based framings turn out to clarify how adaptive systems represent and respond to change, they could enrich both the conceptual and the formal sides of Active Inference. Because the thread is exploratory, its value at this stage is in sharpening questions, testing framings against existing theory, and surfacing where wave-oriented descriptions help or hinder. The honest framing — what is genuinely open versus what is established elsewhere — is kept on the hub.",
+      "heading": "Papers",
+      "body": "Three 2024 papers by Robert Worden set out and test the proposal:",
       "links": [
         {
-          "sourceId": "shortlink-wave-hypothesis"
+          "sourceId": "paper-worden-projective-wave-2024"
+        },
+        {
+          "sourceId": "paper-worden-assessing-bwh-2024"
+        },
+        {
+          "sourceId": "paper-worden-testing-bwh-2024"
         }
       ]
     },
     {
-      "heading": "Participate",
-      "body": "Because the hypothesis is still developing, participation centers on reading the current materials, following the discussion, and contributing perspectives or critiques. Newcomers can begin with the materials on the hub to understand the framing and its open questions. Those who want grounding in the underlying framework can start with the Institute's Active Inference resources, then connect through its general participation pathways to engage with research threads like this one. Contributions from people with backgrounds in dynamics, neurobiology, mathematics, and Active Inference are all welcome.",
+      "heading": "GuestStream #082 series",
+      "body": "The seven-part GuestStream #082 series recorded at the Institute presents the theory alongside related topics in Bayesian cognition, spatial cognition, language, and consciousness. The session on the Projective Wave Theory of Consciousness (#082.3) features David Rudrauf, Kenneth Williford, and Karl Friston.",
       "links": [
         {
-          "label": "Learn Active Inference",
-          "href": "/active-inference/"
+          "sourceId": "gueststream-082-1"
         },
+        {
+          "sourceId": "gueststream-082-2"
+        },
+        {
+          "sourceId": "gueststream-082-3"
+        },
+        {
+          "sourceId": "gueststream-082-4"
+        },
+        {
+          "sourceId": "gueststream-082-5"
+        },
+        {
+          "sourceId": "gueststream-082-6"
+        },
+        {
+          "sourceId": "gueststream-082-7"
+        }
+      ]
+    },
+    {
+      "heading": "Commentary",
+      "body": "The author actively invites commentary on the Wave Hypothesis; submitted comments may, with permission, be posted publicly on the author's commentary page at bayeslanguage.org. Karl Friston writes: \"It would be very useful to see other people's take on this proposal for mortal computation in the brain.\" Contributing a considered response is one of the most useful ways to engage with this thread.",
+      "links": [
         {
           "label": "Get involved",
           "href": "/get-involved/"
@@ -85,7 +96,7 @@
     },
     {
       "heading": "Full materials",
-      "body": "The complete, authoritative materials for the Wave Hypothesis — including the full hypothesis statement, supporting documents, and ongoing discussion — are currently maintained at the linked hub and are in the process of being migrated onto this site. Until that migration is complete, the hub remains the source of truth for this topic.",
+      "body": "Further materials for the Wave Hypothesis are maintained on the wave-hypothesis hub and are being migrated onto this site. The papers above on arXiv and the recorded GuestStream sessions are the primary public record.",
       "links": [
         {
           "sourceId": "shortlink-wave-hypothesis"
@@ -95,42 +106,39 @@
   ],
   "cards": [
     {
-      "title": "Research thread",
-      "text": "An exploratory inquiry into wave-based framings of dynamics for Active Inference and theoretical neurobiology.",
+      "title": "Projective Wave Theory of Consciousness",
+      "text": "Worden's 2024 paper proposing a wave-based account of consciousness.",
       "links": [
         {
-          "sourceId": "shortlink-wave-hypothesis"
+          "sourceId": "paper-worden-projective-wave-2024"
         }
       ]
     },
     {
-      "title": "An intersection",
-      "text": "Sits where dynamical-systems thinking, theoretical neurobiology, and Active Inference meet.",
+      "title": "Brain Wave Hypothesis",
+      "text": "Companion 2024 papers assessing and testing the hypothesis, with a call for commentary.",
       "links": [
         {
-          "label": "Active Inference",
-          "href": "/active-inference/"
+          "sourceId": "paper-worden-assessing-bwh-2024"
         }
       ]
     },
     {
-      "title": "ReInference Unit",
-      "text": "The Institute's research unit that hosts and supports open research threads like this one.",
+      "title": "Watch the series",
+      "text": "The seven-part GuestStream #082 series recorded at the Institute.",
       "links": [
         {
-          "label": "ReInference Unit",
-          "href": "/reinference/"
+          "sourceId": "gueststream-082-3"
         }
       ]
+    }
+  ],
+  "primaryActions": [
+    {
+      "sourceId": "paper-worden-projective-wave-2024"
     },
     {
-      "title": "Open and ongoing",
-      "text": "A living research question, not a settled result — read along and contribute on the hub.",
-      "links": [
-        {
-          "sourceId": "shortlink-wave-hypothesis"
-        }
-      ]
+      "sourceId": "shortlink-wave-hypothesis"
     }
   ]
 }
