@@ -1381,9 +1381,9 @@
       "id": "youtube",
       "label": "YouTube channel",
       "category": "Media",
-      "url": "https://youtube.com/c/ActiveInference",
+      "url": "https://www.youtube.com/@ActiveInference/",
       "sourceBasis": "Public media channel verified from the Institute resource inventory.",
-      "finalUrl": "https://www.youtube.com/c/ActiveInference",
+      "finalUrl": "https://www.youtube.com/@ActiveInference/",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-08T21:23:29Z"
