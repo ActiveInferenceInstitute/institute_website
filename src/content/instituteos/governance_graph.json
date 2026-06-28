@@ -1459,16 +1459,6 @@
       "href": "knowledge.html#member-alexandra-mikhailova"
     },
     {
-      "id": "entity:v-bleu-knight",
-      "label": "V. Bleu Knight",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "Secretary"
-      },
-      "href": "knowledge.html#member-v-bleu-knight"
-    },
-    {
       "id": "entity:alexander-vyatkin",
       "label": "Alexander Vyatkin",
       "type": "entity",
