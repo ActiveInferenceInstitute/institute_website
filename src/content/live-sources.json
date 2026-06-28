@@ -1673,6 +1673,28 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-28T19:42:04Z"
+    },
+    {
+      "id": "measureform",
+      "label": "Measurement form",
+      "category": "Participate",
+      "url": "https://measureform.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink forwarding to the short Measurement form.",
+      "finalUrl": "https://coda.io/form/Short-Measurement-form-Active-Inference-Institute_dlds-rELtKp",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T20:03:20Z"
+    },
+    {
+      "id": "prepareform",
+      "label": "Preparation form",
+      "category": "Participate",
+      "url": "https://prepareform.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink forwarding to the short Preparation form (destination form URL to be confirmed by maintainer).",
+      "finalUrl": "",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T20:03:20Z"
     }
   ]
 }

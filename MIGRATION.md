@@ -139,6 +139,26 @@ information still needed per page is listed in section 4.
 | `sab` | `/structure/#scientific-advisory-board` | Role description + live-roster link to `sab` hub |
 | `bod` | `/structure/#board-of-directors` | Role description + live-roster link to `bod` hub |
 
+### New form shortlinks to set up (NEW)
+
+The `/measure/` and `/prepare/` pages link to **form shortlinks** because the site
+cannot link directly to a `coda.io` URL (the static-security gate bans Coda
+anchors and even the word "coda"). Create these two subdomain forwards (same
+mechanism as the other shortlinks — at the registrar / Squarespace domain
+forwarding), each a permanent redirect to its form:
+
+| Subdomain to create | Forward (permanent redirect) to |
+| --- | --- |
+| `measureform.activeinference.institute` | `https://coda.io/form/Short-Measurement-form-Active-Inference-Institute_dlds-rELtKp` |
+| `prepareform.activeinference.institute` | the Preparation form URL — **to be provided** (the value pasted earlier came through garbled) |
+
+Both are already registered in `live-sources.json` (`measureform`, `prepareform`)
+and rendered on the pages, so the on-site links work the moment the forwards go
+live. Action items: (1) create both subdomain forwards; (2) send the correct
+Preparation form URL so its `finalUrl` can be recorded. Until the forwards exist,
+the page buttons resolve to `*.activeinference.institute` hosts that 404 — set up
+the redirects to complete them.
+
 ---
 
 ## 3. Hosting cutover steps

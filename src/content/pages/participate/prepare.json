@@ -1,79 +1,10 @@
 {
   "slug": "prepare",
   "title": "Project Preparation",
-  "subtitle": "The onboarding pathway for turning an idea into an active project or research activity at the Institute.",
-  "audience": "Prospective contributors, facilitators, and collaborators who have an idea and want to turn it into an active Institute project in the EduActive or ReInference unit.",
-  "lede": "Project Preparation is how an idea becomes an active project at the Active Inference Institute. It guides a proposal through scoping and readiness review so the work can launch within the EduActive education unit or the ReInference research unit. The pathway is open and participatory: anyone can understand how projects come to life, and how preparation connects to funding discovery and the public projects registry. The detailed steps, proposal templates, and readiness checklists live on the preparation hub and are being migrated onto this site.",
+  "subtitle": "Tell the Institute what you're setting out to do through the Preparation form, so your project can be listed and supported.",
+  "audience": "Anyone preparing to start a project or line of work related to Active Inference, inside or outside the Institute.",
+  "lede": "Project Preparation is how you let the Active Inference Institute know what you are setting out to do. Submitting the Preparation form is the way to get your project listed on the public site and to receive relevant support — it is the \"Prepare\" half of the Institute's Prepare-and-Measure system, paired with the Measurement form you use later to report progress.",
   "order": 82,
-  "sections": [
-    {
-      "heading": "From idea to active project",
-      "body": "Project Preparation is the structured onboarding pathway that moves an initial idea through proposal, scoping, and readiness review until it is ready to operate as an active project. The pathway helps clarify what a project intends to do, which Institute unit it belongs in, and what is needed before it begins, turning loosely held intentions into something the community can support and sustain. As a participatory, open-science nonprofit guided by the motto Act. Infer. Serve., the Institute keeps this pathway transparent so that contributors at any stage can see the route from a first idea to a working project listed alongside everything else under way.",
-      "links": [
-        {
-          "label": "All projects",
-          "href": "/projects/"
-        }
-      ]
-    },
-    {
-      "heading": "Where prepared projects live: EduActive and ReInference",
-      "body": "Prepared projects launch within one of the Institute's two program units. The EduActive unit hosts education-oriented activities such as courses, learning resources, and community programs, while the ReInference unit hosts research-oriented work such as studies, software, and applied investigation. Both operate alongside the Administrative unit under the Institute's 501(c)(3) nonprofit governance. A central part of preparation is determining which unit best fits a project's aims, so that once it becomes active it connects to the right facilitation, community, and resources.",
-      "links": [
-        {
-          "label": "EduActive unit",
-          "href": "/eduactive/"
-        },
-        {
-          "label": "ReInference unit",
-          "href": "/reinference/"
-        }
-      ]
-    },
-    {
-      "heading": "The preparation arc: proposal, scoping, readiness",
-      "body": "Preparation typically progresses through a few connected stages. A proposal describes the idea: what the activity is, who would be involved, and why it matters. Scoping then sharpens that description into a workable shape, defining boundaries, expected outputs, and the unit it belongs in. Readiness review checks that the pieces needed to begin are in place before the project is treated as active. The specific stages, the forms each takes, and the criteria that mark a project as ready are described in detail on the preparation hub, which the pathway references as a project moves through onboarding.",
-      "links": [
-        {
-          "label": "All projects",
-          "href": "/projects/"
-        }
-      ]
-    },
-    {
-      "heading": "Funding discovery and resources",
-      "body": "Many projects need resources to operate, and preparation is the right moment to consider how a project might be supported. The Institute's grants and funding pages describe the pathways available for discovering and pursuing financial support, and preparation connects directly to them so that scoping and funding can be considered together rather than in isolation. Describing the kind of resources a project requires during scoping makes it easier to match an idea to the funding routes that fit it.",
-      "links": [
-        {
-          "label": "Grants and funding",
-          "href": "/grants/"
-        }
-      ]
-    },
-    {
-      "heading": "Open and participatory by design",
-      "body": "Because the Institute is participatory and open by design, the preparation pathway is meant to be approachable rather than gated. Contributors do not need an existing affiliation to begin shaping an idea; the pathway exists precisely to help newcomers and established participants alike move work toward an active footing. The broader activities, structure, and ways to get involved across the Institute provide the surrounding context, so a prepared project arrives already connected to the community and governance that will sustain it.",
-      "links": [
-        {
-          "label": "Get involved",
-          "href": "/get-involved/"
-        },
-        {
-          "label": "Activities",
-          "href": "/activities/"
-        }
-      ]
-    },
-    {
-      "heading": "Full materials",
-      "body": "The complete, authoritative materials for Project Preparation, including the detailed preparation steps, proposal templates, and readiness checklists, are currently maintained at the linked preparation hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for this topic.",
-      "links": [
-        {
-          "sourceId": "shortlink-prepare"
-        }
-      ]
-    }
-  ],
   "relatedSlugs": [
     "projects",
     "grants",
@@ -84,56 +15,113 @@
     "projects"
   ],
   "externalSourceIds": [
+    "prepareform",
     "shortlink-prepare"
   ],
-  "cards": [
+  "sections": [
     {
-      "title": "Explore current projects",
-      "text": "See the projects already active across the EduActive and ReInference units.",
+      "heading": "What the Preparation form is",
+      "body": "The Preparation form is a short, always-open description of what you are preparing to do — a project, study, or line of work you want to begin. It is the \"Prepare\" half of the Institute's Prepare-and-Measure system: Preparation describes what someone is setting out to do, and the Measurement form later reports back when goals are reached. A preparation can be submitted by anyone, whether you simply want to let the Institute know what you are working on or want it formally supported.",
       "links": [
         {
-          "label": "All projects",
+          "label": "Project Measurement",
+          "href": "/measure/"
+        }
+      ]
+    },
+    {
+      "heading": "Why submit a preparation",
+      "body": "Submitting a preparation is how your project gets listed on the public site and becomes visible to the community, and it is how the Institute learns what you are working on so it can offer relevant support. It is also the natural first step before later reporting progress through the Measurement form, so that a project's life — from intention to outcome — is captured in one consistent way.",
+      "links": [
+        {
+          "label": "Projects",
           "href": "/projects/"
         }
       ]
     },
     {
-      "title": "Funding pathways",
-      "text": "Learn how projects can discover and seek financial support through the Institute.",
+      "heading": "How to submit",
+      "body": "Complete the short Preparation form and submit it — it takes only a few minutes. If you have questions about preparing a project or about being listed, contact the Institute or start from the Get Involved page; if your project may need funding, the Grants page is a useful next stop.",
       "links": [
         {
-          "label": "Grants and funding",
+          "label": "Open the Preparation form",
+          "sourceId": "prepareform"
+        },
+        {
+          "label": "Contact the Institute",
+          "href": "mailto:blanket@activeinference.institute"
+        },
+        {
+          "label": "Grants",
           "href": "/grants/"
         }
       ]
     },
     {
-      "title": "Get involved",
-      "text": "Find ways to participate, contribute, and connect with the community.",
+      "heading": "Preparation and the project lifecycle",
+      "body": "Preparation is the first stage of a shared project lifecycle — preparation, active work, measurement, and reporting. Starting with a preparation means a project enters the Institute's public record from the outset, and the always-open form means you can register a new project at any time rather than waiting for a fixed intake window.",
       "links": [
         {
           "label": "Get involved",
           "href": "/get-involved/"
+        },
+        {
+          "label": "Project Measurement",
+          "href": "/measure/"
         }
       ]
     },
     {
-      "title": "Preparation hub",
-      "text": "The detailed steps, proposal templates, and readiness checklists, maintained on the hub while migration continues.",
+      "heading": "More on preparation",
+      "body": "Further materials on Project Preparation are maintained on the preparation hub and are being migrated onto this site.",
       "links": [
         {
+          "label": "Project Preparation materials",
           "sourceId": "shortlink-prepare"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Submit a preparation",
+      "text": "A few minutes to describe what you're starting — and get your project listed.",
+      "links": [
+        {
+          "label": "Preparation form",
+          "sourceId": "prepareform"
+        }
+      ]
+    },
+    {
+      "title": "Report progress later",
+      "text": "Once underway, use the Measurement form to share updates.",
+      "links": [
+        {
+          "label": "Project Measurement",
+          "href": "/measure/"
+        }
+      ]
+    },
+    {
+      "title": "Need funding?",
+      "text": "Grants can support projects that need resources.",
+      "links": [
+        {
+          "label": "Grants",
+          "href": "/grants/"
         }
       ]
     }
   ],
   "primaryActions": [
     {
-      "label": "All projects",
-      "href": "/projects/"
+      "label": "Open the Preparation form",
+      "sourceId": "prepareform"
     },
     {
-      "sourceId": "shortlink-prepare"
+      "label": "Get involved",
+      "href": "/get-involved/"
     }
   ]
 }
