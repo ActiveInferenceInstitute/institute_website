@@ -73,7 +73,7 @@ URL (prefix with `https://activeinference.institute`).
 | Subdomain(s) | New target |
 | --- | --- |
 | `eduactive` | `/eduactive/` |
-| `activities`, `projects` | `/projects/` (or `/activities/`) |
+| `activities`, `projects` | `/projects/` |
 | `ecosystem` | `/ecosystem/` |
 | `structure` | `/structure/` |
 | `reinference` | `/reinference/` |
@@ -82,10 +82,7 @@ URL (prefix with `https://activeinference.institute`).
 | `mentorship` | `/programs/mentorship/` |
 | `fellows`, `fellowship` | `/programs/fellowship/` |
 | `partnerships`, `partnership` | `/programs/partnership/` |
-| `donate`, `paypal`, `support` | `/programs/philanthropy/` (or keep direct PayPal) |
 | `welcome` | `/get-involved/` |
-| `discord` | `/get-involved/` (or keep direct Discord invite) |
-| `start` | `/learning/` (or keep direct GitHub Start repo) |
 | `textbook-group` | `/projects/textbook-group/` |
 | `rxinfer` | `/projects/rxinfer/` |
 | `knowledge-engineering` | `/projects/knowledge-engineering/` |
@@ -95,16 +92,21 @@ URL (prefix with `https://activeinference.institute`).
 
 ### Keep as external forwards
 
-These point to external destinations that should stay external; the new site
-links to them where relevant but does not replace them.
+Launch policy: **no shortlink may point at the old Coda workspace.** A shortlink
+whose current destination is already off-platform stays on that off-platform
+destination (unchanged); every shortlink currently pointing at Coda is repointed
+to the new on-site page (the two tables above and below).
 
 | Subdomain | Keep pointing at |
 | --- | --- |
 | `newsletter` | Substack (`https://activeinferenceinstitute.substack.com/`) |
 | `chat` | Perplexity search |
 | `obsidian` | Obsidian publish knowledge base (surfaced on `/active-inference/`) |
-| `resnei` | Zenodo record |
+| `resnei` | Zenodo record (`https://zenodo.org/records/15389683`) |
 | `zoom` | Zoom meeting room |
+| `start` | GitHub Start repo (`https://github.com/ActiveInferenceInstitute/Start/`) |
+| `donate`, `paypal`, `support` | PayPal (`https://www.paypal.com/donate/?hosted_button_id=XZK68Z2CJKWF8`) |
+| `discord` | Discord invite (`https://discord.gg/FSUvYD2p9S`) |
 
 ### Repoint to a new on-site page (full materials still being migrated)
 
