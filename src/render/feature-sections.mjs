@@ -2,7 +2,7 @@ import { techTreeExplorerSection, governanceGraphSection, ontologyTermsGraphSect
 import { tableSection, ontologyTermsTable } from "./tables.mjs";
 import { narrativeSection } from "./narrative.mjs";
 import { domainProjectsSection } from "../pages/ecosystem.mjs";
-import { EXPORT_PROVENANCE, siteData } from "../data.mjs";
+import { EXPORT_PROVENANCE, siteData, loadProjectsData } from "../data.mjs";
 import { escapeHtml } from "../lib/text.mjs";
 import { hrefForSlug } from "../url-taxonomy.mjs";
 import { sectionHeading } from "./components.mjs";
@@ -171,6 +171,77 @@ function ontologyTermsFeature(currentDir = "") {
   );
 }
 
+// Activities feature section — replaces the raw-markdown Coda narrative dump with
+// two data-driven, scannable blocks: (1) upcoming public activities from the
+// calendar snapshot, (2) a searchable list of active Institute/Ecosystem projects
+// to get involved with. Both read public-gated InstituteOS exports.
+const ACT_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function formatActivityDate(start) {
+  const s = String(start || "");
+  if (s.length < 10) {
+    return s;
+  }
+  const month = ACT_MONTHS[Number(s.slice(5, 7)) - 1] || "";
+  const day = String(Number(s.slice(8, 10)) || "");
+  const year = s.slice(0, 4);
+  if (s.length <= 10) {
+    return `${month} ${day}, ${year}`;
+  }
+  return `${month} ${day}, ${year} · ${s.slice(11, 16)} UTC`;
+}
+
+function activitiesFeatureSection(currentDir = "") {
+  // (1) Upcoming activities: calendar events on/after the public export date,
+  // sorted ascending and capped. Reference date is the export stamp (data, not
+  // Date.now()) so the build stays deterministic.
+  const ref = String(EXPORT_PROVENANCE.generated_at || "").slice(0, 10);
+  const records = (siteData.instituteos && siteData.instituteos.calendar && siteData.instituteos.calendar.records) || [];
+  const upcoming = records
+    .filter((e) => e && e.title && (!ref || String(e.start || "").slice(0, 10) >= ref))
+    .sort((a, b) => String(a.start).localeCompare(String(b.start)))
+    .slice(0, 12);
+  const calRows = upcoming
+    .map(
+      (e) => `<tr><td class="activity-when">${escapeHtml(formatActivityDate(e.start))}</td><td>${escapeHtml(e.title)}</td></tr>`,
+    )
+    .join("");
+  const calendarBlock = `<section class="content-band" id="upcoming-activities">
+    ${sectionHeading({ eyebrow: "Calendar", title: "Upcoming public activities", text: "Recurring meetings, learning sessions, and streams from the Institute calendar. Browse the full schedule and subscribe on the calendar page." })}
+    ${
+      calRows
+        ? `<div class="table-wrap"><table class="activities-table"><thead><tr><th scope="col">When (UTC)</th><th scope="col">Activity</th></tr></thead><tbody>${calRows}</tbody></table></div>`
+        : `<p>See the full calendar for upcoming activities.</p>`
+    }
+    <p class="section-link"><a href="${hrefForSlug("calendar", currentDir)}">Open the full calendar &amp; subscribe</a></p>
+  </section>`;
+
+  // (2) Searchable list of active Institute/Ecosystem projects open to participation.
+  const projects = (loadProjectsData().projects || [])
+    .filter((p) => p && p.status === "active")
+    .sort((a, b) => String(a.title || "").localeCompare(String(b.title || "")));
+  const projRows = projects
+    .map((p) => {
+      const title = escapeHtml(p.title || p.id || "");
+      const summary = escapeHtml(p.summary || p.description || "");
+      const slug = p.website_slug || "";
+      const titleCell = slug ? `<a href="${hrefForSlug(slug, currentDir)}">${title}</a>` : title;
+      const search = escapeHtml(`${p.title || ""} ${p.summary || ""} ${p.description || ""} ${(p.topics || []).join(" ")}`.toLowerCase());
+      return `<tr data-activity-row data-search="${search}"><td>${titleCell}</td><td>${summary}</td></tr>`;
+    })
+    .join("");
+  const projectsBlock = `<section class="content-band" id="active-projects">
+    ${sectionHeading({ eyebrow: "Get involved", title: "Active projects", text: "Active Institute and Ecosystem projects open to participation. Search to find one that fits, then open its page to see how to join." })}
+    <div class="activities-search">
+      <input id="activities-project-search" type="search" placeholder="Search ${projects.length} active projects by name or topic…" autocomplete="off" aria-label="Search active projects">
+      <span id="activities-project-count" aria-live="polite"></span>
+    </div>
+    <div class="table-wrap"><table class="activities-table"><thead><tr><th scope="col">Project</th><th scope="col">About</th></tr></thead><tbody>${projRows}</tbody></table></div>
+    <p class="section-link"><a href="${hrefForSlug("projects", currentDir)}">Browse all projects</a></p>
+  </section>`;
+
+  return calendarBlock + projectsBlock;
+}
+
 export function instituteosFeatureSections(page, currentDir = "") {
   switch (page.slug) {
     case "instituteos":
@@ -212,6 +283,8 @@ export function instituteosFeatureSections(page, currentDir = "") {
         targetPage: "about",
       });
     case "activities":
+      return activitiesFeatureSection(currentDir);
+    case "activities-disabled-narrative":
       return narrativeSection({
         id: "activities-narratives",
         eyebrow: "Activities",

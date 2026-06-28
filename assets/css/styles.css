@@ -1523,3 +1523,13 @@ body{transition:background-color 200ms,color 200ms}
 .book-cover-meta { margin: 0; font-size: 0.85rem; color: var(--text-dim, #9aa0a6); }
 .book-cover-status { margin: 0; font-size: 0.8rem; color: var(--accent, #ef4444); }
 .book-cover-link { margin: 0.1rem 0 0; font-size: 0.85rem; }
+
+/* Activities page — calendar + searchable active-projects tables */
+.activities-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.activities-table th,
+.activities-table td { text-align: left; padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12)); vertical-align: top; }
+.activities-table th { font-weight: 600; color: var(--text-dim, #9aa0a6); }
+.activities-table td.activity-when { white-space: nowrap; color: var(--text-dim, #9aa0a6); }
+.activities-search { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; }
+.activities-search input[type="search"] { flex: 1 1 280px; padding: 0.55rem 0.8rem; border-radius: 8px; border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.16)); background: var(--surface-2, #111); color: inherit; }
+.activities-search span { font-size: 0.85rem; color: var(--text-dim, #9aa0a6); }

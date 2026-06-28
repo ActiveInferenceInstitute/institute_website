@@ -268,3 +268,26 @@ updateResourceFilters();
 sortRepositories();
 updateKnowledgeFilters();
 updateCalendarFilters();
+
+// Activities page — filter the searchable "active projects" table.
+const activitiesProjectSearch = document.querySelector("#activities-project-search");
+const activitiesProjectRows = [...document.querySelectorAll("[data-activity-row]")];
+const activitiesProjectCount = document.querySelector("#activities-project-count");
+if (activitiesProjectSearch && activitiesProjectRows.length) {
+  const applyActivitiesProjectFilter = () => {
+    const query = (activitiesProjectSearch.value || "").trim().toLowerCase();
+    let shown = 0;
+    for (const row of activitiesProjectRows) {
+      const match = !query || (row.dataset.search || "").includes(query);
+      row.hidden = !match;
+      if (match) {
+        shown += 1;
+      }
+    }
+    if (activitiesProjectCount) {
+      activitiesProjectCount.textContent = `${shown} project${shown === 1 ? "" : "s"} shown`;
+    }
+  };
+  activitiesProjectSearch.addEventListener("input", applyActivitiesProjectFilter);
+  applyActivitiesProjectFilter();
+}
