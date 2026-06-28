@@ -1533,3 +1533,13 @@ body{transition:background-color 200ms,color 200ms}
 .activities-search { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; }
 .activities-search input[type="search"] { flex: 1 1 280px; padding: 0.55rem 0.8rem; border-radius: 8px; border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.16)); background: var(--surface-2, #111); color: inherit; }
 .activities-search span { font-size: 0.85rem; color: var(--text-dim, #9aa0a6); }
+
+/* Narrative tables (rendered from transposed markdown bodies on about/structure/ecosystem) */
+.narrative-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0.5rem 0 1rem; }
+.narrative-table th,
+.narrative-table td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12)); vertical-align: top; }
+.narrative-table th { font-weight: 600; color: var(--text-dim, #9aa0a6); }
+.article-block h4 { margin: 1.1rem 0 0.4rem; font-size: 1.05rem; }
+.article-block h5 { margin: 0.9rem 0 0.3rem; font-size: 0.95rem; }
+.article-block ul { margin: 0.4rem 0 0.8rem; padding-left: 1.2rem; }
+.article-block li { margin: 0.2rem 0; }

@@ -201,6 +201,13 @@
         event.preventDefault();
         first.focus();
       }
+    } else if (event.key === "Enter") {
+      var query = input.value.trim();
+      if (query.length) {
+        event.preventDefault();
+        var base = window.__SEARCH_PAGE_URL__ || "/search/";
+        window.location.href = base + (base.indexOf("?") === -1 ? "?q=" : "&q=") + encodeURIComponent(query);
+      }
     }
   });
   results.addEventListener("keydown", function (event) {
