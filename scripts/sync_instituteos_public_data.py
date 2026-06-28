@@ -364,6 +364,11 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
     organizations = []
     for entity in entities_data.get("entities", []):
         entity_type = entity.get("entity_type")
+        # Public-release gate: contacts imported from the private CRM roster
+        # (tagged "roster-import") are directory contacts, not public governance
+        # members — withhold them from the public knowledge page.
+        if "roster-import" in (entity.get("tags") or []):
+            continue
         if entity_type == "person":
             policy_roles = [
                 {
@@ -469,6 +474,10 @@ def sanitize_communications(comms_data: dict[str, Any]) -> dict[str, Any]:
 def sanitize_policies(policies_data: dict[str, Any]) -> dict[str, Any]:
     records = []
     for policy in policies_data.get("policies", []):
+        # Public-release gate: only policies marked visibility="public" sync to the
+        # website knowledge page; all others (default "internal") are withheld.
+        if (policy.get("visibility") or "internal") != "public":
+            continue
         current_version = ""
         for version in policy.get("versions", []):
             if version.get("is_current") is True:

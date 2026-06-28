@@ -30,7 +30,6 @@
     "welcome": "get-involved/",
 
     // Institute / governance
-    "history": "about/",
     "about-us": "about/",
     "board-of-directors": "structure/",
     "bod": "structure/",

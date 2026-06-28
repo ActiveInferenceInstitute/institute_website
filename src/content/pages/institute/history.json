@@ -1,0 +1,159 @@
+{
+  "slug": "history",
+  "title": "History",
+  "subtitle": "From a 2020 team meeting to the Active Inference Institute.",
+  "audience": "Anyone who wants to understand where the Institute came from and how it grew.",
+  "lede": "The Institute's history runs from a 2020 co-founder team meeting around a shared interest in Active Inference, through the Active Inference Lab, to the nonprofit Active Inference Institute it is today. This page traces that story year by year. For the current and upcoming years, see the 2025 and 2026 annual overviews.",
+  "order": 3,
+  "relatedSlugs": [
+    "about",
+    "structure",
+    "activities",
+    "projects"
+  ],
+  "resourceGroups": [
+    "institute"
+  ],
+  "externalSourceIds": [
+    "official-newsletter",
+    "youtube"
+  ],
+  "sections": [
+    {
+      "heading": "2020 — Origins",
+      "body": "The history of the Institute begins in a co-founder team meeting in 2020 around a common interest in Active Inference. This produced a productive collaboration and the publication \"Active Inference & Behavior Engineering for Teams\" in September 2020 (Vyatkin et al. 2020); the group was then known as \"Team Comm,\" and its first livestream — ActInf Livestream #001.1, \"Narrative as active inference\" — aired on July 28, 2020. Following the 2020 publication, discussions turned to approaches that could catalyze the accessibility, rigor, and applicability of Active Inference, and to merging the developing framework with the Systems Approach and open source. From these discussions an \"Active Inference Lab\" (ActInfLab) was formed and began operations in 2021.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        }
+      ]
+    },
+    {
+      "heading": "2021 — First year of operations",
+      "body": "Over the first year, dozens of individuals from around the world engaged with ActInfLab through projects such as educational production, open-source publishing, collaborative arts, focused learning groups, the Active Inference Journal, and the initial development of the Active Inference Ontology. From the first quarter of operations, ActInfLab hosted Quarterly Roundtable livestreams to communicate quarterly expectations and results to the community — a tradition that continues to this day.",
+      "links": [
+        {
+          "label": "Active Inference Ontology",
+          "href": "/projects/active-inference-ontology/"
+        }
+      ]
+    },
+    {
+      "heading": "2022 — Becoming the Institute",
+      "body": "A cohort-based Scientific Advisory Board (SAB) was established to connect ActInfLab to cutting-edge theoretical work and domain-specific applications, and the Lab emerged as a key facilitating organization in what was then a primarily academic community. The first Active Inference textbook appeared in 2022 (Parr, Pezzulo, Friston 2022), and the Institute began hosting a Textbook Group — an important ecosystem service, since few institutional venues support learners through the textbook curriculum and beyond. The Internship program began, scaffolding learners from high school, college, and graduate tracks as well as professionals outside academia through personalized curricula lasting months to years. In mid-2022, ActInfLab made the developmental leap to become The Active Inference Institute, a nonprofit registered in Delaware, USA, and laid out its Organizational Units — Administrative, EduActive (Education), and ReInference (Research). At the end of 2022, the Board of Directors held its first meeting; the Board continues to meet quarterly.",
+      "links": [
+        {
+          "label": "Textbook Group",
+          "href": "/projects/textbook-group/"
+        },
+        {
+          "label": "Internship",
+          "href": "/programs/internship/"
+        },
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        }
+      ]
+    },
+    {
+      "heading": "2023 — Courses and media",
+      "body": "Institute Projects and Programs continued, including the first two full course offerings: a Physics course and a Social Science course. These span months and include office hours with the lecturer and teaching assistants. In addition to continuing livestream production on YouTube (GuestStream, ModelStream, PaperStream, and others), the Institute hosted the Active Inference Insights podcast. During the year, the Institute began researching and applying for private and government grants.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        }
+      ]
+    },
+    {
+      "heading": "2024 — 501(c)(3), Fellows, and Mentorship",
+      "body": "The Institute received official recognition as a 501(c)(3) nonprofit — supporting its philanthropy efforts — achieved with the pro bono support of the Fried Frank law firm. The largest cohort to date of the Scientific Advisory Board made diverse contributions across projects. The Fellows program began to highlight and scaffold the work of ecosystem members who have contributed substantially through publications and presentations, with five Research Fellows joined as of late 2024. To meet trainees' and interns' need for one-on-one guidance, the Institute introduced the Mentorship program, with SAB members and select others volunteering to mentor individual trainees. Following the Quantum Active Inference Prepare-Measure cycle described by Chris Fields in the 2023 Physics course, the Institute implemented a \"Prepare and Measure\" system for Institute and Ecosystem Projects: Preparation describes what someone is preparing to do, and Measurement reports back when goals are reached. These always-open reporting systems gauge ongoing work and provide visibility through the newsletter. Work during the year remained all-volunteer, with philanthropy support beginning to cover some operational software costs and several grant applications submitted. The 4th Applied Active Inference Symposium was held on November 13, 2024.",
+      "links": [
+        {
+          "label": "Fellowship",
+          "href": "/programs/fellowship/"
+        },
+        {
+          "label": "Mentorship",
+          "href": "/programs/mentorship/"
+        },
+        {
+          "label": "Project Preparation",
+          "href": "/prepare/"
+        },
+        {
+          "label": "Project Measurement",
+          "href": "/measure/"
+        },
+        {
+          "sourceId": "official-newsletter"
+        }
+      ]
+    },
+    {
+      "heading": "2025",
+      "body": "Highlights of 2025 include the 5th Applied Active Inference Symposium and AICACP becoming the Institute's first funded grant. See the 2025 annual overview for the full record of the year.",
+      "links": [
+        {
+          "label": "2025 overview",
+          "href": "/2025/"
+        },
+        {
+          "label": "Applied Active Inference Symposium",
+          "href": "/projects/symposium/"
+        }
+      ]
+    },
+    {
+      "heading": "2026",
+      "body": "See the 2026 annual overview for all information on the ongoing year.",
+      "links": [
+        {
+          "label": "2026 overview",
+          "href": "/2026/"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "From ActInfLab to Institute",
+      "text": "A 2020 team meeting became the Active Inference Lab (2021) and then, in mid-2022, the nonprofit Active Inference Institute.",
+      "links": [
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        }
+      ]
+    },
+    {
+      "title": "Quarterly Roundtables",
+      "text": "Hosted since the first quarter of operations in 2021 — a continuing tradition for sharing expectations and results.",
+      "links": [
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "title": "Programs that grew over time",
+      "text": "Textbook Group, Internship, Fellows, and Mentorship programs were each introduced as the Institute matured.",
+      "links": [
+        {
+          "label": "Programs",
+          "href": "/programs/"
+        }
+      ]
+    }
+  ],
+  "primaryActions": [
+    {
+      "label": "2025 overview",
+      "href": "/2025/"
+    },
+    {
+      "sourceId": "official-newsletter"
+    }
+  ]
+}

@@ -3,16 +3,27 @@
   "title": "2025",
   "subtitle": "Annual overview of the Active Inference Institute for the year 2025.",
   "audience": "Members, participants, collaborators, and the public who want a consolidated view of the Institute's year in 2025.",
-  "lede": "2025 is the Active Inference Institute's annual overview for the year — a single, consolidated entry point to the activities, programs, and direction that ran across the organization. It brings the work of the Institute's three program units together under the motto Act. Infer. Serve., and it points toward where that work happened in the open. The detailed goals, milestones, and event record for the year are maintained on the 2025 hub and are being migrated onto this site.",
+  "lede": "2025 is the Active Inference Institute's annual overview for the year — a consolidated, month-by-month entry point to the activities, programs, and events that ran across the organization under the motto Act. Infer. Serve. The detailed record continues to be maintained on the 2025 hub.",
   "order": 87,
+  "relatedSlugs": [
+    "about",
+    "activities",
+    "structure"
+  ],
+  "resourceGroups": [
+    "institute"
+  ],
+  "externalSourceIds": [
+    "shortlink-2025"
+  ],
   "sections": [
     {
       "heading": "A Year in Review",
-      "body": "This page gathers the Institute's 2025 work into a single annual overview. Rather than tracking any one project, it offers a consolidated view of how education, research, and operations advanced together over the year. As a participatory, open-science 501(c)(3) nonprofit, the Institute conducts its work in public, so this overview is best read as a map: it orients you to the records, materials, and outputs produced through the year and shows where to look for specifics. The authoritative, continuously updated record of goals, milestones, and events lives on the 2025 hub.",
+      "body": "This page gathers the Institute's 2025 work into a single annual overview, organized by month. As a participatory, open-science 501(c)(3) nonprofit, the Institute conducts its work in public, so this overview is best read as a map to the year's activities, programs, and events. See the History page for how the year fits the Institute's longer story.",
       "links": [
         {
-          "label": "About the Institute",
-          "href": "/about/"
+          "label": "History",
+          "href": "/history/"
         },
         {
           "label": "Activities",
@@ -21,60 +32,78 @@
       ]
     },
     {
-      "heading": "Across the Three Program Units",
-      "body": "The Institute carries out its work through three program units, and the year reflects the contribution of each. EduActive supports the Institute's education programs, ReInference supports its research, and the Administrative unit supports the operations that hold the whole together. Reading the year through these units shows how learning, inquiry, and stewardship reinforce one another rather than running on separate tracks. For the structure that organizes this work and how the units relate, see the Institute structure overview.",
+      "heading": "January",
+      "body": "Institute Programs and Activities begin for the year. The Theoretical Neurobiology (TNB) Group is now hosted at the Institute.",
       "links": [
+        {
+          "label": "Theoretical Neurobiology Group",
+          "href": "/projects/theoretical-neurobiology/"
+        }
+      ]
+    },
+    {
+      "heading": "February",
+      "body": "A new partnership begins, collaborating on the RxInfer.jl Learning Group and elsewhere.",
+      "links": [
+        {
+          "label": "RxInfer.jl Learning Group",
+          "href": "/projects/rxinfer/"
+        }
+      ]
+    },
+    {
+      "heading": "March",
+      "body": "March 28 — 2025 Quarterly Roundtable #1."
+    },
+    {
+      "heading": "June",
+      "body": "June 27 — 2025 Quarterly Roundtable #2."
+    },
+    {
+      "heading": "July",
+      "body": "Summer break. The Institute completes the Project ~ Measurement system so that Projects stay in an active state.",
+      "links": [
+        {
+          "label": "Project Measurement",
+          "href": "/measure/"
+        }
+      ]
+    },
+    {
+      "heading": "September",
+      "body": "September 26 — 2025 Quarterly Roundtable #3."
+    },
+    {
+      "heading": "November",
+      "body": "November 12–14 — 5th Applied Active Inference Symposium. Recruitment opens for the next year's Board of Directors and Scientific Advisory Board. Projects mostly finish up after the Symposium.",
+      "links": [
+        {
+          "label": "Applied Active Inference Symposium",
+          "href": "/projects/symposium/"
+        },
         {
           "label": "Institute structure",
           "href": "/structure/"
-        },
-        {
-          "label": "ReInference research",
-          "href": "/reinference/"
         }
       ]
     },
     {
-      "heading": "What Happened During the Year",
-      "body": "An annual overview answers a simple question: what did the year actually contain? Because the Institute works openly and on a recurring rhythm, the most reliable picture of 2025 comes from the live records rather than a fixed summary. The Activities page tracks the ongoing programs, sessions, and collaborations that made up the year of work, and the public Calendar holds the scheduled gatherings and recurring events. Together they are the day-to-day texture behind this overview; consult them for what took place and when.",
+      "heading": "December",
+      "body": "December 19 — 2025 Quarterly Roundtable #4. The Institute continues to review Strategy, Mission, Vision, Values, and Principles, along with Ecosystem Support, Philanthropy, Grants, and more. The Board of Directors for 2026 is selected, and applications open for the Scientific Advisory Board for 2026.",
       "links": [
         {
-          "label": "Activities",
-          "href": "/activities/"
+          "label": "Strategy",
+          "href": "/strategy/"
         },
         {
-          "label": "Calendar",
-          "href": "/calendar/"
-        }
-      ]
-    },
-    {
-      "heading": "Working in the Open",
-      "body": "Open science is not a slogan here but a working method, and the year reflects it. The Institute's outputs — research, educational materials, and the conversations around them — are produced so that others can find, follow, and build on them. That is what makes an annual overview possible at all: the year is legible because so much of it happened in public. This page consolidates the threads, while the underlying materials remain distributed across the programs and projects that generated them.",
-      "links": [
-        {
-          "label": "Projects",
-          "href": "/projects/"
-        },
-        {
-          "label": "Active Inference",
-          "href": "/active-inference/"
-        }
-      ]
-    },
-    {
-      "heading": "Direction and Participation",
-      "body": "An annual overview is also a chance to look forward. The Institute is participatory by design, and its direction emerges from the people who take part across learning groups, projects, and operations. The year's momentum carries into what comes next, and the paths to contribute stay open between years rather than resetting. Anyone interested in joining the ongoing work — or shaping where it heads — can find current pathways through the Institute's participation programs.",
-      "links": [
-        {
-          "label": "Get involved",
-          "href": "/get-involved/"
+          "label": "2026",
+          "href": "/2026/"
         }
       ]
     },
     {
       "heading": "Full materials",
-      "body": "The complete, authoritative materials for the 2025 annual overview — including the detailed goals, milestones, and event record for the year — are currently maintained at the linked 2025 hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for specifics, and this page will continue to fill in as the record moves over.",
+      "body": "The complete, continuously updated record of 2025 goals, milestones, and events is maintained on the 2025 hub and is being migrated onto this site.",
       "links": [
         {
           "sourceId": "shortlink-2025"
@@ -84,18 +113,8 @@
   ],
   "cards": [
     {
-      "title": "About the Institute",
-      "text": "Who the Institute is and what it works toward, under the motto Act. Infer. Serve.",
-      "links": [
-        {
-          "label": "About",
-          "href": "/about/"
-        }
-      ]
-    },
-    {
-      "title": "Activities",
-      "text": "The ongoing programs and collaborations that made up the Institute's year of work.",
+      "title": "Quarterly Roundtables",
+      "text": "Four 2025 Quarterly Roundtables (March 28, June 27, September 26, December 19) communicate quarterly expectations and results.",
       "links": [
         {
           "label": "Activities",
@@ -104,39 +123,33 @@
       ]
     },
     {
-      "title": "Calendar",
-      "text": "The public schedule of gatherings and recurring events across the year.",
+      "title": "5th Applied Active Inference Symposium",
+      "text": "November 12–14 — the year's flagship event, after which projects mostly finish up.",
       "links": [
         {
-          "label": "Calendar",
-          "href": "/calendar/"
+          "label": "Symposium",
+          "href": "/projects/symposium/"
         }
       ]
     },
     {
-      "title": "2025 hub",
-      "text": "The authoritative, continuously updated record of 2025 goals, milestones, and events.",
+      "title": "Governance for 2026",
+      "text": "The 2026 Board of Directors is selected and Scientific Advisory Board applications open.",
       "links": [
         {
-          "sourceId": "shortlink-2025"
+          "label": "Institute structure",
+          "href": "/structure/"
         }
       ]
     }
   ],
-  "relatedSlugs": [
-    "about",
-    "activities",
-    "structure"
-  ],
-  "resourceGroups": [
-    "institute"
-  ],
   "primaryActions": [
+    {
+      "label": "History",
+      "href": "/history/"
+    },
     {
       "sourceId": "shortlink-2025"
     }
-  ],
-  "externalSourceIds": [
-    "shortlink-2025"
   ]
 }
