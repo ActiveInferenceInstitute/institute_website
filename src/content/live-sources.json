@@ -1508,6 +1508,61 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-23T00:00:00Z"
+    },
+    {
+      "id": "shortlink-affordances",
+      "label": "Affordances shortlink",
+      "category": "Research",
+      "url": "https://affordances.activeinference.institute",
+      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Affordances_suCizCdi",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T15:37:55Z"
+    },
+    {
+      "id": "shortlink-2026",
+      "label": "2026 planning shortlink",
+      "category": "Activities",
+      "url": "https://2026.activeinference.institute",
+      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "finalUrl": "https://coda.io/d/_do5M5iYau8H/2026_suF-A9Yp",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T15:37:55Z"
+    },
+    {
+      "id": "aicacp",
+      "label": "AICACP shortlink",
+      "category": "Projects",
+      "url": "https://aicacp.activeinference.institute",
+      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/AICACP_su6E2F5D",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T15:37:55Z"
+    },
+    {
+      "id": "bod",
+      "label": "Board of Directors roster",
+      "category": "Institute",
+      "url": "https://bod.activeinference.institute",
+      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Board-of-Directors_suS4blHI",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T15:37:55Z"
+    },
+    {
+      "id": "sab",
+      "label": "Scientific Advisory Board roster",
+      "category": "Institute",
+      "url": "https://sab.activeinference.institute",
+      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "finalUrl": "https://coda.io/d/_do5M5iYau8H/Scientific-Advisory-Board_suO9uId5",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T15:37:55Z"
     }
   ]
 }

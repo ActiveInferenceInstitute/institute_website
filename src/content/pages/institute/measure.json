@@ -1,0 +1,82 @@
+{
+  "slug": "measure",
+  "title": "Project Measurement",
+  "subtitle": "How the Institute tracks the health and progress of its projects.",
+  "audience": "Facilitators, project contributors, and community members who want to understand how Institute projects are tracked and reviewed.",
+  "lede": "Project Measurement is how the Active Inference Institute tracks the health and progress of its projects. Through regular project updates, reporting, and structured review, projects are measured against a shared lifecycle so that work stays visible, accountable, and aligned with the Institute's mission to Act, Infer, and Serve.",
+  "order": 81,
+  "relatedSlugs": [
+    "projects",
+    "about",
+    "structure"
+  ],
+  "resourceGroups": [
+    "projects",
+    "institute"
+  ],
+  "sections": [
+    {
+      "heading": "What Project Measurement Is",
+      "body": "Project Measurement is the Institute's practice for tracking how its projects are doing over time. Rather than treating progress as informal or invisible, it brings together regular project updates, reporting, and review so that contributors and facilitators share a common picture of where each project stands. As an open-science nonprofit, the Institute treats this transparency as part of how it serves its community.",
+      "links": [
+        {
+          "label": "All projects",
+          "href": "/projects/"
+        }
+      ]
+    },
+    {
+      "heading": "The Project Lifecycle",
+      "body": "Measurement is organized around a shared project lifecycle with four stages: preparation, active work, measurement, and reporting. Preparation sets up a project and its aims; active work is where the project's contributions happen; measurement reviews health and progress against the project's own goals; and reporting communicates that status outward. Reviewing each project against this lifecycle keeps assessment consistent across very different kinds of work.",
+      "links": []
+    },
+    {
+      "heading": "Updates, Reporting, and Review",
+      "body": "The core rhythm of Project Measurement is regular updates and review. Projects contribute periodic updates on their status, those updates feed into reporting, and the reporting is reviewed against the lifecycle stage a project is in. The specific metrics tracked, the cadence of updates, and the templates used for reporting are part of the detailed framework rather than fixed here, so the practice can adapt to the needs of each project and program unit.",
+      "links": []
+    },
+    {
+      "heading": "Full materials",
+      "body": "The complete, authoritative materials for Project Measurement — including the detailed measurement framework, the metrics tracked, the update and reporting cadence, and the reporting templates — are currently maintained at the measurement hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for this topic.",
+      "links": [
+        {
+          "sourceId": "official-measure"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Project lifecycle",
+      "text": "Four stages — preparation, active work, measurement, and reporting — give every project a shared frame for review.",
+      "links": [
+        {
+          "label": "All projects",
+          "href": "/projects/"
+        }
+      ]
+    },
+    {
+      "title": "Updates and reporting",
+      "text": "Regular project updates feed reporting and review so progress stays visible and accountable.",
+      "links": [
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        }
+      ]
+    }
+  ],
+  "primaryActions": [
+    {
+      "label": "All projects",
+      "href": "/projects/"
+    },
+    {
+      "sourceId": "official-measure"
+    }
+  ],
+  "externalSourceIds": [
+    "official-measure"
+  ]
+}

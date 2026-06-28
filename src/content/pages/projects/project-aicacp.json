@@ -36,6 +36,15 @@
           "href": "/reinference/"
         }
       ]
+    },
+    {
+      "heading": "Full materials",
+      "body": "The complete, authoritative AICACP materials are currently maintained at the AICACP hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for the program's detailed documentation.",
+      "links": [
+        {
+          "sourceId": "aicacp"
+        }
+      ]
     }
   ],
   "order": 21,
@@ -47,7 +56,8 @@
   "externalSourceIds": [
     "github-org",
     "discord",
-    "official-participation"
+    "official-participation",
+    "aicacp"
   ],
   "resourceGroups": [
     "projects",

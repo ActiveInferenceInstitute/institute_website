@@ -1,0 +1,106 @@
+{
+  "slug": "prepare",
+  "title": "Project Preparation",
+  "subtitle": "The onboarding pathway for starting a new project or research activity at the Institute.",
+  "audience": "Prospective contributors, facilitators, and collaborators who have an idea and want to turn it into an active Institute project.",
+  "lede": "Project Preparation is how an idea becomes an active project at the Active Inference Institute. It guides a proposal through scoping and readiness so it can launch within the EduActive education unit or the ReInference research unit. The detailed steps, templates, and checklists live on the preparation hub and are being migrated onto this site.",
+  "order": 82,
+  "sections": [
+    {
+      "heading": "From idea to active project",
+      "body": "Project Preparation is the structured onboarding pathway for starting a new project or research activity. It moves an initial idea through proposal, scoping, and readiness review until it is ready to operate as an active project. The pathway helps clarify what a project intends to do, which Institute unit it belongs in, and what is needed before it begins — turning loosely held intentions into something the community can support and sustain. As an open-science, participatory organization, the Institute keeps this pathway transparent so anyone can understand how projects come to life.",
+      "links": [
+        {
+          "label": "All Projects",
+          "href": "/projects/"
+        }
+      ]
+    },
+    {
+      "heading": "Where projects live: EduActive and ReInference",
+      "body": "Prepared projects launch within one of the Institute's two program units. The EduActive unit hosts education-oriented activities, while the ReInference unit hosts research-oriented work; both operate alongside the Administrative unit under the Institute's 501(c)(3) nonprofit governance. Part of preparation is determining which unit best fits a project's aims, so that once it becomes active it connects to the right facilitation, community, and resources.",
+      "links": [
+        {
+          "label": "ReInference Unit",
+          "href": "/reinference/"
+        }
+      ]
+    },
+    {
+      "heading": "Proposals, scoping, and funding",
+      "body": "Preparation includes drafting a proposal, scoping the work, and assessing readiness — describing the kind of activity, the people involved, and the resources required. Where a project may seek financial support, the Institute's grants and funding pages describe the relevant pathways. Detailed proposal templates and readiness checklists are maintained on the preparation hub and referenced as projects move through onboarding.",
+      "links": [
+        {
+          "label": "Grants",
+          "href": "/grants/"
+        },
+        {
+          "label": "Get involved",
+          "href": "/get-involved/"
+        }
+      ]
+    },
+    {
+      "heading": "Full materials",
+      "body": "The complete, authoritative materials for Project Preparation — including the detailed preparation steps, proposal templates, and readiness checklists — are currently maintained at the linked preparation hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for this topic.",
+      "links": [
+        {
+          "sourceId": "shortlink-prepare"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Explore current projects",
+      "text": "See the projects already active across the EduActive and ReInference units.",
+      "links": [
+        {
+          "label": "All Projects",
+          "href": "/projects/"
+        }
+      ]
+    },
+    {
+      "title": "Funding pathways",
+      "text": "Learn how projects can seek financial support through the Institute.",
+      "links": [
+        {
+          "label": "Grants",
+          "href": "/grants/"
+        }
+      ]
+    },
+    {
+      "title": "Get involved",
+      "text": "Find ways to participate, contribute, and connect with the community.",
+      "links": [
+        {
+          "label": "Get involved",
+          "href": "/get-involved/"
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "projects",
+    "grants",
+    "get-involved"
+  ],
+  "resourceGroups": [
+    "participation",
+    "projects"
+  ],
+  "primaryActions": [
+    {
+      "label": "All Projects",
+      "href": "/projects/"
+    },
+    {
+      "sourceId": "shortlink-prepare"
+    }
+  ],
+  "externalSourceIds": [
+    "shortlink-prepare"
+  ]
+}

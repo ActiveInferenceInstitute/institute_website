@@ -1,0 +1,104 @@
+{
+  "slug": "2025",
+  "title": "2025",
+  "subtitle": "Annual overview of the Active Inference Institute for the year 2025.",
+  "audience": "Members, participants, collaborators, and the public who want a consolidated view of the Institute's year in 2025.",
+  "lede": "2025 is the Active Inference Institute's annual overview for the year — a consolidated view of activities, programs, and direction across the organization. It brings together the work of the Institute's three program units under the motto Act. Infer. Serve. The detailed goals, milestones, and event record for the year are maintained on the 2025 hub and are being migrated onto this site.",
+  "order": 87,
+  "sections": [
+    {
+      "heading": "A Year in Review",
+      "body": "This page gathers the Institute's 2025 activity into a single annual overview. Rather than tracking any one project, it offers a consolidated view of how education, research, and operations advanced together over the year. As a participatory, open-science nonprofit, the Institute conducts its work in public, and this overview points toward the records, materials, and outputs produced across the year. The authoritative and continuously updated record of specific goals, milestones, and events lives on the 2025 hub.",
+      "links": [
+        {
+          "label": "About the Institute",
+          "href": "/about/"
+        },
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "heading": "Across the Three Program Units",
+      "body": "The Institute carries out its work through three program units, and 2025 reflects the contributions of each. EduActive supports the Institute's education programs, ReInference supports its research, and the Administrative unit supports operations that hold the whole together. Reviewing the year through these units shows how learning, inquiry, and stewardship reinforce one another. For the structure that organizes this work, see the Institute structure overview.",
+      "links": [
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        },
+        {
+          "label": "ReInference research",
+          "href": "/reinference/"
+        }
+      ]
+    },
+    {
+      "heading": "Direction and Participation",
+      "body": "An annual overview is also a chance to look forward. The Institute is participatory by design, and its direction emerges from the people who take part across learning groups, projects, and operations. Anyone interested in contributing to the year's ongoing work — or to what comes next — can find current pathways through the Institute's participation programs.",
+      "links": [
+        {
+          "label": "Get involved",
+          "href": "/get-involved/"
+        }
+      ]
+    },
+    {
+      "heading": "Full materials",
+      "body": "The complete, authoritative materials for the 2025 annual overview — including the detailed goals, milestones, and event record for the year — are currently maintained at the linked 2025 hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for specifics.",
+      "links": [
+        {
+          "sourceId": "shortlink-2025"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "About the Institute",
+      "text": "Who the Institute is and what it works toward, under the motto Act. Infer. Serve.",
+      "links": [
+        {
+          "label": "About",
+          "href": "/about/"
+        }
+      ]
+    },
+    {
+      "title": "Activities",
+      "text": "The ongoing activities that make up the Institute's year of work.",
+      "links": [
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "title": "2025 hub",
+      "text": "The authoritative, continuously updated record of 2025 goals, milestones, and events.",
+      "links": [
+        {
+          "sourceId": "shortlink-2025"
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "about",
+    "activities",
+    "structure"
+  ],
+  "resourceGroups": [
+    "institute"
+  ],
+  "primaryActions": [
+    {
+      "sourceId": "shortlink-2025"
+    }
+  ],
+  "externalSourceIds": [
+    "shortlink-2025"
+  ]
+}

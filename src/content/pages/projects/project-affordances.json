@@ -1,0 +1,64 @@
+{
+  "slug": "project-affordances",
+  "title": "Affordances",
+  "subtitle": "An Institute research thread on affordances through Active Inference and ecological psychology.",
+  "audience": "Researchers and practitioners interested in perception, action, ecological psychology, and the free energy principle.",
+  "lede": "Affordances is an Institute research thread that explores affordances — the action possibilities an environment offers an agent — through the lens of Active Inference and ecological psychology. It connects perception, action, and the free energy principle into a shared theoretical frame. The work is part of the ReInference Unit's open research program.",
+  "order": 83,
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Affordances examines how an environment presents action possibilities to an agent, and how those possibilities are perceived and acted upon. Drawing together Active Inference and ecological psychology, the thread treats perception and action as tightly coupled and reads affordances as relationships between agent and environment rather than properties of either alone. This perspective offers a common vocabulary for describing how agents engage with the worlds they inhabit.",
+      "links": [
+        {
+          "label": "ReInference Unit",
+          "href": "/reinference/"
+        }
+      ]
+    },
+    {
+      "heading": "Theoretical Connections",
+      "body": "The thread links the ecological notion of affordances to the free energy principle, exploring how an agent's expected action possibilities relate to the inference and prediction processes described by Active Inference. By placing these traditions in conversation, the work looks for points of contact between ecological accounts of perception-action and formal models of adaptive behavior. The aim is conceptual integration that respects both lineages.",
+      "links": [
+        {
+          "label": "Active Inference",
+          "href": "/active-inference/"
+        }
+      ]
+    },
+    {
+      "heading": "Full materials",
+      "body": "The complete, authoritative materials for this research thread — including detailed notes, working references, and supporting discussion — are currently maintained at the linked Affordances hub and are being migrated onto this site. Until that migration is complete, the hub remains the canonical source for the most current and detailed content on this topic.",
+      "links": [
+        {
+          "sourceId": "shortlink-affordances"
+        }
+      ]
+    }
+  ],
+  "primaryActions": [
+    {
+      "sourceId": "shortlink-affordances"
+    },
+    {
+      "label": "All projects",
+      "href": "/projects/"
+    },
+    {
+      "label": "ReInference Unit",
+      "href": "/reinference/"
+    }
+  ],
+  "relatedSlugs": [
+    "projects",
+    "active-inference",
+    "reinference"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ],
+  "externalSourceIds": [
+    "shortlink-affordances"
+  ]
+}

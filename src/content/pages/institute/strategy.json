@@ -1,0 +1,110 @@
+{
+  "slug": "strategy",
+  "title": "Strategy",
+  "subtitle": "How the Active Inference Institute turns its mission into coordinated action through Act, Infer, Serve.",
+  "audience": "Members, partners, funders, and prospective contributors who want to understand the Institute's strategic direction and how its work is organized.",
+  "lede": "The Institute's strategy is organized around its motto — Act. Infer. Serve. — and its mission to advance Active Inference as a scientific, educational, and applied practice. Strategy is enacted through three program units and through open-source, participatory infrastructure and ecosystem partnerships, with the specific current priorities maintained on the strategy hub.",
+  "order": 80,
+  "relatedSlugs": [
+    "about",
+    "structure",
+    "ecosystem",
+    "projects"
+  ],
+  "resourceGroups": [
+    "institute"
+  ],
+  "sections": [
+    {
+      "heading": "Mission and Motto",
+      "body": "The Institute's strategy follows directly from its mission: to advance Active Inference as a scientific, educational, and applied practice; to strengthen cognitive security and healthy information ecosystems; to make research more reproducible and accessible; and to teach and mentor broadly, including under-served communities. The motto — Act. Infer. Serve. — names the orientation that holds these aims together: acting in the world, inferring through rigorous modeling and study, and serving the communities and ecosystems the Institute works with.",
+      "links": [
+        {
+          "label": "About the Institute",
+          "href": "/about/"
+        }
+      ]
+    },
+    {
+      "heading": "Enacted Through Three Program Units",
+      "body": "As a 501(c)(3) nonprofit, the Institute carries out its strategy through three program units: EduActive for education, ReInference for research, and Administrative for operations. This division lets strategic aims become concrete programs — educational pathways, research activity, and the operational backbone that supports both — while keeping the work coordinated under a single mission. Each unit translates the broad strategic direction into the specific activities it is responsible for.",
+      "links": [
+        {
+          "label": "ReInference Unit",
+          "href": "/reinference/"
+        },
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        }
+      ]
+    },
+    {
+      "heading": "Open-Source and Participatory by Design",
+      "body": "Strategy is enacted not only through internal programs but through open-source, participatory infrastructure and partnerships across the broader Active Inference Ecosystem. The Institute treats reproducibility, accessibility, and open participation as strategic commitments rather than afterthoughts: materials are public, contribution pathways are open, and progress depends on collaboration with researchers, learners, and partner organizations. This approach lets the strategy compound through shared, reusable work.",
+      "links": [
+        {
+          "label": "Active Inference Ecosystem",
+          "href": "/ecosystem/"
+        },
+        {
+          "label": "Get involved",
+          "href": "/get-involved/"
+        }
+      ]
+    },
+    {
+      "heading": "Full materials",
+      "body": "The complete, authoritative strategy materials — including the Institute's specific current strategic priorities and plans — are currently maintained at the linked strategy hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for the kind of detail (current priorities, focus areas, and planning) that is not yet published here.",
+      "links": [
+        {
+          "sourceId": "shortlink-strategy"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Act",
+      "text": "Translate mission into concrete programs and applied Active Inference practice.",
+      "links": [
+        {
+          "label": "Projects",
+          "href": "/projects/"
+        }
+      ]
+    },
+    {
+      "title": "Infer",
+      "text": "Advance rigorous, reproducible, and accessible research and modeling.",
+      "links": [
+        {
+          "label": "ReInference Unit",
+          "href": "/reinference/"
+        }
+      ]
+    },
+    {
+      "title": "Serve",
+      "text": "Teach, mentor, and strengthen healthy information ecosystems and communities.",
+      "links": [
+        {
+          "label": "Get involved",
+          "href": "/get-involved/"
+        }
+      ]
+    }
+  ],
+  "primaryActions": [
+    {
+      "label": "Institute structure",
+      "href": "/structure/"
+    },
+    {
+      "sourceId": "shortlink-strategy"
+    }
+  ],
+  "externalSourceIds": [
+    "shortlink-strategy"
+  ]
+}

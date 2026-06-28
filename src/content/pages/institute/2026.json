@@ -1,0 +1,103 @@
+{
+  "slug": "2026",
+  "title": "2026",
+  "subtitle": "The Active Inference Institute's annual overview for the year 2026.",
+  "audience": "Members, collaborators, and visitors who want a consolidated view of the Institute's plans, programs, and direction for 2026.",
+  "lede": "The 2026 page is the Institute's annual overview for the year — a single consolidated view of planned activities, programs, and overall direction. It gathers the year's work across the Institute's three program units into one place. The detailed plan, goals, milestones, and event calendar are maintained on the 2026 hub and are being migrated onto this site.",
+  "order": 88,
+  "sections": [
+    {
+      "heading": "What this page covers",
+      "body": "This annual overview consolidates the year's direction for the Active Inference Institute, a participatory, open-science 501(c)(3) nonprofit guided by its motto, Act. Infer. Serve. Rather than tracking a single project, it gives a year-level view: the kinds of activities planned, the programs carrying them out, and how the year's work fits the Institute's broader mission. Specific goals, milestones, and dates are maintained on the 2026 hub linked below.",
+      "links": []
+    },
+    {
+      "heading": "Programs across the year",
+      "body": "The Institute's work in 2026 is carried out through its three program units. EduActive leads education-oriented activities such as learning groups and course development. ReInference leads research-oriented activities and projects. The Administrative unit supports operations, governance, and coordination across the year. Together these units organize the planned activities reflected in this annual overview.",
+      "links": [
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        },
+        {
+          "label": "ReInference",
+          "href": "/reinference/"
+        },
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "heading": "Participate in 2026",
+      "body": "As a participatory, open-science organization, the Institute invites contributors to take part in the year's activities. Ways to engage span learning, research, and operational support across the program units, and the calendar of public sessions and events is maintained alongside the annual plan. To find current opportunities and see how to join, start with the get-involved and calendar pages.",
+      "links": [
+        {
+          "label": "Get involved",
+          "href": "/get-involved/"
+        },
+        {
+          "label": "Calendar",
+          "href": "/calendar/"
+        }
+      ]
+    },
+    {
+      "heading": "Full materials",
+      "body": "The complete, authoritative materials for the 2026 annual overview — including the detailed plan, goals, milestones, and event calendar — are currently maintained at the linked 2026 hub and are being migrated onto this site. Until that migration is complete, the hub is the source of truth for year-level specifics.",
+      "links": [
+        {
+          "sourceId": "shortlink-2026"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Programs",
+      "text": "Education, research, and operations carried out by EduActive, ReInference, and the Administrative unit.",
+      "links": [
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        }
+      ]
+    },
+    {
+      "title": "Activities",
+      "text": "A consolidated view of the year's planned activities across the Institute.",
+      "links": [
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "title": "2026 hub",
+      "text": "The detailed 2026 plan, goals, milestones, and event calendar.",
+      "links": [
+        {
+          "sourceId": "shortlink-2026"
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "about",
+    "activities",
+    "structure"
+  ],
+  "resourceGroups": [
+    "institute"
+  ],
+  "primaryActions": [
+    {
+      "sourceId": "shortlink-2026"
+    }
+  ],
+  "externalSourceIds": [
+    "shortlink-2026"
+  ]
+}

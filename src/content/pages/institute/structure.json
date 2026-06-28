@@ -30,7 +30,12 @@
     },
     {
       "heading": "Board of Directors",
-      "body": "The Board of Directors is the primary governing body of the Active Inference Institute. The Board provides strategic direction, fiduciary oversight, and institutional accountability. Board members are responsible for the long-term health and mission alignment of the Institute. The Board meets regularly and maintains public records of its decisions, policies, and governance actions."
+      "body": "The Board of Directors is the primary governing body of the Active Inference Institute. The Board provides strategic direction, fiduciary oversight, and institutional accountability. Board members are responsible for the long-term health and mission alignment of the Institute. The Board meets regularly and maintains public records of its decisions, policies, and governance actions. The current Board roster is maintained in the Institute's public governance records.",
+      "links": [
+        {
+          "sourceId": "bod"
+        }
+      ]
     },
     {
       "heading": "Officers",
@@ -38,7 +43,12 @@
     },
     {
       "heading": "Scientific Advisory Board",
-      "body": "The Scientific Advisory Board (SAB) provides scientific and scholarly guidance to the Institute. SAB members are experts in Active Inference, computational neuroscience, cognitive science, and related fields. The SAB advises on research directions, educational content, project selection, and the scientific quality of Institute outputs. SAB members may serve as Facilitators for research projects and learning groups."
+      "body": "The Scientific Advisory Board (SAB) provides scientific and scholarly guidance to the Institute. SAB members are experts in Active Inference, computational neuroscience, cognitive science, and related fields. The SAB advises on research directions, educational content, project selection, and the scientific quality of Institute outputs. SAB members may serve as Facilitators for research projects and learning groups. The current SAB roster is maintained in the Institute's public records.",
+      "links": [
+        {
+          "sourceId": "sab"
+        }
+      ]
     },
     {
       "heading": "Organizational Units",
@@ -136,7 +146,9 @@
   "externalSourceIds": [
     "ecosystem",
     "official-volunteer",
-    "official-internship"
+    "official-internship",
+    "bod",
+    "sab"
   ],
   "resourceGroups": [
     "institute",

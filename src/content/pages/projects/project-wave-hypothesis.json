@@ -1,0 +1,94 @@
+{
+  "slug": "project-wave-hypothesis",
+  "title": "Wave Hypothesis",
+  "subtitle": "An Institute research thread exploring wave-based framings of dynamics for Active Inference and theoretical neurobiology.",
+  "audience": "Researchers, students, and contributors interested in Active Inference, theoretical neurobiology, and the dynamics of adaptive systems.",
+  "lede": "The Wave Hypothesis is an Active Inference Institute research thread that investigates wave-based framings of dynamics relevant to Active Inference and theoretical neurobiology. It is an open, exploratory line of inquiry: the full hypothesis statement and supporting materials are maintained on a dedicated public hub, and the work is ongoing rather than settled.",
+  "primaryActions": [
+    {
+      "sourceId": "shortlink-wave-hypothesis"
+    },
+    {
+      "label": "ReInference Unit",
+      "href": "/reinference/"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The Wave Hypothesis asks how wave-based framings of dynamics might illuminate questions in Active Inference and theoretical neurobiology. Rather than asserting fixed conclusions, the thread organizes a developing line of inquiry — drawing connections between wave-oriented descriptions of change and the modeling traditions of Active Inference. The specific scientific claims, formulations, and supporting arguments are maintained on the dedicated hub, where they can be discussed and revised as the work matures.",
+      "links": [
+        {
+          "sourceId": "shortlink-wave-hypothesis"
+        }
+      ]
+    },
+    {
+      "heading": "How it fits",
+      "body": "The Wave Hypothesis is carried as a research thread within the Institute's ReInference Unit, which supports research projects and theoretical inquiry across the Active Inference Ecosystem. As a participatory, open-science effort, it invites engagement from contributors with backgrounds in dynamics, neurobiology, mathematics, and Active Inference, and it connects to the Institute's broader catalog of projects.",
+      "links": [
+        {
+          "label": "ReInference Unit",
+          "href": "/reinference/"
+        },
+        {
+          "label": "All projects",
+          "href": "/projects/"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Because the hypothesis is still developing, participation centers on reading the current materials, following the discussion, and contributing perspectives or critiques. Newcomers can begin with the materials on the hub to understand the framing and its open questions, then connect through the Institute's general participation pathways to get involved with research threads like this one.",
+      "links": [
+        {
+          "label": "Get involved",
+          "href": "/get-involved/"
+        }
+      ]
+    },
+    {
+      "heading": "Full materials",
+      "body": "The complete, authoritative materials for the Wave Hypothesis — including the full hypothesis statement, supporting documents, and ongoing discussion — are currently maintained at the linked hub and are in the process of being migrated onto this site. Until that migration is complete, the hub remains the source of truth for this topic.",
+      "links": [
+        {
+          "sourceId": "shortlink-wave-hypothesis"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Research thread",
+      "text": "An exploratory inquiry into wave-based framings of dynamics for Active Inference and theoretical neurobiology.",
+      "links": [
+        {
+          "sourceId": "shortlink-wave-hypothesis"
+        }
+      ]
+    },
+    {
+      "title": "ReInference Unit",
+      "text": "The Institute's research unit that hosts and supports research threads like this one.",
+      "links": [
+        {
+          "label": "ReInference Unit",
+          "href": "/reinference/"
+        }
+      ]
+    }
+  ],
+  "order": 84,
+  "relatedSlugs": [
+    "projects",
+    "active-inference",
+    "reinference"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ],
+  "externalSourceIds": [
+    "shortlink-wave-hypothesis"
+  ]
+}

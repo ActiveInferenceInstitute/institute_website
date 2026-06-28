@@ -1,0 +1,85 @@
+{
+  "slug": "video",
+  "title": "Videos and Podcasts",
+  "subtitle": "The Institute's public library of recorded videos and podcasts.",
+  "audience": "Learners, researchers, and community members who want to watch or listen to Institute sessions, interviews, and presentations.",
+  "lede": "The Active Inference Institute publishes an extensive library of videos and podcasts — recorded livestreams, learning-group sessions, interviews, and presentations. Public video is hosted on the Institute's YouTube channel, and audio episodes are distributed through podcast platforms. The full curated catalogue is maintained on the video hub.",
+  "order": 85,
+  "sections": [
+    {
+      "heading": "What we publish",
+      "body": "The Institute's media library spans recorded livestreams, learning-group sessions, interviews, and presentations produced across its education and research activities. Together these recordings form an open, participatory archive that lets anyone follow the Institute's ongoing work in Active Inference, whether by watching a session in full or revisiting a single conversation.",
+      "links": []
+    },
+    {
+      "heading": "Where to watch and listen",
+      "body": "Public video lives on the Institute's YouTube channel, where livestreams and presentations are posted and organized for browsing. Audio versions are distributed on podcast platforms for listening on the go. These open channels reflect the Institute's commitment to open science and free public access to its educational and research output.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        }
+      ]
+    },
+    {
+      "heading": "Recurring media",
+      "body": "Much of the library comes from recurring activities — regular livestreams and learning-group meetings that are recorded and published on an ongoing basis. The on-site Activities page summarizes these recurring media streams and points to the rhythms of the Institute's public programming.",
+      "links": [
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "heading": "Full materials",
+      "body": "The complete, authoritative catalogue of the Institute's videos and podcasts is currently maintained at the linked video hub and is being migrated onto this site. Until that migration is complete, the hub remains the canonical source for the full curated listing of recordings, series, and episodes.",
+      "links": [
+        {
+          "sourceId": "video"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "YouTube channel",
+      "text": "Watch livestreams, interviews, and presentations on the Institute's public channel.",
+      "links": [
+        {
+          "sourceId": "youtube"
+        }
+      ]
+    },
+    {
+      "title": "Recurring activities",
+      "text": "See the recurring livestreams and learning-group sessions that feed the library.",
+      "links": [
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
+    }
+  ],
+  "primaryActions": [
+    {
+      "sourceId": "youtube"
+    },
+    {
+      "sourceId": "video"
+    }
+  ],
+  "relatedSlugs": [
+    "activities",
+    "learning",
+    "about"
+  ],
+  "resourceGroups": [
+    "institute",
+    "learning"
+  ],
+  "externalSourceIds": [
+    "video",
+    "youtube"
+  ]
+}

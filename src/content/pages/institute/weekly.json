@@ -1,0 +1,108 @@
+{
+  "slug": "weekly",
+  "title": "Weekly",
+  "subtitle": "The Institute's recurring weekly cadence of public meetings, learning groups, and project sessions.",
+  "audience": "Participants and visitors who want to join the Institute's regular weekly activities and find out what is happening this week.",
+  "lede": "The Active Inference Institute runs a weekly cadence of recurring public meetings, learning groups, and project sessions. The live schedule of what happens each week is maintained on the weekly hub, and meeting times appear on the on-site Calendar. Everyone is welcome to follow along and join in.",
+  "order": 86,
+  "sections": [
+    {
+      "heading": "A Weekly Rhythm",
+      "body": "Much of the Institute's participatory, open-science work happens through a steady weekly rhythm. Across the three program units — EduActive for education, ReInference for research, and Administrative for operations — recurring gatherings give contributors a predictable place to learn, collaborate, and move projects forward. These sessions include public meetings, learning groups, and project working sessions that repeat week to week, so newcomers and regulars alike know where and when to show up.",
+      "links": [
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "heading": "Find This Week's Schedule",
+      "body": "The specific lineup of meetings, learning groups, and project sessions changes over time, so the live, current schedule is maintained on the weekly hub rather than duplicated here. To see exact dates and times in your own context, use the on-site Calendar, which lists when each recurring activity takes place. Checking the Calendar is the most reliable way to know what is happening this week.",
+      "links": [
+        {
+          "label": "Calendar",
+          "href": "/calendar/"
+        }
+      ]
+    },
+    {
+      "heading": "How to Join",
+      "body": "The weekly sessions are public and participatory. If you would like to take part, the best path is to find a session on the Calendar and connect through the Institute's community. The Get Involved page explains the ways to participate and how to join ongoing activities, whether you want to attend a learning group, contribute to a project, or simply observe and learn.",
+      "links": [
+        {
+          "label": "Get involved",
+          "href": "/get-involved/"
+        },
+        {
+          "label": "Calendar",
+          "href": "/calendar/"
+        }
+      ]
+    },
+    {
+      "heading": "Full materials",
+      "body": "The complete, authoritative materials for the weekly cadence — including the live schedule of recurring meetings, learning groups, and project sessions — are currently maintained at the linked weekly hub and are being migrated onto this site. Until that migration is complete, please use the hub for the current week's details.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "This week's schedule",
+      "text": "See the live lineup of recurring meetings, learning groups, and project sessions.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        }
+      ]
+    },
+    {
+      "title": "Times on the Calendar",
+      "text": "Find when each recurring activity takes place via the on-site Calendar.",
+      "links": [
+        {
+          "label": "Calendar",
+          "href": "/calendar/"
+        }
+      ]
+    },
+    {
+      "title": "Join in",
+      "text": "Learn how to participate and connect through the Institute's community.",
+      "links": [
+        {
+          "label": "Get involved",
+          "href": "/get-involved/"
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "calendar",
+    "activities",
+    "get-involved"
+  ],
+  "resourceGroups": [
+    "institute"
+  ],
+  "primaryActions": [
+    {
+      "label": "Calendar",
+      "href": "/calendar/"
+    },
+    {
+      "label": "Get involved",
+      "href": "/get-involved/"
+    },
+    {
+      "sourceId": "weekly"
+    }
+  ],
+  "externalSourceIds": [
+    "weekly"
+  ]
+}
