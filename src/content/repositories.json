@@ -26,7 +26,7 @@
         "ecosystem"
       ],
       "priority": 100,
-      "promoted": true,
+      "promoted": false,
       "projectFamily": "Open-source projects",
       "repoType": "Project materials repository",
       "docsUrl": "",
@@ -116,7 +116,7 @@
         "active-inference"
       ],
       "priority": 103,
-      "promoted": true,
+      "promoted": false,
       "projectFamily": "Learning and implementations",
       "repoType": "Project materials repository",
       "docsUrl": "",

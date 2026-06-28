@@ -590,9 +590,17 @@ def check_content_model(root: Path, errors: list[str]) -> None:
                 errors.append(f"{slug}: references missing live source id: {source_id}")
 
     data = instituteos_data(root)
+    # The public "projects" feed is the promoted subset of repositories.json
+    # (un-promoted repos are withheld from public cards), so derive the expected
+    # count from the curation flag rather than hard-coding it.
+    promoted_repo_count = sum(
+        1
+        for r in load_json(root / "src" / "content" / "repositories.json").get("repositories", [])
+        if r.get("promoted") is not False
+    )
     expected_lengths = {
         "people": 8,
-        "projects": 52,
+        "projects": promoted_repo_count,
         "ideas": 30,
     }
     for key, expected in expected_lengths.items():

@@ -1695,6 +1695,39 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-28T20:03:20Z"
+    },
+    {
+      "id": "textbookregister",
+      "label": "Textbook Group registration form",
+      "category": "Participate",
+      "url": "https://textbookregister.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink forwarding to the Textbook Group registration form.",
+      "finalUrl": "https://textbookregister.activeinference.institute",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T21:00:00Z"
+    },
+    {
+      "id": "mitpress-active-inference-2022",
+      "label": "Active Inference (MIT Press, 2022)",
+      "category": "Learning",
+      "url": "https://mitpress.mit.edu/9780262045353/active-inference/",
+      "sourceBasis": "Publisher page for the 2022 textbook Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (MIT Press).",
+      "finalUrl": "https://mitpress.mit.edu/9780262045353/active-inference/",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T21:00:00Z"
+    },
+    {
+      "id": "mitpress-fundamentals-2026",
+      "label": "Fundamentals of Active Inference (MIT Press, 2026)",
+      "category": "Learning",
+      "url": "https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/",
+      "sourceBasis": "Publisher page for the 2026 textbook Fundamentals of Active Inference (MIT Press).",
+      "finalUrl": "https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T21:00:00Z"
     }
   ]
 }

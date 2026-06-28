@@ -6,6 +6,37 @@ import { EXPORT_PROVENANCE, siteData } from "../data.mjs";
 import { escapeHtml } from "../lib/text.mjs";
 import { hrefForSlug } from "../url-taxonomy.mjs";
 import { sectionHeading } from "./components.mjs";
+import { relPrefix } from "./urls.mjs";
+import { sourceAnchor } from "./sources.mjs";
+
+// Book-cover feature section: renders a page's `books[]` (cover image + title,
+// authors, year, status, and a publisher link resolved via sourceId). Covers are
+// local assets (img-src 'self'); the publisher anchor is a vetted live source.
+function bookCoversSection(page, currentDir = "") {
+  const books = Array.isArray(page.books) ? page.books : [];
+  if (!books.length) {
+    return "";
+  }
+  const prefix = relPrefix(currentDir);
+  const figures = books
+    .map(
+      (b) => `
+      <figure class="book-cover">
+        <img src="${escapeHtml(prefix + b.cover)}" alt="${escapeHtml(b.alt || b.title)}" width="${Number(b.width) || 298}" height="${Number(b.height) || 445}" loading="lazy" decoding="async">
+        <figcaption>
+          <p class="book-cover-title">${escapeHtml(b.title)}</p>
+          <p class="book-cover-meta">${escapeHtml(b.authors)}${b.year ? ` · ${escapeHtml(String(b.year))}` : ""}</p>
+          ${b.status ? `<p class="book-cover-status">${escapeHtml(b.status)}</p>` : ""}
+          ${b.sourceId ? `<p class="book-cover-link">${sourceAnchor(b.sourceId, "View at MIT Press")}</p>` : ""}
+        </figcaption>
+      </figure>`,
+    )
+    .join("");
+  return `<section class="content-band book-covers-band" id="textbooks">
+    ${sectionHeading({ eyebrow: "Textbooks", title: "The books we read", text: "The Textbook Group works cohort-by-cohort through these Active Inference texts." })}
+    <div class="book-covers">${figures}</div>
+  </section>`;
+}
 
 // ── InstituteOS feature sections (graphs, narratives, domains, related projects) ──
 
@@ -144,6 +175,8 @@ export function instituteosFeatureSections(page, currentDir = "") {
   switch (page.slug) {
     case "instituteos":
       return instituteosInterfaceSection(currentDir);
+    case "project-textbook-group":
+      return bookCoversSection(page, currentDir);
     case "project-active-inference-ontology":
       return ontologyTermsFeature(currentDir);
     case "learning":

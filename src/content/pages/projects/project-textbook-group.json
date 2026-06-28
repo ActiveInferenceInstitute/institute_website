@@ -1,9 +1,9 @@
 {
   "slug": "project-textbook-group",
   "title": "Textbook Group",
-  "subtitle": "Structured cohort learning through Active Inference textbooks, with 5.5 completed cohorts since 2022.",
+  "subtitle": "Structured cohort learning through Active Inference textbooks — 9 cohorts on the 2022 textbook, now live in the first 2026 Fundamentals cohort.",
   "audience": "Learners, students, and researchers working through Active Inference textbooks in a structured group setting.",
-  "lede": "The Textbook Group is a sustained Institute educational program running structured cohort-based learning through Active Inference textbooks. Since 2022 it has completed 5.5 cohorts, including the current 'Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers' cohort.",
+  "lede": "The Textbook Group is a sustained Institute educational program running structured cohort-based learning through Active Inference textbooks. Since 2022 it has run 9 cohorts on the 2022 textbook 'Active Inference: The Free Energy Principle in Mind, Brain, and Behavior' by Thomas Parr, Giovanni Pezzulo, and Karl J. Friston. As of mid-2026 the group is live in its first cohort on the 2026 textbook 'Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers' by Sanjeev V. Namjoshi.",
   "primaryActions": [
     {
       "label": "Textbook Group",
@@ -11,7 +11,31 @@
     },
     {
       "label": "Register",
-      "sourceId": "official-textbook-group"
+      "sourceId": "textbookregister"
+    }
+  ],
+  "books": [
+    {
+      "title": "Active Inference: The Free Energy Principle in Mind, Brain, and Behavior",
+      "authors": "Thomas Parr, Giovanni Pezzulo & Karl J. Friston",
+      "year": "2022",
+      "cover": "assets/img/books/active-inference-2022.png",
+      "alt": "Cover of Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (2022)",
+      "width": 298,
+      "height": 445,
+      "status": "9 completed cohorts since 2022",
+      "sourceId": "mitpress-active-inference-2022"
+    },
+    {
+      "title": "Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers",
+      "authors": "Sanjeev V. Namjoshi",
+      "year": "2026",
+      "cover": "assets/img/books/fundamentals-of-active-inference-2026.png",
+      "alt": "Cover of Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers (2026)",
+      "width": 298,
+      "height": 373,
+      "status": "Current — first cohort live since mid-2026",
+      "sourceId": "mitpress-fundamentals-2026"
     }
   ],
   "sections": [
@@ -21,33 +45,33 @@
       "links": [
         {
           "sourceId": "official-textbook-group-shortlink"
-        },
-        {
-          "sourceId": "official-textbook-group"
         }
       ]
     },
     {
       "heading": "Current and Past Cohorts",
-      "body": "The Textbook Group has completed 5.5 cohorts since 2022. The current cohort is working through 'Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers.' Recordings and materials from prior cohorts are accessible through the repository and course pages.",
+      "body": "Since 2022 the Textbook Group has completed 9 cohorts on the 2022 textbook 'Active Inference: The Free Energy Principle in Mind, Brain, and Behavior' (Parr, Pezzulo & Friston). As of mid-2026 it is live in its first cohort on the 2026 textbook 'Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers' (Namjoshi). Recordings and materials from prior cohorts are accessible through the repository and course pages.",
       "links": [
-        {
-          "sourceId": "official-textbook-group"
-        },
         {
           "sourceId": "repo-parr-et-al-2022-actinf-textbook"
         },
         {
           "sourceId": "repo-fundamentals"
+        },
+        {
+          "sourceId": "mitpress-active-inference-2022"
+        },
+        {
+          "sourceId": "mitpress-fundamentals-2026"
         }
       ]
     },
     {
       "heading": "Participate",
-      "body": "Register for upcoming cohorts through the Textbook Group page. No prior expertise in Active Inference is required — the group provides structure for participants at all levels.",
+      "body": "Register for upcoming cohorts through the registration form. No prior expertise in Active Inference is required — the group provides structure for participants at all levels.",
       "links": [
         {
-          "sourceId": "official-textbook-group-shortlink"
+          "sourceId": "textbookregister"
         },
         {
           "sourceId": "discord"
@@ -57,29 +81,29 @@
   ],
   "cards": [
     {
-      "title": "5.5 cohorts since 2022",
-      "text": "Structured learning through core Active Inference texts.",
+      "title": "9 cohorts on the 2022 textbook",
+      "text": "Structured learning through Parr, Pezzulo & Friston (2022) since 2022.",
       "links": [
         {
-          "sourceId": "official-textbook-group"
+          "sourceId": "mitpress-active-inference-2022"
         }
       ]
     },
     {
-      "title": "Current cohort",
-      "text": "Fundamentals of Active Inference: Principles, Algorithms, and Applications.",
+      "title": "First 2026 cohort live",
+      "text": "Now working through Namjoshi's Fundamentals of Active Inference (2026).",
       "links": [
         {
-          "sourceId": "official-textbook-group-shortlink"
+          "sourceId": "mitpress-fundamentals-2026"
         }
       ]
     },
     {
       "title": "Open enrollment",
-      "text": "Register for the next cohort.",
+      "text": "Register for the next cohort through the registration form.",
       "links": [
         {
-          "sourceId": "official-textbook-group-shortlink"
+          "sourceId": "textbookregister"
         }
       ]
     }
@@ -94,9 +118,11 @@
   ],
   "externalSourceIds": [
     "official-textbook-group-shortlink",
-    "official-textbook-group",
+    "textbookregister",
     "repo-parr-et-al-2022-actinf-textbook",
     "repo-fundamentals",
+    "mitpress-active-inference-2022",
+    "mitpress-fundamentals-2026",
     "discord"
   ],
   "resourceGroups": [

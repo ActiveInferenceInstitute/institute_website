@@ -753,57 +753,6 @@
       "url": "https://github.com/ActiveInferenceInstitute/ultralink"
     },
     {
-      "audience": "developer",
-      "category": "projects",
-      "docsSourceId": "",
-      "docsUrl": "",
-      "fullName": "ActiveInferenceInstitute/A2A",
-      "id": "repo-a2a",
-      "language": "Unspecified",
-      "projectFamily": "Open-source projects",
-      "relatedSlugs": [
-        "projects",
-        "ecosystem"
-      ],
-      "repoType": "Project materials repository",
-      "sourceId": "repo-a2a",
-      "stars": 0,
-      "summary": "Public A2A repository in the ActiveInferenceInstitute GitHub namespace.",
-      "tags": [
-        "repository",
-        "unclassified"
-      ],
-      "title": "A2A",
-      "updatedAt": "2025-06-23T14:10:17Z",
-      "url": "https://github.com/ActiveInferenceInstitute/A2A"
-    },
-    {
-      "audience": "learner",
-      "category": "learning",
-      "docsSourceId": "",
-      "docsUrl": "",
-      "fullName": "ActiveInferenceInstitute/action-oriented",
-      "id": "repo-action-oriented",
-      "language": "Unspecified",
-      "projectFamily": "Learning and implementations",
-      "relatedSlugs": [
-        "learning",
-        "active-inference"
-      ],
-      "repoType": "Project materials repository",
-      "sourceId": "repo-action-oriented",
-      "stars": 0,
-      "summary": "Repository for \"Learning action-oriented models through active inference\"",
-      "tags": [
-        "learning",
-        "implementation",
-        "unclassified"
-      ],
-      "title": "action-oriented",
-      "updatedAt": "2021-08-29T20:21:57Z",
-      "url": "https://github.com/ActiveInferenceInstitute/action-oriented"
-    },
-    {
       "audience": "learner",
       "category": "learning",
       "docsSourceId": "",
