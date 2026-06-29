@@ -889,6 +889,7 @@ select:focus-visible {
 
 .knowledge-brand-image {
   width: min(320px, 100%);
+  height: auto;
   justify-self: end;
   border: 1px solid var(--line);
   border-radius: var(--radius);

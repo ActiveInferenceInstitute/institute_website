@@ -3,24 +3,28 @@
   "title": "Applied Active Inference Symposium",
   "subtitle": "An annual gathering of Active Inference researchers, practitioners, and contributors from around the world.",
   "audience": "Researchers, practitioners, speakers, sponsors, and participants interested in the annual Symposium.",
-  "lede": "The Applied Active Inference Symposium is a yearly event that convenes the global Active Inference community. It has run five times from 2021 through 2025, with the sixth symposium in 2026. The Symposium features research presentations, discussions, and collaborative sessions spanning computational neuroscience, AI, ecology, economics, health, and other domains.",
+  "lede": "The Applied Active Inference Symposium is a yearly online event that convenes the global Active Inference community. It has run five times from 2021 through 2025, and the 6th Symposium takes place on 12-13 November 2026. Each edition features research presentations, panels, workshops, and collaborative sessions spanning computational neuroscience, AI, robotics, ecology, economics, health, education, and other domains, with full recordings and proceedings published openly afterward.",
   "primaryActions": [
     {
-      "label": "Symposium page",
-      "sourceId": "official-symposium-page"
+      "label": "Symposium hub",
+      "sourceId": "official-symposium-shortlink"
     },
     {
-      "label": "Symposium shortlink",
-      "sourceId": "official-symposium-shortlink"
+      "label": "Submit a presentation",
+      "sourceId": "symposium-2026-submit"
+    },
+    {
+      "label": "Email the organizers",
+      "href": "mailto:blanket@activeinference.institute"
     }
   ],
   "sections": [
     {
       "heading": "About the Symposium",
-      "body": "The Applied Active Inference Symposium is the Institute's flagship annual event. It brings together researchers, educators, practitioners, and community members who are applying Active Inference across scientific and practical domains. The event features talks, panels, workshops, and community sessions, with full recordings made publicly available after each edition.",
+      "body": "The Applied Active Inference Symposium is the Institute's flagship annual event. It brings together researchers, educators, practitioners, and community members who are applying Active Inference across scientific and practical domains. Every edition features talks, panels, workshops, and community sessions, and the keynote address and panel have featured Karl Friston since the inaugural gathering. The Symposium is online with no financial barrier to participation, and full recordings are made publicly available on the Institute YouTube channel after each edition.",
       "links": [
         {
-          "sourceId": "official-symposium-page"
+          "sourceId": "official-symposium-shortlink"
         },
         {
           "sourceId": "repo-symposium"
@@ -28,11 +32,119 @@
       ]
     },
     {
-      "heading": "Past Symposia",
-      "body": "Five symposia have been held from 2021 through 2025. Each edition has expanded the scope and participation of the community. Recordings, materials, and proceedings from prior symposia are accessible through the official page and the YouTube channel.",
+      "heading": "1st Symposium (2021)",
+      "body": "The inaugural Applied Active Inference Symposium was held in 2021 with a keynote by Karl Friston. The proceedings transcript is archived openly on Zenodo, and the recorded sessions are available on the Institute YouTube channel.",
       "links": [
         {
-          "sourceId": "youtube"
+          "sourceId": "symposium-2021-video-1",
+          "label": "Recording — part 1"
+        },
+        {
+          "sourceId": "symposium-2021-video-2",
+          "label": "Recording — part 2"
+        },
+        {
+          "sourceId": "symposium-2021-transcript"
+        }
+      ]
+    },
+    {
+      "heading": "2nd Symposium (2022): Robotics",
+      "body": "The 2nd Symposium in 2022 took Robotics as its theme and ran across two intervals on 31 July (16:00 and 04:00 UTC) to reach the global community. The proceedings transcript is archived on Zenodo, the program is available through the Symposium archive, and both intervals are recorded on YouTube.",
+      "links": [
+        {
+          "sourceId": "symposium-2022-video-1",
+          "label": "Recording — interval 1"
+        },
+        {
+          "sourceId": "symposium-2022-video-2",
+          "label": "Recording — interval 2"
+        },
+        {
+          "sourceId": "symposium-2022-transcript"
+        },
+        {
+          "sourceId": "symposium-2022-program"
+        }
+      ]
+    },
+    {
+      "heading": "3rd Symposium (2023): Enacting Ecosystems of Shared Intelligence",
+      "body": "The 3rd Applied Active Inference Symposium, themed Enacting Ecosystems of Shared Intelligence, explored how shared intelligence is enacted across agents, communities, and institutions. The program is available through the Symposium archive, and both intervals are recorded on the Institute YouTube channel.",
+      "links": [
+        {
+          "sourceId": "symposium-2023-video-1",
+          "label": "Recording — interval 1"
+        },
+        {
+          "sourceId": "symposium-2023-video-2",
+          "label": "Recording — interval 2"
+        },
+        {
+          "sourceId": "symposium-2023-program"
+        }
+      ]
+    },
+    {
+      "heading": "4th Symposium (2024)",
+      "body": "The 4th Applied Active Inference Symposium in 2024 continued the tradition of applied talks, panels, and hands-on sessions. The program is available through the Symposium archive, and the sessions are recorded across three parts on YouTube.",
+      "links": [
+        {
+          "sourceId": "symposium-2024-video-1",
+          "label": "Recording — part 1"
+        },
+        {
+          "sourceId": "symposium-2024-video-2",
+          "label": "Recording — part 2"
+        },
+        {
+          "sourceId": "symposium-2024-video-3",
+          "label": "Recording — part 3"
+        },
+        {
+          "sourceId": "symposium-2024-program"
+        }
+      ]
+    },
+    {
+      "heading": "5th Symposium (2025)",
+      "body": "The 5th Applied Active Inference Symposium in 2025 brought the community together for another round of applied research, tooling, and education sessions. The program is available through the Symposium archive, and the sessions are recorded across three parts on YouTube.",
+      "links": [
+        {
+          "sourceId": "symposium-2025-video-1",
+          "label": "Recording — part 1"
+        },
+        {
+          "sourceId": "symposium-2025-video-2",
+          "label": "Recording — part 2"
+        },
+        {
+          "sourceId": "symposium-2025-video-3",
+          "label": "Recording — part 3"
+        },
+        {
+          "sourceId": "symposium-2025-program"
+        }
+      ]
+    },
+    {
+      "heading": "6th Symposium (2026)",
+      "body": "We are now preparing the 6th Applied Active Inference Symposium, to be held online on 12-13 November 2026. As with previous editions, the keynote address and panel will feature Karl Friston, and the program explores the applications and frontiers of Active Inference. The Symposium is online with no financial barrier to participation, and abstracts of presentations are published in collaboration with the Active Inference Journal. All current information is gathered on the Symposium hub.",
+      "links": [
+        {
+          "sourceId": "official-symposium-shortlink"
+        },
+        {
+          "sourceId": "symposium-2026-submit"
+        }
+      ]
+    },
+    {
+      "heading": "Call for Presentations and Workshops",
+      "body": "We invite researchers and practitioners to submit presentations and workshops for the 6th Symposium, aligned with four themes: mission-critical applications of Active Inference across domains; open science and tool development; learning and education; and Active Inference at Play — hands-on, multimodal, and exploratory formats beyond text. Submissions may be pre-recorded video presentations, livestream panel or discussion slots, or workshops, tutorials, and hackathons with open-source materials. The presenter submission deadline is 31 October 2026, ahead of the 12-13 November Symposium dates. Please share the invitation widely.",
+      "links": [
+        {
+          "sourceId": "symposium-2026-submit"
         },
         {
           "sourceId": "official-symposium-shortlink"
@@ -40,28 +152,24 @@
       ]
     },
     {
-      "heading": "Present and Future",
-      "body": "The 6th Applied Active Inference Symposium takes place in 2026. The Symposium is a joint project between the EduActive and ReInference units, reflecting its role at the intersection of education, research, and community building.",
+      "heading": "Sponsorship",
+      "body": "Sponsoring the Applied Active Inference Symposium supports open-source scientific innovation, global open-science collaboration through a 501(c)(3) non-profit, broad interdisciplinary impact, and visibility to talent and partners at the frontier of AI and cognitive science. Sponsorship is offered across three escalating levels: Level 1 lists sponsors in the program and materials and acknowledges them in livestreams; Level 2 adds a logo in the Adventure space, a short pre-recorded video on the livestream, and introductions to presenters, co-organizers, fellows, officers, and advisors; Level 3 adds consideration of a session, speaker, or theme in the program, an arranged private session, and an optional custom hand-drawn Active Inference artwork. Organizations can contribute financially, offer in-kind support, or provide additional resources such as presenters and materials. Email blanket@activeinference.institute with any inquiries; more sponsorship detail for 2026 is coming soon.",
       "links": [
         {
-          "sourceId": "official-symposium-shortlink"
+          "href": "mailto:blanket@activeinference.institute",
+          "label": "Email blanket@activeinference.institute"
         },
         {
-          "label": "EduActive",
-          "href": "/eduactive/"
-        },
-        {
-          "label": "ReInference",
-          "href": "/reinference/"
+          "sourceId": "donate"
         }
       ]
     },
     {
       "heading": "Participate",
-      "body": "The Symposium is open to researchers, practitioners, students, and curious community members. Presenters, session organizers, sponsors, and volunteers are welcome. Reach out through the official Symposium page or contact blanket@activeinference.institute.",
+      "body": "The Symposium is open to researchers, practitioners, students, and curious community members, with pathways for deeper involvement in ongoing research and projects across the ecosystem. The 2026 organizing team includes Alexandra Mikhailova, Andrew Pashea, Antonio Lucas-Alba, Bradly Alicea, Daniel Friedman, Hector Manrique, Ian Tennant, Jana Lumi, Janaki Nagesh, Justin Mo, Nina Edgley, and PabloFM. Materials are translated into other languages where possible, and content remains posted on YouTube for asynchronous viewing. Presenters, session organizers, sponsors, and volunteers are all welcome — reach out through the Symposium hub or contact blanket@activeinference.institute.",
       "links": [
         {
-          "sourceId": "official-symposium-page"
+          "sourceId": "official-symposium-shortlink"
         },
         {
           "sourceId": "official-partnership"
@@ -71,8 +179,8 @@
   ],
   "cards": [
     {
-      "title": "2021–2025 editions",
-      "text": "Five prior symposia with publicly available recordings and proceedings.",
+      "title": "Six editions (2021–2026)",
+      "text": "Five prior symposia with public recordings and proceedings, plus the 6th in 2026.",
       "links": [
         {
           "sourceId": "youtube"
@@ -80,8 +188,8 @@
       ]
     },
     {
-      "title": "2026 symposium",
-      "text": "The 6th Applied Active Inference Symposium.",
+      "title": "6th Symposium · 12-13 Nov 2026",
+      "text": "Online, keynote and panel with Karl Friston. All information on the Symposium hub.",
       "links": [
         {
           "sourceId": "official-symposium-shortlink"
@@ -89,11 +197,21 @@
       ]
     },
     {
-      "title": "Sponsor or present",
-      "text": "Opportunities for speakers, sponsors, and volunteers.",
+      "title": "Call for presentations",
+      "text": "Submit a presentation or workshop. Presenter deadline 31 October 2026.",
       "links": [
         {
-          "sourceId": "official-symposium-page"
+          "sourceId": "symposium-2026-submit"
+        }
+      ]
+    },
+    {
+      "title": "Sponsor the Symposium",
+      "text": "Three sponsorship levels supporting open Active Inference research and education.",
+      "links": [
+        {
+          "href": "mailto:blanket@activeinference.institute",
+          "label": "Email the organizers"
         }
       ]
     }
@@ -109,8 +227,16 @@
   "externalSourceIds": [
     "official-symposium-page",
     "official-symposium-shortlink",
+    "symposium-2026-submit",
+    "symposium-2021-transcript",
+    "symposium-2022-transcript",
+    "symposium-2022-program",
+    "symposium-2023-program",
+    "symposium-2024-program",
+    "symposium-2025-program",
     "repo-symposium",
     "youtube",
+    "donate",
     "official-partnership"
   ],
   "resourceGroups": [
