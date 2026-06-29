@@ -2,9 +2,11 @@
 
 Static public resource hub for the Active Inference Institute.
 
-Canonical deployment (post-cutover):
+Canonical deployment:
 [https://activeinference.institute/](https://activeinference.institute/)
-— migrating from Squarespace to GitHub Pages; see [SWITCHOVER.md](SWITCHOVER.md).
+— migrated from Squarespace to GitHub Pages (cutover complete). For the redirect
+architecture and SEO infrastructure, see
+[docs/MIGRATION_AND_REDIRECTS.md](docs/MIGRATION_AND_REDIRECTS.md).
 
 Canonical repository:
 [https://github.com/ActiveInferenceInstitute/institute_website](https://github.com/ActiveInferenceInstitute/institute_website)

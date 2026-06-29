@@ -339,14 +339,6 @@ export function instituteosFeatureSections(page, currentDir = "") {
       });
     case "activities":
       return activitiesFeatureSection(currentDir);
-    case "activities-disabled-narrative":
-      return narrativeSection({
-        id: "activities-narratives",
-        eyebrow: "Activities",
-        title: "Public activities and updates",
-        text: "Public narrative content describing the Institute's recurring activities.",
-        targetPage: "activities",
-      });
     default:
       return "";
   }

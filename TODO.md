@@ -5,28 +5,6 @@ lives in [`CHANGELOG.md`](CHANGELOG.md); this file tracks what's planned and in
 progress. The site is a static, dependency-free build (`node src/build.mjs`) with a
 strict Content Security Policy, gated by `npm run check`.
 
-## Shipped in v2.5
-
-- [x] **Sitemap `changefreq` hints and an HTML sitemap page** — XML `<changefreq>`
-      plus a human-readable `/sitemap/` linked from every footer.
-- [x] **`CollectionPage` structured data** for the `/projects/` and `/programs/`
-      indexes (with an `ItemList` of child pages).
-- [x] **Light/dark theme toggle** persisted in `localStorage`
-      (`assets/js/theme.js`, CSP-safe external script).
-- [x] **Per-domain landing pages under `/ecosystem/`** linking to projects by
-      domain of application.
-- [x] **Search synonyms / fuzzy matching and result highlighting** across the
-      header quick-search and the `/search/` page.
-
-## Shipped in v2.4
-
-- [x] **Dedicated `/search/` page** — full results grouped by type, deep-linkable
-      via `?q=`, with a "See all results" link from the header quick-search.
-- [x] **Per-project structured data** — `SoftwareSourceCode` (when a public repo
-      exists) or `CreativeWork` JSON-LD on each `/projects/<name>/` page.
-- [x] **Per-page social cards** — a generated 1200×630 `og:image` per page
-      (`scripts/generate-cards.mjs` → `assets/img/cards/<slug>.png`).
-
 ## Backlog / ideas
 
 - [ ] Per-page `lastmod` in `sitemap.xml` from content provenance — **deferred**:
@@ -35,11 +13,6 @@ strict Content Security Policy, gated by `npm run check`.
       would break the build's determinism. The uniform export-date `lastmod` is
       correct for a site regenerated as a unit; revisit if per-page provenance
       lands in the export manifest.
-- [x] **Media-scoped `theme-color` meta pair (dark/light)** — paired
-      `prefers-color-scheme` `theme-color` metas so the browser chrome matches the
-      OS-preferred theme on load.
-- [x] **Deterministic `security.txt` `Expires`** — derived from the export date
-      (+1 year) instead of a hardcoded date that could silently lapse.
 
 ## Conventions
 
