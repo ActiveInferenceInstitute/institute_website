@@ -1,0 +1,64 @@
+{
+  "slug": "active-inference-and-psychology",
+  "title": "Active Inference and Psychology",
+  "subtitle": "A research scaffold for cognition, affect, the self, social interaction, and computational psychiatry.",
+  "audience": "Psychologists, cognitive scientists, computational psychiatry groups, and Institute fellows.",
+  "lede": "Active inference treats psychological constructs — perception, attention, emotion, motivation, the self, and social interaction — as inference and action under a generative model, giving psychology a shared formal language for phenomena usually studied in separate sub-disciplines.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Perception, affect, motivation, and selfhood can each be cast as inference problems: estimating hidden causes of sensory and interoceptive signals and acting to realise preferred states. The framework connects individual cognition to dyads and groups, and recasts psychopathology as aberrant priors, precision, or generative-model structure rather than isolated symptoms."
+    },
+    {
+      "heading": "Application pattern",
+      "body": "A domain report should distinguish generative models of cognition/affect/self, policy selection and motivation via expected free energy, interoception and emotion regulation, hierarchical models of control and social interaction, and learning as model revision (including psychotherapeutic change). The SPM and pymdp ecosystems provide the canonical computational scaffolding."
+    },
+    {
+      "heading": "Evidence to collect next",
+      "body": "The next pass should separate reviewed theory from empirical and clinical work, and prioritise model validation, parameter identifiability, scaling from individuals to dyads and groups, and ethics/interpretability for clinical decision support. Experimental paradigms and datasets should be catalogued alongside the models they test."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant, Lancelot Da Costa, Casper Hesp, Beren Millidge, Alexander Tschantz (2023). On Bayesian Mechanics: A Physics of and by Beliefs. arXiv. Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl J. Friston (2020). Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2020.102447."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Constructs as inference",
+      "text": "Represent attention, emotion, motivation, and the self as coupled inference-and-action processes."
+    },
+    {
+      "title": "Computational psychiatry",
+      "text": "Model disorders as aberrant priors, precision-weighting, or generative-model structure, with explicit uncertainty."
+    },
+    {
+      "title": "Validation boundary",
+      "text": "Separate reviewed theory, simulation, and empirical/clinical evidence on every public page."
+    }
+  ],
+  "order": 75,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-medicine",
+    "active-inference-and-healthcare"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv",
+    "learning-beren-papers"
+  ]
+}

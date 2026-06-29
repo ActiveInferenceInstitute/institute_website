@@ -1,0 +1,65 @@
+{
+  "slug": "active-inference-and-robotics",
+  "title": "Active Inference and Robotics",
+  "subtitle": "A research scaffold for embodied agents, active sensing, expected-free-energy control, and robotic learning.",
+  "audience": "Roboticists, AI researchers, embodied-cognition groups, and builders of autonomous instruments.",
+  "lede": "Robotics is a natural test bed for active inference because perception, planning, action, and uncertainty are coupled in the same physical loop, and action can be chosen both to accomplish goals and to improve the information available for future control.",
+  "primaryActions": [
+    {
+      "label": "Project repositories",
+      "sourceId": "github-org"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Embodied systems must select actions that achieve goals and reduce uncertainty about objects, tasks, and operating conditions. Active inference makes the epistemic part of action selection explicit, unifying state estimation, control, and exploration under a single free-energy objective rather than bolting exploration onto a reward signal."
+    },
+    {
+      "heading": "Application pattern",
+      "body": "A modular report should track the robot body, sensor model, action policy, preferred outcomes, and evaluation environment separately, so a simulation result, a laboratory manipulator, and a field instrument are not collapsed into one claim. Recurring patterns include generative models of robot dynamics, expected-free-energy policy selection, active vision, hierarchical/hybrid controllers, and deep or contrastive active inference for high-dimensional control."
+    },
+    {
+      "heading": "Evidence to collect next",
+      "body": "The next pass should gather adaptive-controller case studies, manipulation and navigation results, deep active-inference on real hardware, and benchmarks against reinforcement learning and classical control. Each record should state whether it is theory, simulation, hardware, or deployed instrumentation, and whether it scales beyond low-dimensional settings."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Christopher L. Buckley, Chang Sub Kim, Simon McGregor, Anil K. Seth (2017). The free energy principle for action and perception: A mathematical review. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2017.09.004. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Pablo Lanillos, Cristian Meo, Corrado Pezzato, et al. (2021). Active Inference in Robotics and Artificial Agents: Survey and Challenges. arXiv. DOI: 10.48550/arXiv.2112.01871. Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl J. Friston (2020). Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2020.102447."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Active sensing",
+      "text": "Use action to reduce uncertainty about objects, tasks, and operating conditions, not just to maximise reward."
+    },
+    {
+      "title": "Embodied policy selection",
+      "text": "Evaluate actions by expected outcomes and information gain via expected free energy minimization."
+    },
+    {
+      "title": "Implementation register",
+      "text": "Track simulator, hardware, repository, and benchmark status separately for every claim."
+    }
+  ],
+  "order": 72,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-entomology",
+    "active-inference-and-ecology"
+  ],
+  "externalSourceIds": [
+    "github-org",
+    "active-inferants",
+    "learning-foundations-arxiv",
+    "learning-beren-papers"
+  ]
+}

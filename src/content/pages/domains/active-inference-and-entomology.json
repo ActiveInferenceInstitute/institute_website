@@ -1,0 +1,64 @@
+{
+  "slug": "active-inference-and-entomology",
+  "title": "Active Inference and Entomology",
+  "subtitle": "A research scaffold for insect perception, navigation, foraging, collective behaviour, and superorganisms.",
+  "audience": "Entomologists, collective-behaviour researchers, neuroethologists, and insect-inspired robotics teams.",
+  "lede": "Insects and insect colonies are compact, tractable active-inference systems: individuals infer environmental states from limited senses and act under tight resource constraints, while colonies behave as superorganisms whose collective dynamics can be read as distributed inference.",
+  "primaryActions": [
+    {
+      "label": "ActiveInferAnts repository",
+      "sourceId": "active-inferants"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Insect sensory ecology, navigation, and foraging are perception-action loops under uncertainty and scarcity, and ant and bee colonies externalise memory and decision-making across many bodies. Active inference provides one formalism that spans neurons, individuals, and colonies, making the superorganism a concrete multi-scale modelling target."
+    },
+    {
+      "heading": "Application pattern",
+      "body": "A domain report should track generative models of insect perception and action, expected-free-energy policy selection in foraging and navigation, active and epistemic sensing, and hierarchical multi-scale models from neurons to colonies. It should separate simulation frameworks from data-driven models grounded in behavioural recordings."
+    },
+    {
+      "heading": "Evidence to collect next",
+      "body": "Empirical validation is the central challenge: the next pass should gather colony-behaviour and navigation studies, basal-cognition and executive-function work in insects, and insect-inspired robotics, while explicitly testing active inference against alternative (e.g. reinforcement-learning or heuristic) accounts and bridging individual and colony scales."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant, Lancelot Da Costa, Casper Hesp, Beren Millidge, Alexander Tschantz (2023). On Bayesian Mechanics: A Physics of and by Beliefs. arXiv. Daniel Ari Friedman, Alec Tschantz, Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant (2021). An Active Inference Framework for Ant Colony Behavior. Frontiers in Behavioral Neuroscience. DOI: 10.3389/fnbeh.2021.647732. Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl J. Friston (2020). Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2020.102447."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Organisms and colonies",
+      "text": "Model action and perception as a coupled fit between insect and environment, individually and collectively."
+    },
+    {
+      "title": "Superorganism inference",
+      "text": "Treat colony-level foraging and recruitment as distributed inference with externalised memory."
+    },
+    {
+      "title": "Field and robotics link",
+      "text": "Connect theory to behavioural data, active sensing, and insect-inspired autonomous systems."
+    }
+  ],
+  "order": 76,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-ecology",
+    "active-inference-and-robotics"
+  ],
+  "externalSourceIds": [
+    "active-inferants",
+    "learning-foundations-arxiv",
+    "learning-beren-papers"
+  ]
+}

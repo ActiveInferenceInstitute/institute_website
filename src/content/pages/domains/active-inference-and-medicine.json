@@ -1,0 +1,64 @@
+{
+  "slug": "active-inference-and-medicine",
+  "title": "Active Inference and Medicine",
+  "subtitle": "A research scaffold for clinical reasoning, computational psychiatry, interoception, and medical AI.",
+  "audience": "Clinical researchers, computational psychiatry groups, medical-AI builders, and Institute fellows.",
+  "lede": "Medicine is a natural application area for active inference because clinical practice is perception and action under uncertainty: inferring hidden states of a patient from noisy observations, choosing tests and treatments that balance information gain against benefit, and revising models as new data arrive.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Clinical care couples latent-state inference (pathophysiology, psychological state, disease trajectory), uncertain observations, action under risk, and shifting preferences over outcomes. Expected free energy makes the trade-off between epistemic value (informative tests) and pragmatic value (desired outcomes) explicit, which mirrors how clinicians actually decide under measurement cost."
+    },
+    {
+      "heading": "Application pattern",
+      "body": "A domain report should separate three layers: formal generative models of symptoms or physiology (including interoceptive and homeostatic models), decision-support systems that select information-gathering or intervention policies, and accountable institutional workflows. Active digital twins, belief-space control for treatment, and introspective medical-AI architectures are the recurring engineering patterns."
+    },
+    {
+      "heading": "Evidence to collect next",
+      "body": "The literature is still dominated by theory and simulation. The next pass should classify each source as reviewed literature, simulation, or deployed system, and prioritise computational-psychiatry reviews, interoception and placebo-analgesia models, oncology belief-space control, and clinical-LLM reliability work. Each claim should land in the citation registry before it appears on the public page."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl J. Friston (2020). Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2020.102447."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Clinical inference",
+      "text": "Model symptoms, beliefs, uncertainty, and regulation as coupled inference and action under prior preferences."
+    },
+    {
+      "title": "Decision support",
+      "text": "Frame monitoring and intervention as policy selection by expected free energy, with explicit confidence and review boundaries."
+    },
+    {
+      "title": "Publication boundary",
+      "text": "Distinguish reviewed literature, Institute projects, and speculative research leads on every public page."
+    }
+  ],
+  "order": 74,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-healthcare",
+    "active-inference-and-psychology"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv",
+    "learning-beren-papers"
+  ]
+}
