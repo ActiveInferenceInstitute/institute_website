@@ -10,9 +10,10 @@
 | `docs/` folder (this set) | ✅ Done |
 | **Phase 1 — move `active-inference-and-*` pages → `src/content/pages/domains/`** | ✅ **Done & verified** |
 | Locales → `/languages/` (Axis B) | ❌ **Not done — recommended against** (see §b) |
+| Codify `baseDirForSlug` rules as `url-taxonomy.json` data (+ fail-fast validation) | ✅ **Done & verified** (2026-06-29; byte-identical output, JS/Python parity reviewed) |
 | `/ecosystem/<domain>/` → `/domains/<domain>/` (Axis B) | ⏸️ Deferred, gated behind approval (see §a2) |
-| Codify `baseDirForSlug` prefixes as `url-taxonomy.json` data | ⏸️ Recommended, deferred |
-| Taxonomy-driven redirect generator | ⏸️ Recommended as prerequisite for any Axis-B change |
+| Taxonomy-driven redirect generator (`scripts/generate-redirects.mjs` + `check:redirects`) | ⏸️ Deferred — YAGNI; build only when an Axis-B URL change is approved, as part of that change |
+| Extract shared anchor-validation into `scripts/validation_utils.py` (dedup `check_static_security.py` + `check_site_contract.py`) | ⏸️ Deferred — low value; current duplication is defense-in-depth for the security gate |
 
 **Phase 1 verification (executed):** all six `active-inference-and-*` page sources were
 moved out of `src/content/pages/institute/` into `src/content/pages/domains/`

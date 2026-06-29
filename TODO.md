@@ -13,6 +13,16 @@ strict Content Security Policy, gated by `npm run check`.
       would break the build's determinism. The uniform export-date `lastmod` is
       correct for a site regenerated as a unit; revisit if per-page provenance
       lands in the export manifest.
+- [ ] Taxonomy-driven redirect generator (`scripts/generate-redirects.mjs` +
+      a `check:redirects` gate) — **deferred (YAGNI)**: no output-URL migration is
+      planned and the ~30-entry `assets/js/redirects.js` map is gate-checked and
+      maintainable. Build this only when an Axis-B URL change is approved, as part
+      of that change. See [`docs/REFACTOR_ASSESSMENT.md`](docs/REFACTOR_ASSESSMENT.md).
+- [ ] Extract the shared external-anchor validation (`VETTED_ANCHOR_HOST_SUFFIXES`,
+      `vetted_anchor_host()`) into `scripts/validation_utils.py`, imported by both
+      `check_static_security.py` and `check_site_contract.py` — **deferred (low
+      value)**: the current duplication is intentional defense-in-depth for the
+      security gate; only refactor if both gates keep passing identically.
 
 ## Conventions
 
