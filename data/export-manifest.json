@@ -1,63 +1,28 @@
 {
   "files": [
     {
-      "name": "communications_public.json",
-      "output_path": "src/content/instituteos/communications_public.json",
-      "record_count": 4,
-      "sha256": "3fb57268179cd2c74f9f669c7cda7886504ad845af62520f4c502d5b0eb2d2ea",
-      "target": "content"
+      "name": "active-inference-and-ecology.json",
+      "output_path": "src/content/pages/institute/active-inference-and-ecology.json",
+      "record_count": 1,
+      "sha256": "94640b8a8b95dffd7e7a729b7fc7cca19c5b5f8477197f74877725038e92619c",
+      "target": "pages"
     },
     {
-      "name": "domain_projects.json",
-      "output_path": "src/content/instituteos/domain_projects.json",
-      "record_count": 22,
-      "sha256": "19e77630113c1fe78d634b5c2ac1250c4270ee0958d70f13da33eaca9d7f18bf",
-      "target": "content"
+      "name": "active-inference-and-healthcare.json",
+      "output_path": "src/content/pages/institute/active-inference-and-healthcare.json",
+      "record_count": 1,
+      "sha256": "6acaf2518e9e5dced9d7f06254f00e477529393cddf27329c8452f3913ddee5c",
+      "target": "pages"
     },
     {
-      "name": "governance_graph.json",
-      "output_path": "src/content/instituteos/governance_graph.json",
-      "record_count": 200,
-      "sha256": "640e65b96bb6ad132c22c633ec2347c7be4f8dfb757aced45d42ab34144e94b6",
-      "target": "content"
-    },
-    {
-      "name": "narratives_public.json",
-      "output_path": "src/content/instituteos/narratives_public.json",
-      "record_count": 44,
-      "sha256": "ee04c924ee0532aa91383c048523f973833af13fe363849378cec894e5820b78",
-      "target": "content"
-    },
-    {
-      "name": "ontology_graph.json",
-      "output_path": "src/content/instituteos/ontology_graph.json",
-      "record_count": 30,
-      "sha256": "7694adc197b61c65d31fecbea5adc600ce53f806d5320ebbe2e239042e96435d",
-      "target": "content"
-    },
-    {
-      "name": "projects.json",
-      "output_path": "data/projects.json",
-      "record_count": 67,
-      "sha256": "cd0144c03f948a7eae7c1f29c56cd664ae261970fd66d6404d94b41c2812d0a8",
-      "target": "data"
-    },
-    {
-      "name": "strategies_public.json",
-      "output_path": "src/content/instituteos/strategies_public.json",
-      "record_count": 16,
-      "sha256": "aa8b911a4836f7edbda68482713abb2c26a7ee660a26e67898cd97fc7ab4d100",
-      "target": "content"
-    },
-    {
-      "name": "tech_tree_graph.json",
-      "output_path": "src/content/instituteos/tech_tree_graph.json",
-      "record_count": 30,
-      "sha256": "4bec7ebea84a5df248b65c7a34fd234275d284167a8c76c5ed042c295488313e",
-      "target": "content"
+      "name": "active-inference-and-robotics.json",
+      "output_path": "src/content/pages/institute/active-inference-and-robotics.json",
+      "record_count": 1,
+      "sha256": "bbfad81cb7e237580f919b7c8f8706d7c9162b3af978392deb8dc0423bc4b581",
+      "target": "pages"
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-06-26T18:53:20.076471+00:00",
-  "source_fingerprint": "99f9dcb3791d"
+  "generated_at": "2026-06-29T01:49:18.247471+00:00",
+  "source_fingerprint": "ee9e91cf6d04"
 }

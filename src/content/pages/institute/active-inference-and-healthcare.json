@@ -1,0 +1,65 @@
+{
+  "slug": "active-inference-and-healthcare",
+  "title": "Active Inference and Healthcare",
+  "subtitle": "A research scaffold for clinical, computational psychiatry, and health-system applications.",
+  "audience": "Clinical researchers, computational psychiatry groups, healthcare AI builders, and Institute fellows.",
+  "lede": "Healthcare applications of Active Inference treat symptoms, clinical decisions, monitoring, and adaptive support as problems of perception, action, uncertainty, and model updating.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Clinical care involves latent-state inference, uncertain observations, action under risk, and changing preferences over health outcomes. Active Inference gives researchers a shared language for modeling those loops without reducing care to a single prediction task."
+    },
+    {
+      "heading": "Application pattern",
+      "body": "A domain report should separate three layers: formal models of symptoms or physiology, decision-support systems that choose information-gathering or intervention policies, and institutional workflows for accountable clinical use."
+    },
+    {
+      "heading": "Evidence to collect next",
+      "body": "The next pass should identify reviewed computational psychiatry papers, clinical waveform or monitoring work, active sensing use cases, and implementation repositories. Each claim should land in the citation registry before it appears on the public page."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Christopher L. Buckley, Chang Sub Kim, Simon McGregor, Anil K. Seth (2017). The free energy principle for action and perception: A mathematical review. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2017.09.004. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Clinical modeling",
+      "text": "Represent symptoms, beliefs, uncertainty, and regulation as coupled inference and action processes."
+    },
+    {
+      "title": "Decision support",
+      "text": "Frame monitoring and intervention as policy selection under uncertainty, with explicit confidence and review boundaries."
+    },
+    {
+      "title": "Publication boundary",
+      "text": "Public pages should distinguish reviewed literature, Institute projects, and speculative research leads."
+    }
+  ],
+  "order": 71,
+  "relatedSlugs": [
+    "active-inference",
+    "reinference",
+    "project-belief-updating-ptsd",
+    "project-clinical-waveform"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv",
+    "learning-beren-papers"
+  ]
+}

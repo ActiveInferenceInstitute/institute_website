@@ -1,0 +1,66 @@
+{
+  "slug": "active-inference-and-ecology",
+  "title": "Active Inference and Ecology",
+  "subtitle": "A research scaffold for organisms, collectives, environments, and adaptive field systems.",
+  "audience": "Ecologists, environmental modelers, collective-behavior researchers, and applied field teams.",
+  "lede": "Ecological applications of Active Inference ask how organisms, groups, and instruments infer environmental states while acting within them.",
+  "primaryActions": [
+    {
+      "label": "GEO-INFER repository",
+      "sourceId": "geo-infer"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Ecology involves adaptive agents, uncertain environments, niche construction, and multi-scale feedback. Active Inference can organize those questions around perception, action, and viable states."
+    },
+    {
+      "heading": "Application pattern",
+      "body": "A domain report should distinguish biological theory, behavioral ecology, collective foraging, geospatial inference, and applied sensing. These layers share concepts but require different evidence and validation standards."
+    },
+    {
+      "heading": "Evidence to collect next",
+      "body": "The next pass should gather work on collective behavior, foraging, adaptive environmental monitoring, ecosystem modeling, and geospatial decision support, then classify each source by organism, scale, and intervention type."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Christopher L. Buckley, Chang Sub Kim, Simon McGregor, Anil K. Seth (2017). The free energy principle for action and perception: A mathematical review. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2017.09.004. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant, Lancelot Da Costa, Casper Hesp, Beren Millidge, Alexander Tschantz (2023). On Bayesian Mechanics: A Physics of and by Beliefs. arXiv."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Organisms and niches",
+      "text": "Study action and perception as a coupled fit between agent and environment."
+    },
+    {
+      "title": "Collectives",
+      "text": "Track when the model describes individuals, groups, or ecosystem-level dynamics."
+    },
+    {
+      "title": "Field systems",
+      "text": "Connect theory to sensing, geospatial data, and adaptive monitoring workflows."
+    }
+  ],
+  "order": 73,
+  "relatedSlugs": [
+    "active-inference",
+    "project-geo-infer",
+    "project-farmworks",
+    "project-collective-foraging"
+  ],
+  "externalSourceIds": [
+    "geo-infer",
+    "active-inferants",
+    "learning-foundations-arxiv",
+    "learning-beren-papers"
+  ]
+}

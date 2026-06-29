@@ -1761,6 +1761,17 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-28T22:00:00Z"
+    },
+    {
+      "id": "aicacp-project-doc",
+      "label": "AICACP project document",
+      "category": "Research",
+      "url": "https://docs.google.com/document/d/1uzJU3g9Lb18mVvj3YK3fdAzSR2ii7YkDJG_p6u_I9_4/edit",
+      "sourceBasis": "Public Google Doc describing the AI Capabilities & Alignment Consensus Project (AICACP).",
+      "finalUrl": "https://docs.google.com/document/d/1uzJU3g9Lb18mVvj3YK3fdAzSR2ii7YkDJG_p6u_I9_4/edit",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T22:30:00Z"
     }
   ]
 }

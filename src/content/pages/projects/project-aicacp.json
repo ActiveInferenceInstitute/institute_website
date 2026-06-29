@@ -1,13 +1,13 @@
 {
   "slug": "project-aicacp",
   "title": "AICACP",
-  "subtitle": "A coalition-oriented project at the intersection of AI capabilities and care practices.",
-  "audience": "Researchers, practitioners, and policy-oriented contributors interested in AI alignment, capabilities, and care-oriented approaches.",
-  "lede": "AICACP is an Institute project organized around AI capabilities, alignment, and care practices — exploring how Active Inference principles inform responsible and care-oriented AI development. The project maintains a public information page and contributes to the Institute's research on beneficial AI.",
+  "subtitle": "The AI Capabilities & Alignment Consensus Project — reshaping the conversation around AI capabilities, alignment, and regulation.",
+  "audience": "Researchers, practitioners, and policy-oriented contributors interested in AI capabilities, alignment, world models, and agency.",
+  "lede": "AICACP — the AI Capabilities & Alignment Consensus Project — is a multi-year initiative designed to reshape the conversation around AI capabilities, alignment, and regulation. By combining high-impact journal collections, in-person discussion-oriented workshops, and academic media content for public outreach, the project aims to bridge the divide between AI “doomers” and “accelerationists” by deeply exploring the meanings of “world models” and “agency” — and what these concepts mean for AI development.",
   "primaryActions": [
     {
-      "label": "Project page",
-      "sourceId": "official-participation"
+      "label": "Project document",
+      "sourceId": "aicacp-project-doc"
     },
     {
       "label": "ReInference Unit",
@@ -16,17 +16,37 @@
   ],
   "sections": [
     {
-      "heading": "Overview",
-      "body": "AICACP addresses the alignment and care dimensions of advanced AI capabilities. Using Active Inference as a theoretical lens, the project examines how AI systems can be designed with attention to care, alignment, and human flourishing. The work connects theoretical frameworks with practical guidance for building AI that serves broad human interests.",
+      "heading": "Survival and Flourishing Fund grant",
+      "body": "We are happy to share that in June 2025, the Survival and Flourishing Fund awarded a $270,000 grant to the Active Inference Institute to support work on the AI Capabilities & Alignment Consensus Project (AICACP). This grant supports an expanded team to assist with managing the project's special issues and workshops.",
       "links": [
         {
-          "sourceId": "github-org"
+          "sourceId": "aicacp-project-doc"
+        }
+      ]
+    },
+    {
+      "heading": "About the project",
+      "body": "AICACP is a multi-year initiative designed to reshape the conversation around AI capabilities, alignment, and regulation. By combining high-impact journal collections, in-person discussion-oriented workshops, and academic media content for public outreach, the project aims to bridge the divide between AI “doomers” and “accelerationists” through deeply exploring the meanings of “world models” and “agency,” and what these concepts mean for AI development.",
+      "links": [
+        {
+          "label": "ReInference Unit",
+          "href": "/reinference/"
+        }
+      ]
+    },
+    {
+      "heading": "Project lead",
+      "body": "Adam Safron, at the Allen Discovery Center at Tufts University, is the creator, principal investigator, and organizing editor for this project. The Survival and Flourishing Fund grant supports an expanded team assisting with the special issues and workshops.",
+      "links": [
+        {
+          "label": "Adam Safron — public directory",
+          "href": "/knowledge/#member-adam-safron"
         }
       ]
     },
     {
       "heading": "Participation",
-      "body": "AICACP welcomes contributors with backgrounds in AI, ethics, policy, philosophy of mind, and Active Inference. Engagement ranges from theoretical discussion to practical documentation and policy writing.",
+      "body": "AICACP welcomes contributors with backgrounds in AI, alignment, policy, philosophy of mind, cognitive science, and Active Inference. Engagement ranges from theoretical discussion to special-issue editing, workshop participation, and public outreach.",
       "links": [
         {
           "sourceId": "discord"
@@ -38,11 +58,11 @@
       ]
     },
     {
-      "heading": "Full materials",
-      "body": "The complete, authoritative AICACP materials are currently maintained at the AICACP hub and are being migrated onto this site. Until that migration is complete, the hub remains the source of truth for the program's detailed documentation.",
+      "heading": "Learn more and get in touch",
+      "body": "For those interested in learning more, please see the project document, which describes the AI Capabilities & Alignment Consensus Project in detail and includes how to reach the organizing editor with thoughts or questions.",
       "links": [
         {
-          "sourceId": "aicacp"
+          "sourceId": "aicacp-project-doc"
         }
       ]
     }
@@ -54,7 +74,7 @@
     "active-inference"
   ],
   "externalSourceIds": [
-    "github-org",
+    "aicacp-project-doc",
     "discord",
     "official-participation",
     "aicacp"
