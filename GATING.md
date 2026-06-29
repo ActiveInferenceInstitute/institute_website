@@ -53,17 +53,20 @@ JSON is clean — and vice versa.
 
 ## Known coverage gaps (see TODO.md / open items)
 
-The defense is strong on the sync path but has documented seams:
+The defense is strong on the sync path. One seam was closed and others remain:
 
-1. **Producer 2 slices are not re-validated in-repo.** Several committed files
-   from the private export (the `*_graph.json`, `narratives_public.json`,
-   `domain_projects.json`, `communications_public.json` set) are consumed into
-   HTML but are not run through `validate_public_payload` by any in-repo check.
-   They rely on the upstream private exporter being correct. Wiring them into a
-   **prose-tuned** validator (one that blocks real emails, `coda.io`, `/users/`,
-   and phone numbers, but tolerates the structured-registry tokens that
-   legitimately appear in public narrative prose and graph node labels) closes
-   this gap.
+1. **Producer 2 slices — re-validated in-repo (closed).** The committed
+   graph/narrative files from the private export (`*_graph.json`,
+   `narratives_public.json`, `domain_projects.json`, `communications_public.json`,
+   `strategies_public.json`) **are** now run through an in-repo gate:
+   `validate_public_prose_payload` in `check_committed_public_payloads`
+   (`scripts/sync_instituteos_public_data.py`, executed by `npm run check:instituteos`).
+   It is a **prose-tuned** variant of `validate_public_payload` — it blocks real
+   emails, `coda.io`, `/users/`, phone numbers, and the unambiguous private keys,
+   while tolerating structured-registry tokens (e.g. `slack`/`discord`/`linkedin`
+   node labels, the word `workspace`) that legitimately appear in public prose and
+   graph node labels. The upstream private exporter remains the first line of
+   defense; this is defense-in-depth.
 2. **Resolved Coda destinations in source.** `src/content/live-sources.json`
    stores resolved `finalUrl` values for verification; these are not rendered
    into HTML but are committed in source. `check:sources` is not in the default

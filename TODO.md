@@ -9,15 +9,13 @@ strict Content Security Policy, gated by `npm run check`.
 
 ### From the 2026-06 deep review (see [`INDEX.md`](INDEX.md), [`GATING.md`](GATING.md))
 
-- [ ] **Gating coverage (P0):** wire the 7 producer-2 slices
-      (`governance_graph`, `ontology_graph`, `tech_tree_graph`, `domain_projects`,
-      `narratives_public`, `communications_public`, `strategies_public`) into an
-      **enforced** public-safety check. Use a *prose-tuned* validator (block real
-      emails, `coda.io`, `/users/`, phone numbers) — do **not** reuse
-      `validate_public_payload` as-is: its `PRIVATE_KEYS` (discord/slack/linkedin)
-      and `FORBIDDEN_SUBSTRINGS` (`workspace`) legitimately appear in public
-      narrative prose and graph node labels and would turn `check:instituteos` red
-      on shippable content. See [`GATING.md`](GATING.md) "Known coverage gaps".
+- [x] **Gating coverage (P0) — DONE.** The 7 producer-2 slices (`*_graph`,
+      `domain_projects`, `narratives_public`, `communications_public`,
+      `strategies_public`) are now run through `validate_public_prose_payload` in
+      `check_committed_public_payloads` (enforced by `check:instituteos`) — a
+      prose-tuned gate (blocks real emails, `coda.io`, `/users/`, phones, and
+      unambiguous private keys; tolerates `slack`/`discord`/`linkedin`/`workspace`
+      tokens that legitimately appear in public prose). See [`GATING.md`](GATING.md).
 - [ ] **Release hygiene (P1):** git tags stop at `v2.4.0` but `CHANGELOG.md` has
       `v2.5.0`/`v2.6.0`; the domain migration + 11-locale launch sits under
       `## Unreleased`. Cut a release per [`RELEASING.md`](RELEASING.md) and backfill

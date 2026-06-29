@@ -13,8 +13,10 @@ file in this directory is served directly.
 2. The graph/narrative slices (`governance_graph`, `ontology_graph`,
    `tech_tree_graph`, `domain_projects`, `narratives_public`,
    `communications_public`, `strategies_public`) arrive **pre-sanitized from a
-   separate private InstituteOS export** and are not currently re-validated by
-   an in-repo gate (a known coverage gap — see GATING.md).
+   separate private InstituteOS export**, and are **also re-validated in-repo** by
+   `validate_public_prose_payload` (a prose-tuned gate in
+   `check_committed_public_payloads`, run by `npm run check:instituteos`) — see
+   GATING.md.
 
 Run `npm run sync:instituteos` to regenerate the producer-1 slices. Run
 `npm run build` to rebuild the HTML.
@@ -229,7 +231,7 @@ Strategic revenue-stream / department map.
 ## Invariants
 
 - All string values are run through public text normalization (whitespace collapsed, certain internal terms substituted).
-- Private fields (contacts, email, phone, interactions, etc.) must never be present in any file. **Enforcement status:** producer-1 slices are gated by `validate_public_payload` (denylist + email regex) via `check:instituteos`; producer-2 slices rely on the upstream private exporter and are not yet re-validated in-repo (see GATING.md). The rendered HTML is independently gated by `check:security` (no `coda.io`, no PII, external links forced through the `live-sources.json` allowlist).
+- Private fields (contacts, email, phone, interactions, etc.) must never be present in any file. **Enforcement status:** producer-1 slices are gated by `validate_public_payload` (denylist + email regex) and producer-2 slices by `validate_public_prose_payload` (prose-tuned denylist + email/phone regex), both via `check:instituteos`. The rendered HTML is independently gated by `check:security` (no `coda.io`, no PII, external links forced through the `live-sources.json` allowlist).
 - `entities.json` uses `people`/`organizations` keys (not `records`) — handle both patterns in consuming code.
 - `ontology.json` uses `trees`/`edges` keys (not `records`).
 - All other files use a top-level `records` array.
