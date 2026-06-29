@@ -5,6 +5,14 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+_Nothing yet._
+
+## v2.7.0 — 2026-06-29
+
+Public launch on GitHub Pages: `activeinference.institute` migrated off
+Squarespace, plus a full build-time multilingual site (11 locales). Minor bump —
+public URLs were preserved via redirects, so visitors see no breaking change.
+
 ### Added
 - **Squarespace → GitHub Pages migration** — switch of `activeinference.institute`
   off Squarespace. Adds a `CNAME` and flips `site.json` `baseUrl` to the apex
@@ -53,6 +61,20 @@ This project follows [Semantic Versioning](https://semver.org/).
   `lib/`, `render/`, `pages/`, `feeds.mjs`), leaving `build.mjs` a ~107-line
   orchestrator. A pure refactor: generated output is byte-identical at every
   step (no version bump, no user-facing change).
+- **Enforced public-safety gate on producer-2 data slices** — the 7
+  graph/narrative JSON files from the separate private InstituteOS export
+  (`*_graph.json`, `narratives_public`, `domain_projects`, `communications_public`,
+  `strategies_public`) are now validated by a prose-tuned check in
+  `check:instituteos`, closing a gap where they shipped into HTML ungated. See
+  [`GATING.md`](GATING.md).
+- **Documentation pass** — new top-level [`INDEX.md`](INDEX.md) (repository map),
+  [`GATING.md`](GATING.md) (gated public-projection contract), and
+  [`RELEASING.md`](RELEASING.md) (versioning + release checklist); de-orphaned the
+  `docs/` conceptual guides from the entry points; added per-folder docs for
+  `src/pages/`, `data/`, and `simulations/`; deduplicated the root
+  `INTERNATIONALIZATION.md` / `DESIGN_SYSTEM.md` against their `docs/` supersets.
+- **Mobile fix** — the dropdown nav no longer detaches in the 601–960px viewport
+  range (nav menu now goes in-flow at the same breakpoint as its group).
 
 ## v2.6.0 — 2026-06-21
 

@@ -53,11 +53,9 @@ other fails `npm run check`.
 - Contributors must always commit the rebuilt HTML (see
   [CONTRIBUTING.md](CONTRIBUTING.md)).
 
-## Outstanding (as of this writing)
+## History note
 
-- Git tags currently stop at `v2.4.0`; `CHANGELOG.md` documents `v2.5.0` and
-  `v2.6.0` with **no matching annotated tags** — backfill `v2.5.0` and `v2.6.0`.
-- A full domain migration (Squarespace → GitHub Pages) plus the 11-locale i18n
-  launch sits under `## Unreleased` and should be cut as a release (minor vs major
-  is a judgement call — the baseUrl/domain cutover is a hard URL change, but the
-  public URLs were preserved via redirects).
+`v2.7.0` (2026-06-29) cut the domain migration + 11-locale i18n launch as a
+**minor** release (public URLs were preserved via redirects). Annotated tags
+`v2.5.0` and `v2.6.0`, previously missing, were backfilled at that time. Tags are
+now the authoritative release markers — keep every CHANGELOG version tagged.
