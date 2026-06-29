@@ -11,6 +11,7 @@ function inlineMarkdown(text) {
   t = t.replace(/\*\*([^*]+?)\*\*/g, "<strong>$1</strong>");
   t = t.replace(/\*([^*\s][^*]*?)\*/g, "<em>$1</em>");
   t = t.replace(/\*+/g, ""); // strip any leftover stray asterisks
+  t = t.replace(/(^|\s)#{1,6}(?=\s|$)/g, "$1"); // orphan heading markers (keeps "#1", "#001.1")
   return t.replace(/\s{2,}/g, " ").trim();
 }
 
@@ -41,7 +42,11 @@ function renderNarrativeTable(rows) {
 // bullet lists, bold/italic, paragraphs) into safe, structured HTML. Replaces the
 // previous behaviour of dumping each markdown line into an escaped <p>.
 function renderNarrativeBody(rawBody) {
-  const clean = sanitizePublicProse(String(rawBody || ""));
+  const clean = sanitizePublicProse(String(rawBody || ""))
+    // Put a heading marker that runs on mid-line onto its own line so it parses
+    // as a heading instead of leaking "## Title" into a paragraph. Requires a
+    // space after the hashes, so inline references like "#1"/"#001.1" are kept.
+    .replace(/(\S)[ \t]*(#{1,6}[ \t]+)/g, "$1\n\n$2");
   const lines = clean.split("\n");
   const out = [];
   let list = [];
