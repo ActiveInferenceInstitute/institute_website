@@ -10,8 +10,8 @@ import { loadProjectsData } from "../data.mjs";
 function curatedTargets() {
   const targets = [
     { names: ["Active Inference Institute"], slug: "about" },
-    { names: ["Board of Directors"], slug: "structure", anchor: "board-of-directors" },
-    { names: ["Scientific Advisory Board"], slug: "structure", anchor: "scientific-advisory-board" },
+    { names: ["Board of Directors", "BoD"], slug: "structure", anchor: "board-of-directors" },
+    { names: ["Scientific Advisory Board", "SAB"], slug: "structure", anchor: "scientific-advisory-board" },
     { names: ["EduActive"], slug: "eduactive" },
     { names: ["ReInference"], slug: "reinference" },
     { names: ["Research Fellows", "Fellowship"], slug: "fellowship" },

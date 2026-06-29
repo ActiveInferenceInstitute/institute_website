@@ -21,6 +21,7 @@ import { resourceCards } from "./resources.mjs";
 import { layout } from "./layout.mjs";
 import { slugToHref, resolveInternalHref } from "./urls.mjs";
 import { homeInstituteosGate, instituteosFeatureSections } from "./feature-sections.mjs";
+import { autolinkInternal } from "./autolink.mjs";
 import { knowledgePreview } from "./knowledge.mjs";
 import { relatedProjectsSection } from "../pages/projects.mjs";
 
@@ -206,7 +207,7 @@ export function publicPage(page) {
           // only the visible heading and body are translated.
           return `<article class="article-block" id="${escapeHtml(slugifyAnchor(section.heading))}">
             <h2>${escapeHtml(tr(section.heading))}</h2>
-            <p>${escapeHtml(tr(section.body))}</p>${links ? `\n            ${links}` : ""}
+            <p>${autolinkInternal(escapeHtml(tr(section.body)), currentDir)}</p>${links ? `\n            ${links}` : ""}
           </article>`;
         })
         .join("")}
