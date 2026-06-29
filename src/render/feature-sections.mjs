@@ -261,6 +261,7 @@ export function instituteosFeatureSections(page, currentDir = "") {
           title: "How the Institute is organized",
           text: "Public narrative content describing how the Institute is structured and organized.",
           targetPage: "structure",
+          currentDir,
         })
       );
     case "ecosystem":
@@ -272,6 +273,7 @@ export function instituteosFeatureSections(page, currentDir = "") {
           title: "The Active Inference ecosystem",
           text: "Public narrative content describing the ecosystem and its domains of application.",
           targetPage: "ecosystem",
+          currentDir,
         })
       );
     case "about":
@@ -281,6 +283,7 @@ export function instituteosFeatureSections(page, currentDir = "") {
         title: "Mission, history, and direction",
         text: "Public mission, vision, values, history, strategy, and focus-area prose for the Institute.",
         targetPage: "about",
+        currentDir,
       });
     case "activities":
       return activitiesFeatureSection(currentDir);

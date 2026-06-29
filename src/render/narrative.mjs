@@ -1,6 +1,7 @@
 import { siteData } from "../data.mjs";
 import { escapeHtml, sanitizePublicProse, slugifyAnchor } from "../lib/text.mjs";
 import { sectionHeading } from "./components.mjs";
+import { autolinkInternal } from "./autolink.mjs";
 
 // Inline markdown -> safe HTML. Text is escaped FIRST; only **bold**/*italic*
 // structure is then converted, and empty emphasis left behind by entity/link
@@ -122,7 +123,7 @@ export function narrativesForTarget(targetPage) {
 }
 
 // Render a narrative collection as one content-band with stacked prose blocks.
-export function narrativeSection({ id, eyebrow, title, text, targetPage }) {
+export function narrativeSection({ id, eyebrow, title, text, targetPage, currentDir = "" }) {
   const entries = narrativesForTarget(targetPage);
   if (!entries.length) {
     return "";
@@ -131,7 +132,7 @@ export function narrativeSection({ id, eyebrow, title, text, targetPage }) {
     .map((entry) => {
       return `<article class="article-block" id="${escapeHtml(slugifyAnchor(`narrative-${entry.section}-${entry.title}`))}">
             <h3>${escapeHtml(entry.title)}</h3>
-            ${entry.html}
+            ${autolinkInternal(entry.html, currentDir)}
           </article>`;
     })
     .join("\n          ");
