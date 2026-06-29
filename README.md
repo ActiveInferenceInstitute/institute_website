@@ -11,8 +11,11 @@ architecture and SEO infrastructure, see
 Canonical repository:
 [https://github.com/ActiveInferenceInstitute/institute_website](https://github.com/ActiveInferenceInstitute/institute_website)
 
-For contributors and agents: start at [AGENTS.md](AGENTS.md) (documentation map)
-and the agent skill at `.claude/skills/institute-website/SKILL.md`.
+For contributors and agents: start at [INDEX.md](INDEX.md) (top-level repository
+map) or [AGENTS.md](AGENTS.md) (documentation map), and the agent skill at
+`.claude/skills/institute-website/SKILL.md`. Full conceptual guides live in
+[docs/README.md](docs/README.md). How to version and release: [RELEASING.md](RELEASING.md).
+The gated public-projection contract: [GATING.md](GATING.md).
 
 ## Purpose
 

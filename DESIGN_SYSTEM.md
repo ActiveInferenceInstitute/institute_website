@@ -1,7 +1,11 @@
 # Design system
 
-> Canonical authoritative reference. For the expanded conceptual guide (tokens,
-> components, accessibility checklist) see [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md).
+> **Precedence:** the *enforced* contract is the per-folder `AGENTS.md`
+> ([`assets/AGENTS.md`](assets/AGENTS.md), [`src/render/AGENTS.md`](src/render/AGENTS.md))
+> — that is what `npm run check:design-system` validates. The full conceptual
+> guide (tokens, components, accessibility checklist) is
+> [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md). This root file is the canonical
+> narrative summary of the CSS-layering and token-fallback invariant below.
 
 The site's visual language is driven by a small token contract so the brand
 stays consistent and a single source of truth controls colour, type, spacing,

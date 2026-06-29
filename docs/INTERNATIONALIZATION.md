@@ -502,13 +502,13 @@ A locale with `"dir": "rtl"` (currently only Arabic) renders `<html lang="ar" di
 
 | Path | Role |
 | --- | --- |
-| [`src/i18n/locales.json`](/src/i18n/locales.json) | Locale registry (code, name, native name, dir, machine flag) |
-| [`src/i18n/index.mjs`](/src/i18n/index.mjs) | `tr()` function, active-locale context, catalog loading, extraction |
-| [`src/content/i18n/_strings.json`](/src/content/i18n/_strings.json) | Extracted English source strings (translator's work list) |
-| [`src/content/i18n/<code>.json`](/src/content/i18n/) | Committed translation catalogs (e.g., `es.json`, `de.json`) |
-| [`src/url-taxonomy.mjs`](/src/url-taxonomy.mjs) | Locale-aware routing (single point: `urlDirForSlug()`) |
-| [`src/url-taxonomy.json`](/src/url-taxonomy.json) | Program subpage routing rules |
-| [`src/build.mjs`](/src/build.mjs) | Build loop: renders every routed page once per locale |
-| [`src/render/layout.mjs`](/src/render/layout.mjs) | Page chrome: `<html lang dir>`, `hreflang` alternates, language switcher, MT notice |
-| [`scripts/i18n_translate.mjs`](/scripts/i18n_translate.mjs) | Offline translator (Ollama or hosted API) |
-| [`scripts/check_site_contract.py`](/scripts/check_site_contract.py) | Locale-aware contract checker (reads `locales.json`) |
+| [`src/i18n/locales.json`](../src/i18n/locales.json) | Locale registry (code, name, native name, dir, machine flag) |
+| [`src/i18n/index.mjs`](../src/i18n/index.mjs) | `tr()` function, active-locale context, catalog loading, extraction |
+| [`src/content/i18n/_strings.json`](../src/content/i18n/_strings.json) | Extracted English source strings (translator's work list) |
+| [`src/content/i18n/<code>.json`](../src/content/i18n/) | Committed translation catalogs (e.g., `es.json`, `de.json`) |
+| [`src/url-taxonomy.mjs`](../src/url-taxonomy.mjs) | Locale-aware routing (single point: `urlDirForSlug()`) |
+| [`src/url-taxonomy.json`](../src/url-taxonomy.json) | Program subpage routing rules |
+| [`src/build.mjs`](../src/build.mjs) | Build loop: renders every routed page once per locale |
+| [`src/render/layout.mjs`](../src/render/layout.mjs) | Page chrome: `<html lang dir>`, `hreflang` alternates, language switcher, MT notice |
+| [`scripts/i18n_translate.mjs`](../scripts/i18n_translate.mjs) | Offline translator (Ollama or hosted API) |
+| [`scripts/check_site_contract.py`](../scripts/check_site_contract.py) | Locale-aware contract checker (reads `locales.json`) |

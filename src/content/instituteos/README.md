@@ -1,10 +1,23 @@
 # instituteos/ — Public Data Contract
 
-This directory holds public-safe JSON files produced by `scripts/sync_instituteos_public_data.py`.
-All files are **build-time inputs** — consumed by `src/build.mjs` to generate static HTML.
-No file in this directory is served directly.
+This directory holds public-safe JSON files. All files are **build-time inputs**
+— consumed by `src/build.mjs` (and `src/feeds.mjs`) to generate static HTML. No
+file in this directory is served directly.
 
-Run `npm run sync:instituteos` to regenerate. Run `npm run build` to rebuild the HTML.
+**Two producers feed this directory** (see [`../../../GATING.md`](../../../GATING.md)):
+
+1. The registry slices (`people`, `projects`, `ideas`, `ontology`, `assets`,
+   `entities`, `processes`, `communications`, `policies`, `calendar`) are
+   produced by `scripts/sync_instituteos_public_data.py` and validated by
+   `npm run check:instituteos`.
+2. The graph/narrative slices (`governance_graph`, `ontology_graph`,
+   `tech_tree_graph`, `domain_projects`, `narratives_public`,
+   `communications_public`, `strategies_public`) arrive **pre-sanitized from a
+   separate private InstituteOS export** and are not currently re-validated by
+   an in-repo gate (a known coverage gap — see GATING.md).
+
+Run `npm run sync:instituteos` to regenerate the producer-1 slices. Run
+`npm run build` to rebuild the HTML.
 
 ---
 
@@ -152,10 +165,71 @@ Public governance policy registry overview.
 
 ---
 
+## Producer-2 slices (private InstituteOS export)
+
+### `calendar.json`
+Public iCalendar snapshot for the calendar page.
+
+```
+{
+  calendarName: string, description: string,
+  embedUrl: string, icsUrl: string, source: string,
+  records: [{ id, title, start, end, allDay, status, timeZone, url }]
+}
+```
+
+### `communications_public.json`
+Public communications feed (also read by `src/feeds.mjs` for RSS).
+
+```
+{ description: string, records: [{ id, type, title, author, date, referenceNumber, language }] }
+```
+
+### `domain_projects.json`
+Projects grouped by "Active Inference and X" domain.
+
+```
+{ domains: [{ domain: string, slug: string, projects: [...] }] }
+```
+
+### `narratives_public.json`
+Public Institute prose transposed from the public Coda workspace, keyed to a target page.
+
+```
+{ narratives: [{ section: string, title: string, body: string, target_page: string }] }
+```
+
+### `governance_graph.json` · `ontology_graph.json` · `tech_tree_graph.json`
+Node-link graphs rendered by `assets/js/graphs.js`. Same shape:
+
+```
+{
+  nodes: [{ id: string, label: string, type: string, meta: object, href?: string }],
+  edges: [{ source: string, target: string, relation: string }]
+}
+```
+
+### `strategies_public.json`
+Strategic revenue-stream / department map.
+
+```
+{
+  description: string,
+  departments: [{ id, label, nodeCount }],
+  revenueStreams: [{ id, label, from }]
+}
+```
+
+> **Note:** `strategies_public.json` currently has **no consumer** in the repo —
+> it ships but is not loaded by any renderer or feed. Either wire it into a page
+> or remove it (tracked in [`../../../TODO.md`](../../../TODO.md)).
+
+---
+
 ## Invariants
 
 - All string values are run through public text normalization (whitespace collapsed, certain internal terms substituted).
-- Private fields (contacts, email, phone, interactions, etc.) are never present in any file.
+- Private fields (contacts, email, phone, interactions, etc.) must never be present in any file. **Enforcement status:** producer-1 slices are gated by `validate_public_payload` (denylist + email regex) via `check:instituteos`; producer-2 slices rely on the upstream private exporter and are not yet re-validated in-repo (see GATING.md). The rendered HTML is independently gated by `check:security` (no `coda.io`, no PII, external links forced through the `live-sources.json` allowlist).
 - `entities.json` uses `people`/`organizations` keys (not `records`) — handle both patterns in consuming code.
 - `ontology.json` uses `trees`/`edges` keys (not `records`).
 - All other files use a top-level `records` array.

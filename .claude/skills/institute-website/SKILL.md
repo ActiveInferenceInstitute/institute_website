@@ -82,13 +82,20 @@ the identity:
 | [`src/lib/`](../../../src/lib/AGENTS.md) | Pure helpers (output, paths, text, instituteos) |
 | [`src/content/`](../../../src/content/AGENTS.md) | JSON registries (site, navigation, resources, live-sources, …) |
 | [`src/content/pages/`](../../../src/content/pages/AGENTS.md) | Page content + the page schema and type templates |
+| [`src/pages/`](../../../src/pages/AGENTS.md) | Registry-driven page renderers (calendar, directory, projects, search, sitemap, …) |
 | [`scripts/`](../../../scripts/AGENTS.md) | Check gates, InstituteOS sync, i18n translate |
 | [`assets/`](../../../assets/AGENTS.md) | CSS design system, JS, images, `redirects.js` |
+| [`data/`](../../../data/README.md) | Build provenance (`export-manifest.json`) + projects feed |
+| [`simulations/`](../../../simulations/README.md) | Vendored interactive demos (excluded from first-party gates) |
 
 ## Cross-references
 
+- **Top-level repository map: [`INDEX.md`](../../../INDEX.md)** — fastest orientation
 - Root agent guide: [`AGENTS.md`](../../../AGENTS.md)
 - Human-facing readme: [`README.md`](../../../README.md)
+- **Conceptual guides: [`docs/README.md`](../../../docs/README.md)** — ARCHITECTURE, SLUG_AND_URL_TAXONOMY, CONTENT_AUTHORING, GATES_AND_VALIDATION, …
+- Gated public-projection contract: [`GATING.md`](../../../GATING.md)
+- Versioning & releasing: [`RELEASING.md`](../../../RELEASING.md)
 - Design system: [`DESIGN_SYSTEM.md`](../../../DESIGN_SYSTEM.md)
 - Internationalization: [`INTERNATIONALIZATION.md`](../../../INTERNATIONALIZATION.md)
 - Domain migration runbook: [`MIGRATION.md`](../../../MIGRATION.md) and [`SWITCHOVER.md`](../../../SWITCHOVER.md)

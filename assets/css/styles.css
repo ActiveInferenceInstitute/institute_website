@@ -1184,9 +1184,14 @@ select:focus-visible {
     position: static;
   }
 
+  /* Menu goes in-flow at the SAME breakpoint nav-group becomes static, so the
+     dropdown is never detached/absolute in the 601-960px range. */
   .nav-menu {
+    position: static;
     left: 0;
     right: auto;
+    width: 100%;
+    margin-top: 0.35rem;
   }
 
   .metrics-band,
@@ -1235,12 +1240,6 @@ select:focus-visible {
 
   .nav-menu-button {
     justify-content: space-between;
-  }
-
-  .nav-menu {
-    position: static;
-    width: 100%;
-    margin-top: 0.35rem;
   }
 
   .pager {

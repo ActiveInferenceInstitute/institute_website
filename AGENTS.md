@@ -12,13 +12,21 @@ Start here, then open the most specific doc for your task:
 | Doc | Use it for |
 | --- | --- |
 | **[`.claude/skills/institute-website/SKILL.md`](.claude/skills/institute-website/SKILL.md)** | The invokable agent skill — golden rules + task workflows. Read this first for any change. |
+| **[`INDEX.md`](INDEX.md)** | Top-level repository map: every entry tagged source/output/config/docs, build+gate commands, doc map, gating, versioning. The fastest orientation. |
 | This file (`AGENTS.md`) | Operating contract, build/content/design model, gates. |
 | [`README.md`](README.md) | Human-facing overview. |
+| [`docs/README.md`](docs/README.md) | **Conceptual & navigation guides** (11 docs: ARCHITECTURE, SLUG_AND_URL_TAXONOMY, CONTENT_AUTHORING, GATES_AND_VALIDATION, …). Start here for the *why*. |
+| [`GATING.md`](GATING.md) | The gated-public-projection contract: what flows from private sources, sanitizers, gates, exclusions. |
+| [`RELEASING.md`](RELEASING.md) | How/where to version and cut a release (SemVer policy, checklist). |
 | [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) | Colors, tokens, the design-system export contract. |
 | [`INTERNATIONALIZATION.md`](INTERNATIONALIZATION.md) | Locales, `tr()`, offline translation. |
 | [`MIGRATION.md`](MIGRATION.md) | Redirect map + subdomain-forward repoint table. |
 | [`SWITCHOVER.md`](SWITCHOVER.md) | Cutover handoff: done / can-do / needs-human, DNS records. |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`CHANGELOG.md`](CHANGELOG.md) · [`TODO.md`](TODO.md) | Contribution flow, history, backlog. |
+
+> **Doc precedence:** per-folder `AGENTS.md` = enforced contract · root longform
+> (`README`, `DESIGN_SYSTEM`, `INTERNATIONALIZATION`, …) = canonical narrative ·
+> `docs/` = conceptual guide. When they disagree, the per-folder `AGENTS.md` wins.
 
 Per-folder guides: [`src/AGENTS.md`](src/AGENTS.md) ·
 [`src/render/AGENTS.md`](src/render/AGENTS.md) ·
@@ -26,8 +34,11 @@ Per-folder guides: [`src/AGENTS.md`](src/AGENTS.md) ·
 [`src/content/AGENTS.md`](src/content/AGENTS.md) ·
 [`src/content/pages/AGENTS.md`](src/content/pages/AGENTS.md)
 (+ [`_TEMPLATES.md`](src/content/pages/_TEMPLATES.md)) ·
+[`src/pages/AGENTS.md`](src/pages/AGENTS.md) ·
 [`scripts/AGENTS.md`](scripts/AGENTS.md) ·
-[`assets/AGENTS.md`](assets/AGENTS.md).
+[`assets/AGENTS.md`](assets/AGENTS.md) ·
+[`data/README.md`](data/README.md) ·
+[`simulations/README.md`](simulations/README.md).
 
 ## Operating Contract
 
