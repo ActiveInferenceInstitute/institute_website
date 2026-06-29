@@ -123,7 +123,7 @@ These are registrar/DNS forwards independent of the static site hosting. They re
 | `ontology` | `/projects/active-inference-ontology/` | On-site | Ready |
 | `sab` | `/structure/#scientific-advisory-board` | On-site | Ready |
 | `bod` | `/structure/#board-of-directors` | On-site | Ready |
-| `newsletter` | `https://activeinferenceinstitute.substack.com/` | External | Permanent |
+| `newsletter` | `http://newsletter.activeinference.institute/` | External | Permanent |
 | `chat` | Perplexity search | External | Permanent |
 | `obsidian` | Obsidian knowledge base (surfaced on `/active-inference/`) | External | Permanent |
 | `resnei` | `https://zenodo.org/records/15389683` | External | Permanent |
@@ -150,7 +150,7 @@ These are registrar/DNS forwards independent of the static site hosting. They re
    - **0.6** for deep collection/detail pages (depth 2+, e.g., `/projects/ai-safety/`)
 5. Assigning `changefreq` hints:
    - **weekly** for home and top-level sections
-   - **monthly** for deep pages
+   - **monthly** for deeper routes
 6. Setting `lastmod` to the export date (stable per export, never a live clock)
 
 **Location**: The sitemap declares itself in `robots.txt`:

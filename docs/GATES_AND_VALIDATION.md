@@ -88,7 +88,7 @@ Broken local references:
 **What it enforces:**
 - Committed sanitized data in `src/content/instituteos/*.json` matches what the sync would produce from InstituteOS source
 - No private keys leak into public exports: `email`, `phone`, `contacts`, `slack`, `discord`, `linkedin`, `primary_contact`, etc.
-- No forbidden substrings: `coda.io`, `/users/`, `workspace`, `source atlas`, `source manifest`, `aii.pdf`
+- No forbidden substrings for private workspaces, legacy source-render indexes, or retired document artifacts
 - No email-address patterns in any serialized value
 - Brand assets in `assets/img/instituteos/` are present and match the export
 
@@ -164,14 +164,14 @@ node scripts/check_design_system_export.mjs
 | Failure | Cause | Fix |
 |---------|-------|-----|
 | `Website design-system CSS is stale` | CSS export in the committed file is outdated | Run the design-system export: `npm run export:website -- --to ../../repos/institute_website/assets/css/instituteos-ds.css` in the sibling `design-system` monorepo |
-| `styles.css fallback for --ds-red is "#cc0000" but the design-system value is "#dd0000"` | Fallback was edited without updating the canonical token | Edit `assets/css/styles.css` `:root` to match the canonical value |
+| `styles.css fallback for --ds-red is not aligned with the design-system value` | Fallback was edited without updating the canonical token | Edit `assets/css/styles.css` `:root` to match the canonical value |
 | `Website design-system font is stale` | Font binary has been updated upstream but not synced | Copy fresh fonts from `../../library/design-system/src/styles/fonts/*.woff2` to `assets/css/fonts/` |
 | `Website design-system font list differs from export` | Font filenames have changed | Sync font filenames from the design-system source |
 
 **Failure messages:**
 ```
 - Website design-system CSS is stale: /path/to/assets/css/instituteos-ds.css
-- styles.css fallback for --ds-text is "#0f252a" but the design-system value is "#1a3a40"
+- styles.css fallback for --ds-text is not aligned with the design-system value
 - Website design-system font is stale: /path/to/assets/css/fonts/Fraunces-Bold.woff2
 ```
 
@@ -414,12 +414,11 @@ Site contract check failed:
 
 **Enforces:**
 - No obsolete public artifacts remain on disk:
-  - Paths: `atlas/`, `assets/source/AII.pdf`, `assets/js/atlas.js`, `source.html`, `src/content/pdf-pages.json`, `scripts/extract_pdf.py`
-  - Images matching pattern `assets/img/source-page-*.png`
-- No stale theme tokens (old color hex values or variable names from prior design):
-  - Patterns: `#11383f`, `#0e7c7b`, `#bd8b2f`, `var(--teal)`, `docxology.github.io`
+  - Legacy source-render paths, source-image patterns, and deprecated extractor scripts
+- No stale theme tokens from prior designs:
+  - Legacy host references, hardcoded brand colors, and pre-design-system CSS variable names
 - No obsolete text in public files:
-  - Patterns: `\bPDF\b`, `AII\.pdf`, `Source Atlas`, `atlas/`, `pdf-pages`, `Pages [0-9]`
+  - Legacy source-render labels, deprecated generated-page registry names, and old page-count wording
 - No direct `coda.io` URLs in:
   - Generated HTML files
   - `assets/css/styles.css`
@@ -433,8 +432,8 @@ Site contract check failed:
 **Failure messages:**
 ```
 - obsolete public artifact remains: atlas
-- obsolete public image remains: assets/img/source-page-1.png
-- assets/css/styles.css contains stale reference #0e7c7b
+- obsolete public source-render image remains
+- assets/css/styles.css contains a stale legacy theme value
 - README.md contains visible Coda/workspace wording
 - src/build.mjs hardcodes external URLs instead of live-sources.json: ['https://example.org/x']
 - site.json still contains the obsolete sourcePdf field
