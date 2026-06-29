@@ -89,6 +89,43 @@ FORBIDDEN_SUBSTRINGS = (
 # Generic email-address pattern. The historical sync gate relied solely on the
 # ``"email"`` key scan; this catches an address that leaks into any *value*.
 EMAIL_RE = re.compile(r"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}", re.IGNORECASE)
+
+# Producer-2 slices: pre-sanitized public graph/narrative files emitted by a
+# separate private InstituteOS export (NOT by this script). They ship into HTML
+# and were previously validated by no in-repo gate. We re-validate them here as
+# defense-in-depth, but with a *prose-tuned* gate: structured-registry tokens
+# (``slack``/``discord``/``linkedin`` as social-platform node labels, the common
+# English word ``workspace``) legitimately appear in public narrative prose and
+# graph node labels, so reusing the strict registry gate would turn this check
+# red on shippable content. We keep the unambiguous leak markers and add a phone
+# pattern, per the public-projection contract (see GATING.md).
+PRODUCER2_PUBLIC_JSON_FILES = (
+    "governance_graph.json",
+    "ontology_graph.json",
+    "tech_tree_graph.json",
+    "domain_projects.json",
+    "narratives_public.json",
+    "communications_public.json",
+    "strategies_public.json",
+)
+# Private structural keys that are unambiguously private even in prose payloads.
+# Drops slack/discord/linkedin (valid public node labels); email/phone are caught
+# by regex below regardless of key name.
+PROSE_PRIVATE_KEYS = {
+    "contacts",
+    "interactions",
+    "address",
+    "notes",
+    "primary_contact",
+}
+# Genuine leak markers only. Drops ``workspace`` (common English word) from the
+# strict set; keeps resolved-Coda, absolute-path, and internal-artifact markers.
+PROSE_FORBIDDEN_SUBSTRINGS = tuple(
+    s for s in FORBIDDEN_SUBSTRINGS if s != "workspace"
+)
+# Tight phone pattern (US/NANP 3-3-4 grouping with optional +1) — distinctly
+# phone-shaped to avoid false positives on years, IDs, or coordinates.
+PHONE_RE = re.compile(r"(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}")
 PUBLIC_GITHUB_PEOPLE = [
     {
         "id": "github-docxology",
@@ -611,6 +648,29 @@ def validate_public_payload(data: Any, path: str) -> None:
         raise ValueError(f"{path} contains blocked email address(es) {found_emails!r}")
 
 
+def validate_public_prose_payload(data: Any, path: str) -> None:
+    """Prose-tuned public-safety gate for producer-2 graph/narrative slices.
+
+    Blocks the same unambiguous leak markers as ``validate_public_payload``
+    (resolved Coda destinations, absolute local paths, internal artifacts,
+    emails, phone numbers) but tolerates structured-registry tokens that appear
+    legitimately in public prose and graph node labels.
+    """
+    serialized = json.dumps(data, ensure_ascii=False).lower()
+    for blocked in PROSE_PRIVATE_KEYS:
+        if f'"{blocked}"' in serialized:
+            raise ValueError(f"{path} contains blocked private key {blocked!r}")
+    for blocked in PROSE_FORBIDDEN_SUBSTRINGS:
+        if blocked in serialized:
+            raise ValueError(f"{path} contains blocked public term {blocked!r}")
+    found_emails = sorted(set(EMAIL_RE.findall(serialized)))
+    if found_emails:
+        raise ValueError(f"{path} contains blocked email address(es) {found_emails!r}")
+    found_phones = sorted(set(PHONE_RE.findall(serialized)))
+    if found_phones:
+        raise ValueError(f"{path} contains blocked phone-like number(s) {found_phones!r}")
+
+
 def build_results(instituteos_root: Path) -> list[SyncResult]:
     repositories_data = load_json(PROJECT_ROOT / "src" / "content" / "repositories.json")
     tech_tree_data = load_json(instituteos_root / "library" / "registries" / "tech_trees.json")
@@ -695,6 +755,20 @@ def check_committed_public_payloads() -> int:
         except (OSError, json.JSONDecodeError, ValueError) as exc:
             errors.append(f"{path.relative_to(PROJECT_ROOT)} failed public-safety validation: {exc}")
 
+    # Producer-2 slices (separate private export). Validate whichever are
+    # committed, with the prose-tuned gate. Missing ones are not an error — they
+    # arrive from an external pipeline and may be absent.
+    producer2_checked = 0
+    for name in PRODUCER2_PUBLIC_JSON_FILES:
+        path = CONTENT_OUT / name
+        if not path.exists():
+            continue
+        producer2_checked += 1
+        try:
+            validate_public_prose_payload(load_json(path), path.name)
+        except (OSError, json.JSONDecodeError, ValueError) as exc:
+            errors.append(f"{path.relative_to(PROJECT_ROOT)} failed public-safety validation: {exc}")
+
     for filename in BRAND_ASSETS:
         path = ASSET_OUT / filename
         if not path.exists() or path.stat().st_size == 0:
@@ -708,7 +782,8 @@ def check_committed_public_payloads() -> int:
 
     print(
         "InstituteOS registry source not available; validated committed public "
-        f"payloads ({len(json_files)} JSON files, {len(BRAND_ASSETS)} brand assets)."
+        f"payloads ({len(json_files)} registry + {producer2_checked} producer-2 "
+        f"JSON files, {len(BRAND_ASSETS)} brand assets)."
     )
     return 0
 
