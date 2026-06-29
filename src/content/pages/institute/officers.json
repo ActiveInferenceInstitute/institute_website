@@ -1,0 +1,33 @@
+{
+  "slug": "officers",
+  "title": "Officers",
+  "subtitle": "The executive officers responsible for day-to-day operation of the Institute.",
+  "audience": "Anyone seeking to understand who runs the Institute's day-to-day operations.",
+  "lede": "The Officers of the Active Inference Institute are responsible for executing the Institute's day-to-day operations, administration, and finances under the governance of the Board of Directors.",
+  "primaryActions": [
+    {
+      "label": "Get involved",
+      "sourceId": "official-get-involved"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Role of the Officers",
+      "body": "Officers carry out the operational, administrative, and financial functions of the Active Inference Institute. They implement Board-approved strategy and policy, manage records and finances, and coordinate the Institute's programs and units. Officers are appointed under the Bylaws and serve alongside the Board of Directors and the Scientific Advisory Board.",
+      "links": []
+    }
+  ],
+  "order": 13,
+  "relatedSlugs": [
+    "structure",
+    "board-of-directors",
+    "scientific-advisory-board",
+    "get-involved"
+  ],
+  "externalSourceIds": [
+    "official-get-involved"
+  ],
+  "resourceGroups": [
+    "institute"
+  ]
+}

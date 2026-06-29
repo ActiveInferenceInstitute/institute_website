@@ -1545,3 +1545,9 @@ body{transition:background-color 200ms,color 200ms}
 .article-block h5 { margin: 0.9rem 0 0.3rem; font-size: 0.95rem; }
 .article-block ul { margin: 0.4rem 0 0.8rem; padding-left: 1.2rem; }
 .article-block li { margin: 0.2rem 0; }
+
+/* Governance roster (Board of Directors / Officers / Scientific Advisory Board pages) */
+.roster-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem 1.25rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.roster-member { padding: 0.5rem 0; border-bottom: 1px solid var(--glass-border, rgba(255,255,255,0.1)); display: flex; flex-direction: column; gap: 0.1rem; }
+.roster-member a { font-weight: 600; }
+.roster-role { font-size: 0.82rem; color: var(--text-dim, #9aa0a6); }

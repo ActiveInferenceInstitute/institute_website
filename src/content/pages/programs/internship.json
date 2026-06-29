@@ -6,6 +6,10 @@
   "lede": "An internship is a structured contribution pathway — work on real Institute projects, develop skills, and build relationships with researchers and educators in the Active Inference field.",
   "primaryActions": [
     {
+      "label": "Apply for the internship",
+      "sourceId": "internform"
+    },
+    {
       "label": "Internship pathway",
       "sourceId": "official-internship"
     },
@@ -114,6 +118,7 @@
     "get-involved"
   ],
   "externalSourceIds": [
+    "internform",
     "official-internship",
     "official-intern",
     "discord",

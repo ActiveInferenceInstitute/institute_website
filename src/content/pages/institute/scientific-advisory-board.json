@@ -1,0 +1,42 @@
+{
+  "slug": "scientific-advisory-board",
+  "title": "Scientific Advisory Board",
+  "subtitle": "External experts who provide scientific and scholarly guidance to the Institute.",
+  "audience": "Researchers and scholars interested in the Institute's scientific direction or in joining the SAB.",
+  "lede": "The Scientific Advisory Board (SAB) provides scientific, technical, and scholarly guidance to the Active Inference Institute, advising on research direction, rigor, and the development of the field.",
+  "primaryActions": [
+    {
+      "label": "Apply to the SAB",
+      "sourceId": "sabform"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Role of the SAB",
+      "body": "The Scientific Advisory Board is a group of external experts who advise the Active Inference Institute on scientific and technical matters. SAB members help guide research priorities, uphold rigor across the Institute's programs and publications, and connect the Institute to the broader scientific community. The SAB complements the Board of Directors, which governs, and the Officers, who operate the Institute.",
+      "links": []
+    },
+    {
+      "heading": "Join the SAB",
+      "body": "The Institute welcomes scientists and scholars who can contribute expertise across Active Inference, the Free Energy Principle, and adjacent fields. To express interest or apply, complete the Scientific Advisory Board application form.",
+      "links": [
+        {
+          "sourceId": "sabform"
+        }
+      ]
+    }
+  ],
+  "order": 14,
+  "relatedSlugs": [
+    "structure",
+    "board-of-directors",
+    "officers",
+    "get-involved"
+  ],
+  "externalSourceIds": [
+    "sabform"
+  ],
+  "resourceGroups": [
+    "institute"
+  ]
+}

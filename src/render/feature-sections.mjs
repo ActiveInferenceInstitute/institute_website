@@ -242,7 +242,59 @@ function activitiesFeatureSection(currentDir = "") {
   return calendarBlock + projectsBlock;
 }
 
+// Governance roster pages: a filtered, stable list of the people currently in an
+// affiliation (Board of Directors, Officers, Scientific Advisory Board), each
+// linked to its knowledge-page member row. Role-slot placeholder entities (whose
+// name is composed entirely of role words, e.g. "Board Secretary") are excluded
+// so only real members appear.
+const GOVERNANCE_ROSTERS = {
+  "board-of-directors": { roles: ["Board of Directors", "Director"], title: "Current Board of Directors" },
+  officers: { roles: ["Officer", "President", "Vice President", "Secretary", "Treasurer"], title: "Current Officers" },
+  "scientific-advisory-board": {
+    roles: ["Scientific Advisory Board", "Scientific Advisor"],
+    title: "Current Scientific Advisory Board",
+  },
+};
+const ROLE_WORDS = new Set(
+  "board secretary president vice director officer lead coordinator manager compliance data protection hr it security eduactive reinference procurement communications esg unit member chief executive treasurer advisory scientific advisor"
+    .split(" "),
+);
+function isRoleSlotPlaceholder(name) {
+  const words = String(name || "")
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
+  return words.length > 0 && words.every((word) => ROLE_WORDS.has(word));
+}
+function governanceRosterSection(slug, currentDir = "") {
+  const config = GOVERNANCE_ROSTERS[slug];
+  if (!config) {
+    return "";
+  }
+  const members = (siteData.instituteos.entities.people || [])
+    .filter((person) => person && person.name && person.active !== false && !isRoleSlotPlaceholder(person.name))
+    .filter((person) => (person.roles || []).some((role) => config.roles.includes(role)))
+    .sort((a, b) => String(a.name).localeCompare(String(b.name)));
+  if (!members.length) {
+    return "";
+  }
+  const cards = members
+    .map((person) => {
+      const href = hrefForSlug("knowledge", currentDir, `member-${person.id}`);
+      const role = person.title ? `<span class="roster-role">${escapeHtml(person.title)}</span>` : "";
+      return `<li class="roster-member"><a href="${href}">${escapeHtml(person.name)}</a>${role}</li>`;
+    })
+    .join("");
+  return `<section class="content-band" id="current-members">
+    ${sectionHeading({ eyebrow: "Members", title: config.title, text: `${members.length} current ${members.length === 1 ? "member" : "members"}, linked to the public directory.` })}
+    <ul class="roster-grid">${cards}</ul>
+  </section>`;
+}
+
 export function instituteosFeatureSections(page, currentDir = "") {
+  if (GOVERNANCE_ROSTERS[page.slug]) {
+    return governanceRosterSection(page.slug, currentDir);
+  }
   switch (page.slug) {
     case "instituteos":
       return instituteosInterfaceSection(currentDir);

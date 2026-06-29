@@ -1728,6 +1728,39 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-06-28T21:00:00Z"
+    },
+    {
+      "id": "internform",
+      "label": "Internship application form",
+      "category": "Participate",
+      "url": "https://internform.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink to the Internship application form.",
+      "finalUrl": "https://internform.activeinference.institute",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T22:00:00Z"
+    },
+    {
+      "id": "bodform",
+      "label": "Board of Directors application form",
+      "category": "Institute",
+      "url": "https://bodform.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink to the Board of Directors application form.",
+      "finalUrl": "https://bodform.activeinference.institute",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T22:00:00Z"
+    },
+    {
+      "id": "sabform",
+      "label": "Scientific Advisory Board application form",
+      "category": "Institute",
+      "url": "https://sabform.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink to the Scientific Advisory Board application form.",
+      "finalUrl": "https://sabform.activeinference.institute",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-28T22:00:00Z"
     }
   ]
 }

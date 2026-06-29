@@ -1,0 +1,42 @@
+{
+  "slug": "board-of-directors",
+  "title": "Board of Directors",
+  "subtitle": "The primary governing body of the Active Inference Institute.",
+  "audience": "Anyone seeking to understand the Institute's governance or to join the Board.",
+  "lede": "The Board of Directors provides formal governance, fiduciary oversight, strategic direction, and institutional accountability for the Active Inference Institute.",
+  "primaryActions": [
+    {
+      "label": "Apply to the Board",
+      "sourceId": "bodform"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Role of the Board",
+      "body": "The Board of Directors is the primary governing body of the Active Inference Institute. It sets strategy, ensures fiduciary and legal compliance, approves major policies including the Bylaws, and holds ultimate accountability for the Institute's mission. The Board works alongside the Officers, who run day-to-day operations, and the Scientific Advisory Board, which provides scientific and scholarly guidance.",
+      "links": []
+    },
+    {
+      "heading": "Join the Board",
+      "body": "The Institute periodically invites new Directors who can contribute governance experience, domain expertise, and stewardship of the mission. To express interest or apply, complete the Board of Directors application form.",
+      "links": [
+        {
+          "sourceId": "bodform"
+        }
+      ]
+    }
+  ],
+  "order": 12,
+  "relatedSlugs": [
+    "structure",
+    "officers",
+    "scientific-advisory-board",
+    "get-involved"
+  ],
+  "externalSourceIds": [
+    "bodform"
+  ],
+  "resourceGroups": [
+    "institute"
+  ]
+}

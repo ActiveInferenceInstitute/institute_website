@@ -11,6 +11,18 @@
         "slug": "structure"
       },
       {
+        "label": "Board of Directors",
+        "slug": "board-of-directors"
+      },
+      {
+        "label": "Officers",
+        "slug": "officers"
+      },
+      {
+        "label": "Scientific Advisory Board",
+        "slug": "scientific-advisory-board"
+      },
+      {
         "label": "Ecosystem",
         "slug": "ecosystem"
       },
