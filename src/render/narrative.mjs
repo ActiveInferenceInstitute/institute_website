@@ -40,8 +40,9 @@ function renderNarrativeTable(rows) {
 }
 
 // Render a transposed narrative body (light markdown: headings, pipe-tables,
-// bullet lists, bold/italic, paragraphs) into safe, structured HTML. Replaces the
-// previous behaviour of dumping each markdown line into an escaped <p>.
+// ordered/unordered lists, bold/italic, paragraphs) into safe, structured HTML.
+// Replaces the previous behaviour of dumping each markdown line into an escaped
+// <p>.
 function renderNarrativeBody(rawBody) {
   const clean = sanitizePublicProse(String(rawBody || ""))
     // Put a heading marker that runs on mid-line onto its own line so it parses
@@ -50,13 +51,43 @@ function renderNarrativeBody(rawBody) {
     .replace(/(\S)[ \t]*(#{1,6}[ \t]+)/g, "$1\n\n$2");
   const lines = clean.split("\n");
   const out = [];
-  let list = [];
+  const lists = [];
   let table = [];
-  const flushList = () => {
-    if (list.length) {
-      out.push(`<ul>${list.map((li) => `<li>${inlineMarkdown(li)}</li>`).join("")}</ul>`);
-      list = [];
+  const closeList = () => {
+    const context = lists.pop();
+    if (!context) {
+      return;
     }
+    if (context.liOpen) {
+      out.push("</li>");
+    }
+    out.push(`</${context.type}>`);
+  };
+  const flushLists = () => {
+    while (lists.length) {
+      closeList();
+    }
+  };
+  const openList = (type, indent) => {
+    out.push(`<${type}>`);
+    lists.push({ type, indent, liOpen: false });
+  };
+  const appendListItem = (type, indent, value) => {
+    while (lists.length && indent < lists[lists.length - 1].indent) {
+      closeList();
+    }
+    if (!lists.length || indent > lists[lists.length - 1].indent) {
+      openList(type, indent);
+    } else if (lists[lists.length - 1].type !== type) {
+      closeList();
+      openList(type, indent);
+    }
+    const current = lists[lists.length - 1];
+    if (current.liOpen) {
+      out.push("</li>");
+    }
+    out.push(`<li>${inlineMarkdown(value)}`);
+    current.liOpen = true;
   };
   const flushTable = () => {
     if (table.length) {
@@ -70,19 +101,19 @@ function renderNarrativeBody(rawBody) {
   for (const raw of lines) {
     const line = raw.trim();
     if (!line) {
-      flushList();
+      flushLists();
       flushTable();
       continue;
     }
     if (line.startsWith("|")) {
-      flushList();
+      flushLists();
       table.push(line);
       continue;
     }
     flushTable();
     const heading = line.match(/^(#{1,6})\s+(.*)$/);
     if (heading) {
-      flushList();
+      flushLists();
       const level = Math.min(heading[1].length + 2, 6); // ## -> h4, ### -> h5
       const txt = inlineMarkdown(heading[2]);
       if (txt) {
@@ -90,20 +121,22 @@ function renderNarrativeBody(rawBody) {
       }
       continue;
     }
-    const item = line.match(/^[-*]\s+(.*)$/);
+    const item = raw.match(/^(\s*)(?:([-*])|(\d+)\.)\s+(.*)$/);
     if (item) {
-      if (inlineMarkdown(item[1])) {
-        list.push(item[1]);
+      const value = item[4];
+      if (inlineMarkdown(value)) {
+        const indent = item[1].replace(/\t/g, "    ").length;
+        appendListItem(item[2] ? "ul" : "ol", indent, value);
       }
       continue;
     }
-    flushList();
+    flushLists();
     const para = inlineMarkdown(line);
     if (para) {
       out.push(`<p>${para}</p>`);
     }
   }
-  flushList();
+  flushLists();
   flushTable();
   return out.join("\n");
 }

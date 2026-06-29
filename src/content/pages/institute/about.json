@@ -12,6 +12,10 @@
     {
       "label": "Institute & Ecosystem document",
       "sourceId": "ecosystem"
+    },
+    {
+      "label": "Newsletter",
+      "sourceId": "official-newsletter"
     }
   ],
   "resourceGroups": [
@@ -30,6 +34,18 @@
         },
         {
           "sourceId": "discord"
+        },
+        {
+          "label": "Programs",
+          "href": "/programs/"
+        },
+        {
+          "label": "Projects",
+          "href": "/projects/"
+        },
+        {
+          "label": "Activities",
+          "href": "/activities/"
         }
       ]
     },
@@ -37,6 +53,15 @@
       "heading": "History",
       "body": "The Institute was founded in 2021 as a volunteer-led community dedicated to making Active Inference more accessible and applicable across science, engineering, and practical domains. The community understood from the outset that change is inevitable, that sustainability and growth depend on a willingness to take chances, and that building trust takes time. In 2022 the first Textbook Group cohort began, bringing together learners from diverse backgrounds to study Active Inference collaboratively — multiple cohorts have since completed the program. The Applied Active Inference Symposium launched in 2021 and has grown into an annual gathering, with five completed symposia through 2025 and a sixth planned for 2026. The Institute was incorporated as a 501(c)(3) nonprofit in Delaware, USA, formalizing governance with a Board of Directors, Officers, and Scientific Advisory Board. The Institute and Ecosystem living document — a community-authored survey of the Institute's state and directions — was first published as an academic paper in 2023 and updated annually through 2025, with contributions from over thirty authors worldwide.",
       "links": [
+        {
+          "sourceId": "official-history"
+        },
+        {
+          "sourceId": "official-textbook-group-shortlink"
+        },
+        {
+          "sourceId": "official-symposium-shortlink"
+        },
         {
           "sourceId": "video"
         },
@@ -47,7 +72,18 @@
     },
     {
       "heading": "Mission, Vision, Values, and Principles",
-      "body": "Our mission is to improve the accessibility, rigor, and applicability of Active Inference across science, engineering, education, and practical domains. The Institute operates by the motto Act. Infer. Serve. — a commitment to learning, action, and service. Our values include integrity, open learning, responsible conduct, professional development, research excellence, and practical service. We practice open science: making research reproducible and navigable, publishing under open licenses, and stewarding shared infrastructure. Diversity of background, discipline, and familiarity level is a feature of the community, not a constraint."
+      "body": "Our mission is to improve the accessibility, rigor, and applicability of Active Inference across science, engineering, education, and practical domains. The Institute operates by the motto Act. Infer. Serve. — a commitment to learning, action, and service. Our values include integrity, open learning, responsible conduct, professional development, research excellence, and practical service. We practice open science: making research reproducible and navigable, publishing under open licenses, and stewarding shared infrastructure. Diversity of background, discipline, and familiarity level is a feature of the community, not a constraint.",
+      "links": [
+        {
+          "sourceId": "shortlink-welcome"
+        },
+        {
+          "sourceId": "shortlink-strategy"
+        },
+        {
+          "sourceId": "official-activeinference-org"
+        }
+      ]
     },
     {
       "heading": "Institute Structure",
@@ -56,6 +92,26 @@
         {
           "label": "View full structure and roles",
           "href": "/structure/"
+        },
+        {
+          "label": "Board of Directors",
+          "href": "/board-of-directors/"
+        },
+        {
+          "label": "Officers",
+          "href": "/officers/"
+        },
+        {
+          "label": "Scientific Advisory Board",
+          "href": "/scientific-advisory-board/"
+        },
+        {
+          "label": "EduActive",
+          "href": "/eduactive/"
+        },
+        {
+          "label": "ReInference",
+          "href": "/reinference/"
         }
       ]
     },
@@ -66,15 +122,55 @@
         {
           "label": "Explore all programs",
           "href": "/programs/"
+        },
+        {
+          "label": "Volunteer",
+          "href": "/volunteer/"
+        },
+        {
+          "label": "Internship",
+          "href": "/programs/internship/"
+        },
+        {
+          "label": "Mentorship",
+          "href": "/programs/mentorship/"
+        },
+        {
+          "label": "Fellowship",
+          "href": "/programs/fellowship/"
+        },
+        {
+          "label": "Partnership",
+          "href": "/programs/partnership/"
+        },
+        {
+          "label": "Philanthropy",
+          "href": "/programs/philanthropy/"
+        },
+        {
+          "label": "Grants",
+          "href": "/grants/"
         }
       ]
     },
     {
       "heading": "Open Science and the Ecosystem",
-      "body": "The Institute publishes its work under open licenses and maintains public repositories, video archives, newsletters, an Active Inference Ontology, and a Journal. We participate in and support the broader Active Inference Ecosystem — a growing network of researchers, practitioners, and learners working across disciplines including computational neuroscience, cognitive science, ecology, economics, and engineering.",
+      "body": "The Institute publishes its work under open licenses and maintains public repositories, a video archive, the Newsletter, an Active Inference Ontology, and the Active Inference Journal. We participate in and support the broader Active Inference Ecosystem — a growing network of researchers, practitioners, and learners working across disciplines including computational neuroscience, cognitive science, ecology, economics, and engineering.",
       "links": [
         {
           "sourceId": "github-org"
+        },
+        {
+          "sourceId": "video"
+        },
+        {
+          "sourceId": "official-newsletter"
+        },
+        {
+          "sourceId": "shortlink-ontology"
+        },
+        {
+          "sourceId": "journal"
         },
         {
           "sourceId": "ecosystem"
@@ -90,6 +186,9 @@
         {
           "label": "History",
           "href": "/about/#history"
+        },
+        {
+          "sourceId": "official-history"
         }
       ]
     },
@@ -99,6 +198,14 @@
       "links": [
         {
           "sourceId": "discord"
+        },
+        {
+          "label": "Volunteer",
+          "href": "/volunteer/"
+        },
+        {
+          "label": "Get involved",
+          "href": "/get-involved/"
         }
       ]
     },
@@ -106,6 +213,15 @@
       "title": "Applied rigor",
       "text": "The Institute connects Active Inference theory with applied projects, symposia, tools, and ecosystem support.",
       "links": [
+        {
+          "sourceId": "official-symposium-shortlink"
+        },
+        {
+          "sourceId": "shortlink-ontology"
+        },
+        {
+          "sourceId": "journal"
+        },
         {
           "sourceId": "github-org"
         }
@@ -118,6 +234,9 @@
         {
           "label": "Programs",
           "href": "/programs/"
+        },
+        {
+          "sourceId": "shortlink-strategy"
         }
       ]
     }
@@ -125,10 +244,14 @@
   "order": 1,
   "relatedSlugs": [
     "structure",
+    "history",
     "programs",
     "eduactive",
     "reinference",
     "active-inference",
+    "projects",
+    "knowledge",
+    "volunteer",
     "get-involved"
   ],
   "externalSourceIds": [
@@ -136,7 +259,13 @@
     "weekly",
     "discord",
     "github-org",
+    "journal",
     "official-activeinference-org",
+    "official-history",
+    "official-newsletter",
+    "official-symposium-shortlink",
+    "official-textbook-group-shortlink",
+    "shortlink-ontology",
     "shortlink-strategy",
     "shortlink-welcome",
     "video"

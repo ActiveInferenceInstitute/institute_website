@@ -336,12 +336,12 @@
       "id": "official-newsletter",
       "label": "Newsletter",
       "category": "Updates",
-      "url": "https://newsletter.activeinference.institute",
+      "url": "http://newsletter.activeinference.institute/",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "finalUrl": "https://activeinferenceinstitute.substack.com/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-06-29T02:39:59Z"
     },
     {
       "id": "official-participation",
