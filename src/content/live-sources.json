@@ -696,6 +696,17 @@
       "checkedAt": "2026-06-09T01:59:33Z"
     },
     {
+      "id": "tnb-youtube",
+      "label": "TNB YouTube channel",
+      "category": "Research",
+      "url": "https://www.youtube.com/@theoreticalneurobiology",
+      "sourceBasis": "Public Theoretical Neurobiology Group YouTube channel with recordings of past meetings.",
+      "finalUrl": "https://www.youtube.com/@theoreticalneurobiology",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-06-29T00:00:00Z"
+    },
+    {
       "id": "official-volunteer",
       "label": "Volunteer pathway",
       "category": "Participate",

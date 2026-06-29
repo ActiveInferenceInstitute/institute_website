@@ -868,6 +868,35 @@ select:focus-visible {
   letter-spacing: 0;
 }
 
+.article-block.has-figure {
+  display: grid;
+  grid-template-columns: minmax(140px, 180px) minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+}
+
+.article-figure {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.article-figure-body > h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 720px) {
+  .article-block.has-figure {
+    grid-template-columns: 1fr;
+  }
+
+  .article-figure {
+    max-width: 180px;
+  }
+}
+
 .resource-tools {
   display: grid;
   grid-template-columns: minmax(240px, 1.4fr) repeat(4, minmax(150px, 0.8fr)) max-content;

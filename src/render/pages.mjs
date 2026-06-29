@@ -19,7 +19,7 @@ import { sectionHeading, cardGrid, breadcrumb, pageGuide } from "./components.mj
 import { publicPagePager } from "./pager.mjs";
 import { resourceCards } from "./resources.mjs";
 import { layout } from "./layout.mjs";
-import { slugToHref, resolveInternalHref } from "./urls.mjs";
+import { slugToHref, resolveInternalHref, relPrefix } from "./urls.mjs";
 import { homeInstituteosGate, instituteosFeatureSections } from "./feature-sections.mjs";
 import { autolinkInternal } from "./autolink.mjs";
 import { knowledgePreview } from "./knowledge.mjs";
@@ -203,11 +203,23 @@ export function publicPage(page) {
       ${page.sections
         .map((section) => {
           const links = linkChips(section.links, currentDir);
+          const chips = links ? `\n            ${links}` : "";
+          const heading = `<h2>${escapeHtml(tr(section.heading))}</h2>`;
+          const para = `<p>${autolinkInternal(escapeHtml(tr(section.body)), currentDir)}</p>`;
           // The DOM id stays English-stable (anchors must match across locales);
           // only the visible heading and body are translated.
+          if (section.image && section.image.src) {
+            const alt = (section.image.alt && tr(section.image.alt)) || tr(section.heading);
+            const img = `<img class="article-figure" src="${escapeHtml(relPrefix(currentDir) + section.image.src)}" alt="${escapeHtml(alt)}" width="${Number(section.image.width) || 600}" height="${Number(section.image.height) || 600}" loading="lazy" decoding="async">`;
+            return `<article class="article-block has-figure" id="${escapeHtml(slugifyAnchor(section.heading))}">
+            ${img}
+            <div class="article-figure-body">${heading}
+            ${para}${chips}</div>
+          </article>`;
+          }
           return `<article class="article-block" id="${escapeHtml(slugifyAnchor(section.heading))}">
-            <h2>${escapeHtml(tr(section.heading))}</h2>
-            <p>${autolinkInternal(escapeHtml(tr(section.body)), currentDir)}</p>${links ? `\n            ${links}` : ""}
+            ${heading}
+            ${para}${chips}
           </article>`;
         })
         .join("")}
