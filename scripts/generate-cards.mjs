@@ -106,10 +106,10 @@ function buildSvg(title) {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#0a0a0a"/>
   <rect x="0" y="0" width="1200" height="8" fill="#ef4444"/>
-  <g transform="translate(150 315)">
-    <circle cx="0" cy="0" r="124" fill="none" stroke="#ef4444" stroke-width="24"/>
-    <circle cx="0" cy="0" r="72" fill="none" stroke="#ef4444" stroke-width="18" opacity="0.5"/>
-    <circle cx="0" cy="0" r="24" fill="#ef4444"/>
+  <g transform="translate(150 315)" fill="#ef4444">
+    <rect x="-118" y="-104" width="236" height="40" rx="9"/>
+    <rect x="-82" y="-64" width="40" height="156" rx="8"/>
+    <rect x="42" y="-64" width="40" height="156" rx="8"/>
   </g>
 ${titleTspans}
   <text x="${textX + 2}" y="${taglineY}" fill="#ef4444" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="600" letter-spacing="2">Act. Infer. Serve.</text>

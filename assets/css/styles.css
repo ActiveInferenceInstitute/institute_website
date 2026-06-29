@@ -138,8 +138,10 @@ select:focus-visible {
   border: 1px solid var(--red);
   border-radius: var(--radius);
   background: var(--surface-strong);
-  color: var(--ink);
+  color: var(--red);
   font-weight: 800;
+  font-size: 1.6rem;
+  line-height: 1;
   letter-spacing: 0;
 }
 

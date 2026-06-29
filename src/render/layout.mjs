@@ -118,7 +118,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   <a class="skip-link" href="#main">${escapeHtml(tr("Skip to content"))}</a>
   <header class="site-header">
     <a class="brand" href="${homeHref}" aria-label="${escapeHtml(siteData.site.name)} home">
-      <span class="brand-mark">AI</span>
+      <span class="brand-mark" aria-hidden="true">π</span>
       <span>
         <strong>${escapeHtml(siteData.site.name)}</strong>
         <em>${escapeHtml(siteData.site.tagline)}</em>
