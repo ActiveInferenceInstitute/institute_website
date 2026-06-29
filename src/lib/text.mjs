@@ -38,6 +38,23 @@ export function sanitizePublicProse(value = "") {
   for (const [pattern, replacement] of replacements) {
     text = text.replace(pattern, replacement);
   }
+  // Clean up the grammatical residue left when entity mentions / links were
+  // redacted upstream (empty emphasis, orphaned connectors, stray punctuation).
+  // All rules are conservative — they only remove never-grammatical fragments,
+  // never invent words.
+  text = text
+    .replace(/\*\*\s*\*\*/g, "") // empty bold "** **" from a stripped entity name
+    .replace(/(^|[^*])\*[ \t]+\*(?!\*)/g, "$1") // empty italic "* *"
+    .replace(/\bthe\s+and\b/gi, "the") // "guidance to the and People" -> "...to the People"
+    .replace(/\b(of|with|by|from|for)\s+and\b/gi, "$1") // "insights of and X" -> "insights of X"
+    .replace(/\b(and|the|of|to)\s+\1\b/gi, "$1") // de-dupe "and and" / "the the"
+    .replace(/\b(?:by|of|from|with|to|for|and)\s*(?=\n)/gim, "") // preposition dangling at line end
+    .replace(/\(\s*\)/g, "") // empty parens
+    .replace(/\[\s*\]/g, "") // empty brackets
+    .replace(/[ \t]{2,}/g, " ") // collapse runs of spaces
+    .replace(/\s+([.,;:!?])/g, "$1") // space before punctuation
+    .replace(/([,;:])\1+/g, "$1") // doubled punctuation
+    .replace(/[ \t]+$/gm, ""); // trailing whitespace per line
   // Collapse markdown bullet artifacts and excess whitespace.
   text = text.replace(/\r/g, "");
   return text;
