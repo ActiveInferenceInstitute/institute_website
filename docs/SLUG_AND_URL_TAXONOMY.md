@@ -7,28 +7,33 @@
 
 The URL taxonomy is defined in **`src/url-taxonomy.mjs`** and the shared JSON config **`src/url-taxonomy.json`**.
 
-### Core Rules: `baseDirForSlug(slug)`
+### Core Rules: `baseDirForSlug(slug)` (data-driven)
 
-Located in `src/url-taxonomy.mjs:33–47`, this function maps a slug to its locale-agnostic directory:
+`baseDirForSlug(slug)` in `src/url-taxonomy.mjs` maps a slug to its locale-agnostic
+directory by **iterating the ordered routing rules** in `src/url-taxonomy.json`
+(rather than hard-coded `if/else` branches):
 
 ```javascript
 export function baseDirForSlug(slug) {
-  if (slug === "index") {
-    return "";                                // → index.html (root)
+  if (slug === _ROUTING.indexSlug) {
+    return "";                                          // → index.html (root)
   }
-  if (slug.startsWith("project-")) {
-    return `projects/${slug.slice("project-".length)}`;  // → projects/<name>/
+  for (const rule of _ROUTING.rules) {
+    if (rule.type === "prefix" && slug.startsWith(rule.match)) {
+      return `${rule.dir}${slug.slice(rule.match.length)}`;  // strip prefix, reroot
+    }
+    if (rule.type === "set" && _SLUG_SETS[rule.match]?.has(slug)) {
+      return `${rule.dir}${slug}`;                      // reroot a named slug-set
+    }
   }
-  if (PROGRAM_SUBPAGE_SLUGS.has(slug)) {
-    return `programs/${slug}`;                // → programs/<slug>/
-  }
-  return slug;                                // → <slug>/ (everything else)
+  return slug;                                          // → <slug>/ (everything else)
 }
 ```
 
-### Program Subpage Slugs
+### The routing table (`src/url-taxonomy.json`)
 
-The set of slugs that route under `/programs/` rather than at root is defined in **`src/url-taxonomy.json`**:
+Both the JS build and the Python contract checker (`scripts/check_site_contract.py`)
+read these rules, so they can never disagree:
 
 ```json
 {
@@ -38,11 +43,26 @@ The set of slugs that route under `/programs/` rather than at root is defined in
     "mentorship",
     "partnership",
     "philanthropy"
-  ]
+  ],
+  "routing": {
+    "indexSlug": "index",
+    "rules": [
+      { "type": "prefix", "match": "project-", "dir": "projects/" },
+      { "type": "set", "match": "programSubpageSlugs", "dir": "programs/" }
+    ]
+  }
 }
 ```
 
-This JSON is **shared with the Python contract checker** (`scripts/check_site_contract.py`) so the JS build and Python validator share a single source.
+- A **`prefix`** rule strips `match` and reroots the remainder under `dir`
+  (`project-affordances` → `projects/affordances`).
+- A **`set`** rule reroots an entire named slug-set under `dir`, keeping the full
+  slug (`fellowship` → `programs/fellowship`).
+- Anything matching no rule routes to root `/<slug>/`.
+
+To add a routing family, add a rule here — no code change in `url-taxonomy.mjs` or
+`check_site_contract.py` is needed. Verify with `npm run check` (the `check:site`
+gate asserts the JS build and Python checker agree on every URL).
 
 ### Slug→URL Examples
 

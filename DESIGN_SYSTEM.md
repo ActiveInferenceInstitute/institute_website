@@ -1,5 +1,8 @@
 # Design system
 
+> Canonical authoritative reference. For the expanded conceptual guide (tokens,
+> components, accessibility checklist) see [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md).
+
 The site's visual language is driven by a small token contract so the brand
 stays consistent and a single source of truth controls colour, type, spacing,
 and motion. This document explains how the CSS is layered, what the fallback

@@ -5,5 +5,12 @@
     "mentorship",
     "partnership",
     "philanthropy"
-  ]
+  ],
+  "routing": {
+    "indexSlug": "index",
+    "rules": [
+      { "type": "prefix", "match": "project-", "dir": "projects/" },
+      { "type": "set", "match": "programSubpageSlugs", "dir": "programs/" }
+    ]
+  }
 }

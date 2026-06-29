@@ -19,6 +19,36 @@ const _data = JSON.parse(fs.readFileSync(path.join(_dir, "url-taxonomy.json"), "
 // Slugs that route under /programs/<slug>/ rather than /<slug>/.
 export const PROGRAM_SUBPAGE_SLUGS = new Set(_data.programSubpageSlugs);
 
+// Named slug-sets a "set" routing rule can reference (keeps the routing table in
+// url-taxonomy.json data-driven while reusing the exported Set above).
+const _SLUG_SETS = { programSubpageSlugs: PROGRAM_SUBPAGE_SLUGS };
+
+// Ordered routing rules read from url-taxonomy.json (shared with the Python
+// contract checker). Rules are evaluated in order and the FIRST match wins. A
+// "prefix" rule strips the matched prefix and reroots the remainder under `dir`;
+// a "set" rule reroots a whole named slug-set under `dir` (no strip).
+const _ROUTING = _data.routing;
+
+// Fail fast on a malformed routing table so a bad edit to url-taxonomy.json can
+// never silently mis-route the site (e.g. an empty `match` would match every slug,
+// or a `set` rule could reference a slug-set that does not exist).
+(function validateRouting() {
+  if (!_ROUTING || typeof _ROUTING.indexSlug !== "string" || !Array.isArray(_ROUTING.rules)) {
+    throw new Error("url-taxonomy.json: routing must have an indexSlug string and a rules array");
+  }
+  for (const rule of _ROUTING.rules) {
+    if (!rule || (rule.type !== "prefix" && rule.type !== "set") || !rule.match || typeof rule.dir !== "string") {
+      throw new Error(
+        `url-taxonomy.json: invalid routing rule ${JSON.stringify(rule)} ` +
+          "(need type 'prefix'|'set', non-empty match, string dir)",
+      );
+    }
+    if (rule.type === "set" && !_SLUG_SETS[rule.match]) {
+      throw new Error(`url-taxonomy.json: set rule references unknown slug-set '${rule.match}'`);
+    }
+  }
+})();
+
 // Per-locale URL prefix. The default locale lives at the site root (""); every
 // other locale gets its own self-contained subtree (e.g. "es/"). Because the
 // prefix is applied to BOTH the current page dir and every link target, the
@@ -31,18 +61,20 @@ export function localePrefix(code = activeLocale()) {
 // Locale-agnostic clean directory for a slug (no locale prefix). Mirrors the
 // shared contract checker's url_dir_for_slug exactly.
 export function baseDirForSlug(slug) {
-  if (slug === "index") {
+  if (slug === _ROUTING.indexSlug) {
     return "";
   }
-  if (slug.startsWith("project-")) {
-    return `projects/${slug.slice("project-".length)}`;
+  for (const rule of _ROUTING.rules) {
+    if (rule.type === "prefix" && slug.startsWith(rule.match)) {
+      return `${rule.dir}${slug.slice(rule.match.length)}`;
+    }
+    if (rule.type === "set" && _SLUG_SETS[rule.match]?.has(slug)) {
+      return `${rule.dir}${slug}`;
+    }
   }
-  if (PROGRAM_SUBPAGE_SLUGS.has(slug)) {
-    return `programs/${slug}`;
-  }
-  // projects, programs, about, structure, ecosystem, active-inference, learning,
-  // activities, get-involved, volunteer, grants, eduactive, reinference,
-  // resources, directory, knowledge -> root-level directory.
+  // Fallback: about, structure, ecosystem, active-inference, learning, activities,
+  // get-involved, volunteer, grants, eduactive, reinference, resources, directory,
+  // knowledge, the domains pages -> root-level directory (/<slug>/).
   return slug;
 }
 

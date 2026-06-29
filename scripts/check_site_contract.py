@@ -36,6 +36,30 @@ CANONICAL_BASE = _canonical_base()
 _TAXONOMY = json.loads((PROJECT_ROOT / "src" / "url-taxonomy.json").read_text(encoding="utf-8"))
 PROGRAM_SUBPAGE_SLUGS = set(_TAXONOMY["programSubpageSlugs"])
 
+# Named slug-sets a "set" routing rule may reference, mirroring _SLUG_SETS in
+# src/url-taxonomy.mjs.
+_SLUG_SETS = {"programSubpageSlugs": PROGRAM_SUBPAGE_SLUGS}
+# Ordered routing rules; first match wins. "prefix" strips + reroots, "set"
+# reroots a named slug-set. Validated below so a malformed url-taxonomy.json fails
+# fast instead of silently mis-routing (mirrors validateRouting() in the JS).
+_ROUTING = _TAXONOMY["routing"]
+
+
+def _validate_routing() -> None:
+    if not isinstance(_ROUTING.get("indexSlug"), str) or not isinstance(_ROUTING.get("rules"), list):
+        raise ValueError("url-taxonomy.json: routing must have an indexSlug string and a rules array")
+    for rule in _ROUTING["rules"]:
+        if rule.get("type") not in {"prefix", "set"} or not rule.get("match") or not isinstance(rule.get("dir"), str):
+            raise ValueError(
+                f"url-taxonomy.json: invalid routing rule {rule!r} "
+                "(need type 'prefix'|'set', non-empty match, string dir)"
+            )
+        if rule["type"] == "set" and rule["match"] not in _SLUG_SETS:
+            raise ValueError(f"url-taxonomy.json: set rule references unknown slug-set {rule['match']!r}")
+
+
+_validate_routing()
+
 # Locale registry mirror of src/i18n/locales.json. Non-default locales live in
 # their own /<code>/ subtree, so the active-locale URL prefix mirrors
 # src/url-taxonomy.mjs's localePrefix(). Internal links stay within a locale, so
@@ -51,15 +75,23 @@ def locale_of_dir(current_dir: str) -> str:
     return first if first in LOCALE_CODES else ""
 
 
+def _base_dir_for_slug(slug: str) -> str:
+    """Locale-agnostic output dir, data-driven from url-taxonomy.json routing rules.
+
+    Mirrors baseDirForSlug() in src/url-taxonomy.mjs exactly.
+    """
+    if slug == _ROUTING["indexSlug"]:
+        return ""
+    for rule in _ROUTING["rules"]:
+        if rule["type"] == "prefix" and slug.startswith(rule["match"]):
+            return f"{rule['dir']}{slug[len(rule['match']) :]}"
+        if rule["type"] == "set" and slug in _SLUG_SETS.get(rule["match"], frozenset()):
+            return f"{rule['dir']}{slug}"
+    return slug
+
+
 def url_dir_for_slug(slug: str, locale: str = "") -> str:
-    if slug == "index":
-        base = ""
-    elif slug.startswith("project-"):
-        base = f"projects/{slug[len('project-') :]}"
-    elif slug in PROGRAM_SUBPAGE_SLUGS:
-        base = f"programs/{slug}"
-    else:
-        base = slug
+    base = _base_dir_for_slug(slug)
     prefix = f"{locale}/" if locale and locale != DEFAULT_LOCALE else ""
     if not base:
         return prefix[:-1] if prefix else ""

@@ -1,5 +1,8 @@
 # Internationalization (i18n)
 
+> Canonical authoritative reference. For the expanded conceptual guide and locale
+> workflow see [`docs/INTERNATIONALIZATION.md`](docs/INTERNATIONALIZATION.md).
+
 The site is fully multilingual. English is the canonical source; every other
 language is **pre-rendered at build time** into its own URL subtree, with a
 language switcher on every page.
