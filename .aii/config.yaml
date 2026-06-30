@@ -1,0 +1,41 @@
+# AII sidecar — InstituteOS metadata. Schema: instituteos.platform.aii_sidecar
+meta:
+  updated: '2026-06-30'
+repo:
+  name: institute_website
+  slug: institute-website
+  full_name: ActiveInferenceInstitute/institute_website
+  description: Static public resource hub for the Active Inference Institute.
+institute:
+  category: website
+  steward: Active Inference Institute
+ecosystem:
+  links:
+    github: https://github.com/ActiveInferenceInstitute/institute_website
+    website: https://www.activeinference.org
+artifacts:
+- path: README.md
+  kind: doc
+  description: Repository overview.
+- path: src
+  kind: code
+  description: Source tree.
+- path: package.json
+  kind: code
+  description: Node package config.
+instituteos:
+  tags:
+  - institute
+  - website
+  - static
+  - public
+  - resource
+  - html
+capabilities:
+- node-package
+- documentation
+- dataset
+tasks:
+  build:
+    cmd: npm run build
+    description: npm build.
