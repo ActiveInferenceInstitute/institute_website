@@ -10,6 +10,10 @@ institute:
   category: website
   steward: Active Inference Institute
 ecosystem:
+  relations:
+  - repo: ActiveInferenceInstitute/InstituteOS
+    relation: referenced-by
+    note: Federated via the InstituteOS .aii manifest.
   links:
     github: https://github.com/ActiveInferenceInstitute/institute_website
     website: https://www.activeinference.org
@@ -23,6 +27,10 @@ artifacts:
 - path: package.json
   kind: code
   description: Node package config.
+provenance:
+  license: CC-BY-4.0
+  citation:
+    text: Active Inference Institute — institute_website.
 instituteos:
   tags:
   - institute
