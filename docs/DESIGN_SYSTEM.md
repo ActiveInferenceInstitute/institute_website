@@ -260,90 +260,6 @@ The site uses proper HTML landmarks:
 
 ---
 
-## Existing Documentation Inventory
-
-This section maps all current documentation and where it lives, so you can understand the landscape before consolidating into a new `docs/` folder.
-
-### Root-Level Documentation (9 files)
-
-| File | Purpose | Audience | Key Topics |
-|------|---------|----------|------------|
-| **README.md** | Human-facing overview | General/new contributors | Purpose, architecture, build model, content model, deployment, design contract |
-| **AGENTS.md** | Agent guide (documentation map) | Claude Code, agents, developers | Operating contract, build model, verification gates, deployment checklist |
-| **DESIGN_SYSTEM.md** | Design-system token reference | Developers, designers | CSS layering, token fallback contract, theming, gate enforcement |
-| **CONTRIBUTING.md** | Contribution guidelines | External contributors | How to report issues, submit PRs, code of conduct |
-| **CHANGELOG.md** | Version history | Release coordinators, auditors | All shipped features v1.0–v2.6, breaking changes, internal refactors |
-| **TODO.md** | Roadmap & backlog | Developers, coordinators | Shipped milestones, backlog ideas, conventions |
-| **INTERNATIONALIZATION.md** | i18n architecture | Developers, translators | Why build-time translation, how the system works, catalog management, workflows |
-| **MIGRATION.md** | Squarespace → GitHub Pages | DevOps, deployment | Redirect map, subdomain-forward table (mentioned but not detailed in read) |
-| **SWITCHOVER.md** | Cutover handoff & checklist | DevOps, release lead | Done/can-do/needs-human tasks, DNS records (mentioned but not detailed in read) |
-
-### Per-Folder Agent Guides (7 AGENTS.md files)
-
-These are **essential operational guides** organized by folder. They document implementation patterns, constraints, and gate contracts specific to each subsystem.
-
-| File | Folder | Purpose | Key Content |
-|------|--------|---------|------------|
-| **src/AGENTS.md** | `src/` | Build pipeline architecture | Entry point, data loading, URL taxonomy, subdirectory map, verification gates |
-| **src/render/AGENTS.md** | `src/render/` | HTML rendering & templates | `layout()` contract, link resolution, SEO/security/URLs, module map |
-| **src/lib/AGENTS.md** | `src/lib/` | Helper utilities | File output, path helpers, text utilities, data access, resource handling |
-| **src/content/AGENTS.md** | `src/content/` | Content registries | Link contract, registry reference, instituteos/ sync, i18n catalogs, constraints |
-| **src/content/pages/AGENTS.md** | `src/content/pages/` | Page authoring | Folder groupings, page schema, slug taxonomy, link rules, gates |
-| **scripts/AGENTS.md** | `scripts/` | Build tooling & gates | npm scripts, check gates, sync script, link verification, translation |
-| **assets/AGENTS.md** | `assets/` | Static assets | CSS structure, JavaScript modules, images |
-
-### Specialized Documentation
-
-| File | Topic | Format |
-|------|-------|--------|
-| **src/content/pages/_TEMPLATES.md** | Page authoring templates | JSON skeleton + examples |
-| **src/content/instituteos/README.md** | Open Source Map data schemas | Per-file schema reference |
-| **.claude/skills/institute-website/SKILL.md** | Agent skill definition | Golden rules, task workflows |
-| **.claude/skills/institute-website/Workflows/AddOrEditPage.md** | Content page workflow | Step-by-step add/edit procedure |
-
-### Documentation by Topic
-
-#### Architecture & Build Model
-- **README.md** — High-level purpose, public content policy, architecture diagram, local workflow, deployment
-- **src/AGENTS.md** — Build pipeline, entry point, data loading, URL taxonomy
-- **src/render/AGENTS.md** — HTML rendering, layout contract, link resolution
-- **src/lib/AGENTS.md** — Utility modules and constraints
-
-#### Content & Authoring
-- **src/content/AGENTS.md** — Registries, link contract, content model
-- **src/content/pages/AGENTS.md** — Page schema, slug taxonomy, authoring rules
-- **src/content/pages/_TEMPLATES.md** — JSON templates and examples
-- **README.md** — Content model overview
-
-#### Design & Styling
-- **DESIGN_SYSTEM.md** — Token architecture, theming, fallback contract, gate enforcement
-- **assets/AGENTS.md** — CSS structure, font hosting, JavaScript modules
-- **assets/css/instituteos-ds.css** — Design-token definitions (generated, not documentation)
-- **assets/css/styles.css** — Site CSS and component layer
-
-#### Gates & Verification
-- **scripts/AGENTS.md** — All check gates, npm scripts, link verification
-- **AGENTS.md** — Verification gates checklist
-
-#### Deployment & DevOps
-- **README.md** — Deployment section, release gates checklist
-- **AGENTS.md** — Deployment section, verification checklist
-- **CHANGELOG.md** — Release notes and version history
-- **MIGRATION.md** — Redirect/subdomain table (Squarespace migration)
-- **SWITCHOVER.md** — Cutover checklist and DNS records
-
-#### Internationalization
-- **INTERNATIONALIZATION.md** — Full i18n architecture, workflow, file map
-- **scripts/AGENTS.md** — `i18n:extract` and `i18n:translate` scripts
-- **src/AGENTS.md** — Locale-aware routing and build loop
-
-#### Code Quality & Contribution
-- **CONTRIBUTING.md** — Issue reporting, PR process, code of conduct
-- **TODO.md** — Conventions, roadmap
-- **CHANGELOG.md** — Breaking changes and migration guidance
-
----
-
 ## Design Patterns & Style Conventions
 
 ### Component Conventions
@@ -502,9 +418,10 @@ All generated artifacts (HTML, `robots.txt`, `sitemap.xml`, social cards, search
 
 ## Further Reading
 
-- **Architecture & Build:** `README.md`, `src/AGENTS.md`
-- **Design Tokens:** `DESIGN_SYSTEM.md`, `assets/css/instituteos-ds.css`
-- **Content Authoring:** `src/content/pages/AGENTS.md`, `src/content/pages/_TEMPLATES.md`
-- **Internationalization:** `INTERNATIONALIZATION.md`
-- **Deployment & Gates:** `AGENTS.md`, `scripts/AGENTS.md`
+- **Architecture & Build:** [ARCHITECTURE.md](ARCHITECTURE.md), [`../src/AGENTS.md`](../src/AGENTS.md)
+- **Root narrative summary:** [`../DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) — the canonical CSS-layering/fallback-contract narrative; this file is the fuller conceptual guide
+- **Design Tokens Source:** [`../assets/css/instituteos-ds.css`](../assets/css/instituteos-ds.css) (generated, do not hand-edit)
+- **Content Authoring:** [CONTENT_AUTHORING.md](CONTENT_AUTHORING.md), [`../src/content/pages/AGENTS.md`](../src/content/pages/AGENTS.md), [`../src/content/pages/_TEMPLATES.md`](../src/content/pages/_TEMPLATES.md)
+- **Internationalization:** [INTERNATIONALIZATION.md](INTERNATIONALIZATION.md)
+- **Deployment & Gates:** [GATES_AND_VALIDATION.md](GATES_AND_VALIDATION.md), [`../AGENTS.md`](../AGENTS.md), [`../scripts/AGENTS.md`](../scripts/AGENTS.md)
 - **Agent Skill:** `.claude/skills/institute-website/SKILL.md`

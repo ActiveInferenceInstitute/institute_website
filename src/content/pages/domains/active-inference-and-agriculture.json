@@ -1,0 +1,67 @@
+{
+  "slug": "active-inference-and-agriculture",
+  "title": "Active Inference and Agriculture",
+  "subtitle": "From battery-budgeted pest sensors to biosphere-scale Markov blankets, agriculture tests active inference across every scale of farming.",
+  "audience": "Active inference researchers, agricultural AI and robotics engineers, and food-systems policymakers exploring principled models of perception and decision-making under uncertainty in farming.",
+  "lede": "Agriculture is intrinsically about perception, action, and adaptation under uncertainty, spanning plant physiology, field management, regional food systems, and biospheric climate dynamics. This report surveys how active inference and the free energy principle have begun to be applied across that range, from edge AI pest detection to sustainability theory for resilient food systems, while distinguishing peer-reviewed evidence from more speculative industrial claims.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Farmers and agricultural systems continuously assimilate noisy data, such as soil moisture, imagery, and weather, and act through irrigation, fertilization, and pest control, a pattern the report frames directly through variational and expected free energy minimization. Expected free energy's split into epistemic value (e.g., pest scouting, sensor placement) and instrumental value (e.g., harvesting at predicted optimal times) maps naturally onto agricultural exploration-versus-exploitation trade-offs. Agriculture's nested scales, from hourly irrigation decisions to multi-year soil restoration and decadal climate adaptation, also suit active inference's hierarchical generative models, and the report extends this to biospheric Markov blankets partitioning farms into internal, sensory, and active states."
+    },
+    {
+      "heading": "State of the literature",
+      "body": "The report finds a spectrum of engagement with the term, from strict free-energy-principle work in sustainability theory (the 'Sustainability under Active Inference' article in Systems, 2024, and a related resource-management preprint) to information-theoretic uses in robotics and sensor networks. Applied examples include an EnhancedTinyCNN pest-detection framework whose energy budget is dominated by inference cycles, an ET0 edge-forecasting benchmarking study for irrigation, and wireless sensor network battery optimization via active inference and dynamic Gaussian Bayesian networks. The report is explicit that empirical, real-world evidence for performance gains remains sparse and that much of this literature is conceptual, cross-domain, or terminologically loose."
+    },
+    {
+      "heading": "Key projects and tools",
+      "body": "Named open-source tooling includes pymdp for building and simulating active inference agents, and the Active Inference Institute's own GEO-INFER (a 44-module geospatial framework whose AlphaEarth subproject supports FAO food-security land-use monitoring) and BioFirm (ecological active inference and ecosystem services). The report also describes the decentralized FarmWorks farm-agent project and industrial claims from VERSES AI applying active-inference-style agents to agrifood supply-chain logistics, alongside deployed prototypes like EnhancedTinyCNN pest sensors and cranberry crop-risk monitoring using deep active inference."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The report identifies generative-model specification and validation against field data as a core technical gap, since most agronomic models are mechanistic rather than probabilistic and evidence comes mainly from simulations and small prototypes. Data ecosystems are fragmented across proprietary platforms, raising governance questions about data ownership and how sustainability priors are chosen and encoded. The report also flags interpretability for farmer trust, social/ethical risks of embedding normative priors, and the need for randomized, clinical-grade evaluation before active inference decision support can be considered proven in practice."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant, Lancelot Da Costa, Casper Hesp, Beren Millidge, Alexander Tschantz (2023). On Bayesian Mechanics: A Physics of and by Beliefs. arXiv. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Daniel Ari Friedman, Alec Tschantz, Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant (2021). An Active Inference Framework for Ant Colony Behavior. Frontiers in Behavioral Neuroscience. DOI: 10.3389/fnbeh.2021.647732."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Edge Pest Sensing",
+      "text": "Embedded CNN pest-detection devices like EnhancedTinyCNN run thousands of inference cycles a day under tight battery budgets, illustrating energy-aware active sensing in the field."
+    },
+    {
+      "title": "Geospatial Monitoring",
+      "text": "GEO-INFER's AlphaEarth subproject applies active-inference-style geospatial monitoring to agricultural land use in support of FAO food-security analysis."
+    },
+    {
+      "title": "Sustainable Resource Management",
+      "text": "Theoretical work on 'Sustainability under Active Inference' models resilient food systems as generative models that maintain viable states across environmental shocks."
+    }
+  ],
+  "order": 85,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-ecology",
+    "active-inference-and-climate"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv"
+  ]
+}

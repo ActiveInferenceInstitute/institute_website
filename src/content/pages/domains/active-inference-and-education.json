@@ -1,0 +1,67 @@
+{
+  "slug": "active-inference-and-education",
+  "title": "Active Inference and Education",
+  "subtitle": "Reframing classrooms as multi-agent generative models where students and teachers jointly minimize prediction error and expected free energy.",
+  "audience": "Researchers, educators, and Institute fellows exploring computational and theoretical models of teaching, learning, and curriculum design.",
+  "lede": "Education is a socially organized process for reducing uncertainty about the world and about other minds, which makes it an archetypal fit for active inference and the free energy principle. A small but growing body of peer-reviewed work has begun to formalize students and teachers as agents who build hierarchical generative models, select policies under expected free energy, and update beliefs through prediction error — but this literature remains conceptually oriented, with direct empirical tests of active inference in real classrooms still largely absent.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Active inference treats perception, action, and learning as minimizing a free energy functional that bounds surprise under a generative model, and instructional interactions instantiate this cycle at scale: students continually update beliefs about concepts and self-efficacy from feedback while teachers design activities and assessments under pervasive uncertainty about what students know. Hierarchical generative models, in which higher levels encode slow contextual regularities and lower levels encode fast sensory specifics, map onto curriculum structure, with the free energy principle's requirement that prediction errors be neither trivial nor overwhelming corresponding to constructs like the zone of proximal development. Classrooms are also multi-agent and partially observable: teachers infer hidden student knowledge and affect from noisy signals such as test scores and behavior, while students infer hidden grading standards and task demands from limited feedback, giving the interaction a natural POMDP structure with both epistemic and pragmatic value at stake in every policy choice."
+    },
+    {
+      "heading": "State of the literature",
+      "body": "The relevant literature divides into three strata: a mature foundational base (Friston's free energy principle, predictive coding, and Bayesian-brain accounts, tempered by critiques questioning whether current evidence supports a literal realist reading of \"Bayesian brain\" claims); empirical active inference studies in cognitive and clinical neuroscience (e.g., dopaminergic encoding of outcome certainty, visual exploration as epistemic action, transdiagnostic psychiatric studies of explore-exploit learning) that demonstrate the framework can be fit to real behavioral and neural data, even though these studies target perception and psychopathology rather than schooling; and a small set of papers that address education directly. Two peer-reviewed articles anchor this third stratum — the Royal Society's \"Active inference goes to school: the importance of active learning in classrooms\" and the Taylor & Francis \"Active Inference and teacher development\" — alongside a neurophysiological study of sequence-dependent predictive coding in skill learning that shows hierarchical integration of context and prior knowledge during practice. The report characterizes this direct educational literature as still emergent, focused on conceptual mapping rather than large-scale empirical validation."
+    },
+    {
+      "heading": "Key projects and tools",
+      "body": "\"Active inference goes to school\" develops generative models of classroom interactions in which students and teachers hold beliefs about content and each other, and treats actions like asking questions or forming groups as policy choices trading epistemic against pragmatic value; it argues active-learning pedagogies outperform passive instruction because they offer richer epistemic affordances. \"Active Inference and teacher development\" extends the same apparatus to teachers, modeling professional growth as generative-model refinement in which overly precise priors about \"what works\" impede adaptive practice while calibrated uncertainty supports experimentation. Practitioner-facing translations — The Predictive Classroom project and the Devon Research School's introduction to predictive processing — interpret these ideas for teachers around eliciting preconceptions and reframing errors as informative, though without formal modeling or empirical evaluation. The report is explicit that no fully deployed, active-inference-based tutoring platform, assessment tool, or classroom system yet exists; the closest computational analogues are simulation and objective-function work built for other domains, such as free-energy-based reinforcement learning objectives and a Bristol thesis on active inference in simulated cortical circuits, neither built for classrooms."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The report treats validating active inference as a descriptive (not just normative or prescriptive) theory of learning as the central open problem, echoing the Bayesian-brain critique's caution that elegant formalisms are not yet evidence that people actually behave as expected-free-energy minimizers. Scaling from the small, well-defined lab tasks used in current empirical active inference work to the multi-agent, long-timescale complexity of real classrooms is identified as a distinct methodological challenge, as is the risk of conflating normative design principles (how classrooms should be structured) with descriptive claims (how students actually behave). The report also flags ethical and practical concerns around generative models that encode latent traits like motivation and ability for high-stakes decisions, and a conceptual gap around integrating motivation, emotion, and social identity into these models. Priority next evidence includes controlled behavioral experiments testing expected-free-energy predictions against reinforcement-learning alternatives, neurophysiological extensions of the sequence-dependent predictive coding work to classroom tasks, longitudinal classroom observation, and low-stakes pilot implementations."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl J. Friston (2020). Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2020.102447."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Epistemic Foraging",
+      "text": "Learning is framed as active search for information that reduces prediction error, not passive reception of content."
+    },
+    {
+      "title": "Teacher as Inferring Agent",
+      "text": "Instructional choices are modeled as policy selection that minimizes expected free energy about student understanding."
+    },
+    {
+      "title": "Largely Conceptual So Far",
+      "text": "Only two peer-reviewed papers directly formalize active inference in education, and no deployed active-inference-based classroom system yet exists."
+    }
+  ],
+  "order": 79,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-psychology",
+    "active-inference-and-linguistics"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv"
+  ]
+}

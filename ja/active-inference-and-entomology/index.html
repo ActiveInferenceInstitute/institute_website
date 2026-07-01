@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Active Inference and Entomology | Active Inference Institute</title>
-  <meta name="description" content="Insects and insect colonies are compact, tractable active-inference systems: individuals infer environmental states from limited senses and act under tight…">
+  <meta name="description" content="Entomology offers an unusually rich and experimentally tractable arena for testing active inference and the free energy principle, spanning single-neuron…">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="../../assets/img/icon.svg">
@@ -32,7 +32,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Active Inference Institute">
   <meta property="og:title" content="Active Inference and Entomology | Active Inference Institute">
-  <meta property="og:description" content="Insects and insect colonies are compact, tractable active-inference systems: individuals infer environmental states from limited senses and act under tight…">
+  <meta property="og:description" content="Entomology offers an unusually rich and experimentally tractable arena for testing active inference and the free energy principle, spanning single-neuron…">
   <meta property="og:url" content="https://activeinference.institute/ja/active-inference-and-entomology/">
   <meta property="og:image" content="https://activeinference.institute/assets/img/cards/active-inference-and-entomology.png">
   <meta property="og:image:width" content="1200">
@@ -40,9 +40,9 @@
   <meta property="og:image:alt" content="Active Inference Institute — Active Inference and Entomology | Active Inference Institute">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Active Inference and Entomology | Active Inference Institute">
-  <meta name="twitter:description" content="Insects and insect colonies are compact, tractable active-inference systems: individuals infer environmental states from limited senses and act under tight…">
+  <meta name="twitter:description" content="Entomology offers an unusually rich and experimentally tractable arena for testing active inference and the free energy principle, spanning single-neuron…">
   <meta name="twitter:image" content="https://activeinference.institute/assets/img/cards/active-inference-and-entomology.png">
-  <meta name="generator" content="institute_website v2.7.0">
+  <meta name="generator" content="institute_website v2.8.0">
   <link rel="stylesheet" href="../../assets/css/instituteos-ds.css">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/ja/active-inference-and-entomology/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/ja/"},{"@type":"ListItem","position":2,"name":"Active Inference and Entomology","item":"https://activeinference.institute/ja/active-inference-and-entomology/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
@@ -118,9 +118,9 @@
     <span aria-hidden="true">/</span>
     <span aria-current="page">Active Inference and Entomology</span>
   </nav>
-    <p class="eyebrow">Entomologists, collective-behaviour researchers, neuroethologists, and insect-inspired robotics teams.</p>
+    <p class="eyebrow">Researchers, entomologists, and Institute fellows interested in applying active inference to insect neuroscience, collective behavior, and swarm robotics.</p>
     <h1>Active Inference and Entomology</h1>
-    <p>A research scaffold for insect perception, navigation, foraging, collective behaviour, and superorganisms.</p>
+    <p>How ant colonies, honeybee foraging, and insect nervous systems test the free energy principle as a live, tractable domain.</p>
     <div class="hero-actions"><a class="button primary" href="https://github.com/ActiveInferenceInstitute/ActiveInferAnts" target="_blank" rel="noopener noreferrer">ActiveInferAnts repository</a><a class="button secondary" href="../active-inference/">Active Inference overview</a></div>
   </section>
   <section class="content-band page-index-band">
@@ -130,7 +130,7 @@
         <h2>Active Inference and Entomology ガイド</h2>
       </div>
       <nav aria-label="Active Inference and Entomology ページセクション">
-        <a href="#why-the-domain-fits">Why the domain fits</a><a href="#application-pattern">Application pattern</a><a href="#evidence-to-collect-next">Evidence to collect next</a><a href="#reference-backbone">Reference Backbone</a>
+        <a href="#why-the-domain-fits">Why the domain fits</a><a href="#state-of-the-literature">State of the literature</a><a href="#key-projects-and-tools">Key projects and tools</a><a href="#open-problems">Open problems</a><a href="#reference-backbone">Reference Backbone</a>
         <a href="#next-actions">次の最適な行動</a>
         <a href="#key-surfaces">キーの表面</a>
         <a href="../knowledge/">オープンソースマップ</a>
@@ -152,17 +152,20 @@
     </div>
   </section>
   <section class="content-band">
-    <p class="lede">Insects and insect colonies are compact, tractable active-inference systems: individuals infer environmental states from limited senses and act under tight resource constraints, while colonies behave as superorganisms whose collective dynamics can be read as distributed inference.</p>
+    <p class="lede">Entomology offers an unusually rich and experimentally tractable arena for testing active inference and the free energy principle, spanning single-neuron computation in insect brains to colony-level collective intelligence and insect-inspired robotics. Social insects exhibit sophisticated perceptual, navigational, and social behaviors that unfold under strong observational control, with dense datasets from behavioral tracking, electrophysiology, and molecular biology. This page synthesizes the emerging literature connecting active inference to ant colonies, honeybee foraging, and insect neurobiology, distinguishing peer-reviewed empirical work from simulation and theory.</p>
     <div class="article-stack">
       <article class="article-block" id="why-the-domain-fits">
             <h2>Why the domain fits</h2>
-            <p>Insect sensory ecology, navigation, and foraging are perception-action loops under uncertainty and scarcity, and ant and bee colonies externalise memory and decision-making across many bodies. Active inference provides one formalism that spans neurons, individuals, and colonies, making the superorganism a concrete multi-scale modelling target.</p>
-          </article><article class="article-block" id="application-pattern">
-            <h2>Application pattern</h2>
-            <p>A domain report should track generative models of insect perception and action, expected-free-energy policy selection in foraging and navigation, active and epistemic sensing, and hierarchical multi-scale models from neurons to colonies. It should separate simulation frameworks from data-driven models grounded in behavioural recordings.</p>
-          </article><article class="article-block" id="evidence-to-collect-next">
-            <h2>Evidence to collect next</h2>
-            <p>Empirical validation is the central challenge: the next pass should gather colony-behaviour and navigation studies, basal-cognition and executive-function work in insects, and insect-inspired robotics, while explicitly testing active inference against alternative (e.g. reinforcement-learning or heuristic) accounts and bridging individual and colony scales.</p>
+            <p>Insect nervous systems show converging evidence of predictive coding and forward models: efference-copy mechanisms modulate locust optomotor responses, and a 2026 Drosophila preprint reports internal oscillators and predictive coding as ancestral features of insect brains conserved across more than 350 million years. Social insect colonies also exhibit eusocial, distributed cognition—ants and bees coordinate via pheromones and dances in ways that have been modeled as &quot;Bayesian superorganisms&quot; performing distributed sampling. Combined with decades of tractable, well-instrumented foraging and navigation paradigms (honeybee waggle dances, ant T-mazes, cooperative transport trails) and modern video-tracking and neural-recording tools, entomology gives active inference both neural and collective-behavior access points rarely available together in one taxon.</p>
+          </article><article class="article-block" id="state-of-the-literature">
+            <h2>State of the literature</h2>
+            <p>The most direct application is &quot;Active Inferants: An Active Inference Framework for Ant Colony Behavior&quot; (Friedman, Tschantz, Ramstead, Friston, and Constant, 2021, peer-reviewed in Frontiers in Behavioral Neuroscience), which models ant foraging in an alternating T-maze as a discrete-state Markov decision process with expected free energy-based policy selection, using a single pheromone to reproduce trail formation and probability matching. This work builds on the Bayesian superorganism series (Journal of the Royal Society Interface), which modeled ant and bee colonies via Markov chain Monte Carlo sampling and externalized pheromone memories, and on &quot;Federated Inference and Belief Sharing&quot; (Friston, Parr, Fields and colleagues), which explicitly ties multi-agent belief sharing to an entomology and nematology affiliation. Complementary swarm-level work (&quot;An Active Inference Model of Collective Intelligence,&quot; &quot;Collective Phase Dynamics in an Active Inference Swarm Oscillator&quot;) remains largely theoretical and non-insect-specific, while predictive-coding evidence from Drosophila optomotor recordings, fly optic-lobe gain modulation, and sleep-dependent deviant-stimulus responses grounds the neural side of the picture.</p>
+          </article><article class="article-block" id="key-projects-and-tools">
+            <h2>Key projects and tools</h2>
+            <p><a href="../projects/active-inferants/">Active InferAnts</a> is a Python package developed by the <a href="../about/">Active Inference Institute</a>, built to simulate ant colony foraging under configurable generative models and policy-selection schemes inspired directly by the &quot;Active Inferants&quot; paper; it is available on GitHub with a PyPI release planned. Empirical grounding comes from resources like &quot;Experimental Entomology in the Age of Video&quot; (video tracking and behavioral annotation protocols) and the BAU-Insectv2 dataset for insect recognition and behavior analysis. On the applied robotics side, &quot;Robot navigation as hierarchical active inference&quot; and a Nature article on honeybee-learning-flight-inspired robot navigation demonstrate insect-inspired, generative-model-based control, supported by the Institute's own Active Inference in Robotics Learning Path and knowledge-base modules on Ant Colony stigmergy and Apidology (bee foraging and pollination).</p>
+          </article><article class="article-block" id="open-problems">
+            <h2>Open problems</h2>
+            <p>Rigorous empirical tests remain scarce: current neural evidence shows predictive modulation and efference copies but does not yet directly test variational free energy minimization, and the field must answer critiques like &quot;the myth of the Bayesian brain&quot; by producing falsifiable, mechanism-specific predictions rather than metaphorical fits. Multi-scale models linking molecular/physiological states to colony-level phenotypes are largely undeveloped, as are quantitative generative models of insect communication (waggle dances, pheromone codes) as belief-sharing mechanisms. The literature also lacks standardized benchmark tasks and shared tooling comparable to those in computer vision or reinforcement learning—existing paradigms like the T-maze, geocaching task, and honeybee navigation tasks have not yet been consolidated into common evaluation environments.</p>
           </article><article class="article-block" id="reference-backbone">
             <h2>Reference Backbone</h2>
             <p>Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant, Lancelot Da Costa, Casper Hesp, Beren Millidge, Alexander Tschantz (2023). On Bayesian Mechanics: A Physics of and by Beliefs. arXiv. Daniel Ari Friedman, Alec Tschantz, Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant (2021). An Active Inference Framework for Ant Colony Behavior. Frontiers in Behavioral Neuroscience. DOI: 10.3389/fnbeh.2021.647732. Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl J. Friston (2020). Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2020.102447.</p>
@@ -176,14 +179,14 @@
     <h2>Active Inference and Entomology at a glance</h2>
   </div>
     <div class="card-grid"><article class="info-card">
-        <h3>Organisms and colonies</h3>
-        <p>Model action and perception as a coupled fit between insect and environment, individually and collectively.</p>
+        <h3>Ant colonies as agents</h3>
+        <p>&quot;Active Inferants&quot; (Friedman et al., 2021, Frontiers in Behavioral Neuroscience) models ant foraging as a discrete-state active inference process using a single pheromone to reproduce trail formation and probability matching.</p>
       </article><article class="info-card">
-        <h3>Superorganism inference</h3>
-        <p>Treat colony-level foraging and recruitment as distributed inference with externalised memory.</p>
+        <h3>Bayesian superorganism link</h3>
+        <p>The peer-reviewed Bayesian superorganism series treats pheromone trails as externalized memory enabling MCMC-like distributed sampling, directly cited as a precursor to explicit active inference models of colonies.</p>
       </article><article class="info-card">
-        <h3>Field and robotics link</h3>
-        <p>Connect theory to behavioural data, active sensing, and insect-inspired autonomous systems.</p>
+        <h3>Theory ahead of proof</h3>
+        <p>Much of the field—swarm oscillator models, honeybee-inspired robotics, insect communication as federated inference—is simulation or conceptual analogy, with direct neural tests of free energy minimization in insects still to be designed.</p>
       </article></div>
   </section>
 
@@ -445,18 +448,18 @@
         <strong>アクティブインファレンス</strong>
         <p>アクティブインファレンスは、インスティテュートが教育、研究、応用、エコシステムサポートを組織化する中心的な科学的・実用的な枠組みです。</p>
       </a><a class="resource-card internal-card" href="../active-inference-and-ecology/">
-        <span>Ecologists, environmental modelers, collective-behavior researchers, and applied field teams.</span>
+        <span>Ecologists, computational biologists, and Active Inference researchers interested in multi-scale models of organism-environment coupling, niche construction, and planetary resilience.</span>
         <strong>Active Inference and Ecology</strong>
-        <p>Ecological applications of Active Inference ask how organisms, groups, and instruments infer environmental states while acting within them.</p>
+        <p>Ecological systems — populations, communities, ecosystems, and the biosphere itself — are composed of interacting subsystems that exchange matter and energy across semi-permeable boundaries while maintaining stable macrostates over time. That structure closely mirrors the Markov blanket and Bayesian mechanics formalism underlying the free energy principle, which is why a research program under the banner of &quot;variational ecology&quot; has emerged to model organisms and their niches as coupled inference systems. The literature here is heavier on theory and simulation than on field data: this page surveys the conceptual foundations, the modeling patterns researchers are using, the tools available, and the empirical gaps the field still needs to close.</p>
       </a><a class="resource-card internal-card" href="../active-inference-and-robotics/">
-        <span>Roboticists, AI researchers, embodied-cognition groups, and builders of autonomous instruments.</span>
+        <span>Roboticists, control engineers, and active inference researchers evaluating whether unified perception-action-learning architectures can outperform or complement classical control and reinforcement learning.</span>
         <strong>Active Inference and Robotics</strong>
-        <p>Robotics is a natural test bed for active inference because perception, planning, action, and uncertainty are coupled in the same physical loop, and action can be chosen both to accomplish goals and to improve the information available for future control.</p>
+        <p>Robots continuously perceive, act, and learn under uncertainty using noisy, multimodal sensors and imperfect actuators — precisely the conditions the free energy principle was formulated to describe. A growing but still heterogeneous literature has explored active inference as a way to unify state estimation, control, planning, and model learning in robotic systems, spanning theoretical papers, simulated proofs of concept, and experiments on physical humanoids and manipulators. This page synthesizes that literature's application patterns, named tools and labs, and the open problems that separate compelling demonstrations from a routinely deployed engineering methodology.</p>
       </a></div>
   </section>
   <nav class="pager page-pager" aria-label="Active Inference and Entomology adjacent pages">
     <a href="../active-inference-and-psychology/">Previous: Active Inference and Psychology</a>
-    <a href="../strategy/">Next: Strategy</a>
+    <a href="../active-inference-and-economics/">Next: Active Inference and Economics</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -479,7 +482,7 @@
     <div class="social-links" aria-label="検証済みの公開リンク">
       <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-    <p class="build-stamp">v2.7.0 · build e8524067d154</p>
+    <p class="build-stamp">v2.8.0 · build 9e5417ac7be2</p>
   </footer>
   <script src="../../assets/js/theme.js" defer></script>
   <script src="../../assets/js/accent.js" defer></script>

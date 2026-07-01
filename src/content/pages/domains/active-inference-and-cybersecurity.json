@@ -1,0 +1,67 @@
+{
+  "slug": "active-inference-and-cybersecurity",
+  "title": "Active Inference and Cybersecurity",
+  "subtitle": "How the free energy principle reframes cyber defense as perception-action under uncertainty",
+  "audience": "Researchers, security engineers, and Institute fellows exploring active inference as a foundation for autonomous, adaptive cyber defense.",
+  "lede": "Cybersecurity asks defenders to infer the hidden state of systems and adversaries from noisy, incomplete telemetry, then act to keep those systems within acceptable bounds — a structure that maps directly onto active inference's perception-action loop. This page surveys the emerging literature connecting the free energy principle to anomaly detection, causal attack diagnosis, cyber-physical security, and large-scale network defense, and identifies where the evidence is thin.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Defenders observe sparse, heterogeneous telemetry (logs, network flows, host instrumentation) and must infer latent system and attacker states before choosing interventions such as blocking accounts, patching, or reconfiguring networks — actions that themselves alter future observations and attacker incentives. Active inference gives this loop an explicit mathematical form: agents maintain generative models p(o,s), infer posterior beliefs q(s) by minimizing variational free energy, and select actions that minimize expected free energy over future trajectories. The report highlights active sensing as a particularly clean fit: deciding which of many sparsely-monitored processes to check next is naturally framed as balancing epistemic value (information gain) against pragmatic value (fast anomaly detection)."
+    },
+    {
+      "heading": "Application patterns in the literature",
+      "body": "A deep active inference framework presented at GLOBECOM 2020 uses neural-network generative models of normal process behavior and expected-free-energy-based sensor scheduling for anomaly detection, implementing four agent variants that differ in their EFE approximations. CAIRN (Causal Active Inference with Real-time Interventions), a peer-reviewed ACM framework, models enterprise telemetry as a probabilistic causal graph and selects interventions like blocking connections or resetting credentials by minimizing expected free energy over hypothesized attack paths. A survey on autonomous-vehicle cyber-physical security argues active inference can unify sensor data, control state, and communication integrity to detect spoofing or tampering, and an IGI Global chapter frames behavioral security analytics (insider-threat and UEBA detection) through the closely related lens of predictive processing."
+    },
+    {
+      "heading": "Key projects and tools",
+      "body": "Beyond CAIRN and the GLOBECOM agents, the report describes ACID (beta-testing Active Inference for active cyber-Defence), a TechRxiv preprint formulating active inference over fully observable Markov decision processes with four EFE-approximation variants for defense scenarios. The Bayesian Attack Model (BAM), deployed within the CYOTE program for operational technology environments, encodes attack progression as a Bayesian graph and is described as a natural adjacent platform an active inference layer could extend, though it is not itself framed as active inference. Figaro and PRIME (Charles River Analytics) provide a probabilistic relational modeling language and enterprise interface that could similarly be extended with expected-free-energy-based action selection. Visionary work on 6G world-brain architectures proposes \"metamorphic cyberfungi\" agents coordinating sensing, control, and security across network layers, tied conceptually to the IEEE 2874-2025 Spatial Web Protocol."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The report identifies scaling generative models to enterprise- and internet-scale telemetry volume and heterogeneity as unresolved, along with designing expected-free-energy functionals robust to adversaries who can deceive generative models or target the sensors an agent relies on for epistemic value. It also flags interpretability and human-in-the-loop trust as open given that deep-network-parameterized EFE calculations are opaque to analysts, and notes theoretical work on generic physical (including quantum) systems proving that no system can fully represent its own internal or observational state — a fundamental limit on self-protecting, self-monitoring security agents. Finally, the report stresses that rigorous benchmarks comparing active inference against rule-based systems and classical Bayesian networks are largely absent from the current literature."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl J. Friston (2020). Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2020.102447. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Pablo Lanillos, Cristian Meo, Corrado Pezzato, et al. (2021). Active Inference in Robotics and Artificial Agents: Survey and Challenges. arXiv. DOI: 10.48550/arXiv.2112.01871."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Active sensing under budget",
+      "text": "Expected free energy lets an agent trade off information gain against detection speed when only limited sensors or costly instrumentation (e.g. deep packet inspection) are available."
+    },
+    {
+      "title": "Causal, not just correlational",
+      "text": "CAIRN's probabilistic causal graph over enterprise telemetry lets active inference distinguish direct effects of interventions from mere correlations when diagnosing multi-stage attacks."
+    },
+    {
+      "title": "Mostly conceptual, not benchmarked",
+      "text": "Aside from CAIRN's peer-reviewed prototype and BAM's OT deployment, most cited systems are preprints, surveys, or conceptual designs with no reported head-to-head evaluation against traditional security methods."
+    }
+  ],
+  "order": 86,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-law",
+    "active-inference-and-robotics"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv"
+  ]
+}

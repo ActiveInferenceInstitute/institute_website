@@ -1,0 +1,67 @@
+{
+  "slug": "active-inference-and-economics",
+  "title": "Active Inference and Economics",
+  "subtitle": "Economics as continuous inference: how free energy minimization reframes utility, bias, markets, and policy under uncertainty.",
+  "audience": "Economists, computational modelers, and Institute researchers exploring active inference as a framework for choice, markets, and macroeconomic policy.",
+  "lede": "Active inference and the free energy principle offer a unifying Bayesian account of perception, action, and learning, and over the past decade this framework has begun to reach into economics — from individual choice behavior to general equilibrium models and financial markets. The literature remains nascent: most contributions are theoretical or simulation-based, and rigorous empirical validation against real economic data is still limited.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Economic agents must form beliefs about uncertain states of the world, select policies under risk and ambiguity, and update internal generative models from noisy, partial observations — exactly the conditions active inference was built to formalize. The report frames economic behavior as ongoing Bayesian model selection under structural uncertainty and strategic interaction: agents observe prices, wages, and policy signals that are only indirectly informative about latent fundamentals like technology or demand, and must act while inferring those fundamentals. Active inference is also intrinsically prospective and multi-agent, matching economics' forward-looking expectations and the fact that markets emerge from many interacting, adaptive participants who must model each other's beliefs and policies."
+    },
+    {
+      "heading": "State of the literature",
+      "body": "Peer-reviewed work concentrates in cognitive and behavioral economics: the Frontiers in Psychology paper on variational free energy and economics reinterprets expected-utility axioms (completeness, transitivity, independence, continuity) as consequences of prior preferences and generative-model structure, recasting biases like loss aversion or preference reversals as rational belief optimization rather than anomalies. A Nature article finds experimental evidence that human choice is often better explained by surprise minimization than by value maximization. In financial economics, Samer Adra's paper in the Review of Behavioral Economics reinterprets noise trading, excess volatility, and trend-following as by-products of agents minimizing free energy rather than deviations from rational expectations. At the macro level, an SSRN working paper recasts real business cycle (RBC) models as special cases of active inference, with representative-agent optimization expressed as free energy minimization over consumption, investment, and labor-supply policies."
+    },
+    {
+      "heading": "Key projects and tools",
+      "body": "The report names several concrete implementations rather than only theory: DR-FREE, a distributionally robust free energy model (with a Zenodo-hosted repository linked from a Nature Communications article) that computes actions robust across an ambiguity set of possible generative models, relevant to robust portfolio, pricing, or inventory decisions under model uncertainty. \"Dynamic Trading using Active Inference\" implements a trading system in the RxInfer probabilistic programming framework, building a generative model of price dynamics and encoding preferences over returns and risk. \"Factorised Active Inference for Strategic Multi-Agent Interactions\" (arXiv) provides message-passing algorithms for agents that factorise self/other state spaces, applicable to oligopoly pricing, auctions, and bargaining. A separate paper bridges reinforcement learning and active inference via the \"free energy of expected future\" objective, and the Active Inference Institute's own strategy document situates this work within a broader push toward enterprise and industry applications."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The report is explicit that empirical validation is the field's most pressing gap: claims that free energy models outperform expected-utility or DSGE benchmarks have not yet been systematically tested against real market, macro, or consumer data. Identifiability is a second concern — generative models in economics are often underdetermined, and it can be difficult to disentangle prior preferences from beliefs, or to detect model misspecification, from observed behavior alone. The report also flags an unresolved normative-versus-descriptive question (should agents minimize free energy, or does it merely describe behavior well?), welfare-analysis implications if agents aren't utility maximizers, and open regulatory/ethical questions around algorithmic trading, credit scoring, and policy systems built on active inference, plus unresolved scalability challenges for full-scale multi-agent or DSGE-network models."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl J. Friston (2020). Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2020.102447."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Surprise over value",
+      "text": "Experimental evidence cited in the report suggests human choice is often better explained by minimizing surprise/prediction error than by maximizing expected value."
+    },
+    {
+      "title": "Robust policy under ambiguity",
+      "text": "Distributionally robust free energy formulations (DR-FREE) let traders and policymakers choose actions that hold up across a whole set of plausible models rather than betting on one."
+    },
+    {
+      "title": "Still mostly theoretical",
+      "text": "The report stresses that most active-inference-in-economics work is theoretical, simulation-based, or conceptual, with rigorous empirical validation against real economic data still an open task."
+    }
+  ],
+  "order": 77,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-law",
+    "active-inference-and-urban-planning"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv"
+  ]
+}

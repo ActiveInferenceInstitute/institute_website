@@ -1,9 +1,9 @@
 {
   "slug": "active-inference-and-psychology",
   "title": "Active Inference and Psychology",
-  "subtitle": "A research scaffold for cognition, affect, the self, social interaction, and computational psychiatry.",
-  "audience": "Psychologists, cognitive scientists, computational psychiatry groups, and Institute fellows.",
-  "lede": "Active inference treats psychological constructs — perception, attention, emotion, motivation, the self, and social interaction — as inference and action under a generative model, giving psychology a shared formal language for phenomena usually studied in separate sub-disciplines.",
+  "subtitle": "Psychology's core problems—perception, affect, self, and psychopathology—recast as inference and control under generative models.",
+  "audience": "Psychologists, computational psychiatrists, and clinical researchers assessing active inference as a mechanistic, testable framework for cognition, affect, and therapeutic change.",
+  "lede": "Active inference and the free energy principle model brains as hierarchical generative systems that infer the hidden causes of sensory data and act to minimize expected surprise. Over the past decade this formalism has moved from theoretical neuroscience into psychological science and clinical psychiatry, producing a growing literature on emotion, interoception, selfhood, social cognition, psychotherapy, and psychopathology. The literature remains methodologically young: most models are still at the level of simulation and theory, with relatively few large-scale empirical tests and only nascent translational tools.",
   "primaryActions": [
     {
       "label": "Research resources",
@@ -21,15 +21,19 @@
   "sections": [
     {
       "heading": "Why the domain fits",
-      "body": "Perception, affect, motivation, and selfhood can each be cast as inference problems: estimating hidden causes of sensory and interoceptive signals and acting to realise preferred states. The framework connects individual cognition to dyads and groups, and recasts psychopathology as aberrant priors, precision, or generative-model structure rather than isolated symptoms."
+      "body": "Psychology is fundamentally about how organisms manage uncertainty: interpreting ambiguous sensory signals, forming beliefs, regulating bodies and emotions, and selecting actions in partially observable situations. Active inference treats these functions as instances of probabilistic inference under a generative model, where perception infers hidden states, learning updates model parameters, and action samples preferred observations by minimizing expected free energy. This gives psychological constructs long described qualitatively—schemas, appraisals, defense mechanisms, coping strategies—an explicit mathematical treatment, for example modeling anxiously biased threat appraisals as priors that overweight danger and drive hypervigilant behavior."
     },
     {
-      "heading": "Application pattern",
-      "body": "A domain report should distinguish generative models of cognition/affect/self, policy selection and motivation via expected free energy, interoception and emotion regulation, hierarchical models of control and social interaction, and learning as model revision (including psychotherapeutic change). The SPM and pymdp ecosystems provide the canonical computational scaffolding."
+      "heading": "State of the literature",
+      "body": "A 2024 Entropy review, \"Active Inference in Psychology and Psychiatry: Progress to Date?,\" surveys applications across emotion, interoception, selfhood, social cognition, and psychopathology, arguing the framework could unify these subfields while stressing the need for rigorous empirical tests. Lisa Feldman Barrett's theory of constructed emotion recasts emotion as inference over interoceptive and exteroceptive inputs using stored concepts; related work extends this to interoceptive psychopathology, anxiety as \"learned uncertainty,\" allostatic accounts of depression, addiction as optimal inference under a suboptimal model, and negative symptoms of schizophrenia as failures to predict the consequences of one's own actions. Psychotherapy itself has been formalized computationally, with active inference models of CBT and of Coherence Therapy simulating how interventions revise priors and policies."
     },
     {
-      "heading": "Evidence to collect next",
-      "body": "The next pass should separate reviewed theory from empirical and clinical work, and prioritise model validation, parameter identifiability, scaling from individuals to dyads and groups, and ethics/interpretability for clinical decision support. Experimental paradigms and datasets should be catalogued alongside the models they test."
+      "heading": "Key projects and tools",
+      "body": "The main computational backbone cited is work on active inference in discrete state spaces (\"Active inference on discrete state-spaces: A synthesis\"), which supplies algorithms for categorical generative models, policy evaluation, and belief updating that underlie later computational-psychiatry applications. The report also notes MATLAB routines associated with Karl Friston's group at UCL and Python-based packages implementing discrete active inference, used to fit models to behavioral task data and infer individual differences in priors and precision. Task-specific code exists for CBT simulation models with adjustable patient-specific priors and preferences, though the Coherence Therapy model remains largely theoretical rather than implemented software; the report explicitly notes that fully deployed clinical systems based on active inference are still rare."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The report flags a core tension between active inference's normative claim (agents minimize free energy) and the often suboptimal, culturally and situationally shaped variability of real human behavior, compounded by model identifiability risk given high-dimensional priors, precision terms, and preferences. Empirical validation across levels of description is thin: most models are tested on simple tasks with limited ecological validity, and claims about self, identity, and personality are largely conceptual rather than data-driven. The report calls for longitudinal, multi-modal studies linking neural, physiological, behavioral, and self-report data to model parameters, comparisons against alternative frameworks like reinforcement learning, and controlled trials of active-inference-informed interventions before clinical translation—including attention to interpretability, individual and cultural differences, and the ethics of model-based behavior prediction."
     },
     {
       "heading": "Reference Backbone",
@@ -38,16 +42,16 @@
   ],
   "cards": [
     {
-      "title": "Constructs as inference",
-      "text": "Represent attention, emotion, motivation, and the self as coupled inference-and-action processes."
+      "title": "Generative Model Mapping",
+      "text": "Psychological constructs—emotion categories, appraisals, self-concepts, relational expectations—are instantiated as hidden states that generate interoceptive, exteroceptive, and behavioral observations."
     },
     {
-      "title": "Computational psychiatry",
-      "text": "Model disorders as aberrant priors, precision-weighting, or generative-model structure, with explicit uncertainty."
+      "title": "Expected Free Energy and Control",
+      "text": "Policy selection balancing epistemic (information-seeking) and extrinsic (goal-seeking) value is used to model motivation, avoidance, addiction, and therapeutic change as shifts in the expected free energy landscape."
     },
     {
-      "title": "Validation boundary",
-      "text": "Separate reviewed theory, simulation, and empirical/clinical evidence on every public page."
+      "title": "Theory Ahead of Evidence",
+      "text": "Per the report, most psychological and psychiatric applications remain at the level of simulation and theory, with limited large-scale empirical validation and few deployed clinical tools."
     }
   ],
   "order": 75,

@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Active Inference and Healthcare | Active Inference Institute</title>
-  <meta name="description" content="Healthcare applications of Active Inference treat symptoms, clinical decisions, monitoring, and adaptive support as problems of perception, action,…">
+  <meta name="description" content="Healthcare concerns the regulation of biological states, the reduction of uncertainty about disease processes, and the continual selection of diagnostic and…">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="../../assets/img/icon.svg">
@@ -32,7 +32,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Active Inference Institute">
   <meta property="og:title" content="Active Inference and Healthcare | Active Inference Institute">
-  <meta property="og:description" content="Healthcare applications of Active Inference treat symptoms, clinical decisions, monitoring, and adaptive support as problems of perception, action,…">
+  <meta property="og:description" content="Healthcare concerns the regulation of biological states, the reduction of uncertainty about disease processes, and the continual selection of diagnostic and…">
   <meta property="og:url" content="https://activeinference.institute/de/active-inference-and-healthcare/">
   <meta property="og:image" content="https://activeinference.institute/assets/img/cards/active-inference-and-healthcare.png">
   <meta property="og:image:width" content="1200">
@@ -40,9 +40,9 @@
   <meta property="og:image:alt" content="Active Inference Institute — Active Inference and Healthcare | Active Inference Institute">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Active Inference and Healthcare | Active Inference Institute">
-  <meta name="twitter:description" content="Healthcare applications of Active Inference treat symptoms, clinical decisions, monitoring, and adaptive support as problems of perception, action,…">
+  <meta name="twitter:description" content="Healthcare concerns the regulation of biological states, the reduction of uncertainty about disease processes, and the continual selection of diagnostic and…">
   <meta name="twitter:image" content="https://activeinference.institute/assets/img/cards/active-inference-and-healthcare.png">
-  <meta name="generator" content="institute_website v2.7.0">
+  <meta name="generator" content="institute_website v2.8.0">
   <link rel="stylesheet" href="../../assets/css/instituteos-ds.css">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/de/active-inference-and-healthcare/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/de/"},{"@type":"ListItem","position":2,"name":"Active Inference and Healthcare","item":"https://activeinference.institute/de/active-inference-and-healthcare/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
@@ -118,9 +118,9 @@
     <span aria-hidden="true">/</span>
     <span aria-current="page">Active Inference and Healthcare</span>
   </nav>
-    <p class="eyebrow">Clinical researchers, computational psychiatry groups, healthcare AI builders, and Institute fellows.</p>
+    <p class="eyebrow">Researchers, clinicians, and Institute fellows exploring active inference as a modeling framework for computational psychiatry, interoception, clinical decision support, and medical AI safety.</p>
     <h1>Active Inference and Healthcare</h1>
-    <p>A research scaffold for clinical, computational psychiatry, and health-system applications.</p>
+    <p>Healthcare as an uncertainty-management problem: inferring hidden disease states and selecting actions under expected free energy.</p>
     <div class="hero-actions"><a class="button primary" href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal" target="_blank" rel="noopener noreferrer">Research resources</a><a class="button secondary" href="../active-inference/">Active Inference overview</a></div>
   </section>
   <section class="content-band page-index-band">
@@ -130,7 +130,7 @@
         <h2>Active Inference and Healthcare Leitfaden</h2>
       </div>
       <nav aria-label="Active Inference and Healthcare Seitenabschnitte">
-        <a href="#why-the-domain-fits">Why the domain fits</a><a href="#application-pattern">Application pattern</a><a href="#evidence-to-collect-next">Evidence to collect next</a><a href="#reference-backbone">Reference Backbone</a>
+        <a href="#why-the-domain-fits">Why the domain fits</a><a href="#state-of-the-literature">State of the literature</a><a href="#key-projects-and-tools">Key projects and tools</a><a href="#open-problems">Open problems</a><a href="#reference-backbone">Reference Backbone</a>
         <a href="#next-actions">Nächste beste Schritte</a>
         <a href="#key-surfaces">Schlüsselflächen</a>
         <a href="../knowledge/">Offene Quellenkarte</a>
@@ -152,17 +152,20 @@
     </div>
   </section>
   <section class="content-band">
-    <p class="lede">Healthcare applications of Active Inference treat symptoms, clinical decisions, monitoring, and adaptive support as problems of perception, action, uncertainty, and model updating.</p>
+    <p class="lede">Healthcare concerns the regulation of biological states, the reduction of uncertainty about disease processes, and the continual selection of diagnostic and therapeutic actions under incomplete evidence — a set of problems that maps directly onto active inference's core constructs of generative models, prediction error, expected free energy, and policy selection. Over the past decade a literature has grown around computational psychiatry, interoception and pain, digital twins, medical robotics, and — most recently — the safety of large language models used as clinical decision-support tools. Most of this work remains theoretical or simulation-based, but reviews in computational psychiatry and interoceptive psychopathology have begun to consolidate the field, and conceptual roadmaps for &quot;Active Inference AI&quot; in medicine sketch how the framework could reach digital twins, precision diagnostics, and clinical decision support.</p>
     <div class="article-stack">
       <article class="article-block" id="why-the-domain-fits">
             <h2>Why the domain fits</h2>
-            <p>Clinical care involves latent-state inference, uncertain observations, action under risk, and changing preferences over health outcomes. Active Inference gives researchers a shared language for modeling those loops without reducing care to a single prediction task.</p>
-          </article><article class="article-block" id="application-pattern">
-            <h2>Application pattern</h2>
-            <p>A domain report should separate three layers: formal models of symptoms or physiology, decision-support systems that choose information-gathering or intervention policies, and institutional workflows for accountable clinical use.</p>
-          </article><article class="article-block" id="evidence-to-collect-next">
-            <h2>Evidence to collect next</h2>
-            <p>The next pass should identify reviewed computational psychiatry papers, clinical waveform or monitoring work, active sensing use cases, and implementation repositories. Each claim should land in the citation registry before it appears on the public page.</p>
+            <p>Clinical practice is the continual inference of hidden causes — disease processes — from noisy, partial, and delayed observations (symptoms, labs, imaging), followed by action selection (tests, treatments) that must balance learning about the patient's condition against improving outcomes. Active inference formalizes this as minimizing expected free energy, which decomposes into epistemic value (resolving uncertainty) and pragmatic value (achieving preferred outcomes), giving a single variational account of diagnosis and treatment choice. The framework's emphasis on maintaining physiological variables within viable bounds also maps onto homeostasis and allostasis: interoceptive signals are treated as observations, regulatory set points as priors, and disorders such as anxiety, chronic pain, or eating disorders as consequences of inaccurate generative models or maladaptive priors.</p>
+          </article><article class="article-block" id="state-of-the-literature">
+            <h2>State of the literature</h2>
+            <p>The most mature work sits in psychology and psychiatry: Smith et al. survey active inference as a candidate unifying paradigm across learning, attention, and psychopathology, while Kirchner et al. argue it can link symptom profiles to generative-model parameters (priors, precision) to guide personalized treatment selection, for example modeling depression via overly pessimistic priors and reduced precision on positive prediction errors. Interoception and pain form a second cluster: Smith et al.'s account of interoceptive psychopathology and Petzschner et al.'s review of interoception and allostasis treat anxiety, panic, and functional somatic disorders as failures of interoceptive inference, and a specific active inference theory of placebo analgesia explains how the brain either updates priors from conflicting nociceptive signals or discounts them as noise, producing divergent placebo trajectories. Palacios et al. extend the framework to morphogenesis, proposing that cellular and tissue-level processes minimize free energy in ways that could eventually reframe cancer, fibrosis, and regenerative medicine, though this remains speculative. A decision-making study (novelty/variability, published via eLife) offers the field's clearest empirical head-to-head, showing active inference models outperforming standard reinforcement learning at explaining both behavior and neural correlates of exploration.</p>
+          </article><article class="article-block" id="key-projects-and-tools">
+            <h2>Key projects and tools</h2>
+            <p>The report finds no widely adopted, healthcare-specific active inference software; researchers currently adapt general-purpose active inference libraries and custom probabilistic-programming code to clinical constructs, mostly for simulation and parameter fitting rather than deployed systems. Three named application patterns stand out as the closest things to concrete projects: a ScienceDirect architecture for &quot;active digital twins&quot; that use active inference to let patient or organ models actively seek information rather than passively simulate; a Cancer Journal conceptual report on &quot;Active Inference AI and the Spatial Web for Medicine&quot; describing virtual tumor boards where digital twins are explored under different treatment policies; and, in robotics, the Royal Society Interface case study and Da Costa et al.'s review showing active inference driving real robot motor control, with clear extensions sketched for prosthetics and rehabilitation. A 2025 npj Digital Medicine paper proposes treating clinical LLM prompts themselves as active-inference policies chosen to minimize expected free energy over model outputs, aimed at LLM-based medical devices.</p>
+          </article><article class="article-block" id="open-problems">
+            <h2>Open problems</h2>
+            <p>The central gap is validation: active inference models of depression, interoception, or placebo response have rarely been tested for predictive power against clinical outcomes or compared rigorously to simpler models, and the field needs standardized pipelines for model specification, cross-validation, and prospective trials. Building the hierarchical, multi-scale, multi-modal generative models healthcare requires — linking molecular, organ, and behavioral data — remains technically hard, with open questions about state-space design, missing data, and inference algorithms at scale. Ethical and regulatory questions are unresolved as well: how preferences (survival, symptom relief, quality of life) should be encoded as priors, how to prevent generative models from inheriting biased priors from historical data, and how to bound exploratory (epistemic) actions so they don't introduce clinical risk. The report treats digital twins, Active Inference AI, and LLM prompting strategies as conceptual and largely undeployed, calling for pilot decision-support roles with human oversight before any move toward more autonomous clinical use.</p>
           </article><article class="article-block" id="reference-backbone">
             <h2>Reference Backbone</h2>
             <p>Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Christopher L. Buckley, Chang Sub Kim, Simon McGregor, Anil K. Seth (2017). The free energy principle for action and perception: A mathematical review. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2017.09.004. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001.</p>
@@ -176,14 +179,14 @@
     <h2>Active Inference and Healthcare at a glance</h2>
   </div>
     <div class="card-grid"><article class="info-card">
-        <h3>Clinical modeling</h3>
-        <p>Represent symptoms, beliefs, uncertainty, and regulation as coupled inference and action processes.</p>
+        <h3>Hierarchical generative models</h3>
+        <p>Active inference lets a single generative-model formalism link cellular and morphogenetic processes, organ function, and cognitive/behavioral states within one disease model, as in proposed multi-level models of type 2 diabetes or psychopathology.</p>
       </article><article class="info-card">
-        <h3>Decision support</h3>
-        <p>Frame monitoring and intervention as policy selection under uncertainty, with explicit confidence and review boundaries.</p>
+        <h3>Expected free energy for triage</h3>
+        <p>Diagnostic and treatment choices can be framed as policies scored by expected free energy, balancing the epistemic value of a test (information gained) against its pragmatic cost or risk to the patient.</p>
       </article><article class="info-card">
-        <h3>Publication boundary</h3>
-        <p>Public pages should distinguish reviewed literature, Institute projects, and speculative research leads.</p>
+        <h3>Mostly theoretical, not yet validated</h3>
+        <p>Almost all cited healthcare applications — digital twins, Active Inference AI, LLM-prompting safety strategies — are conceptual or simulation-based, with the report explicitly calling for prospective clinical trials before translation to bedside practice.</p>
       </article></div>
   </section>
 
@@ -483,7 +486,7 @@
     <div class="social-links" aria-label="Verifizierte öffentliche Links">
       <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-    <p class="build-stamp">v2.7.0 · build e8524067d154</p>
+    <p class="build-stamp">v2.8.0 · build 9e5417ac7be2</p>
   </footer>
   <script src="../../assets/js/theme.js" defer></script>
   <script src="../../assets/js/accent.js" defer></script>

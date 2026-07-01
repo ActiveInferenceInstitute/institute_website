@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Active Inference and Psychology | Active Inference Institute</title>
-  <meta name="description" content="Active inference treats psychological constructs — perception, attention, emotion, motivation, the self, and social interaction — as inference and action…">
+  <meta name="description" content="Active inference and the free energy principle model brains as hierarchical generative systems that infer the hidden causes of sensory data and act to…">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="../../assets/img/icon.svg">
@@ -32,7 +32,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Active Inference Institute">
   <meta property="og:title" content="Active Inference and Psychology | Active Inference Institute">
-  <meta property="og:description" content="Active inference treats psychological constructs — perception, attention, emotion, motivation, the self, and social interaction — as inference and action…">
+  <meta property="og:description" content="Active inference and the free energy principle model brains as hierarchical generative systems that infer the hidden causes of sensory data and act to…">
   <meta property="og:url" content="https://activeinference.institute/de/active-inference-and-psychology/">
   <meta property="og:image" content="https://activeinference.institute/assets/img/cards/active-inference-and-psychology.png">
   <meta property="og:image:width" content="1200">
@@ -40,9 +40,9 @@
   <meta property="og:image:alt" content="Active Inference Institute — Active Inference and Psychology | Active Inference Institute">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Active Inference and Psychology | Active Inference Institute">
-  <meta name="twitter:description" content="Active inference treats psychological constructs — perception, attention, emotion, motivation, the self, and social interaction — as inference and action…">
+  <meta name="twitter:description" content="Active inference and the free energy principle model brains as hierarchical generative systems that infer the hidden causes of sensory data and act to…">
   <meta name="twitter:image" content="https://activeinference.institute/assets/img/cards/active-inference-and-psychology.png">
-  <meta name="generator" content="institute_website v2.7.0">
+  <meta name="generator" content="institute_website v2.8.0">
   <link rel="stylesheet" href="../../assets/css/instituteos-ds.css">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/de/active-inference-and-psychology/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/de/"},{"@type":"ListItem","position":2,"name":"Active Inference and Psychology","item":"https://activeinference.institute/de/active-inference-and-psychology/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
@@ -118,9 +118,9 @@
     <span aria-hidden="true">/</span>
     <span aria-current="page">Active Inference and Psychology</span>
   </nav>
-    <p class="eyebrow">Psychologists, cognitive scientists, computational psychiatry groups, and Institute fellows.</p>
+    <p class="eyebrow">Psychologists, computational psychiatrists, and clinical researchers assessing active inference as a mechanistic, testable framework for cognition, affect, and therapeutic change.</p>
     <h1>Active Inference and Psychology</h1>
-    <p>A research scaffold for cognition, affect, the self, social interaction, and computational psychiatry.</p>
+    <p>Psychology's core problems—perception, affect, self, and psychopathology—recast as inference and control under generative models.</p>
     <div class="hero-actions"><a class="button primary" href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal" target="_blank" rel="noopener noreferrer">Research resources</a><a class="button secondary" href="../active-inference/">Active Inference overview</a></div>
   </section>
   <section class="content-band page-index-band">
@@ -130,7 +130,7 @@
         <h2>Active Inference and Psychology Leitfaden</h2>
       </div>
       <nav aria-label="Active Inference and Psychology Seitenabschnitte">
-        <a href="#why-the-domain-fits">Why the domain fits</a><a href="#application-pattern">Application pattern</a><a href="#evidence-to-collect-next">Evidence to collect next</a><a href="#reference-backbone">Reference Backbone</a>
+        <a href="#why-the-domain-fits">Why the domain fits</a><a href="#state-of-the-literature">State of the literature</a><a href="#key-projects-and-tools">Key projects and tools</a><a href="#open-problems">Open problems</a><a href="#reference-backbone">Reference Backbone</a>
         <a href="#next-actions">Nächste beste Schritte</a>
         <a href="#key-surfaces">Schlüsselflächen</a>
         <a href="../knowledge/">Offene Quellenkarte</a>
@@ -152,17 +152,20 @@
     </div>
   </section>
   <section class="content-band">
-    <p class="lede">Active inference treats psychological constructs — perception, attention, emotion, motivation, the self, and social interaction — as inference and action under a generative model, giving psychology a shared formal language for phenomena usually studied in separate sub-disciplines.</p>
+    <p class="lede">Active inference and the free energy principle model brains as hierarchical generative systems that infer the hidden causes of sensory data and act to minimize expected surprise. Over the past decade this formalism has moved from theoretical neuroscience into psychological science and clinical psychiatry, producing a growing literature on emotion, interoception, selfhood, social cognition, psychotherapy, and psychopathology. The literature remains methodologically young: most models are still at the level of simulation and theory, with relatively few large-scale empirical tests and only nascent translational tools.</p>
     <div class="article-stack">
       <article class="article-block" id="why-the-domain-fits">
             <h2>Why the domain fits</h2>
-            <p>Perception, affect, motivation, and selfhood can each be cast as inference problems: estimating hidden causes of sensory and interoceptive signals and acting to realise preferred states. The framework connects individual cognition to dyads and groups, and recasts psychopathology as aberrant priors, precision, or generative-model structure rather than isolated symptoms.</p>
-          </article><article class="article-block" id="application-pattern">
-            <h2>Application pattern</h2>
-            <p>A domain report should distinguish generative models of cognition/affect/self, policy selection and motivation via expected free energy, interoception and emotion regulation, hierarchical models of control and social interaction, and learning as model revision (including psychotherapeutic change). The SPM and pymdp ecosystems provide the canonical computational scaffolding.</p>
-          </article><article class="article-block" id="evidence-to-collect-next">
-            <h2>Evidence to collect next</h2>
-            <p>The next pass should separate reviewed theory from empirical and clinical work, and prioritise model validation, parameter identifiability, scaling from individuals to dyads and groups, and ethics/interpretability for clinical decision support. Experimental paradigms and datasets should be catalogued alongside the models they test.</p>
+            <p>Psychology is fundamentally about how organisms manage uncertainty: interpreting ambiguous sensory signals, forming beliefs, regulating bodies and emotions, and selecting actions in partially observable situations. Active inference treats these functions as instances of probabilistic inference under a generative model, where perception infers hidden states, learning updates model parameters, and action samples preferred observations by minimizing expected free energy. This gives psychological constructs long described qualitatively—schemas, appraisals, defense mechanisms, coping strategies—an explicit mathematical treatment, for example modeling anxiously biased threat appraisals as priors that overweight danger and drive hypervigilant behavior.</p>
+          </article><article class="article-block" id="state-of-the-literature">
+            <h2>State of the literature</h2>
+            <p>A 2024 Entropy review, &quot;Active Inference in Psychology and Psychiatry: Progress to Date?,&quot; surveys applications across emotion, interoception, selfhood, social cognition, and psychopathology, arguing the framework could unify these subfields while stressing the need for rigorous empirical tests. Lisa Feldman Barrett's theory of constructed emotion recasts emotion as inference over interoceptive and exteroceptive inputs using stored concepts; related work extends this to interoceptive psychopathology, anxiety as &quot;learned uncertainty,&quot; allostatic accounts of depression, addiction as optimal inference under a suboptimal model, and negative symptoms of schizophrenia as failures to predict the consequences of one's own actions. Psychotherapy itself has been formalized computationally, with active inference models of CBT and of Coherence Therapy simulating how interventions revise priors and policies.</p>
+          </article><article class="article-block" id="key-projects-and-tools">
+            <h2>Key projects and tools</h2>
+            <p>The main computational backbone cited is work on active inference in discrete state spaces (&quot;Active inference on discrete state-spaces: A synthesis&quot;), which supplies algorithms for categorical generative models, policy evaluation, and belief updating that underlie later computational-psychiatry applications. The report also notes MATLAB routines associated with Karl Friston's group at UCL and Python-based packages implementing discrete active inference, used to fit models to behavioral task data and infer individual differences in priors and precision. Task-specific code exists for CBT simulation models with adjustable patient-specific priors and preferences, though the Coherence Therapy model remains largely theoretical rather than implemented software; the report explicitly notes that fully deployed clinical systems based on active inference are still rare.</p>
+          </article><article class="article-block" id="open-problems">
+            <h2>Open problems</h2>
+            <p>The report flags a core tension between active inference's normative claim (agents minimize free energy) and the often suboptimal, culturally and situationally shaped variability of real human behavior, compounded by model identifiability risk given high-dimensional priors, precision terms, and preferences. Empirical validation across levels of description is thin: most models are tested on simple tasks with limited ecological validity, and claims about self, identity, and personality are largely conceptual rather than data-driven. The report calls for longitudinal, multi-modal studies linking neural, physiological, behavioral, and self-report data to model parameters, comparisons against alternative frameworks like reinforcement learning, and controlled trials of active-inference-informed interventions before clinical translation—including attention to interpretability, individual and cultural differences, and the ethics of model-based behavior prediction.</p>
           </article><article class="article-block" id="reference-backbone">
             <h2>Reference Backbone</h2>
             <p>Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant, Lancelot Da Costa, Casper Hesp, Beren Millidge, Alexander Tschantz (2023). On Bayesian Mechanics: A Physics of and by Beliefs. arXiv. Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl J. Friston (2020). Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2020.102447.</p>
@@ -176,14 +179,14 @@
     <h2>Active Inference and Psychology at a glance</h2>
   </div>
     <div class="card-grid"><article class="info-card">
-        <h3>Constructs as inference</h3>
-        <p>Represent attention, emotion, motivation, and the self as coupled inference-and-action processes.</p>
+        <h3>Generative Model Mapping</h3>
+        <p>Psychological constructs—emotion categories, appraisals, self-concepts, relational expectations—are instantiated as hidden states that generate interoceptive, exteroceptive, and behavioral observations.</p>
       </article><article class="info-card">
-        <h3>Computational psychiatry</h3>
-        <p>Model disorders as aberrant priors, precision-weighting, or generative-model structure, with explicit uncertainty.</p>
+        <h3>Expected Free Energy and Control</h3>
+        <p>Policy selection balancing epistemic (information-seeking) and extrinsic (goal-seeking) value is used to model motivation, avoidance, addiction, and therapeutic change as shifts in the expected free energy landscape.</p>
       </article><article class="info-card">
-        <h3>Validation boundary</h3>
-        <p>Separate reviewed theory, simulation, and empirical/clinical evidence on every public page.</p>
+        <h3>Theory Ahead of Evidence</h3>
+        <p>Per the report, most psychological and psychiatric applications remain at the level of simulation and theory, with limited large-scale empirical validation and few deployed clinical tools.</p>
       </article></div>
   </section>
 
@@ -445,13 +448,13 @@
         <strong>Aktive Inferenz</strong>
         <p>Aktive Inferenz ist das zentrale wissenschaftliche und praktische Rahmenkonzept, um das sich die Arbeit des Instituts an Bildung, Forschung, Anwendungen und Ökosystemunterstützung orientiert.</p>
       </a><a class="resource-card internal-card" href="../active-inference-and-medicine/">
-        <span>Clinical researchers, computational psychiatry groups, medical-AI builders, and Institute fellows.</span>
+        <span>Computational psychiatrists, systems-medicine and digital-twin researchers, medical-AI engineers, and Institute fellows applying active inference to clinical and biomedical questions.</span>
         <strong>Active Inference and Medicine</strong>
-        <p>Medicine is a natural application area for active inference because clinical practice is perception and action under uncertainty: inferring hidden states of a patient from noisy observations, choosing tests and treatments that balance information gain against benefit, and revising models as new data arrive.</p>
+        <p>Active inference and the free energy principle recast medicine's core activities — diagnosis, treatment selection, and the maintenance of physiological stability — as processes of building and updating generative models under uncertainty. The literature is conceptually mature in several specialties (psychiatry, pain medicine, neurology) but empirically early: most models are theoretical, phenomenological, or simulation-based, with very few fully deployed clinical systems. This page surveys why medicine fits the framework, where the literature currently stands, what concrete projects and tools exist, and what evidence is still missing.</p>
       </a><a class="resource-card internal-card" href="../active-inference-and-healthcare/">
-        <span>Clinical researchers, computational psychiatry groups, healthcare AI builders, and Institute fellows.</span>
+        <span>Researchers, clinicians, and Institute fellows exploring active inference as a modeling framework for computational psychiatry, interoception, clinical decision support, and medical AI safety.</span>
         <strong>Active Inference and Healthcare</strong>
-        <p>Healthcare applications of Active Inference treat symptoms, clinical decisions, monitoring, and adaptive support as problems of perception, action, uncertainty, and model updating.</p>
+        <p>Healthcare concerns the regulation of biological states, the reduction of uncertainty about disease processes, and the continual selection of diagnostic and therapeutic actions under incomplete evidence — a set of problems that maps directly onto active inference's core constructs of generative models, prediction error, expected free energy, and policy selection. Over the past decade a literature has grown around computational psychiatry, interoception and pain, digital twins, medical robotics, and — most recently — the safety of large language models used as clinical decision-support tools. Most of this work remains theoretical or simulation-based, but reviews in computational psychiatry and interoceptive psychopathology have begun to consolidate the field, and conceptual roadmaps for &quot;Active Inference AI&quot; in medicine sketch how the framework could reach digital twins, precision diagnostics, and clinical decision support.</p>
       </a></div>
   </section>
   <nav class="pager page-pager" aria-label="Active Inference and Psychology adjacent pages">
@@ -479,7 +482,7 @@
     <div class="social-links" aria-label="Verifizierte öffentliche Links">
       <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-    <p class="build-stamp">v2.7.0 · build e8524067d154</p>
+    <p class="build-stamp">v2.8.0 · build 9e5417ac7be2</p>
   </footer>
   <script src="../../assets/js/theme.js" defer></script>
   <script src="../../assets/js/accent.js" defer></script>

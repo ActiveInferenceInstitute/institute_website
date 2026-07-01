@@ -1,0 +1,67 @@
+{
+  "slug": "active-inference-and-climate",
+  "title": "Active Inference and Climate Science",
+  "subtitle": "Earth-system data assimilation, generative climate emulation, and policy-under-uncertainty are already proto-active-inference — just not yet framed or unified that way.",
+  "audience": "Climate scientists, Earth-system modelers, sustainability and resource-governance researchers, and Institute fellows evaluating active inference as a framework for climate intelligence and planetary stewardship.",
+  "lede": "Climate science already runs on Bayesian filtering, generative modeling, and decision-making under deep uncertainty — it just rarely calls this active inference. This report surveys the case for treating climate perception, model updating, and policy selection as a single free-energy-minimization problem, and takes stock of where that vision is theoretical, where it is simulation-tested, and where it remains aspirational.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "The free energy principle holds that any system persisting under environmental perturbation acts to minimize variational free energy, unifying perception, action, and learning as one process. Climate science presents exactly this structure: partial and noisy observation streams (radiosondes, buoys, satellites, ice cores), latent states inferred through data assimilation, and sequential policy choices made under deep, structural uncertainty. Kleidon's thermodynamic analysis of the Earth system shows it continuously generates and dissipates free energy — via solar-driven water transport, atmospheric circulation, and biogeochemical cycling — to sustain the non-equilibrium disequilibrium conditions life depends on, giving the framework a physical as well as cognitive grounding. Ramstead and colleagues extend this further, arguing that climate inaction is itself a maladaptive symptom of a global cognitive system whose institutional priors are misaligned with biophysical reality."
+    },
+    {
+      "heading": "State of the literature",
+      "body": "Foundational free energy principle work (Friston) supplies the mathematical toolkit, while Kleidon grounds it physically in Earth-system thermodynamics. Ramstead et al.'s peer-reviewed 'Resurrecting Gaia' paper is the most direct conceptual bridge to planetary governance, and Keller's chapter on Bayesian decision theory and climate change is treated as a proto-active-inference precursor — it handles climate thresholds and low-probability high-impact events but lacks active inference's explicit epistemic (information-seeking) term. The most concrete climate-adjacent applications sit in sustainability rather than core climate modeling: Lallée et al.'s peer-reviewed 'agentic rulebooks' framework lets AI governance agents override fixed rule priorities for sustainable cities, and non-peer-reviewed preprints model sustainable resource management in socio-ecological systems using expected free energy. The OpenEarth blog and Denise Holt's IEEE Spatial Web Protocol commentary are non-peer-reviewed vision pieces gesturing at the same direction."
+    },
+    {
+      "heading": "Key projects and tools",
+      "body": "Several existing tools are not framed as active inference but are structurally identical to its 'perception' module: variational Bayesian ensemble filtering for atmospheric data assimilation, the Purdue deep-generative framework for statistical downscaling (image restoration applied to climate fields), and the CDSD causal climate emulator, which uses Bayesian filtering to update a generative model of climate dynamics online and explore counterfactual scenarios. Climate TRACE's remote-sensing consortium performs literal active sensing — lidar and radar pulses inferring emissions and land-use change — that maps onto the epistemic term of expected free energy. Methodological work on deep active inference (variational policy gradients) and expected-free-energy-based planning supplies the computational machinery to scale these ideas to high-dimensional climate spaces. The Active Inference Institute's ecosystem functions as an organizing hub across these efforts rather than a source of climate-specific deployed systems."
+    },
+    {
+      "heading": "Open problems",
+      "body": "Four gaps stand out. Bridging scales and modalities: climate processes span micrometers to planetary circulation and seconds to centuries, and no demonstrated hierarchical active inference model yet handles this while integrating socio-ecological and governance variables. Learning from sparse, biased, non-stationary data: observational networks have spatiotemporal gaps, and anthropogenic forcing means historical data is only partially representative of future conditions. Normative priors and governance: active inference does not itself resolve what climate outcomes, equity trade-offs, or planetary-boundary constraints should be encoded as preferences — that remains an ethical and political choice requiring participatory processes and auditability. Empirical validation: the report is explicit that active inference systems must be benchmarked against mature incumbents (ensemble Kalman filters, variational assimilation, integrated assessment models) on real datasets, not toy simulations, before the field moves past conceptual promise."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Christopher L. Buckley, Chang Sub Kim, Simon McGregor, Anil K. Seth (2017). The free energy principle for action and perception: A mathematical review. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2017.09.004. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant, Lancelot Da Costa, Casper Hesp, Beren Millidge, Alexander Tschantz (2023). On Bayesian Mechanics: A Physics of and by Beliefs. arXiv."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Generative emulation as perception",
+      "text": "Causal climate emulators (CDSD) and variational Bayesian ensemble filtering already implement free-energy-style state and parameter updating, making them natural substrates for an active inference 'perception' layer."
+    },
+    {
+      "title": "Expected free energy for policy",
+      "text": "Decomposing policy choice into risk, ambiguity, and novelty lets climate decisions formally value monitoring and research investment alongside emissions reduction, unlike traditional cost-benefit framing."
+    },
+    {
+      "title": "Mostly conceptual and unvalidated",
+      "text": "Outside two peer-reviewed governance papers, most climate-adjacent active inference work is preprint, simulation, or blog-level, and none has been benchmarked against operational climate tools."
+    }
+  ],
+  "order": 78,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-ecology",
+    "active-inference-and-agriculture"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv"
+  ]
+}

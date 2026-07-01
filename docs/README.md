@@ -21,8 +21,9 @@ rather than duplicating them. `docs/` is **not** built into the published site.
 | Pass `npm run check` | [GATES_AND_VALIDATION.md](GATES_AND_VALIDATION.md) |
 | Use the design system / tokens | [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) |
 | Change a URL or legacy redirect | [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md) |
+| Look up a top-level registry schema (`site.json`, `live-sources.json`, …) | [REGISTRIES.md](REGISTRIES.md) |
 | Fix a cryptic build/gate error | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
-| Reorganize folders / routes | [REFACTOR_ASSESSMENT.md](REFACTOR_ASSESSMENT.md) |
+| Reorganize source folders vs. change a public URL | [SLUG_AND_URL_TAXONOMY.md § Two independent axes](SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url) |
 
 ## The one rule that explains everything
 
@@ -33,7 +34,8 @@ rather than duplicating them. `docs/` is **not** built into the published site.
 
 See [SLUG_AND_URL_TAXONOMY.md](SLUG_AND_URL_TAXONOMY.md) for the full mechanism. The
 practical consequence: **regrouping source folders is free; changing output URLs is a
-breaking change** that needs redirects (see [REFACTOR_ASSESSMENT.md](REFACTOR_ASSESSMENT.md)).
+breaking change** that needs redirects (see
+[MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md)).
 
 ## Authoritative per-folder contracts (`AGENTS.md`)
 
@@ -45,14 +47,18 @@ This conceptual set defers to the implementation contracts that live with the co
 - [`src/lib/AGENTS.md`](../src/lib/AGENTS.md) — pure helpers
 - [`src/content/AGENTS.md`](../src/content/AGENTS.md) — JSON registries
 - [`src/content/pages/AGENTS.md`](../src/content/pages/AGENTS.md) — page content + schema
+- [`src/pages/AGENTS.md`](../src/pages/AGENTS.md) — registry-derived page renderers (directory, resources, knowledge, ecosystem, calendar, search, simulations, sitemap)
 - [`scripts/AGENTS.md`](../scripts/AGENTS.md) — gates, sync, i18n
 - [`assets/AGENTS.md`](../assets/AGENTS.md) — CSS, JS, images, redirects
 
-Canonical longform references at the repo root: [README.md](../README.md),
-[DESIGN_SYSTEM.md](../DESIGN_SYSTEM.md), [INTERNATIONALIZATION.md](../INTERNATIONALIZATION.md),
-[MIGRATION.md](../MIGRATION.md), [SWITCHOVER.md](../SWITCHOVER.md),
-[CONTRIBUTING.md](../CONTRIBUTING.md). The `.claude/skills/institute-website/` skill and
-its `Workflows/` are the step-by-step task runbooks.
+Canonical longform references at the repo root: [INDEX.md](../INDEX.md) (top-level
+repo map), [README.md](../README.md), [DESIGN_SYSTEM.md](../DESIGN_SYSTEM.md),
+[INTERNATIONALIZATION.md](../INTERNATIONALIZATION.md), [MIGRATION.md](../MIGRATION.md),
+[SWITCHOVER.md](../SWITCHOVER.md), [GATING.md](../GATING.md) (public-projection
+gating contract), [RELEASING.md](../RELEASING.md), [CONTRIBUTING.md](../CONTRIBUTING.md),
+[CHANGELOG.md](../CHANGELOG.md), [TODO.md](../TODO.md). The
+`.claude/skills/institute-website/` skill and its `Workflows/` are the step-by-step
+task runbooks.
 
 ## Quick command reference
 

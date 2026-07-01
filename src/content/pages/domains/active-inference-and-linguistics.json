@@ -1,0 +1,67 @@
+{
+  "slug": "active-inference-and-linguistics",
+  "title": "Active Inference and Linguistics",
+  "subtitle": "Language as inference: speakers and listeners minimize free energy across dialogue, syntax, speech motor control, and LLM interaction.",
+  "audience": "Computational linguists, cognitive and clinical speech scientists, and Active Inference Institute fellows working on dialogue modeling, psycholinguistics, or active-inference-based LLM agents.",
+  "lede": "Language use couples perception, action, and uncertainty resolution as tightly as any domain active inference has been applied to: speakers and listeners continually update generative models and act to reduce prediction error across a conversation. This report traces the literature from foundational generative models of synthetic dialogue through extensions into speech motor control, stuttering, inner speech, syntax, and large language model architectures, while also surfacing the empirical caution urged by predictive-coding and Bayesian-brain critiques. What follows synthesizes that literature for researchers assessing where active inference genuinely explains linguistic phenomena and where it remains a normative scaffold awaiting evidence.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Active inference casts any system that maintains its integrity as minimizing variational free energy relative to a generative model of its environment, and linguistic communication maps onto this directly: speakers select utterances expected to change a listener's beliefs, while listeners parse speech to infer hidden intentions and meanings, both processes framed as free-energy minimization. The formalism's four-way partition of internal, external, sensory, and active states via Markov blankets separates an agent's beliefs from the communicative situation, with heard speech as sensory states and articulation as active states. Language's inherent hierarchy — phonemes into syllables, words into phrases, phrases into discourse — also aligns with active inference's nested generative models, where higher levels encode slow abstract causes (intentions, topics) and lower levels encode fast sensory detail (acoustic realization)."
+    },
+    {
+      "heading": "State of the literature",
+      "body": "The foundational contribution is the 2020 work on generative models, linguistic communication, and active inference (Friston and colleagues), which simulates dialogue between synthetic agents that infer each other's hidden semantic states and select utterances to minimize expected free energy, producing emergent shared lexical conventions. A companion hermeneutic account (Paulus and Friston) frames communication as mutual interpretation, where action fulfills predictions about one's own future speech and its effect on the listener. The literature then branches into speech motor control and an active-inference account of stuttering (disfluency as failure to smoothly minimize free energy across motor and linguistic levels), a preprint arguing natural language syntax itself complies with the free-energy principle, an essay reframing inner speech as a translator between messy sensory states and compact verbal labels, and a Frontiers in Psychology call to bring active inference into neuropragmatics. Running through all of this is an unresolved tension with predictive-coding and Bayesian-brain theories: a 2023 critique argues neural systems may prioritize feature discovery over exhaustive prediction, and a separate critical review challenges whether the brain implements literal Bayesian computation at all."
+    },
+    {
+      "heading": "Key projects and tools",
+      "body": "Concrete implementations are still largely research prototypes rather than named public tools: synthetic linguistic agents are built as probabilistic graphical or state-space models with message-passing or gradient-descent inference (typically MATLAB or Python), and speech motor control models are envisioned as dynamic Bayesian networks over articulatory states. Dynamic causal modeling (DCM), already used in the active inference community to model brain connectivity, is proposed as extendable to neuropragmatics experiments alongside standard neuroimaging pipelines (SPM, FSL). On the AI side, three distinct 2025-era projects integrate active inference with LLMs: a review architecture using an outer active-inference controller to manage an LLM's prompts and interactions, a Nature Digital Medicine system that selects prompts via expected free energy to improve response reliability, and an arXiv preprint on a multi-LLM system where a hierarchical controller assigns tasks across specialized LLMs to minimize free energy relative to user goals. Research is loosely associated with Friston-affiliated groups (e.g., University College London) and the LISN Lab, which hosts the inner-speech essay."
+    },
+    {
+      "heading": "Open problems",
+      "body": "Direct empirical evidence that human language processing actually follows active inference principles remains limited: many of its predictions (seeking information under uncertainty, acting on preferences) are qualitatively shared with reinforcement learning and other frameworks, so tests need to target distinctive features like the epistemic-pragmatic decomposition of expected free energy. The Bayesian-brain critique specifically warns against reading generic prediction-error signals in neuroimaging as proof of full Bayesian computation in language circuits. Multiscale integration is largely unaddressed in practice — most models cover a narrow band (word-meaning mappings or speech motor control) rather than spanning neural circuits through discourse to language change — and clinical translation (stuttering, apraxia, aphasia, psychosis-linked inner-speech disruption) has only an initial worked example (stuttering) with the rest still hypothetical. For LLM-based systems, open questions include how to formalize tractable generative models of user state, how to define expected free energy functionals capturing alignment and reliability, and how to evaluate interactive agents since standard NLP benchmarks do not capture dynamic active-inference-driven dialogue."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant, Lancelot Da Costa, Casper Hesp, Beren Millidge, Alexander Tschantz (2023). On Bayesian Mechanics: A Physics of and by Beliefs. arXiv."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Dialogue as Free-Energy Minimization",
+      "text": "Speakers and listeners are modeled via a four-way Markov-blanket partition (internal, external, sensory, active states), each selecting or interpreting utterances to minimize variational free energy."
+    },
+    {
+      "title": "Epistemic vs. Pragmatic Utterances",
+      "text": "Expected free energy decomposes conversational moves into epistemic value (clarifying questions that reduce uncertainty) and pragmatic value (statements or commands that fulfill goals), a distinction now also used to select LLM prompting strategies."
+    },
+    {
+      "title": "Evidence Still Thin",
+      "text": "Foundational generative-dialogue and syntax-compliance claims remain largely theoretical, and Bayesian-brain critiques caution that language-processing prediction errors don't by themselves prove the brain implements literal Bayesian active inference."
+    }
+  ],
+  "order": 82,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-education",
+    "active-inference-and-psychology"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv"
+  ]
+}

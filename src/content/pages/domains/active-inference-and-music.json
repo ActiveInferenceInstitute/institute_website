@@ -1,0 +1,67 @@
+{
+  "slug": "active-inference-and-music",
+  "title": "Active Inference and Music and Sound",
+  "subtitle": "Music and sound as a temporally rich testbed for active inference: prediction, precision-weighting, and motor engagement in one place.",
+  "audience": "Researchers, clinicians, and audio/music technologists interested in applying active inference and predictive processing to auditory cognition, musical reward, and sound engineering.",
+  "lede": "Music and sound intertwine perception, motor action, prediction, and affect in a temporally structured, quantifiable way, making them an unusually tractable domain for active inference research. A converging body of work on predictive processing in music, Bayesian auditory perception, and active inference in audition and psychopathology suggests that listening is organized around continual updating of hierarchical internal models to minimize prediction error and expected free energy. This page synthesizes what that literature currently supports, the concrete tools and projects it names, and the gaps it identifies for future work.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Music unfolds in sequences with structure at multiple timescales, from milliseconds to minutes, forcing listeners to form and continually revise predictions about meter, tempo, key, and harmonic function. Rhythm, melody, harmony, timbre, and spatial cues instantiate learnable probabilistic regularities, and the pleasure or \"groove\" associated with music appears tied to precisely calibrated violations and confirmations of these expectations, mediated by precision-weighting in cortico-striatal circuits. Motor engagement such as tapping or dancing can sharpen temporal predictions and reduce sensory uncertainty, as shown in EEG studies of syncopated rhythms framed explicitly within active inference. This tight coupling of perception, action, and affect is exactly what active inference's unified treatment of perception and control is built to model."
+    },
+    {
+      "heading": "State of the literature",
+      "body": "The most developed line of work is Peter Vuust and colleagues' predictive-coding account of rhythmic complexity and groove, based at the Centre for Music in the Brain at Aarhus University, which treats syncopation as a violation of an internal metrical model. Building on it, the study \"Active Inference in Music Perception: Motor Engagement to Syncopated Rhythm\" found that tapping to a beat increased EEG intertrial phase coherence and a neural index of precision-weighted prediction error, offering direct empirical support for active inference in music. Other strands include Nguyen and colleagues' \"intuitive physics\" generative model of melodic expectation (using sequential Monte Carlo inference over key and musical-force priors), a hierarchical syntax model relating harmonic dependencies to EEG theta power, Gold and colleagues' PNAS study on predictability and exposure shaping musical preference, a Bayesian review of music and aging, Powers and colleagues' active inference account of auditory hallucinations, and an fMRI study showing active sound localization sharpens tuning in primary auditory cortex. The report notes that most of this work is framed in predictive-coding or Bayesian terms rather than as fully specified active inference agents with explicit policy selection."
+    },
+    {
+      "heading": "Key projects and tools",
+      "body": "The clearest deployed engineering example is AIDA (Active Inference-Based Design Agent for Audio Processing), which interacts with users to iteratively design personalized audio processing algorithms — equalization, compression, effects chains — by maintaining a generative model linking parameter settings to perceived sound quality and selecting parameter adjustments that minimize expected free energy across epistemic and pragmatic value. The Centre for Music in the Brain at Aarhus University (Vuust's group) anchors the rhythm-and-groove literature. The report also points to reusable empirical assets: syncopation/beat-tracking paradigms with EEG phase-coherence measures, Nguyen's melodic-prediction datasets, and the harmonic-dependency EEG dataset used for the theta-power model — all candidates for fitting or validating future active inference models of music."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The report identifies no fully specified active inference architecture that integrates musical generative models, motor states, and affective preferences into explicit expected-free-energy policy selection — current studies (including the syncopated-tapping EEG work and AIDA) address pieces of this, not the whole agent. It calls for bridging single-trial neural measures with long-term learning, habituation, and preference change over days to years, and for multi-agent active inference models of improvisation and collective/ensemble musical behavior, which remain largely theoretical (drawing on Goldman's account of improvisation as a way of knowing). Clinically, the report says active inference offers a plausible mechanism for auditory hallucinations, tinnitus, hyperacusis, and music-based interventions in aging and Parkinson's gait training, but notes that controlled trials testing active-inference-informed interventions are lacking. On the engineering side, it flags scaling generative models from symbolic representations (MIDI, chord labels) to raw high-dimensional audio, and achieving real-time inference and policy selection, as unresolved technical challenges."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Christopher L. Buckley, Chang Sub Kim, Simon McGregor, Anil K. Seth (2017). The free energy principle for action and perception: A mathematical review. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2017.09.004."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Groove as active sensing",
+      "text": "EEG evidence shows tapping to a syncopated beat sharpens neural phase coherence and precision-weighted prediction error, treating the urge to move to music as active inference in action."
+    },
+    {
+      "title": "AIDA audio design agent",
+      "text": "A deployed active-inference system that infers a user's latent audio preferences through interaction and adjusts processing parameters to minimize expected free energy."
+    },
+    {
+      "title": "Framework ahead of evidence",
+      "text": "The report is explicit that most cited work is predictive-coding or Bayesian modeling rather than fully specified active inference agents, so explicit empirical tests remain comparatively rare."
+    }
+  ],
+  "order": 84,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-linguistics",
+    "active-inference-and-psychology"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv"
+  ]
+}

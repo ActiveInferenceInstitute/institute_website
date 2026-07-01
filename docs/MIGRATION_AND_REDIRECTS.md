@@ -60,13 +60,13 @@ All keys are normalized (lowercase, no leading/trailing slash, no `.html`):
 
 | Old Squarespace Path | New Clean URL | Notes |
 |---|---|---|
-| `/home`, `/` | `/` | Home redirect |
+| `/home` | `/` | Home redirect |
 | `/welcome` | `/get-involved/` | Welcome → Get involved |
-| `/about-us`, `/history` | `/about/` | About alias |
+| `/about-us` | `/about/` | About alias (`/history` is its own live page, not a redirect) |
 | `/board-of-directors`, `/bod` | `/structure/` | Board → Structure |
 | `/officers` | `/structure/` | Officers → Structure |
 | `/scientific-advisory-board`, `/sab` | `/structure/` | SAB → Structure |
-| `/structure` | `/structure/` | Structure direct |
+| `/structure` | `/structure/` | Structure direct (no-op, kept for completeness) |
 | `/courses`, `/education` | `/learning/` | Courses → Learning |
 | `/research-overview`, `/research` | `/learning/` | Research → Learning |
 | `/livestreams` | `/activities/` | Livestreams → Activities |

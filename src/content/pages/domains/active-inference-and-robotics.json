@@ -1,9 +1,9 @@
 {
   "slug": "active-inference-and-robotics",
   "title": "Active Inference and Robotics",
-  "subtitle": "A research scaffold for embodied agents, active sensing, expected-free-energy control, and robotic learning.",
-  "audience": "Roboticists, AI researchers, embodied-cognition groups, and builders of autonomous instruments.",
-  "lede": "Robotics is a natural test bed for active inference because perception, planning, action, and uncertainty are coupled in the same physical loop, and action can be chosen both to accomplish goals and to improve the information available for future control.",
+  "subtitle": "Robots as embodied, uncertainty-bound perceivers and actors — a natural testbed for expected free energy minimization",
+  "audience": "Roboticists, control engineers, and active inference researchers evaluating whether unified perception-action-learning architectures can outperform or complement classical control and reinforcement learning.",
+  "lede": "Robots continuously perceive, act, and learn under uncertainty using noisy, multimodal sensors and imperfect actuators — precisely the conditions the free energy principle was formulated to describe. A growing but still heterogeneous literature has explored active inference as a way to unify state estimation, control, planning, and model learning in robotic systems, spanning theoretical papers, simulated proofs of concept, and experiments on physical humanoids and manipulators. This page synthesizes that literature's application patterns, named tools and labs, and the open problems that separate compelling demonstrations from a routinely deployed engineering methodology.",
   "primaryActions": [
     {
       "label": "Project repositories",
@@ -21,15 +21,19 @@
   "sections": [
     {
       "heading": "Why the domain fits",
-      "body": "Embodied systems must select actions that achieve goals and reduce uncertainty about objects, tasks, and operating conditions. Active inference makes the epistemic part of action selection explicit, unifying state estimation, control, and exploration under a single free-energy objective rather than bolting exploration onto a reward signal."
+      "body": "Classical robotics separates state estimation (Kalman/particle filters), control (LQR, MPC, PID), and, increasingly, reinforcement learning, each solved as its own module. Active inference instead casts all three as approximate Bayesian inference under a single generative model, minimizing variational free energy for perception and learning and expected free energy — which trades off epistemic (information-gain) and pragmatic (goal-satisfaction) value — for action selection. Lanillos and colleagues argue this conceptual unification is exactly what makes robots ideal testbeds: they must maintain beliefs about hidden variables (body configuration, object states, dynamics) from ambiguous sensor streams and act to keep observations within their model's expected range. Millidge et al.'s analysis of the control-as-inference literature further shows that under certain assumptions, active inference policies reduce to standard optimal control or RL solutions, clarifying how existing controllers can be read as special cases of free energy minimization."
     },
     {
-      "heading": "Application pattern",
-      "body": "A modular report should track the robot body, sensor model, action policy, preferred outcomes, and evaluation environment separately, so a simulation result, a laboratory manipulator, and a field instrument are not collapsed into one claim. Recurring patterns include generative models of robot dynamics, expected-free-energy policy selection, active vision, hierarchical/hybrid controllers, and deep or contrastive active inference for high-dimensional control."
+      "heading": "Application patterns in the literature",
+      "body": "Generative models in robotics implementations are typically structured around known physics and kinematics rather than learned end-to-end: humanoid body-perception work encodes forward kinematics and multimodal (visual/proprioceptive) observation models, while manipulator controllers encode joint dynamics, inertia, and contact forces. Expected free energy then drives policy selection — Pezzato, Ferrari, and Hernández's adaptive manipulator controller (published in IEEE Robotics and Automation Letters) adapts online to dynamic uncertainty and sensor faults, and Baioumy et al.'s ball-balancing agent shows expected free energy inducing genuinely exploratory, curiosity-like behavior. Precision weighting — adjusting trust in sensory channels or priors based on inferred reliability — recurs across this work, notably in Ferrari's group's beta-residuals scheme for detecting and compensating faulty sensors. Hierarchical multi-level architectures are discussed conceptually (e.g., task-space preferences over joint-space actions) but concrete hierarchical implementations remain rare and largely confined to simulation."
     },
     {
-      "heading": "Evidence to collect next",
-      "body": "The next pass should gather adaptive-controller case studies, manipulation and navigation results, deep active-inference on real hardware, and benchmarks against reinforcement learning and classical control. Each record should state whether it is theory, simulation, hardware, or deployed instrumentation, and whether it scales beyond low-dimensional settings."
+      "heading": "Key projects and tools",
+      "body": "pymdp is the report's one named general-purpose software library, an open-source Python package for discrete-state (POMDP) active inference introduced via a PubMed-indexed step-by-step tutorial. Riccardo Ferrari's group at Delft University of Technology has produced the most sustained manipulator-control body of work — the adaptive controller, integrated state-estimation/control/learning (ICRA 2021), unbiased active inference for classical control (IROS 2022), and beta-residual fault tolerance — with code referenced on his research site. Pablo Lanillos and collaborators (TU Munich and Japan-based partners) lead the humanoid line: body perception and reaching on a physical humanoid, and mirror self/other distinction combining active inference with neural network forward models. Bristol Robotics Lab and the Active Touch Laboratory contribute Bayesian active-sensing tactile exploration systems (fingertip arrays, whiskers) that embody active inference principles without always formalizing them as such, and Verses AI's blog post signals early industrial interest, though it is explicitly not peer-reviewed."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The report identifies five unresolved areas needing further evidence: scalability of expected-free-energy evaluation to high-dimensional, real-time robots (addressed only in simulation so far by the \"Scaling active inference\" preprint); principled generative-model specification that balances hand-crafted physics with learned components; systematic head-to-head benchmarking against classical controllers and deep RL, for which no standardized benchmark suite (analogous to MuJoCo-style RL suites) yet exists; safety and robustness under distributional shift, where Zorzi et al.'s DR-FREE framework (robustifying free energy minimization over an ambiguity set of models) is proposed but not yet applied to physical robots; and institutional adoption, since active inference toolchains remain far less mature than ROS or deep-learning stacks. The report explicitly cautions that many claims rest on qualitative or proof-of-principle results rather than systematic comparison."
     },
     {
       "heading": "Reference Backbone",
@@ -38,16 +42,16 @@
   ],
   "cards": [
     {
-      "title": "Active sensing",
-      "text": "Use action to reduce uncertainty about objects, tasks, and operating conditions, not just to maximise reward."
+      "title": "Unified inference loop",
+      "text": "Active inference recasts state estimation, control, and learning as one variational free energy minimization under a single generative model, rather than separate hand-patched modules."
     },
     {
-      "title": "Embodied policy selection",
-      "text": "Evaluate actions by expected outcomes and information gain via expected free energy minimization."
+      "title": "Precision-weighted fault tolerance",
+      "text": "Beta-residual precision learning lets manipulator controllers down-weight unreliable sensor channels in real time, maintaining performance under sensor faults."
     },
     {
-      "title": "Implementation register",
-      "text": "Track simulator, hardware, repository, and benchmark status separately for every claim."
+      "title": "Mixed evidence quality",
+      "text": "Findings span peer-reviewed journal work (IEEE RAL, PubMed-indexed tutorials) and unreviewed preprints or industry blog posts (Verses AI), with no standardized benchmark suite yet comparing active inference to classical control or RL."
     }
   ],
   "order": 72,

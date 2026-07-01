@@ -1,0 +1,67 @@
+{
+  "slug": "active-inference-and-law",
+  "title": "Active Inference and Law and Policy",
+  "subtitle": "Legal and regulatory systems as collective Bayesian inference: norms as priors, enforcement as belief updating, policy as expected free energy minimization.",
+  "audience": "Researchers, legal scholars, policymakers, and Institute fellows exploring computational and legal-analytic approaches to governance, regulation, and AI oversight under uncertainty.",
+  "lede": "Law and policy can be read as collective inference processes: courts, legislatures, and regulators continuously revise generative models of social behavior in response to evidence, while norms encode prior beliefs about acceptable conduct. This page traces the emerging literature connecting active inference and the free energy principle to jurisprudence, regulatory design, and — most concretely — AI governance, drawing on a research synthesis prepared for the Active Inference Institute. The literature here is foundationally rich in theory and social-cognitive extensions, but explicit legal application is still nascent and largely at the proof-of-principle stage.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Legal systems manage and redistribute uncertainty, stabilize expectations, and coordinate action among agents with conflicting interests and incomplete information — the same problem active inference formalizes as minimizing variational free energy over a generative model. Norms and laws function as priors that encode acceptable and expected conduct, while enforcement, adjudication, and legislative revision implement evidence assimilation and belief updating about social states, risks, and normative commitments. Concrete examples from the report include tort law shaping expectations about harm and liability, and financial or environmental regulation encoding assumptions about systemic risk that are continually updated through monitoring and enforcement."
+    },
+    {
+      "heading": "State of the literature",
+      "body": "The core literature is rooted in theoretical neuroscience's account of the brain minimizing free energy through perception, action, and learning, later extended to social cognition, cooperation, and norm emergence in multi-agent settings. Specific studies on \"regimes of expectations\" model social conformity and normative regulation as agents aligning behavior with internalized expectations, while a separate multi-agent study shows cooperative norms and social rules emerging when agents minimize surprise about others' behavior under fairness and reciprocity constraints. Work on narrative-as-active-inference and on the free energy principle as a formal theory of semantics extends these ideas toward legal storytelling and legal-language interpretation, though the report is explicit that this does not yet constitute a dedicated legal literature."
+    },
+    {
+      "heading": "Key projects and tools",
+      "body": "The most concrete bridge to law is a preprint titled \"Normative active inference: A numerical proof of principle for a computational and economic legal analytic approach to AI governance,\" which embeds legal statuses (compliance, liability, risk category) and economic considerations as priors in AI agents' generative models, so policy selection minimizes expected free energy with respect to legal and economic compliance. Non-peer-reviewed practitioner discussions of \"Active Inference AI\" argue such architectures are more amenable to lawful behavior than large language models and suggest spatial-web protocols could help systems maintain GDPR-style regulatory compliance by continuously updating generative models as laws change. The Active Inference Institute itself is named as institutional infrastructure — its board includes people with governance and active-inference expertise — supporting workshops and collaborative work at this intersection, though the report notes no large-scale deployed legal or regulatory systems exist yet."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The report flags four unresolved fronts: formalizing legal meaning and interpretation under the free energy principle (legal semantics is far more contested and normative than typical prediction-control mappings); operationalizing what counts as \"surprising\" in institutional settings, since different definitions of surprise imply different models and policy consequences; understanding when multi-agent norm emergence aligns with fairness and rights versus reproducing power asymmetries and pathologies like discrimination; and integrating human factors — narrative, legitimacy, and trust — that shape how citizens and officials actually update beliefs about institutions. AI governance is singled out as the most empirically tractable near-term front, needing prototype systems in regulatory sandboxes rather than further conceptual proposals."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant, Lancelot Da Costa, Casper Hesp, Beren Millidge, Alexander Tschantz (2023). On Bayesian Mechanics: A Physics of and by Beliefs. arXiv."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Norms as priors",
+      "text": "Legal rules and regulatory constraints function as prior beliefs that shape agents' expectations and actions toward minimizing collective surprise about social outcomes."
+    },
+    {
+      "title": "Policy via expected free energy",
+      "text": "Regulatory and legislative choices can be formalized as policies evaluated on expected free energy, trading off risk reduction against the epistemic value of monitoring and pilot programs."
+    },
+    {
+      "title": "Evidence is still thin",
+      "text": "Beyond one numerical proof-of-principle for AI governance, most cited material is theoretical, simulation-based, or non-peer-reviewed practitioner commentary, with no documented deployed legal or regulatory systems."
+    }
+  ],
+  "order": 80,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-economics",
+    "active-inference-and-cybersecurity"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv"
+  ]
+}

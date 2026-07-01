@@ -34,7 +34,7 @@ npm run check               # all gates (run before commit)
 
 ## Doc map
 
-- **Start here for concepts:** [docs/README.md](docs/README.md) → ARCHITECTURE, SLUG_AND_URL_TAXONOMY (load-bearing), CONTENT_AUTHORING, GATES_AND_VALIDATION, MIGRATION_AND_REDIRECTS, INTERNATIONALIZATION, DESIGN_SYSTEM, GETTING_STARTED, TROUBLESHOOTING, REFACTOR_ASSESSMENT.
+- **Start here for concepts:** [docs/README.md](docs/README.md) → ARCHITECTURE, SLUG_AND_URL_TAXONOMY (load-bearing), CONTENT_AUTHORING, REGISTRIES, GATES_AND_VALIDATION, MIGRATION_AND_REDIRECTS, INTERNATIONALIZATION, DESIGN_SYSTEM, GETTING_STARTED, TROUBLESHOOTING.
 - **Operating contracts:** per-folder `AGENTS.md` in root, `src/`, `src/render/`, `src/lib/`, `src/content/`, `src/content/pages/`, `scripts/`, `assets/`.
 - **Root longform:** [README.md](README.md), [CONTRIBUTING.md](CONTRIBUTING.md), [CHANGELOG.md](CHANGELOG.md), [TODO.md](TODO.md), [RELEASING.md](RELEASING.md), [GATING.md](GATING.md).
 - **Skill:** `.claude/skills/institute-website/SKILL.md` + Workflows.

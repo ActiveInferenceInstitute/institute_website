@@ -1,0 +1,67 @@
+{
+  "slug": "active-inference-and-urban-planning",
+  "title": "Active Inference and Urban Planning",
+  "subtitle": "Cities as inference machines: generative models, expected free energy, and hierarchical policy selection for traffic, energy, water, and land use.",
+  "audience": "Urban planners, control engineers, and Institute researchers evaluating active-inference approaches to city-scale infrastructure control and governance.",
+  "lede": "Urban planning increasingly confronts deep uncertainty, multi-scale dynamics, and heterogeneous stakeholders, conditions under which classical equilibrium or static optimization approaches grow less adequate. Active inference, grounded in the free energy principle, offers a unifying framework for perception, action, and learning under uncertainty, and peer-reviewed and preprint work has begun applying it to traffic signal control, multi-agent energy optimization, urban water governance, and geospatial land-use modeling. This page synthesizes the state of that literature, the application patterns it uses, the concrete projects and tools it has produced, and the open problems the field still needs to resolve.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Urban planning is built on extensive, noisy, incomplete sensing (traffic counts, energy and water flows, land-use patterns, social indicators) that maps directly onto active inference's observations, which agents use to infer latent states such as demand patterns, infrastructure condition, and social need. It is also fundamentally about policy selection and control — zoning, infrastructure investment, operational rules, governance arrangements — which active inference treats as actions chosen to minimize expected free energy across epistemic (uncertainty-reducing) and pragmatic (outcome-realizing) terms. Cities are additionally non-stationary (demographic shifts, new technology, policy change) and multi-scale/multi-agent (intersections to districts to whole-city strategy), both of which hierarchical, continuously-updating generative models are designed to handle."
+    },
+    {
+      "heading": "State of the literature",
+      "body": "Foundational theory comes from Friston's work on attention, uncertainty, and free energy (recognition dynamics and variational inference) and on planning/navigation as active inference, plus a narrative-as-active-inference account (Frontiers in Psychology) of how collective sensemaking functions as group-level inference. Applied, peer-reviewed work exists in two domains: urban water governance, where Karpouzoglou and colleagues (Ecology and Society) analyze state-reinforced knowledge infrastructures as supporting group-based active inference in adaptive governance, and the built environment, where BEACON (Frontiers in the Built Environment) embeds an Active Inference Simulation ontology for representing tacit architectural design knowledge. Traffic control work — a SUMO-based active inference controller and an arXiv preprint on adaptive signal control in noisy, non-stationary IoT environments — and Millidge's active inference tree search in large POMDPs remain at the simulation/preprint stage, alongside adjacent variational Bayesian reinforcement learning applied to urban infrastructure and sustainable mobility."
+    },
+    {
+      "heading": "Key projects and tools",
+      "body": "The report names five concrete implementations at different maturity stages: a SUMO (Simulation of Urban MObility) active inference traffic-light controller benchmarked against a rule-based baseline (simulation prototype); an arXiv preprint extending this to noisy, non-stationary IoT sensor environments (preprint); EcoNet, the Alan Turing Institute's multi-agent active inference system for urban energy optimization in smart buildings, shown at the Turing Grand Exhibition (deployed demonstrator); BEACON's Active Inference Simulation ontology for built-environment tacit knowledge (peer-reviewed ontology and tooling); and GEO-INFER, an Active Inference Institute open-source toolkit with a guide for building active inference agents that perform land-use classification from geospatial imagery (toolkit/implementation)."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The report flags scaling as the most pressing challenge: real cities have far larger state spaces and more complex dynamics than the simulations and demonstrators tested so far, requiring more tractable hierarchical inference and, eventually, large-scale simulations and operational pilot deployments with longitudinal performance data. It also identifies unresolved work on integrating human behavior and narrative into generative models, on distinguishing descriptive uses of active inference (explaining how institutions already behave, as in the water-governance paper) from normative uses (designing new controllers, as in BEACON, GEO-INFER, and EcoNet), on establishing shared benchmarks and evaluation standards across domains, and on the ethical, legal, and political questions raised by priors and objectives encoded into planning-relevant generative models."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant, Lancelot Da Costa, Casper Hesp, Beren Millidge, Alexander Tschantz (2023). On Bayesian Mechanics: A Physics of and by Beliefs. arXiv. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Pablo Lanillos, Cristian Meo, Corrado Pezzato, et al. (2021). Active Inference in Robotics and Artificial Agents: Survey and Challenges. arXiv. DOI: 10.48550/arXiv.2112.01871."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Traffic as Inference",
+      "text": "SUMO-based and IoT-preprint controllers reframe signal timing as expected-free-energy minimization instead of fixed-time or rule-based control."
+    },
+    {
+      "title": "Multi-Agent Energy Coordination",
+      "text": "EcoNet, the Alan Turing Institute's deployed demonstrator, coordinates building-level active inference agents to jointly optimize smart-building energy use and comfort."
+    },
+    {
+      "title": "Mixed Evidence Maturity",
+      "text": "The corpus spans peer-reviewed governance and ontology work (water infrastructure, BEACON) alongside preprints, simulations, and one exhibition demonstrator, so evidentiary weight varies by claim."
+    }
+  ],
+  "order": 83,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-climate",
+    "active-inference-and-agriculture"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv"
+  ]
+}

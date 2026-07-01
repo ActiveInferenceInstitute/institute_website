@@ -1,9 +1,9 @@
 {
   "slug": "active-inference-and-medicine",
   "title": "Active Inference and Medicine",
-  "subtitle": "A research scaffold for clinical reasoning, computational psychiatry, interoception, and medical AI.",
-  "audience": "Clinical researchers, computational psychiatry groups, medical-AI builders, and Institute fellows.",
-  "lede": "Medicine is a natural application area for active inference because clinical practice is perception and action under uncertainty: inferring hidden states of a patient from noisy observations, choosing tests and treatments that balance information gain against benefit, and revising models as new data arrive.",
+  "subtitle": "Medicine as inference under uncertainty: generative models of patients, prediction-error-driven pathology, and expected-free-energy treatment planning.",
+  "audience": "Computational psychiatrists, systems-medicine and digital-twin researchers, medical-AI engineers, and Institute fellows applying active inference to clinical and biomedical questions.",
+  "lede": "Active inference and the free energy principle recast medicine's core activities — diagnosis, treatment selection, and the maintenance of physiological stability — as processes of building and updating generative models under uncertainty. The literature is conceptually mature in several specialties (psychiatry, pain medicine, neurology) but empirically early: most models are theoretical, phenomenological, or simulation-based, with very few fully deployed clinical systems. This page surveys why medicine fits the framework, where the literature currently stands, what concrete projects and tools exist, and what evidence is still missing.",
   "primaryActions": [
     {
       "label": "Research resources",
@@ -21,15 +21,19 @@
   "sections": [
     {
       "heading": "Why the domain fits",
-      "body": "Clinical care couples latent-state inference (pathophysiology, psychological state, disease trajectory), uncertain observations, action under risk, and shifting preferences over outcomes. Expected free energy makes the trade-off between epistemic value (informative tests) and pragmatic value (desired outcomes) explicit, which mirrors how clinicians actually decide under measurement cost."
+      "body": "Medicine is fundamentally about perception and action under uncertainty: clinicians infer latent disease states from noisy signs and data and choose actions to steer patients toward preferred states, while patients infer the meaning of bodily sensations and act on those inferences. The free energy principle recasts homeostasis and allostasis as inference problems, in which organisms hold prior beliefs about preferred physiological ranges and select actions that minimize expected free energy when those ranges are violated. Many diseases can then be understood as failures of inference and control — metabolic disorders as breakdowns in generative models of energy balance, affective disorders as miscalibrated interoceptive expectations, and chronic pain as maladaptive precision-weighting of nociceptive prediction errors. The framework has also been extended beyond the brain to morphogenesis, where tissues are modeled as cell ensembles minimizing free energy relative to a target morphology, giving conditions like cancer and fibrosis a parallel reading as failures of collective inference."
     },
     {
-      "heading": "Application pattern",
-      "body": "A domain report should separate three layers: formal generative models of symptoms or physiology (including interoceptive and homeostatic models), decision-support systems that select information-gathering or intervention policies, and accountable institutional workflows. Active digital twins, belief-space control for treatment, and introspective medical-AI architectures are the recurring engineering patterns."
+      "heading": "State of the literature",
+      "body": "Psychiatry is the most developed application area: Moutoussis, Friston and colleagues' 2024 review argues active inference can unify psychology's subdisciplines, covering anxiety, depression, psychosis, and autism as disturbances in priors, precision, and policy selection; Badcock and Friston reinterpret depression as sampling the world in line with pessimistic priors about reward; and Barrett and Simmons', plus Smith and Friston's, work on interoceptive inference links psychosomatic and affective symptoms to miscalibrated interoceptive priors and precision. Neurology follows closely, with Schwartenbeck and colleagues' 2021 Brain paper framing movement as the realization of predicted sensory trajectories and analyzing Parkinson's disease, dystonia, and functional motor disorders as failures of that predictive machinery. Pain and placebo research (Geuter et al.; Ciaunica et al.) models placebo/nocebo effects and chronic pain as shifts in priors and precision over nociceptive prediction errors within an allostatic active-inference account. Across specialties the pattern repeats: strong theoretical development, growing behavioral and neuroimaging model-fitting, but few studies that directly compare active inference against competing frameworks like reinforcement learning or classical Bayesian models."
     },
     {
-      "heading": "Evidence to collect next",
-      "body": "The literature is still dominated by theory and simulation. The next pass should classify each source as reviewed literature, simulation, or deployed system, and prioritise computational-psychiatry reviews, interoception and placebo-analgesia models, oncology belief-space control, and clinical-LLM reliability work. Each claim should land in the citation registry before it appears on the public page."
+      "heading": "Key projects and tools",
+      "body": "Concrete engineering examples are newer and concentrated in oncology, robotics, and digital twins. Liu, Friston and colleagues' \"Belief-Space Control for Personalized Cancer Treatment via Active Inference\" derives an expected-free-energy objective over latent tumor burden and drug sensitivity, letting treatment policies balance reducing uncertainty about tumor response against maximizing favorable outcomes — demonstrated on simulated patient trajectories, not deployed clinically. Pezzulo, Friston and colleagues propose \"active digital twins\" that don't merely simulate a patient but propose tests, treatments, and lifestyle changes and update their generative model from outcomes, using expected free energy for policy selection. Van de Laar and colleagues' robotics work on active-inference controllers for perception-action integration is cited as directly transferable to surgical robotics, rehabilitation devices, and assistive systems, and a 2025 Nature Digital Medicine article proposes active-inference-inspired prompting strategies to make LLM-based medical decision-support more reliable by treating human–LLM interaction as coupled inference. On the software side, the report notes general-purpose tools — SPM for Bayesian model inversion of neuroimaging/behavioral data, and community Python libraries such as pymdp for Markov-decision-process generative models — being adapted into these medical use cases, though no standardized medical active-inference library yet exists."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The report identifies empirical validation and model comparison as the most pressing gap: active inference models in psychiatry, pain, and neurology need head-to-head testing against reinforcement learning, drift-diffusion, and classical Bayesian alternatives on real patient data, not just simulations. Identifiability and patient heterogeneity are a second challenge — generative models carry many latent parameters (priors, precision, transition probabilities) that are hard to estimate uniquely from the sparse, noisy data typical of clinical settings, motivating population-level priors and identifiability-optimized measurement design. Integrating active inference with deep learning and LLMs (using neural networks to parameterize observation/transition models while active inference handles policy selection) is flagged as an open research frontier rather than a solved pattern. Finally, clinical translation raises unresolved regulatory and ethical questions — adaptive, continuously-updating probabilistic systems don't fit regulatory frameworks built for fixed algorithms, and the report calls for pilot studies on clinician/patient trust before wider deployment, alongside a live conceptual debate over whether the free energy principle is falsifiable enough to serve as a competing paradigm at all."
     },
     {
       "heading": "Reference Backbone",
@@ -38,16 +42,16 @@
   ],
   "cards": [
     {
-      "title": "Clinical inference",
-      "text": "Model symptoms, beliefs, uncertainty, and regulation as coupled inference and action under prior preferences."
+      "title": "Belief-Space Treatment Planning",
+      "text": "Expected free energy lets an oncology treatment policy choose an initial exploratory drug dose specifically to reduce uncertainty about tumor sensitivity, not just to maximize immediate expected benefit."
     },
     {
-      "title": "Decision support",
-      "text": "Frame monitoring and intervention as policy selection by expected free energy, with explicit confidence and review boundaries."
+      "title": "Active Digital Twins",
+      "text": "Proposed digital twins for chronic disease don't just simulate a patient — they recommend tests and treatments and revise their generative model as outcomes come in."
     },
     {
-      "title": "Publication boundary",
-      "text": "Distinguish reviewed literature, Institute projects, and speculative research leads on every public page."
+      "title": "Mostly Theory, Not Deployment",
+      "text": "Across psychiatry, pain, oncology, and robotics the literature is conceptually rich but almost entirely simulation- or small-experiment-based, with essentially no fully deployed clinical active-inference systems yet reported."
     }
   ],
   "order": 74,

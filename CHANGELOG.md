@@ -7,6 +7,34 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 _Nothing yet._
 
+## v2.8.0 — 2026-07-01
+
+Ten new "Active Inference and X" domain-knowledge pages, refreshed research on
+the existing six, and a full `docs/` cleanup pass.
+
+### Added
+- **10 new domain pages** — `/active-inference-and-economics/`,
+  `-climate/`, `-education/`, `-law/`, `-neuroscience/`, `-linguistics/`,
+  `-urban-planning/`, `-music/`, `-agriculture/`, `-cybersecurity/`. Each is
+  sourced from a real Perplexity Sonar Deep Research report (saved in the
+  InstituteOS backend's `library/research/active_inference_domains/`), curated
+  into the `active_inference_domains.json` registry, and exported via
+  `ResearchDomainsExporter` — same pipeline as the existing six.
+- **Refreshed content** for the existing six domain pages
+  (Healthcare, Robotics, Ecology, Medicine, Psychology, Entomology) — new
+  "Why the domain fits" / "State of the literature" / "Key projects and tools"
+  / "Open problems" sections synthesized from a fresh deep-research pass.
+
+### Changed
+- `docs/` — removed the stale, superseded `REFACTOR_ASSESSMENT.md` (folded its
+  durable "source organization vs. output URL" model into
+  `SLUG_AND_URL_TAXONOMY.md`); split the oversized `CONTENT_AUTHORING.md` into
+  page-authoring guidance plus a new `REGISTRIES.md` reference; fixed a stale
+  page-count/folder inventory (missing `domains/`/`communications/` folders);
+  removed a dead pre-`docs/`-era section from `DESIGN_SYSTEM.md`; corrected a
+  wrong redirect claim in `MIGRATION_AND_REDIRECTS.md` (`/history` is a live
+  page, not a redirect).
+
 ## v2.7.0 — 2026-06-29
 
 Public launch on GitHub Pages: `activeinference.institute` migrated off

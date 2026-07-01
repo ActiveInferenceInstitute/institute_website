@@ -1,9 +1,9 @@
 {
   "slug": "active-inference-and-entomology",
   "title": "Active Inference and Entomology",
-  "subtitle": "A research scaffold for insect perception, navigation, foraging, collective behaviour, and superorganisms.",
-  "audience": "Entomologists, collective-behaviour researchers, neuroethologists, and insect-inspired robotics teams.",
-  "lede": "Insects and insect colonies are compact, tractable active-inference systems: individuals infer environmental states from limited senses and act under tight resource constraints, while colonies behave as superorganisms whose collective dynamics can be read as distributed inference.",
+  "subtitle": "How ant colonies, honeybee foraging, and insect nervous systems test the free energy principle as a live, tractable domain.",
+  "audience": "Researchers, entomologists, and Institute fellows interested in applying active inference to insect neuroscience, collective behavior, and swarm robotics.",
+  "lede": "Entomology offers an unusually rich and experimentally tractable arena for testing active inference and the free energy principle, spanning single-neuron computation in insect brains to colony-level collective intelligence and insect-inspired robotics. Social insects exhibit sophisticated perceptual, navigational, and social behaviors that unfold under strong observational control, with dense datasets from behavioral tracking, electrophysiology, and molecular biology. This page synthesizes the emerging literature connecting active inference to ant colonies, honeybee foraging, and insect neurobiology, distinguishing peer-reviewed empirical work from simulation and theory.",
   "primaryActions": [
     {
       "label": "ActiveInferAnts repository",
@@ -21,15 +21,19 @@
   "sections": [
     {
       "heading": "Why the domain fits",
-      "body": "Insect sensory ecology, navigation, and foraging are perception-action loops under uncertainty and scarcity, and ant and bee colonies externalise memory and decision-making across many bodies. Active inference provides one formalism that spans neurons, individuals, and colonies, making the superorganism a concrete multi-scale modelling target."
+      "body": "Insect nervous systems show converging evidence of predictive coding and forward models: efference-copy mechanisms modulate locust optomotor responses, and a 2026 Drosophila preprint reports internal oscillators and predictive coding as ancestral features of insect brains conserved across more than 350 million years. Social insect colonies also exhibit eusocial, distributed cognition—ants and bees coordinate via pheromones and dances in ways that have been modeled as \"Bayesian superorganisms\" performing distributed sampling. Combined with decades of tractable, well-instrumented foraging and navigation paradigms (honeybee waggle dances, ant T-mazes, cooperative transport trails) and modern video-tracking and neural-recording tools, entomology gives active inference both neural and collective-behavior access points rarely available together in one taxon."
     },
     {
-      "heading": "Application pattern",
-      "body": "A domain report should track generative models of insect perception and action, expected-free-energy policy selection in foraging and navigation, active and epistemic sensing, and hierarchical multi-scale models from neurons to colonies. It should separate simulation frameworks from data-driven models grounded in behavioural recordings."
+      "heading": "State of the literature",
+      "body": "The most direct application is \"Active Inferants: An Active Inference Framework for Ant Colony Behavior\" (Friedman, Tschantz, Ramstead, Friston, and Constant, 2021, peer-reviewed in Frontiers in Behavioral Neuroscience), which models ant foraging in an alternating T-maze as a discrete-state Markov decision process with expected free energy-based policy selection, using a single pheromone to reproduce trail formation and probability matching. This work builds on the Bayesian superorganism series (Journal of the Royal Society Interface), which modeled ant and bee colonies via Markov chain Monte Carlo sampling and externalized pheromone memories, and on \"Federated Inference and Belief Sharing\" (Friston, Parr, Fields and colleagues), which explicitly ties multi-agent belief sharing to an entomology and nematology affiliation. Complementary swarm-level work (\"An Active Inference Model of Collective Intelligence,\" \"Collective Phase Dynamics in an Active Inference Swarm Oscillator\") remains largely theoretical and non-insect-specific, while predictive-coding evidence from Drosophila optomotor recordings, fly optic-lobe gain modulation, and sleep-dependent deviant-stimulus responses grounds the neural side of the picture."
     },
     {
-      "heading": "Evidence to collect next",
-      "body": "Empirical validation is the central challenge: the next pass should gather colony-behaviour and navigation studies, basal-cognition and executive-function work in insects, and insect-inspired robotics, while explicitly testing active inference against alternative (e.g. reinforcement-learning or heuristic) accounts and bridging individual and colony scales."
+      "heading": "Key projects and tools",
+      "body": "Active InferAnts is a Python package developed by the Active Inference Institute, built to simulate ant colony foraging under configurable generative models and policy-selection schemes inspired directly by the \"Active Inferants\" paper; it is available on GitHub with a PyPI release planned. Empirical grounding comes from resources like \"Experimental Entomology in the Age of Video\" (video tracking and behavioral annotation protocols) and the BAU-Insectv2 dataset for insect recognition and behavior analysis. On the applied robotics side, \"Robot navigation as hierarchical active inference\" and a Nature article on honeybee-learning-flight-inspired robot navigation demonstrate insect-inspired, generative-model-based control, supported by the Institute's own Active Inference in Robotics Learning Path and knowledge-base modules on Ant Colony stigmergy and Apidology (bee foraging and pollination)."
+    },
+    {
+      "heading": "Open problems",
+      "body": "Rigorous empirical tests remain scarce: current neural evidence shows predictive modulation and efference copies but does not yet directly test variational free energy minimization, and the field must answer critiques like \"the myth of the Bayesian brain\" by producing falsifiable, mechanism-specific predictions rather than metaphorical fits. Multi-scale models linking molecular/physiological states to colony-level phenotypes are largely undeveloped, as are quantitative generative models of insect communication (waggle dances, pheromone codes) as belief-sharing mechanisms. The literature also lacks standardized benchmark tasks and shared tooling comparable to those in computer vision or reinforcement learning—existing paradigms like the T-maze, geocaching task, and honeybee navigation tasks have not yet been consolidated into common evaluation environments."
     },
     {
       "heading": "Reference Backbone",
@@ -38,16 +42,16 @@
   ],
   "cards": [
     {
-      "title": "Organisms and colonies",
-      "text": "Model action and perception as a coupled fit between insect and environment, individually and collectively."
+      "title": "Ant colonies as agents",
+      "text": "\"Active Inferants\" (Friedman et al., 2021, Frontiers in Behavioral Neuroscience) models ant foraging as a discrete-state active inference process using a single pheromone to reproduce trail formation and probability matching."
     },
     {
-      "title": "Superorganism inference",
-      "text": "Treat colony-level foraging and recruitment as distributed inference with externalised memory."
+      "title": "Bayesian superorganism link",
+      "text": "The peer-reviewed Bayesian superorganism series treats pheromone trails as externalized memory enabling MCMC-like distributed sampling, directly cited as a precursor to explicit active inference models of colonies."
     },
     {
-      "title": "Field and robotics link",
-      "text": "Connect theory to behavioural data, active sensing, and insect-inspired autonomous systems."
+      "title": "Theory ahead of proof",
+      "text": "Much of the field—swarm oscillator models, honeybee-inspired robotics, insect communication as federated inference—is simulation or conceptual analogy, with direct neural tests of free energy minimization in insects still to be designed."
     }
   ],
   "order": 76,

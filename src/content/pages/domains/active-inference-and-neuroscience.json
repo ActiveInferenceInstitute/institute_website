@@ -1,0 +1,67 @@
+{
+  "slug": "active-inference-and-neuroscience",
+  "title": "Active Inference and Neuroscience",
+  "subtitle": "The free energy principle as a candidate unified theory of perception, action, and learning — and the evidence still needed to test it.",
+  "audience": "Computational and systems neuroscientists, cognitive scientists, and Institute researchers building or evaluating active-inference models of brain function and psychiatric disorders.",
+  "lede": "Active inference casts the brain as a system that maintains an internal generative model of the world and minimizes variational free energy through perception, action, and learning. Neuroscience has been the primary proving ground for this framework since Karl Friston's 2010 \"unified brain theory\" paper, with a concentrated body of theoretical, simulation, and early clinical work testing how far the idea can be pushed. This page surveys what that literature actually shows, the modeling patterns and tools researchers use, and the open questions that still separate active inference from a validated neuroscientific theory.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Active inference treats perception as inference about hidden causes of sensory data, action as the selective sampling of observations that fulfill prior expectations, and learning as the slow adaptation of a generative model's parameters — a triad that maps directly onto core neuroscientific concerns. The brain's hierarchical cortical organization, with higher areas encoding slower, more abstract causes and lower areas encoding fast sensory detail, is a natural substrate for the hierarchical generative models the framework requires. Active inference also extends predictive-coding accounts of perception by explicitly modeling actions and policy selection as part of the same inferential loop, coupling perception and control through a single objective — expected free energy minimization."
+    },
+    {
+      "heading": "State of the literature",
+      "body": "The literature is anchored by a relatively concentrated set of foundational and review papers — Friston's 2010 Nature Reviews Neuroscience article, work formalizing variational free energy for perception and action, and later expository reviews aimed at making the principle's assumptions and scope explicit to neuroscientists. Simulation-based applications extend from there into deep temporal models of epistemic behavior (e.g., reading), oculomotion, working memory and attention, dopaminergic neuromodulation, and the emergence of habits from repeated policy optimization. Discrete-state formulations, cast as partially observable Markov decision processes, have been particularly influential for modeling cognitive tasks such as visual search and goal-directed planning. Most of this work originates from a core group centered on Karl Friston at University College London and the Wellcome Centre for Human Neuroimaging, with Thomas Parr a key collaborator on discrete-state formalization, and is increasingly extending into computational psychiatry and morphogenesis."
+    },
+    {
+      "heading": "Application patterns and tools",
+      "body": "The clearest neurophysiologically grounded demonstration is oculomotion: simulations using Bayesian filtering to implement planning as inference generate saccadic and smooth pursuit eye movements whose message-passing structure maps onto known brainstem and cerebellar connectivity and resembles single-unit recordings from relevant nuclei. Dopamine has been modeled as encoding precision (confidence) over policies, with tonic dopamine levels in simulation shaping exploration versus exploitation and movement vigor, and disruptions offered as a lens on Parkinson's disease and schizophrenia. Implementation has largely relied on the MATLAB-based SPM ecosystem and its dynamic expectation maximization (DEM) module for continuous-state models, and Python libraries for discrete-state POMDP-style models used in cognitive-task simulations — tools that remain research code rather than standardized, widely distributed software."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The report identifies biological plausibility as unresolved: network models that approximate gradient descent on free energy reproduce oscillations and attractor dynamics, but the exact biophysical mechanisms in real neural tissue, and mappings like superficial pyramidal cells encoding prediction errors, remain hypothetical and largely untested. Scaling generative models beyond small state spaces to naturalistic, high-dimensional environments is a second open computational challenge. A third is empirical falsifiability — critics argue the free energy principle is broad enough to resist disconfirmation, and the report calls for experiments that discriminate active inference's predictions (epistemic exploration, precision-weighted neuromodulation) from reinforcement learning and predictive coding alternatives. Clinical translation in computational psychiatry is likewise described as promising but early-stage, resting mainly on theoretical and simulation work rather than large validated patient datasets."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Christopher L. Buckley, Chang Sub Kim, Simon McGregor, Anil K. Seth (2017). The free energy principle for action and perception: A mathematical review. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2017.09.004. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl J. Friston (2020). Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2020.102447."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Oculomotion as Proof Case",
+      "text": "Active inference simulations of saccades and smooth pursuit map onto brainstem/cerebellar circuitry and single-unit recordings, making eye movement the field's most neurophysiologically grounded demonstration."
+    },
+    {
+      "title": "Dopamine as Precision",
+      "text": "Tonic dopamine is modeled as encoding confidence (precision) over policies, with implications the report ties to Parkinson's disease and schizophrenia rather than classical reward-prediction-error accounts alone."
+    },
+    {
+      "title": "Clinical Evidence Still Early",
+      "text": "Computational psychiatry applications of active inference are described as largely theoretical and simulation-based, not yet validated against large-scale patient data or deployed clinical tools."
+    }
+  ],
+  "order": 81,
+  "relatedSlugs": [
+    "active-inference",
+    "active-inference-and-psychology",
+    "active-inference-and-medicine"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv"
+  ]
+}

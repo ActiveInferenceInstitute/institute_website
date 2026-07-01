@@ -52,7 +52,7 @@ strict Content Security Policy, gated by `npm run check`.
       a `check:redirects` gate) — **deferred (YAGNI)**: no output-URL migration is
       planned and the ~30-entry `assets/js/redirects.js` map is gate-checked and
       maintainable. Build this only when an Axis-B URL change is approved, as part
-      of that change. See [`docs/REFACTOR_ASSESSMENT.md`](docs/REFACTOR_ASSESSMENT.md).
+      of that change. See [`docs/SLUG_AND_URL_TAXONOMY.md` § Two independent axes](docs/SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url).
 - [ ] Extract the shared external-anchor validation (`VETTED_ANCHOR_HOST_SUFFIXES`,
       `vetted_anchor_host()`) into `scripts/validation_utils.py`, imported by both
       `check_static_security.py` and `check_site_contract.py` — **deferred (low

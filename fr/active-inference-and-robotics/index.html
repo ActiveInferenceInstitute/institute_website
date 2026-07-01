@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Active Inference and Robotics | Active Inference Institute</title>
-  <meta name="description" content="Robotics is a natural test bed for active inference because perception, planning, action, and uncertainty are coupled in the same physical loop, and action…">
+  <meta name="description" content="Robots continuously perceive, act, and learn under uncertainty using noisy, multimodal sensors and imperfect actuators — precisely the conditions the free…">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="../../assets/img/icon.svg">
@@ -32,7 +32,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Active Inference Institute">
   <meta property="og:title" content="Active Inference and Robotics | Active Inference Institute">
-  <meta property="og:description" content="Robotics is a natural test bed for active inference because perception, planning, action, and uncertainty are coupled in the same physical loop, and action…">
+  <meta property="og:description" content="Robots continuously perceive, act, and learn under uncertainty using noisy, multimodal sensors and imperfect actuators — precisely the conditions the free…">
   <meta property="og:url" content="https://activeinference.institute/fr/active-inference-and-robotics/">
   <meta property="og:image" content="https://activeinference.institute/assets/img/cards/active-inference-and-robotics.png">
   <meta property="og:image:width" content="1200">
@@ -40,9 +40,9 @@
   <meta property="og:image:alt" content="Active Inference Institute — Active Inference and Robotics | Active Inference Institute">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Active Inference and Robotics | Active Inference Institute">
-  <meta name="twitter:description" content="Robotics is a natural test bed for active inference because perception, planning, action, and uncertainty are coupled in the same physical loop, and action…">
+  <meta name="twitter:description" content="Robots continuously perceive, act, and learn under uncertainty using noisy, multimodal sensors and imperfect actuators — precisely the conditions the free…">
   <meta name="twitter:image" content="https://activeinference.institute/assets/img/cards/active-inference-and-robotics.png">
-  <meta name="generator" content="institute_website v2.7.0">
+  <meta name="generator" content="institute_website v2.8.0">
   <link rel="stylesheet" href="../../assets/css/instituteos-ds.css">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/fr/active-inference-and-robotics/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/fr/"},{"@type":"ListItem","position":2,"name":"Active Inference and Robotics","item":"https://activeinference.institute/fr/active-inference-and-robotics/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
@@ -118,9 +118,9 @@
     <span aria-hidden="true">/</span>
     <span aria-current="page">Active Inference and Robotics</span>
   </nav>
-    <p class="eyebrow">Roboticists, AI researchers, embodied-cognition groups, and builders of autonomous instruments.</p>
+    <p class="eyebrow">Roboticists, control engineers, and active inference researchers evaluating whether unified perception-action-learning architectures can outperform or complement classical control and reinforcement learning.</p>
     <h1>Active Inference and Robotics</h1>
-    <p>A research scaffold for embodied agents, active sensing, expected-free-energy control, and robotic learning.</p>
+    <p>Robots as embodied, uncertainty-bound perceivers and actors — a natural testbed for expected free energy minimization</p>
     <div class="hero-actions"><a class="button primary" href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer">Project repositories</a><a class="button secondary" href="../active-inference/">Active Inference overview</a></div>
   </section>
   <section class="content-band page-index-band">
@@ -130,7 +130,7 @@
         <h2>Active Inference and Robotics guide</h2>
       </div>
       <nav aria-label="Active Inference and Robotics sections de la page">
-        <a href="#why-the-domain-fits">Why the domain fits</a><a href="#application-pattern">Application pattern</a><a href="#evidence-to-collect-next">Evidence to collect next</a><a href="#reference-backbone">Reference Backbone</a>
+        <a href="#why-the-domain-fits">Why the domain fits</a><a href="#application-patterns-in-the-literature">Application patterns in the literature</a><a href="#key-projects-and-tools">Key projects and tools</a><a href="#open-problems">Open problems</a><a href="#reference-backbone">Reference Backbone</a>
         <a href="#next-actions">Meilleures prochaines étapes</a>
         <a href="#key-surfaces">Surfaces clés</a>
         <a href="../knowledge/">Carte Open Source</a>
@@ -152,17 +152,20 @@
     </div>
   </section>
   <section class="content-band">
-    <p class="lede">Robotics is a natural test bed for active inference because perception, planning, action, and uncertainty are coupled in the same physical loop, and action can be chosen both to accomplish goals and to improve the information available for future control.</p>
+    <p class="lede">Robots continuously perceive, act, and learn under uncertainty using noisy, multimodal sensors and imperfect actuators — precisely the conditions the free energy principle was formulated to describe. A growing but still heterogeneous literature has explored active inference as a way to unify state estimation, control, planning, and model learning in robotic systems, spanning theoretical papers, simulated proofs of concept, and experiments on physical humanoids and manipulators. This page synthesizes that literature's application patterns, named tools and labs, and the open problems that separate compelling demonstrations from a routinely deployed engineering methodology.</p>
     <div class="article-stack">
       <article class="article-block" id="why-the-domain-fits">
             <h2>Why the domain fits</h2>
-            <p>Embodied systems must select actions that achieve goals and reduce uncertainty about objects, tasks, and operating conditions. Active inference makes the epistemic part of action selection explicit, unifying state estimation, control, and exploration under a single free-energy objective rather than bolting exploration onto a reward signal.</p>
-          </article><article class="article-block" id="application-pattern">
-            <h2>Application pattern</h2>
-            <p>A modular report should track the robot body, sensor model, action policy, preferred outcomes, and evaluation environment separately, so a simulation result, a laboratory manipulator, and a field instrument are not collapsed into one claim. Recurring patterns include generative models of robot dynamics, expected-free-energy policy selection, active vision, hierarchical/hybrid controllers, and deep or contrastive active inference for high-dimensional control.</p>
-          </article><article class="article-block" id="evidence-to-collect-next">
-            <h2>Evidence to collect next</h2>
-            <p>The next pass should gather adaptive-controller case studies, manipulation and navigation results, deep active-inference on real hardware, and benchmarks against reinforcement learning and classical control. Each record should state whether it is theory, simulation, hardware, or deployed instrumentation, and whether it scales beyond low-dimensional settings.</p>
+            <p>Classical robotics separates state estimation (Kalman/particle filters), control (LQR, MPC, PID), and, increasingly, reinforcement learning, each solved as its own module. Active inference instead casts all three as approximate Bayesian inference under a single generative model, minimizing variational free energy for perception and learning and expected free energy — which trades off epistemic (information-gain) and pragmatic (goal-satisfaction) value — for action selection. Lanillos and colleagues argue this conceptual unification is exactly what makes robots ideal testbeds: they must maintain beliefs about hidden variables (body configuration, object states, dynamics) from ambiguous sensor streams and act to keep observations within their model's expected range. Millidge et al.'s analysis of the control-as-inference literature further shows that under certain assumptions, active inference policies reduce to standard optimal control or RL solutions, clarifying how existing controllers can be read as special cases of free energy minimization.</p>
+          </article><article class="article-block" id="application-patterns-in-the-literature">
+            <h2>Application patterns in the literature</h2>
+            <p>Generative models in robotics implementations are typically structured around known physics and kinematics rather than learned end-to-end: humanoid body-perception work encodes forward kinematics and multimodal (visual/proprioceptive) observation models, while manipulator controllers encode joint dynamics, inertia, and contact forces. Expected free energy then drives policy selection — Pezzato, Ferrari, and Hernández's adaptive manipulator controller (published in IEEE Robotics and Automation Letters) adapts online to dynamic uncertainty and sensor faults, and Baioumy et al.'s ball-balancing agent shows expected free energy inducing genuinely exploratory, curiosity-like behavior. Precision weighting — adjusting trust in sensory channels or priors based on inferred reliability — recurs across this work, notably in Ferrari's group's beta-residuals scheme for detecting and compensating faulty sensors. Hierarchical multi-level architectures are discussed conceptually (e.g., task-space preferences over joint-space actions) but concrete hierarchical implementations remain rare and largely confined to simulation.</p>
+          </article><article class="article-block" id="key-projects-and-tools">
+            <h2>Key projects and tools</h2>
+            <p>pymdp is the report's one named general-purpose software library, an open-source Python package for discrete-state (POMDP) active inference introduced via a PubMed-indexed step-by-step tutorial. Riccardo Ferrari's group at Delft University of Technology has produced the most sustained manipulator-control body of work — the adaptive controller, integrated state-estimation/control/learning (ICRA 2021), unbiased active inference for classical control (IROS 2022), and beta-residual fault tolerance — with code referenced on his research site. Pablo Lanillos and collaborators (TU Munich and Japan-based partners) lead the humanoid line: body perception and reaching on a physical humanoid, and mirror self/other distinction combining active inference with neural network forward models. Bristol Robotics Lab and the Active Touch Laboratory contribute Bayesian active-sensing tactile exploration systems (fingertip arrays, whiskers) that embody active inference principles without always formalizing them as such, and Verses AI's blog post signals early industrial interest, though it is explicitly not peer-reviewed.</p>
+          </article><article class="article-block" id="open-problems">
+            <h2>Open problems</h2>
+            <p>The report identifies five unresolved areas needing further evidence: scalability of expected-free-energy evaluation to high-dimensional, real-time robots (addressed only in simulation so far by the &quot;Scaling active inference&quot; preprint); principled generative-model specification that balances hand-crafted physics with learned components; systematic head-to-head benchmarking against classical controllers and deep RL, for which no standardized benchmark suite (analogous to MuJoCo-style RL suites) yet exists; safety and robustness under distributional shift, where Zorzi et al.'s DR-FREE framework (robustifying free energy minimization over an ambiguity set of models) is proposed but not yet applied to physical robots; and institutional adoption, since active inference toolchains remain far less mature than ROS or deep-learning stacks. The report explicitly cautions that many claims rest on qualitative or proof-of-principle results rather than systematic comparison.</p>
           </article><article class="article-block" id="reference-backbone">
             <h2>Reference Backbone</h2>
             <p>Christopher L. Buckley, Chang Sub Kim, Simon McGregor, Anil K. Seth (2017). The free energy principle for action and perception: A mathematical review. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2017.09.004. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Pablo Lanillos, Cristian Meo, Corrado Pezzato, et al. (2021). Active Inference in Robotics and Artificial Agents: Survey and Challenges. arXiv. DOI: 10.48550/arXiv.2112.01871. Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl J. Friston (2020). Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2020.102447.</p>
@@ -176,14 +179,14 @@
     <h2>Active Inference and Robotics at a glance</h2>
   </div>
     <div class="card-grid"><article class="info-card">
-        <h3>Active sensing</h3>
-        <p>Use action to reduce uncertainty about objects, tasks, and operating conditions, not just to maximise reward.</p>
+        <h3>Unified inference loop</h3>
+        <p>Active inference recasts state estimation, control, and learning as one variational free energy minimization under a single generative model, rather than separate hand-patched modules.</p>
       </article><article class="info-card">
-        <h3>Embodied policy selection</h3>
-        <p>Evaluate actions by expected outcomes and information gain via expected free energy minimization.</p>
+        <h3>Precision-weighted fault tolerance</h3>
+        <p>Beta-residual precision learning lets manipulator controllers down-weight unreliable sensor channels in real time, maintaining performance under sensor faults.</p>
       </article><article class="info-card">
-        <h3>Implementation register</h3>
-        <p>Track simulator, hardware, repository, and benchmark status separately for every claim.</p>
+        <h3>Mixed evidence quality</h3>
+        <p>Findings span peer-reviewed journal work (IEEE RAL, PubMed-indexed tutorials) and unreviewed preprints or industry blog posts (Verses AI), with no standardized benchmark suite yet comparing active inference to classical control or RL.</p>
       </article></div>
   </section>
 
@@ -445,13 +448,13 @@
         <strong>Inférence active</strong>
         <p>L'inférence active est le cadre scientifique et pratique central autour duquel l'Institut organise l'éducation, la recherche, les applications et le soutien à l'écosystème.</p>
       </a><a class="resource-card internal-card" href="../active-inference-and-entomology/">
-        <span>Entomologists, collective-behaviour researchers, neuroethologists, and insect-inspired robotics teams.</span>
+        <span>Researchers, entomologists, and Institute fellows interested in applying active inference to insect neuroscience, collective behavior, and swarm robotics.</span>
         <strong>Active Inference and Entomology</strong>
-        <p>Insects and insect colonies are compact, tractable active-inference systems: individuals infer environmental states from limited senses and act under tight resource constraints, while colonies behave as superorganisms whose collective dynamics can be read as distributed inference.</p>
+        <p>Entomology offers an unusually rich and experimentally tractable arena for testing active inference and the free energy principle, spanning single-neuron computation in insect brains to colony-level collective intelligence and insect-inspired robotics. Social insects exhibit sophisticated perceptual, navigational, and social behaviors that unfold under strong observational control, with dense datasets from behavioral tracking, electrophysiology, and molecular biology. This page synthesizes the emerging literature connecting active inference to ant colonies, honeybee foraging, and insect neurobiology, distinguishing peer-reviewed empirical work from simulation and theory.</p>
       </a><a class="resource-card internal-card" href="../active-inference-and-ecology/">
-        <span>Ecologists, environmental modelers, collective-behavior researchers, and applied field teams.</span>
+        <span>Ecologists, computational biologists, and Active Inference researchers interested in multi-scale models of organism-environment coupling, niche construction, and planetary resilience.</span>
         <strong>Active Inference and Ecology</strong>
-        <p>Ecological applications of Active Inference ask how organisms, groups, and instruments infer environmental states while acting within them.</p>
+        <p>Ecological systems — populations, communities, ecosystems, and the biosphere itself — are composed of interacting subsystems that exchange matter and energy across semi-permeable boundaries while maintaining stable macrostates over time. That structure closely mirrors the Markov blanket and Bayesian mechanics formalism underlying the free energy principle, which is why a research program under the banner of &quot;variational ecology&quot; has emerged to model organisms and their niches as coupled inference systems. The literature here is heavier on theory and simulation than on field data: this page surveys the conceptual foundations, the modeling patterns researchers are using, the tools available, and the empirical gaps the field still needs to close.</p>
       </a></div>
   </section>
   <nav class="pager page-pager" aria-label="Active Inference and Robotics adjacent pages">
@@ -479,7 +482,7 @@
     <div class="social-links" aria-label="Liens publics vérifiés">
       <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-    <p class="build-stamp">v2.7.0 · build e8524067d154</p>
+    <p class="build-stamp">v2.8.0 · build 9e5417ac7be2</p>
   </footer>
   <script src="../../assets/js/theme.js" defer></script>
   <script src="../../assets/js/accent.js" defer></script>

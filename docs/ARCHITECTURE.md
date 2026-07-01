@@ -29,7 +29,7 @@ export const siteData = {
 }
 ```
 
-**Key property:** `siteData.pages` is built by `walkPageJson()`, which recursively finds every `.json` file under `src/content/pages/` (regardless of subfolder nesting — `institute/`, `programs/`, `projects/`, `communications/`, `participate/`) and loads them as page objects sorted by `order` field then alphabetically by `slug`.
+**Key property:** `siteData.pages` is built by `walkPageJson()`, which recursively finds every `.json` file under `src/content/pages/` (regardless of subfolder nesting — `institute/`, `domains/`, `programs/`, `projects/`, `communications/`, `participate/`) and loads them as page objects sorted by `order` field then alphabetically by `slug`.
 
 Each page has required fields:
 - `slug`: The URL identity (immutable, determines output path)

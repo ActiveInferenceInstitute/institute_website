@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Active Inference and Ecology | Active Inference Institute</title>
-  <meta name="description" content="Ecological applications of Active Inference ask how organisms, groups, and instruments infer environmental states while acting within them.">
+  <meta name="description" content="Ecological systems — populations, communities, ecosystems, and the biosphere itself — are composed of interacting subsystems that exchange matter and energy…">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="../../assets/img/icon.svg">
@@ -32,7 +32,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Active Inference Institute">
   <meta property="og:title" content="Active Inference and Ecology | Active Inference Institute">
-  <meta property="og:description" content="Ecological applications of Active Inference ask how organisms, groups, and instruments infer environmental states while acting within them.">
+  <meta property="og:description" content="Ecological systems — populations, communities, ecosystems, and the biosphere itself — are composed of interacting subsystems that exchange matter and energy…">
   <meta property="og:url" content="https://activeinference.institute/de/active-inference-and-ecology/">
   <meta property="og:image" content="https://activeinference.institute/assets/img/cards/active-inference-and-ecology.png">
   <meta property="og:image:width" content="1200">
@@ -40,9 +40,9 @@
   <meta property="og:image:alt" content="Active Inference Institute — Active Inference and Ecology | Active Inference Institute">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Active Inference and Ecology | Active Inference Institute">
-  <meta name="twitter:description" content="Ecological applications of Active Inference ask how organisms, groups, and instruments infer environmental states while acting within them.">
+  <meta name="twitter:description" content="Ecological systems — populations, communities, ecosystems, and the biosphere itself — are composed of interacting subsystems that exchange matter and energy…">
   <meta name="twitter:image" content="https://activeinference.institute/assets/img/cards/active-inference-and-ecology.png">
-  <meta name="generator" content="institute_website v2.7.0">
+  <meta name="generator" content="institute_website v2.8.0">
   <link rel="stylesheet" href="../../assets/css/instituteos-ds.css">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/de/active-inference-and-ecology/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/de/"},{"@type":"ListItem","position":2,"name":"Active Inference and Ecology","item":"https://activeinference.institute/de/active-inference-and-ecology/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
@@ -118,9 +118,9 @@
     <span aria-hidden="true">/</span>
     <span aria-current="page">Active Inference and Ecology</span>
   </nav>
-    <p class="eyebrow">Ecologists, environmental modelers, collective-behavior researchers, and applied field teams.</p>
+    <p class="eyebrow">Ecologists, computational biologists, and Active Inference researchers interested in multi-scale models of organism-environment coupling, niche construction, and planetary resilience.</p>
     <h1>Active Inference and Ecology</h1>
-    <p>A research scaffold for organisms, collectives, environments, and adaptive field systems.</p>
+    <p>Ecological systems as nested, self-organizing inference machines that minimize free energy across scales — from foragers to the biosphere.</p>
     <div class="hero-actions"><a class="button primary" href="https://github.com/ActiveInferenceInstitute/GEO-INFER" target="_blank" rel="noopener noreferrer">GEO-INFER repository</a><a class="button secondary" href="../active-inference/">Active Inference overview</a></div>
   </section>
   <section class="content-band page-index-band">
@@ -130,7 +130,7 @@
         <h2>Active Inference and Ecology Leitfaden</h2>
       </div>
       <nav aria-label="Active Inference and Ecology Seitenabschnitte">
-        <a href="#why-the-domain-fits">Why the domain fits</a><a href="#application-pattern">Application pattern</a><a href="#evidence-to-collect-next">Evidence to collect next</a><a href="#reference-backbone">Reference Backbone</a>
+        <a href="#why-the-domain-fits">Why the domain fits</a><a href="#application-patterns-in-the-literature">Application patterns in the literature</a><a href="#tools-and-institutional-infrastructure">Tools and institutional infrastructure</a><a href="#open-problems">Open problems</a><a href="#reference-backbone">Reference Backbone</a>
         <a href="#next-actions">Nächste beste Schritte</a>
         <a href="#key-surfaces">Schlüsselflächen</a>
         <a href="../knowledge/">Offene Quellenkarte</a>
@@ -152,17 +152,20 @@
     </div>
   </section>
   <section class="content-band">
-    <p class="lede">Ecological applications of Active Inference ask how organisms, groups, and instruments infer environmental states while acting within them.</p>
+    <p class="lede">Ecological systems — populations, communities, ecosystems, and the biosphere itself — are composed of interacting subsystems that exchange matter and energy across semi-permeable boundaries while maintaining stable macrostates over time. That structure closely mirrors the Markov blanket and Bayesian mechanics formalism underlying the free energy principle, which is why a research program under the banner of &quot;variational ecology&quot; has emerged to model organisms and their niches as coupled inference systems. The literature here is heavier on theory and simulation than on field data: this page surveys the conceptual foundations, the modeling patterns researchers are using, the tools available, and the empirical gaps the field still needs to close.</p>
     <div class="article-stack">
       <article class="article-block" id="why-the-domain-fits">
             <h2>Why the domain fits</h2>
-            <p>Ecology involves adaptive agents, uncertain environments, niche construction, and multi-scale feedback. Active Inference can organize those questions around perception, action, and viable states.</p>
-          </article><article class="article-block" id="application-pattern">
-            <h2>Application pattern</h2>
-            <p>A domain report should distinguish biological theory, behavioral ecology, collective foraging, geospatial inference, and applied sensing. These layers share concepts but require different evidence and validation standards.</p>
-          </article><article class="article-block" id="evidence-to-collect-next">
-            <h2>Evidence to collect next</h2>
-            <p>The next pass should gather work on collective behavior, foraging, adaptive environmental monitoring, ecosystem modeling, and geospatial decision support, then classify each source by organism, scale, and intervention type.</p>
+            <p>The free energy principle describes ergodic random dynamical systems that maintain a nonequilibrium steady state by minimizing variational free energy, an upper bound on the surprise of their sensory states under a generative model. Ecological systems satisfy this description at every scale: organisms, populations, and ecosystems maintain characteristic distributions of states (abundances, resource levels, climatic variables) and exhibit self-organized patterns resilient to perturbation. Ramstead and colleagues coined &quot;variational ecology&quot; to capture this, treating organisms as inference machines that parameterize generative models of their niche while niche construction lets environments serve as the co-adapting &quot;external states&quot; of that same system. Because ecological nestedness (populations within communities within ecosystems within the biosphere) maps directly onto a hierarchy of Markov blankets, the field's own multi-scale structure is what makes it a natural fit rather than a metaphorical stretch.</p>
+          </article><article class="article-block" id="application-patterns-in-the-literature">
+            <h2>Application patterns in the literature</h2>
+            <p>Concrete modeling patterns recur across the corpus: generative models of ecological variables (resource states, predator cues, developmental environments), policy selection via expected free energy that trades off pragmatic value against epistemic (uncertainty-reducing) value, and hierarchical formulations where slow variables (climate, genetics) constrain fast ones (behavior, phenotype). Constant and colleagues formalized developmental niche construction as a slow gradient flow on time-averaged free energy, in which organisms modify environmental variables such as nest structures or parental-care environments to stabilize preferred developmental trajectories. Bruineberg, Rietveld, and Parr extended this to a joint agent-environment free energy measure of &quot;fit,&quot; and the &quot;cognitive ecology of surprise&quot; framework applies active inference to predator-prey dynamics, arguing that predators benefit from generating surprise while prey minimize it through vigilance and habitat choice. Heins and colleagues' PNAS paper on collective behavior from surprise minimization is the most fully developed simulation result, showing that continuous-time agents individually minimizing free energy reproduce flocking- and schooling-like group motion without hand-coded behavioral rules. At the largest scale, Rubin, Parr, Da Costa, and Friston model the biosphere's carbon cycle and metabolic rates as a planetary Markov blanket, describing Earth system resilience and climate regulation as if the biosphere were minimizing a free energy functional.</p>
+          </article><article class="article-block" id="tools-and-institutional-infrastructure">
+            <h2>Tools and institutional infrastructure</h2>
+            <p>The pymdp Python package implements discrete Markov-decision-process active inference and underlies several of the ecological application patterns described here (patch choice, discrete habitat selection, simplified foraging games), while SPM/MATLAB tutorial scripts and Heins et al's published GitHub code for continuous-time collective-behavior simulations provide adaptable starting points. Albarracin, Hipolito, and colleagues have built active inference models of common-pool resource management, offering templates for social-ecological applications even though their current focus is human behavior rather than ecological systems directly. An &quot;environment-centric active inference&quot; preprint proposes defining Markov blankets from the environment's perspective, a direction relevant to ecological modeling but not yet backed by widely available code. The <a href="../about/">Active Inference Institute</a> is the report's cited institutional hub for this research program, having run an Active Inference Lab since around 2021 with livestreams and discussions spanning in silico and robotics work as well as biogeography and Earth system resilience, and it maintains knowledge-base entries on ecological and evolutionary dynamics.</p>
+          </article><article class="article-block" id="open-problems">
+            <h2>Open problems</h2>
+            <p>The report is explicit that empirical, data-driven applications remain sparse relative to the theoretical and simulation literature: there are almost no published tests that compare active inference predictions against alternative ecological models (optimality models, reinforcement learning) using real behavioral or environmental data. A second open problem is scaling consistently from organisms to ecosystems and the biosphere without arbitrary choices about what counts as an &quot;internal state&quot; at each level — the report notes it is unclear whether an ecosystem should be modeled as a single agent or as a population of interacting agents whose dynamics only look inference-like in aggregate. A third is interpretive: applying &quot;belief&quot; language to plants, microbial communities, or the biosphere risks overstating cognitive claims, and the report recommends treating active inference as a modeling convenience rather than an ontological commitment for non-cognitive systems. Finally, the report flags concrete methodological gaps (software that scales past small discrete MDPs, techniques for estimating free energy proxies from noisy ecological time series) and normative questions raised once social-ecological governance models start encoding &quot;preferred states&quot; that embed value judgments about growth versus biodiversity.</p>
           </article><article class="article-block" id="reference-backbone">
             <h2>Reference Backbone</h2>
             <p>Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Christopher L. Buckley, Chang Sub Kim, Simon McGregor, Anil K. Seth (2017). The free energy principle for action and perception: A mathematical review. Journal of Mathematical Psychology. DOI: 10.1016/j.jmp.2017.09.004. Giovanni Pezzulo, Francesco Rigoli, Karl J. Friston (2017). Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology. DOI: 10.1016/j.pneurobio.2017.08.001. Maxwell J. D. Ramstead, Karl J. Friston, Axel Constant, Lancelot Da Costa, Casper Hesp, Beren Millidge, Alexander Tschantz (2023). On Bayesian Mechanics: A Physics of and by Beliefs. arXiv.</p>
@@ -176,14 +179,14 @@
     <h2>Active Inference and Ecology at a glance</h2>
   </div>
     <div class="card-grid"><article class="info-card">
-        <h3>Organisms and niches</h3>
-        <p>Study action and perception as a coupled fit between agent and environment.</p>
+        <h3>Niche Construction as Slow Inference</h3>
+        <p>Constant and colleagues model developmental niche construction as a slow gradient flow on time-averaged free energy, where organisms modify environments like nests or parental-care settings to stabilize preferred developmental trajectories.</p>
       </article><article class="info-card">
-        <h3>Collectives</h3>
-        <p>Track when the model describes individuals, groups, or ecosystem-level dynamics.</p>
+        <h3>Planetary Markov Blankets</h3>
+        <p>Rubin, Parr, Da Costa, and Friston model the biosphere's carbon cycle as a planetary Markov blanket, describing Earth system resilience as if the biosphere were minimizing a free energy functional to keep climate within a life-compatible range.</p>
       </article><article class="info-card">
-        <h3>Field systems</h3>
-        <p>Connect theory to sensing, geospatial data, and adaptive monitoring workflows.</p>
+        <h3>Theory Runs Ahead of Data</h3>
+        <p>The report is explicit that empirical, data-driven ecological applications are still sparse compared to the rich theoretical and simulation literature, and that belief language for non-cognitive systems remains a modeling metaphor rather than a settled ontological claim.</p>
       </article></div>
   </section>
 
@@ -483,7 +486,7 @@
     <div class="social-links" aria-label="Verifizierte öffentliche Links">
       <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-    <p class="build-stamp">v2.7.0 · build e8524067d154</p>
+    <p class="build-stamp">v2.8.0 · build 9e5417ac7be2</p>
   </footer>
   <script src="../../assets/js/theme.js" defer></script>
   <script src="../../assets/js/accent.js" defer></script>

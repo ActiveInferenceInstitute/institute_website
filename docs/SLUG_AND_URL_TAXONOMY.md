@@ -3,6 +3,38 @@
 > folder's `AGENTS.md`. The `docs/` folder is **not** built into the site.
 
 # Slug → URL Taxonomy
+
+## Two independent axes: source organization vs. output URL
+
+Every refactoring decision on this site turns on one split, so it comes first:
+
+| Axis | What it controls | Where it lives | Cost of change |
+| --- | --- | --- | --- |
+| **A — Source organization** | How maintainers group `.json` page sources for navigation | `src/content/pages/**` subfolders | **Free, reversible, invisible to the public.** The build walks the tree recursively and discards file path (see `walkPageJson()` in `src/data.mjs`). |
+| **B — Output-URL taxonomy** | The public clean-URL path of every page | `src/url-taxonomy.mjs`/`.json` (`baseDirForSlug`, `localePrefix`) + slugs + `src/pages/ecosystem.mjs` | **Breaking.** Old URLs 404 without a redirect entry; touches the sitemap, canonicals, hreflang alternates, and (given the Squarespace → GitHub Pages cutover) live SEO equity. See [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md). |
+
+**Governance rule:** folder placement under `src/content/pages/` is maintainer-facing
+only; the slug is identity. Axis A refactors are encouraged and need no approval.
+Axis B refactors (changing what `baseDirForSlug()` returns for a slug, or renaming a
+slug) are change-management events — gate them behind explicit approval plus a
+redirect recipe before touching code.
+
+There are two distinct families of "domain" pages that must not be conflated:
+1. **Curated `active-inference-and-*` knowledge pages** — `.json` sources live in
+   `src/content/pages/domains/` (an Axis-A grouping), routing **flat** to
+   `/active-inference-and-<domain>/` (slug = file basename, no `domains/` prefix in
+   the URL).
+2. **Programmatically generated ecosystem domain pages** — emitted by
+   `src/pages/ecosystem.mjs` as `ecosystem/<domain.slug>`, routing to
+   `/ecosystem/<domain>/`. Renaming this to `/domains/<domain>/` would be an Axis-B
+   change (see the worked example below) — it is currently **deferred**, not done.
+
+Locale grouping under `/languages/` is a hypothetical Axis-B change that was
+evaluated and **rejected**: the source catalogs (`src/content/i18n/*.json`) are
+already cleanly grouped, so the only effect would be doubling every non-English
+path depth for no maintainer benefit, at real SEO cost on a static host with no
+server-side 301s.
+
 ## Slug→URL Taxonomy (Source of Truth)
 
 The URL taxonomy is defined in **`src/url-taxonomy.mjs`** and the shared JSON config **`src/url-taxonomy.json`**.
