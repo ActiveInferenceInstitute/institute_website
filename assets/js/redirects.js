@@ -30,12 +30,15 @@
     "welcome": "get-involved/",
 
     // Institute / governance
+    // NOTE: "board-of-directors" / "officers" / "scientific-advisory-board"
+    // are NOT here -- they were Squarespace-era aliases to the generic
+    // structure/ page, but since superseded by their own dedicated pages
+    // (now nested under structure/ -- see SET_REDIRECTS below, v4.0.0).
+    // Leaving them here would shadow SET_REDIRECTS and send visitors to the
+    // wrong (generic) destination.
     "about-us": "about/",
-    "board-of-directors": "structure/",
-    "bod": "structure/",
-    "officers": "structure/",
-    "scientific-advisory-board": "structure/",
-    "sab": "structure/",
+    "bod": "structure/board-of-directors/",
+    "sab": "structure/scientific-advisory-board/",
     "structure": "structure/",
 
     // Learn / research
@@ -88,6 +91,25 @@
   // docs/SLUG_AND_URL_TAXONOMY.md and CHANGELOG.md v3.0.0.
   var PREFIX_REDIRECTS = [{ "from": "active-inference-and-", "to": "active-inference/" }];
 
+  // Like PREFIX_REDIRECTS but for routing families whose members share no
+  // common string prefix (a url-taxonomy.json "set" rule, not a "prefix"
+  // rule) -- the whole `rest` must equal `from` exactly, not just start with
+  // it. Also locale-aware: one entry covers the rename across all 12 locales.
+  //
+  // v4.0.0 (2026-07-01): the org/governance pages and the annual-report
+  // "years" pages renested under structure/ and years/ respectively, for the
+  // same reason as v3.0.0's domain-page move -- both are families that add
+  // roughly one new page per year and would otherwise keep cluttering the
+  // repository root indefinitely. See docs/SLUG_AND_URL_TAXONOMY.md and
+  // CHANGELOG.md v4.0.0.
+  var SET_REDIRECTS = [
+    { "from": "board-of-directors", "to": "structure/board-of-directors/" },
+    { "from": "officers", "to": "structure/officers/" },
+    { "from": "scientific-advisory-board", "to": "structure/scientific-advisory-board/" },
+    { "from": "2025", "to": "years/2025/" },
+    { "from": "2026", "to": "years/2026/" }
+  ];
+
   var script = document.currentScript;
   var base = (script && script.dataset && script.dataset.base) || "/";
 
@@ -128,6 +150,15 @@
       if (rest.indexOf(rule.from) === 0) {
         dest = localePrefix + rule.to + rest.slice(rule.from.length) + "/";
         break;
+      }
+    }
+    if (dest === null) {
+      for (var k = 0; k < SET_REDIRECTS.length; k++) {
+        var setRule = SET_REDIRECTS[k];
+        if (rest === setRule.from) {
+          dest = localePrefix + setRule.to;
+          break;
+        }
       }
     }
   }

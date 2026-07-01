@@ -1,6 +1,6 @@
 {
   "name": "institute_website",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": true,
   "type": "module",
   "description": "GitHub Pages website for public Active Inference Institute information.",

@@ -36,30 +36,36 @@ The site achieves clean URLs (e.g., `/projects/ai-safety/` instead of `/projects
 
 **404.html as a Catch-All**: GitHub Pages serves `404.html` for any request path that does not match a built file. This includes legacy Squarespace paths that no longer exist.
 
-**Client-Side Redirect Script**: `assets/js/redirects.js` is loaded **only** on `404.html` (via a `<script>` tag with `defer`). It implements two independent mechanisms:
+**Client-Side Redirect Script**: `assets/js/redirects.js` is loaded **only** on `404.html` (via a `<script>` tag with `defer`). It implements three independent mechanisms:
 
 1. **`MAP`** — a flat, English-only lookup table of one-off Squarespace-era
    aliases (`about-us` → `about/`). These pre-date the locale system entirely,
    so `MAP` is never locale-aware.
-2. **`PREFIX_REDIRECTS`** (added v3.0.0) — locale-aware structural renames, for
-   when a whole routing family's output directory changes (an Axis-B change in
-   [SLUG_AND_URL_TAXONOMY.md](SLUG_AND_URL_TAXONOMY.md)). Each entry is one
+2. **`PREFIX_REDIRECTS`** (added v3.0.0) — locale-aware structural renames for
+   `"prefix"`-routed families (an Axis-B change in
+   [SLUG_AND_URL_TAXONOMY.md](SLUG_AND_URL_TAXONOMY.md)), where every member
+   shares a literal slug prefix. Each entry is one
    `{ "from": "<old-prefix>", "to": "<new-dir>" }` pair; one entry covers the
    rename across **all 12 locales** — the script strips a leading locale
    segment before matching, then re-attaches it to the destination.
+3. **`SET_REDIRECTS`** (added v4.0.0) — the same idea as `PREFIX_REDIRECTS`,
+   for `"set"`-routed families whose slugs share **no** common string prefix
+   (`board-of-directors`, `officers`, `2025`, …). Each entry is one
+   `{ "from": "<old-exact-slug>", "to": "<new-full-path>" }` pair, matched by
+   exact equality (not prefix), locale-aware the same way.
 
 On a 404, the script:
 1. Reads `location.pathname` and normalizes it (strips leading/trailing slashes, lowercases, removes `.html` suffix)
 2. Looks it up in `MAP` first (exact match, full path including any locale prefix)
-3. On a `MAP` miss, strips a recognized leading locale segment (if any), then tests the remainder against each `PREFIX_REDIRECTS` rule; on a match, re-attaches the locale prefix to the computed destination
+3. On a `MAP` miss, strips a recognized leading locale segment (if any), then tests the remainder against each `PREFIX_REDIRECTS` rule (prefix match), then each `SET_REDIRECTS` rule (exact match); on a match, re-attaches the locale prefix to the computed destination
 4. On any match, calls `location.replace()` to the new clean URL
 5. On a full miss, allows the normal 404 page to display
 
 **Base-Path Awareness**: The script reads a `data-base` attribute from its own `<script>` tag, allowing it to work at both the apex domain (`/`) and project-page bases (`/institute_website/`). It strips the base from the incoming path and prepends it to destination URLs.
 
-**CSP-Safe**: The script makes no network requests and contains no external dependencies — both redirect tables are inline JSON. This satisfies the strict Content-Security-Policy.
+**CSP-Safe**: The script makes no network requests and contains no external dependencies — all three redirect tables are inline JSON. This satisfies the strict Content-Security-Policy.
 
-**Gated by `check:redirects`** (`scripts/check_redirects.py`, part of `npm run check`): verifies every `MAP` destination and every `PREFIX_REDIRECTS`-derived destination resolves to a real built file, that each `PREFIX_REDIRECTS` entry has a matching `"prefix"` rule in `src/url-taxonomy.json`, and — critically — that the **old** pre-migration output directories have actually been removed (`git rm`'d), since the build only ever adds files and the redirect script only fires once GitHub Pages returns a 404 for the old path.
+**Gated by `check:redirects`** (`scripts/check_redirects.py`, part of `npm run check`): verifies every `MAP`, `PREFIX_REDIRECTS`-, and `SET_REDIRECTS`-derived destination resolves to a real built file, that each `PREFIX_REDIRECTS`/`SET_REDIRECTS` entry has a matching `"prefix"`/`"set"` rule in `src/url-taxonomy.json`, and — critically — that the **old** pre-migration output directories have actually been removed (`git rm`'d), since the build only ever adds files and the redirect script only fires once GitHub Pages returns a 404 for the old path. Note `SET_REDIRECTS` is deliberately **not** required to cover every member of every `"set"`-routed family — `programSubpageSlugs` has always routed to `programs/<slug>/` and never had a flat URL to migrate away from, so it needs no entries at all.
 
 ### How Legacy URLs Become 404s
 
@@ -78,9 +84,8 @@ All keys are normalized (lowercase, no leading/trailing slash, no `.html`):
 | `/home` | `/` | Home redirect |
 | `/welcome` | `/get-involved/` | Welcome → Get involved |
 | `/about-us` | `/about/` | About alias (`/history` is its own live page, not a redirect) |
-| `/board-of-directors`, `/bod` | `/structure/` | Board → Structure |
-| `/officers` | `/structure/` | Officers → Structure |
-| `/scientific-advisory-board`, `/sab` | `/structure/` | SAB → Structure |
+| `/bod` | `/structure/board-of-directors/` | Legacy shortlink alias (updated v4.0.0 — see `board-of-directors` in the SET_REDIRECTS table below for the live-URL rename itself) |
+| `/sab` | `/structure/scientific-advisory-board/` | Legacy shortlink alias (updated v4.0.0) |
 | `/structure` | `/structure/` | Structure direct (no-op, kept for completeness) |
 | `/courses`, `/education` | `/learning/` | Courses → Learning |
 | `/research-overview`, `/research` | `/learning/` | Research → Learning |
@@ -148,6 +153,52 @@ See [SLUG_AND_URL_TAXONOMY.md § Two independent axes](SLUG_AND_URL_TAXONOMY.md#
 change-of-address / re-submit the sitemap so search engines re-crawl the new
 paths promptly, since the old URLs had been live and indexed.
 
+### Structural Renames (`SET_REDIRECTS` in assets/js/redirects.js)
+
+Same idea as `PREFIX_REDIRECTS` above, but for `"set"`-routed families whose
+slugs share no common string prefix — the whole slug is matched exactly, not
+stripped. Shipped in v4.0.0, for the same reason as v3.0.0's domain-page move:
+both are families that add roughly one new page per year and would otherwise
+keep cluttering the repository root indefinitely.
+
+| Rule (`from` → `to`) | Shipped | Locales covered |
+|---|---|---|
+| `board-of-directors` → `structure/board-of-directors/` | v4.0.0 (2026-07-01) | All 12 |
+| `officers` → `structure/officers/` | v4.0.0 (2026-07-01) | All 12 |
+| `scientific-advisory-board` → `structure/scientific-advisory-board/` | v4.0.0 (2026-07-01) | All 12 |
+| `2025` → `years/2025/` | v4.0.0 (2026-07-01) | All 12 |
+| `2026` → `years/2026/` | v4.0.0 (2026-07-01) | All 12 |
+
+Concretely, shown for the default locale (the same rename applies verbatim
+under every `/<code>/` prefix):
+
+| Old URL | New URL |
+|---|---|
+| `/board-of-directors/` | `/structure/board-of-directors/` |
+| `/officers/` | `/structure/officers/` |
+| `/scientific-advisory-board/` | `/structure/scientific-advisory-board/` |
+| `/2025/` | `/years/2025/` |
+| `/2026/` | `/years/2026/` |
+
+**Why nest under the existing `/structure/` and a new `/years/`:** `/structure/`
+was already the Institute's governance hub page, so reusing it (rather than
+inventing a fourth top-level governance concept, e.g. `/organization/`) keeps
+one clear taxonomy. `/years/` had no existing hub page, so
+[`src/content/pages/institute/years.json`](../src/content/pages/institute/years.json)
+was added as a real "Annual Reports" index — this also fixes the auto-generated
+breadcrumb, which otherwise linked to a `/years/` directory with no page
+(unlike `/structure/` and `/active-inference/`, which already existed as real
+pages before their nested families did).
+
+**Maintenance note:** `yearPageSlugs` in `src/url-taxonomy.json` needs a new
+entry every year a new annual-report page ships (e.g. `"2027"`) — this is the
+one recurring manual step in an otherwise fully data-driven routing table.
+
+**Follow-up (manual, outside this repo):** the `2025`/`2026`/`sab`/`bod` DNS
+subdomain shortlinks (see the table below) point at the old paths and should
+be repointed to the new ones; submit a Search Console change-of-address for
+the 5 renamed URLs.
+
 ### Subdomain Shortlinks (DNS-Level Forwards, NOT in this repo)
 
 These are registrar/DNS forwards independent of the static site hosting. They remain unchanged through the cutover.
@@ -178,12 +229,12 @@ These are registrar/DNS forwards independent of the static site hosting. They re
 | `wave-hypothesis` | `/projects/wave-hypothesis/` | On-site (gap page) | Link to Coda hub until content migrated |
 | `video` | `/video/` | On-site (gap page) | Link to Coda hub until content migrated |
 | `weekly` | `/weekly/` | On-site (gap page) | Link to Coda hub until content migrated |
-| `2025` | `/2025/` | On-site (gap page) | Annual overview |
-| `2026` | `/2026/` | On-site (gap page) | Annual overview |
+| `2025` | `/years/2025/` | On-site (gap page) | Annual overview — **DNS still forwards to `/2025/`, needs repointing (v4.0.0)** |
+| `2026` | `/years/2026/` | On-site (gap page) | Annual overview — **DNS still forwards to `/2026/`, needs repointing (v4.0.0)** |
 | `aicacp` | `/projects/aicacp/` | On-site | Ready |
 | `ontology` | `/projects/active-inference-ontology/` | On-site | Ready |
-| `sab` | `/structure/#scientific-advisory-board` | On-site | Ready |
-| `bod` | `/structure/#board-of-directors` | On-site | Ready |
+| `sab` | `/structure/scientific-advisory-board/` | On-site | **DNS still forwards to `/structure/#scientific-advisory-board`, needs repointing (v4.0.0)** |
+| `bod` | `/structure/board-of-directors/` | On-site | **DNS still forwards to `/structure/#board-of-directors`, needs repointing (v4.0.0)** |
 | `newsletter` | `http://newsletter.activeinference.institute/` | External | Permanent |
 | `chat` | Perplexity search | External | Permanent |
 | `obsidian` | Obsidian knowledge base (surfaced on `/active-inference/`) | External | Permanent |

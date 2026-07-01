@@ -36,7 +36,7 @@ Every page JSON object supports these fields:
 Every link is **one of two shapes** — never both in the same link object:
 
 - **`{ "sourceId": "..." }`** — References a registered external link in `live-sources.json`. **Required for all external links.** A raw external `href` fails security checks.
-- **`{ "label": "...", "href": "..." }`** — For **internal links only** (clean absolute paths like `/structure/`, `/structure/#officers`).
+- **`{ "label": "...", "href": "..." }`** — For **internal links only** (clean absolute paths like `/structure/`, `/structure/#leadership`).
 
 Every `sourceId` used on a page must be listed in that page's `externalSourceIds[]` array.
 

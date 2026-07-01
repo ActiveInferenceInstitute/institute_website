@@ -83,12 +83,23 @@ read these rules, so they can never disagree:
     "partnership",
     "philanthropy"
   ],
+  "orgPageSlugs": [
+    "board-of-directors",
+    "officers",
+    "scientific-advisory-board"
+  ],
+  "yearPageSlugs": [
+    "2025",
+    "2026"
+  ],
   "routing": {
     "indexSlug": "index",
     "rules": [
       { "type": "prefix", "match": "project-", "dir": "projects/" },
       { "type": "prefix", "match": "active-inference-and-", "dir": "active-inference/" },
-      { "type": "set", "match": "programSubpageSlugs", "dir": "programs/" }
+      { "type": "set", "match": "programSubpageSlugs", "dir": "programs/" },
+      { "type": "set", "match": "orgPageSlugs", "dir": "structure/" },
+      { "type": "set", "match": "yearPageSlugs", "dir": "years/" }
     ]
   }
 }
@@ -96,12 +107,22 @@ read these rules, so they can never disagree:
 
 - A **`prefix`** rule strips `match` and reroots the remainder under `dir`
   (`project-affordances` → `projects/affordances`; `active-inference-and-medicine`
-  → `active-inference/medicine`).
+  → `active-inference/medicine`). Use this when every member of the family
+  shares a literal slug prefix.
 - A **`set`** rule reroots an entire named slug-set under `dir`, keeping the full
-  slug (`fellowship` → `programs/fellowship`).
+  slug (`fellowship` → `programs/fellowship`; `board-of-directors` →
+  `structure/board-of-directors`; `2025` → `years/2025`). Use this when the
+  family's slugs share no common string prefix — the array name (e.g.
+  `orgPageSlugs`) is just a top-level key in this same JSON file.
 - Anything matching no rule routes to root `/<slug>/`.
 
-To add a routing family, add a rule here — no code change in `url-taxonomy.mjs` or
+**Both rule types are fully data-driven (as of v4.0.0)** — `_SLUG_SETS` in
+`url-taxonomy.mjs` and `check_site_contract.py` is built generically from
+whatever array name a `"set"` rule's `match` references, rather than a
+hardcoded lookup. Before v4.0.0 only `programSubpageSlugs` was wired in;
+adding `orgPageSlugs`/`yearPageSlugs` required generalizing that construction
+once. **After v4.0.0, adding either rule type is purely a JSON edit — add a
+rule here — no code change in `url-taxonomy.mjs` or
 `check_site_contract.py` is needed. Verify with `npm run check` (the `check:site`
 gate asserts the JS build and Python checker agree on every URL).
 

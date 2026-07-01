@@ -1,0 +1,33 @@
+{
+  "slug": "years",
+  "title": "Annual Reports",
+  "subtitle": "Year-by-year overviews of Institute activities, programs, and events.",
+  "audience": "Community members, funders, and partners tracking the Institute's activity over time.",
+  "lede": "Each year the Active Inference Institute publishes a consolidated, month-by-month overview of its activities, programs, and events. This index lists every published annual report.",
+  "primaryActions": [
+    { "label": "2025 overview", "sourceId": "shortlink-2025" },
+    { "label": "2026 overview", "sourceId": "shortlink-2026" }
+  ],
+  "resourceGroups": ["community", "projects"],
+  "sections": [
+    {
+      "heading": "2025",
+      "body": "The Institute's annual overview for 2025 — a consolidated, month-by-month entry point to the activities, programs, and events that ran across the organization.",
+      "links": [
+        { "label": "2025 report", "href": "/years/2025/" },
+        { "sourceId": "shortlink-2025" }
+      ]
+    },
+    {
+      "heading": "2026",
+      "body": "The Institute's annual overview for 2026, continuing the same month-by-month format established in 2025.",
+      "links": [
+        { "label": "2026 report", "href": "/years/2026/" },
+        { "sourceId": "shortlink-2026" }
+      ]
+    }
+  ],
+  "order": 89,
+  "relatedSlugs": ["activities", "weekly", "history"],
+  "externalSourceIds": ["shortlink-2025", "shortlink-2026"]
+}

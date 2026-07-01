@@ -36,9 +36,17 @@ CANONICAL_BASE = _canonical_base()
 _TAXONOMY = json.loads((PROJECT_ROOT / "src" / "url-taxonomy.json").read_text(encoding="utf-8"))
 PROGRAM_SUBPAGE_SLUGS = set(_TAXONOMY["programSubpageSlugs"])
 
-# Named slug-sets a "set" routing rule may reference, mirroring _SLUG_SETS in
-# src/url-taxonomy.mjs.
-_SLUG_SETS = {"programSubpageSlugs": PROGRAM_SUBPAGE_SLUGS}
+# Named slug-sets a "set" routing rule may reference, built generically from any
+# top-level array in url-taxonomy.json that a "set" rule's `match` names --
+# mirrors the generic construction in src/url-taxonomy.mjs. Adding a new family
+# never requires a code change here, only a new array + rule in the JSON.
+_SLUG_SETS: dict[str, set[str]] = {}
+for _rule in _TAXONOMY["routing"]["rules"]:
+    if _rule.get("type") == "set" and _rule.get("match") not in _SLUG_SETS:
+        _values = _TAXONOMY.get(_rule.get("match"))
+        if isinstance(_values, list):
+            _SLUG_SETS[_rule["match"]] = set(_values)
+
 # Ordered routing rules; first match wins. "prefix" strips + reroots, "set"
 # reroots a named slug-set. Validated below so a malformed url-taxonomy.json fails
 # fast instead of silently mis-routing (mirrors validateRouting() in the JS).

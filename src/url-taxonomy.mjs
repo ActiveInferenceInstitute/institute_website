@@ -19,9 +19,16 @@ const _data = JSON.parse(fs.readFileSync(path.join(_dir, "url-taxonomy.json"), "
 // Slugs that route under /programs/<slug>/ rather than /<slug>/.
 export const PROGRAM_SUBPAGE_SLUGS = new Set(_data.programSubpageSlugs);
 
-// Named slug-sets a "set" routing rule can reference (keeps the routing table in
-// url-taxonomy.json data-driven while reusing the exported Set above).
-const _SLUG_SETS = { programSubpageSlugs: PROGRAM_SUBPAGE_SLUGS };
+// Named slug-sets a "set" routing rule can reference, built generically from
+// any top-level array in url-taxonomy.json that a "set" rule's `match` names.
+// Adding a new family (e.g. "orgPageSlugs", "yearPageSlugs") never requires a
+// code change here -- only a new array + a new rule in url-taxonomy.json.
+const _SLUG_SETS = {};
+for (const rule of _data.routing?.rules ?? []) {
+  if (rule.type === "set" && !_SLUG_SETS[rule.match] && Array.isArray(_data[rule.match])) {
+    _SLUG_SETS[rule.match] = new Set(_data[rule.match]);
+  }
+}
 
 // Ordered routing rules read from url-taxonomy.json (shared with the Python
 // contract checker). Rules are evaluated in order and the FIRST match wins. A

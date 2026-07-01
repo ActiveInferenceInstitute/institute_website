@@ -7,6 +7,48 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 _Nothing yet._
 
+## v4.0.0 — 2026-07-01
+
+**Breaking URL change.** Two more accretive page families move to nested
+URLs, for the same reason as v3.0.0's domain-page move — both add roughly
+one new page per year/appointment cycle and would otherwise keep cluttering
+the repository root indefinitely:
+
+- `/board-of-directors/`, `/officers/`, `/scientific-advisory-board/` →
+  `/structure/board-of-directors/`, `/structure/officers/`,
+  `/structure/scientific-advisory-board/` (reusing the existing `/structure/`
+  governance hub rather than inventing a new top-level concept)
+- `/2025/`, `/2026/` → `/years/2025/`, `/years/2026/` (a new `/years/` hub
+  page, [`src/content/pages/institute/years.json`](src/content/pages/institute/years.json),
+  was added — `/structure/` and `/active-inference/` already had real hub
+  pages before their nested families existed; `/years/` didn't, which broke
+  the auto-generated breadcrumb until this page was added)
+
+All across all 12 locales.
+
+### Changed
+- **Routing engine generalized**: `_SLUG_SETS` in `src/url-taxonomy.mjs` and
+  `scripts/check_site_contract.py` is now built generically from any
+  top-level array in `url-taxonomy.json` a `"set"` rule references, rather
+  than a hardcoded lookup for `programSubpageSlugs` alone. Adding either
+  routing rule type (`"prefix"` or `"set"`) is now purely a JSON edit — no
+  code change, ever.
+- **Redirects**: `assets/js/redirects.js` gained a `SET_REDIRECTS` mechanism
+  (exact-slug-match, locale-aware) alongside the existing `MAP` and
+  `PREFIX_REDIRECTS` — for renamed families whose slugs share no common
+  string prefix. Two now-superseded `MAP` entries (`board-of-directors`,
+  `officers`, `scientific-advisory-board` → generic `structure/`) were
+  removed; `bod`/`sab` now point at the precise new pages instead.
+- **`scripts/check_redirects.py`** extended to validate `SET_REDIRECTS`
+  against `url-taxonomy.json`'s `"set"` rules and the build output.
+- Removed the 60 now-orphaned pre-migration output directories (5 pages ×
+  12 locales).
+
+### Manual follow-up (outside this repo)
+- Repoint the `2025`/`2026`/`sab`/`bod` DNS subdomain shortlinks at their new
+  destinations (see `docs/MIGRATION_AND_REDIRECTS.md`).
+- Submit a Search Console change-of-address for the 5 renamed URLs.
+
 ## v3.0.0 — 2026-07-01
 
 **Breaking URL change.** The 16 "Active Inference and X" domain pages move

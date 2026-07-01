@@ -73,7 +73,10 @@ structural URL renames) must stay consistent with the `"prefix"` rules in
 [`../src/url-taxonomy.json`](../src/url-taxonomy.json) and the current build
 output, including confirming the old pre-migration output directories were
 actually removed — GitHub Pages must 404 before the client-side redirect
-script can fire.
+script can fire. `SET_REDIRECTS` entries (locale-aware exact-slug-match
+renames for families with no shared string prefix, e.g. `orgPageSlugs`,
+`yearPageSlugs`) are validated the same way against the `"set"` rules in
+`url-taxonomy.json`.
 
 ### [`check_design_system_export.mjs`](check_design_system_export.mjs) (`check:design-system`)
 Validates `assets/css/styles.css` token fallbacks against the committed

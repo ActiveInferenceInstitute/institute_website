@@ -94,7 +94,7 @@ A link descriptor is **either** of these — never both:
   [`../live-sources.json`](../live-sources.json). **All external links MUST use
   `sourceId`.** A raw external `href` fails `check:links`, even for vetted hosts.
 - `{ "label": "ReInference Unit", "href": "/reinference/" }` — for **internal**
-  links only. Use absolute clean paths (`/structure/`, `/structure/#officers`).
+  links only. Use absolute clean paths (`/structure/`, `/structure/#leadership`).
 
 Rules that the gates enforce:
 
