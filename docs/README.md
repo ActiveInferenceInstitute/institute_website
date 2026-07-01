@@ -29,7 +29,7 @@ rather than duplicating them. `docs/` is **not** built into the published site.
 
 > **The output URL is derived from a page's `slug`, never from its source file path.**
 > Folder nesting under `src/content/pages/` is maintainer-facing only; the root-level
-> output folders (`/about/`, `/de/`, `/active-inference-and-robotics/`) **are** the
+> output folders (`/about/`, `/de/`, `/active-inference/robotics/`) **are** the
 > public URLs.
 
 See [SLUG_AND_URL_TAXONOMY.md](SLUG_AND_URL_TAXONOMY.md) for the full mechanism. The

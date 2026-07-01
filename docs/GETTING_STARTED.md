@@ -21,7 +21,7 @@ npm run build
 ```
 
 This reads JSON under `src/content/` and writes HTML into the **repo root**
-(`about/index.html`, `active-inference-and-robotics/index.html`, per-locale subtrees
+(`about/index.html`, `active-inference/robotics/index.html`, per-locale subtrees
 like `de/…`, plus `index.html`, `404.html`, `sitemap.xml`, `feed.xml`, …). GitHub Pages
 serves that committed output directly, so **built output is committed** — but you never
 hand-edit it (see below).

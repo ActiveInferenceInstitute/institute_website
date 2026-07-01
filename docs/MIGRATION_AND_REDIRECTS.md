@@ -36,15 +36,30 @@ The site achieves clean URLs (e.g., `/projects/ai-safety/` instead of `/projects
 
 **404.html as a Catch-All**: GitHub Pages serves `404.html` for any request path that does not match a built file. This includes legacy Squarespace paths that no longer exist.
 
-**Client-Side Redirect Script**: `assets/js/redirects.js` is loaded **only** on `404.html` (via a `<script>` tag with `defer`). When a visitor lands on a 404, the script:
+**Client-Side Redirect Script**: `assets/js/redirects.js` is loaded **only** on `404.html` (via a `<script>` tag with `defer`). It implements two independent mechanisms:
+
+1. **`MAP`** — a flat, English-only lookup table of one-off Squarespace-era
+   aliases (`about-us` → `about/`). These pre-date the locale system entirely,
+   so `MAP` is never locale-aware.
+2. **`PREFIX_REDIRECTS`** (added v3.0.0) — locale-aware structural renames, for
+   when a whole routing family's output directory changes (an Axis-B change in
+   [SLUG_AND_URL_TAXONOMY.md](SLUG_AND_URL_TAXONOMY.md)). Each entry is one
+   `{ "from": "<old-prefix>", "to": "<new-dir>" }` pair; one entry covers the
+   rename across **all 12 locales** — the script strips a leading locale
+   segment before matching, then re-attaches it to the destination.
+
+On a 404, the script:
 1. Reads `location.pathname` and normalizes it (strips leading/trailing slashes, lowercases, removes `.html` suffix)
-2. Looks up the normalized path in a hardcoded `MAP` object
-3. On a match, calls `location.replace()` to the new clean URL
-4. On a miss, allows the normal 404 page to display
+2. Looks it up in `MAP` first (exact match, full path including any locale prefix)
+3. On a `MAP` miss, strips a recognized leading locale segment (if any), then tests the remainder against each `PREFIX_REDIRECTS` rule; on a match, re-attaches the locale prefix to the computed destination
+4. On any match, calls `location.replace()` to the new clean URL
+5. On a full miss, allows the normal 404 page to display
 
 **Base-Path Awareness**: The script reads a `data-base` attribute from its own `<script>` tag, allowing it to work at both the apex domain (`/`) and project-page bases (`/institute_website/`). It strips the base from the incoming path and prepends it to destination URLs.
 
-**CSP-Safe**: The script makes no network requests and contains no external dependencies — the redirect map is inline JSON. This satisfies the strict Content-Security-Policy.
+**CSP-Safe**: The script makes no network requests and contains no external dependencies — both redirect tables are inline JSON. This satisfies the strict Content-Security-Policy.
+
+**Gated by `check:redirects`** (`scripts/check_redirects.py`, part of `npm run check`): verifies every `MAP` destination and every `PREFIX_REDIRECTS`-derived destination resolves to a real built file, that each `PREFIX_REDIRECTS` entry has a matching `"prefix"` rule in `src/url-taxonomy.json`, and — critically — that the **old** pre-migration output directories have actually been removed (`git rm`'d), since the build only ever adds files and the redirect script only fires once GitHub Pages returns a 404 for the old path.
 
 ### How Legacy URLs Become 404s
 
@@ -86,6 +101,52 @@ All keys are normalized (lowercase, no leading/trailing slash, no `.html`):
 | `/theoretical-neurobiology-group`, `/theoretical-neurobiology-group-1`, `/tnb` | `/projects/theoretical-neurobiology/` | Project redirect (3 aliases) |
 
 **Special Behavior**: The matching is case-insensitive and ignores trailing slashes. `/Fellowship`, `/fellowship/`, and `/fellowship.html` all match the same key.
+
+### Structural Renames (`PREFIX_REDIRECTS` in assets/js/redirects.js)
+
+Unlike `MAP`, these rules are locale-aware — one rule redirects the same rename
+across every locale subtree.
+
+| Rule (`from` → `to`) | Shipped | Locales covered | Domains affected |
+|---|---|---|---|
+| `active-inference-and-` → `active-inference/` | v3.0.0 (2026-07-01) | All 12 (`en` + 11 non-default) | All 16 "Active Inference and X" domain pages |
+
+**Concretely**, every one of these old URLs 404s and redirects to its new nested
+location (shown here for the default locale; the same rename applies verbatim
+under every `/<code>/` prefix, e.g. `/es/active-inference-and-medicine/` →
+`/es/active-inference/medicine/`):
+
+| Old URL | New URL |
+|---|---|
+| `/active-inference-and-economics/` | `/active-inference/economics/` |
+| `/active-inference-and-climate/` | `/active-inference/climate/` |
+| `/active-inference-and-education/` | `/active-inference/education/` |
+| `/active-inference-and-law/` | `/active-inference/law/` |
+| `/active-inference-and-neuroscience/` | `/active-inference/neuroscience/` |
+| `/active-inference-and-linguistics/` | `/active-inference/linguistics/` |
+| `/active-inference-and-urban-planning/` | `/active-inference/urban-planning/` |
+| `/active-inference-and-music/` | `/active-inference/music/` |
+| `/active-inference-and-agriculture/` | `/active-inference/agriculture/` |
+| `/active-inference-and-cybersecurity/` | `/active-inference/cybersecurity/` |
+| `/active-inference-and-healthcare/` | `/active-inference/healthcare/` |
+| `/active-inference-and-robotics/` | `/active-inference/robotics/` |
+| `/active-inference-and-ecology/` | `/active-inference/ecology/` |
+| `/active-inference-and-medicine/` | `/active-inference/medicine/` |
+| `/active-inference-and-psychology/` | `/active-inference/psychology/` |
+| `/active-inference-and-entomology/` | `/active-inference/entomology/` |
+
+**Why nested under `/active-inference/` and not `/domains/`:** the ecosystem
+family (`src/pages/ecosystem.mjs`) already uses several of the same topic
+names as bare slugs — `economics`, `education`, `neuroscience`, `robotics` all
+already exist at `/ecosystem/<name>/`. A `/domains/<name>/` scheme would have
+put two differently-authored pages about "robotics" at confusingly similar
+paths. Nesting under the existing `/active-inference/` hub page instead avoids
+any collision and reads correctly: these pages *are* "Active Inference and X."
+See [SLUG_AND_URL_TAXONOMY.md § Two independent axes](SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url).
+
+**Follow-up (manual, outside this repo):** submit a Search Console
+change-of-address / re-submit the sitemap so search engines re-crawl the new
+paths promptly, since the old URLs had been live and indexed.
 
 ### Subdomain Shortlinks (DNS-Level Forwards, NOT in this repo)
 

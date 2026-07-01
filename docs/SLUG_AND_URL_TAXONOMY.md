@@ -19,15 +19,22 @@ Axis B refactors (changing what `baseDirForSlug()` returns for a slug, or renami
 slug) are change-management events — gate them behind explicit approval plus a
 redirect recipe before touching code.
 
-There are two distinct families of "domain" pages that must not be conflated:
+There are two distinct families of "domain" pages that must not be conflated —
+their slugs even collide on some names (`economics`, `education`, `neuroscience`,
+`robotics` exist in both), which is exactly why they route under different
+prefixes:
 1. **Curated `active-inference-and-*` knowledge pages** — `.json` sources live in
-   `src/content/pages/domains/` (an Axis-A grouping), routing **flat** to
-   `/active-inference-and-<domain>/` (slug = file basename, no `domains/` prefix in
-   the URL).
+   `src/content/pages/domains/` (an Axis-A grouping), routing to
+   `/active-inference/<domain>/` (nested under the existing `/active-inference/`
+   hub; the slug prefix `active-inference-and-` is stripped by a `prefix` routing
+   rule — see the worked example below). **This was an Axis-B migration, shipped
+   in v3.0.0** (moved off the original flat `/active-inference-and-<domain>/`
+   scheme; see [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md)).
 2. **Programmatically generated ecosystem domain pages** — emitted by
    `src/pages/ecosystem.mjs` as `ecosystem/<domain.slug>`, routing to
-   `/ecosystem/<domain>/`. Renaming this to `/domains/<domain>/` would be an Axis-B
-   change (see the worked example below) — it is currently **deferred**, not done.
+   `/ecosystem/<domain>/`. A `/domains/<domain>/` rename for this family remains
+   **deferred**, not done — and would now additionally need to avoid colliding
+   with the `active-inference/` family's topic names above.
 
 Locale grouping under `/languages/` is a hypothetical Axis-B change that was
 evaluated and **rejected**: the source catalogs (`src/content/i18n/*.json`) are
@@ -80,6 +87,7 @@ read these rules, so they can never disagree:
     "indexSlug": "index",
     "rules": [
       { "type": "prefix", "match": "project-", "dir": "projects/" },
+      { "type": "prefix", "match": "active-inference-and-", "dir": "active-inference/" },
       { "type": "set", "match": "programSubpageSlugs", "dir": "programs/" }
     ]
   }
@@ -87,7 +95,8 @@ read these rules, so they can never disagree:
 ```
 
 - A **`prefix`** rule strips `match` and reroots the remainder under `dir`
-  (`project-affordances` → `projects/affordances`).
+  (`project-affordances` → `projects/affordances`; `active-inference-and-medicine`
+  → `active-inference/medicine`).
 - A **`set`** rule reroots an entire named slug-set under `dir`, keeping the full
   slug (`fellowship` → `programs/fellowship`).
 - Anything matching no rule routes to root `/<slug>/`.
@@ -508,6 +517,37 @@ if (DOMAIN_SLUGS.has(slug)) {
 - `src/pages/ecosystem.mjs` (optionally rename slugs to use a consistent prefix)
 - Run `npm run check:site` to validate
 
+### Q: How was the `active-inference-and-*` → `active-inference/` migration actually done? (v3.0.0, shipped)
+
+This is the real worked example for an Axis-B change — the pattern above (hypothetical,
+for the *ecosystem* family) is still deferred; this one, for the *curated
+domain-report* family, actually shipped. **The whole change was one data-only
+routing rule** — no `url-taxonomy.mjs` code change, because the generic `"prefix"`
+rule type (already used for `project-*`) covers it exactly:
+
+```json
+{ "type": "prefix", "match": "active-inference-and-", "dir": "active-inference/" }
+```
+
+Added once to `src/url-taxonomy.json`, this is read identically by the JS build
+and the Python contract checker (`scripts/check_site_contract.py`), so both stay
+in sync automatically — the entire point of the data-driven routing table.
+
+**Full checklist actually followed** (for the next Axis-B rename):
+1. Add the routing rule to `src/url-taxonomy.json` (as above). No `.mjs`/`.py` code changes needed for a plain prefix rename.
+2. Add a locale-aware entry to `PREFIX_REDIRECTS` in `assets/js/redirects.js` — `{ "from": "active-inference-and-", "to": "active-inference/" }` — so old URLs 404-then-redirect across all 12 locales (one entry covers every locale; see [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md)).
+3. `npm run build` — this is **purely additive**; it writes the new `active-inference/<domain>/` directories but does **not** delete the old flat ones.
+4. `git rm -r` every stale pre-migration output directory by hand (16 domains × 12 locales = 192 directories here) — skipping this step means GitHub Pages keeps serving the old page directly instead of 404ing, so the redirect script never fires.
+5. `npm run check` — including the new `check:redirects` gate (`scripts/check_redirects.py`), which fails if a `PREFIX_REDIRECTS` entry has no matching `url-taxonomy.json` rule, a computed redirect target has no built file, or a stale pre-migration directory is still present.
+6. Bump `package.json` to a **major** version per [`../RELEASING.md`](../RELEASING.md)'s SemVer policy (URL-taxonomy change) and add a `CHANGELOG.md` entry.
+
+**What did *not* need to change:** page `slug` fields (identity is unchanged —
+only the *derived* output directory moved), `relatedSlugs` values (they store
+slugs, not paths), the InstituteOS exporter, and the page JSON sources
+themselves — everything downstream of the taxonomy (sitemap, canonical URLs,
+hreflang alternates, breadcrumbs, `hrefForSlug()` cross-links) is computed
+generically from `url-taxonomy.json` and updated itself on rebuild.
+
 ### Q: What would have to change to put locales under `/languages/` instead of `/<code>/`?
 
 **Answer:** Modify the locale prefix system throughout `url-taxonomy.mjs` and `render/layout.mjs`, which is a significant refactor.
@@ -560,4 +600,6 @@ But this cascades to many places:
 - `src/AGENTS.md` — High-level build pipeline walkthrough
 - `src/render/AGENTS.md` — Rendering module structure
 - `scripts/check_site_contract.py` — URL/slug contract validation (shares `url-taxonomy.json` with the JS build)
+- `scripts/check_redirects.py` — validates `assets/js/redirects.js` stays consistent with `url-taxonomy.json` and the build output
 - `src/build.mjs` — Full build entry point with all renderer assembly
+- [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md) — redirect mechanism and the full legacy-URL table

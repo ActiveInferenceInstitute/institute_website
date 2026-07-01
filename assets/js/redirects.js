@@ -69,6 +69,25 @@
     "tnb": "projects/theoretical-neurobiology/"
   };
 
+  // Non-default locale codes (mirrors src/i18n/locales.json minus "en"). Used
+  // only to detect and re-attach a locale prefix around a PREFIX_REDIRECTS
+  // match below -- MAP above stays English-only/locale-unaware by design,
+  // since every Squarespace-era path it covers pre-dates the locale system.
+  var LOCALE_CODES = ["ar", "de", "es", "fr", "hi", "it", "ja", "ko", "pt", "ru", "zh"];
+
+  // Structural URL-taxonomy renames that apply uniformly across every locale
+  // (unlike MAP's one-off English-only Squarespace aliases). Each entry moves
+  // one routing family's whole output directory; add a rule here alongside
+  // the matching entry in src/url-taxonomy.json when a routing family is
+  // renamed. `from`/`to` are locale-agnostic path segments (no leading slash).
+  //
+  // v3.0.0 (2026-07-01): flattened "active-inference-and-<domain>/" pages
+  // (16 of them, live at the time of the move) renested under
+  // "active-inference/<domain>/" to make room for future domain growth
+  // without cluttering the repository root. See
+  // docs/SLUG_AND_URL_TAXONOMY.md and CHANGELOG.md v3.0.0.
+  var PREFIX_REDIRECTS = [{ "from": "active-inference-and-", "to": "active-inference/" }];
+
   var script = document.currentScript;
   var base = (script && script.dataset && script.dataset.base) || "/";
 
@@ -87,12 +106,37 @@
   }
   key = key.replace(/\/+$/, "").replace(/\.html?$/i, "").toLowerCase();
 
+  var dest = null;
+
   if (Object.prototype.hasOwnProperty.call(MAP, key)) {
-    var target = MAP[key];
-    var dest = /^https?:\/\//.test(target) ? target : base + target;
+    dest = MAP[key];
+  } else {
+    // Strip a leading locale segment (if present) before testing prefix
+    // rules, and remember it so it can be re-attached to the destination.
+    var localePrefix = "";
+    var rest = key;
+    for (var i = 0; i < LOCALE_CODES.length; i++) {
+      var code = LOCALE_CODES[i];
+      if (rest === code || rest.indexOf(code + "/") === 0) {
+        localePrefix = code + "/";
+        rest = rest.slice(code.length + 1);
+        break;
+      }
+    }
+    for (var j = 0; j < PREFIX_REDIRECTS.length; j++) {
+      var rule = PREFIX_REDIRECTS[j];
+      if (rest.indexOf(rule.from) === 0) {
+        dest = localePrefix + rule.to + rest.slice(rule.from.length) + "/";
+        break;
+      }
+    }
+  }
+
+  if (dest !== null) {
+    var out = /^https?:\/\//.test(dest) ? dest : base + dest;
     // Avoid a no-op redirect to the same location.
-    if (dest !== location.pathname) {
-      location.replace(dest);
+    if (out !== location.pathname) {
+      location.replace(out);
     }
   }
 })();

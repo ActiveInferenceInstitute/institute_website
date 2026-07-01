@@ -7,6 +7,39 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 _Nothing yet._
 
+## v3.0.0 — 2026-07-01
+
+**Breaking URL change.** The 16 "Active Inference and X" domain pages move
+from a flat scheme to a nested one, to make room for further domain growth
+without cluttering the repository root: `/active-inference-and-<domain>/` →
+`/active-inference/<domain>/`, across all 12 locales.
+
+### Changed
+- **URL taxonomy** — added one `"prefix"` rule to `src/url-taxonomy.json`
+  (`active-inference-and-` → `active-inference/`), read identically by the JS
+  build and the Python contract checker. Page `slug` fields are unchanged —
+  only the derived output directory moved.
+- **Redirects** — `assets/js/redirects.js` gained a locale-aware
+  `PREFIX_REDIRECTS` mechanism (distinct from the existing English-only
+  Squarespace-era `MAP`): one rule redirects the rename across all 12
+  locales, instead of needing per-locale entries.
+- **New gate**: `scripts/check_redirects.py` (`npm run check:redirects`, part
+  of `npm run check`) validates `redirects.js` against `url-taxonomy.json`
+  and the build output, including verifying pre-migration directories were
+  actually removed (so old URLs 404 and the redirect fires).
+- Removed the 192 now-orphaned pre-migration output directories (16 domains ×
+  12 locales).
+
+### Why `/active-inference/` and not `/domains/`
+The ecosystem page family (`src/pages/ecosystem.mjs`) already uses several of
+the same topic names as bare slugs (`economics`, `education`, `neuroscience`,
+`robotics` all exist at `/ecosystem/<name>/`). Nesting under `/domains/`
+would have put two differently-authored pages about the same topic at
+confusingly similar paths; nesting under the existing `/active-inference/`
+hub page avoids the collision entirely. See
+[`docs/SLUG_AND_URL_TAXONOMY.md`](docs/SLUG_AND_URL_TAXONOMY.md) and
+[`docs/MIGRATION_AND_REDIRECTS.md`](docs/MIGRATION_AND_REDIRECTS.md).
+
 ## v2.8.0 — 2026-07-01
 
 Ten new "Active Inference and X" domain-knowledge pages, refreshed research on

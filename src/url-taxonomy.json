@@ -10,6 +10,7 @@
     "indexSlug": "index",
     "rules": [
       { "type": "prefix", "match": "project-", "dir": "projects/" },
+      { "type": "prefix", "match": "active-inference-and-", "dir": "active-inference/" },
       { "type": "set", "match": "programSubpageSlugs", "dir": "programs/" }
     ]
   }

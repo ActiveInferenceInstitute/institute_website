@@ -13,12 +13,13 @@ sync, and translate that source. Run gates with no network access.
 | Command | Runs |
 | --- | --- |
 | `npm run build` | `node src/build.mjs` — render HTML + crawler files |
-| `npm run check` | `node --check` the build, `py_compile` every checker, then `check:links` → `check:instituteos` → `check:design-system` → `check:site` → `check:security` |
+| `npm run check` | `node --check` the build, `py_compile` every checker, then `check:links` → `check:instituteos` → `check:design-system` → `check:site` → `check:security` → `check:redirects` |
 | `npm run check:links` | [`check_internal_links.py`](check_internal_links.py) |
 | `npm run check:instituteos` | [`sync_instituteos_public_data.py`](sync_instituteos_public_data.py) `--check` |
 | `npm run check:design-system` | [`check_design_system_export.mjs`](check_design_system_export.mjs) |
 | `npm run check:site` | [`check_site_contract.py`](check_site_contract.py) |
 | `npm run check:security` | [`check_static_security.py`](check_static_security.py) |
+| `npm run check:redirects` | [`check_redirects.py`](check_redirects.py) |
 | `npm run check:sources` | [`check_live_sources.py`](check_live_sources.py) — **network; NOT part of `check`** |
 | `npm run sync:instituteos` | `sync_instituteos_public_data.py` (writes) |
 | `npm run i18n:extract` | `I18N_EXTRACT=1 node src/build.mjs` → `src/content/i18n/_strings.json` |
@@ -64,6 +65,15 @@ without `alt`, direct Coda anchors, and external anchors missing
 `live-sources.json` / a vetted host (`youtube.com`, `zoom.us`, `github.com`, …).
 Page-specific JS must be an external `assets/js/*.js` file referenced from
 `src/render/layout.mjs`.
+
+### [`check_redirects.py`](check_redirects.py) (`check:redirects`)
+Validates `assets/js/redirects.js` (loaded only by `404.html`). `MAP` entries
+must resolve to real built files. `PREFIX_REDIRECTS` entries (locale-aware
+structural URL renames) must stay consistent with the `"prefix"` rules in
+[`../src/url-taxonomy.json`](../src/url-taxonomy.json) and the current build
+output, including confirming the old pre-migration output directories were
+actually removed — GitHub Pages must 404 before the client-side redirect
+script can fire.
 
 ### [`check_design_system_export.mjs`](check_design_system_export.mjs) (`check:design-system`)
 Validates `assets/css/styles.css` token fallbacks against the committed

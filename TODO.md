@@ -48,11 +48,18 @@ strict Content Security Policy, gated by `npm run check`.
       would break the build's determinism. The uniform export-date `lastmod` is
       correct for a site regenerated as a unit; revisit if per-page provenance
       lands in the export manifest.
-- [ ] Taxonomy-driven redirect generator (`scripts/generate-redirects.mjs` +
-      a `check:redirects` gate) — **deferred (YAGNI)**: no output-URL migration is
-      planned and the ~30-entry `assets/js/redirects.js` map is gate-checked and
-      maintainable. Build this only when an Axis-B URL change is approved, as part
-      of that change. See [`docs/SLUG_AND_URL_TAXONOMY.md` § Two independent axes](docs/SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url).
+- [x] Taxonomy-driven redirect generator + a `check:redirects` gate — **done**:
+      shipped as part of the Axis-B migration of the 16 "Active Inference and X"
+      domain pages from `/active-inference-and-<x>/` to `/active-inference/<x>/`
+      across all 12 locales. Implemented differently than originally envisioned:
+      rather than a codegen script emitting static per-locale entries, the
+      redirect logic itself is rule-driven — a small locale-aware
+      `PREFIX_REDIRECTS` array in `assets/js/redirects.js` covers the whole
+      routing-family rename in one entry, with no per-locale generation needed.
+      `scripts/check_redirects.py` (wired into `npm run check:redirects`, part of
+      `npm run check`) validates the `MAP`/`PREFIX_REDIRECTS` entries against
+      `src/url-taxonomy.json` and the build output. See
+      [`docs/SLUG_AND_URL_TAXONOMY.md` § Two independent axes](docs/SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url).
 - [ ] Extract the shared external-anchor validation (`VETTED_ANCHOR_HOST_SUFFIXES`,
       `vetted_anchor_host()`) into `scripts/validation_utils.py`, imported by both
       `check_static_security.py` and `check_site_contract.py` — **deferred (low
