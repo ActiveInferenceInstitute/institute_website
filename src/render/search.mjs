@@ -25,9 +25,6 @@ export function buildSearchIndex() {
   for (const record of osm.policies.records || []) {
     entries.push({ t: record.title, u: knowledgeUrl, k: String(record.category || ""), c: "Policy" });
   }
-  for (const record of osm.processes.records || []) {
-    entries.push({ t: record.title, u: knowledgeUrl, k: String(record.category || ""), c: "Process" });
-  }
   for (const record of osm.entities.people || []) {
     entries.push({ t: record.name, u: knowledgeUrl, k: (record.roles || []).join(" "), c: "Person" });
   }

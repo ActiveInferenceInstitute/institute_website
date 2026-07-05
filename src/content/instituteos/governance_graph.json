@@ -17,8 +17,7 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      },
-      "href": "knowledge.html#process-annual-report-preparation"
+      }
     },
     {
       "id": "process:board-policy-approval",
@@ -27,8 +26,7 @@
       "meta": {
         "category": "governance",
         "status": "active"
-      },
-      "href": "knowledge.html#process-board-policy-approval"
+      }
     },
     {
       "id": "process:california-operations-registration",
@@ -37,8 +35,7 @@
       "meta": {
         "category": "legal_compliance",
         "status": "active"
-      },
-      "href": "knowledge.html#process-california-operations-registration"
+      }
     },
     {
       "id": "process:delaware-incorporation",
@@ -47,8 +44,7 @@
       "meta": {
         "category": "legal_compliance",
         "status": "active"
-      },
-      "href": "knowledge.html#process-delaware-incorporation"
+      }
     },
     {
       "id": "process:ecosystem-support-access-provisioning",
@@ -57,8 +53,7 @@
       "meta": {
         "category": "it_security",
         "status": "active"
-      },
-      "href": "knowledge.html#process-ecosystem-support-access-provisioning"
+      }
     },
     {
       "id": "process:ecosystem-support-checkin",
@@ -67,8 +62,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-ecosystem-support-checkin"
+      }
     },
     {
       "id": "process:ecosystem-support-offboarding",
@@ -77,8 +71,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-ecosystem-support-offboarding"
+      }
     },
     {
       "id": "process:ecosystem-support-onboarding",
@@ -87,8 +80,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-ecosystem-support-onboarding"
+      }
     },
     {
       "id": "process:employee-onboarding",
@@ -97,8 +89,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-employee-onboarding"
+      }
     },
     {
       "id": "process:federal-501c3-registration",
@@ -107,8 +98,7 @@
       "meta": {
         "category": "legal_compliance",
         "status": "active"
-      },
-      "href": "knowledge.html#process-federal-501c3-registration"
+      }
     },
     {
       "id": "process:fellows-checkin",
@@ -117,8 +107,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-fellows-checkin"
+      }
     },
     {
       "id": "process:fellows-offboarding",
@@ -127,8 +116,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-fellows-offboarding"
+      }
     },
     {
       "id": "process:fellows-onboarding",
@@ -137,8 +125,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-fellows-onboarding"
+      }
     },
     {
       "id": "process:generate-communications",
@@ -147,8 +134,7 @@
       "meta": {
         "category": "communications",
         "status": "active"
-      },
-      "href": "knowledge.html#process-generate-communications"
+      }
     },
     {
       "id": "process:grant-opportunity-relevance",
@@ -157,8 +143,7 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      },
-      "href": "knowledge.html#process-grant-opportunity-relevance"
+      }
     },
     {
       "id": "process:grants-application",
@@ -167,8 +152,7 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      },
-      "href": "knowledge.html#process-grants-application"
+      }
     },
     {
       "id": "process:grants-onboarding",
@@ -177,8 +161,7 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      },
-      "href": "knowledge.html#process-grants-onboarding"
+      }
     },
     {
       "id": "process:grants-publication",
@@ -187,8 +170,7 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      },
-      "href": "knowledge.html#process-grants-publication"
+      }
     },
     {
       "id": "process:grants-review",
@@ -197,8 +179,7 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      },
-      "href": "knowledge.html#process-grants-review"
+      }
     },
     {
       "id": "process:incident-response",
@@ -207,8 +188,7 @@
       "meta": {
         "category": "it_security",
         "status": "active"
-      },
-      "href": "knowledge.html#process-incident-response"
+      }
     },
     {
       "id": "process:internship-checkin",
@@ -217,8 +197,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-internship-checkin"
+      }
     },
     {
       "id": "process:internship-checkin-offboarding",
@@ -227,8 +206,7 @@
       "meta": {
         "category": "education",
         "status": "active"
-      },
-      "href": "knowledge.html#process-internship-checkin-offboarding"
+      }
     },
     {
       "id": "process:internship-completion",
@@ -237,8 +215,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-internship-completion"
+      }
     },
     {
       "id": "process:internship-education",
@@ -247,8 +224,7 @@
       "meta": {
         "category": "education",
         "status": "active"
-      },
-      "href": "knowledge.html#process-internship-education"
+      }
     },
     {
       "id": "process:internship-onboarding",
@@ -257,8 +233,7 @@
       "meta": {
         "category": "education",
         "status": "active"
-      },
-      "href": "knowledge.html#process-internship-onboarding"
+      }
     },
     {
       "id": "process:internship-research",
@@ -267,8 +242,7 @@
       "meta": {
         "category": "research",
         "status": "active"
-      },
-      "href": "knowledge.html#process-internship-research"
+      }
     },
     {
       "id": "process:mentorship-application",
@@ -277,8 +251,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-mentorship-application"
+      }
     },
     {
       "id": "process:mentorship-checkin",
@@ -287,8 +260,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-mentorship-checkin"
+      }
     },
     {
       "id": "process:mentorship-matching",
@@ -297,8 +269,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-mentorship-matching"
+      }
     },
     {
       "id": "process:newsletter-publication",
@@ -307,8 +278,7 @@
       "meta": {
         "category": "communications",
         "status": "active"
-      },
-      "href": "knowledge.html#process-newsletter-publication"
+      }
     },
     {
       "id": "process:open-source-checkin",
@@ -317,8 +287,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-open-source-checkin"
+      }
     },
     {
       "id": "process:open-source-offboarding",
@@ -327,8 +296,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-open-source-offboarding"
+      }
     },
     {
       "id": "process:open-source-onboarding",
@@ -337,8 +305,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-open-source-onboarding"
+      }
     },
     {
       "id": "process:partnership-checkin",
@@ -347,8 +314,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-partnership-checkin"
+      }
     },
     {
       "id": "process:partnership-offboarding",
@@ -357,8 +323,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-partnership-offboarding"
+      }
     },
     {
       "id": "process:partnership-onboarding",
@@ -367,8 +332,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-partnership-onboarding"
+      }
     },
     {
       "id": "process:partnership-planning",
@@ -377,8 +341,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-partnership-planning"
+      }
     },
     {
       "id": "process:pay-organizational-taxes",
@@ -387,8 +350,7 @@
       "meta": {
         "category": "legal_compliance",
         "status": "active"
-      },
-      "href": "knowledge.html#process-pay-organizational-taxes"
+      }
     },
     {
       "id": "process:philanthropy-donation-processing",
@@ -397,8 +359,7 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      },
-      "href": "knowledge.html#process-philanthropy-donation-processing"
+      }
     },
     {
       "id": "process:philanthropy-onboarding",
@@ -407,8 +368,7 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      },
-      "href": "knowledge.html#process-philanthropy-onboarding"
+      }
     },
     {
       "id": "process:philanthropy-recognition",
@@ -417,8 +377,7 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      },
-      "href": "knowledge.html#process-philanthropy-recognition"
+      }
     },
     {
       "id": "process:policy-lifecycle-management",
@@ -427,8 +386,7 @@
       "meta": {
         "category": "governance",
         "status": "active"
-      },
-      "href": "knowledge.html#process-policy-lifecycle-management"
+      }
     },
     {
       "id": "process:research-fellow-application-review",
@@ -437,8 +395,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-research-fellow-application-review"
+      }
     },
     {
       "id": "process:research-project-initiation",
@@ -447,8 +404,7 @@
       "meta": {
         "category": "research",
         "status": "active"
-      },
-      "href": "knowledge.html#process-research-project-initiation"
+      }
     },
     {
       "id": "process:vendor-onboarding",
@@ -457,8 +413,7 @@
       "meta": {
         "category": "procurement",
         "status": "active"
-      },
-      "href": "knowledge.html#process-vendor-onboarding"
+      }
     },
     {
       "id": "process:volunteer-checkin",
@@ -467,8 +422,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-volunteer-checkin"
+      }
     },
     {
       "id": "process:volunteer-offboarding",
@@ -477,8 +431,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-volunteer-offboarding"
+      }
     },
     {
       "id": "process:volunteer-onboarding",
@@ -487,8 +440,7 @@
       "meta": {
         "category": "human_resources",
         "status": "active"
-      },
-      "href": "knowledge.html#process-volunteer-onboarding"
+      }
     },
     {
       "id": "process:write-grant-application",
@@ -497,8 +449,7 @@
       "meta": {
         "category": "operations",
         "status": "active"
-      },
-      "href": "knowledge.html#process-write-grant-application"
+      }
     },
     {
       "id": "entity:daniel-friedman",

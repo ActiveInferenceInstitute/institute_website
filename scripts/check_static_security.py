@@ -3,7 +3,9 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
+import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -34,6 +36,23 @@ VETTED_ANCHOR_HOST_SUFFIXES = (
     "odysee.com",
 )
 ALLOWED_INSTITUTEOS_ASSETS = {"ActInferServe.png", "Dark_ActInfServe.png"}
+# Same patterns used by scripts/sync_instituteos_public_data.py's PII gate,
+# reused here against rendered *text* (not JSON string values) so both gates
+# stay in lockstep. Generic email pattern; tight NANP phone grouping to avoid
+# false positives on years, IDs, or coordinates.
+EMAIL_RE = re.compile(r"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}", re.IGNORECASE)
+PHONE_RE = re.compile(r"(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}")
+# Genuine public-by-design contact addresses, vetted by hand against their
+# source content (never a raw leak): the Institute's general-inquiries address
+# (src/content/site.json contact block, rendered site-wide in the footer/JSON-LD)
+# and the Theoretical Neurobiology group's public mailing-list join address
+# (src/content/pages/projects/project-theoretical-neurobiology.json). Add an
+# entry here only after confirming the source is an intentional, public contact
+# point — not a leaked private address.
+VETTED_PUBLIC_EMAILS = {
+    "blanket@activeinference.institute",
+    "theoreticalneurobiology@gmail.com",
+}
 REQUIRED_CSP_DIRECTIVES = {
     "default-src 'self'",
     "script-src 'self'",
@@ -58,12 +77,14 @@ class StaticHtmlParser(HTMLParser):
         self.images: list[dict[str, str]] = []
         self.tags: list[tuple[str, dict[str, str]]] = []
         self.inline_script_chunks: list[str] = []
+        self.text_chunks: list[str] = []
         self._inside_script = False
         self._current_script_has_src = False
         # JSON-LD (``type="application/ld+json"``) is a non-executable structured-
         # data block, not script the CSP would run. It is the only standard way to
         # publish schema.org data, so its body is allowed (it never executes).
         self._current_script_is_data = False
+        self._inside_style = False
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attrs_dict = {name.lower(): value or "" for name, value in attrs}
@@ -81,12 +102,16 @@ class StaticHtmlParser(HTMLParser):
             self._current_script_is_data = attrs_dict.get("type", "").lower() == "application/ld+json"
         elif tag.lower() == "img":
             self.images.append(attrs_dict)
+        elif tag.lower() == "style":
+            self._inside_style = True
 
     def handle_endtag(self, tag: str) -> None:
         if tag.lower() == "script":
             self._inside_script = False
             self._current_script_has_src = False
             self._current_script_is_data = False
+        elif tag.lower() == "style":
+            self._inside_style = False
 
     def handle_data(self, data: str) -> None:
         if (
@@ -96,6 +121,11 @@ class StaticHtmlParser(HTMLParser):
             and data.strip()
         ):
             self.inline_script_chunks.append(data.strip())
+        # Rendered visible text only: skip script bodies (code/JSON-LD, not
+        # prose) and style bodies (CSS, not prose) when collecting text to scan
+        # for PII.
+        if not self._inside_script and not self._inside_style and data.strip():
+            self.text_chunks.append(data)
 
 
 def parse_html(path: Path) -> StaticHtmlParser:
@@ -125,6 +155,29 @@ def vetted_anchor_host(value: str) -> bool:
 def local_url(value: str) -> bool:
     parsed = urlparse(value)
     return parsed.scheme == "" and not value.startswith("//")
+
+
+def _redact(value: str) -> str:
+    """Fingerprint a matched PII value without printing it.
+
+    CI logs are semi-public (visible to anyone with repo/CI access), so a real
+    leak must never be echoed back verbatim by the checker that is supposed to
+    catch it. A short, non-reversible fingerprint (length + hash prefix) is
+    enough for a human to correlate a finding against the source file.
+    """
+    digest = hashlib.sha256(value.encode("utf-8")).hexdigest()[:8]
+    return f"<redacted, len={len(value)}, fingerprint={digest}>"
+
+
+def find_pii(text: str) -> list[tuple[str, str]]:
+    """Return (kind, matched-value) pairs for emails/phones not on the allowlist."""
+    findings: list[tuple[str, str]] = []
+    for email in EMAIL_RE.findall(text):
+        if email.lower() not in {allowed.lower() for allowed in VETTED_PUBLIC_EMAILS}:
+            findings.append(("email", email))
+    for phone in PHONE_RE.findall(text):
+        findings.append(("phone", phone))
+    return findings
 
 
 def live_urls() -> set[str]:
@@ -230,13 +283,39 @@ def check_security() -> int:
             if not {"noopener", "noreferrer"}.issubset(rel_tokens):
                 errors.append(f"{relative}: external anchor missing noopener noreferrer: {href}")
 
+        # PII scan: rendered visible text (prose, not script/style bodies) plus
+        # mailto: anchor targets, which can carry an address never printed in
+        # the page's own text (e.g. a "Join the mailing list" link). Matches
+        # against VETTED_PUBLIC_EMAILS are intentional public contacts and are
+        # not reported; everything else is a contract violation. The matched
+        # value itself is never printed — only a redacted fingerprint — so a
+        # real finding cannot leak PII into CI logs via this checker.
+        page_text = " ".join(parser.text_chunks)
+        pii_findings = set(find_pii(page_text))
+        vetted_lower = {allowed.lower() for allowed in VETTED_PUBLIC_EMAILS}
+        for anchor in parser.anchors:
+            href = anchor.get("href", "")
+            if href.startswith("mailto:"):
+                address = href[len("mailto:") :].split("?", 1)[0].strip()
+                if address and address.lower() not in vetted_lower:
+                    pii_findings.add(("email", address))
+        for kind, value in sorted(pii_findings):
+            errors.append(
+                f"{relative}: possible {kind} address found in rendered output {_redact(value)} — "
+                "vet the source content; if this is a genuine, intentional public contact point, "
+                "add it to VETTED_PUBLIC_EMAILS, otherwise remove it"
+            )
+
     if errors:
         print("Static security check failed:", file=sys.stderr)
         for error in errors:
             print(f"- {error}", file=sys.stderr)
         return 1
 
-    print("Static security passed: CSP/referrer meta, local assets, safe external anchors, and no disallowed tags.")
+    print(
+        "Static security passed: CSP/referrer meta, local assets, safe external anchors, "
+        "no disallowed tags, and no unvetted PII in rendered output."
+    )
     return 0
 
 

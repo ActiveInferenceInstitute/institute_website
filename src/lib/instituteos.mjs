@@ -16,7 +16,6 @@ export function instituteosCounts() {
     research: researchRows().length,
     organizations: (siteData.instituteos.entities.organizations || []).length,
     members: (siteData.instituteos.entities.people || []).length,
-    processes: (siteData.instituteos.processes.records || []).length,
     publications: (siteData.instituteos.communications.records || []).length,
     policies: (siteData.instituteos.policies.records || []).length,
   };
@@ -113,14 +112,6 @@ export function entityPeopleRows(limit = Infinity) {
     ...person,
     rowId: rowAnchor("member", person.id),
     dataAttrs: knowledgeDataAttrs("members", [person.name, person.title, person.roles, person.tags]),
-  }));
-}
-
-export function processRows(limit = Infinity) {
-  return (siteData.instituteos.processes.records || []).slice(0, limit).map((proc) => ({
-    ...proc,
-    rowId: rowAnchor("process", proc.id),
-    dataAttrs: knowledgeDataAttrs("processes", [proc.title, proc.category, proc.status, proc.description]),
   }));
 }
 

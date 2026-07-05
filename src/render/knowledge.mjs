@@ -23,7 +23,6 @@ import {
   researchTable,
   organizationsTable,
   governanceMembersTable,
-  processesTable,
   publicationsTable,
   policiesTable,
 } from "./tables.mjs";
@@ -104,7 +103,6 @@ export function knowledgePage() {
     <div><strong>${counts.ontology}</strong><span>relationship rows</span></div>
     <div><strong>${counts.organizations}</strong><span>organizations</span></div>
     <div><strong>${counts.members}</strong><span>governance members</span></div>
-    <div><strong>${counts.processes}</strong><span>governance processes</span></div>
     <div><strong>${counts.publications}</strong><span>publications</span></div>
     <div><strong>${counts.policies}</strong><span>policies</span></div>
   </section>
@@ -123,7 +121,6 @@ export function knowledgePage() {
         <a href="#research-table">Research</a>
         <a href="#organizations-table">Organizations</a>
         <a href="#members-table">Governance</a>
-        <a href="#processes-table">Processes</a>
         <a href="#publications-table">Publications</a>
         <a href="#policies-table">Policies</a>
         <a href="#related-pages">Related pages</a>
@@ -161,7 +158,6 @@ export function knowledgePage() {
       { title: "Research", text: "Verified public research, paper, and reference links from the resource registry.", links: [{ label: "Research table", href: "#research-table" }] },
       { title: "Organizations", text: "Public organizations in the governance registry — governing bodies, internal units, partners, and technology providers.", links: [{ label: "Organizations table", href: "#organizations-table" }] },
       { title: "Governance", text: "Public governance members including board, officers, and registered organizational roles.", links: [{ label: "Governance table", href: "#members-table" }] },
-      { title: "Processes", text: "Public governance process descriptions including category, status, step count, and SLA.", links: [{ label: "Processes table", href: "#processes-table" }] },
       { title: "Publications", text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: "Publications table", href: "#publications-table" }] },
       { title: "Policies", text: "Public governance policy registry with category, status, version, and description.", links: [{ label: "Policies table", href: "#policies-table" }] },
     ], currentDir)}
@@ -183,12 +179,11 @@ export function knowledgePage() {
           <option value="research">Research</option>
           <option value="organizations">Organizations</option>
           <option value="members">Governance</option>
-          <option value="processes">Processes</option>
           <option value="publications">Publications</option>
           <option value="policies">Policies</option>
         </select>
       </label>
-      <p id="knowledge-count" class="result-count" aria-live="polite">${counts.people + counts.projects + counts.ideas + counts.ontology + counts.research + counts.organizations + counts.members + counts.processes + counts.publications + counts.policies} rows shown</p>
+      <p id="knowledge-count" class="result-count" aria-live="polite">${counts.people + counts.projects + counts.ideas + counts.ontology + counts.research + counts.organizations + counts.members + counts.publications + counts.policies} rows shown</p>
     </div>
   </section>
   ${tableSection({
@@ -247,14 +242,6 @@ export function knowledgePage() {
     text: "Public governance members including board, officers, and registered organizational roles.",
     countLabel: `${counts.members} governance members shown`,
     tableHtml: governanceMembersTable(),
-  })}
-  ${tableSection({
-    id: "processes-table",
-    eyebrow: "Processes",
-    title: `${counts.processes} governance process rows`,
-    text: "Public governance process descriptions with category, status, step count, and SLA target.",
-    countLabel: `${counts.processes} processes shown`,
-    tableHtml: processesTable(),
   })}
   ${tableSection({
     id: "publications-table",
@@ -333,12 +320,6 @@ export function knowledgeDirectoryRows(currentDir = "") {
       label: item.name,
       summary: `${item.title || ""} ${(item.roles || []).slice(0, 2).join(", ")}`.trim(),
       href: hrefForSlug("knowledge", currentDir, rowAnchor("member", item.id)),
-    })),
-    ...(siteData.instituteos.processes.records || []).map((item) => ({
-      kind: "Governance Processes",
-      label: item.title,
-      summary: `${title_case_token_js(item.category || "")} / ${title_case_token_js(item.status || "")}`,
-      href: hrefForSlug("knowledge", currentDir, rowAnchor("process", item.id)),
     })),
     ...(siteData.instituteos.communications.records || []).map((item) => ({
       kind: "Publications",

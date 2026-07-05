@@ -437,13 +437,7 @@ def live_manifest(root: Path) -> dict:
 
 def instituteos_data(root: Path) -> dict[str, dict]:
     base = root / "src" / "content" / "instituteos"
-    return {
-        "people": load_json(base / "people.json"),
-        "projects": load_json(base / "projects.json"),
-        "ideas": load_json(base / "ideas.json"),
-        "ontology": load_json(base / "ontology.json"),
-        "assets": load_json(base / "assets.json"),
-    }
+    return {path.stem: load_json(path) for path in sorted(base.glob("*.json"))}
 
 
 def export_manifest(root: Path) -> dict:
@@ -661,7 +655,6 @@ def check_content_model(root: Path, errors: list[str]) -> None:
                 errors.append(f"src/content/instituteos/{label}.json contains private field {blocked}")
         for blocked_text in (
             "coda.io",
-            "workspace",
             "source atlas",
             "source manifest",
             "aii.pdf",
@@ -669,7 +662,16 @@ def check_content_model(root: Path, errors: list[str]) -> None:
         ):
             if blocked_text in serialized:
                 errors.append(f"src/content/instituteos/{label}.json contains blocked public term {blocked_text!r}")
-        for blocked_text in ("governance links", "board of directors", "officers", "scientific advisory board"):
+        # "board of directors" / "officers" / "scientific advisory board" are public entity
+        # and role NAMES (the Institute names its governance bodies publicly) -- confirmed
+        # 2026-07-05 as intentionally public. "workspace" is a common English word that
+        # legitimately appears in narrative prose (matches the PROSE_FORBIDDEN_SUBSTRINGS
+        # exception already documented for the same reason in the private repo's
+        # tests/orchestrator/website_export/test_gate_sync.py). Neither is blocked here.
+        # Process/workflow *mechanics* (step-by-step descriptions) were confirmed NOT
+        # public 2026-07-05 -- the generator (`sanitize_processes`) and `processes.json`
+        # were removed entirely rather than filtered, so there is nothing left to scan here.
+        for blocked_text in ("governance links",):
             if blocked_text in serialized:
                 errors.append(
                     f"src/content/instituteos/{label}.json contains internal governance surface {blocked_text!r}"
@@ -751,7 +753,11 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
         for href in hrefs:
             if not external_href(href) or internal_site_href(href):
                 continue
-            if href not in allowed_live_urls and href.rstrip("/") not in allowed_live_urls:
+            if (
+                href not in allowed_live_urls
+                and href.rstrip("/") not in allowed_live_urls
+                and not vetted_anchor_host(href)
+            ):
                 errors.append(f"{slug}: external anchor is not represented in live-sources.json: {href}")
 
 

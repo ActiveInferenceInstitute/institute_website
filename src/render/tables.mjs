@@ -7,7 +7,6 @@ import {
   researchRows,
   entityOrgRows,
   entityPeopleRows,
-  processRows,
   communicationRows,
   policyRows,
 } from "../lib/instituteos.mjs";
@@ -171,18 +170,6 @@ export function governanceMembersTable(rows = entityPeopleRows()) {
     { label: "Active", render: (item) => (item.active ? "Yes" : "No") },
   ];
   return dataTable({ caption: "Public governance members in the Active Inference Institute registry.", columns, rows });
-}
-
-export function processesTable(rows = processRows()) {
-  const columns = [
-    { label: "Process", render: (item) => `<a href="#${escapeHtml(item.rowId)}">${escapeHtml(item.title)}</a>` },
-    { label: "Category", render: (item) => categoryTag(item.category) },
-    { label: "Status", render: (item) => statusBadge(item.status) },
-    { label: "Steps", render: (item) => String(item.stepCount || 0) },
-    { label: "SLA days", render: (item) => item.slaDays != null ? String(item.slaDays) : "—" },
-    { label: "Description", render: (item) => escapeHtml(sanitizePublicProse(item.description || "").slice(0, 120)) },
-  ];
-  return dataTable({ caption: "Public governance process descriptions from the Active Inference Institute.", columns, rows });
 }
 
 export function publicationsTable(rows = communicationRows()) {

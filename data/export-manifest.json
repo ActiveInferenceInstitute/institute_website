@@ -111,9 +111,65 @@
       "record_count": 1,
       "sha256": "92dd51ed5b1e8b0e0b053c2a206e4b03e9d4ead5e458e775dff4461163e13a6a",
       "target": "pages_domains"
+    },
+    {
+      "name": "communications_public.json",
+      "output_path": "src/content/instituteos/communications_public.json",
+      "record_count": 4,
+      "sha256": "3fb57268179cd2c74f9f669c7cda7886504ad845af62520f4c502d5b0eb2d2ea",
+      "target": "content"
+    },
+    {
+      "name": "domain_projects.json",
+      "output_path": "src/content/instituteos/domain_projects.json",
+      "record_count": 22,
+      "sha256": "19e77630113c1fe78d634b5c2ac1250c4270ee0958d70f13da33eaca9d7f18bf",
+      "target": "content"
+    },
+    {
+      "name": "governance_graph.json",
+      "output_path": "src/content/instituteos/governance_graph.json",
+      "record_count": 143,
+      "sha256": "ac2e86eb687e2197f023e2bad7388b81e3bca079b326231270e39d35a8472e16",
+      "target": "content"
+    },
+    {
+      "name": "narratives_public.json",
+      "output_path": "src/content/instituteos/narratives_public.json",
+      "record_count": 44,
+      "sha256": "5c7f36e0b6b14bba107d8f7c590c81b7530ad5511c2daf73d433367ea615de44",
+      "target": "content"
+    },
+    {
+      "name": "ontology_graph.json",
+      "output_path": "src/content/instituteos/ontology_graph.json",
+      "record_count": 30,
+      "sha256": "7694adc197b61c65d31fecbea5adc600ce53f806d5320ebbe2e239042e96435d",
+      "target": "content"
+    },
+    {
+      "name": "projects.json",
+      "output_path": "data/projects.json",
+      "record_count": 64,
+      "sha256": "641c4086e81d394d09566b57fdf76cca3bebd31bcc55f6d5e37d231863ce931f",
+      "target": "data"
+    },
+    {
+      "name": "strategies_public.json",
+      "output_path": "src/content/instituteos/strategies_public.json",
+      "record_count": 16,
+      "sha256": "aa8b911a4836f7edbda68482713abb2c26a7ee660a26e67898cd97fc7ab4d100",
+      "target": "content"
+    },
+    {
+      "name": "tech_tree_graph.json",
+      "output_path": "src/content/instituteos/tech_tree_graph.json",
+      "record_count": 30,
+      "sha256": "4bec7ebea84a5df248b65c7a34fd234275d284167a8c76c5ed042c295488313e",
+      "target": "content"
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-07-01T16:02:06.394578+00:00",
-  "source_fingerprint": "9e5417ac7be2"
+  "generated_at": "2026-07-05T21:33:20.997808+00:00",
+  "source_fingerprint": "9576a20a52f6"
 }

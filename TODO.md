@@ -9,13 +9,32 @@ strict Content Security Policy, gated by `npm run check`.
 
 ### From the 2026-06 deep review (see [`INDEX.md`](INDEX.md), [`GATING.md`](GATING.md))
 
-- [x] **Gating coverage (P0) — DONE.** The 7 producer-2 slices (`*_graph`,
-      `domain_projects`, `narratives_public`, `communications_public`,
-      `strategies_public`) are now run through `validate_public_prose_payload` in
-      `check_committed_public_payloads` (enforced by `check:instituteos`) — a
-      prose-tuned gate (blocks real emails, `coda.io`, `/users/`, phones, and
-      unambiguous private keys; tolerates `slack`/`discord`/`linkedin`/`workspace`
-      tokens that legitimately appear in public prose). See [`GATING.md`](GATING.md).
+- [x] **Gating coverage (P0) — DONE, and now unconditional (2026-07-05).** The 7
+      producer-2 slices (`*_graph`, `domain_projects`, `narratives_public`,
+      `communications_public`, `strategies_public`) are run through
+      `validate_public_prose_payload` in `check_committed_public_payloads`
+      (enforced by `check:instituteos`) — a prose-tuned gate (blocks real emails,
+      `coda.io`, `/users/`, phones, and unambiguous private keys; tolerates
+      `slack`/`discord`/`linkedin`/`workspace` tokens that legitimately appear in
+      public prose). A 2026-07-05 audit found this only ran when the private
+      `instituteos` checkout could **not** be resolved — dead code in the normal
+      monorepo dev layout — fixed to run unconditionally. See [`GATING.md`](GATING.md).
+- [x] **Content-safety scan widened (2026-07-05) — DONE.** `check:site` scanned
+      only 5 of 17 committed `src/content/instituteos/*.json` files; now scans
+      all of them dynamically.
+- [x] **RESOLVED (2026-07-05): governance-surface content flagged by the widened
+      scan.** Confirmed with the Institute: entity/role *names* ("Board of
+      Directors", "Officers", "Scientific Advisory Board") are public; process/
+      workflow *mechanics* are not. `processes.json` (the one file with actual
+      step-by-step governance-process descriptions) and every renderer that
+      consumed it (Open Source Map "Processes" table + search index + counts)
+      were removed entirely. "workspace" was a false-positive (common word) and
+      is no longer blocked. `npm run check:site` passes. See [`GATING.md`](GATING.md) item 3.
+- [x] **PII scan added to `check:security` (2026-07-05) — DONE.** GATING.md
+      claimed rendered-HTML PII scanning that didn't exist in code; added a real
+      email/phone scan over rendered text + `mailto:` targets, with a
+      `VETTED_PUBLIC_EMAILS` allowlist for two confirmed-legitimate public
+      contacts found during testing.
 - [ ] **Release hygiene (P1):** git tags stop at `v2.4.0` but `CHANGELOG.md` has
       `v2.5.0`/`v2.6.0`; the domain migration + 11-locale launch sits under
       `## Unreleased`. Cut a release per [`RELEASING.md`](RELEASING.md) and backfill

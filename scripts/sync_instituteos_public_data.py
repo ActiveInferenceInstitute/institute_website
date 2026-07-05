@@ -57,7 +57,6 @@ REQUIRED_PUBLIC_JSON_FILES = (
     "ideas.json",
     "ontology.json",
     "entities.json",
-    "processes.json",
     "communications.json",
     "policies.json",
     "assets.json",
@@ -449,39 +448,13 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def sanitize_processes(processes_data: dict[str, Any]) -> dict[str, Any]:
-    records = []
-    for process in processes_data.get("processes", []):
-        sla = process.get("sla") or {}
-        steps = process.get("steps", [])
-        records.append(
-            {
-                "id": process.get("id"),
-                "title": public_text(process.get("title")),
-                "description": public_text(process.get("description")),
-                "category": public_text(process.get("category")),
-                "version": process.get("version"),
-                "status": public_text(process.get("status")),
-                "triggers": [public_text(trigger) for trigger in process.get("triggers", [])],
-                "slaDays": sla.get("total_days"),
-                "linkedPolicies": list(process.get("linked_policies", [])),
-                "stepCount": len(steps),
-                "steps": [
-                    {
-                        "order": step.get("order"),
-                        "name": public_text(step.get("name")),
-                        "description": public_text(step.get("description")),
-                    }
-                    for step in steps
-                ],
-            }
-        )
-    records.sort(key=lambda item: item["title"].lower())
-    return {
-        "description": "Public-safe governance process summaries derived from InstituteOS processes.",
-        "source": "instituteos/library/registries/processes.json",
-        "records": records,
-    }
+# NOTE (2026-07-05): a `sanitize_processes()` generator used to publish process
+# records (including full step-by-step workflow descriptions, e.g. board
+# review/sign-off sequences) to `processes.json` on the public site. Confirmed
+# with the Institute that process/workflow mechanics are backend governance
+# detail that must NOT be published, even in summarized form -- unlike entity/
+# role NAMES ("Board of Directors", "Scientific Advisory Board"), which are
+# fine. `processes.json` is no longer produced; see GATING.md.
 
 
 def sanitize_communications(comms_data: dict[str, Any]) -> dict[str, Any]:
@@ -677,15 +650,13 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
 
     registries_dir = instituteos_root / "library" / "registries"
     entities_path = registries_dir / "entities.json"
-    processes_path = registries_dir / "processes.json"
     communications_path = registries_dir / "communications.json"
     policies_path = registries_dir / "policies.json"
-    for required_path in (entities_path, processes_path, communications_path, policies_path):
+    for required_path in (entities_path, communications_path, policies_path):
         if not required_path.exists():
             raise SystemExit(f"required InstituteOS registry not found: {required_path}")
 
     entities_data = load_json(entities_path)
-    processes_data = load_json(processes_path)
     communications_data = load_json(communications_path)
     policies_data = load_json(policies_path)
 
@@ -695,7 +666,6 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
         "ideas.json": sanitize_ideas(tech_tree_data),
         "ontology.json": sanitize_ontology(tech_tree_data),
         "entities.json": sanitize_entities(entities_data),
-        "processes.json": sanitize_processes(processes_data),
         "communications.json": sanitize_communications(communications_data),
         "policies.json": sanitize_policies(policies_data),
     }
@@ -741,6 +711,36 @@ def check_results(results: list[SyncResult]) -> int:
     return 0
 
 
+def check_producer2_payloads() -> tuple[list[str], int]:
+    """Re-validate producer-2 graph/narrative slices with the prose-tuned gate.
+
+    Producer-2 files (``PRODUCER2_PUBLIC_JSON_FILES``) are emitted by a separate
+    private InstituteOS export, not by ``build_results()``/``check_results()``,
+    so those two functions never look at them. This check must therefore run
+    unconditionally under ``--check`` — both when the private ``instituteos_root``
+    fails to resolve (via ``check_committed_public_payloads``) and, just as
+    importantly, when it *does* resolve (the normal local-dev layout, where this
+    repo sits as a submodule under a private InstituteOS checkout) — otherwise
+    this defense-in-depth gate is silently skipped in the common case. See
+    ``main()`` and GATING.md.
+
+    Missing files are not an error — they arrive from an external pipeline and
+    may be absent. Returns ``(errors, checked_count)``.
+    """
+    errors: list[str] = []
+    checked = 0
+    for name in PRODUCER2_PUBLIC_JSON_FILES:
+        path = CONTENT_OUT / name
+        if not path.exists():
+            continue
+        checked += 1
+        try:
+            validate_public_prose_payload(load_json(path), path.name)
+        except (OSError, json.JSONDecodeError, ValueError) as exc:
+            errors.append(f"{path.relative_to(PROJECT_ROOT)} failed public-safety validation: {exc}")
+    return errors, checked
+
+
 def check_committed_public_payloads() -> int:
     errors = []
     json_files = [CONTENT_OUT / name for name in REQUIRED_PUBLIC_JSON_FILES]
@@ -755,19 +755,8 @@ def check_committed_public_payloads() -> int:
         except (OSError, json.JSONDecodeError, ValueError) as exc:
             errors.append(f"{path.relative_to(PROJECT_ROOT)} failed public-safety validation: {exc}")
 
-    # Producer-2 slices (separate private export). Validate whichever are
-    # committed, with the prose-tuned gate. Missing ones are not an error — they
-    # arrive from an external pipeline and may be absent.
-    producer2_checked = 0
-    for name in PRODUCER2_PUBLIC_JSON_FILES:
-        path = CONTENT_OUT / name
-        if not path.exists():
-            continue
-        producer2_checked += 1
-        try:
-            validate_public_prose_payload(load_json(path), path.name)
-        except (OSError, json.JSONDecodeError, ValueError) as exc:
-            errors.append(f"{path.relative_to(PROJECT_ROOT)} failed public-safety validation: {exc}")
+    producer2_errors, producer2_checked = check_producer2_payloads()
+    errors.extend(producer2_errors)
 
     for filename in BRAND_ASSETS:
         path = ASSET_OUT / filename
@@ -805,7 +794,22 @@ def main() -> int:
 
     results = build_results(instituteos_root)
     if args.check:
-        return check_results(results)
+        # build_results()/check_results() never reference the producer-2
+        # graph/narrative slices (they're emitted by a separate private export),
+        # so re-run that gate unconditionally here — this is the branch taken in
+        # the normal local-dev layout where instituteos_root resolves, and it
+        # must not silently skip producer-2 privacy validation. See
+        # check_producer2_payloads() and GATING.md.
+        producer2_errors, producer2_checked = check_producer2_payloads()
+        if producer2_errors:
+            print("InstituteOS producer-2 public data check failed:", file=sys.stderr)
+            for error in producer2_errors:
+                print(f"- {error}", file=sys.stderr)
+            return 1
+        exit_code = check_results(results)
+        if exit_code == 0:
+            print(f"Producer-2 validation ran: {producer2_checked} producer-2 JSON file(s) validated.")
+        return exit_code
 
     write_results(results)
     print(f"Synced {len(results)} InstituteOS public data files.")

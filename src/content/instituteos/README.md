@@ -7,9 +7,11 @@ file in this directory is served directly.
 **Two producers feed this directory** (see [`../../../GATING.md`](../../../GATING.md)):
 
 1. The registry slices (`people`, `projects`, `ideas`, `ontology`, `assets`,
-   `entities`, `processes`, `communications`, `policies`, `calendar`) are
-   produced by `scripts/sync_instituteos_public_data.py` and validated by
-   `npm run check:instituteos`.
+   `entities`, `communications`, `policies`, `calendar`) are produced by
+   `scripts/sync_instituteos_public_data.py` and validated by
+   `npm run check:instituteos`. (`processes.json` was removed 2026-07-05 —
+   process/workflow mechanics are backend governance detail, confirmed not
+   for public release; entity/role *names* remain public via `entities.json`.)
 2. The graph/narrative slices (`governance_graph`, `ontology_graph`,
    `tech_tree_graph`, `domain_projects`, `narratives_public`,
    `communications_public`, `strategies_public`) arrive **pre-sanitized from a
@@ -117,22 +119,6 @@ Public governance members and organizations.
     id: string, name: string, type: string,
     description: string, url: string,
     tags: string[], memberIds: string[], parentId: string|null
-  }]
-}
-```
-
-### `processes.json`
-Public governance process descriptions.
-
-```
-{
-  description: string, source: string,
-  records: [{
-    id: string, title: string, description: string,
-    category: string, version: string, status: string,
-    triggers: string[], slaDays: number|null,
-    linkedPolicies: string[], stepCount: number,
-    steps: [{order: number, name: string, description: string}]
   }]
 }
 ```
