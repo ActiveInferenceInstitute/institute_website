@@ -261,11 +261,12 @@
       "label": "Newsletter",
       "category": "Updates",
       "url": "http://newsletter.activeinference.institute/",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://activeinferenceinstitute.substack.com/",
+      "sourceBasis": "Verified official Institute public page or public subdomain. Manually verified live 2026-07-07 (curl from a residential/dev IP returns clean 200 with Cloudflare cf-ray header, no challenge). GitHub Actions runner IPs are commonly blocked/challenged by Cloudflare bot-management on Substack specifically — CI got a 403 for this exact URL while a direct check from elsewhere succeeded seconds later. Recorded as knownBotBlocked so CI-runner IP reputation cannot make this gate flaky.",
+      "finalUrl": "http://newsletter.activeinference.institute/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-07-07T17:16:51Z"
+      "checkedAt": "2026-07-07T17:16:51Z",
+      "knownBotBlocked": true
     },
     {
       "id": "official-projects-shortlink",
