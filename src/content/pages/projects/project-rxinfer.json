@@ -8,10 +8,6 @@
     {
       "label": "RxInfer shortlink",
       "sourceId": "shortlink-rxinfer"
-    },
-    {
-      "label": "Official page",
-      "sourceId": "official-rxinfer"
     }
   ],
   "sections": [
@@ -23,9 +19,6 @@
           "sourceId": "shortlink-rxinfer"
         },
         {
-          "sourceId": "official-rxinfer"
-        },
-        {
           "sourceId": "repo-actinf-rxinfer"
         }
       ]
@@ -34,9 +27,6 @@
       "heading": "Resources",
       "body": "The group maintains a project overview, learning sessions, and code in the Institute repository. Active sessions appear in the Institute's activities calendar.",
       "links": [
-        {
-          "sourceId": "official-rxinfer"
-        },
         {
           "sourceId": "repo-actinf-rxinfer"
         },
@@ -68,7 +58,6 @@
   ],
   "externalSourceIds": [
     "shortlink-rxinfer",
-    "official-rxinfer",
     "repo-actinf-rxinfer",
     "official-activities-shortlink",
     "discord"

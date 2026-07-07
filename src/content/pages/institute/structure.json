@@ -75,10 +75,6 @@
         {
           "label": "Volunteer",
           "sourceId": "official-volunteer"
-        },
-        {
-          "label": "Internship",
-          "sourceId": "official-internship"
         }
       ]
     },
@@ -146,7 +142,6 @@
   "externalSourceIds": [
     "ecosystem",
     "official-volunteer",
-    "official-internship",
     "bod",
     "sab"
   ],

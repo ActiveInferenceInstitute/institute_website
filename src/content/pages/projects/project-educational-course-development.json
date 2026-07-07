@@ -6,10 +6,6 @@
   "lede": "Educational Course Development is a sustained Institute project producing structured courses in Active Inference and related topics. It maintains an Obsidian repository and course catalog, developing educational materials for a range of backgrounds and learning goals.",
   "primaryActions": [
     {
-      "label": "Courses",
-      "sourceId": "official-courses"
-    },
-    {
       "label": "Repository",
       "sourceId": "repo-courses"
     }
@@ -20,9 +16,6 @@
       "body": "The Educational Course Development project designs and produces courses for Active Inference learners. This includes introductory and advanced courses, domain-specific curricula, and modular educational components that can be used across the Institute's learning programs.",
       "links": [
         {
-          "sourceId": "official-courses"
-        },
-        {
           "sourceId": "repo-courses"
         }
       ]
@@ -31,9 +24,6 @@
       "heading": "Resources",
       "body": "Courses are accessible through the Institute's course page and Obsidian repository. Materials are openly licensed and designed for reuse.",
       "links": [
-        {
-          "sourceId": "official-courses"
-        },
         {
           "sourceId": "shortlink-obsidian"
         }
@@ -62,7 +52,6 @@
     "learning"
   ],
   "externalSourceIds": [
-    "official-courses",
     "repo-courses",
     "shortlink-obsidian",
     "discord"

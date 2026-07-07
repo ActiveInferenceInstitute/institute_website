@@ -8,10 +8,6 @@
     {
       "label": "GNN repository",
       "sourceId": "gnn"
-    },
-    {
-      "label": "Repo",
-      "sourceId": "repo-gnn"
     }
   ],
   "sections": [
@@ -23,9 +19,6 @@
           "sourceId": "gnn"
         },
         {
-          "sourceId": "repo-gnn"
-        },
-        {
           "sourceId": "repo-generalizednotationnotation"
         }
       ]
@@ -35,7 +28,7 @@
       "body": "GNN has an active repository and has been used across several Institute projects. Documentation and examples are available through the repository.",
       "links": [
         {
-          "sourceId": "repo-gnn"
+          "sourceId": "repo-generalizednotationnotation"
         },
         {
           "sourceId": "github-org"
@@ -65,7 +58,6 @@
   ],
   "externalSourceIds": [
     "gnn",
-    "repo-gnn",
     "repo-generalizednotationnotation",
     "github-org",
     "discord"

@@ -63,8 +63,19 @@ def verify(manifest_path: Path, *, timeout: int, write: bool) -> int:
         live_ok = 200 <= status_code < 400
         expected_ok = bool(source.get("ok"))
         expected_status = int(source.get("statusCode") or 0)
+        # Some hosts (LinkedIn, Akamai-fronted publisher sites) block automated
+        # requests inconsistently — sometimes a normal status, sometimes a bot-block
+        # code — regardless of the page's real, human-visible liveness. Pinning any
+        # single expected status for these makes the gate flaky rather than useful.
+        # `knownBotBlocked` entries are manually verified in a real browser instead
+        # (see sourceBasis); the automated check is informational only and never
+        # gates or overwrites their recorded state.
+        bot_blocked = bool(source.get("knownBotBlocked"))
 
-        if expected_ok and not live_ok:
+        if bot_blocked:
+            if not live_ok:
+                notes.append(f"{source['id']}: bot-blocked host returned HTTP {status_code} (expected, not gated)")
+        elif expected_ok and not live_ok:
             errors.append(f"{source['id']}: expected reachable, got HTTP {status_code} at {final_url}")
         elif not expected_ok and live_ok:
             errors.append(f"{source['id']}: expected not promoted, but now reachable at {final_url}")
@@ -75,7 +86,7 @@ def verify(manifest_path: Path, *, timeout: int, write: bool) -> int:
                 f"{source['id']}: live result is HTTP {status_code} at {final_url}; manifest records HTTP {expected_status} at {source.get('finalUrl')}"
             )
 
-        if write:
+        if write and not bot_blocked:
             source["statusCode"] = status_code
             source["finalUrl"] = final_url
             source["ok"] = live_ok

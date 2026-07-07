@@ -24,9 +24,6 @@
         },
         {
           "sourceId": "youtube"
-        },
-        {
-          "sourceId": "official-livestreams"
         }
       ]
     },
@@ -36,9 +33,6 @@
       "links": [
         {
           "sourceId": "youtube"
-        },
-        {
-          "sourceId": "official-livestreams"
         }
       ]
     },
@@ -66,7 +60,6 @@
   "externalSourceIds": [
     "video",
     "youtube",
-    "official-livestreams",
     "discord"
   ],
   "resourceGroups": [

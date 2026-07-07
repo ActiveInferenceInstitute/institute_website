@@ -170,9 +170,6 @@
       "links": [
         {
           "sourceId": "official-symposium-shortlink"
-        },
-        {
-          "sourceId": "official-partnership"
         }
       ]
     }
@@ -225,7 +222,6 @@
     "partnership"
   ],
   "externalSourceIds": [
-    "official-symposium-page",
     "official-symposium-shortlink",
     "symposium-2026-submit",
     "symposium-2021-transcript",
@@ -236,8 +232,7 @@
     "symposium-2025-program",
     "repo-symposium",
     "youtube",
-    "donate",
-    "official-partnership"
+    "donate"
   ],
   "resourceGroups": [
     "projects",

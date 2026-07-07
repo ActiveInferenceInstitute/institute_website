@@ -18,14 +18,7 @@
     {
       "heading": "What EduActive Does",
       "body": "EduActive provides the educational infrastructure for the Institute and Ecosystem. Its projects develop and maintain courses, textbooks, ontologies, journals, audio-visual resources, and learning groups. EduActive makes Active Inference accessible across disciplines and experience levels by creating structured, reusable, and openly licensed educational artifacts.",
-      "links": [
-        {
-          "sourceId": "official-courses"
-        },
-        {
-          "sourceId": "official-education"
-        }
-      ]
+      "links": []
     },
     {
       "heading": "Institute Projects",
@@ -140,8 +133,6 @@
     "learning"
   ],
   "externalSourceIds": [
-    "official-education",
-    "official-courses",
     "github-org",
     "discord"
   ],

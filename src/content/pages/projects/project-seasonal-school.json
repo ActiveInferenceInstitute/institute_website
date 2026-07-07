@@ -6,8 +6,8 @@
   "lede": "The Seasonal School is an Institute educational program providing intensive, structured, and in-depth engagement with Active Inference theory, modeling, and applications. It has run multiple cohorts and developed a track record as a concentrated learning experience for participants from varied backgrounds.",
   "primaryActions": [
     {
-      "label": "Seasonal School page",
-      "sourceId": "official-education"
+      "label": "YouTube channel",
+      "sourceId": "youtube"
     },
     {
       "label": "EduActive Unit",
@@ -18,11 +18,7 @@
     {
       "heading": "Overview",
       "body": "The Seasonal School delivers concentrated Active Inference education through structured sessions over days or weeks. It combines lectures, workshops, modeling practice, and discussion — creating a learning environment that accelerates understanding for participants at multiple levels of prior background.",
-      "links": [
-        {
-          "sourceId": "official-education"
-        }
-      ]
+      "links": []
     },
     {
       "heading": "Past Editions",
@@ -30,9 +26,6 @@
       "links": [
         {
           "sourceId": "youtube"
-        },
-        {
-          "sourceId": "official-livestreams"
         }
       ]
     },
@@ -58,9 +51,7 @@
     "programs"
   ],
   "externalSourceIds": [
-    "official-education",
     "youtube",
-    "official-livestreams",
     "official-newsletter",
     "discord"
   ],

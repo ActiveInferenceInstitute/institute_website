@@ -6,8 +6,8 @@
   "lede": "Partnerships align organizations and collaborators around concrete shared work — co-hosting events, co-authoring research, sharing infrastructure, or developing joint education and application programs.",
   "primaryActions": [
     {
-      "label": "Partnership pathway",
-      "sourceId": "official-partnership"
+      "label": "GitHub organization",
+      "sourceId": "github-org"
     },
     {
       "label": "Contact us",
@@ -18,11 +18,7 @@
     {
       "heading": "What Partnership Means",
       "body": "Partnership is a practical relationship built around shared work. Partner organizations contribute time, attention, expertise, funding, infrastructure, or institutional capacity in exchange for collaboration with the Institute and its community. Partnership is not a sponsorship or a passive affiliation — it is an active, bilateral exchange with concrete outcomes that benefit both parties and the broader Active Inference Ecosystem.",
-      "links": [
-        {
-          "sourceId": "official-partnership"
-        }
-      ]
+      "links": []
     },
     {
       "heading": "Forms of Partnership",
@@ -46,11 +42,7 @@
     {
       "heading": "How to Become a Partner",
       "body": "Partnership begins with a conversation about alignment and shared goals. Organizations interested in partnership should reach out through the partnership pathway page or by emailing blanket@activeinference.institute. Describe your organization, what you work on, and what kind of collaboration you have in mind. The Institute will respond with information about how to proceed.",
-      "links": [
-        {
-          "sourceId": "official-partnership"
-        }
-      ]
+      "links": []
     },
     {
       "heading": "Related Programs",
@@ -98,11 +90,7 @@
     {
       "title": "Get in touch",
       "text": "Describe your work and what collaboration you have in mind.",
-      "links": [
-        {
-          "sourceId": "official-partnership"
-        }
-      ]
+      "links": []
     }
   ],
   "order": 16,
@@ -114,7 +102,6 @@
     "about"
   ],
   "externalSourceIds": [
-    "official-partnership",
     "official-symposium-shortlink",
     "weekly",
     "github-org"

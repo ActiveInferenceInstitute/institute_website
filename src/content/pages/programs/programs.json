@@ -39,9 +39,6 @@
       "body": "Internships provide structured engagement for participants who want to contribute more deeply to specific projects or functions. Interns work on defined deliverables — documentation, analysis, code, educational materials, or operational support — and develop skills through project practice and community engagement. Learning is built into the process regardless of prior experience.",
       "links": [
         {
-          "sourceId": "official-internship"
-        },
-        {
           "label": "Internship page",
           "href": "/internship/"
         }
@@ -91,9 +88,6 @@
       "body": "Partnerships align organizations, research groups, funders, and collaborators around concrete shared work. Partner organizations may co-host events, co-author publications, share resources, provide infrastructure, or collaborate on research and education projects. Partnership is a practical exchange of time, attention, expertise, funding, and institutional support.",
       "links": [
         {
-          "sourceId": "official-partnership"
-        },
-        {
           "label": "Partnership page",
           "href": "/partnership/"
         }
@@ -135,11 +129,7 @@
     {
       "title": "Internship",
       "text": "Structured contribution pathway with learning, documentation, and project practice.",
-      "links": [
-        {
-          "sourceId": "official-internship"
-        }
-      ]
+      "links": []
     },
     {
       "title": "Mentorship",
@@ -171,11 +161,7 @@
     {
       "title": "Partnership",
       "text": "Align organizations and collaborators around concrete shared research or education work.",
-      "links": [
-        {
-          "sourceId": "official-partnership"
-        }
-      ]
+      "links": []
     },
     {
       "title": "Philanthropy",
@@ -211,8 +197,6 @@
     "shortlink-fellows",
     "shortlink-mentorship",
     "official-volunteer",
-    "official-internship",
-    "official-partnership",
     "shortlink-prepare",
     "shortlink-strategy"
   ]

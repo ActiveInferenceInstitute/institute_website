@@ -6,8 +6,8 @@
   "lede": "Active Inference for Social Sciences develops courses, curricula, research, and writing connecting Active Inference to the social sciences. The project produced a 2023 course and continues to build educational and research resources for social scientists engaging with the Active Inference framework.",
   "primaryActions": [
     {
-      "label": "Courses",
-      "sourceId": "official-courses"
+      "label": "Course repository",
+      "sourceId": "repo-courses"
     },
     {
       "label": "EduActive Unit",
@@ -18,19 +18,12 @@
     {
       "heading": "Overview",
       "body": "This project adapts Active Inference for social science audiences — developing conceptual translations, course materials, and research directions. It recognizes that Active Inference's account of agency, communication, and social interaction has deep implications for sociology, political science, economics, anthropology, and related fields.",
-      "links": [
-        {
-          "sourceId": "official-courses"
-        }
-      ]
+      "links": []
     },
     {
       "heading": "Past Work",
       "body": "A 2023 course — 'Active Inference for the Social Sciences' — was produced and is accessible through the Institute's course infrastructure. The project continues to generate writing, research, and curriculum.",
       "links": [
-        {
-          "sourceId": "official-courses"
-        },
         {
           "sourceId": "repo-courses"
         }
@@ -58,7 +51,6 @@
     "active-inference"
   ],
   "externalSourceIds": [
-    "official-courses",
     "repo-courses",
     "discord"
   ],

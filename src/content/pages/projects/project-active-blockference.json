@@ -21,9 +21,6 @@
       "links": [
         {
           "sourceId": "repo-activeblockference"
-        },
-        {
-          "sourceId": "official-active-blockference"
         }
       ]
     },
@@ -62,7 +59,6 @@
   ],
   "externalSourceIds": [
     "repo-activeblockference",
-    "official-active-blockference",
     "active-inferants",
     "discord"
   ],

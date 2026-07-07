@@ -6,10 +6,6 @@
   "lede": "The Theoretical Neurobiology (TNB) Group has fostered interdisciplinary research and collaboration for decades. Its mission is to advance the understanding and application of active inference — the theoretical framework developed by Prof. Karl Friston — through regular online meetings featuring presentations and discussions that may include empirical data and analysis, simulations, and mathematical development. The group welcomes contributions from neuroscience, mathematics, machine learning, psychology, philosophy, medicine, and biology.",
   "primaryActions": [
     {
-      "label": "TNB page",
-      "sourceId": "official-tnb"
-    },
-    {
       "label": "TNB recordings",
       "sourceId": "tnb-youtube"
     },
@@ -22,11 +18,7 @@
     {
       "heading": "Objective",
       "body": "The TNB Group has been fostering interdisciplinary research and collaboration for decades. Its mission is to advance the understanding and application of active inference, the theoretical framework developed by Prof. Karl Friston. This is achieved through regular online meetings featuring presentations and discussions, which may include empirical data and its analysis, simulations, and mathematical development. The group welcomes contributions and perspectives from diverse fields, including neuroscience, mathematics, machine learning, psychology, philosophy, medicine, and biology.",
-      "links": [
-        {
-          "sourceId": "official-tnb"
-        }
-      ]
+      "links": []
     },
     {
       "heading": "Recordings",
@@ -126,11 +118,7 @@
     {
       "heading": "Work in Progress",
       "body": "The group is compiling a comprehensive Repository of Active Inference Resources — introductory materials, research papers, and tutorials, all categorised for easy navigation. It is also planning Joint Research Symposia with other research communities to strengthen cross-community interaction and collaboration.",
-      "links": [
-        {
-          "sourceId": "official-tnb"
-        }
-      ]
+      "links": []
     }
   ],
   "cards": [
@@ -156,11 +144,7 @@
     {
       "title": "Present your work",
       "text": "Open to researchers, students, and professionals worldwide. Presentation slots book two to three months ahead.",
-      "links": [
-        {
-          "sourceId": "official-tnb"
-        }
-      ]
+      "links": []
     }
   ],
   "order": 31,
@@ -170,7 +154,6 @@
     "active-inference"
   ],
   "externalSourceIds": [
-    "official-tnb",
     "tnb-youtube",
     "youtube",
     "discord"

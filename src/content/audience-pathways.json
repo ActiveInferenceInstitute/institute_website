@@ -112,10 +112,6 @@
           "sourceId": "donate"
         },
         {
-          "label": "Partnership",
-          "sourceId": "official-partnership"
-        },
-        {
           "label": "Fellows pathway",
           "sourceId": "shortlink-fellows"
         }

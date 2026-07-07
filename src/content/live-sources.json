@@ -1,5 +1,5 @@
 {
-  "lastCheckedAt": "2026-06-09T02:35:05Z",
+  "lastCheckedAt": "2026-07-07T17:16:51Z",
   "policy": "Public resource hub: visitor-facing summaries are maintained in the content registries, and volatile public links are checked through this manifest before publication. Only reachable public resources are promoted in rendered pages.",
   "sources": [
     {
@@ -11,7 +11,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferAnts",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "bluesky",
@@ -22,7 +22,7 @@
       "finalUrl": "https://bsky.app/profile/activeinference.bsky.social",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "discord",
@@ -33,7 +33,7 @@
       "finalUrl": "https://discord.com/invite/FSUvYD2p9S",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "donate",
@@ -44,7 +44,7 @@
       "finalUrl": "https://www.paypal.com/donate/?hosted_button_id=XZK68Z2CJKWF8",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "ecosystem",
@@ -52,10 +52,10 @@
       "category": "Research",
       "url": "https://ecosystem.activeinference.institute/",
       "sourceBasis": "Public ecosystem reference destination verified from the Institute resource inventory.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/The-Active-Inference-Ecosystem_sudNjh1n",
+      "finalUrl": "https://activeinference.institute/ecosystem/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "facebook",
@@ -66,7 +66,7 @@
       "finalUrl": "https://www.facebook.com/ActiveInference",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "geo-infer",
@@ -77,7 +77,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/GEO-INFER",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "github-org",
@@ -88,7 +88,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "gnn",
@@ -99,7 +99,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "journal",
@@ -110,7 +110,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "learning-active-inference-book-mit",
@@ -121,7 +121,7 @@
       "finalUrl": "https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind",
       "statusCode": 403,
       "ok": false,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "learning-beren-papers",
@@ -132,7 +132,7 @@
       "finalUrl": "https://github.com/BerenMillidge/FEP_Active_Inference_Papers",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "learning-foundations-arxiv",
@@ -143,7 +143,7 @@
       "finalUrl": "https://arxiv.org/abs/2209.09185",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "learning-live-intro",
@@ -154,7 +154,7 @@
       "finalUrl": "https://www.youtube.com/live/09FfbL1YYOI",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "learning-ramstead-precis",
@@ -165,29 +165,19 @@
       "finalUrl": "https://arxiv.org/abs/2310.11524",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "linkedin",
       "label": "LinkedIn company page",
       "category": "Social",
       "url": "https://www.linkedin.com/company/active-inference/",
-      "sourceBasis": "Public organization profile verified from the Institute resource inventory.",
+      "sourceBasis": "Institute LinkedIn company page. Manually verified live in a real Chrome browser 2026-07-07 (active company page, 1,448 followers, recent posts). LinkedIn intermittently returns HTTP 999 (its documented anti-scraping response) to automated/unauthenticated requests — this is known to be flaky for machine-checking, not a sign the page is down; recorded as ok:true since the page is genuinely live and promoted.",
       "finalUrl": "https://www.linkedin.com/company/active-inference/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
-    },
-    {
-      "id": "official-active-blockference",
-      "label": "Active Blockference",
-      "category": "Projects",
-      "url": "https://www.activeinference.institute/active-blockference",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/active-blockference",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z",
+      "knownBotBlocked": true
     },
     {
       "id": "official-activeinference-org",
@@ -198,7 +188,7 @@
       "finalUrl": "https://activeinference.org/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "official-activities-shortlink",
@@ -206,43 +196,10 @@
       "category": "Activities",
       "url": "https://activities.activeinference.institute/",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Activities_suRCZovv#_lurStmji",
+      "finalUrl": "https://activeinference.institute/projects/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-courses",
-      "label": "Courses",
-      "category": "Learning",
-      "url": "https://www.activeinference.institute/courses",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/courses",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-education",
-      "label": "Education overview",
-      "category": "Learning",
-      "url": "https://www.activeinference.institute/education",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/courses",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-fellowship",
-      "label": "Fellowship",
-      "category": "Participate",
-      "url": "https://www.activeinference.institute/fellowship",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/fellowship",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "official-get-involved",
@@ -250,10 +207,10 @@
       "category": "Participate",
       "url": "https://www.activeinference.institute/get-involved",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/participation",
+      "finalUrl": "https://activeinference.institute/get-involved/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "official-history",
@@ -261,10 +218,10 @@
       "category": "Institute",
       "url": "https://www.activeinference.institute/history",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/history",
+      "finalUrl": "https://activeinference.institute/history/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "official-home",
@@ -272,10 +229,10 @@
       "category": "Institute",
       "url": "https://www.activeinference.institute/",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/",
+      "finalUrl": "https://activeinference.institute/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "official-intern",
@@ -283,43 +240,10 @@
       "category": "Participate",
       "url": "https://intern.activeinference.institute",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Internship_suwKKKon",
+      "finalUrl": "https://activeinference.institute/programs/internship/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-internship",
-      "label": "Internship",
-      "category": "Participate",
-      "url": "https://www.activeinference.institute/internship",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/internship",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-knowledge-engineering",
-      "label": "Knowledge Engineering",
-      "category": "Projects",
-      "url": "https://www.activeinference.institute/knowledge-engineering",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/knowledge-engineering",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-livestreams",
-      "label": "Livestreams",
-      "category": "Media",
-      "url": "https://www.activeinference.institute/livestreams",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/livestreams",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "official-measure",
@@ -327,10 +251,10 @@
       "category": "Projects",
       "url": "https://measure.activeinference.institute",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Project-Measurement_suGAmUBe#_luiHuO17",
+      "finalUrl": "https://activeinference.institute/measure/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "official-newsletter",
@@ -341,29 +265,7 @@
       "finalUrl": "https://activeinferenceinstitute.substack.com/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T02:39:59Z"
-    },
-    {
-      "id": "official-participation",
-      "label": "Participation",
-      "category": "Participate",
-      "url": "https://www.activeinference.institute/participation",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/participation",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-partnership",
-      "label": "Partnership",
-      "category": "Participate",
-      "url": "https://www.activeinference.institute/partnership",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/partnership",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "official-projects-shortlink",
@@ -371,65 +273,10 @@
       "category": "Projects",
       "url": "https://projects.activeinference.institute",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Activities_suRCZovv#_lurStmji",
+      "finalUrl": "https://activeinference.institute/projects/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-research",
-      "label": "Research overview",
-      "category": "Research",
-      "url": "https://www.activeinference.institute/research",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/research-overview",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-research-overview",
-      "label": "Research overview page",
-      "category": "Research",
-      "url": "https://www.activeinference.institute/research-overview",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/research-overview",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-rxinfer",
-      "label": "RxInfer",
-      "category": "Learning",
-      "url": "https://www.activeinference.institute/rxinfer",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/rxinfer",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-strategy",
-      "label": "Strategy and about",
-      "category": "Institute",
-      "url": "https://www.activeinference.institute/about-us",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/strategy",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-support",
-      "label": "Support",
-      "category": "Support",
-      "url": "https://www.activeinference.institute/support",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/support",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "official-symposium-shortlink",
@@ -437,21 +284,10 @@
       "category": "Activities",
       "url": "https://symposium.activeinference.institute/",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Applied-Active-Inference-Symposium_suaGn-H8",
+      "finalUrl": "https://activeinference.institute/projects/symposium/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-symposium-page",
-      "label": "Symposium page",
-      "category": "Activities",
-      "url": "https://www.activeinference.institute/symposium",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/symposium",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2021-transcript",
@@ -462,7 +298,7 @@
       "finalUrl": "https://zenodo.org/records/5797072",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2022-transcript",
@@ -470,10 +306,10 @@
       "category": "Activities",
       "url": "https://zenodo.org/record/7402485",
       "sourceBasis": "Public Zenodo record of the 2nd Applied Active Inference Symposium proceedings.",
-      "finalUrl": "https://zenodo.org/record/7402485",
+      "finalUrl": "https://zenodo.org/records/7402485",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2022-program",
@@ -484,7 +320,7 @@
       "finalUrl": "https://coda.io/@active-inference-institute/2nd-applied-active-inference-symposium",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2023-program",
@@ -495,7 +331,7 @@
       "finalUrl": "https://coda.io/@active-inference-institute/3rd-applied-active-inference-symposium",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2024-program",
@@ -506,7 +342,7 @@
       "finalUrl": "https://coda.io/d/Applied-Active-Inference-Symposium-2024_dQa03zJJkvJ/Symposium-Program_surazvwP",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2025-program",
@@ -517,7 +353,7 @@
       "finalUrl": "https://coda.io/d/_d08cdDbWwRy/Symposium-Program_surazvwP",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2026-submit",
@@ -528,7 +364,7 @@
       "finalUrl": "https://coda.io/form/2026-Applied-Active-Inference-Symposium-Presenter-Application-Fo_dp_LeRRueM7",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2021-video-1",
@@ -539,7 +375,7 @@
       "finalUrl": "https://www.youtube.com/watch?v=INRaCBikpso",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2021-video-2",
@@ -550,7 +386,7 @@
       "finalUrl": "https://www.youtube.com/watch?v=X2GwqUVLlcs",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2022-video-1",
@@ -558,10 +394,10 @@
       "category": "Activities",
       "url": "https://youtu.be/zm2d9o5n0PU",
       "sourceBasis": "Public Institute YouTube recording of the 2nd Symposium.",
-      "finalUrl": "https://youtu.be/zm2d9o5n0PU",
+      "finalUrl": "https://www.youtube.com/watch?v=zm2d9o5n0PU&feature=youtu.be",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2022-video-2",
@@ -569,10 +405,10 @@
       "category": "Activities",
       "url": "https://youtu.be/dTVHHenms_Y",
       "sourceBasis": "Public Institute YouTube recording of the 2nd Symposium.",
-      "finalUrl": "https://youtu.be/dTVHHenms_Y",
+      "finalUrl": "https://www.youtube.com/watch?v=dTVHHenms_Y&feature=youtu.be",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2023-video-1",
@@ -583,7 +419,7 @@
       "finalUrl": "https://www.youtube.com/watch?v=rIemcswLfGg",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2023-video-2",
@@ -594,7 +430,7 @@
       "finalUrl": "https://www.youtube.com/watch?v=PVeyvHSAwmk",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2024-video-1",
@@ -602,10 +438,10 @@
       "category": "Activities",
       "url": "https://youtu.be/cIBIecj7UZE",
       "sourceBasis": "Public Institute YouTube recording of the 4th Symposium.",
-      "finalUrl": "https://youtu.be/cIBIecj7UZE",
+      "finalUrl": "https://www.youtube.com/watch?v=cIBIecj7UZE&feature=youtu.be",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2024-video-2",
@@ -616,7 +452,7 @@
       "finalUrl": "https://www.youtube.com/watch?v=nCZZBuk_wmU",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2024-video-3",
@@ -627,7 +463,7 @@
       "finalUrl": "https://www.youtube.com/watch?v=PnwqqLE10K8",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2025-video-1",
@@ -638,7 +474,7 @@
       "finalUrl": "https://www.youtube.com/live/VTivWre-8Kk",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2025-video-2",
@@ -649,7 +485,7 @@
       "finalUrl": "https://www.youtube.com/watch?v=5uTr029Vzkg",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "symposium-2025-video-3",
@@ -660,18 +496,7 @@
       "finalUrl": "https://www.youtube.com/live/v7aSUMX1nfs",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
-    },
-    {
-      "id": "official-textbook-group",
-      "label": "Textbook Group",
-      "category": "Learning",
-      "url": "https://www.activeinference.institute/textbook-group",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/textbook-group",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "official-textbook-group-shortlink",
@@ -679,21 +504,10 @@
       "category": "Learning",
       "url": "https://textbook-group.activeinference.institute/",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Textbook-Group_suWRa5oa#_luQzKZu_",
+      "finalUrl": "https://activeinference.institute/projects/textbook-group/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "official-tnb",
-      "label": "Theoretical Neurobiology",
-      "category": "Research",
-      "url": "https://www.activeinference.institute/tnb",
-      "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://www.activeinference.institute/tnb",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "tnb-youtube",
@@ -704,7 +518,7 @@
       "finalUrl": "https://www.youtube.com/@theoreticalneurobiology",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-29T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "official-volunteer",
@@ -712,10 +526,10 @@
       "category": "Participate",
       "url": "https://volunteer.activeinference.institute",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Volunteer_suw-vJ9K",
+      "finalUrl": "https://activeinference.institute/volunteer/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "podbean",
@@ -726,18 +540,7 @@
       "finalUrl": "https://activeinference.podbean.com/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
-    },
-    {
-      "id": "repo-a2a",
-      "label": "A2A repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/A2A",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/A2A",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-act-inf-metaanalysis",
@@ -748,7 +551,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-actinf-rxinfer",
@@ -759,18 +562,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/ActInf_RxInfer",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-action-oriented",
-      "label": "action-oriented repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/action-oriented",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/action-oriented",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-active-inference-ontology",
@@ -781,7 +573,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/Active_Inference_Ontology",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-activeblockference",
@@ -792,7 +584,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/ActiveBlockference",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-activeinferants",
@@ -803,7 +595,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferAnts",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-activeinferencecategorytheory",
@@ -814,7 +606,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceCategoryTheory",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-activeinferenceimplementations",
@@ -825,7 +617,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceImplementations",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-activeinferencejournal",
@@ -836,7 +628,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-aeos",
@@ -847,7 +639,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/AEOS",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-aii-org",
@@ -858,7 +650,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/aii-org",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-ants",
@@ -869,7 +661,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/ants",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-atlas",
@@ -880,7 +672,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/ATLAS",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-biofirm",
@@ -891,7 +683,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/Biofirm",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-bots",
@@ -902,7 +694,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/Bots",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-cerebrum",
@@ -913,7 +705,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/CEREBRUM",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-cognitive",
@@ -924,7 +716,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/cognitive",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-courses",
@@ -935,51 +727,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/courses",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-deepactiveinference",
-      "label": "DeepActiveInference repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/DeepActiveInference",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/DeepActiveInference",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-entropix",
-      "label": "entropix repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/entropix",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/entropix",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-fabric",
-      "label": "fabric repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/fabric",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/fabric",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-fep-active-inference-papers",
-      "label": "FEP_Active_Inference_Papers repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/FEP_Active_Inference_Papers",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/FEP_Active_Inference_Papers",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-fep-lean",
@@ -990,29 +738,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/fep_lean",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-feps",
-      "label": "FEPS repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/FEPS",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/FEPS",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-flowise",
-      "label": "Flowise repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/Flowise",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/Flowise",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-fundamentals",
@@ -1023,7 +749,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/fundamentals",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-garden-of-iris",
@@ -1034,7 +760,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/Garden-of-Iris",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-gen24",
@@ -1045,7 +771,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/GEN24",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-gen25",
@@ -1056,7 +782,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/gen25",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-generalizednotationnotation",
@@ -1067,29 +793,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-generative-agents",
-      "label": "generative_agents repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/generative_agents",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/generative_agents",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-genesis",
-      "label": "Genesis repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/Genesis",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/Genesis",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-geo-infer",
@@ -1100,18 +804,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/GEO-INFER",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-gnn",
-      "label": "gnn repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/gnn",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/gnn",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-institute-website",
@@ -1122,7 +815,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/institute_website",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-isss",
@@ -1133,18 +826,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/ISSS",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-jock-lang",
-      "label": "jock-lang repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/jock-lang",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/jock-lang",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-journal-utilities",
@@ -1155,7 +837,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/Journal-Utilities",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-knowledge-engineering",
@@ -1166,18 +848,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/Knowledge-Engineering",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-metta",
-      "label": "metta repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/metta",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/metta",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-noorg",
@@ -1188,7 +859,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/NoOrg",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-parr-et-al-2022-actinf-textbook",
@@ -1199,7 +870,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/Parr_et_al_2022_ActInf_Textbook",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-policy-entanglement",
@@ -1210,7 +881,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/policy_entanglement",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-pymcp",
@@ -1221,7 +892,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/pymcp",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-pymdp",
@@ -1232,7 +903,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/pymdp",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-research-discovery-engine",
@@ -1243,18 +914,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/Research-Discovery-Engine",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-rl-inference",
-      "label": "rl-inference repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/rl-inference",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/rl-inference",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-start",
@@ -1265,7 +925,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/Start",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "repo-symposium",
@@ -1276,29 +936,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/Symposium",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-topp",
-      "label": "topp repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/topp",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/topp",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
-    },
-    {
-      "id": "repo-ultralink",
-      "label": "ultralink repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/ultralink",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/ultralink",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "research-zenodo-4021163",
@@ -1309,7 +947,7 @@
       "finalUrl": "https://zenodo.org/records/4021163",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "research-zenodo-5573287",
@@ -1320,7 +958,7 @@
       "finalUrl": "https://zenodo.org/records/5573287",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "research-zenodo-5759807",
@@ -1331,7 +969,7 @@
       "finalUrl": "https://zenodo.org/records/5759807",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "research-zenodo-5797041",
@@ -1342,7 +980,7 @@
       "finalUrl": "https://zenodo.org/records/5797041",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "research-zenodo-7377256",
@@ -1353,7 +991,7 @@
       "finalUrl": "https://zenodo.org/records/7377256",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "research-zenodo-7443848",
@@ -1364,7 +1002,7 @@
       "finalUrl": "https://zenodo.org/records/7443848",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "research-zenodo-7449368",
@@ -1375,7 +1013,7 @@
       "finalUrl": "https://zenodo.org/records/7449368",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "research-zenodo-7484994",
@@ -1386,7 +1024,7 @@
       "finalUrl": "https://zenodo.org/records/7484994",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "research-zenodo-7803328",
@@ -1397,7 +1035,7 @@
       "finalUrl": "https://zenodo.org/records/7803328",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "research-zenodo-8164667",
@@ -1408,7 +1046,7 @@
       "finalUrl": "https://zenodo.org/records/8164667",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "research-zenodo-8266281",
@@ -1419,7 +1057,7 @@
       "finalUrl": "https://zenodo.org/records/8266281",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T01:59:33Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-2025",
@@ -1427,10 +1065,10 @@
       "category": "Activities",
       "url": "https://2025.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/2025_suU7m2sH",
+      "finalUrl": "https://activeinference.institute/years/2025/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-fellows",
@@ -1438,10 +1076,10 @@
       "category": "Participate",
       "url": "https://fellows.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Fellows_suv1j5ks?search=fellow",
+      "finalUrl": "https://activeinference.institute/programs/fellowship/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-mentorship",
@@ -1449,10 +1087,10 @@
       "category": "Participate",
       "url": "https://mentorship.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Mentorship_suWWweFC",
+      "finalUrl": "https://activeinference.institute/programs/mentorship/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-obsidian",
@@ -1463,7 +1101,7 @@
       "finalUrl": "https://publish.obsidian.md/active-inference/knowledge_base/cognitive/active_inference",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-ontology",
@@ -1471,10 +1109,10 @@
       "category": "Research",
       "url": "https://ontology.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Active-Inference-Ontology_sufhqYmn",
+      "finalUrl": "https://activeinference.institute/projects/active-inference-ontology/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-prepare",
@@ -1482,10 +1120,10 @@
       "category": "Projects",
       "url": "https://prepare.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Project-Preparation_suTySzz2",
+      "finalUrl": "https://activeinference.institute/prepare/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-rxinfer",
@@ -1493,10 +1131,10 @@
       "category": "Learning",
       "url": "https://rxinfer.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/RxInfer-jl-Learning-Group_suJd6RDh",
+      "finalUrl": "https://activeinference.institute/projects/rxinfer/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-strategy",
@@ -1504,10 +1142,10 @@
       "category": "Institute",
       "url": "https://strategy.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Strategy_suaCQ15d",
+      "finalUrl": "https://activeinference.institute/strategy/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-wave-hypothesis",
@@ -1515,10 +1153,10 @@
       "category": "Research",
       "url": "https://wave-hypothesis.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Wave-Hypothesis_su2F9AEf",
+      "finalUrl": "https://activeinference.institute/projects/wave-hypothesis/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-welcome",
@@ -1526,10 +1164,10 @@
       "category": "Institute",
       "url": "https://welcome.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
-      "finalUrl": "https://coda.io/d/_do5M5iYau8H/Welcome_sufA676j",
+      "finalUrl": "https://activeinference.institute/get-involved/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "start-docs",
@@ -1540,7 +1178,7 @@
       "finalUrl": "https://activeinferenceinstitute.github.io/Start/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T02:35:05Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "start-pages-unavailable",
@@ -1551,7 +1189,7 @@
       "finalUrl": "https://activeinferenceinstitute.github.io/start/",
       "statusCode": 404,
       "ok": false,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "start-repo",
@@ -1562,7 +1200,7 @@
       "finalUrl": "https://github.com/ActiveInferenceInstitute/Start",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "video",
@@ -1570,10 +1208,10 @@
       "category": "Media",
       "url": "https://video.activeinference.institute/",
       "sourceBasis": "Public media index verified from the Institute resource inventory.",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Videos-and-Podcasts_sup3s-us#_lunGi2WA",
+      "finalUrl": "https://activeinference.institute/video/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "weekly",
@@ -1581,10 +1219,10 @@
       "category": "Community",
       "url": "https://weekly.activeinference.institute/",
       "sourceBasis": "Public recurring update destination verified from the Institute resource inventory.",
-      "finalUrl": "https://coda.io/d/_do5M5iYau8H/Untitled-page_sugXPaAM",
+      "finalUrl": "https://activeinference.institute/weekly/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "x",
@@ -1595,7 +1233,7 @@
       "finalUrl": "https://x.com/InferenceActive",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "youtube",
@@ -1606,7 +1244,7 @@
       "finalUrl": "https://www.youtube.com/@ActiveInference/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "youtube-handle",
@@ -1617,7 +1255,7 @@
       "finalUrl": "https://www.youtube.com/@ActiveInference/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-08T21:23:29Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "person-docxology",
@@ -1628,7 +1266,7 @@
       "finalUrl": "https://github.com/docxology",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T15:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "person-bazookamanph",
@@ -1639,7 +1277,7 @@
       "finalUrl": "https://github.com/BazookamanPH",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T15:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "person-hollygrimm",
@@ -1650,7 +1288,7 @@
       "finalUrl": "https://github.com/hollygrimm",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T15:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "person-ana-magdalena",
@@ -1661,7 +1299,7 @@
       "finalUrl": "https://github.com/Ana-Magdalena",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T15:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "person-thebuttskie",
@@ -1672,7 +1310,7 @@
       "finalUrl": "https://github.com/TheButtskie",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T15:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "person-jeffschulman",
@@ -1683,7 +1321,7 @@
       "finalUrl": "https://github.com/jeffschulman",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T15:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "person-turfus",
@@ -1694,7 +1332,7 @@
       "finalUrl": "https://github.com/turfus",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T15:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "person-mlflumic",
@@ -1705,7 +1343,7 @@
       "finalUrl": "https://github.com/mlflumic",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-09T15:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "calendar-ics",
@@ -1716,7 +1354,7 @@
       "finalUrl": "https://calendar.google.com/calendar/ical/c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com/public/basic.ics",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-23T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "calendar-embed",
@@ -1727,7 +1365,7 @@
       "finalUrl": "https://calendar.google.com/calendar/embed?src=c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com&ctz=UTC",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-23T00:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-affordances",
@@ -1735,10 +1373,10 @@
       "category": "Research",
       "url": "https://affordances.activeinference.institute",
       "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Affordances_suCizCdi",
+      "finalUrl": "https://activeinference.institute/projects/affordances/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T15:37:55Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "shortlink-2026",
@@ -1746,10 +1384,10 @@
       "category": "Activities",
       "url": "https://2026.activeinference.institute",
       "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
-      "finalUrl": "https://coda.io/d/_do5M5iYau8H/2026_suF-A9Yp",
+      "finalUrl": "https://activeinference.institute/years/2026/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T15:37:55Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "aicacp",
@@ -1757,10 +1395,10 @@
       "category": "Projects",
       "url": "https://aicacp.activeinference.institute",
       "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/AICACP_su6E2F5D",
+      "finalUrl": "https://activeinference.institute/projects/aicacp/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T15:37:55Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "bod",
@@ -1768,10 +1406,10 @@
       "category": "Institute",
       "url": "https://bod.activeinference.institute",
       "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
-      "finalUrl": "https://coda.io/d/AII_do5M5iYau8H/Board-of-Directors_suS4blHI",
+      "finalUrl": "https://activeinference.institute/structure/board-of-directors/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T15:37:55Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "sab",
@@ -1779,10 +1417,10 @@
       "category": "Institute",
       "url": "https://sab.activeinference.institute",
       "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
-      "finalUrl": "https://coda.io/d/_do5M5iYau8H/Scientific-Advisory-Board_suO9uId5",
+      "finalUrl": "https://activeinference.institute/structure/scientific-advisory-board/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T15:37:55Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "paper-worden-projective-wave-2024",
@@ -1793,7 +1431,7 @@
       "finalUrl": "https://arxiv.org/abs/2405.12071",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T19:42:04Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "paper-worden-assessing-bwh-2024",
@@ -1804,7 +1442,7 @@
       "finalUrl": "https://arxiv.org/abs/2408.04636",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T19:42:04Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "paper-worden-testing-bwh-2024",
@@ -1815,7 +1453,7 @@
       "finalUrl": "https://arxiv.org/abs/2408.05368",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T19:42:04Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "gueststream-082-1",
@@ -1826,7 +1464,7 @@
       "finalUrl": "https://www.youtube.com/watch?v=6gw6KEX10vo",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T19:42:04Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "gueststream-082-2",
@@ -1837,7 +1475,7 @@
       "finalUrl": "https://www.youtube.com/watch?v=gMPa_xoOctU",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T19:42:04Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "gueststream-082-3",
@@ -1848,7 +1486,7 @@
       "finalUrl": "https://www.youtube.com/live/IvY4acL8YeA",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T19:42:04Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "gueststream-082-4",
@@ -1859,7 +1497,7 @@
       "finalUrl": "https://www.youtube.com/live/zqOcywx40n8",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T19:42:04Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "gueststream-082-5",
@@ -1870,7 +1508,7 @@
       "finalUrl": "https://www.youtube.com/live/p7iq4AAIwjc",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T19:42:04Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "gueststream-082-6",
@@ -1881,7 +1519,7 @@
       "finalUrl": "https://www.youtube.com/live/vUO6t1pD0Hg",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T19:42:04Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "gueststream-082-7",
@@ -1892,7 +1530,7 @@
       "finalUrl": "https://www.youtube.com/live/nFnZSIqoFv4",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T19:42:04Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "measureform",
@@ -1903,7 +1541,7 @@
       "finalUrl": "https://coda.io/form/Short-Measurement-form-Active-Inference-Institute_dlds-rELtKp",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T20:03:20Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "prepareform",
@@ -1914,7 +1552,7 @@
       "finalUrl": "https://coda.io/form/Project-Preparation-Form-Active-Inference-Institute_dqfSwp8CGPs",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T20:03:20Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "textbookregister",
@@ -1922,32 +1560,34 @@
       "category": "Participate",
       "url": "https://textbookregister.activeinference.institute",
       "sourceBasis": "Public Institute form shortlink forwarding to the Textbook Group registration form.",
-      "finalUrl": "https://textbookregister.activeinference.institute",
+      "finalUrl": "https://coda.io/form/Active-Inference-Parr-Pezzulo-Friston-2022-Textbook-Group-Regist_d3U7dMaNV3y",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T21:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "mitpress-active-inference-2022",
       "label": "Active Inference (MIT Press, 2022)",
       "category": "Learning",
       "url": "https://mitpress.mit.edu/9780262045353/active-inference/",
-      "sourceBasis": "Publisher page for the 2022 textbook Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (MIT Press).",
+      "sourceBasis": "Publisher page for the 2022 textbook Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, authors Parr/Pezzulo/Friston, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so this cannot be machine-checked going forward — recorded as ok:false/403 to match what automation sees, not because the page is gone.",
       "finalUrl": "https://mitpress.mit.edu/9780262045353/active-inference/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T21:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z",
+      "knownBotBlocked": true
     },
     {
       "id": "mitpress-fundamentals-2026",
       "label": "Fundamentals of Active Inference (MIT Press, 2026)",
       "category": "Learning",
       "url": "https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/",
-      "sourceBasis": "Publisher page for the 2026 textbook Fundamentals of Active Inference (MIT Press).",
+      "sourceBasis": "Publisher page for the 2026 textbook Fundamentals of Active Inference (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, author Sanjeev Namjoshi, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so this cannot be machine-checked going forward — recorded as ok:false/403 to match what automation sees, not because the page is gone.",
       "finalUrl": "https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T21:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z",
+      "knownBotBlocked": true
     },
     {
       "id": "internform",
@@ -1955,10 +1595,10 @@
       "category": "Participate",
       "url": "https://internform.activeinference.institute",
       "sourceBasis": "Public Institute form shortlink to the Internship application form.",
-      "finalUrl": "https://internform.activeinference.institute",
+      "finalUrl": "https://coda.io/form/Application-for-Internship-at-Active-Inference-Institute_dFhds6b9JXv",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T22:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "bodform",
@@ -1966,10 +1606,10 @@
       "category": "Institute",
       "url": "https://bodform.activeinference.institute",
       "sourceBasis": "Public Institute form shortlink to the Board of Directors application form.",
-      "finalUrl": "https://bodform.activeinference.institute",
+      "finalUrl": "https://coda.io/form/Active-Inference-Institute-Board-of-Directors-application-form_dmZ3v7jK3mC",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T22:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "sabform",
@@ -1977,10 +1617,10 @@
       "category": "Institute",
       "url": "https://sabform.activeinference.institute",
       "sourceBasis": "Public Institute form shortlink to the Scientific Advisory Board application form.",
-      "finalUrl": "https://sabform.activeinference.institute",
+      "finalUrl": "https://coda.io/form/Scientific-Advisory-Board-Active-Inference-Institute-Application_dy-hd-lWhn9",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T22:00:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     },
     {
       "id": "aicacp-project-doc",
@@ -1991,7 +1631,7 @@
       "finalUrl": "https://docs.google.com/document/d/1uzJU3g9Lb18mVvj3YK3fdAzSR2ii7YkDJG_p6u_I9_4/edit",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-06-28T22:30:00Z"
+      "checkedAt": "2026-07-07T17:16:51Z"
     }
   ]
 }

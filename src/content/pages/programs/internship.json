@@ -10,10 +10,6 @@
       "sourceId": "internform"
     },
     {
-      "label": "Internship pathway",
-      "sourceId": "official-internship"
-    },
-    {
       "label": "Intern details",
       "sourceId": "official-intern"
     }
@@ -22,11 +18,7 @@
     {
       "heading": "What Interns Do",
       "body": "Interns work on defined deliverables within Institute projects — documentation, analysis, code, educational materials, research summaries, operational support, or media production. The scope of each internship depends on the project and the intern's background, but every internship includes a concrete contribution that results in something publicly useful. Interns participate in project meetings, receive guidance from project leads and mentors, and share progress with the broader community.",
-      "links": [
-        {
-          "sourceId": "official-internship"
-        }
-      ]
+      "links": []
     },
     {
       "heading": "No Expertise Required",
@@ -42,9 +34,6 @@
       "heading": "How to Apply",
       "body": "The Internship pathway page lists current open positions and describes how to express interest. Most internship engagement begins through community participation — attending activities, volunteering on a project, and then formalizing a contribution scope. If you are new to the Institute, starting as a volunteer and moving toward an internship is the most natural path.",
       "links": [
-        {
-          "sourceId": "official-internship"
-        },
         {
           "sourceId": "official-intern"
         },
@@ -119,7 +108,6 @@
   ],
   "externalSourceIds": [
     "internform",
-    "official-internship",
     "official-intern",
     "discord",
     "weekly"

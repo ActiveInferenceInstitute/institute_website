@@ -8,10 +8,6 @@
     {
       "label": "Fellows pathway",
       "sourceId": "shortlink-fellows"
-    },
-    {
-      "label": "Official fellowship",
-      "sourceId": "official-fellowship"
     }
   ],
   "sections": [
@@ -60,9 +56,6 @@
       "links": [
         {
           "sourceId": "shortlink-fellows"
-        },
-        {
-          "sourceId": "official-fellowship"
         }
       ]
     }
@@ -116,7 +109,6 @@
   ],
   "externalSourceIds": [
     "shortlink-fellows",
-    "official-fellowship",
     "weekly",
     "github-org",
     "discord"

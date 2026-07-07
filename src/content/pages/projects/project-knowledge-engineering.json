@@ -6,10 +6,6 @@
   "lede": "Knowledge Engineering develops and maintains the public knowledge infrastructure for the Active Inference Institute, including the public frontend, literature meta-analysis, and organizational knowledge systems. The project connects Institute outputs to the broader literature and makes them machine-readable and navigable.",
   "primaryActions": [
     {
-      "label": "Official page",
-      "sourceId": "official-knowledge-engineering"
-    },
-    {
       "label": "Repository",
       "sourceId": "repo-knowledge-engineering"
     }
@@ -19,9 +15,6 @@
       "heading": "Overview",
       "body": "Knowledge Engineering builds and maintains the structured knowledge layer of the Institute. This includes the public-facing knowledge frontend, systematic literature meta-analysis for Active Inference research, organizational knowledge graphs, and tools for navigating the growing body of Active Inference work.",
       "links": [
-        {
-          "sourceId": "official-knowledge-engineering"
-        },
         {
           "sourceId": "repo-knowledge-engineering"
         }
@@ -61,7 +54,6 @@
     "project-gnn"
   ],
   "externalSourceIds": [
-    "official-knowledge-engineering",
     "repo-knowledge-engineering",
     "github-org",
     "discord"
