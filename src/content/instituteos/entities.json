@@ -404,7 +404,7 @@
       "title": "Board Member"
     },
     {
-      "active": true,
+      "active": false,
       "id": "alexander-vyatkin",
       "name": "Alexander Vyatkin",
       "orgId": "active-inference-institute",
@@ -414,7 +414,7 @@
         "Officer"
       ],
       "tags": [],
-      "title": "Vice President"
+      "title": "Vice President (2022-2024)"
     },
     {
       "active": null,

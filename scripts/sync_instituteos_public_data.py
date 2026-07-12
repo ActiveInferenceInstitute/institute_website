@@ -79,6 +79,7 @@ PRIVATE_KEYS = {
 # public sync gate matches the unified PublicGate's substring set.
 FORBIDDEN_SUBSTRINGS = (
     "coda.io",
+    "docs.superhuman.com",
     "/users/",
     "workspace",
     "source atlas",
