@@ -1,0 +1,67 @@
+{
+  "slug": "project-start",
+  "title": "START",
+  "subtitle": "A modular pipeline that generates professional-domain educational materials on Active Inference and the Free Energy Principle.",
+  "audience": "Educators, domain professionals, and learners looking for tailored, evidence-based Active Inference learning materials.",
+  "lede": "START is a modular content-generation pipeline that produces high-quality educational materials on Active Inference and the Free Energy Principle, tailored to professional domains and individual learners. It integrates live web research via Perplexity and large language models via OpenRouter to produce evidence-based, professionally-contextualized learning content.",
+  "primaryActions": [
+    {
+      "label": "GitHub repository",
+      "sourceId": "start-github"
+    },
+    {
+      "label": "Documentation",
+      "sourceId": "start-docs-site"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "START combines live web research and large language models to generate learning materials that connect Active Inference and the Free Energy Principle to a learner's own professional domain, rather than relying on a single generic curriculum. The pipeline is open source and multilingual, aimed at making Active Inference concepts accessible across fields and languages.",
+      "links": [
+        {
+          "sourceId": "start-github"
+        }
+      ]
+    },
+    {
+      "heading": "Walkthroughs",
+      "body": "The pipeline has been demonstrated in two Institute ModelStream livestream sessions, covering the system's design and generated output.",
+      "links": [
+        {
+          "sourceId": "start-youtube-008"
+        },
+        {
+          "sourceId": "start-youtube-015"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Developers, educators, and domain professionals interested in contributing prompts, evaluations, or professional-domain expertise are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 88,
+  "relatedSlugs": [
+    "reinference",
+    "learning",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "start-github",
+    "start-docs-site",
+    "start-youtube-008",
+    "start-youtube-015",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "learning"
+  ]
+}

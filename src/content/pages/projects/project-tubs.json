@@ -1,0 +1,46 @@
+{
+  "slug": "project-tubs",
+  "title": "The Unordinary Bible Study (TUBS)",
+  "subtitle": "Monthly sessions cross-referencing biblical verses with active inference and process theology.",
+  "audience": "Community members interested in inter-faith dialogue and the intersection of Active Inference with theology and contemplative traditions.",
+  "lede": "The Unordinary Bible Study (TUBS) is a monthly Ecosystem session cross-referencing biblical verses with contemporary and inter-faith perspectives, connecting Active Inference to process theology.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Sessions read biblical passages alongside contemporary and inter-faith commentary, using Active Inference and process theology as a shared lens for discussion.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Open to anyone interested in inter-faith dialogue, process theology, or reading scripture through an Active Inference lens.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 90,
+  "relatedSlugs": [
+    "eduactive",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects"
+  ]
+}

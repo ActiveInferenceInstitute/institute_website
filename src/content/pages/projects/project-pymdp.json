@@ -1,0 +1,47 @@
+{
+  "slug": "project-pymdp",
+  "title": "pymdp",
+  "subtitle": "A Python implementation of Active Inference for partially observable Markov Decision Processes.",
+  "audience": "Researchers and developers building or simulating discrete-state Active Inference generative models in Python.",
+  "lede": "pymdp is an open-source Python package for discrete-state (POMDP) Active Inference, widely used across the research community for building and simulating generative models. It is an external ecosystem implementation, distinct from the Institute's own projects, that the Institute references and builds learning materials around.",
+  "primaryActions": [
+    {
+      "label": "GitHub repository",
+      "sourceId": "repo-pymdp-upstream"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "pymdp implements discrete-state Active Inference for partially observable Markov Decision Processes, and has been introduced to the community via a PubMed-indexed step-by-step tutorial. It is maintained by the infer-actively organization, led by Conor Heins, and is a foundational tool referenced across the Institute's Computational domain page and learning materials.",
+      "links": [
+        {
+          "sourceId": "repo-pymdp-upstream"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Contributions, issues, and discussion happen directly on the upstream GitHub repository; the Institute's Discord is a good place to find collaborators building on top of it.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 89,
+  "relatedSlugs": [
+    "active-inference-and-computational",
+    "reinference",
+    "projects"
+  ],
+  "externalSourceIds": [
+    "repo-pymdp-upstream",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ]
+}

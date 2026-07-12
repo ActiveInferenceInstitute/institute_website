@@ -1,0 +1,36 @@
+{
+  "slug": "project-built-environments",
+  "title": "Active Inference for Built Environments & CooperActive Systems",
+  "subtitle": "Applying Active Inference to designing, managing, and evolving built environments.",
+  "audience": "Architects, urban systems designers, and researchers interested in distributed intelligence and digital twins for the built environment.",
+  "lede": "This Ecosystem project applied Active Inference to designing, managing, and evolving built environments that prioritize the flourishing of all life, via distributed intelligence and digital twins.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project explored how distributed intelligence and digital-twin approaches, framed through Active Inference, could support built environments designed and managed for the flourishing of all life rather than for a single optimization target. The project is now archived.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    }
+  ],
+  "order": 92,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem"
+  ],
+  "resourceGroups": [
+    "projects"
+  ]
+}

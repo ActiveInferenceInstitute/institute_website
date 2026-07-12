@@ -229,6 +229,35 @@
           "sourceId": "repo-aeos"
         }
       ]
+    },
+    {
+      "title": "START",
+      "text": "A modular pipeline generating professional-domain educational materials on Active Inference and the Free Energy Principle.",
+      "links": [
+        {
+          "sourceId": "start-github"
+        }
+      ]
+    },
+    {
+      "title": "pymdp",
+      "text": "An open-source Python package for discrete-state Active Inference, widely used across the research community."
+    },
+    {
+      "title": "Ed4All",
+      "text": "An open, locally deployable framework for grounded educational agents operating within explicit knowledge boundaries."
+    },
+    {
+      "title": "The Unordinary Bible Study (TUBS)",
+      "text": "Monthly sessions cross-referencing biblical verses with Active Inference and process theology."
+    },
+    {
+      "title": "Digital Agents",
+      "text": "Weekly Discord sessions on digital agent design through an Active Inference lens."
+    },
+    {
+      "title": "Active Inference for Built Environments & CooperActive Systems",
+      "text": "Applying Active Inference, distributed intelligence, and digital twins to designing and managing built environments."
     }
   ],
   "order": 5,

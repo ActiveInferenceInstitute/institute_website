@@ -61,7 +61,7 @@
         "organizational-frameworks"
       ],
       "summary": "Framework bridging centralized and decentralized science approaches using Active Inference principles for scientific organization and governance.",
-      "website_slug": null,
+      "website_slug": "project-aeos",
       "links": {
         "publication": "https://zenodo.org/records/7484994",
         "github": "https://github.com/ActiveInferenceInstitute/AEOS"
@@ -300,7 +300,7 @@
         "open-science"
       ],
       "summary": "Multi-institution initiative building a research coalition, funding pipeline, and shared infrastructure for AI alignment, governance, and embodied experimentation.",
-      "website_slug": null,
+      "website_slug": "project-ai2c",
       "links": {
         "Active Inference Institute": "https://www.activeinference.institute/"
       },
@@ -1298,7 +1298,7 @@
         "model-selection"
       ],
       "summary": "Rigorous exploration of humanity's capacity for symbolic intelligence by modeling norms across social and identity scales to develop culturally-aligned artificial general intelligence.",
-      "website_slug": null,
+      "website_slug": "project-myth-of-objectivity",
       "links": {
         "youtube": "https://www.youtube.com/watch?v=vh8Q6Bc-TQA",
         "frontiers-in-sociology": "https://www.frontiersin.org/articles/10.3389/fsoc.2023.1269621/abstract",
@@ -1393,7 +1393,7 @@
         "social-attunement"
       ],
       "summary": "Formalize a minimal computational architecture that models internal coherence dynamics for AI alignment through latent generative perspective structures.",
-      "website_slug": null,
+      "website_slug": "project-perspective-architectures",
       "links": {
         "cear-lab": "https://hjpae.github.io/cear/",
         "arxiv-minimal-perspective": "https://arxiv.org/abs/2602.02902",
@@ -1600,7 +1600,7 @@
         "professional-development"
       ],
       "summary": "Scalable, Tailored Active Inference Research & Training — modular pipeline generating multilingual educational materials on Active Inference and the Free Energy Principle tailored to professional domains and individual learners.",
-      "website_slug": null,
+      "website_slug": "project-start",
       "links": {
         "github": "https://github.com/ActiveInferenceInstitute/Start",
         "docs": "https://activeinferenceinstitute.github.io/Start/",
@@ -1777,7 +1777,7 @@
         "polarization"
       ],
       "summary": "Computational-neuroscience (FEP/Active Inference) framework for how political ideologies form, persist, and evolve.",
-      "website_slug": null,
+      "website_slug": "project-foundations-of-ideology",
       "links": {
         "youtube": "https://www.youtube.com/live/aRT9n16N4J8?",
         "talk": "https://www.youtube.com/live/aRT9n16N4J8"
@@ -2013,7 +2013,7 @@
         "language-theory"
       ],
       "summary": "Series of livestreams and papers by Robert Worden on the brain wave hypothesis, projective wave theory of consciousness, and Bayesian model-based cognition.",
-      "website_slug": null,
+      "website_slug": "project-wave-hypothesis",
       "links": {
         "arxiv_projective_wave_theory": "https://arxiv.org/abs/2405.12071",
         "arxiv_brain_wave_assessment": "https://arxiv.org/abs/2408.04636",
@@ -2045,7 +2045,7 @@
         "ecosystem"
       ],
       "summary": "Community Python library implementing Active Inference for POMDPs.",
-      "website_slug": null,
+      "website_slug": "project-pymdp",
       "links": {
         "github": "https://github.com/infer-actively/pymdp"
       },
@@ -2068,7 +2068,7 @@
         "eduactive"
       ],
       "summary": "Monthly sessions cross-referencing biblical verses with a focus on inter-faith and contemporary perspective dialogue, connecting active inference to process theology.",
-      "website_slug": null,
+      "website_slug": "project-tubs",
       "links": {},
       "linked_policies": [],
       "linked_processes": [],
@@ -2089,7 +2089,7 @@
         "reinference"
       ],
       "summary": "Tuesday Discord sessions on digital agents and Active Inference.",
-      "website_slug": null,
+      "website_slug": "project-digital-agents",
       "links": {},
       "linked_policies": [],
       "linked_processes": [],
@@ -2110,7 +2110,7 @@
         "reinference"
       ],
       "summary": "Apply Active Inference to designing, managing, and evolving built environments that prioritize the flourishing of all life, via distributed intelligence and digital twins.",
-      "website_slug": null,
+      "website_slug": "project-built-environments",
       "links": {},
       "linked_policies": [],
       "linked_processes": [],
@@ -2131,7 +2131,7 @@
         "eduactive"
       ],
       "summary": "An open, locally deployable, empirically evaluated framework for grounded educational agents that operate within explicit knowledge and evidentiary boundaries.",
-      "website_slug": null,
+      "website_slug": "project-ed4all",
       "links": {},
       "linked_policies": [],
       "linked_processes": [],

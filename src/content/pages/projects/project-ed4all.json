@@ -1,0 +1,47 @@
+{
+  "slug": "project-ed4all",
+  "title": "Ed4All",
+  "subtitle": "Active Inference for Grounded Educational Knowledge Environments.",
+  "audience": "Educators, curriculum designers, and researchers building AI-assisted educational agents that stay within explicit knowledge boundaries.",
+  "lede": "Ed4All (Active Inference for Grounded Educational Knowledge Environments) is an open, locally deployable, empirically evaluated framework for grounded educational agents that operate within explicit knowledge and evidentiary boundaries.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Ed4All develops educational agents whose responses are grounded in an explicit, bounded body of knowledge and evidence, rather than an open-ended generative model — aimed at classroom and self-directed learning contexts where staying within a defined curriculum or evidence base matters. The framework is designed to run locally and be empirically evaluated rather than deployed as an opaque black box.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Educators, curriculum designers, and developers interested in grounded, evaluable educational AI agents are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 93,
+  "relatedSlugs": [
+    "eduactive",
+    "active-inference-and-education",
+    "projects"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "learning"
+  ]
+}

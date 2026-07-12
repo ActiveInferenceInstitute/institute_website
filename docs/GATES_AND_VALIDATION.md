@@ -23,8 +23,10 @@ npm run check:instituteos  # sync_instituteos_public_data.py --check
 npm run check:design-system  # check_design_system_export.mjs
 npm run check:site         # check_site_contract.py
 npm run check:security     # check_static_security.py
+npm run check:redirects    # check_redirects.py
+npm run check:projects     # check_project_discoverability.py
 
-# Network probe (NOT part of npm run check)
+# Network probe (part of npm run check)
 npm run check:sources      # check_live_sources.py
 ```
 
@@ -649,6 +651,24 @@ Google Calendar URLs and other resources with `@` characters are `%40`-encoded i
   "url": "https://calendar.google.com/calendar/...%40group.calendar.google.com"
 }
 ```
+
+---
+
+## Gate 6: Project Discoverability (`check:projects`)
+
+**File:** `scripts/check_project_discoverability.py`
+
+**What it enforces:**
+- Every backend project in `data/projects.json` (the InstituteOS export) with a `website_slug` set actually has a matching page under `src/content/pages/projects/` (matched by the page's own `slug` field, not its filename).
+- Every backend project *without* a `website_slug` is on the script's `NO_PAGE_EXPECTED` allowlist, with a one-line reason in the script's comment — otherwise the gate fails with a note (not a hard error for that project alone) pointing at it.
+- The allowlist itself doesn't reference a project id that no longer exists in `data/projects.json`.
+
+**Why it exists:** `website_slug` is the only link between the two independently-edited surfaces (backend registry export vs. hand-authored website pages), and `src/pages/projects.mjs`'s related-projects cross-linking filters strictly on a truthy `website_slug` — so a project can have a fully working, published page and still be invisible to that feature if `website_slug` was never set. This exact drift happened to 6 projects before this gate existed.
+
+**To fix a failure:**
+1. Missing/wrong `website_slug` on a real project: set `library/registries/projects.json`'s `website_slug` field for that project id to match the page's `slug` (convention: `project-<id>`, but not required — some pages use a shorter slug), then re-run `instituteos export-website --only projects` from the InstituteOS root to regenerate `data/projects.json`.
+2. New backend project that's legitimately data-only (no page needed): add its id to `NO_PAGE_EXPECTED` in `check_project_discoverability.py` with a reason.
+3. New backend project that *should* get a page: author `src/content/pages/projects/project-<slug>.json` (see `docs/CONTENT_AUTHORING.md`), then set `website_slug` per (1).
 
 ---
 

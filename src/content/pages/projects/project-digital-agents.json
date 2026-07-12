@@ -1,0 +1,36 @@
+{
+  "slug": "project-digital-agents",
+  "title": "Digital Agents",
+  "subtitle": "Weekly Discord sessions on digital agents and Active Inference.",
+  "audience": "Community members interested in digital agent design and Active Inference.",
+  "lede": "Digital Agents was a weekly Ecosystem Discord session exploring digital agent design through an Active Inference lens.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The sessions discussed digital agent architectures and design questions through an Active Inference lens on a regular weekly cadence. The project is now archived.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    }
+  ],
+  "order": 91,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem"
+  ],
+  "resourceGroups": [
+    "projects"
+  ]
+}
