@@ -21,6 +21,10 @@
       "links": [
         {
           "sourceId": "repo-activeblockference"
+        },
+        {
+          "sourceId": "youtube-activeblockference-playlist",
+          "label": "InferAnt Streams playlist"
         }
       ]
     },
@@ -60,7 +64,8 @@
   "externalSourceIds": [
     "repo-activeblockference",
     "active-inferants",
-    "discord"
+    "discord",
+    "youtube-activeblockference-playlist"
   ],
   "resourceGroups": [
     "projects",

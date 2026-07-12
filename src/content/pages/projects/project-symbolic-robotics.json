@@ -13,10 +13,14 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "The project explores how symbolic cognitive architectures and embodied Active Inference can be integrated in robotic systems. Implementation work uses rover-class robots and extends Active Inference with symbolic reasoning capabilities for exploration, planning, and learning.",
+      "body": "The project explores how symbolic cognitive architectures and embodied Active Inference can be integrated in robotic systems. Implementation work uses rover-class robots and extends Active Inference with symbolic reasoning capabilities for exploration, planning, and learning. The project is led by Jean-François Cloutier, whose karma_system project on GitHub documents the implementation.",
       "links": [
         {
           "sourceId": "ecosystem"
+        },
+        {
+          "sourceId": "repo-karma-system",
+          "label": "karma_system repository"
         }
       ]
     },
@@ -38,7 +42,8 @@
   ],
   "externalSourceIds": [
     "ecosystem",
-    "discord"
+    "discord",
+    "repo-karma-system"
   ],
   "resourceGroups": [
     "projects",

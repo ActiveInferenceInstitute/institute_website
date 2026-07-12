@@ -13,7 +13,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "Anima investigates the intersection of Active Inference and current LLM-based AI — examining how Active Inference models of perception, policy, and action relate to LLM behavior, and how the framework can guide AI design for coherent, aligned behavior.",
+      "body": "Anima investigates the intersection of Active Inference and current LLM-based AI — examining how Active Inference models of perception, policy, and action relate to LLM behavior, and how the framework can guide AI design for coherent, aligned behavior. It explores whether a full Active Inference pipeline — predictive processing, allostasis, a Markov blanket, and policy selection — can give an artificial agent genuine behavioral continuity and endogenous initiative between interactions.",
       "links": [
         {
           "sourceId": "ecosystem"

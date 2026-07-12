@@ -29,7 +29,7 @@
     },
     {
       "heading": "Past Work and Papers",
-      "body": "The project has a 2021 paper, a GitHub repository with multiple code realizations, and is developed in part through the Active Blockference project. The work spans individual agent models, collective foraging scenarios, and theoretical extensions.",
+      "body": "The project's foundational paper is Friedman, Tschantz, Ramstead, Friston, and Constant (2021), \"An Active Inference Framework for Ant Colony Behavior,\" published in Frontiers in Behavioral Neuroscience — among the first Active Inference papers to model stigmergic (pheromone-mediated) communication. The project also maintains a GitHub repository with multiple code realizations and is developed in part through the Active Blockference project. The work spans individual agent models, collective foraging scenarios, and theoretical extensions.",
       "links": [
         {
           "sourceId": "active-inferants"

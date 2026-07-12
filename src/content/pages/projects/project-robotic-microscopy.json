@@ -13,7 +13,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "The project develops Active Inference architectures for autonomous robotic microscopy — creating systems that observe, plan, and act in order to characterize biological samples with minimal human intervention. The application domain is soil biology, supporting FarmWorks-adjacent ecological research.",
+      "body": "The project develops Active Inference architectures for autonomous robotic microscopy — creating systems that observe, plan, and act in order to characterize biological samples with minimal human intervention. The application domain is soil biology, supporting FarmWorks-adjacent ecological research, with Swiss Soil signed on as a beta-testing partner.",
       "links": [
         {
           "sourceId": "ecosystem"

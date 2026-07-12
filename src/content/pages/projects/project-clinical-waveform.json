@@ -3,7 +3,7 @@
   "title": "Clinical Waveform Data Based Agent",
   "subtitle": "Developing Active Inference agents for bedside clinical waveform data analysis and real-time decision support.",
   "audience": "Clinical researchers, biomedical engineers, and healthcare AI practitioners.",
-  "lede": "Clinical Waveform Data Based Agent develops Active Inference systems for bedside clinical monitoring. It applies the free energy framework to real-time waveform data — EEG, ECG, and other physiological signals — to support clinical decision-making.",
+  "lede": "Clinical Waveform Data Based Agent develops Active Inference systems for bedside clinical monitoring. It applies the free energy framework to real-time waveform data — plethysmograph, arterial pressure line, and ventilator curves — to support clinical decision-making in a pediatric intensive care setting.",
   "primaryActions": [
     {
       "label": "Ecosystem",
@@ -13,7 +13,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "The project develops Active Inference agent architectures for processing and interpreting clinical waveform data in real time. The goal is to create principled, uncertainty-aware models that can assist clinicians at the bedside by continuously updating belief states from physiological sensor streams.",
+      "body": "The project develops Active Inference agent architectures for processing and interpreting clinical waveform data in real time. The goal is to create principled, uncertainty-aware models that can assist clinicians at the bedside by continuously updating belief states from physiological sensor streams. It is a pilot study in a pediatric intensive care setting, working toward a proof of concept before pursuing a clinical trial.",
       "links": [
         {
           "sourceId": "ecosystem"

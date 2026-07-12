@@ -17,7 +17,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "Using Active Inference as a modeling framework, the project models translation as an inference problem — where the translator minimizes prediction error about target language representations given source language inputs. Work includes theoretical development and agent implementations.",
+      "body": "Using Active Inference as a modeling framework, the project models translation as an inference problem — where the translator minimizes prediction error about target language representations given source language inputs. Work includes theoretical development and agent implementations, connecting to the Translation Process Research field.",
       "links": [
         {
           "sourceId": "ecosystem"

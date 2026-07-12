@@ -17,6 +17,10 @@
       "links": [
         {
           "sourceId": "ecosystem"
+        },
+        {
+          "sourceId": "artificial-sentience-blog",
+          "label": "Project blog"
         }
       ]
     },
@@ -38,7 +42,8 @@
   ],
   "externalSourceIds": [
     "ecosystem",
-    "discord"
+    "discord",
+    "artificial-sentience-blog"
   ],
   "resourceGroups": [
     "projects",

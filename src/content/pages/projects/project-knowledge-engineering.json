@@ -22,13 +22,16 @@
     },
     {
       "heading": "Past Work",
-      "body": "The project has produced a public frontend and literature meta-analysis accessible from the end of 2022. The work supports the Institute's mission of making Active Inference knowledge findable, reusable, and cumulative.",
+      "body": "The project has produced a public frontend and literature meta-analysis accessible from the end of 2022, published as \"The Free Energy Principle & Active Inference: a Systematic Literature Analysis\" — a citation analysis of the Free Energy Principle and Active Inference literature, with an emphasis on works by Karl Friston, combining automated citation-network analysis with manual annotation of a subset of full-text papers. The work supports the Institute's mission of making Active Inference knowledge findable, reusable, and cumulative.",
       "links": [
         {
           "sourceId": "repo-knowledge-engineering"
         },
         {
           "sourceId": "github-org"
+        },
+        {
+          "sourceId": "research-zenodo-7449368"
         }
       ]
     },
@@ -56,6 +59,7 @@
   "externalSourceIds": [
     "repo-knowledge-engineering",
     "github-org",
+    "research-zenodo-7449368",
     "discord"
   ],
   "resourceGroups": [

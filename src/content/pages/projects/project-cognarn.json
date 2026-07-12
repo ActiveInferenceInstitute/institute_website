@@ -13,12 +13,25 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "CogNarr develops infrastructure for collective sense-making — creating shared cognitive scaffolds that help groups coordinate attention, update beliefs, and maintain coherent action. The initial mission is a minimal viable incubation platform that can serve as a coordination layer for community cognition.",
+      "body": "CogNarr develops infrastructure for collective sense-making — creating shared cognitive scaffolds that help groups coordinate attention, update beliefs, and maintain coherent action. The initial mission is a minimal viable incubation platform that can serve as a coordination layer for community cognition. The project is led by John Boik, a Research Fellow at the Institute, and continues ideas from his earlier work on societal-scale cognitive architectures, including Economic Direct Democracy.",
       "links": [
         {
           "sourceId": "ecosystem"
+        },
+        {
+          "sourceId": "cognarr-arxiv",
+          "label": "Facilitating Group Cognition at Scale (arXiv)"
+        },
+        {
+          "sourceId": "cognarr-osf",
+          "label": "Story Graph Meaning Representation (OSF)"
         }
       ]
+    },
+    {
+      "heading": "Funding",
+      "body": "CogNarr is currently unfunded. Donations to the Active Inference Institute earmarked for the CogNarr project help support its development; the project is envisioned as open source, with room for development partners and social investors.",
+      "links": []
     },
     {
       "heading": "Meetings and Activity",
@@ -51,7 +64,9 @@
   "externalSourceIds": [
     "ecosystem",
     "official-activities-shortlink",
-    "discord"
+    "discord",
+    "cognarr-arxiv",
+    "cognarr-osf"
   ],
   "resourceGroups": [
     "projects",

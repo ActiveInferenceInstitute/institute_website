@@ -17,13 +17,16 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "The project supports educational engagement with the Fundamentals of Active Inference book — building learning pathways, study materials, exercises, and community resources for those learning from this text.",
+      "body": "The project supports educational engagement with \"Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers\" by Sanjeev V. Namjoshi (MIT Press, 2026) — building learning pathways, study materials, exercises, and community resources for those learning from this text.",
       "links": [
         {
           "sourceId": "repo-fundamentals"
         },
         {
           "sourceId": "official-textbook-group-shortlink"
+        },
+        {
+          "sourceId": "mitpress-fundamentals-2026"
         }
       ]
     },
@@ -50,6 +53,7 @@
   "externalSourceIds": [
     "repo-fundamentals",
     "official-textbook-group-shortlink",
+    "mitpress-fundamentals-2026",
     "discord"
   ],
   "resourceGroups": [

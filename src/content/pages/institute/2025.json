@@ -14,7 +14,8 @@
     "institute"
   ],
   "externalSourceIds": [
-    "shortlink-2025"
+    "shortlink-2025",
+    "official-newsletter"
   ],
   "sections": [
     {
@@ -139,6 +140,15 @@
         {
           "label": "Institute structure",
           "href": "/structure/"
+        }
+      ]
+    },
+    {
+      "title": "Newsletter",
+      "text": "Monthly newsletters covered Institute and Ecosystem activity throughout 2025.",
+      "links": [
+        {
+          "sourceId": "official-newsletter"
         }
       ]
     }
