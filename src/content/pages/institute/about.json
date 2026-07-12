@@ -51,8 +51,12 @@
     },
     {
       "heading": "History",
-      "body": "The Institute was founded in 2021 as a volunteer-led community dedicated to making Active Inference more accessible and applicable across science, engineering, and practical domains. The community understood from the outset that change is inevitable, that sustainability and growth depend on a willingness to take chances, and that building trust takes time. In 2022 the first Textbook Group cohort began, bringing together learners from diverse backgrounds to study Active Inference collaboratively — multiple cohorts have since completed the program. The Applied Active Inference Symposium launched in 2021 and has grown into an annual gathering, with five completed symposia through 2025 and a sixth planned for 2026. The Institute was incorporated as a 501(c)(3) nonprofit in Delaware, USA, formalizing governance with a Board of Directors, Officers, and Scientific Advisory Board. The Institute and Ecosystem living document — a community-authored survey of the Institute's state and directions — was first published as an academic paper in 2023 and updated annually through 2025, with contributions from over thirty authors worldwide.",
+      "body": "The Institute was founded in 2021 as a volunteer-led community dedicated to making Active Inference more accessible and applicable across science, engineering, and practical domains. The community understood from the outset that change is inevitable, that sustainability and growth depend on a willingness to take chances, and that building trust takes time. The Institute was incorporated as a 501(c)(3) nonprofit in Delaware, USA, formalizing governance with a Board of Directors, Officers, and Scientific Advisory Board. See the History page for the year-by-year record, including the Textbook Group, the Applied Active Inference Symposium series, and the Institute and Ecosystem living document.",
       "links": [
+        {
+          "label": "History",
+          "href": "/history/"
+        },
         {
           "sourceId": "official-history"
         },

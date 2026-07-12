@@ -1,0 +1,67 @@
+{
+  "slug": "active-inference-and-social",
+  "title": "Active Inference and Social",
+  "subtitle": "Group cognition recast as shared inference: how communities align belief models, narratives, and cognitive architectures at scale.",
+  "audience": "Social scientists, cognitive scientists, and Institute researchers assessing active inference as a framework for group cognition, shared narrative, and collective belief formation.",
+  "lede": "Active inference research in the social domain focuses on modeling communication and the sharing of belief models within groups — treated as normative processes of group cognition rather than only individual perception and action. A large and growing body of work, running to what one Institute report estimates as thousands of papers touching the social setting, extends the free energy principle from single agents to the dynamics of consensus building, shared narrative, and social coordination. The Institute's own CogNarr Ecosystem project is the clearest attempt to turn this theory into working infrastructure, though — like most of the domain — it remains early-stage relative to the conceptual literature.",
+  "primaryActions": [
+    {
+      "label": "Research resources",
+      "sourceId": "journal"
+    },
+    {
+      "label": "Active Inference overview",
+      "href": "/active-inference/"
+    }
+  ],
+  "resourceGroups": [
+    "research",
+    "projects"
+  ],
+  "sections": [
+    {
+      "heading": "Why the domain fits",
+      "body": "Group cognition rests on the communication of belief models — the internal generative models individuals use to predict and explain their world — and on consensus building around those beliefs. Albarracin and colleagues (2024) describe this in the normative setting: group members actively and implicitly align their beliefs and expectations through dialogue and interaction, enhancing their ability to predict each other's actions and intentions, and coming to perceive and act in the world in similar ways. Most humans do not experience their own beliefs in terms of formal models, however; they make sense of the world through narratives, both internal stories a person constructs and revises for themselves, and social narratives shared within a group. Albarracin and colleagues (2021) frame this in terms of social scripts — widely supported prescriptions about how to behave in a given social setting — while Bouizegarene and colleagues (2020) treat shared narratives more broadly. Both scripts and narratives help people generate more accurate predictions about the world and coordinate social behavior, which is what makes group-level active inference more than a metaphorical extension of the individual case."
+    },
+    {
+      "heading": "State of the literature",
+      "body": "A substantial literature at least mentions active inference in a social setting, and a smaller set of papers put the two terms directly in their titles. Gallagher and Allen (2018) connect active inference and enactivism to the hermeneutics of social cognition; Constant and colleagues (2019) build an active inference model of social conformity and human decision making under the banner of \"regimes of expectations\"; and further titled work spans social-organizational applications, social inference in depression, learning risk preferences through social interaction, and multimodal imitative interaction in social robotics. Some of this material was taught directly in the Institute's 2023 Social Science course. As with other emerging application domains, most of this work is theoretical or simulation-based rather than tested against large-scale empirical or field data on real groups."
+    },
+    {
+      "heading": "Key projects and tools",
+      "body": "The CogNarr Ecosystem is an Active Inference Institute project, facilitated by Research Fellow John Boik, with the stated goal of facilitating group cognition at scale through the sharing of belief models (Boik, 2024a; Boik, 2024b). It treats a group as an organism that uses a cognitive architecture — communication tools, rules, attention mechanisms — to sense, remember, predict, and adapt, and is designed to serve as a component of that architecture for large, largely online groups where face-to-face dialogue does not scale. CogNarr extends an earlier series by Boik that modeled core societal systems — economic, financial, and governance systems — as the cognitive architecture of a political body (Boik, 2020a; Boik, 2020b; Boik, 2021). As of this writing the project is open-source, unfunded, and in active early development, with a minimal viable incubation platform as its initial focus."
+    },
+    {
+      "heading": "Open problems",
+      "body": "The Institute's own framing of the domain expects research to extend from today's normative models of group cognition into pathological examples of group cognition, methods for assessing group cognition quality, ways to steer group cognition toward better outcomes, evaluation of the cognitive architectures used during group cognition (rules, policies, computational tools, communication tools, attention mechanisms), and evaluation of group cognition at the scale of a political body such as a city or nation. None of this is settled: most social active inference work remains conceptual or simulation-based, empirical tests against real group behavior are scarce, and CogNarr itself — the domain's most concrete infrastructure effort — is still unfunded and pre-release."
+    },
+    {
+      "heading": "Reference Backbone",
+      "body": "Karl J. Friston (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience. DOI: 10.1038/nrn2787. Thomas Parr, Giovanni Pezzulo, Karl J. Friston (2022). Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press. Shaun Gallagher, Micah Allen (2018). Active inference, enactivism and the hermeneutics of social cognition. Synthese. https://link.springer.com/article/10.1007/s11229-016-1269-8. Axel Constant, Karl J. Friston, and colleagues (2019). Regimes of Expectations: An Active Inference Model of Social Conformity and Human Decision Making. Frontiers in Psychology. https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.00679/full. John C. Boik (2024a). CogNarr Ecosystem: Facilitating Group Cognition at Scale. arXiv. https://arxiv.org/html/2407.18945v1. John C. Boik (2024b). CogNarr Ecosystem: Preliminary Thoughts on a Story Graph Meaning Representation. OSF Preprints. https://osf.io/preprints/osf/muc29. John C. Boik (2020a). Science-Driven Societal Transformation, Part I: Worldview. Sustainability, 12(17), 6881. DOI: 10.3390/su12176881. John C. Boik (2020b). Science-Driven Societal Transformation, Part II: Motivation and Strategy. Sustainability, 12(19), 8047. DOI: 10.3390/su12198047. John C. Boik (2021). Science-Driven Societal Transformation, Part III: Design. Sustainability, 13(2), 726. DOI: 10.3390/su13020726."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Belief Sharing as Group Cognition",
+      "text": "Group members are modeled as actively and implicitly aligning their beliefs and expectations through dialogue and interaction, enhancing their ability to predict each other's actions and come to perceive and act in the world in similar ways."
+    },
+    {
+      "title": "CogNarr Ecosystem",
+      "text": "The Institute's project for facilitating group cognition at scale, facilitated by Research Fellow John Boik, extends his earlier work modeling economic, financial, and governance systems as the cognitive architecture of a political body."
+    },
+    {
+      "title": "Early-Stage, Underfunded, Mostly Theoretical",
+      "text": "Most social active inference research remains conceptual or simulation-based, and CogNarr — the domain's clearest infrastructure effort — is open-source, unfunded, and still in early development."
+    }
+  ],
+  "order": 87,
+  "relatedSlugs": [
+    "active-inference",
+    "project-cognarn",
+    "active-inference-and-psychology"
+  ],
+  "externalSourceIds": [
+    "journal",
+    "learning-foundations-arxiv"
+  ]
+}

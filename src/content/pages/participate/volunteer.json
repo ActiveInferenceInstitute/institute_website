@@ -29,13 +29,16 @@
     },
     {
       "heading": "How to Get Started",
-      "body": "The best way to start volunteering is to join the Discord community, attend an open activity, and let the organizers know you are interested in contributing. The weekly newsletter lists upcoming activities and active projects. The Volunteer pathway page has current information on how to express interest and connect with project leads. No application is required — introduce yourself and find where you can help.",
+      "body": "The best way to start volunteering is to join the Discord community, attend an open activity, and let the organizers know you are interested in contributing. The newsletter archive covers recent activities and projects. The Institute uses a volunteer registration form to collect interest and match volunteers with projects — the Volunteer pathway page and the organizers in Discord have the current link. No prior experience is required to introduce yourself and find where you can help.",
       "links": [
         {
           "sourceId": "official-volunteer"
         },
         {
           "sourceId": "official-activities-shortlink"
+        },
+        {
+          "sourceId": "official-newsletter"
         }
       ]
     },
@@ -113,7 +116,8 @@
     "official-volunteer",
     "discord",
     "weekly",
-    "official-activities-shortlink"
+    "official-activities-shortlink",
+    "official-newsletter"
   ],
   "resourceGroups": [
     "participation",

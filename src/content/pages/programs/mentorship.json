@@ -26,7 +26,7 @@
     },
     {
       "heading": "For Those Seeking a Mentor",
-      "body": "If you are newer to Active Inference or the Institute and would benefit from guidance, mentorship is available. Start by participating in community activities and identifying experienced contributors whose work and perspective resonates with yours. Express your interest through the mentorship pathway or by reaching out directly through the Discord community. Mentors are community members who have agreed to provide support — they are not distant authorities but active participants who remember what it is like to be new.",
+      "body": "If you are newer to Active Inference or the Institute and would benefit from guidance, mentorship is available. Start by participating in community activities and identifying experienced contributors whose work and perspective resonates with yours. To request a mentor, submit a personal statement through the Mentorship Form describing your background and the kind of advising that would best serve your learning trajectory. The Institute works to match submissions with available mentors on a rolling basis. You can also connect with the community directly through Discord while your submission is pending. Mentors are community members who have agreed to provide support — they are not distant authorities but active participants who remember what it is like to be new.",
       "links": [
         {
           "sourceId": "discord"
@@ -38,7 +38,7 @@
     },
     {
       "heading": "For Those Offering Mentorship",
-      "body": "If you are an experienced participant in the Institute or Ecosystem and are willing to support others, mentorship is a meaningful way to contribute. Mentors help newer participants navigate the community, develop skills, and make meaningful contributions. The time commitment is flexible — even occasional guidance makes a substantial difference for people earlier in their journey. Expressing interest through the mentorship pathway connects you with participants who are actively seeking support.",
+      "body": "If you are an experienced participant in the Institute or Ecosystem and are willing to support others, mentorship is a meaningful way to contribute. Mentors help newer participants navigate the community, develop skills, and make meaningful contributions. The time commitment is flexible — even occasional guidance makes a substantial difference for people earlier in their journey. Prospective mentors can review personal statements submitted through the Mentorship Form and reach out to people whose learning goals align with their own expertise, particularly those not yet matched with a mentor.",
       "links": [
         {
           "sourceId": "shortlink-mentorship"
@@ -77,7 +77,7 @@
     },
     {
       "title": "For seekers",
-      "text": "Newer participants can find mentors through the pathway or community participation.",
+      "text": "Newer participants can request a mentor by submitting a personal statement through the Mentorship Form; the Institute matches submissions on a rolling basis.",
       "links": [
         {
           "sourceId": "shortlink-mentorship"

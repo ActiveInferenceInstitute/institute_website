@@ -1,0 +1,105 @@
+{
+  "slug": "communications",
+  "title": "Communications",
+  "subtitle": "Public record of the Institute's newsletters, weekly announcements, and periodic reports.",
+  "audience": "Members, participants, collaborators, and the public who want a record of the Institute's public communications.",
+  "lede": "As a participatory, open-science 501(c)(3) nonprofit, the Institute publishes a recurring newsletter, weekly announcements, and periodic reports as part of its regular work. This page lists the current public record of those communications.",
+  "primaryActions": [
+    {
+      "label": "Newsletter archive",
+      "sourceId": "official-newsletter"
+    },
+    {
+      "label": "Weekly updates",
+      "sourceId": "weekly"
+    }
+  ],
+  "resourceGroups": [
+    "institute",
+    "media"
+  ],
+  "sections": [
+    {
+      "heading": "Newsletter",
+      "body": "The Active Inference Institute — March 2026 Newsletter (reference AII-NL-2026-03), dated March 1, 2026, is the current issue in the monthly newsletter series.",
+      "links": [
+        {
+          "sourceId": "official-newsletter"
+        }
+      ]
+    },
+    {
+      "heading": "Weekly Announcements",
+      "body": "Active Inference Institute — Weekly Update #10 (reference AII-WA-2026-W10), dated March 4, 2026, is the current issue in the weekly announcement series.",
+      "links": [
+        {
+          "sourceId": "weekly"
+        }
+      ]
+    },
+    {
+      "heading": "Annual Reports",
+      "body": "The 2025 Annual Review (reference AII-AR-2025, dated January 15, 2026) covers the Institute's 2025 year. The 2026 Annual Preview & Strategic Plan (reference AII-AP-2026, dated January 1, 2026) covers the year ahead.",
+      "links": [
+        {
+          "label": "2025",
+          "href": "/2025/"
+        },
+        {
+          "label": "2026",
+          "href": "/2026/"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Active Inference Institute — March 2026 Newsletter",
+      "text": "Monthly newsletter, dated March 1, 2026 (reference AII-NL-2026-03).",
+      "links": [
+        {
+          "sourceId": "official-newsletter"
+        }
+      ]
+    },
+    {
+      "title": "Active Inference Institute — Weekly Update #10",
+      "text": "Weekly announcement, dated March 4, 2026 (reference AII-WA-2026-W10).",
+      "links": [
+        {
+          "sourceId": "weekly"
+        }
+      ]
+    },
+    {
+      "title": "Active Inference Institute — 2025 Annual Review",
+      "text": "Annual report, dated January 15, 2026 (reference AII-AR-2025).",
+      "links": [
+        {
+          "label": "2025",
+          "href": "/2025/"
+        }
+      ]
+    },
+    {
+      "title": "Active Inference Institute — 2026 Annual Preview & Strategic Plan",
+      "text": "Annual report, dated January 1, 2026 (reference AII-AP-2026).",
+      "links": [
+        {
+          "label": "2026",
+          "href": "/2026/"
+        }
+      ]
+    }
+  ],
+  "order": 90,
+  "relatedSlugs": [
+    "about",
+    "activities",
+    "get-involved"
+  ],
+  "externalSourceIds": [
+    "official-newsletter",
+    "weekly"
+  ]
+}

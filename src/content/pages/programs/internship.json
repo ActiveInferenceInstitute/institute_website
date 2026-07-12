@@ -54,6 +54,11 @@
       ]
     },
     {
+      "heading": "Completion Benefits",
+      "body": "Interns who complete their term receive an acknowledgement and a certificate of completion specifying the duration and focus of their internship. Completion is also taken into consideration for future paid positions with the Institute, and interns may ask their mentor or project lead for a letter of recommendation, granted on a case-by-case basis.",
+      "links": []
+    },
+    {
       "heading": "After Your Internship",
       "body": "Internships often lead to continued participation as a volunteer, fellow, or project lead. Many interns have gone on to become core contributors to Institute projects, authors of public educational materials, or members of the scientific community. The skills and relationships built during an internship are lasting benefits of the program.",
       "links": [
@@ -96,6 +101,10 @@
           "href": "/fellowship/"
         }
       ]
+    },
+    {
+      "title": "Completion certificate",
+      "text": "A certificate of completion specifying duration and focus, consideration for future paid positions, and a possible letter of recommendation."
     }
   ],
   "order": 12,

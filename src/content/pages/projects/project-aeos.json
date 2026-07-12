@@ -1,0 +1,82 @@
+{
+  "slug": "project-aeos",
+  "title": "Active Entity Ontology for Science (AEOS)",
+  "subtitle": "A framework applying Active Inference to model scientific activity as a collective cognitive process.",
+  "audience": "Researchers, ontologists, and practitioners interested in decentralized science, scientific governance, and Active Inference-based knowledge modeling.",
+  "lede": "Active Entity Ontology for Science (AEOS) is a 2022 Institute project that applies Active Inference principles to model scientific activity as a collective cognitive process. It provides a composable, versionable framework for understanding both traditional institutional science and decentralized science (DeSci) approaches, integrating a BOLTS perspective (Business, Operations, Legal, Technical, Social) for comprehensive analysis.",
+  "primaryActions": [
+    {
+      "label": "AEOS repository",
+      "sourceId": "repo-aeos"
+    },
+    {
+      "label": "Zenodo publication",
+      "sourceId": "research-zenodo-7484994"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "AEOS uses Active Inference to model scientific activity as a collective cognitive process situated within a niche. It maps relationships between scientific entities and processes through Active Inference entity partitioning, and applies to both institutional science and decentralized science. The framework aims to support the emergence of epistemic communities, transparent resource allocation and knowledge sharing, and tools for decentralized scientific governance.",
+      "links": [
+        {
+          "sourceId": "repo-aeos"
+        }
+      ]
+    },
+    {
+      "heading": "Publication",
+      "body": "The framework is published as \"An Active Inference Ontology for Decentralized Science: from Situated Sensemaking to the Epistemic Commons\" (Friedman, Applegate-Swanson, Balbuena, Choudhury, Cordes, El Damaty, Guénin-Carlut, Knight, Metelkin, Shrivastava, Singh, Smékal, Tuttle, and Vyatkin, 2022), archived openly on Zenodo.",
+      "links": [
+        {
+          "sourceId": "research-zenodo-7484994"
+        }
+      ]
+    },
+    {
+      "heading": "Resources",
+      "body": "The AEOS repository and Zenodo record provide the framework documentation and publication. The project is one of the Applied & Computational Research efforts within the ReInference research unit, alongside AICACP, GEO-INFER, and related projects.",
+      "links": [
+        {
+          "sourceId": "repo-aeos"
+        },
+        {
+          "sourceId": "research-zenodo-7484994"
+        },
+        {
+          "sourceId": "github-org"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Contributions include extending the ontology to new domains, applying the framework to decentralized science tooling, and researching multi-agent workflows that build on AEOS. Background in Active Inference, ontology engineering, or decentralized science is helpful.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "/reinference/"
+        }
+      ]
+    }
+  ],
+  "order": 85,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "project-active-inference-ontology",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "repo-aeos",
+    "research-zenodo-7484994",
+    "github-org",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ]
+}

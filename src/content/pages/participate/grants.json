@@ -29,11 +29,18 @@
       "body": "Grant support is available for work that advances Active Inference research, education, or application in ways consistent with the Institute's mission. Priority areas include: foundational Active Inference research and modeling; educational tools, curricula, and courses; open-source software and tooling; interdisciplinary applications in health, ecology, economics, cognition, and social systems; and infrastructure for the broader Active Inference Ecosystem. Proposals that produce publicly accessible outputs are particularly well-suited to Institute support."
     },
     {
+      "heading": "Funding Track Record",
+      "body": "In June 2025, the Survival and Flourishing Fund awarded the Institute a $270,000 grant supporting the AI Capabilities & Alignment Consensus Project (AICACP), a multi-year initiative on AI capabilities, alignment, and regulation. The Institute has also submitted grant applications that were not funded: a 2023 application to the National Science Foundation's Pathways to Enable Open-Source Ecosystems (POSE) program; a 2024 application to the Future of Life Institute for \"FarmWorks: Decentralized AI Agents for Personalized Solutions\"; a 2024 application to the Foresight Institute for \"VILLAGE (Validating Inference for Large-scale Agent Governance Ecosystems)\"; a 2025 application to the Dana Foundation's Dana Frontiers program for \"Increasing the Accessibility and Applicability of Active Inference: Generative Playbooks and Open-Source Summer School Curriculum Development\"; and a 2025 application to the Google.org Accelerator: Generative AI. None of these five were funded."
+    },
+    {
       "heading": "Funding Opportunities",
-      "body": "The Institute tracks funding opportunities relevant to the Active Inference community and shares them through the weekly newsletter. Opportunities come from government agencies, private foundations, academic institutions, and other sources. If you are aware of an opportunity that could benefit the community and are interested in collaborating on a proposal, reach out to the Institute.",
+      "body": "The Institute tracks funding opportunities relevant to the Active Inference community and shares them through weekly updates, with past editions archived in the newsletter. Opportunities come from government agencies, private foundations, academic institutions, and other sources. If you are aware of an opportunity that could benefit the community and are interested in collaborating on a proposal, reach out to the Institute.",
       "links": [
         {
           "sourceId": "weekly"
+        },
+        {
+          "sourceId": "official-newsletter"
         }
       ]
     },
@@ -77,10 +84,13 @@
     },
     {
       "title": "Opportunity tracking",
-      "text": "The weekly newsletter shares relevant funding calls as they become available.",
+      "text": "Weekly updates share relevant funding calls as they become available, with past editions archived in the newsletter.",
       "links": [
         {
           "sourceId": "weekly"
+        },
+        {
+          "sourceId": "official-newsletter"
         }
       ]
     },
@@ -109,6 +119,7 @@
   ],
   "externalSourceIds": [
     "weekly",
+    "official-newsletter",
     "github-org"
   ],
   "resourceGroups": [

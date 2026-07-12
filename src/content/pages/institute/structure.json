@@ -29,6 +29,10 @@
       ]
     },
     {
+      "heading": "Members",
+      "body": "The Institute is a Delaware nonprofit corporation, and Delaware nonprofit corporations have formal corporate Members — a governance layer distinct from the Board of Directors. Members hold the voting rights reserved to them under the Institute's bylaws, including approving Board of Directors elections and approving amendments to the bylaws. There are three Members: Virginia Bleu Knight, Daniel Friedman, and Karl J. Friston."
+    },
+    {
       "heading": "Board of Directors",
       "body": "The Board of Directors is the primary governing body of the Active Inference Institute. The Board provides strategic direction, fiduciary oversight, and institutional accountability. Board members are responsible for the long-term health and mission alignment of the Institute. The Board meets regularly and maintains public records of its decisions, policies, and governance actions. The Board comprises ten directors of equal standing: Alexander Sabine, Alianna J. Maren, Ana Magdalena Hurtado, Ann Stapleton, Austin Cook, Daniel Friedman, Edward Ober, Ellynne Dec, V. Bleu Knight, and Vladimir Baulin.",
       "links": [
@@ -89,6 +93,16 @@
     }
   ],
   "cards": [
+    {
+      "title": "Members",
+      "text": "Three corporate Members hold voting rights reserved for Board elections and bylaw changes.",
+      "links": [
+        {
+          "label": "Members",
+          "href": "/structure/#members"
+        }
+      ]
+    },
     {
       "title": "Board of Directors",
       "text": "Strategic direction and fiduciary oversight.",

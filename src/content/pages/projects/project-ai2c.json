@@ -1,0 +1,94 @@
+{
+  "slug": "project-ai2c",
+  "title": "AI²C",
+  "subtitle": "The Active Inference Alignment Coalition — a multi-institution initiative building a coalition, funding pipeline, and shared infrastructure for AI alignment.",
+  "audience": "Alignment researchers and labs, robotics and multi-agent researchers, governance-minded organizations, and funders interested in AI alignment work grounded in Active Inference.",
+  "lede": "AI²C — the Active Inference Alignment Coalition — is a multi-institution initiative led by Research Fellow Mahault Albarracin and hosted by the Active Inference Institute. It is a separate project from AICACP (the AI Capabilities & Alignment Consensus Project, led by Adam Safron): the two share an alignment focus and a name-adjacent acronym, but different leads, teams, and scope. AI²C aims to turn Active Inference research into a platform for AI alignment, governance, and embodied experimentation, and is building a research coalition, a funding pipeline, and shared infrastructure for alignment work.",
+  "primaryActions": [
+    {
+      "label": "Research Fellows",
+      "href": "/programs/fellowship/"
+    },
+    {
+      "label": "Join the discussion",
+      "sourceId": "discord"
+    },
+    {
+      "label": "Email the project",
+      "href": "mailto:blanket@activeinference.institute"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Why the project exists",
+      "body": "Alignment research today is fragmented — it happens across isolated labs and disconnected disciplines, without shared infrastructure or governance models. AI²C exists to address that by building a coalition where alignment is studied as a multi-agent, organizational, and embodied problem, governance is built into the system itself, and outputs are reusable, fundable, and collaborative.",
+      "links": [
+        {
+          "label": "Active Inference",
+          "href": "/active-inference/"
+        }
+      ]
+    },
+    {
+      "heading": "Approach",
+      "body": "Most alignment work focuses on single agents evaluated against static benchmarks. AI²C instead studies intrinsic motivation (curiosity, prosociality), extrinsic motivation (rulebooks, norms, safety constraints), and embodied systems (robotics, multi-agent coordination), treating alignment as something that emerges in real systems rather than a property of one agent alone. The coalition's planned outputs include governance frameworks such as rulebooks and override systems, reusable funding-proposal modules, alignment benchmarks grounded in Active Inference, embodied multi-agent experiments, and open-source tools and documentation — with the goal of making alignment research replicable, fundable, and scalable.",
+      "links": []
+    },
+    {
+      "heading": "Roadmap",
+      "body": "AI²C describes its work in three phases. Phase 1 covers coalition setup — partners, governance, and infrastructure. Phase 2 covers research and proposals — building the funding pipeline and shared proposal modules. Phase 3 covers experiments and outputs — embodied systems, publications, and tools.",
+      "links": []
+    },
+    {
+      "heading": "Funding strategy",
+      "body": "AI²C's proposal-development work targets large, multi-institution funding vehicles for AI alignment research, including U.S. National AI Research Institutes, NSF Science and Technology Centers, and Horizon Europe's multi-partner Pillar II actions. The project is currently raising support for coalition coordination, proposal development, workshops and events, open infrastructure, and embodied experiments — funding at this stage is intended to seed a longer-term research ecosystem rather than a single deliverable.",
+      "links": []
+    },
+    {
+      "heading": "Project lead",
+      "body": "Mahault Albarracin, a Research Fellow at the Active Inference Institute, is the creator and lead of AI²C.",
+      "links": [
+        {
+          "label": "Research Fellows",
+          "href": "/programs/fellowship/"
+        }
+      ]
+    },
+    {
+      "heading": "Who should join",
+      "body": "AI²C welcomes researchers and labs working in Active Inference, alignment, robotics, cognitive science, and governance; organizations such as research institutes, public-interest AI groups, and open science communities; and funders — philanthropic, strategic, and institutional partners.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    },
+    {
+      "heading": "Learn more and get in touch",
+      "body": "AI²C is a separate effort from AICACP, the Institute's other alignment-focused project. For details on joining the coalition, contributing, or supporting the work, contact the project directly.",
+      "links": [
+        {
+          "label": "Email blanket@activeinference.institute",
+          "href": "mailto:blanket@activeinference.institute"
+        },
+        {
+          "label": "AICACP (a separate project)",
+          "href": "/projects/aicacp/"
+        }
+      ]
+    }
+  ],
+  "order": 85,
+  "relatedSlugs": [
+    "projects",
+    "active-inference",
+    "project-aicacp"
+  ],
+  "externalSourceIds": [
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ]
+}

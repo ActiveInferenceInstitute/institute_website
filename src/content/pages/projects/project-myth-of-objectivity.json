@@ -1,0 +1,47 @@
+{
+  "slug": "project-myth-of-objectivity",
+  "title": "Myth of Objectivity Hypothesis",
+  "subtitle": "Modeling how morality and symbolic thought co-evolved, using multi-agent Active Inference and transcendental model selection.",
+  "audience": "Researchers in Active Inference, cognitive science, computational psychiatry, and AI alignment interested in symbolic cognition and moral reasoning.",
+  "lede": "The Myth of Objectivity Hypothesis is a research project investigating how morality and symbolic thought co-evolved, using multi-agent Active Inference simulations and transcendental model selection. It explores how implicit and explicit moral beliefs form the foundation of symbolic identities, formalizing the relationship between moral reasoning and symbolic cognition across hierarchical social levels (individual, dyadic, group, and cultural).",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project develops a computational framework for how humans transcend individual perspectives to inhabit collective symbolic spaces, and applies it to understanding human cultural evolution and to developing culturally-aligned artificial general intelligence. The work is led by Shagor (Shaggy) Rahman.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Researchers interested in Active Inference, moral cognition, symbolic reasoning, and AI alignment are welcome.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "order": 86,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ]
+}

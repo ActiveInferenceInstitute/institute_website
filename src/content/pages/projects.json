@@ -204,6 +204,31 @@
     {
       "title": "Theoretical Neurobiology",
       "text": "Support for theoretical neurobiology conversations and model development."
+    },
+    {
+      "title": "AI²C",
+      "text": "The Active Inference Alignment Coalition — a coalition, funding pipeline, and shared infrastructure for AI alignment work. A separate project from AICACP."
+    },
+    {
+      "title": "Perspective Architectures",
+      "text": "An 18-month roadmap developing computational architectures of perspective, coherence, and social attunement in artificial agents."
+    },
+    {
+      "title": "The Foundations of Ideology",
+      "text": "A Free Energy Principle account of political ideology formation, cognitive rigidity, and category conflation."
+    },
+    {
+      "title": "Myth of Objectivity Hypothesis",
+      "text": "A model of the co-evolution of morality and symbolic thought via transcendental model selection."
+    },
+    {
+      "title": "Active Entity Ontology for Science (AEOS)",
+      "text": "An active-inference ontology bridging institutional and decentralized science, from situated sensemaking to the epistemic commons.",
+      "links": [
+        {
+          "sourceId": "repo-aeos"
+        }
+      ]
     }
   ],
   "order": 5,

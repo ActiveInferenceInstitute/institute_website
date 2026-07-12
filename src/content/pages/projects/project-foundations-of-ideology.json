@@ -1,0 +1,105 @@
+{
+  "slug": "project-foundations-of-ideology",
+  "title": "The Foundations of Ideology",
+  "subtitle": "A Free Energy Principle account of how political ideologies form, persist, and evolve, from Research Fellow Alexander Hemming.",
+  "audience": "Researchers and readers interested in political psychology, political neuroscience, and Active Inference accounts of belief formation.",
+  "lede": "The Foundations of Ideology is a book project by Active Inference Institute Research Fellow Alexander Hemming, developed with Dr. Dylan Grove, that applies the Free Energy Principle and Active Inference to how political ideologies form, persist, and evolve. It reads ideology through the brain's imperative to minimize prediction error, and looks at cognitive rigidity, heuristic adherence, and category conflation as constraints on adaptive political thinking.",
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    },
+    {
+      "label": "Research Fellows",
+      "href": "/fellowship/"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "About the project",
+      "body": "The Foundations of Ideology develops a computational neuroscience framework for understanding how political ideologies form, persist, and evolve, grounded in the Free Energy Principle and the Active Inference framework. The project explains ideology through the brain's fundamental imperative to minimize prediction error, and identifies how cognitive rigidity, heuristic adherence (a lack of nuance around a heuristic that persists through orders of thought), and category conflation constrain the development of adaptive, accurate political models.",
+      "links": [
+        {
+          "label": "Active Inference",
+          "href": "/active-inference/"
+        }
+      ]
+    },
+    {
+      "heading": "The book",
+      "body": "The project is being developed into a book aimed at a general-access reader, bringing together insights from political theory, political psychology, political neuroscience, and predictive coding research to explain how ideological polarization emerges from fundamental cognitive processes. It aims to offer both theoretical depth and practical applications, including pathways toward greater integrative complexity in political thinking.",
+      "links": [
+        {
+          "label": "ReInference Unit",
+          "href": "/reinference/"
+        }
+      ]
+    },
+    {
+      "heading": "Research Fellow and collaborator",
+      "body": "Alexander Hemming joined the Institute as a Research Fellow in March 2026 to pursue this project, working with Dr. Dylan Grove. The Institute has hosted a recorded GuestStream talk on the work.",
+      "links": [
+        {
+          "label": "Research Fellows",
+          "href": "/fellowship/"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Researchers and practitioners with backgrounds in political psychology, political neuroscience, or Active Inference who are interested in this work are welcome to reach out through the Institute Discord.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "A Free Energy account of ideology",
+      "text": "Reads political ideology formation and persistence through prediction-error minimization.",
+      "links": [
+        {
+          "label": "Active Inference",
+          "href": "/active-inference/"
+        }
+      ]
+    },
+    {
+      "title": "Cognitive rigidity and heuristics",
+      "text": "Identifies cognitive rigidity, heuristic adherence, and category conflation as constraints on adaptive political thinking.",
+      "links": [
+        {
+          "label": "ReInference Unit",
+          "href": "/reinference/"
+        }
+      ]
+    },
+    {
+      "title": "Research Fellow since 3/2026",
+      "text": "Alexander Hemming develops the project with Dr. Dylan Grove as an Institute Research Fellow.",
+      "links": [
+        {
+          "label": "Research Fellows",
+          "href": "/fellowship/"
+        }
+      ]
+    }
+  ],
+  "order": 85,
+  "relatedSlugs": [
+    "fellowship",
+    "projects",
+    "active-inference",
+    "reinference"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ]
+}

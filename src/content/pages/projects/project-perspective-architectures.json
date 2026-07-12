@@ -1,0 +1,84 @@
+{
+  "slug": "project-perspective-architectures",
+  "title": "Perspective Architectures for Coherent and Attuned Artificial Agency",
+  "subtitle": "An 18-month research roadmap developing computational architectures of perspective, coherence, and social attunement in artificial agents.",
+  "audience": "AI alignment researchers, Active Inference practitioners, and machine consciousness researchers interested in internalist approaches to artificial agency.",
+  "lede": "Perspective Architectures for Coherent and Attuned Artificial Agency is an 18-month Institute research project led by Research Fellow Hongju Pae through CEAR Lab (Computational Emergent Alignment Research Lab). The project develops a computational account of how an artificial agent might form a stable internal perspective, sustain coherent affect, and become mutually interpretable with other agents, proposed as a complement to AI alignment approaches built on externally specified objectives and reward functions.",
+  "primaryActions": [
+    {
+      "label": "Fellows pathway",
+      "sourceId": "shortlink-fellows"
+    },
+    {
+      "label": "Email the project",
+      "href": "mailto:blanket@activeinference.institute"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The project's central hypothesis is that an agent's perspective, its characteristic way of interpreting its environment, can be modeled as a latent generative structure within its internal dynamics, rather than adjusted through parameter tuning or externally specified objectives. Working from this hypothesis, the roadmap runs across three six-month phases: a single-agent orientation layer, followed by affective and integrative dynamics, followed by multi-agent social attunement. The project's full research roadmap and technical documentation are hosted through CEAR Lab (hjpae.github.io/cear/).",
+      "links": []
+    },
+    {
+      "heading": "Phase 1: Perspective Architecture (Months 1-6)",
+      "body": "Phase 1 implements a latent orientation manifold, a small set of variables spanning attentional bias, affective stance, interpretive mode, and ambiguity-resolution style, that shapes how an agent perceives, infers, and acts without encoding explicit goals or utilities. Findings from this phase are reported in the preprint 'Minimal Computational Preconditions for Subjective Perspective in Artificial Agents' (arXiv:2602.02902), which was submitted to and presented at the AAAI 2026 Spring Symposium on Machine Consciousness on April 8, 2026.",
+      "links": []
+    },
+    {
+      "heading": "Phase 2: Affective Coherence and Integrative Capacity (Months 7-12)",
+      "body": "Phase 2 examines how affective coherence and integrative capacity, the ability to sustain internal organization while holding or negotiating between partially incompatible interpretations, arise as dynamical consequences of the Phase 1 architecture. Work from this phase is directed toward preprints for the 2026 Artificial Life Conference and Simulation of Adaptive Behavior 2026.",
+      "links": []
+    },
+    {
+      "heading": "Phase 3: Social Resonance (Months 13-18)",
+      "body": "Phase 3 extends the architecture to multi-agent settings, studying when and how agents become mutually interpretable without a shared objective or explicit communication channel. A related preprint, 'Empathy Modeling in Active Inference Agents for Perspective-Taking and Alignment' (arXiv:2602.20936), co-authored by Hongju Pae with Mahault Albarracin, Anna Mikeda, Alejandro Jimenez Rodriguez, Sanjeev Namjoshi, Dalton Sakthivadivel, Harshil Shah, and Philip Wilson, reports related work on perspective-taking and empathy modeling in Active Inference agents.",
+      "links": []
+    },
+    {
+      "heading": "Research Fellow",
+      "body": "Hongju Pae (ORCID 0000-0002-5174-8858) joined the Institute as a Research Fellow in November 2025 and leads the project through CEAR Lab, the Computational Emergent Alignment Research Lab. Pae's work integrates the Active Inference framework with phenomenological approaches to identify computable markers of perspective and coherence in artificial systems.",
+      "links": []
+    },
+    {
+      "heading": "Participate",
+      "body": "Researchers interested in AI alignment, Active Inference, and computational models of agency and coherence are welcome to follow the project's progress and reach out through the Institute's community channels.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "18-month roadmap",
+      "text": "Three six-month phases moving from single-agent perspective to multi-agent social attunement.",
+      "links": []
+    },
+    {
+      "title": "Two arXiv preprints",
+      "text": "Findings on subjective perspective and on empathy modeling in Active Inference agents.",
+      "links": []
+    },
+    {
+      "title": "AAAI 2026 Spring Symposium",
+      "text": "Phase 1 findings presented at the Symposium on Machine Consciousness, April 8, 2026.",
+      "links": []
+    }
+  ],
+  "order": 87,
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "active-inference"
+  ],
+  "externalSourceIds": [
+    "shortlink-fellows",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ]
+}

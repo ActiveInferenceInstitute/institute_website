@@ -1,0 +1,185 @@
+{
+  "slug": "open-source",
+  "title": "Open Source",
+  "subtitle": "The default license for Institute materials, and the repositories it applies to.",
+  "audience": "Developers, researchers, and collaborators using or contributing to Institute software and public materials.",
+  "lede": "The default license for Institute materials — including software repositories, research outputs, and other public work products — is Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). Specific products and collaborations may use different terms; check the individual repository or resource for details.",
+  "primaryActions": [
+    {
+      "label": "GitHub organization",
+      "sourceId": "github-org"
+    },
+    {
+      "label": "All programs",
+      "href": "/programs/"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Default License",
+      "body": "CC BY-NC-SA 4.0 is the default license for Institute materials. It lets others distribute, remix, adapt, and build on the material in any medium or format, for noncommercial purposes, as long as they credit the creator and license any adaptations under the same terms.",
+      "links": [
+        {
+          "sourceId": "github-org"
+        }
+      ]
+    },
+    {
+      "heading": "What the License Requires",
+      "body": "Attribution (BY): credit must be given to the creator(s) of the work and, where known, the Institute as the hosting or publishing entity. NonCommercial (NC): only noncommercial use is permitted — use not primarily intended for or directed toward commercial advantage or monetary compensation. ShareAlike (SA): adaptations must be shared under the same license terms, unless otherwise specified and agreed upon by the creators."
+    },
+    {
+      "heading": "Open Source Repositories",
+      "body": "The Institute publishes software under this default license across repositories hosted in the Active Inference Institute GitHub organization. These include Biofirm (Active Inference PyMDP agents for bioregional modeling), PyDMB (a Dysfunctional Markov Blanket package), GEN24 (generative AI experiments under Active Blockference), ActiveInferAnts (Active Inference ant simulations), Journal-Utilities and ActiveInferenceJournal (supporting the Active Inference Journal), ActiveInferenceCategoryTheory (category theory curriculum), ActiveBlockference (integrating Active Inference with cadCAD), Active_Inference_Ontology and AEOS (ontology snapshots), GeneralizedNotationNotation, the Parr et al. 2022 Active Inference Textbook repository, Symposium (methods for the Applied Active Inference Symposium), and CEREBRUM.",
+      "links": [
+        {
+          "sourceId": "repo-biofirm"
+        },
+        {
+          "sourceId": "repo-activeinferants"
+        },
+        {
+          "sourceId": "repo-gen24"
+        },
+        {
+          "sourceId": "repo-journal-utilities"
+        },
+        {
+          "sourceId": "repo-activeinferencejournal"
+        },
+        {
+          "sourceId": "repo-activeinferencecategorytheory"
+        },
+        {
+          "sourceId": "repo-activeblockference"
+        },
+        {
+          "sourceId": "repo-active-inference-ontology"
+        },
+        {
+          "sourceId": "repo-aeos"
+        },
+        {
+          "sourceId": "repo-generalizednotationnotation"
+        },
+        {
+          "sourceId": "repo-parr-et-al-2022-actinf-textbook"
+        },
+        {
+          "sourceId": "repo-symposium"
+        },
+        {
+          "sourceId": "repo-cerebrum"
+        }
+      ]
+    },
+    {
+      "heading": "Contributing",
+      "body": "Contributions to these repositories come through the Institute's participation pathways — volunteering, internship, and fellowship all include software and documentation work on open-source projects. Community contributions are welcome on most repositories; check each repository for its own contribution guidelines.",
+      "links": [
+        {
+          "label": "Fellowship",
+          "href": "/fellowship/"
+        },
+        {
+          "label": "ReInference Unit",
+          "href": "/reinference/"
+        },
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Modeling and simulation",
+      "text": "Biofirm and ActiveInferAnts apply Active Inference to bioregional and multiagent simulation.",
+      "links": [
+        {
+          "label": "Active InferAnts",
+          "href": "/projects/active-inferants/"
+        }
+      ]
+    },
+    {
+      "title": "Journal infrastructure",
+      "text": "Journal-Utilities and ActiveInferenceJournal support production of the Active Inference Journal.",
+      "links": [
+        {
+          "label": "Active Inference Journal",
+          "href": "/projects/active-inference-journal/"
+        }
+      ]
+    },
+    {
+      "title": "Notation and ontology",
+      "text": "GeneralizedNotationNotation, Active_Inference_Ontology, and AEOS develop shared notation and ontology resources.",
+      "links": [
+        {
+          "label": "Active Inference Ontology",
+          "href": "/projects/active-inference-ontology/"
+        }
+      ]
+    },
+    {
+      "title": "Education",
+      "text": "ActiveInferenceCategoryTheory and the Parr et al. 2022 Textbook repository support curriculum and textbook group materials.",
+      "links": [
+        {
+          "label": "Textbook Group",
+          "href": "/projects/textbook-group/"
+        }
+      ]
+    },
+    {
+      "title": "Events and modeling frameworks",
+      "text": "Symposium and ActiveBlockference support the Applied Active Inference Symposium and cadCAD integration work.",
+      "links": [
+        {
+          "label": "Applied Active Inference Symposium",
+          "href": "/projects/symposium/"
+        }
+      ]
+    },
+    {
+      "title": "CEREBRUM",
+      "text": "A case-enabled reasoning engine with Bayesian representations for unified modeling.",
+      "links": [
+        {
+          "sourceId": "repo-cerebrum"
+        }
+      ]
+    }
+  ],
+  "order": 20,
+  "relatedSlugs": [
+    "programs",
+    "reinference",
+    "fellowship",
+    "projects",
+    "get-involved"
+  ],
+  "externalSourceIds": [
+    "github-org",
+    "repo-biofirm",
+    "repo-activeinferants",
+    "repo-gen24",
+    "repo-journal-utilities",
+    "repo-activeinferencejournal",
+    "repo-activeinferencecategorytheory",
+    "repo-activeblockference",
+    "repo-active-inference-ontology",
+    "repo-aeos",
+    "repo-generalizednotationnotation",
+    "repo-parr-et-al-2022-actinf-textbook",
+    "repo-symposium",
+    "repo-cerebrum",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research",
+    "tools"
+  ]
+}

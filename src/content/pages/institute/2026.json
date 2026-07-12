@@ -1,15 +1,19 @@
 {
   "slug": "2026",
   "title": "2026",
-  "subtitle": "The Active Inference Institute's ongoing year.",
-  "audience": "Members, collaborators, and visitors who want to follow what the Institute is doing this year.",
-  "lede": "2026 is the Institute's ongoing year — a light entry point to the various things happening across the organization. The best places to follow along are the Activities page and the Calendar, where recurring sessions, working groups, and public events appear as they are scheduled. The fuller record is maintained on the 2026 hub.",
+  "subtitle": "Month-by-month overview of the Active Inference Institute's ongoing year, 2026.",
+  "audience": "Members, participants, collaborators, and the public who want a consolidated, month-by-month view of the Institute's ongoing year in 2026.",
+  "lede": "2026 is the Active Inference Institute's ongoing year — a consolidated, month-by-month entry point to the activities, programs, and events that are running across the organization under the motto Act. Infer. Serve., in the same format as the 2025 annual overview. The Activities page and Calendar remain the most reliable way to see what's happening week to week. The detailed record continues to be maintained on the 2026 hub.",
   "order": 88,
   "sections": [
     {
-      "heading": "Following along in 2026",
-      "body": "Rather than fixing the year's plan in advance, this page points to where the Institute's 2026 activities actually show up as they happen. The Activities page gathers the recurring sessions, working groups, and public events that make up the Institute's ongoing rhythm, and the Calendar is the most reliable way to see what is happening week to week. For how this year follows from the Institute's longer story, see the History page.",
+      "heading": "The Year So Far",
+      "body": "This page gathers the Institute's 2026 work into a single overview, organized by month, as the year unfolds. As a participatory, open-science 501(c)(3) nonprofit, the Institute conducts its work in public, so this overview is best read as a map to the year's activities, programs, and events. See the History page for how the year fits the Institute's longer story.",
       "links": [
+        {
+          "label": "History",
+          "href": "/history/"
+        },
         {
           "label": "Activities",
           "href": "/activities/"
@@ -17,48 +21,47 @@
         {
           "label": "Calendar",
           "href": "/calendar/"
-        },
-        {
-          "label": "History",
-          "href": "/history/"
         }
       ]
     },
     {
-      "heading": "Programs carrying the work",
-      "body": "The year's work runs through the Institute's three program units: EduActive for education, ReInference for research, and the Administrative unit for operations and coordination. The structure page describes how they fit together.",
+      "heading": "January",
+      "body": "Institute Programs and Activities begin for the year, and Institute Structure is clarified. Work continues with the Board of Directors and the Scientific Advisory Board, connected to Strategy and Ecosystem Development. The January newsletter is published.",
       "links": [
         {
           "label": "Institute structure",
           "href": "/structure/"
         },
         {
-          "label": "EduActive",
-          "href": "/eduactive/"
+          "label": "Board of Directors",
+          "href": "/board-of-directors/"
         },
         {
-          "label": "ReInference",
-          "href": "/reinference/"
+          "label": "Scientific Advisory Board",
+          "href": "/scientific-advisory-board/"
         }
       ]
     },
     {
-      "heading": "Take part",
-      "body": "As a participatory, open-science organization, the Institute invites contributors to join the year's work — across learning, research, and operational support. Most participation begins with a single step into an existing activity or group; the get-involved page is the best starting point, and the learning resources offer an on-ramp for anyone new to Active Inference.",
+      "heading": "February",
+      "body": "The February newsletter is published, covering the month's Institute and Ecosystem activity.",
       "links": [
         {
-          "label": "Get involved",
-          "href": "/get-involved/"
-        },
-        {
-          "label": "Learning",
-          "href": "/learning/"
+          "sourceId": "official-newsletter"
         }
       ]
+    },
+    {
+      "heading": "March",
+      "body": "2026 Quarterly Roundtable #1 livestreams. The March newsletter is also published."
+    },
+    {
+      "heading": "April",
+      "body": "The April newsletter is published."
     },
     {
       "heading": "Full materials",
-      "body": "The detailed 2026 record — plans, goals, milestones, and the event calendar — is maintained on the 2026 hub and is being migrated onto this site.",
+      "body": "The complete, continuously updated record of 2026 goals, milestones, and events is maintained on the 2026 hub and is being migrated onto this site.",
       "links": [
         {
           "sourceId": "shortlink-2026"
@@ -68,8 +71,18 @@
   ],
   "cards": [
     {
-      "title": "Activities",
-      "text": "The recurring sessions, working groups, and public events that make up the year.",
+      "title": "Governance for 2026",
+      "text": "January brings Institute Structure clarification and continued work with the Board of Directors and Scientific Advisory Board.",
+      "links": [
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        }
+      ]
+    },
+    {
+      "title": "Quarterly Roundtable #1",
+      "text": "The Institute's first 2026 Quarterly Roundtable livestreams in March.",
       "links": [
         {
           "label": "Activities",
@@ -78,21 +91,11 @@
       ]
     },
     {
-      "title": "Calendar",
-      "text": "Week-to-week schedule of public sessions and events as the year unfolds.",
+      "title": "Newsletter",
+      "text": "Monthly newsletters cover Institute and Ecosystem activity as the year unfolds.",
       "links": [
         {
-          "label": "Calendar",
-          "href": "/calendar/"
-        }
-      ]
-    },
-    {
-      "title": "2026 hub",
-      "text": "The fuller 2026 record, being migrated in.",
-      "links": [
-        {
-          "sourceId": "shortlink-2026"
+          "sourceId": "official-newsletter"
         }
       ]
     }
@@ -115,6 +118,7 @@
     "institute"
   ],
   "externalSourceIds": [
-    "shortlink-2026"
+    "shortlink-2026",
+    "official-newsletter"
   ]
 }

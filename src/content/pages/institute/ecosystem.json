@@ -46,13 +46,16 @@
     },
     {
       "heading": "Ecosystem Support",
-      "body": "Ecosystem support includes public communication, learning infrastructure, project visibility, partner pathways, research resources, and shared open-source tooling.",
+      "body": "Ecosystem support includes public communication, learning infrastructure, project visibility, partner pathways, research resources, and shared open-source tooling, organized around an Informational Commons and a Professionalization curriculum. The Informational Commons combines the Institute's video and podcast archive and Active Inference Journal — described as the largest corpus of open Active Inference education material to date — with a Common Forum of online discussion groups and communications channels where learners, researchers, and practitioners connect, ask questions, and share insights, plus recurring opportunities to present and discuss work across disciplines. Professionalization is a training curriculum for officers and directors of commercial entities and officials of governmental and civil-society organizations, covering how Active Inference's account of adaptive behavior applies to organizational interactions across business, operations, legal, technical, and social domains.",
       "links": [
         {
           "sourceId": "github-org"
         },
         {
           "sourceId": "weekly"
+        },
+        {
+          "sourceId": "video"
         }
       ]
     }
@@ -102,6 +105,22 @@
           "sourceId": "ecosystem"
         }
       ]
+    },
+    {
+      "title": "Informational Commons",
+      "text": "The video and podcast archive, the Active Inference Journal, and a Common Forum of discussion groups and communications channels for connecting, asking questions, and sharing work.",
+      "links": [
+        {
+          "sourceId": "video"
+        },
+        {
+          "sourceId": "weekly"
+        }
+      ]
+    },
+    {
+      "title": "Professionalization",
+      "text": "A training curriculum for officers, directors, and officials on how Active Inference's account of adaptive behavior applies across business, operations, legal, technical, and social domains."
     }
   ],
   "order": 7,
@@ -116,6 +135,7 @@
     "geo-infer",
     "active-inferants",
     "gnn",
+    "video",
     "official-activeinference-org",
     "shortlink-strategy",
     "shortlink-ontology",
