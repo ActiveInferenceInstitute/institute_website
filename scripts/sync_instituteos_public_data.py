@@ -124,8 +124,12 @@ PROSE_FORBIDDEN_SUBSTRINGS = tuple(
     s for s in FORBIDDEN_SUBSTRINGS if s != "workspace"
 )
 # Tight phone pattern (US/NANP 3-3-4 grouping with optional +1) — distinctly
-# phone-shaped to avoid false positives on years, IDs, or coordinates.
-PHONE_RE = re.compile(r"(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}")
+# phone-shaped to avoid false positives on years, IDs, or coordinates. The
+# leading negative lookbehind requires the match to start at a word boundary:
+# without it, DOI article-number suffixes (e.g. "s42003-021-02994-2") false-
+# positive because their digit groups happen to fall into 3-3-4 shape. A real
+# phone number is never glued directly onto a preceding letter/digit.
+PHONE_RE = re.compile(r"(?<![A-Za-z0-9])(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}")
 PUBLIC_GITHUB_PEOPLE = [
     {
         "id": "github-docxology",

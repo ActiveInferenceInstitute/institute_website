@@ -39,9 +39,13 @@ ALLOWED_INSTITUTEOS_ASSETS = {"ActInferServe.png", "Dark_ActInfServe.png"}
 # Same patterns used by scripts/sync_instituteos_public_data.py's PII gate,
 # reused here against rendered *text* (not JSON string values) so both gates
 # stay in lockstep. Generic email pattern; tight NANP phone grouping to avoid
-# false positives on years, IDs, or coordinates.
+# false positives on years, IDs, or coordinates. The leading negative
+# lookbehind requires the match to start at a word boundary: without it, DOI
+# article-number suffixes (e.g. "s42003-021-02994-2") false-positive because
+# their digit groups happen to fall into 3-3-4 shape. A real phone number is
+# never glued directly onto a preceding letter/digit.
 EMAIL_RE = re.compile(r"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}", re.IGNORECASE)
-PHONE_RE = re.compile(r"(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}")
+PHONE_RE = re.compile(r"(?<![A-Za-z0-9])(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}")
 # Genuine public-by-design contact addresses, vetted by hand against their
 # source content (never a raw leak): the Institute's general-inquiries address
 # (src/content/site.json contact block, rendered site-wide in the footer/JSON-LD)
