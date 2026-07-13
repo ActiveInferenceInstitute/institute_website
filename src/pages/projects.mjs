@@ -44,6 +44,71 @@ export function relatedProjectsForPage(page) {
   return scored;
 }
 
+// Full project catalog: every public project that has a real website page
+// (website_slug set), generated directly from data/projects.json. Exists so the
+// /projects landing page surfaces the complete registry instead of only the
+// hand-curated subset named in the page's own "sections" prose — before this,
+// only 21 of 61 public project pages were linked from /projects/, leaving the
+// rest reachable solely through /directory/ or another page's related-projects
+// panel. New/removed registry entries appear here automatically on next export
+// + build, no hand-authored link needed.
+export function catalogProjects() {
+  return (loadProjectsData().projects || [])
+    .filter((project) => project && project.website_slug)
+    .map((project) => ({
+      id: project.id,
+      title: project.title || project.id,
+      status: project.status || "unknown",
+      summary: project.summary || project.description || "",
+      topics: project.topics || [],
+      slug: project.website_slug,
+    }))
+    .sort((a, b) => a.title.localeCompare(b.title));
+}
+
+export function projectCatalogSection(currentDir = "") {
+  const projects = catalogProjects();
+  if (!projects.length) {
+    return "";
+  }
+  const activeCount = projects.filter((project) => project.status === "active").length;
+  const archivedCount = projects.length - activeCount;
+  const cards = projects
+    .map((project) => {
+      const topics = project.topics
+        .slice(0, 4)
+        .map((topic) => escapeHtml(title_case_token_js(topic)))
+        .join(", ");
+      const summary = sanitizePublicProse(project.summary).slice(0, 160);
+      const search = escapeHtml(`${project.title} ${project.summary} ${project.topics.join(" ")}`.toLowerCase());
+      const statusLabel = project.status === "active" ? "Active" : title_case_token_js(project.status);
+      return `<a class="resource-card internal-card catalog-project-card" href="${slugToHref(project.slug, currentDir)}" data-catalog-row data-status="${escapeHtml(project.status)}" data-search="${search}">
+        <span>${escapeHtml(statusLabel)}</span>
+        <strong>${escapeHtml(sanitizePublicProse(project.title))}</strong>
+        <p>${escapeHtml(summary)}</p>
+        ${topics ? `<em>${topics}</em>` : ""}
+      </a>`;
+    })
+    .join("");
+  return `<section class="content-band" id="project-catalog">
+    ${sectionHeading({
+      eyebrow: "Full catalog",
+      title: `Browse all ${projects.length} public projects`,
+      text: "Every Institute and Ecosystem project with a public page, generated directly from the InstituteOS project registry export. Search by name or topic, or filter by status.",
+    })}
+    <div class="activities-search">
+      <input id="project-catalog-search" type="search" placeholder="Search ${projects.length} projects by name or topic…" autocomplete="off" aria-label="Search all projects">
+      <select id="project-catalog-status" aria-label="Filter projects by status">
+        <option value="">All statuses (${projects.length})</option>
+        <option value="active">Active (${activeCount})</option>
+        <option value="archived">Archived (${archivedCount})</option>
+      </select>
+      <span id="project-catalog-count" aria-live="polite"></span>
+    </div>
+    <div class="resource-grid compact-grid" id="project-catalog-grid">${cards}</div>
+  </section>`;
+}
+
 export function relatedProjectsSection(page, currentDir = "") {
   const related = relatedProjectsForPage(page);
   if (!related.length) {

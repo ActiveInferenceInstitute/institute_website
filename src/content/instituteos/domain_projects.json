@@ -114,7 +114,8 @@
         },
         {
           "id": "start",
-          "title": "Start"
+          "title": "Start",
+          "href": "project-start.html"
         },
         {
           "id": "textbook-group",
@@ -226,7 +227,8 @@
       "projects": [
         {
           "id": "ai2c-active-inference-alignment-coalition",
-          "title": "AI²C: Active Inference Alignment Coalition"
+          "title": "AI²C: Active Inference Alignment Coalition",
+          "href": "project-ai2c.html"
         },
         {
           "id": "robotic-microscopy",
@@ -277,7 +279,8 @@
       "projects": [
         {
           "id": "ai2c-active-inference-alignment-coalition",
-          "title": "AI²C: Active Inference Alignment Coalition"
+          "title": "AI²C: Active Inference Alignment Coalition",
+          "href": "project-ai2c.html"
         },
         {
           "id": "robotic-microscopy",

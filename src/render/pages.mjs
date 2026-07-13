@@ -23,7 +23,7 @@ import { slugToHref, resolveInternalHref, relPrefix } from "./urls.mjs";
 import { homeInstituteosGate, instituteosFeatureSections } from "./feature-sections.mjs";
 import { autolinkInternal } from "./autolink.mjs";
 import { knowledgePreview } from "./knowledge.mjs";
-import { relatedProjectsSection } from "../pages/projects.mjs";
+import { relatedProjectsSection, projectCatalogSection } from "../pages/projects.mjs";
 
 export function relatedSlugsForPage(page) {
   if (Array.isArray(page.relatedSlugs) && page.relatedSlugs.length) {
@@ -225,6 +225,7 @@ export function publicPage(page) {
         .join("")}
     </div>
   </section>
+  ${page.slug === "projects" ? projectCatalogSection(currentDir) : ""}
   ${instituteosFeatureSections(page, currentDir)}
   <section class="content-band muted" id="key-surfaces">
     ${sectionHeading({ eyebrow: "Key surfaces", title: `${page.title} at a glance` })}

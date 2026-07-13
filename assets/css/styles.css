@@ -1563,6 +1563,7 @@ body{transition:background-color 200ms,color 200ms}
 .activities-table td.activity-when { white-space: nowrap; color: var(--text-dim, #9aa0a6); }
 .activities-search { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; }
 .activities-search input[type="search"] { flex: 1 1 280px; padding: 0.55rem 0.8rem; border-radius: 8px; border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.16)); background: var(--surface-2, #111); color: inherit; }
+.activities-search select { flex: 0 1 180px; padding: 0.55rem 0.8rem; border-radius: 8px; border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.16)); background: var(--surface-2, #111); color: inherit; }
 .activities-search span { font-size: 0.85rem; color: var(--text-dim, #9aa0a6); }
 
 /* Narrative tables (rendered from transposed markdown bodies on about/structure/ecosystem) */

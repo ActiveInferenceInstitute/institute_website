@@ -142,7 +142,8 @@
       "meta": {
         "tree": "active-inference",
         "maturity": "emerging"
-      }
+      },
+      "href": "project-pymdp.html"
     },
     {
       "id": "active-inference:rxinfer",

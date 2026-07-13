@@ -291,3 +291,31 @@ if (activitiesProjectSearch && activitiesProjectRows.length) {
   activitiesProjectSearch.addEventListener("input", applyActivitiesProjectFilter);
   applyActivitiesProjectFilter();
 }
+
+// Projects page — full catalog search + status filter (all public projects).
+const catalogSearch = document.querySelector("#project-catalog-search");
+const catalogStatus = document.querySelector("#project-catalog-status");
+const catalogRows = [...document.querySelectorAll("[data-catalog-row]")];
+const catalogCount = document.querySelector("#project-catalog-count");
+if (catalogRows.length) {
+  const applyCatalogFilter = () => {
+    const query = (catalogSearch?.value || "").trim().toLowerCase();
+    const status = catalogStatus?.value || "";
+    let shown = 0;
+    for (const row of catalogRows) {
+      const matchesQuery = !query || (row.dataset.search || "").includes(query);
+      const matchesStatus = !status || row.dataset.status === status;
+      const match = matchesQuery && matchesStatus;
+      row.hidden = !match;
+      if (match) {
+        shown += 1;
+      }
+    }
+    if (catalogCount) {
+      catalogCount.textContent = `${shown} project${shown === 1 ? "" : "s"} shown`;
+    }
+  };
+  catalogSearch?.addEventListener("input", applyCatalogFilter);
+  catalogStatus?.addEventListener("change", applyCatalogFilter);
+  applyCatalogFilter();
+}
