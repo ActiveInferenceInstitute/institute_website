@@ -1,7 +1,9 @@
 import { loadProjectsData, siteData } from "../data.mjs";
-import { escapeHtml, sanitizePublicProse, title_case_token_js } from "../lib/text.mjs";
+import { escapeHtml, sanitizePublicProse, slugifyAnchor, title_case_token_js } from "../lib/text.mjs";
 import { slugToHref } from "../render/urls.mjs";
 import { sectionHeading } from "../render/components.mjs";
+import { linkChips } from "../render/page-sections.mjs";
+import { tr } from "../i18n/index.mjs";
 
 // Map a data/projects.json project id to its generated page slug. Prefers the
 // explicit website_slug; falls back to the conventional project-<id> form when a
@@ -140,6 +142,58 @@ export function relatedProjectsSection(page, currentDir = "") {
       title: "Projects with shared topics",
       text: "Computed from shared topics and category in the public project data feed.",
     })}
+    <div class="resource-grid compact-grid">${cards}</div>
+  </section>`;
+}
+
+// Course syllabus grid — an optional `page.syllabus` block ({ heading, intro,
+// items: [{ title, meta, body, links }] }) rendered as a scannable card grid
+// near the top of a project page, instead of one full-width prose section per
+// session. Opt-in: pages without `syllabus` render nothing.
+export function syllabusGrid(entry, currentDir = "") {
+  if (!entry || !Array.isArray(entry.items) || !entry.items.length) {
+    return "";
+  }
+  const cards = entry.items
+    .map((item) => {
+      const meta = item.meta ? `<span class="resource-kicker">${escapeHtml(tr(item.meta))}</span>` : "";
+      const links = linkChips(item.links, currentDir);
+      return `<article class="resource-card" id="${escapeHtml(slugifyAnchor(item.title))}">
+        ${meta}
+        <h3>${escapeHtml(tr(item.title))}</h3>
+        <p>${escapeHtml(tr(item.body))}</p>
+        ${links}
+      </article>`;
+    })
+    .join("");
+  return `<section class="content-band" id="${escapeHtml(slugifyAnchor(entry.heading))}">
+    ${sectionHeading({ eyebrow: tr(entry.eyebrow || "Course schedule"), title: tr(entry.heading), text: tr(entry.intro || "") })}
+    <div class="resource-grid compact-grid">${cards}</div>
+  </section>`;
+}
+
+// Course Q&A grid — an optional `page.qanda` block, same shape as `syllabus`.
+// Each card is a native <details>/<summary> disclosure (collapsed by
+// default) so a large question bank stays compact and secondary to the
+// syllabus, without dropping any content.
+export function qaGrid(entry, currentDir = "") {
+  if (!entry || !Array.isArray(entry.items) || !entry.items.length) {
+    return "";
+  }
+  const cards = entry.items
+    .map((item) => {
+      const links = linkChips(item.links, currentDir);
+      return `<article class="resource-card">
+        <details>
+          <summary>${escapeHtml(tr(item.title))}</summary>
+          <p>${escapeHtml(tr(item.body))}</p>
+          ${links}
+        </details>
+      </article>`;
+    })
+    .join("");
+  return `<section class="content-band muted" id="${escapeHtml(slugifyAnchor(entry.heading))}">
+    ${sectionHeading({ eyebrow: tr(entry.eyebrow || "Q&A"), title: tr(entry.heading), text: tr(entry.intro || "") })}
     <div class="resource-grid compact-grid">${cards}</div>
   </section>`;
 }

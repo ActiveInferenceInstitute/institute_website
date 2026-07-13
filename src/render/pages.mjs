@@ -23,7 +23,7 @@ import { slugToHref, resolveInternalHref, relPrefix } from "./urls.mjs";
 import { homeInstituteosGate, instituteosFeatureSections } from "./feature-sections.mjs";
 import { autolinkInternal } from "./autolink.mjs";
 import { knowledgePreview } from "./knowledge.mjs";
-import { relatedProjectsSection, projectCatalogSection } from "../pages/projects.mjs";
+import { relatedProjectsSection, projectCatalogSection, syllabusGrid, qaGrid } from "../pages/projects.mjs";
 
 export function relatedSlugsForPage(page) {
   if (Array.isArray(page.relatedSlugs) && page.relatedSlugs.length) {
@@ -197,6 +197,7 @@ export function publicPage(page) {
   </section>
   ${pageGuide(page, currentDir)}
   ${bestNextActions(page, currentDir)}
+  ${page.syllabus ? syllabusGrid(page.syllabus, currentDir) : ""}
   <section class="content-band">
     <p class="lede">${escapeHtml(tr(page.lede))}</p>
     <div class="article-stack">
@@ -233,6 +234,7 @@ export function publicPage(page) {
   </section>
   ${page.slug.startsWith("project-") ? relatedProjectsSection(page, currentDir) : ""}
   ${knowledgePreview(page, currentDir)}
+  ${page.qanda ? qaGrid(page.qanda, currentDir) : ""}
   <section class="content-band" id="resources">
     ${sectionHeading({ eyebrow: "Related resources", title: "Public links for this page", text: "External links are resolved from the shared registry so visitor-facing destinations stay centralized and checkable." })}
     ${resourceCards(entriesForPage(page, curated, 12), { currentDir })}
