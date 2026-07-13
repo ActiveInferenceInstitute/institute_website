@@ -15,6 +15,13 @@
       "target": "pages_domains"
     },
     {
+      "name": "active-inference-and-computational.json",
+      "output_path": "src/content/pages/domains/active-inference-and-computational.json",
+      "record_count": 1,
+      "sha256": "08d002b9f968663772db44f965a622e96bee761e88077d372ee6525e973eab60",
+      "target": "pages_domains"
+    },
+    {
       "name": "active-inference-and-cybersecurity.json",
       "output_path": "src/content/pages/domains/active-inference-and-cybersecurity.json",
       "record_count": 1,
@@ -106,6 +113,20 @@
       "target": "pages_domains"
     },
     {
+      "name": "active-inference-and-scientific-method.json",
+      "output_path": "src/content/pages/domains/active-inference-and-scientific-method.json",
+      "record_count": 1,
+      "sha256": "584fa58a7979592bdbb0c5290273aca469a17b0974ea71a58f33aceb662dca67",
+      "target": "pages_domains"
+    },
+    {
+      "name": "active-inference-and-social.json",
+      "output_path": "src/content/pages/domains/active-inference-and-social.json",
+      "record_count": 1,
+      "sha256": "a529aec0a4ee6dcc828e0445b11a19c34ef6255d527fd016f06c9eecdfec61be",
+      "target": "pages_domains"
+    },
+    {
       "name": "active-inference-and-urban-planning.json",
       "output_path": "src/content/pages/domains/active-inference-and-urban-planning.json",
       "record_count": 1,
@@ -123,7 +144,7 @@
       "name": "domain_projects.json",
       "output_path": "src/content/instituteos/domain_projects.json",
       "record_count": 22,
-      "sha256": "19e77630113c1fe78d634b5c2ac1250c4270ee0958d70f13da33eaca9d7f18bf",
+      "sha256": "0f04b3b346f5895fdc40ed74275fa77c481a36c83f70cb709081559b3913bba3",
       "target": "content"
     },
     {
@@ -165,11 +186,11 @@
       "name": "tech_tree_graph.json",
       "output_path": "src/content/instituteos/tech_tree_graph.json",
       "record_count": 30,
-      "sha256": "4bec7ebea84a5df248b65c7a34fd234275d284167a8c76c5ed042c295488313e",
+      "sha256": "7806f160f1bf73aa2f99995e974addd632243159c4ef79b02942653b27634db3",
       "target": "content"
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-07-12T20:55:52.740235+00:00",
-  "source_fingerprint": "464f4ee741e8"
+  "generated_at": "2026-07-12T22:50:01.308056+00:00",
+  "source_fingerprint": "54e775248109"
 }
