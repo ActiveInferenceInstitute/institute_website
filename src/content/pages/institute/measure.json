@@ -15,8 +15,7 @@
     "institute"
   ],
   "externalSourceIds": [
-    "measureform",
-    "official-measure"
+    "measureform"
   ],
   "sections": [
     {
@@ -68,16 +67,6 @@
         {
           "label": "Institute structure",
           "href": "/structure/"
-        }
-      ]
-    },
-    {
-      "heading": "More on measurement",
-      "body": "Further materials on Project Measurement — the broader framework, history, and reporting context — are maintained on the measurement hub and are being migrated onto this site.",
-      "links": [
-        {
-          "label": "Project Measurement materials",
-          "sourceId": "official-measure"
         }
       ]
     }
