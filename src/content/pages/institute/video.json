@@ -3,7 +3,7 @@
   "title": "Videos and Podcasts",
   "subtitle": "The Institute's public library of recorded videos and podcasts.",
   "audience": "Learners, researchers, and community members who want to watch or listen to Institute sessions, interviews, lectures, and presentations.",
-  "lede": "The Active Inference Institute publishes an extensive library of videos and podcasts — recorded livestreams, learning-group sessions, interviews, lectures, and presentations. Public video is hosted on the Institute's YouTube channel, and audio episodes are distributed through podcast platforms. Produced as part of the Institute's open, participatory model, the library lets anyone follow the work as it happens or return to it later. The full curated catalogue is maintained on the video hub.",
+  "lede": "The Active Inference Institute publishes an extensive library of videos and podcasts — recorded livestreams, learning-group sessions, interviews, lectures, and presentations. Public video is hosted on the Institute's YouTube channel, and audio episodes are distributed through podcast platforms. Produced as part of the Institute's open, participatory model, the library lets anyone follow the work as it happens or return to it later.",
   "order": 85,
   "sections": [
     {
@@ -56,10 +56,13 @@
     },
     {
       "heading": "Full materials",
-      "body": "The complete, authoritative catalogue of the Institute's videos and podcasts is currently maintained at the linked video hub and is being migrated onto this site. Until that migration is complete, the hub remains the canonical source for the full curated listing of recordings, series, and episodes.",
+      "body": "The YouTube channel is the authoritative catalogue of the Institute's recorded video sessions, and the Podbean feed carries the audio episodes drawn from that same library. Both are updated as new sessions are published.",
       "links": [
         {
-          "sourceId": "video"
+          "sourceId": "youtube"
+        },
+        {
+          "sourceId": "podbean"
         }
       ]
     }
@@ -79,7 +82,7 @@
       "text": "Audio versions of many sessions are distributed on podcast platforms for listening on the go.",
       "links": [
         {
-          "sourceId": "video"
+          "sourceId": "podbean"
         }
       ]
     },
@@ -109,7 +112,7 @@
       "sourceId": "youtube"
     },
     {
-      "sourceId": "video"
+      "sourceId": "podbean"
     }
   ],
   "relatedSlugs": [
@@ -122,7 +125,7 @@
     "learning"
   ],
   "externalSourceIds": [
-    "video",
-    "youtube"
+    "youtube",
+    "podbean"
   ]
 }
