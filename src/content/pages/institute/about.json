@@ -51,7 +51,7 @@
     },
     {
       "heading": "History",
-      "body": "The Institute was founded in 2021 as a volunteer-led community dedicated to making Active Inference more accessible and applicable across science, engineering, and practical domains. The community understood from the outset that change is inevitable, that sustainability and growth depend on a willingness to take chances, and that building trust takes time. The Institute was incorporated as a 501(c)(3) nonprofit in Delaware, USA, formalizing governance with a Board of Directors, Officers, and Scientific Advisory Board. See the History page for the year-by-year record, including the Textbook Group, the Applied Active Inference Symposium series, and the Institute and Ecosystem living document.",
+      "body": "The Institute traces its origins to a 2020 co-founder team meeting around a shared interest in Active Inference. An \"Active Inference Lab\" (ActInfLab) formed from those discussions and began operations in 2021 as a volunteer-led community dedicated to making Active Inference more accessible, rigorous, and applicable. In mid-2022, ActInfLab made the developmental leap to become The Active Inference Institute, registering as a nonprofit in Delaware, USA, and formalizing governance with a Board of Directors, Officers, and Scientific Advisory Board. In 2024, the Institute received official recognition as a 501(c)(3) nonprofit organization, achieved with the pro bono support of the Fried Frank law firm. See the History page for the full year-by-year record, including the Textbook Group, the Applied Active Inference Symposium series, and the Institute and Ecosystem living document.",
       "links": [
         {
           "label": "History",
@@ -76,7 +76,7 @@
     },
     {
       "heading": "Mission, Vision, Values, and Principles",
-      "body": "Our mission is to improve the accessibility, rigor, and applicability of Active Inference across science, engineering, education, and practical domains. The Institute operates by the motto Act. Infer. Serve. — a commitment to learning, action, and service. Our values include integrity, open learning, responsible conduct, professional development, research excellence, and practical service. We practice open science: making research reproducible and navigable, publishing under open licenses, and stewarding shared infrastructure. Diversity of background, discipline, and familiarity level is a feature of the community, not a constraint.",
+      "body": "Our mission is to improve the accessibility, rigor, and applicability of Active Inference across science, engineering, education, and practical domains. The Institute operates by the motto Act. Infer. Serve. — a commitment to learning, action, and service. Our vision is a future in which Active Inference is used as widely as Machine Learning, given its demonstrated utility and impact across the Domains of Application it serves. Our values and principles include Active Inference and Exploration, Integrity, Institute- and Ecosystem-Scale Generative Modeling, Anticipatory Behavior, Continuous Development, and Participatory Engagement. We practice open science: making research reproducible and navigable, publishing under open licenses, and stewarding shared infrastructure. Diversity of background, discipline, and familiarity level is a feature of the community, not a constraint.",
       "links": [
         {
           "sourceId": "shortlink-welcome"
@@ -185,7 +185,7 @@
   "cards": [
     {
       "title": "Founded 2021",
-      "text": "Established as a volunteer community, incorporated as a Delaware 501(c)(3) nonprofit.",
+      "text": "Began as ActInfLab in 2021, became a Delaware nonprofit in 2022, and gained 501(c)(3) recognition in 2024.",
       "links": [
         {
           "label": "History",
