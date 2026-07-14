@@ -99,7 +99,8 @@
         "active-inference"
       ],
       "priority": 18,
-      "promoted": true
+      "promoted": true,
+      "featured": true
     },
     {
       "sourceId": "official-newsletter",
