@@ -4,7 +4,7 @@
 
 # Institute Website: Design System & Documentation Guide
 
-**Version:** 2.6.0 | **Last Updated:** 2026-06-28
+**Version:** 4.0.0 | **Last Updated:** 2026-07-14
 
 This guide documents the Active Inference Institute website's design system, styling conventions, and provides a complete inventory of existing documentation. The site is a static GitHub Pages build with strict content-security-policy constraints and a unified design-system token contract.
 
@@ -365,19 +365,21 @@ All JavaScript is self-hosted (no external libraries) and CSP-compliant:
 All changes must pass the offline gates before committing:
 
 ```bash
-npm run build              # Render HTML
-npm run check              # All gates (see below)
-npm run check:links        # Internal link verification
-npm run check:instituteos  # Public data freshness
+npm run build               # Render HTML
+npm run check               # All 9 sub-checks below, chained (see package.json)
+npm run check:links         # Internal link verification
+npm run check:instituteos   # Public data freshness
 npm run check:design-system # Token fallback enforcement
-npm run check:site         # Content model & contract
-npm run check:security     # CSP, anchor tags, forms
+npm run check:site          # Content model & contract
+npm run check:security      # CSP, anchor tags, forms
+npm run check:redirects     # Legacy-URL redirect coverage
+npm run check:sources       # Live-sources.json URL reachability (network probe)
+npm run check:projects      # Backend project ↔ website page discoverability
+npm run check:catalog       # /projects/ index links every public project page
 ```
 
-**Network gates (not part of `npm run check`):**
-```bash
-npm run check:sources      # Verify live-sources.json URLs (curl-based)
-```
+Full gate-by-gate reference, including which checks require a network
+connection: [`GATES_AND_VALIDATION.md`](GATES_AND_VALIDATION.md).
 
 ---
 
@@ -407,7 +409,7 @@ If the upstream design system adds new tokens or changes:
 
 ## Version & Provenance
 
-- **Current Version:** v2.6.0 (from `package.json`)
+- **Current Version:** v4.0.0 (from `package.json`; re-check at each release per [`../RELEASING.md`](../RELEASING.md))
 - **Export Fingerprint:** Recorded in `data/export-manifest.json` (public data snapshot)
 - **Deploy:** Committed to `main` and served by GitHub Pages from the repo root
 - **Design-System Source:** Upstream `@instituteos/design-system` (byte-pinned via `check:design-system`)
