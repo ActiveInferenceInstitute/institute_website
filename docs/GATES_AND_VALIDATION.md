@@ -102,8 +102,9 @@ python3 scripts/sync_instituteos_public_data.py --check
 ```
 
 **Scope:**
-- Validates 9 required JSON files:
-  - `src/content/instituteos/{people.json, projects.json, ideas.json, ontology.json, entities.json, processes.json, communications.json, policies.json, assets.json}`
+- Validates 7 required JSON files (`REQUIRED_PUBLIC_JSON_FILES`):
+  - `src/content/instituteos/{people.json, projects.json, ideas.json, ontology.json, entities.json, policies.json, assets.json}`
+  - (`processes.json` was removed 2026-07-05 — process/workflow mechanics are backend governance detail; `communications.json` was removed 2026-07-14 — it was a dead duplicate of the producer-2 `communications_public.json`, which is the file `src/data.mjs` actually reads. See GATING.md.)
 - Checks 2 allowed brand assets: `assets/img/instituteos/{ActInferServe.png, Dark_ActInfServe.png}`
 - Verifies exact record counts match expected public-safe subsets
 

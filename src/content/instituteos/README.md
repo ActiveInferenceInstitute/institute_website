@@ -7,11 +7,16 @@ file in this directory is served directly.
 **Two producers feed this directory** (see [`../../../GATING.md`](../../../GATING.md)):
 
 1. The registry slices (`people`, `projects`, `ideas`, `ontology`, `assets`,
-   `entities`, `communications`, `policies`, `calendar`) are produced by
+   `entities`, `policies`, `calendar`) are produced by
    `scripts/sync_instituteos_public_data.py` and validated by
    `npm run check:instituteos`. (`processes.json` was removed 2026-07-05 —
    process/workflow mechanics are backend governance detail, confirmed not
-   for public release; entity/role *names* remain public via `entities.json`.)
+   for public release; entity/role *names* remain public via `entities.json`.
+   `communications.json` was removed 2026-07-14 — it was a byte-identical
+   duplicate of the producer-2 `communications_public.json` below with zero
+   consumers; `src/data.mjs` only ever loaded the producer-2 file for the
+   communications page render, so the producer-1 slice did real sanitization
+   work with no effect on the rendered site.)
 2. The graph/narrative slices (`governance_graph`, `ontology_graph`,
    `tech_tree_graph`, `domain_projects`, `narratives_public`,
    `communications_public`, `strategies_public`) arrive **pre-sanitized from a
@@ -119,20 +124,6 @@ Public governance members and organizations.
     id: string, name: string, type: string,
     description: string, url: string,
     tags: string[], memberIds: string[], parentId: string|null
-  }]
-}
-```
-
-### `communications.json`
-Approved public communications (reports, announcements, newsletters).
-
-```
-{
-  description: string, source: string,
-  records: [{
-    id: string, type: string, title: string,
-    author: string, date: string,
-    referenceNumber: string, language: string
   }]
 }
 ```

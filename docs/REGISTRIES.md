@@ -127,7 +127,6 @@ npm run build
 | `assets.json` | `{ records: [{ id, filename, path, alt, theme, source }] }` | Brand and design assets |
 | `entities.json` | `{ people: [], organizations: [] }` | Governance members and orgs |
 | `processes.json` | `{ records: [{ id, title, category, status, steps[] }] }` | Governance workflows |
-| `communications.json` | `{ records: [{ id, type, title, author, date, referenceNumber }] }` | Reports and announcements |
 | `policies.json` | `{ records: [{ id, title, category, status, tags[] }] }` | Policy registry |
 | `tech_tree_graph.json` | Graph data (nodes + edges) | Concept dependency graph |
 | `ontology_graph.json` | Graph data | Ontology relationship visualization |

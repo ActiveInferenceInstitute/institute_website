@@ -29,9 +29,9 @@ Structured public data lands in `src/content/instituteos/*.json` from **two
 distinct pipelines** — this split matters for where the gate applies:
 
 1. **Website-side sync** — `scripts/sync_instituteos_public_data.py` reads
-   private registries (tech trees, entities, processes, communications, policies,
-   calendar, assets), runs per-field **whitelist** sanitizers plus per-record
-   dropping (`record_is_public_safe`), and validates every payload with
+   private registries (tech trees, entities, processes, policies, calendar,
+   assets), runs per-field **whitelist** sanitizers plus per-record dropping
+   (`record_is_public_safe`), and validates every payload with
    `validate_public_payload`. This is the primary, in-repo gate.
 2. **Private InstituteOS export** — a separate pipeline (outside this repo) emits
    the graph/narrative slices: `*_graph.json`, `narratives_public.json`,
@@ -103,6 +103,19 @@ new content-level finding is open, and known residual gaps remain:
    only as exactly-quoted JSON keys and `FORBIDDEN_SUBSTRINGS` as substrings, so
    the per-field whitelist sanitizers — not the denylist — are the primary
    control. The denylist is defense-in-depth.
+7. **Dead producer-1 `communications.json` output (closed 2026-07-14).**
+   `sanitize_communications()` read `library/registries/communications.json`
+   and wrote `src/content/instituteos/communications.json`, but `src/data.mjs`
+   only ever loads the **producer-2** `communications_public.json` for the
+   communications page render — the producer-1 file had zero consumers. The
+   two files' record sets were kept byte-identical by convention with no gate
+   enforcing that, so the producer-1 sanitizer/validation work was pure
+   overhead with no effect on the rendered site. `sanitize_communications()`
+   was removed, `communications.json` was dropped from
+   `REQUIRED_PUBLIC_JSON_FILES`, and the stale committed
+   `src/content/instituteos/communications.json` was deleted.
+   `communications_public.json` (producer-2) remains the sole, authoritative
+   source for this domain.
 6. **Governance glossary intentionally not exported (open, 2026-07-14).**
    `library/resources/definitions/glossary.json` (79 terms, private repo) is
    never projected onto this site. Only 7 of 79 terms are `core_concept`
