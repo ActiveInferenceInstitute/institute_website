@@ -136,14 +136,37 @@
     },
     {
       "id": "learning-foundations-arxiv",
-      "label": "Active Inference foundations arXiv reference",
+      "label": "Active inference on discrete state-spaces: A synthesis (Da Costa et al., arXiv)",
       "category": "Research",
-      "url": "https://arxiv.org/abs/2209.09185",
-      "sourceBasis": "Reachable learning or research reference surfaced from the official Institute site.",
-      "finalUrl": "https://arxiv.org/abs/2209.09185",
+      "url": "https://arxiv.org/abs/2001.07203",
+      "sourceBasis": "Corrected 2026-07-14: previous URL (arxiv.org/abs/2209.09185) resolved to an unrelated paper (Wakayama & Ahmed, \"Active Inference for Autonomous Decision-Making with Contextual Multi-Armed Bandits\"). Verified via direct fetch that arXiv:2001.07203 is Da Costa, Parr, Sajid, Veselic, Neacsu, Friston (2020) \"Active inference on discrete state-spaces: a synthesis\" -- matches library/registries/citations.json entry da-costa-2020-active-inference-discrete (DOI 10.1016/j.jmp.2020.102447).",
+      "finalUrl": "https://arxiv.org/abs/2001.07203",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
+      "checkedAt": "2026-07-14T19:56:47Z"
+    },
+    {
+      "id": "friston-2010-doi",
+      "label": "The free-energy principle: a unified brain theory? (Friston 2010, DOI)",
+      "category": "Research",
+      "url": "https://doi.org/10.1038/nrn2787",
+      "sourceBasis": "Added 2026-07-14 to give citations.json entry friston-2010-free-energy-principle its own correct source (previously mismatched to the learning-foundations-arxiv entry, which pointed at an unrelated paper). Karl J. Friston (2010), Nature Reviews Neuroscience, has no arXiv preprint; the DOI resolves to the Nature article (verified via direct fetch -- title, journal, and year match). Nature.com occasionally bounces automated requests through a cookie-consent redirect (same class of flakiness as the linkedin entry) -- genuinely reachable, recorded as ok:true.",
+      "finalUrl": "https://www.nature.com/articles/nrn2787",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-14T19:56:47Z",
+      "knownBotBlocked": true
+    },
+    {
+      "id": "lanillos-2021-arxiv",
+      "label": "Active Inference in Robotics and Artificial Agents: Survey and Challenges (arXiv)",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2112.01871",
+      "sourceBasis": "Added 2026-07-14 to give citations.json entry lanillos-2021-active-inference-robotics-survey its own correct source (previously mismatched to the learning-foundations-arxiv entry, which pointed at an unrelated paper). Verified via direct fetch: Lanillos, Meo, Pezzato et al. (2021) \"Active Inference in Robotics and Artificial Agents: Survey and Challenges\" -- matches citations.json DOI 10.48550/arXiv.2112.01871.",
+      "finalUrl": "https://arxiv.org/abs/2112.01871",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-14T19:56:47Z"
     },
     {
       "id": "learning-live-intro",
@@ -158,14 +181,14 @@
     },
     {
       "id": "learning-ramstead-precis",
-      "label": "Ramstead Active Inference precis",
+      "label": "Ramstead et al. Bayesian Mechanics precis (arXiv)",
       "category": "Research",
-      "url": "https://arxiv.org/abs/2310.11524",
-      "sourceBasis": "Reachable learning or research reference surfaced from the official Institute site.",
-      "finalUrl": "https://arxiv.org/abs/2310.11524",
+      "url": "https://arxiv.org/abs/2205.11543",
+      "sourceBasis": "Corrected 2026-07-14: previous URL (arxiv.org/abs/2310.11524) resolved to an unrelated paper (Levenchuk, \"Toward an Ontology for Third Generation Systems Thinking\"). Verified via direct fetch that arXiv:2205.11543 is Ramstead, Sakthivadivel, Heins, Koudahl, Millidge, Da Costa, Klein, Friston, \"On Bayesian Mechanics: A Physics of and by Beliefs\" -- matches library/registries/citations.json entry ramstead-2023-active-inference-precis.",
+      "finalUrl": "https://arxiv.org/abs/2205.11543",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
+      "checkedAt": "2026-07-14T19:56:47Z"
     },
     {
       "id": "learning-tumiel-spinning-up",
