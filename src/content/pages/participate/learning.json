@@ -54,6 +54,15 @@
         },
         {
           "sourceId": "repo-fundamentals"
+        },
+        {
+          "sourceId": "learning-ramstead-precis"
+        },
+        {
+          "sourceId": "learning-tumiel-spinning-up"
+        },
+        {
+          "sourceId": "learning-beren-papers"
         }
       ]
     },
@@ -165,6 +174,9 @@
     "shortlink-obsidian",
     "shortlink-rxinfer",
     "mitpress-fundamentals-2026",
-    "repo-fundamentals"
+    "repo-fundamentals",
+    "learning-ramstead-precis",
+    "learning-tumiel-spinning-up",
+    "learning-beren-papers"
   ]
 }

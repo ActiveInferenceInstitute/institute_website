@@ -168,6 +168,17 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
+      "id": "learning-tumiel-spinning-up",
+      "label": "Spinning Up in Active Inference and the Free Energy Principle",
+      "category": "Research",
+      "url": "https://jaredtumiel.github.io/blog/2020/10/14/spinning-up-in-ai.html",
+      "sourceBasis": "Cited by name in library/sources/superhuman_docs/Welcome__canvas-50NRgeiRE2.md as \"Spinning Up in Active Inference and the Free Energy Principle\" by Jared Tumiel; URL verified reachable via curl.",
+      "finalUrl": "https://jaredtumiel.github.io/blog/2020/10/14/spinning-up-in-ai.html",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-14T19:52:48Z"
+    },
+    {
       "id": "linkedin",
       "label": "LinkedIn company page",
       "category": "Social",
