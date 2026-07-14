@@ -132,7 +132,7 @@
         "activities",
         "community"
       ],
-      "summary": "Public activities shortlink for live sessions, recurring groups, and participation surfaces.",
+      "summary": "Public activities shortlink, currently routed to the Institute's Projects directory of repositories, research, and applied work.",
       "relatedSlugs": [
         "activities",
         "get-involved"
@@ -272,6 +272,27 @@
         "programs"
       ],
       "priority": 60,
+      "promoted": true,
+      "shortlink": true
+    },
+    {
+      "sourceId": "shortlink-2026",
+      "title": "2026 planning shortlink",
+      "type": "official",
+      "group": "Activities",
+      "category": "community",
+      "audience": "contributor",
+      "tags": [
+        "2026",
+        "planning",
+        "updates"
+      ],
+      "summary": "Public 2026 planning shortlink.",
+      "relatedSlugs": [
+        "activities",
+        "programs"
+      ],
+      "priority": 59,
       "promoted": true,
       "shortlink": true
     },
