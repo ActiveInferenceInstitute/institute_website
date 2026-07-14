@@ -88,7 +88,7 @@
     },
     {
       "heading": "Release Checks",
-      "body": "A public refresh is complete only after the sync/export checks, static build, internal-link check, site contract, static-security check, design-system check, and browser inspection pass. Generated root HTML is rebuilt from source, not hand-edited.",
+      "body": "A public refresh is complete only after the full automated check suite passes: static build, internal-link check, sync/export checks, design-system check, site contract, static-security check, redirect-liveness check, live external-source check, project-discoverability check, project-catalog check, and browser inspection. Generated root HTML is rebuilt from source, not hand-edited.",
       "links": [
         {
           "label": "Global index",
