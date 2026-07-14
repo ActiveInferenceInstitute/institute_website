@@ -3,7 +3,7 @@ import { tableSection, ontologyTermsTable } from "./tables.mjs";
 import { narrativeSection } from "./narrative.mjs";
 import { domainProjectsSection } from "../pages/ecosystem.mjs";
 import { EXPORT_PROVENANCE, siteData, loadProjectsData } from "../data.mjs";
-import { escapeHtml } from "../lib/text.mjs";
+import { escapeHtml, sanitizePublicProse } from "../lib/text.mjs";
 import { hrefForSlug } from "../url-taxonomy.mjs";
 import { sectionHeading } from "./components.mjs";
 import { relPrefix } from "./urls.mjs";
@@ -291,6 +291,49 @@ function governanceRosterSection(slug, currentDir = "") {
   </section>`;
 }
 
+// Ecosystem organizations: external peer/community organizations flagged
+// `ecosystem: true` in the InstituteOS entity registry — arXiv, Zenodo,
+// Obsidian, Bluesky, an independent community bibliography maintainer, and
+// current ecosystem partners. Distinct from governed technology vendors
+// (GitHub, YouTube) that carry policy_links and are therefore not flagged.
+// Each org links out only through a registered live source; orgs with no
+// public URL on record (e.g. partners without a published site) render as
+// plain, unlinked cards rather than a fabricated href.
+const ECOSYSTEM_ORG_SOURCE_IDS = {
+  arxiv: "arxiv",
+  zenodo: "zenodo",
+  obsidian: "obsidian",
+  bluesky: "bluesky",
+  "beren-millidge-fep-papers": "learning-beren-papers",
+};
+function ecosystemOrganizationsSection(currentDir = "") {
+  const orgs = (siteData.instituteos.entities.organizations || [])
+    .filter((org) => org && org.ecosystem)
+    .sort((a, b) => String(a.name).localeCompare(String(b.name)));
+  if (!orgs.length) {
+    return "";
+  }
+  const cards = orgs
+    .map((org) => {
+      const sourceId = ECOSYSTEM_ORG_SOURCE_IDS[org.id];
+      const heading = sourceId ? sourceAnchor(sourceId, org.name) : escapeHtml(org.name);
+      const description = escapeHtml(sanitizePublicProse(org.description || ""));
+      return `<article class="info-card" id="${escapeHtml(org.id)}">
+        <h3>${heading}</h3>
+        <p>${description}</p>
+      </article>`;
+    })
+    .join("");
+  return `<section class="content-band" id="ecosystem-organizations">
+    ${sectionHeading({
+      eyebrow: "Organizations",
+      title: "Ecosystem organizations",
+      text: "External peer and community organizations the Institute participates in as part of the open Active Inference ecosystem — open-access research infrastructure, knowledge-commons platforms, and current ecosystem partners.",
+    })}
+    <div class="card-grid">${cards}</div>
+  </section>`;
+}
+
 export function instituteosFeatureSections(page, currentDir = "") {
   if (GOVERNANCE_ROSTERS[page.slug]) {
     return governanceRosterSection(page.slug, currentDir);
@@ -318,6 +361,7 @@ export function instituteosFeatureSections(page, currentDir = "") {
       );
     case "ecosystem":
       return (
+        ecosystemOrganizationsSection(currentDir) +
         domainProjectsSection(currentDir) +
         narrativeSection({
           id: "ecosystem-narratives",

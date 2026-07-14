@@ -14,6 +14,39 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
+      "id": "arxiv",
+      "label": "arXiv",
+      "category": "Research",
+      "url": "https://arxiv.org",
+      "sourceBasis": "Open-access preprint server homepage verified directly on arxiv.org.",
+      "finalUrl": "https://arxiv.org/",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-14T00:00:00Z"
+    },
+    {
+      "id": "zenodo",
+      "label": "Zenodo",
+      "category": "Research",
+      "url": "https://zenodo.org",
+      "sourceBasis": "Open-access CERN/OpenAIRE research repository homepage verified directly on zenodo.org.",
+      "finalUrl": "https://zenodo.org/",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-14T00:00:00Z"
+    },
+    {
+      "id": "obsidian",
+      "label": "Obsidian",
+      "category": "Learning",
+      "url": "https://obsidian.md",
+      "sourceBasis": "Markdown knowledge-management platform homepage verified directly on obsidian.md.",
+      "finalUrl": "https://obsidian.md/",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-14T00:00:00Z"
+    },
+    {
       "id": "bluesky",
       "label": "Bluesky profile",
       "category": "Social",
