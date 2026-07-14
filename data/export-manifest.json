@@ -4,7 +4,7 @@
       "name": "active-inference-and-agriculture.json",
       "output_path": "src/content/pages/domains/active-inference-and-agriculture.json",
       "record_count": 1,
-      "sha256": "697f5baf60730f331550f4fec0c9cbab42c83500892ab27d609a254cacb5b8d3",
+      "sha256": "736efb860ed1e260e66699e4a29067d6a070b396485d684f88acdde77937df44",
       "target": "pages_domains"
     },
     {
@@ -53,14 +53,14 @@
       "name": "active-inference-and-entomology.json",
       "output_path": "src/content/pages/domains/active-inference-and-entomology.json",
       "record_count": 1,
-      "sha256": "d0fb2fccc9e192ba114fabbc6ef931fadedee1fba4ba936a8165d4c2faf0f238",
+      "sha256": "4a845fd3ab70d3e7f4f923f2cc3d4670918bbd2e90fab7f6f9117957b139a5b1",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-healthcare.json",
       "output_path": "src/content/pages/domains/active-inference-and-healthcare.json",
       "record_count": 1,
-      "sha256": "b722db1e4a58d320d52f634dfed0f8840f91d01b3639987bd8d6287da4067ea4",
+      "sha256": "c9367298bd005f9623b641f3002bea34a5453f8c310ac70cfdf456ac27eb1b06",
       "target": "pages_domains"
     },
     {
@@ -191,6 +191,6 @@
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-07-14T19:52:55.103911+00:00",
-  "source_fingerprint": "c0e6f0a70afc"
+  "generated_at": "2026-07-14T19:57:58.715243+00:00",
+  "source_fingerprint": "99e460314c67"
 }
