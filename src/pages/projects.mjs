@@ -17,6 +17,18 @@ export function projectPageSlugForDataId(dataId) {
   return `project-${dataId}`;
 }
 
+// Reverse lookup, keyed by the generated page slug rather than the registry
+// id, so a project detail page can look up its own registry status without
+// knowing its own dataId. Backs the archived-status notice below: the notice
+// text is never hand-authored per page, it is always derived from this field,
+// so it can't drift out of sync with library/registries/projects.json.
+export const projectDataBySlug = new Map(
+  (loadProjectsData().projects || []).filter((project) => project.website_slug).map((project) => [project.website_slug, project]),
+);
+export function projectStatusForSlug(slug) {
+  return projectDataBySlug.get(slug)?.status || null;
+}
+
 // "Related projects" for a project page: projects sharing category and/or
 // topics, ranked by overlap, restricted to those with a real public page.
 export function relatedProjectsForPage(page) {
