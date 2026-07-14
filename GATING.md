@@ -97,8 +97,13 @@ new content-level finding is open, and known residual gaps remain:
    `npm run check:site` passes.
 4. **Resolved Coda destinations in source.** `src/content/live-sources.json`
    stores resolved `finalUrl` values for verification; these are not rendered
-   into HTML but are committed in source. `check:sources` is not in the default
-   `npm run check` chain.
+   into HTML but are committed in source. `check:sources`
+   (`scripts/check_live_sources.py`) **is** part of the default `npm run check`
+   chain (added 2026-07-07, `e0c973d4`) and re-verifies every source URL's
+   liveness on each run. The residual gap is narrower than previously stated:
+   the resolved `finalUrl` values themselves — including any that trace back
+   to a Coda redirect — remain committed in source even though the liveness
+   check now runs by default.
 5. **Denylist blind spots.** `validate_public_payload` matches `PRIVATE_KEYS`
    only as exactly-quoted JSON keys and `FORBIDDEN_SUBSTRINGS` as substrings, so
    the per-field whitelist sanitizers — not the denylist — are the primary
