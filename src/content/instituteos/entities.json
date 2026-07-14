@@ -222,6 +222,17 @@
       "url": null
     },
     {
+      "description": "Research collaborative working toward a science of mindful agents, societies, and observer languages; current Institute partner since 2024.",
+      "ecosystem": true,
+      "id": "first-principles-first",
+      "memberIds": [],
+      "name": "First Principles First",
+      "parentId": null,
+      "tags": [],
+      "type": "partner",
+      "url": "https://fp1.ai/"
+    },
+    {
       "description": "Primary platform for source code hosting, version control, CI/CD pipelines, and open-source collaboration. Hosts the Institute's repositories under the ActiveInferenceInstitute organisation.",
       "ecosystem": false,
       "id": "github",
@@ -262,7 +273,7 @@
       "parentId": null,
       "tags": [],
       "type": "partner",
-      "url": null
+      "url": "https://lazydynamics.com/"
     },
     {
       "description": "Game studio, began the Numinia effort in 2020; current Institute partner building a gamified organizational framework and an open-metaverse RPG, and developer of the Institute's Numinia ecosystem project.",
@@ -273,7 +284,7 @@
       "parentId": null,
       "tags": [],
       "type": "partner",
-      "url": null
+      "url": "https://v2.oncyber.io/age_of_ai"
     },
     {
       "description": "Markdown-based knowledge-management and publishing platform used to host public Active Inference knowledge bases; ecosystem knowledge infrastructure.",
@@ -792,7 +803,7 @@
       "title": "President & Treasurer"
     },
     {
-      "active": true,
+      "active": false,
       "id": "dean-tickles",
       "name": "Dean Tickles",
       "orgId": "active-inference-institute",
@@ -801,7 +812,7 @@
         "Board Member"
       ],
       "tags": [],
-      "title": ""
+      "title": "Board Member (2022-2024)"
     },
     {
       "active": null,
@@ -1002,12 +1013,11 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member",
         "Scientific Advisor",
         "Scientific Advisory Board"
       ],
       "tags": [],
-      "title": ""
+      "title": "Scientific Advisory Board; Board Member (2022-2025)"
     },
     {
       "active": true,
@@ -1094,12 +1104,11 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member",
         "Scientific Advisor",
         "Scientific Advisory Board"
       ],
       "tags": [],
-      "title": ""
+      "title": "Scientific Advisory Board; Board Member (2022-2025)"
     },
     {
       "active": true,
@@ -1114,7 +1123,7 @@
       "title": ""
     },
     {
-      "active": true,
+      "active": false,
       "id": "rafael-kaufmann",
       "name": "Rafael Kaufmann",
       "orgId": "active-inference-institute",
@@ -1123,7 +1132,7 @@
         "Board Member"
       ],
       "tags": [],
-      "title": ""
+      "title": "Board Member (2022-2024)"
     },
     {
       "active": true,
