@@ -23,7 +23,7 @@ import { slugToHref, resolveInternalHref, relPrefix } from "./urls.mjs";
 import { homeInstituteosGate, instituteosFeatureSections } from "./feature-sections.mjs";
 import { autolinkInternal } from "./autolink.mjs";
 import { knowledgePreview } from "./knowledge.mjs";
-import { relatedProjectsSection, projectCatalogSection, syllabusGrid, qaGrid } from "../pages/projects.mjs";
+import { relatedProjectsSection, projectCatalogSection, syllabusGrid, qaGrid, projectStatusForSlug } from "../pages/projects.mjs";
 
 export function relatedSlugsForPage(page) {
   if (Array.isArray(page.relatedSlugs) && page.relatedSlugs.length) {
@@ -187,12 +187,19 @@ export function publicPage(page) {
   const curated = normalizedCuratedResources();
   const official = normalizedOfficialPages();
   const repositories = normalizedRepositories();
+  // Every project detail page (slug "project-*") surfaces its registry status
+  // here, not only on the /projects/ catalog card, so a visitor landing
+  // directly on an archived project's page (search engine, shared link,
+  // sitemap, related-projects card) is told before reading a "how to
+  // participate" section written while the project was still active.
+  const isArchivedProject = page.slug.startsWith("project-") && projectStatusForSlug(page.slug) === "archived";
   const body = `
   <section class="page-hero compact">
     ${breadcrumb(page, currentDir)}
     <p class="eyebrow">${escapeHtml(tr(page.audience || "Public guide"))}</p>
     <h1>${escapeHtml(tr(page.title))}</h1>
     <p>${escapeHtml(tr(page.subtitle))}</p>
+    ${isArchivedProject ? `<p class="mt-notice status-notice" role="note"><span aria-hidden="true">📦</span> ${escapeHtml(tr("This project is archived. It is no longer active, and any participation prompts below describe how it previously operated."))}</p>` : ""}
     ${actionButtons(page.primaryActions, currentDir)}
   </section>
   ${pageGuide(page, currentDir)}
