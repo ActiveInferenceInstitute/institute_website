@@ -12,8 +12,13 @@
     return;
   }
 
-  // Stable display order for the result-type groups.
-  var GROUP_ORDER = ["Page", "Repository", "Concept", "Policy", "Process", "Person"];
+  // Stable display order for the result-type groups. "Process" is deliberately
+  // NOT included: process/workflow mechanics are internal governance content
+  // that is kept off the public site (see GATING.md, 2026-07-05 decision) and
+  // src/render/search.mjs's buildSearchIndex() never emits a "Process"-category
+  // entry. Do not re-add it here without also adding process entries to the
+  // index — that would be a governance/privacy regression, not a fix.
+  var GROUP_ORDER = ["Page", "Repository", "Concept", "Policy", "Person"];
 
   function escapeHtml(value) {
     return String(value).replace(/[&<>"]/g, function (char) {
