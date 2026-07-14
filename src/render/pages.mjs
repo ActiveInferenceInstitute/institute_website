@@ -193,13 +193,19 @@ export function publicPage(page) {
   // sitemap, related-projects card) is told before reading a "how to
   // participate" section written while the project was still active.
   const isArchivedProject = page.slug.startsWith("project-") && projectStatusForSlug(page.slug) === "archived";
+  // Built as a standalone string (not an inline ternary on its own template
+  // line) so non-project and active-project pages get byte-identical hero
+  // markup to before this notice existed -- no stray blank line from a
+  // false-branch "" sitting on its own line.
+  const archivedProjectNotice = isArchivedProject
+    ? `\n    <p class="mt-notice status-notice" role="note"><span aria-hidden="true">📦</span> ${escapeHtml(tr("This project is archived. It is no longer active, and any participation prompts below describe how it previously operated."))}</p>`
+    : "";
   const body = `
   <section class="page-hero compact">
     ${breadcrumb(page, currentDir)}
     <p class="eyebrow">${escapeHtml(tr(page.audience || "Public guide"))}</p>
     <h1>${escapeHtml(tr(page.title))}</h1>
-    <p>${escapeHtml(tr(page.subtitle))}</p>
-    ${isArchivedProject ? `<p class="mt-notice status-notice" role="note"><span aria-hidden="true">📦</span> ${escapeHtml(tr("This project is archived. It is no longer active, and any participation prompts below describe how it previously operated."))}</p>` : ""}
+    <p>${escapeHtml(tr(page.subtitle))}</p>${archivedProjectNotice}
     ${actionButtons(page.primaryActions, currentDir)}
   </section>
   ${pageGuide(page, currentDir)}
