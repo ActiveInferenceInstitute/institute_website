@@ -53,11 +53,15 @@
     },
     {
       "heading": "March",
-      "body": "2026 Quarterly Roundtable #1 livestreams. The March newsletter is also published."
+      "body": "March 27 — 2026 Quarterly Roundtable #1. The March newsletter is also published."
     },
     {
       "heading": "April",
       "body": "The April newsletter is published."
+    },
+    {
+      "heading": "June",
+      "body": "June 26 — 2026 Quarterly Roundtable #2."
     },
     {
       "heading": "Full materials",
@@ -81,12 +85,22 @@
       ]
     },
     {
-      "title": "Quarterly Roundtable #1",
-      "text": "The Institute's first 2026 Quarterly Roundtable livestreams in March.",
+      "title": "Quarterly Roundtables",
+      "text": "Two of the year's four 2026 Quarterly Roundtables have livestreamed so far — March 27 (#1) and June 26 (#2).",
       "links": [
         {
           "label": "Activities",
           "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "title": "6th Applied Active Inference Symposium",
+      "text": "The call for presenters is open for the 6th Applied Active Inference Symposium, running online 12–14 November 2026.",
+      "links": [
+        {
+          "label": "Applied Active Inference Symposium",
+          "href": "/projects/symposium/"
         }
       ]
     },
