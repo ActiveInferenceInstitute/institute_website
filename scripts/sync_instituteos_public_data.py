@@ -57,7 +57,6 @@ REQUIRED_PUBLIC_JSON_FILES = (
     "ideas.json",
     "ontology.json",
     "entities.json",
-    "communications.json",
     "policies.json",
     "assets.json",
 )
@@ -440,6 +439,7 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
                 "tags": [public_text(tag) for tag in entity.get("tags", []) if public_text(tag)],
                 "memberIds": list(entity.get("people", [])),
                 "parentId": entity.get("parent_id"),
+                "ecosystem": bool(entity.get("ecosystem", False)),
             }
             if record_is_public_safe(record):
                 organizations.append(record)
@@ -462,28 +462,16 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
 # fine. `processes.json` is no longer produced; see GATING.md.
 
 
-def sanitize_communications(comms_data: dict[str, Any]) -> dict[str, Any]:
-    records = []
-    for comm in comms_data.get("communications", []):
-        if comm.get("review_status") != "approved":
-            continue
-        records.append(
-            {
-                "id": comm.get("id"),
-                "type": public_text(comm.get("type")),
-                "title": public_text(comm.get("title")),
-                "author": public_text(comm.get("author")),
-                "date": comm.get("date"),
-                "referenceNumber": comm.get("reference_number"),
-                "language": comm.get("language"),
-            }
-        )
-    records.sort(key=lambda item: str(item.get("date") or ""), reverse=True)
-    return {
-        "description": "Public-safe approved communications derived from InstituteOS communications.",
-        "source": "instituteos/library/registries/communications.json",
-        "records": records,
-    }
+# NOTE (2026-07-14): a `sanitize_communications()` generator used to publish
+# `communications.json` alongside the producer-2 `communications_public.json`.
+# Audit confirmed `communications.json` had zero consumers -- `src/data.mjs`
+# only ever loads `communications_public.json` (the producer-2 file emitted by
+# the private InstituteOS export) for the actual communications page render.
+# The two files' record sets were kept byte-identical by convention, but
+# nothing cross-checked that, and the producer-1 sanitizer/validation work was
+# pure overhead with no effect on the rendered site. `communications_public.json`
+# is now the sole, authoritative source for this domain; `communications.json`
+# is no longer produced. See GATING.md.
 
 
 def sanitize_policies(policies_data: dict[str, Any]) -> dict[str, Any]:
@@ -655,14 +643,12 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
 
     registries_dir = instituteos_root / "library" / "registries"
     entities_path = registries_dir / "entities.json"
-    communications_path = registries_dir / "communications.json"
     policies_path = registries_dir / "policies.json"
-    for required_path in (entities_path, communications_path, policies_path):
+    for required_path in (entities_path, policies_path):
         if not required_path.exists():
             raise SystemExit(f"required InstituteOS registry not found: {required_path}")
 
     entities_data = load_json(entities_path)
-    communications_data = load_json(communications_path)
     policies_data = load_json(policies_path)
 
     payloads = {
@@ -671,7 +657,6 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
         "ideas.json": sanitize_ideas(tech_tree_data),
         "ontology.json": sanitize_ontology(tech_tree_data),
         "entities.json": sanitize_entities(entities_data),
-        "communications.json": sanitize_communications(communications_data),
         "policies.json": sanitize_policies(policies_data),
     }
     # Calendar is optional: only synced when the InstituteOS pull has been run.
