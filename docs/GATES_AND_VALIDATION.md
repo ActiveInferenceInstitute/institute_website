@@ -14,7 +14,7 @@ This document is a complete reference for all gates and guards enforcing the sta
 # Build first (always) — gates read generated HTML
 node src/build.mjs
 
-# Run the offline gate suite (5 sub-checks)
+# Run the full gate suite (9 sub-checks, chained in package.json's "check" script)
 npm run check
 
 # Explicitly run a single gate
@@ -24,10 +24,9 @@ npm run check:design-system  # check_design_system_export.mjs
 npm run check:site         # check_site_contract.py
 npm run check:security     # check_static_security.py
 npm run check:redirects    # check_redirects.py
+npm run check:sources      # check_live_sources.py -- network probe, part of npm run check
 npm run check:projects     # check_project_discoverability.py
-
-# Network probe (part of npm run check)
-npm run check:sources      # check_live_sources.py
+npm run check:catalog      # check_project_catalog_coverage.mjs
 ```
 
 ---
@@ -220,7 +219,7 @@ This is the **largest and most complex gate**. It validates the entire content m
 - `navigation.json` must define grouped dropdown navigation with `items` in each group
 - Required navigation destination slugs exist: `directory`, `resources`, `projects`, `get-involved`, `instituteos`
 - `live-sources.json` has no duplicate IDs
-- All 23 required source IDs are present and marked `ok: true`:
+- All 22 required source IDs are present and marked `ok: true`:
   - `official-activeinference-org`, `start-docs`, `ecosystem`, `official-activities-shortlink`, `official-intern`, `official-measure`, `official-projects-shortlink`, `official-symposium-shortlink`, `official-textbook-group-shortlink`, `official-volunteer`, `shortlink-2025`, `shortlink-fellows`, `shortlink-mentorship`, `shortlink-obsidian`, `shortlink-ontology`, `shortlink-prepare`, `shortlink-rxinfer`, `shortlink-strategy`, `shortlink-wave-hypothesis`, `shortlink-welcome`, `video`, `weekly`
 - No blocked governance source IDs: `official-board`, `official-officers`, `official-scientific-advisory-board`, `shortlink-bod`, `shortlink-sab`
 - No `"category": "Governance"` in `live-sources.json`
@@ -228,7 +227,7 @@ This is the **largest and most complex gate**. It validates the entire content m
 - `resources.json`, `official-pages.json`, `repositories.json` have valid record shapes:
   - Required fields: `sourceId`, `type`, `category`, `audience`, `tags`, `summary`, `relatedSlugs`, `priority`, `promoted`
   - No `governance` category or audience exposed
-- Exactly 52 repositories in `repositories.json`
+- Exactly N repositories in `repositories.json`, where N is the live count asserted in `check_site_contract.py` (currently 37 -- this drifts with `.gitmodules`, so treat the script as the source of truth rather than this doc)
 - At least 10 promoted official shortlinks in `official-pages.json`
 - `audience-pathways.json` defines exactly 6 required pathways: `newcomer`, `learner`, `researcher`, `developer`, `contributor`, `partner-supporter`
   - Each pathway has non-empty `primaryHref` and `links`
@@ -244,7 +243,7 @@ Site contract check failed:
 - live-sources.json contains duplicate ids: ['ecosystem']
 - required source shortlink-strategy is not promoted as reachable
 - live-sources.json public url may not point directly to Coda: ecosystem
-- resources.json expected 52 public repositories, found 48
+- resources.json expected 37 public repositories, found 33
 - get-involved: missing required public content field primaryActions
 - official-pages.json expected at least 10 promoted non-governance official shortlinks, found 9
 - audience-pathways.json expected ['contributor', 'developer', 'learner', 'newcomer', 'partner-supporter', 'researcher'], found ['contributor', 'developer', 'learner']
@@ -255,7 +254,7 @@ Site contract check failed:
 - Remove duplicate source IDs (rename one)
 - Remove or unmark blocked governance source IDs
 - Replace direct `coda.io` URLs with shortlinks in `live-sources.json`
-- Ensure repositories.json has exactly 52 entries
+- Ensure `repositories.json` has exactly as many entries as `check_site_contract.py` expects (currently 37)
 - Add required fields to page JSON files
 - Re-run `npm run check:sources` to update live-source reachability
 
@@ -673,9 +672,31 @@ Google Calendar URLs and other resources with `@` characters are `%40`-encoded i
 
 ---
 
+## Gate 7: Project Catalog Coverage (`check:catalog`)
+
+**File:** `scripts/check_project_catalog_coverage.mjs`
+
+**What it enforces:**
+- Every public project page (any project in `data/projects.json` with `website_slug` set) is actually linked from the **built** `projects/index.html` -- the script reads the generated HTML directly, not the render function that produces it, so a refactor that narrows the catalog filter, breaks the search markup, or reintroduces a hand-curated subset fails here instead of silently degrading discoverability.
+- Checks the exact relative link form `href="<slug>/"` (the `website_slug` value with its `project-` prefix stripped) for every expected project.
+
+**Why it exists:** before the project catalog section existed, `/projects/index.html` only linked 21 of 61 public project pages -- the rest were hand-curated into narrative "sections" one at a time, reachable only via `/directory/` or another project's related-projects panel. This gate makes that class of silent regression fail CI.
+
+**How to run:**
+```bash
+npm run build          # must run first -- the check reads projects/index.html
+npm run check:catalog
+# or directly:
+node scripts/check_project_catalog_coverage.mjs
+```
+
+**To fix a failure:** the reported slugs are missing an `href="<slug>/"` anchor in the built catalog -- restore the project's card/link in whatever renders the `/projects/` catalog section, rebuild, and re-run the gate. This is a companion check to Gate 6 (`check:projects`): Gate 6 verifies a project *has* a page, this gate verifies that page is actually *linked* from the catalog index.
+
+---
+
 ## Gate Chaining: What Gates Depend on Each Other
 
-The gate order matters because earlier gates set state for later ones:
+The gate order matters because earlier gates set state for later ones. This mirrors the `check` script order in `package.json`:
 
 ```
 build (generates HTML)
@@ -689,6 +710,14 @@ check:design-system (validates CSS exports)
 check:site (validates content model, external links, structure)
   ↓
 check:security (validates CSP, no disallowed tags, external anchors backed)
+  ↓
+check:redirects (validates legacy-URL redirect coverage)
+  ↓
+check:sources (network probe -- verifies live-sources.json URLs are reachable)
+  ↓
+check:projects (validates backend project ↔ website page discoverability)
+  ↓
+check:catalog (validates every public project page is linked from the built catalog)
 ```
 
 **Key dependency:** `check:site` and `check:security` both validate external anchors against `live-sources.json`. If either fails, check:
