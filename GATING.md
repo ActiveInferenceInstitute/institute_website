@@ -103,6 +103,20 @@ new content-level finding is open, and known residual gaps remain:
    only as exactly-quoted JSON keys and `FORBIDDEN_SUBSTRINGS` as substrings, so
    the per-field whitelist sanitizers — not the denylist — are the primary
    control. The denylist is defense-in-depth.
+6. **Governance glossary intentionally not exported (open, 2026-07-14).**
+   `library/resources/definitions/glossary.json` (79 terms, private repo) is
+   never projected onto this site. Only 7 of 79 terms are `core_concept`
+   (Active Inference, Bayesian Inference, Free Energy Principle, Generative
+   Model, Markov Blanket, Variational Free Energy, ReInference); the remaining
+   72 are `governance`/`legal_compliance`/`it_security`/`organisation`/
+   `policy_framework`/`financial`/`values` — the exact content class removed
+   from this site on 2026-07-05 (see item 3 above). A comprehensive audit
+   flagged this as a finding and deliberately did **not** build an export for
+   it, since doing so risks silently reversing that removal. **Unblocking
+   requires a human editorial call** on whether any subset (most plausibly
+   just the 7 `core_concept` terms) is public-appropriate, before any exporter
+   or page work is done. Until that decision is made, do not add a glossary
+   export.
 
 ## The rule for contributors
 
