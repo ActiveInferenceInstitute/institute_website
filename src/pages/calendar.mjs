@@ -3,6 +3,7 @@ import { escapeHtml } from "../lib/text.mjs";
 import { siteData, EXPORTED_AT } from "../data.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
+import { tr } from "../i18n/index.mjs";
 
 // Public events calendar (/calendar/). Server-baked from the InstituteOS public
 // calendar export (src/content/instituteos/calendar.json), which is in turn
@@ -146,6 +147,13 @@ export function calendarPage() {
   const upcoming = events.filter((event) => String(event.start).slice(0, 10) >= reference);
   const past = events.filter((event) => String(event.start).slice(0, 10) < reference).reverse();
   const calName = escapeHtml(calendar.calendarName || "Active Inference Institute");
+  // {calendarName} placeholder keeps the brand/calendar name out of the
+  // translation key (its value comes from the live public Google Calendar
+  // and isn't a fixed proper noun) — same convention as ecosystem.mjs's
+  // {n}/{domain} placeholders.
+  const introLine = tr(
+    "Livestreams, roundtables, model streams, and open hours from the public {calendarName} calendar. Times are shown as published (UTC unless a timezone is noted). Use the read-aloud button to listen, or subscribe to get updates.",
+  ).replace("{calendarName}", `<strong>${calName}</strong>`);
 
   const subscribe = [];
   if (calendar.icsUrl) {
@@ -168,32 +176,35 @@ export function calendarPage() {
   ].join("");
   const list = events.length
     ? `<ul class="event-list" id="calendar-list">${rowsHtml}</ul>`
-    : `<p>No events are currently published. Subscribe above to be notified when new events are added.</p>`;
+    : `<p>${escapeHtml(tr("No events are currently published. Subscribe above to be notified when new events are added."))}</p>`;
+
+  const shownCount =
+    upcoming.length === 1 ? tr("{n} event shown") : tr("{n} events shown");
 
   const filterBar = events.length
-    ? `<div class="calendar-tools" aria-label="Event filters">
+    ? `<div class="calendar-tools" aria-label="${escapeHtml(tr("Event filters"))}">
         <label>
-          <span>Search events</span>
-          <input id="calendar-search" type="search" placeholder="Search by title, date, or topic" autocomplete="off" spellcheck="false">
+          <span>${escapeHtml(tr("Search events"))}</span>
+          <input id="calendar-search" type="search" placeholder="${escapeHtml(tr("Search by title, date, or topic"))}" autocomplete="off" spellcheck="false">
         </label>
         <label>
-          <span>Show</span>
+          <span>${escapeHtml(tr("Show"))}</span>
           <select id="calendar-kind">
-            <option value="upcoming">Upcoming (${upcoming.length})</option>
-            <option value="past">Past (${past.length})</option>
-            <option value="all">All events (${events.length})</option>
+            <option value="upcoming">${escapeHtml(tr("Upcoming ({n})").replace("{n}", upcoming.length))}</option>
+            <option value="past">${escapeHtml(tr("Past ({n})").replace("{n}", past.length))}</option>
+            <option value="all">${escapeHtml(tr("All events ({n})").replace("{n}", events.length))}</option>
           </select>
         </label>
-        <p id="calendar-count" class="result-count" aria-live="polite">${upcoming.length} ${upcoming.length === 1 ? "event" : "events"} shown</p>
+        <p id="calendar-count" class="result-count" aria-live="polite">${escapeHtml(shownCount.replace("{n}", upcoming.length))}</p>
       </div>`
     : "";
 
   const body = `
   <section class="page-hero compact">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><span>Calendar</span></nav>
-    <p class="eyebrow">Public events</p>
-    <h1>Calendar</h1>
-    <p>Livestreams, roundtables, model streams, and open hours from the public <strong>${calName}</strong> calendar. Times are shown as published (UTC unless a timezone is noted). Use the read-aloud button to listen, or subscribe to get updates.</p>
+    <nav class="breadcrumb" aria-label="${escapeHtml(tr("Breadcrumb"))}"><a href="${hrefForSlug("index", currentDir)}">${escapeHtml(tr("Home"))}</a><span aria-hidden="true">/</span><span>${escapeHtml(tr("Calendar"))}</span></nav>
+    <p class="eyebrow">${escapeHtml(tr("Public events"))}</p>
+    <h1>${escapeHtml(tr("Calendar"))}</h1>
+    <p>${introLine}</p>
     ${subscribe.length ? `<div class="hero-actions">${subscribe.join("")}</div>` : ""}
   </section>
   <section class="content-band">
