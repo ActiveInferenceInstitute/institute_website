@@ -126,7 +126,6 @@ npm run build
 | `ontology.json` | `{ trees: [], edges: [] }` | Directed relationships in ontology |
 | `assets.json` | `{ records: [{ id, filename, path, alt, theme, source }] }` | Brand and design assets |
 | `entities.json` | `{ people: [], organizations: [] }` | Governance members and orgs |
-| `processes.json` | `{ records: [{ id, title, category, status, steps[] }] }` | Governance workflows |
 | `policies.json` | `{ records: [{ id, title, category, status, tags[] }] }` | Policy registry |
 | `tech_tree_graph.json` | Graph data (nodes + edges) | Concept dependency graph |
 | `ontology_graph.json` | Graph data | Ontology relationship visualization |
@@ -134,6 +133,14 @@ npm run build
 | `domain_projects.json` | Project list by domain | Domain-grouped projects |
 | `narratives_public.json` | Narrative records | Public stories and case studies |
 | `calendar.json` | Event/activity records | Public calendar data |
+
+> `processes.json` was removed 2026-07-05 — process/workflow mechanics are
+> backend governance detail, confirmed not for public release (entity/role
+> *names* remain public via `entities.json`). `communications.json` was
+> removed 2026-07-14 — it was a byte-identical duplicate of the producer-2
+> `communications_public.json`, which is the file `src/data.mjs` actually
+> reads. See [`src/content/instituteos/README.md`](../src/content/instituteos/README.md)
+> and `GATING.md`.
 
 **Invariants:**
 - All string values are normalized (whitespace collapsed, internal terms redacted)
