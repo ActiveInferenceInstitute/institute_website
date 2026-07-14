@@ -47,6 +47,38 @@ export function buildSearchIndex() {
       c: "Event",
     });
   }
+  // Directory, Resources, Simulations, and Sitemap are programmatically-rendered
+  // pages (src/pages/*.mjs), not curated src/content/pages/**/*.json entries, so
+  // they never went through the siteData.pages loop above and were entirely
+  // absent from the index. Add them the same way Calendar is special-cased,
+  // with keyword strings drawn from each page's own real content (resource
+  // categories, simulation tiers) so terms used inside those pages are also
+  // findable, not just the page titles.
+  const resourceCategoryWords = (siteData.resources.categories || []).map((c) => c.label).join(" ").toLowerCase();
+  entries.push({
+    t: "Directory",
+    u: absoluteUrl(outputPathForSlug("directory")),
+    k: `global directory official pages repositories resources people index ${resourceCategoryWords}`.slice(0, 180),
+    c: "Page",
+  });
+  entries.push({
+    t: "Resources",
+    u: absoluteUrl(outputPathForSlug("resources")),
+    k: `searchable directory of verified public resources shortlinks guides start docs official pages ${resourceCategoryWords}`.slice(0, 180),
+    c: "Page",
+  });
+  entries.push({
+    t: "Simulations",
+    u: absoluteUrl(outputPathForSlug("simulations")),
+    k: "interactive browser-based active inference free energy principle beginner intermediate advanced learning",
+    c: "Page",
+  });
+  entries.push({
+    t: "Sitemap",
+    u: absoluteUrl(outputPathForSlug("sitemap")),
+    k: "human-readable index of every public page site map navigation",
+    c: "Page",
+  });
   const searchPageUrl = absoluteUrl(outputPathForSlug("search"));
   // Synonym/alias expansion map: a canonical token to equivalent query terms.
   // Used by search.js/search-page.js to BOOST matches (never to require them).
