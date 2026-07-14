@@ -65,6 +65,42 @@
       "body": "Volunteer, internship, mentorship, fellowship, partnership, philanthropy, grants, open-source, and project proposal pathways provide progressively structured ways to participate.",
       "links": [
         {
+          "label": "Volunteer",
+          "href": "/volunteer/"
+        },
+        {
+          "label": "Internship",
+          "href": "/internship/"
+        },
+        {
+          "label": "Mentorship",
+          "href": "/mentorship/"
+        },
+        {
+          "label": "Fellowship",
+          "href": "/fellowship/"
+        },
+        {
+          "label": "Partnership",
+          "href": "/partnership/"
+        },
+        {
+          "label": "Philanthropy",
+          "href": "/philanthropy/"
+        },
+        {
+          "label": "Grants",
+          "href": "/grants/"
+        },
+        {
+          "label": "Open source",
+          "href": "/open-source/"
+        },
+        {
+          "label": "Propose a project",
+          "href": "/prepare/"
+        },
+        {
           "sourceId": "donate"
         },
         {
@@ -133,6 +169,14 @@
       "text": "Use preparation and measurement workflows to make work visible.",
       "links": [
         {
+          "label": "Project Preparation",
+          "href": "/prepare/"
+        },
+        {
+          "label": "Project Measurement",
+          "href": "/measure/"
+        },
+        {
           "sourceId": "github-org"
         },
         {
@@ -145,7 +189,9 @@
   "relatedSlugs": [
     "about",
     "activities",
-    "programs"
+    "programs",
+    "volunteer",
+    "prepare"
   ],
   "externalSourceIds": [
     "discord",
