@@ -158,26 +158,6 @@
   ],
   "resources": [
     {
-      "sourceId": "official-activeinference-org",
-      "type": "official",
-      "category": "institute",
-      "audience": "newcomer",
-      "tags": [
-        "official",
-        "overview",
-        "mission"
-      ],
-      "summary": "Current public landing page for the Institute, including mission, vision, open-science framing, and the Get Started pathway.",
-      "relatedSlugs": [
-        "about",
-        "get-involved",
-        "ecosystem"
-      ],
-      "priority": 0,
-      "promoted": true,
-      "featured": true
-    },
-    {
       "sourceId": "discord",
       "type": "community",
       "category": "community",
@@ -250,25 +230,6 @@
       "featured": true
     },
     {
-      "sourceId": "start-docs",
-      "type": "learning",
-      "category": "learning",
-      "audience": "learner",
-      "tags": [
-        "start-repo",
-        "learning",
-        "curriculum"
-      ],
-      "summary": "Public START documentation site for tailored Active Inference learning and curriculum generation.",
-      "relatedSlugs": [
-        "learning",
-        "active-inference"
-      ],
-      "priority": 4,
-      "promoted": true,
-      "featured": true
-    },
-    {
       "sourceId": "youtube",
       "type": "media",
       "category": "media",
@@ -285,24 +246,6 @@
       "priority": 5,
       "promoted": true,
       "featured": true
-    },
-    {
-      "sourceId": "youtube-handle",
-      "type": "media",
-      "category": "media",
-      "audience": "newcomer",
-      "tags": [
-        "media",
-        "youtube-handle"
-      ],
-      "summary": "Direct handle for the public YouTube presence.",
-      "relatedSlugs": [
-        "activities",
-        "learning"
-      ],
-      "priority": 6,
-      "promoted": true,
-      "featured": false
     },
     {
       "sourceId": "video",
@@ -517,156 +460,6 @@
         "programs"
       ],
       "priority": 18,
-      "promoted": true,
-      "featured": false
-    },
-    {
-      "sourceId": "shortlink-fellows",
-      "type": "official",
-      "category": "participation",
-      "audience": "contributor",
-      "tags": [
-        "fellowship",
-        "program"
-      ],
-      "summary": "Public Fellows pathway for structured Institute participation.",
-      "relatedSlugs": [
-        "programs",
-        "get-involved"
-      ],
-      "priority": 24,
-      "promoted": true,
-      "featured": false
-    },
-    {
-      "sourceId": "shortlink-mentorship",
-      "type": "official",
-      "category": "participation",
-      "audience": "contributor",
-      "tags": [
-        "mentorship",
-        "program"
-      ],
-      "summary": "Public mentorship pathway for guided participation and learning.",
-      "relatedSlugs": [
-        "programs",
-        "get-involved",
-        "learning"
-      ],
-      "priority": 25,
-      "promoted": true,
-      "featured": false
-    },
-    {
-      "sourceId": "shortlink-prepare",
-      "type": "official",
-      "category": "projects",
-      "audience": "contributor",
-      "tags": [
-        "project",
-        "preparation"
-      ],
-      "summary": "Public Project Preparation shortlink for making proposed work legible and actionable.",
-      "relatedSlugs": [
-        "projects",
-        "programs"
-      ],
-      "priority": 26,
-      "promoted": true,
-      "featured": false
-    },
-    {
-      "sourceId": "official-measure",
-      "type": "official",
-      "category": "projects",
-      "audience": "contributor",
-      "tags": [
-        "project",
-        "measurement"
-      ],
-      "summary": "Public project measurement shortlink for reporting progress and outputs.",
-      "relatedSlugs": [
-        "projects",
-        "ecosystem"
-      ],
-      "priority": 27,
-      "promoted": true,
-      "featured": false
-    },
-    {
-      "sourceId": "shortlink-rxinfer",
-      "type": "learning",
-      "category": "learning",
-      "audience": "developer",
-      "tags": [
-        "rxinfer",
-        "learning",
-        "implementation"
-      ],
-      "summary": "Public RxInfer learning-group shortlink for implementation-oriented Active Inference work.",
-      "relatedSlugs": [
-        "learning",
-        "projects",
-        "active-inference"
-      ],
-      "priority": 28,
-      "promoted": true,
-      "featured": false
-    },
-    {
-      "sourceId": "shortlink-ontology",
-      "type": "research",
-      "category": "research",
-      "audience": "researcher",
-      "tags": [
-        "ontology",
-        "research",
-        "knowledge"
-      ],
-      "summary": "Public Active Inference Ontology shortlink for shared conceptual infrastructure.",
-      "relatedSlugs": [
-        "ecosystem",
-        "projects",
-        "learning"
-      ],
-      "priority": 29,
-      "promoted": true,
-      "featured": false
-    },
-    {
-      "sourceId": "shortlink-obsidian",
-      "type": "learning",
-      "category": "learning",
-      "audience": "learner",
-      "tags": [
-        "obsidian",
-        "knowledge",
-        "active-inference"
-      ],
-      "summary": "Published Active Inference knowledge base for concept-level orientation.",
-      "relatedSlugs": [
-        "learning",
-        "active-inference"
-      ],
-      "priority": 30,
-      "promoted": true,
-      "featured": false
-    },
-    {
-      "sourceId": "shortlink-strategy",
-      "type": "official",
-      "category": "institute",
-      "audience": "newcomer",
-      "tags": [
-        "strategy",
-        "institute"
-      ],
-      "summary": "Public Strategy shortlink for institutional orientation and planning context.",
-      "relatedSlugs": [
-        "about",
-        "ecosystem"
-      ],
-      "priority": 31,
       "promoted": true,
       "featured": false
     },
