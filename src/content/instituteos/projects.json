@@ -573,6 +573,58 @@
       "url": "https://github.com/ActiveInferenceInstitute/ActInf_RxInfer"
     },
     {
+      "audience": "researcher",
+      "category": "research",
+      "docsSourceId": "",
+      "docsUrl": "",
+      "fullName": "ActiveInferenceInstitute/COGANT",
+      "id": "repo-cogant",
+      "language": "Python",
+      "projectFamily": "Research and publications",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "repoType": "Code repository",
+      "sourceId": "repo-cogant",
+      "stars": 2,
+      "summary": "Codebase-to-GNN translation research package with an accompanying manuscript.",
+      "tags": [
+        "research",
+        "knowledge",
+        "python"
+      ],
+      "title": "COGANT",
+      "updatedAt": "2026-06-30T20:43:51Z",
+      "url": "https://github.com/ActiveInferenceInstitute/COGANT"
+    },
+    {
+      "audience": "researcher",
+      "category": "research",
+      "docsSourceId": "",
+      "docsUrl": "",
+      "fullName": "ActiveInferenceInstitute/on_policy_distillation",
+      "id": "repo-on-policy-distillation",
+      "language": "Python",
+      "projectFamily": "Research and publications",
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "repoType": "Code repository",
+      "sourceId": "repo-on-policy-distillation",
+      "stars": 2,
+      "summary": "On-Policy Distillation as Active Inference in Finite Variational Models — reverse-KL free energy, student-induced sampling, and deterministic toy witnesses.",
+      "tags": [
+        "research",
+        "knowledge",
+        "python"
+      ],
+      "title": "on_policy_distillation",
+      "updatedAt": "2026-06-30T20:44:16Z",
+      "url": "https://github.com/ActiveInferenceInstitute/on_policy_distillation"
+    },
+    {
       "audience": "learner",
       "category": "learning",
       "docsSourceId": "",
@@ -802,31 +854,6 @@
       "title": "ATLAS",
       "updatedAt": "2024-08-21T20:33:44Z",
       "url": "https://github.com/ActiveInferenceInstitute/ATLAS"
-    },
-    {
-      "audience": "developer",
-      "category": "projects",
-      "docsSourceId": "",
-      "docsUrl": "",
-      "fullName": "ActiveInferenceInstitute/Bots",
-      "id": "repo-bots",
-      "language": "Unspecified",
-      "projectFamily": "Open-source projects",
-      "relatedSlugs": [
-        "projects",
-        "ecosystem"
-      ],
-      "repoType": "Project materials repository",
-      "sourceId": "repo-bots",
-      "stars": 0,
-      "summary": "Public Bots repository in the ActiveInferenceInstitute GitHub namespace.",
-      "tags": [
-        "repository",
-        "unclassified"
-      ],
-      "title": "Bots",
-      "updatedAt": "2022-12-31T19:59:14Z",
-      "url": "https://github.com/ActiveInferenceInstitute/Bots"
     },
     {
       "audience": "developer",

@@ -537,9 +537,9 @@ def check_content_model(root: Path, errors: list[str]) -> None:
         errors.append(
             f"official-pages.json expected at least 10 promoted non-governance official shortlinks, found {len(shortlinks)}"
         )
-    if len(repositories.get("repositories", [])) != 36:
+    if len(repositories.get("repositories", [])) != 37:
         errors.append(
-            f"repositories.json expected 36 public repositories, found {len(repositories.get('repositories', []))}"
+            f"repositories.json expected 37 public repositories, found {len(repositories.get('repositories', []))}"
         )
     popular_tags = resources.get("popularTags", [])
     if len(popular_tags) > 18 or not {"active-inference", "learning", "research", "projects", "repository"}.issubset(

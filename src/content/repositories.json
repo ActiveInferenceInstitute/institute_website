@@ -1,7 +1,7 @@
 {
   "description": "Public repositories in the ActiveInferenceInstitute GitHub namespace, refreshed from GitHub API.",
-  "checkedAt": "2026-06-09T01:59:33Z",
-  "count": 36,
+  "checkedAt": "2026-07-14T00:00:00Z",
+  "count": 37,
   "repositories": [
     {
       "sourceId": "repo-act-inf-metaanalysis",
@@ -392,35 +392,6 @@
       "docsSourceId": ""
     },
     {
-      "sourceId": "repo-bots",
-      "name": "Bots",
-      "fullName": "ActiveInferenceInstitute/Bots",
-      "url": "https://github.com/ActiveInferenceInstitute/Bots",
-      "type": "repository",
-      "category": "projects",
-      "audience": "developer",
-      "tags": [
-        "repository",
-        "unclassified"
-      ],
-      "summary": "Public Bots repository in the ActiveInferenceInstitute GitHub namespace.",
-      "description": "",
-      "language": "Unspecified",
-      "stars": 0,
-      "updatedAt": "2022-12-31T19:59:14Z",
-      "archived": false,
-      "relatedSlugs": [
-        "projects",
-        "ecosystem"
-      ],
-      "priority": 115,
-      "promoted": true,
-      "projectFamily": "Open-source projects",
-      "repoType": "Project materials repository",
-      "docsUrl": "",
-      "docsSourceId": ""
-    },
-    {
       "sourceId": "repo-cerebrum",
       "name": "CEREBRUM",
       "fullName": "ActiveInferenceInstitute/CEREBRUM",
@@ -444,6 +415,36 @@
         "ecosystem"
       ],
       "priority": 116,
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Code repository",
+      "docsUrl": "",
+      "docsSourceId": ""
+    },
+    {
+      "sourceId": "repo-cogant",
+      "name": "COGANT",
+      "fullName": "ActiveInferenceInstitute/COGANT",
+      "url": "https://github.com/ActiveInferenceInstitute/COGANT",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "python"
+      ],
+      "summary": "Codebase-to-GNN translation research package with an accompanying manuscript.",
+      "description": "Codebase-to-GNN translation — package under cogant/, manuscript under manuscript/. Self-contained at the COGANT project root, pairing an installable package with a companion Active Inference manuscript.",
+      "language": "Python",
+      "stars": 2,
+      "updatedAt": "2026-06-30T20:43:51Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 150,
       "promoted": true,
       "projectFamily": "Research and publications",
       "repoType": "Code repository",
@@ -861,6 +862,36 @@
       "promoted": true,
       "projectFamily": "Open-source projects",
       "repoType": "Documentation/site repository",
+      "docsUrl": "",
+      "docsSourceId": ""
+    },
+    {
+      "sourceId": "repo-on-policy-distillation",
+      "name": "on_policy_distillation",
+      "fullName": "ActiveInferenceInstitute/on_policy_distillation",
+      "url": "https://github.com/ActiveInferenceInstitute/on_policy_distillation",
+      "type": "repository",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "research",
+        "knowledge",
+        "python"
+      ],
+      "summary": "On-Policy Distillation as Active Inference in Finite Variational Models — reverse-KL free energy, student-induced sampling, and deterministic toy witnesses.",
+      "description": "On Policy Distillation and Active Inference",
+      "language": "Python",
+      "stars": 2,
+      "updatedAt": "2026-06-30T20:44:16Z",
+      "archived": false,
+      "relatedSlugs": [
+        "learning",
+        "ecosystem"
+      ],
+      "priority": 151,
+      "promoted": true,
+      "projectFamily": "Research and publications",
+      "repoType": "Code repository",
       "docsUrl": "",
       "docsSourceId": ""
     },
