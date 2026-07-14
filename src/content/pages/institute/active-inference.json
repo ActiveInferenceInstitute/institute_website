@@ -53,13 +53,89 @@
     },
     {
       "heading": "Applications",
-      "body": "Active Inference appears across domains including biology, neuroscience, mental health, robotics, education, economics, physics, social systems, logistics, decentralized science, and scientific method.",
+      "body": "Active Inference appears across domains including biology, neuroscience, mental health, robotics, education, economics, physics, social systems, logistics, decentralized science, and scientific method. The Institute publishes a dedicated deep-dive page for each domain covering the state of the literature, key projects and tools, and open problems.",
       "links": [
         {
           "sourceId": "geo-infer"
         },
         {
           "sourceId": "active-inferants"
+        },
+        {
+          "label": "Healthcare",
+          "href": "/active-inference/healthcare/"
+        },
+        {
+          "label": "Robotics",
+          "href": "/active-inference/robotics/"
+        },
+        {
+          "label": "Ecology",
+          "href": "/active-inference/ecology/"
+        },
+        {
+          "label": "Medicine",
+          "href": "/active-inference/medicine/"
+        },
+        {
+          "label": "Psychology",
+          "href": "/active-inference/psychology/"
+        },
+        {
+          "label": "Entomology",
+          "href": "/active-inference/entomology/"
+        },
+        {
+          "label": "Economics",
+          "href": "/active-inference/economics/"
+        },
+        {
+          "label": "Climate Science",
+          "href": "/active-inference/climate/"
+        },
+        {
+          "label": "Education",
+          "href": "/active-inference/education/"
+        },
+        {
+          "label": "Law and Policy",
+          "href": "/active-inference/law/"
+        },
+        {
+          "label": "Neuroscience",
+          "href": "/active-inference/neuroscience/"
+        },
+        {
+          "label": "Linguistics",
+          "href": "/active-inference/linguistics/"
+        },
+        {
+          "label": "Urban Planning",
+          "href": "/active-inference/urban-planning/"
+        },
+        {
+          "label": "Music and Sound",
+          "href": "/active-inference/music/"
+        },
+        {
+          "label": "Agriculture",
+          "href": "/active-inference/agriculture/"
+        },
+        {
+          "label": "Cybersecurity",
+          "href": "/active-inference/cybersecurity/"
+        },
+        {
+          "label": "Computational Tools",
+          "href": "/active-inference/computational/"
+        },
+        {
+          "label": "Social Systems",
+          "href": "/active-inference/social/"
+        },
+        {
+          "label": "Scientific Method",
+          "href": "/active-inference/scientific-method/"
         }
       ]
     }
