@@ -315,12 +315,23 @@ export function knowledgeDirectoryRows(currentDir = "") {
       summary: `${title_case_token_js(item.type || "")}`,
       href: hrefForSlug("knowledge", currentDir, rowAnchor("org", item.id)),
     })),
-    ...(siteData.instituteos.entities.people || []).map((item) => ({
-      kind: "Governance Members",
-      label: item.name,
-      summary: `${item.title || ""} ${(item.roles || []).slice(0, 2).join(", ")}`.trim(),
-      href: hrefForSlug("knowledge", currentDir, rowAnchor("member", item.id)),
-    })),
+    ...(siteData.instituteos.entities.people || []).map((item) => {
+      const title = item.title || "";
+      const roleList = (item.roles || []).slice(0, 2);
+      // When the title is just the first role restated (e.g. title "Board
+      // Member" with roles ["Board Member", "Director"]), prepending the title
+      // duplicates it verbatim ("Board Member Board Member, Director"). Drop
+      // the title in that case and summarize from the role list alone.
+      const summary = title && title.trim().toLowerCase() === (roleList[0] || "").trim().toLowerCase()
+        ? roleList.join(", ")
+        : `${title} ${roleList.join(", ")}`.trim();
+      return {
+        kind: "Governance Members",
+        label: item.name,
+        summary,
+        href: hrefForSlug("knowledge", currentDir, rowAnchor("member", item.id)),
+      };
+    }),
     ...(siteData.instituteos.communications.records || []).map((item) => ({
       kind: "Publications",
       label: item.title,

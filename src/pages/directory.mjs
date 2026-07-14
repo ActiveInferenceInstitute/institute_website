@@ -114,6 +114,10 @@ export function directoryPage() {
       { title: `Ideas (${siteData.instituteos.ideas.records.length})`, text: "Concept, method, tool, value, and application rows from the concept graph.", links: [{ label: "Open ideas table", href: "knowledge.html#ideas-table" }] },
       { title: `Ontology (${siteData.instituteos.ontology.edges.length})`, text: "Directed relationship rows from the concept graph.", links: [{ label: "Open ontology table", href: "knowledge.html#ontology-table" }] },
       { title: `Research (${researchRows().length})`, text: "Verified public research, paper, and reference rows.", links: [{ label: "Open research table", href: "knowledge.html#research-table" }] },
+      { title: `Organizations (${(siteData.instituteos.entities.organizations || []).length})`, text: "Governing bodies, internal units, partners, and technology providers in the governance registry.", links: [{ label: "Open organizations table", href: "knowledge.html#organizations-table" }] },
+      { title: `Governance Members (${(siteData.instituteos.entities.people || []).length})`, text: "Public governance members including board, officers, and registered organizational roles.", links: [{ label: "Open governance table", href: "knowledge.html#members-table" }] },
+      { title: `Publications (${(siteData.instituteos.communications.records || []).length})`, text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: "Open publications table", href: "knowledge.html#publications-table" }] },
+      { title: `Governance Policies (${(siteData.instituteos.policies.records || []).length})`, text: "Public governance policy registry with category, status, version, and description.", links: [{ label: "Open policies table", href: "knowledge.html#policies-table" }] },
     ], currentDir)}
     ${dataTable({ caption: "Every Open Source Map row anchor.", columns: knowledgeColumns, rows: knowledgeRows })}
   </section>`;
