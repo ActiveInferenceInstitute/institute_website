@@ -1280,6 +1280,7 @@ select:focus-visible {
 .search-page-result a:hover,.search-page-result a:focus-visible{border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.1);outline:none}
 .search-page-result-title{display:block;font-weight:600}
 .search-page-result-snippet{display:block;margin-top:.25rem;font-size:.85rem;opacity:.7}
+.search-page-group-truncated{margin:.6rem 0 0;font-size:.82rem;opacity:.65}
 /* Highlight for matched query substrings injected at runtime by search.js. */
 .site-search-result mark,.site-search-title mark,.search-page-result-title mark,.search-page-result-snippet mark{background:rgba(239,68,68,.28);color:inherit;border-radius:2px;padding:0 .1em}
 

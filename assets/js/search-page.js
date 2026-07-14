@@ -44,8 +44,17 @@
     return out;
   }
 
-  // In-order subsequence fallback when a direct substring match misses.
+  // In-order subsequence fallback when a direct substring match misses. Only
+  // applied to terms at least MIN_FUZZY_TERM_LENGTH long: shorter terms (e.g. a
+  // 4-letter acronym) are near-certain to occur as an in-order subsequence
+  // somewhere in most entries' combined title+snippet+category text, which
+  // floods results with noise rather than genuine fuzzy matches.
+  var MIN_FUZZY_TERM_LENGTH = 5;
+
   function fuzzyContains(hay, term) {
+    if (term.length < MIN_FUZZY_TERM_LENGTH) {
+      return false;
+    }
     var p = 0;
     for (var i = 0; i < hay.length && p < term.length; i += 1) {
       if (hay.charAt(i) === term.charAt(p)) {
@@ -173,6 +182,13 @@
       order.push("Other");
     }
 
+    // Cap each group's rendered list. A broad or short query can still legally
+    // match a large fraction of the index (see fuzzy-fallback comment above);
+    // rendering every match as a full <li> would make the page unusably long.
+    // The group count badge always reflects the true total, and a note explains
+    // when the list has been truncated.
+    var GROUP_RENDER_CAP = 30;
+
     var html = "";
     for (var g = 0; g < order.length; g += 1) {
       var group = order[g];
@@ -180,6 +196,15 @@
       if (!items || !items.length) {
         continue;
       }
+      var shown = items.length > GROUP_RENDER_CAP ? items.slice(0, GROUP_RENDER_CAP) : items;
+      var truncationNote =
+        items.length > GROUP_RENDER_CAP
+          ? '<p class="search-page-group-truncated">Showing ' +
+            GROUP_RENDER_CAP +
+            " of " +
+            items.length +
+            ' — refine your search for more precise results.</p>'
+          : "";
       html +=
         '<section class="search-page-group">' +
         "<h2>" +
@@ -188,12 +213,14 @@
         items.length +
         "</span></h2>" +
         '<ul class="search-page-result-list">' +
-        items
+        shown
           .map(function (entry) {
             return resultCard(entry, terms);
           })
           .join("") +
-        "</ul></section>";
+        "</ul>" +
+        truncationNote +
+        "</section>";
     }
 
     results.innerHTML = html;

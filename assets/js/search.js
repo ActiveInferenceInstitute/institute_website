@@ -44,7 +44,14 @@
 
   // In-order subsequence test: every char of term appears in hay in order.
   // Used only as a last-resort fallback when a direct substring match misses.
+  // Only applied to terms at least MIN_FUZZY_TERM_LENGTH long — see the matching
+  // comment in search-page.js, which shares this exact scoring shape.
+  var MIN_FUZZY_TERM_LENGTH = 5;
+
   function fuzzyContains(hay, term) {
+    if (term.length < MIN_FUZZY_TERM_LENGTH) {
+      return false;
+    }
     var p = 0;
     for (var i = 0; i < hay.length && p < term.length; i += 1) {
       if (hay.charAt(i) === term.charAt(p)) {
