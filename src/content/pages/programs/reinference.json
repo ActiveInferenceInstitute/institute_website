@@ -26,7 +26,7 @@
     },
     {
       "heading": "Institute Projects",
-      "body": "ReInference hosts 12 Institute-operated projects: Active Blockference, AICACP, the Applied Active Inference Symposium, Cognitive Agent Modeling, FarmWorks, Generalized Notation Notation (GNN), GEO-INFER, a Graphical Interface project, Knowledge Engineering, Multiagent Modeling (Active InferAnts), the RxInfer.jl learning group, and the Theoretical Neurobiology Group.",
+      "body": "ReInference hosts 12 Institute-operated projects. Seven are active: AICACP, the Applied Active Inference Symposium, Generalized Notation Notation (GNN), GEO-INFER, Knowledge Engineering, the RxInfer.jl learning group, and the Theoretical Neurobiology Group. Five are archived past initiatives: Active Blockference, Cognitive Agent Modeling, FarmWorks, a Graphical Interface project, and Multiagent Modeling (Active InferAnts).",
       "links": [
         {
           "label": "Active InferAnts",
