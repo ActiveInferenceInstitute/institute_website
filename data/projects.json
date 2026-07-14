@@ -311,7 +311,7 @@
     {
       "id": "aicacp",
       "title": "AICACP",
-      "description": "AICACP is an Institute project organized around AI capabilities, alignment, and care practices — exploring how Active Inference principles inform responsible and care-oriented AI development. The project maintains a public information page and contributes to the Institute's research on beneficial AI.",
+      "description": "AICACP (the AI Capabilities & Alignment Consensus Project) is a multi-year Institute initiative, funded by a $270,000 Survival and Flourishing Fund grant awarded in June 2025, that combines high-impact journal collections, in-person discussion-oriented workshops, and academic media content to reshape the conversation around AI capabilities, alignment, and regulation and bridge the divide between AI \"doomers\" and \"accelerationists.\" Adam Safron (Allen Discovery Center at Tufts University) is the creator, principal investigator, and organizing editor.",
       "version": "0.1",
       "status": "active",
       "category": "research",
@@ -1717,7 +1717,7 @@
     {
       "id": "textbook-group",
       "title": "Textbook Group",
-      "description": "The Textbook Group is a sustained Institute educational program running structured cohort-based learning through Active Inference textbooks. Since 2022 it has completed 5.5 cohorts, including the current 'Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers' cohort.",
+      "description": "The Textbook Group is a sustained Institute educational program running structured cohort-based learning through Active Inference textbooks. Since 2022 it has completed 9 cohorts on the 2022 textbook 'Active Inference: The Free Energy Principle in Mind, Brain, and Behavior' (Parr, Pezzulo & Friston), and as of mid-2026 is live in its first, separate cohort on the 2026 textbook 'Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers' (Namjoshi).",
       "version": "0.1",
       "status": "active",
       "category": "research",
@@ -1738,7 +1738,7 @@
         "textbook-study",
         "textbooks"
       ],
-      "summary": "Structured cohort-based learning through Active Inference textbooks, with 5.5 completed cohorts since 2022.",
+      "summary": "Structured cohort-based learning through Active Inference textbooks: 9 completed cohorts on the 2022 textbook since 2022, plus a first cohort now live on the 2026 Fundamentals textbook.",
       "website_slug": "project-textbook-group",
       "links": {
         "2026-textbook": "https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/",
