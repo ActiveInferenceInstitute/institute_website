@@ -409,6 +409,12 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
         # members — withhold them from the public knowledge page.
         if "roster-import" in (entity.get("tags") or []):
             continue
+        # Public-release gate: generic RACI role-slots (e.g. "Compliance Officer",
+        # "Board Secretary") are not named individuals — publishing them alongside
+        # real officers falsely implies staff literally titled "Vice President"
+        # distinct from the Institute's actual named officers. Withhold entirely.
+        if entity.get("role_placeholder"):
+            continue
         if entity_type == "person":
             policy_roles = [
                 {
