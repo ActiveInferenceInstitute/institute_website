@@ -123,6 +123,7 @@
     <p class="eyebrow">Roboticists, control engineers, and active inference researchers evaluating whether unified perception-action-learning architectures can outperform or complement classical control and reinforcement learning.</p>
     <h1>Active Inference and Robotics</h1>
     <p>Robots as embodied, uncertainty-bound perceivers and actors — a natural testbed for expected free energy minimization</p>
+
     <div class="hero-actions"><a class="button primary" href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer">Project repositories</a><a class="button secondary" href="../">Active Inference overview</a></div>
   </section>
   <section class="content-band page-index-band">
@@ -165,7 +166,7 @@
             <p>Generative models in robotics implementations are typically structured around known physics and kinematics rather than learned end-to-end: humanoid body-perception work encodes forward kinematics and multimodal (visual/proprioceptive) observation models, while manipulator controllers encode joint dynamics, inertia, and contact forces. Expected free energy then drives policy selection — Pezzato, Ferrari, and Hernández's adaptive manipulator controller (published in IEEE Robotics and Automation Letters) adapts online to dynamic uncertainty and sensor faults, and Baioumy et al.'s ball-balancing agent shows expected free energy inducing genuinely exploratory, curiosity-like behavior. Precision weighting — adjusting trust in sensory channels or priors based on inferred reliability — recurs across this work, notably in Ferrari's group's beta-residuals scheme for detecting and compensating faulty sensors. Hierarchical multi-level architectures are discussed conceptually (e.g., task-space preferences over joint-space actions) but concrete hierarchical implementations remain rare and largely confined to simulation.</p>
           </article><article class="article-block" id="key-projects-and-tools">
             <h2>Key projects and tools</h2>
-            <p>pymdp is the report's one named general-purpose software library, an open-source Python package for discrete-state (POMDP) active inference introduced via a PubMed-indexed step-by-step tutorial. Riccardo Ferrari's group at Delft University of Technology has produced the most sustained manipulator-control body of work — the adaptive controller, integrated state-estimation/control/learning (ICRA 2021), unbiased active inference for classical control (IROS 2022), and beta-residual fault tolerance — with code referenced on his research site. Pablo Lanillos and collaborators (TU Munich and Japan-based partners) lead the humanoid line: body perception and reaching on a physical humanoid, and mirror self/other distinction combining active inference with neural network forward models. Bristol Robotics Lab and the Active Touch Laboratory contribute Bayesian active-sensing tactile exploration systems (fingertip arrays, whiskers) that embody active inference principles without always formalizing them as such, and Verses AI's blog post signals early industrial interest, though it is explicitly not peer-reviewed. Within the <a href="../../about/">Active Inference Institute</a>'s own project ecosystem, Fellow Jean-François Cloutier's <a href="../../projects/symbolic-robotics/">Symbolic Cognitive Robotics</a> project takes a related but distinct approach, implementing a symbolic, enactivist cognitive architecture on physical Lego robots — a hierarchically self-organizing collective of message-passing &quot;cognition actors,&quot; each predicting and acting within its own local umwelt — published as the open-source karma_system repository on GitHub (github.com/jfcloutier/karma_system).</p>
+            <p>pymdp is the report's one named general-purpose software library, an open-source Python package for discrete-state (POMDP) active inference introduced via a PubMed-indexed step-by-step tutorial. Riccardo Ferrari's group at Delft University of Technology has produced the most sustained manipulator-control body of work — the adaptive controller, integrated state-estimation/control/learning (ICRA 2021), unbiased active inference for classical control (IROS 2022), and beta-residual fault tolerance — with code referenced on his research site. Pablo Lanillos and collaborators (TU Munich and Japan-based partners) lead the humanoid line: body perception and reaching on a physical humanoid, and mirror self/other distinction combining active inference with neural network forward models. Bristol Robotics Lab and the Active Touch Laboratory contribute Bayesian active-sensing tactile exploration systems (fingertip arrays, whiskers) that embody active inference principles without always formalizing them as such, and Verses AI's blog post signals early industrial interest, though it is explicitly not peer-reviewed.</p>
           </article><article class="article-block" id="open-problems">
             <h2>Open problems</h2>
             <p>The report identifies five unresolved areas needing further evidence: scalability of expected-free-energy evaluation to high-dimensional, real-time robots (addressed only in simulation so far by the &quot;Scaling active inference&quot; preprint); principled generative-model specification that balances hand-crafted physics with learned components; systematic head-to-head benchmarking against classical controllers and deep RL, for which no standardized benchmark suite (analogous to MuJoCo-style RL suites) yet exists; safety and robustness under distributional shift, where Zorzi et al.'s DR-FREE framework (robustifying free energy minimization over an ambiguity set of models) is proposed but not yet applied to physical robots; and institutional adoption, since active inference toolchains remain far less mature than ROS or deep-learning stacks. The report explicitly cautions that many claims rest on qualitative or proof-of-principle results rather than systematic comparison.</p>
@@ -250,30 +251,6 @@
 
         <div class="tag-row"><span>research</span><span>journal</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="../../projects/">Projects</a><a href="../../learning/">Learning and Research</a></div>
-      </article><article class="resource-card" data-type="official" data-category="projects" data-audience="contributor" data-tags="project preparation" data-search="project preparation shortlink official page projects contributor public project preparation shortlink for making proposed work legible and actionable. project preparation ">
-        <span class="resource-kicker">Official page / Projects</span>
-        <h3><a href="https://prepare.activeinference.institute" target="_blank" rel="noopener noreferrer">Project Preparation shortlink</a></h3>
-        <p class="resource-audience">Audience: Contributor</p>
-        <p>Public Project Preparation shortlink for making proposed work legible and actionable.</p>
-
-        <div class="tag-row"><span>project</span><span>preparation</span></div>
-        <div class="mini-links" aria-label="Related pages"><a href="../../projects/">Projects</a><a href="../../programs/">Programs</a></div>
-      </article><article class="resource-card" data-type="official" data-category="projects" data-audience="contributor" data-tags="project measurement" data-search="project measurement shortlink official page projects contributor public project measurement shortlink for reporting progress and outputs. project measurement ">
-        <span class="resource-kicker">Official page / Projects</span>
-        <h3><a href="https://measure.activeinference.institute" target="_blank" rel="noopener noreferrer">Project Measurement shortlink</a></h3>
-        <p class="resource-audience">Audience: Contributor</p>
-        <p>Public project measurement shortlink for reporting progress and outputs.</p>
-
-        <div class="tag-row"><span>project</span><span>measurement</span></div>
-        <div class="mini-links" aria-label="Related pages"><a href="../../projects/">Projects</a><a href="../../ecosystem/">Ecosystem</a></div>
-      </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="ontology research knowledge" data-search="active inference ontology shortlink research research researcher public active inference ontology shortlink for shared conceptual infrastructure. ontology research knowledge ">
-        <span class="resource-kicker">Research</span>
-        <h3><a href="https://ontology.activeinference.institute" target="_blank" rel="noopener noreferrer">Active Inference Ontology shortlink</a></h3>
-        <p class="resource-audience">Audience: Researcher</p>
-        <p>Public Active Inference Ontology shortlink for shared conceptual infrastructure.</p>
-
-        <div class="tag-row"><span>ontology</span><span>research</span><span>knowledge</span></div>
-        <div class="mini-links" aria-label="Related pages"><a href="../../ecosystem/">Ecosystem</a><a href="../../projects/">Projects</a><a href="../../learning/">Learning and Research</a></div>
       </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="papers research fep" data-search="fep and active inference papers repository research research researcher external paper repository surfaced from the official research page. papers research fep ">
         <span class="resource-kicker">Research</span>
         <h3><a href="https://github.com/BerenMillidge/FEP_Active_Inference_Papers" target="_blank" rel="noopener noreferrer">FEP and Active Inference papers repository</a></h3>
@@ -282,22 +259,46 @@
 
         <div class="tag-row"><span>papers</span><span>research</span><span>fep</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="../../learning/">Learning and Research</a><a href="../../ecosystem/">Ecosystem</a></div>
-      </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="arxiv research active-inference" data-search="ramstead active inference precis research research researcher reachable arxiv reference surfaced from the official research page. arxiv research active-inference ">
+      </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="arxiv research active-inference" data-search="ramstead et al. bayesian mechanics precis (arxiv) research research researcher reachable arxiv reference surfaced from the official research page. arxiv research active-inference ">
         <span class="resource-kicker">Research</span>
-        <h3><a href="https://arxiv.org/abs/2310.11524" target="_blank" rel="noopener noreferrer">Ramstead Active Inference precis</a></h3>
+        <h3><a href="https://arxiv.org/abs/2205.11543" target="_blank" rel="noopener noreferrer">Ramstead et al. Bayesian Mechanics precis (arXiv)</a></h3>
         <p class="resource-audience">Audience: Researcher</p>
         <p>Reachable arXiv reference surfaced from the official research page.</p>
 
         <div class="tag-row"><span>arxiv</span><span>research</span><span>active-inference</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="../../learning/">Learning and Research</a><a href="../">Active Inference</a></div>
-      </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="arxiv research foundations" data-search="active inference foundations arxiv reference research research researcher reachable arxiv reference surfaced from the official research page. arxiv research foundations ">
+      </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="arxiv research foundations" data-search="active inference on discrete state-spaces: a synthesis (da costa et al., arxiv) research research researcher reachable arxiv reference surfaced from the official research page. arxiv research foundations ">
         <span class="resource-kicker">Research</span>
-        <h3><a href="https://arxiv.org/abs/2209.09185" target="_blank" rel="noopener noreferrer">Active Inference foundations arXiv reference</a></h3>
+        <h3><a href="https://arxiv.org/abs/2001.07203" target="_blank" rel="noopener noreferrer">Active inference on discrete state-spaces: A synthesis (Da Costa et al., arXiv)</a></h3>
         <p class="resource-audience">Audience: Researcher</p>
         <p>Reachable arXiv reference surfaced from the official research page.</p>
 
         <div class="tag-row"><span>arxiv</span><span>research</span><span>foundations</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="../../learning/">Learning and Research</a><a href="../">Active Inference</a></div>
+      </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="zenodo research" data-search="zenodo research record 4021163 research research researcher reachable zenodo research reference surfaced from the official research page. zenodo research ">
+        <span class="resource-kicker">Research</span>
+        <h3><a href="https://zenodo.org/record/4021163" target="_blank" rel="noopener noreferrer">Zenodo research record 4021163</a></h3>
+        <p class="resource-audience">Audience: Researcher</p>
+        <p>Reachable Zenodo research reference surfaced from the official research page.</p>
+
+        <div class="tag-row"><span>zenodo</span><span>research</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="../../learning/">Learning and Research</a><a href="../../ecosystem/">Ecosystem</a></div>
+      </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="zenodo research" data-search="zenodo research record 5573287 research research researcher reachable zenodo research reference surfaced from the official research page. zenodo research ">
+        <span class="resource-kicker">Research</span>
+        <h3><a href="https://zenodo.org/record/5573287" target="_blank" rel="noopener noreferrer">Zenodo research record 5573287</a></h3>
+        <p class="resource-audience">Audience: Researcher</p>
+        <p>Reachable Zenodo research reference surfaced from the official research page.</p>
+
+        <div class="tag-row"><span>zenodo</span><span>research</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="../../learning/">Learning and Research</a><a href="../../ecosystem/">Ecosystem</a></div>
+      </article><article class="resource-card" data-type="research" data-category="research" data-audience="researcher" data-tags="zenodo research" data-search="zenodo research record 5759807 research research researcher reachable zenodo research reference surfaced from the official research page. zenodo research ">
+        <span class="resource-kicker">Research</span>
+        <h3><a href="https://zenodo.org/record/5759807" target="_blank" rel="noopener noreferrer">Zenodo research record 5759807</a></h3>
+        <p class="resource-audience">Audience: Researcher</p>
+        <p>Reachable Zenodo research reference surfaced from the official research page.</p>
+
+        <div class="tag-row"><span>zenodo</span><span>research</span></div>
+        <div class="mini-links" aria-label="Related pages"><a href="../../learning/">Learning and Research</a><a href="../../ecosystem/">Ecosystem</a></div>
       </article></div>
   </section>
   <section class="content-band muted" id="official-pages">
@@ -417,7 +418,7 @@
         <div class="tag-row"><span>project</span><span>repository</span><span>unclassified</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="../../projects/">Projects</a><a href="../../ecosystem/">Ecosystem</a></div>
       </article></div>
-    <p class="section-link"><a href="../../directory/#repositories">सभी 36 सार्वजनिक रिपॉजिटरी देखें</a></p>
+    <p class="section-link"><a href="../../directory/#repositories">सभी 37 सार्वजनिक रिपॉजिटरी देखें</a></p>
   </section>
   <section class="content-band muted" id="related-pages">
     <div class="section-heading">
@@ -463,7 +464,7 @@
     <div class="social-links" aria-label="पुष्टि की गई सार्वजनिक लिंक्स">
       <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-    <p class="build-stamp">v4.0.0 · build 54e775248109</p>
+    <p class="build-stamp">v4.0.0 · build 4f814500686a</p>
   </footer>
   <script src="../../../assets/js/theme.js" defer></script>
   <script src="../../../assets/js/accent.js" defer></script>
