@@ -462,116 +462,6 @@
       "href": "knowledge.html#member-daniel-friedman"
     },
     {
-      "id": "entity:board-secretary",
-      "label": "Board Secretary",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "Secretary"
-      },
-      "href": "knowledge.html#member-board-secretary"
-    },
-    {
-      "id": "entity:board-vice-president",
-      "label": "Vice President",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "Vice President"
-      },
-      "href": "knowledge.html#member-board-vice-president"
-    },
-    {
-      "id": "entity:compliance-officer",
-      "label": "Compliance Officer",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "Compliance Officer"
-      },
-      "href": "knowledge.html#member-compliance-officer"
-    },
-    {
-      "id": "entity:data-protection-officer",
-      "label": "Data Protection Officer",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "Data Protection Officer (DPO)"
-      },
-      "href": "knowledge.html#member-data-protection-officer"
-    },
-    {
-      "id": "entity:hr-lead",
-      "label": "HR Lead",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "Human Resources Lead"
-      },
-      "href": "knowledge.html#member-hr-lead"
-    },
-    {
-      "id": "entity:it-security-lead",
-      "label": "IT Security Lead",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "IT Security Lead"
-      },
-      "href": "knowledge.html#member-it-security-lead"
-    },
-    {
-      "id": "entity:eduactive-director",
-      "label": "EduActive Director",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "Director, EduActive"
-      },
-      "href": "knowledge.html#member-eduactive-director"
-    },
-    {
-      "id": "entity:reinference-director",
-      "label": "ReInference Director",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "Director, ReInference"
-      },
-      "href": "knowledge.html#member-reinference-director"
-    },
-    {
-      "id": "entity:procurement-manager",
-      "label": "Procurement Manager",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "Procurement & Vendor Manager"
-      },
-      "href": "knowledge.html#member-procurement-manager"
-    },
-    {
-      "id": "entity:communications-lead",
-      "label": "Communications Lead",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "Marketing & Communications Lead"
-      },
-      "href": "knowledge.html#member-communications-lead"
-    },
-    {
-      "id": "entity:esg-coordinator",
-      "label": "ESG Coordinator",
-      "type": "entity",
-      "meta": {
-        "entity_type": "person",
-        "title": "Environmental, Social & Governance Coordinator"
-      },
-      "href": "knowledge.html#member-esg-coordinator"
-    },
-    {
       "id": "entity:active-inference-institute",
       "label": "Active Inference Institute, Inc.",
       "type": "entity",
@@ -1317,6 +1207,24 @@
         "entity_type": "organization"
       },
       "href": "knowledge.html#org-bluesky"
+    },
+    {
+      "id": "entity:numen-games",
+      "label": "Numen Games",
+      "type": "entity",
+      "meta": {
+        "entity_type": "organization"
+      },
+      "href": "knowledge.html#org-numen-games"
+    },
+    {
+      "id": "entity:lazy-dynamics",
+      "label": "Lazy Dynamics",
+      "type": "entity",
+      "meta": {
+        "entity_type": "organization"
+      },
+      "href": "knowledge.html#org-lazy-dynamics"
     }
   ],
   "edges": [
@@ -1329,16 +1237,6 @@
       "source": "entity:daniel-friedman",
       "target": "policy:bylaws",
       "relation": "accountable"
-    },
-    {
-      "source": "entity:board-secretary",
-      "target": "policy:bylaws",
-      "relation": "responsible"
-    },
-    {
-      "source": "entity:board-vice-president",
-      "target": "policy:bylaws",
-      "relation": "approver"
     },
     {
       "source": "entity:active-inference-institute",
@@ -1366,26 +1264,6 @@
       "relation": "accountable"
     },
     {
-      "source": "process:annual-report-preparation",
-      "target": "entity:communications-lead",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:annual-report-preparation",
-      "target": "entity:eduactive-director",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:annual-report-preparation",
-      "target": "entity:reinference-director",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:annual-report-preparation",
-      "target": "entity:compliance-officer",
-      "relation": "consulted"
-    },
-    {
       "source": "process:board-policy-approval",
       "target": "policy:bylaws",
       "relation": "governs"
@@ -1401,21 +1279,6 @@
       "relation": "responsible"
     },
     {
-      "source": "process:board-policy-approval",
-      "target": "entity:board-vice-president",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:board-policy-approval",
-      "target": "entity:board-secretary",
-      "relation": "responsible"
-    },
-    {
-      "source": "process:board-policy-approval",
-      "target": "entity:compliance-officer",
-      "relation": "consulted"
-    },
-    {
       "source": "process:california-operations-registration",
       "target": "entity:daniel-friedman",
       "relation": "responsible"
@@ -1424,11 +1287,6 @@
       "source": "process:california-operations-registration",
       "target": "entity:board-of-directors",
       "relation": "accountable"
-    },
-    {
-      "source": "process:california-operations-registration",
-      "target": "entity:compliance-officer",
-      "relation": "consulted"
     },
     {
       "source": "process:california-operations-registration",
@@ -1457,23 +1315,8 @@
     },
     {
       "source": "process:employee-onboarding",
-      "target": "entity:hr-lead",
-      "relation": "responsible"
-    },
-    {
-      "source": "process:employee-onboarding",
       "target": "entity:daniel-friedman",
       "relation": "accountable"
-    },
-    {
-      "source": "process:employee-onboarding",
-      "target": "entity:it-security-lead",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:employee-onboarding",
-      "target": "entity:eduactive-director",
-      "relation": "consulted"
     },
     {
       "source": "process:federal-501c3-registration",
@@ -1484,11 +1327,6 @@
       "source": "process:federal-501c3-registration",
       "target": "entity:board-of-directors",
       "relation": "accountable"
-    },
-    {
-      "source": "process:federal-501c3-registration",
-      "target": "entity:compliance-officer",
-      "relation": "consulted"
     },
     {
       "source": "process:federal-501c3-registration",
@@ -1501,11 +1339,6 @@
       "relation": "responsible"
     },
     {
-      "source": "process:generate-communications",
-      "target": "entity:communications-lead",
-      "relation": "consulted"
-    },
-    {
       "source": "process:grant-opportunity-relevance",
       "target": "entity:daniel-friedman",
       "relation": "accountable"
@@ -1514,16 +1347,6 @@
       "source": "process:grant-opportunity-relevance",
       "target": "entity:board-of-directors",
       "relation": "consulted"
-    },
-    {
-      "source": "process:incident-response",
-      "target": "entity:it-security-lead",
-      "relation": "responsible"
-    },
-    {
-      "source": "process:incident-response",
-      "target": "entity:data-protection-officer",
-      "relation": "accountable"
     },
     {
       "source": "process:incident-response",
@@ -1537,28 +1360,8 @@
     },
     {
       "source": "process:internship-checkin-offboarding",
-      "target": "entity:eduactive-director",
-      "relation": "responsible"
-    },
-    {
-      "source": "process:internship-checkin-offboarding",
       "target": "entity:daniel-friedman",
       "relation": "accountable"
-    },
-    {
-      "source": "process:internship-checkin-offboarding",
-      "target": "entity:it-security-lead",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:internship-checkin-offboarding",
-      "target": "entity:hr-lead",
-      "relation": "informed"
-    },
-    {
-      "source": "process:internship-onboarding",
-      "target": "entity:eduactive-director",
-      "relation": "responsible"
     },
     {
       "source": "process:internship-onboarding",
@@ -1566,34 +1369,9 @@
       "relation": "accountable"
     },
     {
-      "source": "process:internship-onboarding",
-      "target": "entity:hr-lead",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:internship-onboarding",
-      "target": "entity:it-security-lead",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:newsletter-publication",
-      "target": "entity:communications-lead",
-      "relation": "responsible"
-    },
-    {
       "source": "process:newsletter-publication",
       "target": "entity:daniel-friedman",
       "relation": "accountable"
-    },
-    {
-      "source": "process:newsletter-publication",
-      "target": "entity:eduactive-director",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:newsletter-publication",
-      "target": "entity:reinference-director",
-      "relation": "consulted"
     },
     {
       "source": "process:pay-organizational-taxes",
@@ -1631,34 +1409,9 @@
       "relation": "responsible"
     },
     {
-      "source": "process:policy-lifecycle-management",
-      "target": "entity:compliance-officer",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:policy-lifecycle-management",
-      "target": "entity:board-secretary",
-      "relation": "informed"
-    },
-    {
-      "source": "process:research-fellow-application-review",
-      "target": "entity:hr-lead",
-      "relation": "responsible"
-    },
-    {
-      "source": "process:research-fellow-application-review",
-      "target": "entity:reinference-director",
-      "relation": "accountable"
-    },
-    {
       "source": "process:research-fellow-application-review",
       "target": "entity:scientific-advisory-board",
       "relation": "consulted"
-    },
-    {
-      "source": "process:research-project-initiation",
-      "target": "entity:reinference-director",
-      "relation": "responsible"
     },
     {
       "source": "process:research-project-initiation",
@@ -1677,28 +1430,8 @@
     },
     {
       "source": "process:vendor-onboarding",
-      "target": "entity:procurement-manager",
-      "relation": "responsible"
-    },
-    {
-      "source": "process:vendor-onboarding",
-      "target": "entity:compliance-officer",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:vendor-onboarding",
-      "target": "entity:data-protection-officer",
-      "relation": "consulted"
-    },
-    {
-      "source": "process:vendor-onboarding",
       "target": "entity:daniel-friedman",
       "relation": "accountable"
-    },
-    {
-      "source": "process:vendor-onboarding",
-      "target": "entity:it-security-lead",
-      "relation": "consulted"
     },
     {
       "source": "process:write-grant-application",
