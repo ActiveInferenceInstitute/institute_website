@@ -39,7 +39,7 @@
       "fullName": "ActiveInferenceInstitute/ActInf_RxInfer",
       "url": "https://github.com/ActiveInferenceInstitute/ActInf_RxInfer",
       "type": "repository",
-      "category": "learning",
+      "category": "tools",
       "audience": "learner",
       "tags": [
         "learning",
@@ -961,7 +961,7 @@
       "fullName": "ActiveInferenceInstitute/pymcp",
       "url": "https://github.com/ActiveInferenceInstitute/pymcp",
       "type": "repository",
-      "category": "learning",
+      "category": "tools",
       "audience": "learner",
       "tags": [
         "learning",
@@ -991,7 +991,7 @@
       "fullName": "ActiveInferenceInstitute/pymdp",
       "url": "https://github.com/ActiveInferenceInstitute/pymdp",
       "type": "repository",
-      "category": "learning",
+      "category": "tools",
       "audience": "learner",
       "tags": [
         "learning",
