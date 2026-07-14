@@ -548,7 +548,7 @@
     },
     {
       "audience": "learner",
-      "category": "learning",
+      "category": "tools",
       "docsSourceId": "shortlink-rxinfer",
       "docsUrl": "https://rxinfer.activeinference.institute",
       "fullName": "ActiveInferenceInstitute/ActInf_RxInfer",
@@ -626,7 +626,7 @@
     },
     {
       "audience": "learner",
-      "category": "learning",
+      "category": "tools",
       "docsSourceId": "",
       "docsUrl": "",
       "fullName": "ActiveInferenceInstitute/pymcp",
@@ -652,7 +652,7 @@
     },
     {
       "audience": "learner",
-      "category": "learning",
+      "category": "tools",
       "docsSourceId": "",
       "docsUrl": "",
       "fullName": "ActiveInferenceInstitute/pymdp",
