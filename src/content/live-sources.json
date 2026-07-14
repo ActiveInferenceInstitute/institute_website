@@ -687,17 +687,6 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
-      "id": "repo-bots",
-      "label": "Bots repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/Bots",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "finalUrl": "https://github.com/ActiveInferenceInstitute/Bots",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
       "id": "repo-cerebrum",
       "label": "CEREBRUM repository",
       "category": "Repository",
@@ -707,6 +696,17 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "repo-cogant",
+      "label": "COGANT repository",
+      "category": "Repository",
+      "url": "https://github.com/ActiveInferenceInstitute/COGANT",
+      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
+      "finalUrl": "https://github.com/ActiveInferenceInstitute/COGANT",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-14T00:00:00Z"
     },
     {
       "id": "repo-cognitive",
@@ -861,6 +861,17 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "repo-on-policy-distillation",
+      "label": "on_policy_distillation repository",
+      "category": "Repository",
+      "url": "https://github.com/ActiveInferenceInstitute/on_policy_distillation",
+      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
+      "finalUrl": "https://github.com/ActiveInferenceInstitute/on_policy_distillation",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-14T00:00:00Z"
     },
     {
       "id": "repo-parr-et-al-2022-actinf-textbook",
