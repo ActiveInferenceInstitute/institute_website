@@ -132,7 +132,8 @@
     "projects",
     "structure",
     "active-inference",
-    "learning"
+    "learning",
+    "project-affordances"
   ],
   "externalSourceIds": [
     "github-org",
