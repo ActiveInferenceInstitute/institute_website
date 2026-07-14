@@ -266,13 +266,13 @@
         "planning",
         "updates"
       ],
-      "summary": "Public 2025 planning shortlink.",
+      "summary": "Public 2025 planning shortlink. Superseded by shortlink-2026 as the promoted current-year surface; retained here for the 2025 retrospective page but no longer shown in Official Institute surfaces listings.",
       "relatedSlugs": [
         "activities",
         "programs"
       ],
       "priority": 60,
-      "promoted": true,
+      "promoted": false,
       "shortlink": true
     },
     {
