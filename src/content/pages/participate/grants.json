@@ -30,7 +30,17 @@
     },
     {
       "heading": "Funding Track Record",
-      "body": "In June 2025, the Survival and Flourishing Fund awarded the Institute a $270,000 grant supporting the AI Capabilities & Alignment Consensus Project (AICACP), a multi-year initiative on AI capabilities, alignment, and regulation. The Institute has also submitted grant applications that were not funded: a 2023 application to the National Science Foundation's Pathways to Enable Open-Source Ecosystems (POSE) program; a 2024 application to the Future of Life Institute for \"FarmWorks: Decentralized AI Agents for Personalized Solutions\"; a 2024 application to the Foresight Institute for \"VILLAGE (Validating Inference for Large-scale Agent Governance Ecosystems)\"; a 2025 application to the Dana Foundation's Dana Frontiers program for \"Increasing the Accessibility and Applicability of Active Inference: Generative Playbooks and Open-Source Summer School Curriculum Development\"; and a 2025 application to the Google.org Accelerator: Generative AI. None of these five were funded."
+      "body": "In June 2025, the Survival and Flourishing Fund awarded the Institute a $270,000 grant supporting the AI Capabilities & Alignment Consensus Project (AICACP), a multi-year initiative on AI capabilities, alignment, and regulation. The Institute has also submitted grant applications that were not funded: a 2022 application for \"Systems Modeling and Cognitive Audits for Hypercert Ecosystems,\" published on Zenodo; a 2023 application to the National Science Foundation's Pathways to Enable Open-Source Ecosystems (POSE) program; a 2024 application to the Future of Life Institute for \"FarmWorks: Decentralized AI Agents for Personalized Solutions\"; a 2024 application to the Foresight Institute for \"VILLAGE (Validating Inference for Large-scale Agent Governance Ecosystems)\"; a 2025 application to the Dana Foundation's Dana Frontiers program for \"Increasing the Accessibility and Applicability of Active Inference: Generative Playbooks and Open-Source Summer School Curriculum Development\"; and a 2025 application to the Google.org Accelerator: Generative AI. None of these six were funded.",
+      "links": [
+        {
+          "label": "AICACP project page",
+          "href": "/projects/aicacp/"
+        },
+        {
+          "label": "FarmWorks project page",
+          "href": "/projects/farmworks/"
+        }
+      ]
     },
     {
       "heading": "Funding Opportunities",
