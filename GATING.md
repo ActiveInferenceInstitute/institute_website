@@ -117,6 +117,20 @@ new content-level finding is open, and known residual gaps remain:
    just the 7 `core_concept` terms) is public-appropriate, before any exporter
    or page work is done. Until that decision is made, do not add a glossary
    export.
+7. **Code of Conduct narrative not exported (open, 2026-07-14).**
+   `library/registries/narratives.json`'s `code-of-conduct` entry (section
+   `mission-vision-values`, "Code of Conduct v1, adopted 11-20-2025") has no
+   `target_page`, so `narrativesForTarget()` never renders it and no page on
+   this site links to it. The body reads as community-facing conduct guidance
+   (respect, collaboration, safety, epistemic norms, professional conduct,
+   accountability) rather than governance mechanics, but it also references
+   internal escalation ("report ... through email") and ties directly into
+   Mission/Vision/Values framing. A comprehensive audit flagged the omission
+   but deliberately did not add a page or `target_page` for it. **Unblocking
+   requires a human editorial call** on whether to publish it (and if so, as
+   its own page vs. folded into About/Mission) and whether the escalation
+   line needs redaction first. Until that decision is made, do not add a
+   Code of Conduct page or link.
 
 ## The rule for contributors
 
