@@ -30,7 +30,7 @@
     },
     {
       "heading": "Open Source Repositories",
-      "body": "The Institute publishes software under this default license across repositories hosted in the Active Inference Institute GitHub organization. These include Biofirm (Active Inference PyMDP agents for bioregional modeling), PyDMB (a Dysfunctional Markov Blanket package), GEN24 (generative AI experiments under Active Blockference), ActiveInferAnts (Active Inference ant simulations), Journal-Utilities and ActiveInferenceJournal (supporting the Active Inference Journal), ActiveInferenceCategoryTheory (category theory curriculum), ActiveBlockference (integrating Active Inference with cadCAD), Active_Inference_Ontology and AEOS (ontology snapshots), GeneralizedNotationNotation, the Parr et al. 2022 Active Inference Textbook repository, Symposium (methods for the Applied Active Inference Symposium), and CEREBRUM.",
+      "body": "The Institute publishes software under this default license across repositories hosted in the Active Inference Institute GitHub organization. These include Biofirm (Active Inference PyMDP agents for bioregional modeling), GEN24 (generative AI experiments under Active Blockference), ActiveInferAnts (Active Inference ant simulations), Journal-Utilities and ActiveInferenceJournal (supporting the Active Inference Journal), ActiveInferenceCategoryTheory (category theory curriculum), ActiveBlockference (integrating Active Inference with cadCAD), Active_Inference_Ontology and AEOS (ontology snapshots), GeneralizedNotationNotation, the Parr et al. 2022 Active Inference Textbook repository, Symposium (methods for the Applied Active Inference Symposium), and CEREBRUM.",
       "links": [
         {
           "sourceId": "repo-biofirm"
