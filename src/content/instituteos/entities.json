@@ -3,6 +3,7 @@
   "organizations": [
     {
       "description": "The parent 501(c)(3) nonprofit organisation. Incorporated in Delaware, headquartered in California. Operates three program units: EduActive, ReInference, and Administrative.",
+      "ecosystem": false,
       "id": "active-inference-institute",
       "memberIds": [
         "daniel-friedman",
@@ -23,6 +24,7 @@
     },
     {
       "description": "Operational unit responsible for governance, finance, HR, IT infrastructure, and operational support across all Institute activities.",
+      "ecosystem": false,
       "id": "administrative-unit",
       "memberIds": [
         "compliance-officer",
@@ -43,6 +45,7 @@
     },
     {
       "description": "Certificate Training Department — operates the Active Inference certificate programs (Theories 1–5 and field-specific tracks), curriculum and textbook development, teacher training, and course certification liaison with the accrediting body.",
+      "ecosystem": false,
       "id": "aii-certificate-training-department",
       "memberIds": [
         "eduactive-director"
@@ -61,6 +64,7 @@
     },
     {
       "description": "Consultancy Services Department — recruits qualified Active Inference consultants (often drawn from certificate graduates), manages client onboarding and engagement, and delivers consulting services with Legal, Accounting, and Impact Tracking support.",
+      "ecosystem": false,
       "id": "aii-consultancy-services-department",
       "memberIds": [
         "daniel-friedman"
@@ -79,6 +83,7 @@
     },
     {
       "description": "Membership Department — manages the tiered membership program (Tier 1/2/3), member fees and perks, referral program, and flagship events (Annual Symposium, Workshops, Speaker Series) that anchor community engagement.",
+      "ecosystem": false,
       "id": "aii-membership-department",
       "memberIds": [
         "communications-lead"
@@ -97,6 +102,7 @@
     },
     {
       "description": "Publishing and Data Access Department — publishes institutional outputs (journal, reports, books) and operates the datasets and database access programs (subscription and API tiers) derived from research and consulting engagements.",
+      "ecosystem": false,
       "id": "aii-publishing-data-access-department",
       "memberIds": [
         "reinference-director"
@@ -116,6 +122,7 @@
     },
     {
       "description": "Open-access preprint server (Cornell University) and a primary open-collaboration channel for Active Inference and Free Energy Principle literature.",
+      "ecosystem": true,
       "id": "arxiv",
       "memberIds": [],
       "name": "arXiv",
@@ -126,6 +133,7 @@
     },
     {
       "description": "Independent researcher who maintains a widely used public bibliography of Free Energy Principle and Active Inference papers; an external community reference upstream of the Institute's mirror.",
+      "ecosystem": true,
       "id": "beren-millidge-fep-papers",
       "memberIds": [],
       "name": "Beren Millidge — FEP / Active Inference Papers",
@@ -136,16 +144,18 @@
     },
     {
       "description": "Decentralized social networking service on the open AT Protocol; supports portable identities and federated open collaboration. The Institute maintains a public presence.",
+      "ecosystem": true,
       "id": "bluesky",
       "memberIds": [],
       "name": "Bluesky",
       "parentId": null,
       "tags": [],
       "type": "technology",
-      "url": "https://bsky.app"
+      "url": "https://bsky.app/profile/activeinference.bsky.social"
     },
     {
       "description": "The governing body responsible for strategic oversight, fiduciary duties, and policy approval. Composed of elected members serving staggered terms.",
+      "ecosystem": false,
       "id": "board-of-directors",
       "memberIds": [
         "daniel-friedman",
@@ -164,6 +174,7 @@
     },
     {
       "description": "Educational programs unit — Active Inference curriculum, livestream series, Textbook Group, and community learning initiatives.",
+      "ecosystem": false,
       "id": "eduactive",
       "memberIds": [
         "eduactive-director"
@@ -180,6 +191,7 @@
     },
     {
       "description": "European Union supervisory authorities enforcing GDPR. Applicable to the Institute's interactions with EU-based researchers, community members, and event participants.",
+      "ecosystem": false,
       "id": "eu-data-protection",
       "memberIds": [],
       "name": "EU Data Protection Authorities",
@@ -195,6 +207,7 @@
     },
     {
       "description": "External standards body (TBD) that certifies the AII Certificate Programs. Placeholder entity referenced by the Strategy diagram and the certificate-training workflow until a specific accreditor is selected.",
+      "ecosystem": false,
       "id": "accreditation-organization",
       "memberIds": [],
       "name": "External Accreditation Organization",
@@ -209,7 +222,8 @@
       "url": null
     },
     {
-      "description": "Primary platform for source code hosting, version control, CI/CD pipelines, and open-source collaboration. Hosts the Institute's repositories under the docxology organisation.",
+      "description": "Primary platform for source code hosting, version control, CI/CD pipelines, and open-source collaboration. Hosts the Institute's repositories under the ActiveInferenceInstitute organisation.",
+      "ecosystem": false,
       "id": "github",
       "memberIds": [],
       "name": "GitHub",
@@ -221,10 +235,11 @@
         "open-source"
       ],
       "type": "technology",
-      "url": "https://github.com/docxology"
+      "url": "https://github.com/ActiveInferenceInstitute"
     },
     {
       "description": "U.S. federal agency administering tax-exempt status under IRC §501(c)(3). The Institute files Form 990 annually and must comply with IRS governance and financial reporting requirements.",
+      "ecosystem": false,
       "id": "irs",
       "memberIds": [],
       "name": "Internal Revenue Service (IRS)",
@@ -239,7 +254,30 @@
       "url": "https://www.irs.gov"
     },
     {
+      "description": "Led development of RxInfer-PRO and co-supervised the RxInfer/ReactiveBayes open-source community; partnered with the Institute from 2025 through 2026.",
+      "ecosystem": true,
+      "id": "lazy-dynamics",
+      "memberIds": [],
+      "name": "Lazy Dynamics",
+      "parentId": null,
+      "tags": [],
+      "type": "partner",
+      "url": null
+    },
+    {
+      "description": "Game studio, began the Numinia effort in 2020; current Institute partner building a gamified organizational framework and an open-metaverse RPG, and developer of the Institute's Numinia ecosystem project.",
+      "ecosystem": true,
+      "id": "numen-games",
+      "memberIds": [],
+      "name": "Numen Games",
+      "parentId": null,
+      "tags": [],
+      "type": "partner",
+      "url": null
+    },
+    {
       "description": "Markdown-based knowledge-management and publishing platform used to host public Active Inference knowledge bases; ecosystem knowledge infrastructure.",
+      "ecosystem": true,
       "id": "obsidian",
       "memberIds": [],
       "name": "Obsidian",
@@ -250,6 +288,7 @@
     },
     {
       "description": "Local LLM inference platform used by the institute-docs pipeline for policy analysis, summarisation, sentiment analysis, and the Governance Assistant RAG chat.",
+      "ecosystem": false,
       "id": "ollama",
       "memberIds": [],
       "name": "Ollama",
@@ -265,6 +304,7 @@
     },
     {
       "description": "Research programs unit — Scientific Advisory Board-guided projects, Fellowship programs, and the Active Inference Journal.",
+      "ecosystem": false,
       "id": "reinference",
       "memberIds": [
         "reinference-director"
@@ -281,6 +321,7 @@
     },
     {
       "description": "Advisory body of domain experts providing guidance on research direction, scientific standards, and academic partnerships.",
+      "ecosystem": false,
       "id": "scientific-advisory-board",
       "memberIds": [],
       "name": "Scientific Advisory Board",
@@ -295,6 +336,7 @@
     },
     {
       "description": "State of operations. California laws apply to employment, privacy (CCPA), consumer protection, and charitable registration.",
+      "ecosystem": false,
       "id": "state-of-california",
       "memberIds": [],
       "name": "State of California",
@@ -310,6 +352,7 @@
     },
     {
       "description": "State of incorporation. The Institute is organised under Delaware nonprofit corporation law and must maintain a registered agent and file annual reports.",
+      "ecosystem": false,
       "id": "state-of-delaware",
       "memberIds": [],
       "name": "State of Delaware",
@@ -324,6 +367,7 @@
     },
     {
       "description": "Video hosting platform for the Institute's educational livestreams, recorded lectures, symposium presentations, and community events.",
+      "ecosystem": false,
       "id": "youtube",
       "memberIds": [],
       "name": "YouTube",
@@ -339,6 +383,7 @@
     },
     {
       "description": "Open-access research data and publication repository (CERN / OpenAIRE) providing DOIs and long-term archival; part of the open epistemic commons the Institute deposits to.",
+      "ecosystem": true,
       "id": "zenodo",
       "memberIds": [],
       "name": "Zenodo",
