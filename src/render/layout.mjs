@@ -69,6 +69,11 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   // (search-data.js, 'self' origin) — no fetch, CSP-safe.
   const hasSearchPage = normalizedBody.includes("search-page-mount");
   const searchPageScript = hasSearchPage ? `\n  <script src="${prefix}assets/js/search-page.js" defer></script>` : "";
+  // Only the /video/ page (which embeds a #video-table-mount region) loads the
+  // client-side row filter. It filters DOM rows already rendered server-side —
+  // no fetch, no external index, CSP-safe.
+  const hasVideoTable = normalizedBody.includes("video-table-mount");
+  const videoTableScript = hasVideoTable ? `\n  <script src="${prefix}assets/js/video-table.js" defer></script>` : "";
   // Legacy-URL redirects load ONLY on the 404 page (GitHub Pages' catch-all for
   // any unmatched path). The script is referenced by an ABSOLUTE base path so it
   // resolves even when the unmatched request is several segments deep (relative
@@ -175,7 +180,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   <script src="${prefix}assets/js/tts.js" defer></script>
   <script src="${prefix}assets/js/site.js" defer></script>
   <script src="${prefix}assets/js/search-data.js" defer></script>
-  <script src="${prefix}assets/js/search.js" defer></script>${searchPageScript}${graphScript}${redirectScript}
+  <script src="${prefix}assets/js/search.js" defer></script>${searchPageScript}${graphScript}${videoTableScript}${redirectScript}
 </body>
 </html>`;
 }

@@ -188,9 +188,16 @@
       "record_count": 30,
       "sha256": "7806f160f1bf73aa2f99995e974addd632243159c4ef79b02942653b27634db3",
       "target": "content"
+    },
+    {
+      "name": "videos.json",
+      "output_path": "src/content/instituteos/videos.json",
+      "record_count": 694,
+      "sha256": "ac312845fbc2c3132c2de0be5e0f83ecea05e12e4e1bf5aae63665de90f554fa",
+      "target": "content"
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-07-14T21:37:18.346807+00:00",
-  "source_fingerprint": "4f814500686a"
+  "generated_at": "2026-07-15T19:54:27.679319+00:00",
+  "source_fingerprint": "982ce1c1f7a6"
 }

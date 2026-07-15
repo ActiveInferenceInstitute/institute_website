@@ -1083,6 +1083,19 @@ def check_stale_references(root: Path, errors: list[str]) -> None:
                 errors.append(f"{path.relative_to(root)} contains obsolete public reference matching {pattern}")
 
 
+# Public-by-construction phrases containing the bare word "workspace" that are
+# real scientific terminology, not a leaked "Coda workspace" / "Superhuman Docs
+# workspace" reference. Stripped before the bare-word scan below so they don't
+# false-positive (2026-07-15: the /video/ page legitimately publishes a talk
+# titled "The predictive global neuronal workspace..." — Global Workspace
+# Theory, unrelated to the private docs workspace this check guards against).
+_WORKSPACE_ALLOWLIST = (
+    "global neuronal workspace",
+    "global workspace",
+    "neuronal workspace",
+)
+
+
 def check_no_public_coda_links(root: Path, errors: list[str]) -> None:
     public_paths = [
         *generated_html_files(root),
@@ -1101,7 +1114,10 @@ def check_no_public_coda_links(root: Path, errors: list[str]) -> None:
         if "https://coda.io" in lower or "http://coda.io" in lower:
             errors.append(f"{path.relative_to(root)} contains a direct Coda URL")
         if path.suffix == ".html":
-            if "coda.io" in lower or "coda " in lower or "workspace" in lower:
+            scrubbed = lower
+            for allowed in _WORKSPACE_ALLOWLIST:
+                scrubbed = scrubbed.replace(allowed, "")
+            if "coda.io" in scrubbed or "coda " in scrubbed or "workspace" in scrubbed:
                 errors.append(f"{path.relative_to(root)} contains visible Coda/workspace wording")
 
 
@@ -1179,7 +1195,17 @@ def check_instituteos_interface(root: Path, errors: list[str]) -> None:
         errors.append("data/export-manifest.json missing generated_at")
 
     exported_records = sum(int(file.get("record_count", 0)) for file in files)
-    if f"{len(files)} artifacts, {exported_records} manifest records" not in html:
+    # The page renders this count via JS toLocaleString("en-US") (formatCount in
+    # feature-sections.mjs), which comma-groups thousands (e.g. "1,009"). Match
+    # either form so this check doesn't regress the moment total records cross
+    # 1000 — it did exactly that on 2026-07-15 when the videos.json exporter
+    # (694 records) pushed the total from 315 to 1009 records.
+    grouped_records = f"{exported_records:,}"
+    expected_totals = (
+        f"{len(files)} artifacts, {exported_records} manifest records",
+        f"{len(files)} artifacts, {grouped_records} manifest records",
+    )
+    if not any(expected in html for expected in expected_totals):
         errors.append("instituteos/index.html does not surface export manifest artifact and record totals")
     if f"Gate version {manifest.get('gate_version')}" not in html:
         errors.append("instituteos/index.html does not surface the export gate version")

@@ -47,6 +47,28 @@ export function buildSearchIndex() {
       c: "Event",
     });
   }
+  // Videos: the page itself plus every public video/podcast, same treatment as
+  // Calendar — all entries resolve to the single /video/ page (which has its own
+  // in-page filter over the full table), so the header search and /search/ page
+  // surface individual recordings by title/series/guest/keyword too.
+  const videoUrl = absoluteUrl(outputPathForSlug("video"));
+  entries.push({
+    t: "Videos and Podcasts",
+    u: videoUrl,
+    k: "video library livestreams learning group sessions interviews lectures presentations podcast youtube",
+    c: "Page",
+  });
+  for (const record of osm.videos?.videos || []) {
+    const guestNames = (record.guests || []).map((g) => g.name).filter(Boolean).join(" ");
+    entries.push({
+      t: record.title || "Untitled",
+      u: videoUrl,
+      k: `${record.series || ""} ${String(record.date || "").slice(0, 10)} ${(record.types || []).join(" ")} ${(record.keywords || []).join(" ")} ${(record.ontologyTerms || []).join(" ")} ${guestNames}`
+        .trim()
+        .slice(0, 180),
+      c: "Video",
+    });
+  }
   // Directory, Resources, Simulations, and Sitemap are programmatically-rendered
   // pages (src/pages/*.mjs), not curated src/content/pages/**/*.json entries, so
   // they never went through the siteData.pages loop above and were entirely

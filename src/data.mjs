@@ -88,6 +88,7 @@ export const siteData = {
     domainProjects: loadJson(path.join("instituteos", "domain_projects.json")),
     narratives: loadJson(path.join("instituteos", "narratives_public.json")),
     calendar: loadJson(path.join("instituteos", "calendar.json")),
+    videos: loadJson(path.join("instituteos", "videos.json")),
   },
   pages,
 };
