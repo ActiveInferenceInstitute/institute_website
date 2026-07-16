@@ -1116,6 +1116,93 @@ select:focus-visible {
   margin-bottom: 0.25rem;
 }
 
+.event-url {
+  color: var(--muted);
+  font-size: 0.92em;
+  word-break: break-all;
+}
+
+.table-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.table-filter-field {
+  display: grid;
+  gap: 0.35rem;
+  flex: 1 1 200px;
+}
+
+.table-filter-field:first-child {
+  flex: 2 1 260px;
+}
+
+.table-filter-label {
+  font-weight: 750;
+}
+
+.table-filter-input,
+.table-filter-select {
+  width: 100%;
+  min-height: 2.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.85rem;
+  background: var(--surface-strong);
+  color: var(--ink);
+  font: inherit;
+}
+
+.table-filter-status {
+  margin: 0;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.directory-table th button.th-sort {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  font-weight: 750;
+}
+
+.directory-table th button.th-sort:hover {
+  color: var(--red);
+}
+
+.directory-table th button.th-sort:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+.th-sort .sort-icon::after {
+  content: "\21C5";
+  margin-left: 0.2rem;
+  opacity: 0.5;
+  font-size: 0.85em;
+}
+
+.directory-table th[aria-sort="ascending"] .sort-icon::after {
+  content: "\2191";
+  opacity: 1;
+}
+
+.directory-table th[aria-sort="descending"] .sort-icon::after {
+  content: "\2193";
+  opacity: 1;
+}
+
 .pager {
   display: flex;
   justify-content: space-between;
