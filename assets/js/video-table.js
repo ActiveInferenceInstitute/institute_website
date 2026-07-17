@@ -8,6 +8,7 @@
   var mount = document.getElementById("video-table-mount");
   var input = document.getElementById("video-table-filter");
   var typeSelect = document.getElementById("video-table-type");
+  var topicSelect = document.getElementById("video-table-topic");
   var status = document.getElementById("video-table-filter-status");
   var tbody = mount ? mount.querySelector("tbody") : null;
   if (!mount || !input || !status || !tbody) {
@@ -24,11 +25,17 @@
   function applyFilter() {
     var terms = normalize(input.value).split(/\s+/).filter(Boolean);
     var type = typeSelect ? typeSelect.value : "";
+    var topic = topicSelect ? topicSelect.value : "";
     var visible = 0;
     for (var i = 0; i < rows.length; i += 1) {
       var row = rows[i];
-      var haystack = row.dataset.filterText || normalize(row.textContent);
-      row.dataset.filterText = haystack;
+      // Base haystack is the visible cell text plus the row's humanized topic
+      // labels (topics are not a rendered column but must be searchable).
+      var haystack = row.dataset.filterText;
+      if (haystack === undefined) {
+        haystack = normalize(row.textContent) + " " + (row.dataset.topicText || "");
+        row.dataset.filterText = haystack;
+      }
       var matchesText = true;
       for (var t = 0; t < terms.length; t += 1) {
         if (haystack.indexOf(terms[t]) === -1) {
@@ -38,18 +45,24 @@
       }
       var rowTypes = (row.dataset.types || "").split("|").filter(Boolean);
       var matchesType = !type || rowTypes.indexOf(type) !== -1;
-      var show = matchesText && matchesType;
+      var rowTopics = (row.dataset.topics || "").split("|").filter(Boolean);
+      var matchesTopic = !topic || rowTopics.indexOf(topic) !== -1;
+      var show = matchesText && matchesType && matchesTopic;
       row.hidden = !show;
       if (show) {
         visible += 1;
       }
     }
-    if (terms.length === 0 && !type) {
+    if (terms.length === 0 && !type && !topic) {
       status.textContent = total + " videos";
     } else {
       var suffix = [];
       if (type) {
         suffix.push("type “" + type + "”");
+      }
+      if (topic && topicSelect) {
+        var opt = topicSelect.options[topicSelect.selectedIndex];
+        suffix.push("topic “" + (opt ? opt.text.replace(/\s*\(\d+\)\s*$/, "") : topic) + "”");
       }
       if (terms.length) {
         suffix.push("“" + input.value + "”");
@@ -103,6 +116,9 @@
   input.addEventListener("input", applyFilter);
   if (typeSelect) {
     typeSelect.addEventListener("change", applyFilter);
+  }
+  if (topicSelect) {
+    topicSelect.addEventListener("change", applyFilter);
   }
   applyFilter();
 })();

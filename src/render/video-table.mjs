@@ -98,13 +98,50 @@ function distinctTypes(videos) {
   return [...set].sort((a, b) => a.localeCompare(b));
 }
 
+// Humanize an Active Inference Ontology term id ("term-active-inference") into a
+// display label ("Active Inference"). The id itself is the stable filter value.
+function humanizeTopic(termId) {
+  return String(termId || "")
+    .replace(/^term-/, "")
+    .split("-")
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+// Top ontology topics across the dataset for the Topic <select>. Ordered by
+// frequency; only topics shared by >1 video earn an option (everything else
+// stays reachable through free-text search, which now includes topic labels).
+function topTopics(videos, limit = 16) {
+  const counts = new Map();
+  for (const video of videos) {
+    for (const termId of video.ontologyTerms || []) {
+      if (termId) {
+        counts.set(termId, (counts.get(termId) || 0) + 1);
+      }
+    }
+  }
+  return [...counts.entries()]
+    .filter(([, count]) => count > 1)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, limit)
+    .map(([termId, count]) => ({ termId, label: humanizeTopic(termId), count }));
+}
+
 export function videoTableSection(videos, currentDir = "") {
   const rows = videos.map((v) => {
     const seriesLabel = [v.series, v.number].filter(Boolean).join(" ");
     const guestNames = (v.guests || []).map((g) => g.name).filter(Boolean);
     const types = (v.types || []).filter(Boolean);
+    const topicIds = (v.ontologyTerms || []).filter(Boolean);
+    // Humanized topic labels are joined into the searchable text (topics are not
+    // a visible column) so free-text search matches on topic; the raw ids drive
+    // the exact Topic <select> filter.
+    const topicText = topicIds.map(humanizeTopic).join(" ");
     const dataAttrs =
       ` data-types="${escapeHtml(types.join("|"))}"` +
+      ` data-topics="${escapeHtml(topicIds.join("|"))}"` +
+      ` data-topic-text="${escapeHtml(topicText.toLowerCase())}"` +
       ` data-sort-date="${escapeHtml(v.date || "")}"` +
       ` data-sort-series="${escapeHtml(sortKeyText(seriesLabel))}"` +
       ` data-sort-title="${escapeHtml(sortKeyText(v.title))}"` +
@@ -114,11 +151,25 @@ export function videoTableSection(videos, currentDir = "") {
   const typeOptions = distinctTypes(videos)
     .map((type) => `<option value="${escapeHtml(type)}">${escapeHtml(type)}</option>`)
     .join("");
+  const topics = topTopics(videos);
+  const topicOptions = topics
+    .map((t) => `<option value="${escapeHtml(t.termId)}">${escapeHtml(t.label)} (${t.count})</option>`)
+    .join("");
+  const topicField = topics.length
+    ? `
+      <div class="table-filter-field">
+        <label class="table-filter-label" for="video-table-topic">Topic</label>
+        <select id="video-table-topic" class="table-filter-select">
+          <option value="">All topics</option>
+          ${topicOptions}
+        </select>
+      </div>`
+    : "";
   const filterBar = `
     <div class="table-filter" role="search">
       <div class="table-filter-field">
         <label class="table-filter-label" for="video-table-filter">Filter videos</label>
-        <input type="search" id="video-table-filter" class="table-filter-input" placeholder="Filter by title, series, guest, date…" autocomplete="off" spellcheck="false">
+        <input type="search" id="video-table-filter" class="table-filter-input" placeholder="Filter by title, series, guest, topic, date…" autocomplete="off" spellcheck="false">
       </div>
       <div class="table-filter-field">
         <label class="table-filter-label" for="video-table-type">Type</label>
@@ -126,7 +177,7 @@ export function videoTableSection(videos, currentDir = "") {
           <option value="">All types</option>
           ${typeOptions}
         </select>
-      </div>
+      </div>${topicField}
       <p id="video-table-filter-status" class="table-filter-status" role="status" aria-live="polite">${rows.length} videos</p>
     </div>`;
   return `<section class="content-band" id="video-library">
