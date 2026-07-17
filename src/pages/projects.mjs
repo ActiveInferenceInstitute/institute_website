@@ -75,9 +75,49 @@ export function catalogProjects() {
       status: project.status || "unknown",
       summary: project.summary || project.description || "",
       topics: project.topics || [],
+      owner: project.owner_name || "",
       slug: project.website_slug,
     }))
     .sort((a, b) => a.title.localeCompare(b.title));
+}
+
+// Top-N most common topics across the catalog, for the topic <select>. Only
+// topics shared by >1 project are worth a filter option; everything else stays
+// reachable through free-text search.
+function topCatalogTopics(projects, limit = 14) {
+  const counts = new Map();
+  for (const project of projects) {
+    for (const topic of project.topics) {
+      const key = String(topic).toLowerCase();
+      counts.set(key, (counts.get(key) || 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .filter(([, count]) => count > 1)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, limit)
+    .map(([topic, count]) => ({ topic, count }));
+}
+
+function catalogProjectCard(project, currentDir) {
+  const topics = project.topics
+    .slice(0, 4)
+    .map((topic) => escapeHtml(title_case_token_js(topic)))
+    .join(", ");
+  const topicKeys = escapeHtml(project.topics.map((topic) => String(topic).toLowerCase()).join(" "));
+  const summary = sanitizePublicProse(project.summary).slice(0, 160);
+  const search = escapeHtml(
+    `${project.title} ${project.summary} ${project.topics.join(" ")} ${project.owner}`.toLowerCase(),
+  );
+  const statusLabel = project.status === "active" ? "Active" : title_case_token_js(project.status);
+  const lead = project.owner ? `<em class="catalog-lead">Lead: ${escapeHtml(sanitizePublicProse(project.owner))}</em>` : "";
+  return `<a class="resource-card internal-card catalog-project-card" href="${slugToHref(project.slug, currentDir)}" data-catalog-row data-status="${escapeHtml(project.status)}" data-topics="${topicKeys}" data-search="${search}">
+        <span>${escapeHtml(statusLabel)}</span>
+        <strong>${escapeHtml(sanitizePublicProse(project.title))}</strong>
+        <p>${escapeHtml(summary)}</p>
+        ${topics ? `<em>${topics}</em>` : ""}
+        ${lead}
+      </a>`;
 }
 
 export function projectCatalogSection(currentDir = "") {
@@ -85,41 +125,48 @@ export function projectCatalogSection(currentDir = "") {
   if (!projects.length) {
     return "";
   }
-  const activeCount = projects.filter((project) => project.status === "active").length;
-  const archivedCount = projects.length - activeCount;
-  const cards = projects
-    .map((project) => {
-      const topics = project.topics
-        .slice(0, 4)
-        .map((topic) => escapeHtml(title_case_token_js(topic)))
-        .join(", ");
-      const summary = sanitizePublicProse(project.summary).slice(0, 160);
-      const search = escapeHtml(`${project.title} ${project.summary} ${project.topics.join(" ")}`.toLowerCase());
-      const statusLabel = project.status === "active" ? "Active" : title_case_token_js(project.status);
-      return `<a class="resource-card internal-card catalog-project-card" href="${slugToHref(project.slug, currentDir)}" data-catalog-row data-status="${escapeHtml(project.status)}" data-search="${search}">
-        <span>${escapeHtml(statusLabel)}</span>
-        <strong>${escapeHtml(sanitizePublicProse(project.title))}</strong>
-        <p>${escapeHtml(summary)}</p>
-        ${topics ? `<em>${topics}</em>` : ""}
-      </a>`;
-    })
+  const active = projects.filter((project) => project.status === "active");
+  const archived = projects.filter((project) => project.status !== "active");
+  const topics = topCatalogTopics(projects);
+  const topicOptions = topics
+    .map(({ topic, count }) => `<option value="${escapeHtml(topic)}">${escapeHtml(title_case_token_js(topic))} (${count})</option>`)
     .join("");
+
+  const activeGrid = active.map((project) => catalogProjectCard(project, currentDir)).join("");
+  const archivedGrid = archived.map((project) => catalogProjectCard(project, currentDir)).join("");
+
+  const archivedSection = archived.length
+    ? `<div class="catalog-archived-band" id="project-catalog-archived">
+      <div class="catalog-subhead">
+        <h3>Archived &amp; completed projects</h3>
+        <span class="catalog-subcount" id="project-catalog-archived-count">${archived.length} project${archived.length === 1 ? "" : "s"}</span>
+      </div>
+      <div class="resource-grid compact-grid" id="project-catalog-archived-grid">${archivedGrid}</div>
+      <p class="catalog-empty" id="project-catalog-archived-empty" hidden>No archived projects match your search.</p>
+    </div>`
+    : "";
+
   return `<section class="content-band" id="project-catalog">
     ${sectionHeading({
       eyebrow: "Full catalog",
       title: `Browse all ${projects.length} public projects`,
-      text: "Every Institute and Ecosystem project with a public page, generated directly from the InstituteOS project registry export. Search by name or topic, or filter by status.",
+      text: "Every Institute and Ecosystem project with a public page, generated directly from the InstituteOS project registry export. Active projects lead; archived and completed work follows below. Search by name, topic, or lead, or narrow by topic.",
     })}
     <div class="activities-search">
-      <input id="project-catalog-search" type="search" placeholder="Search ${projects.length} projects by name or topic…" autocomplete="off" aria-label="Search all projects">
-      <select id="project-catalog-status" aria-label="Filter projects by status">
-        <option value="">All statuses (${projects.length})</option>
-        <option value="active">Active (${activeCount})</option>
-        <option value="archived">Archived (${archivedCount})</option>
+      <input id="project-catalog-search" type="search" placeholder="Search ${projects.length} projects by name, topic, or lead…" autocomplete="off" aria-label="Search all projects">
+      <select id="project-catalog-topic" aria-label="Filter projects by topic">
+        <option value="">All topics</option>
+        ${topicOptions}
       </select>
       <span id="project-catalog-count" aria-live="polite"></span>
     </div>
-    <div class="resource-grid compact-grid" id="project-catalog-grid">${cards}</div>
+    <div class="catalog-subhead">
+      <h3>Active projects</h3>
+      <span class="catalog-subcount" id="project-catalog-active-count">${active.length} project${active.length === 1 ? "" : "s"}</span>
+    </div>
+    <div class="resource-grid compact-grid" id="project-catalog-active-grid">${activeGrid}</div>
+    <p class="catalog-empty" id="project-catalog-active-empty" hidden>No active projects match your search.</p>
+    ${archivedSection}
   </section>`;
 }
 

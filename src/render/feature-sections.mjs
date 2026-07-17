@@ -49,6 +49,11 @@ function manifestFiles() {
   return Array.isArray(EXPORT_PROVENANCE.files) ? EXPORT_PROVENANCE.files : [];
 }
 
+function shortHash(value) {
+  const hash = String(value || "");
+  return hash ? hash.slice(0, 12) : "not recorded";
+}
+
 function gateMetric({ label, value, text, href }) {
   const body = `<strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span><p>${escapeHtml(text)}</p>`;
   if (href) {
@@ -104,6 +109,7 @@ function instituteosInterfaceSection(currentDir = "") {
       <strong>${escapeHtml(file.name)}</strong>
       <span>${formatCount(file.record_count)} records</span>
       <em>${escapeHtml(file.output_path || "")}</em>
+      <code class="export-artifact-hash" title="SHA-256 ${escapeHtml(file.sha256 || "not recorded")}">sha256:${escapeHtml(shortHash(file.sha256))}</code>
     </article>`)
     .join("");
 

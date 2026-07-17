@@ -1222,6 +1222,11 @@ def check_instituteos_interface(root: Path, errors: list[str]) -> None:
             errors.append(f"instituteos/index.html missing manifest artifact path {output_path}")
         if f"{record_count:,} records" not in html and f"{record_count} records" not in html:
             errors.append(f"instituteos/index.html missing manifest record count for {name}")
+        sha256 = str(file.get("sha256", ""))
+        if not sha256:
+            errors.append(f"data/export-manifest.json missing SHA-256 for {name}")
+        elif sha256[:12] not in html:
+            errors.append(f"instituteos/index.html missing artifact SHA-256 prefix for {name}")
 
     index_html = (root / "index.html").read_text(encoding="utf-8")
     data = instituteos_data(root)

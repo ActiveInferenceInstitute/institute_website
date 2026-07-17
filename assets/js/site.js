@@ -292,30 +292,62 @@ if (activitiesProjectSearch && activitiesProjectRows.length) {
   applyActivitiesProjectFilter();
 }
 
-// Projects page — full catalog search + status filter (all public projects).
+// Projects page — full catalog search + topic filter, split into an Active
+// grid and an Archived band. Search matches name / topic / lead; the topic
+// <select> narrows to one topic. Each section shows a live count and an empty
+// state so a narrowed search never leaves a bare heading.
 const catalogSearch = document.querySelector("#project-catalog-search");
-const catalogStatus = document.querySelector("#project-catalog-status");
+const catalogTopic = document.querySelector("#project-catalog-topic");
 const catalogRows = [...document.querySelectorAll("[data-catalog-row]")];
 const catalogCount = document.querySelector("#project-catalog-count");
 if (catalogRows.length) {
+  const pluralize = (n) => `${n} project${n === 1 ? "" : "s"}`;
+  const sections = [
+    {
+      grid: document.querySelector("#project-catalog-active-grid"),
+      count: document.querySelector("#project-catalog-active-count"),
+      empty: document.querySelector("#project-catalog-active-empty"),
+    },
+    {
+      grid: document.querySelector("#project-catalog-archived-grid"),
+      count: document.querySelector("#project-catalog-archived-count"),
+      empty: document.querySelector("#project-catalog-archived-empty"),
+      band: document.querySelector("#project-catalog-archived"),
+    },
+  ].filter((section) => section.grid);
   const applyCatalogFilter = () => {
     const query = (catalogSearch?.value || "").trim().toLowerCase();
-    const status = catalogStatus?.value || "";
+    const topic = catalogTopic?.value || "";
     let shown = 0;
-    for (const row of catalogRows) {
-      const matchesQuery = !query || (row.dataset.search || "").includes(query);
-      const matchesStatus = !status || row.dataset.status === status;
-      const match = matchesQuery && matchesStatus;
-      row.hidden = !match;
-      if (match) {
-        shown += 1;
+    for (const section of sections) {
+      let sectionShown = 0;
+      for (const row of section.grid.querySelectorAll("[data-catalog-row]")) {
+        const matchesQuery = !query || (row.dataset.search || "").includes(query);
+        const rowTopics = ` ${row.dataset.topics || ""} `;
+        const matchesTopic = !topic || rowTopics.includes(` ${topic} `);
+        const match = matchesQuery && matchesTopic;
+        row.hidden = !match;
+        if (match) {
+          sectionShown += 1;
+        }
+      }
+      shown += sectionShown;
+      if (section.count) {
+        section.count.textContent = pluralize(sectionShown);
+      }
+      if (section.empty) {
+        section.empty.hidden = sectionShown !== 0;
+      }
+      // Collapse the whole archived band (heading + count) when a filter empties it.
+      if (section.band) {
+        section.band.hidden = sectionShown === 0 && (Boolean(query) || Boolean(topic));
       }
     }
     if (catalogCount) {
-      catalogCount.textContent = `${shown} project${shown === 1 ? "" : "s"} shown`;
+      catalogCount.textContent = `${pluralize(shown)} shown`;
     }
   };
   catalogSearch?.addEventListener("input", applyCatalogFilter);
-  catalogStatus?.addEventListener("change", applyCatalogFilter);
+  catalogTopic?.addEventListener("change", applyCatalogFilter);
   applyCatalogFilter();
 }

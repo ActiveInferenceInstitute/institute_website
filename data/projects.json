@@ -10,7 +10,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "agent-behavior",
@@ -39,7 +38,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "active-entity-ontology-for-science",
@@ -51,7 +52,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "decentralized-science",
@@ -68,7 +68,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "active-inferants",
@@ -80,7 +82,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "ant-colonies",
@@ -108,7 +109,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "active-inference-journal",
@@ -120,7 +123,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "alexander-vyatkin",
       "topics": [
         "academic-publishing",
         "active-inference",
@@ -147,7 +149,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "alexander-vyatkin",
+      "owner_name": "Alexander Vyatkin"
     },
     {
       "id": "active-inference-ontology",
@@ -159,7 +163,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "decentralized-science",
@@ -185,7 +188,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "active-inference-social-sciences",
@@ -197,7 +202,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "avel-guenin-carlut",
       "topics": [
         "active-inference",
         "curriculum",
@@ -218,7 +222,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "avel-guenin-carlut",
+      "owner_name": "Avel Guénin-Carlut"
     },
     {
       "id": "active-inference-textbook",
@@ -230,7 +236,6 @@
       "repository_url": "https://github.com/ActiveInferenceInstitute/instituteos",
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "education",
@@ -277,7 +282,9 @@
           "event_id": null,
           "agent_hint": null
         }
-      ]
+      ],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "ai2c-active-inference-alignment-coalition",
@@ -289,7 +296,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "mahault-albarracin",
       "topics": [
         "ai-alignment",
         "active-inference",
@@ -318,7 +324,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "adam-safron",
       "topics": [
         "active-inference",
         "agency",
@@ -346,7 +351,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "adam-safron",
+      "owner_name": "Adam Safron"
     },
     {
       "id": "anima",
@@ -358,7 +365,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "stell",
       "topics": [
         "active-inference",
         "ai-alignment",
@@ -378,7 +384,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "stell",
+      "owner_name": "Stell"
     },
     {
       "id": "artificial-sentience",
@@ -390,7 +398,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "cleber-gomes",
       "topics": [
         "active-inference",
         "ai-research",
@@ -410,7 +417,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "cleber-gomes",
+      "owner_name": "Cleber Gomes"
     },
     {
       "id": "audio-visual-production",
@@ -422,7 +431,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "audio-visual-production",
         "eduactive",
@@ -443,7 +451,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "belief-updating-ptsd",
@@ -455,7 +465,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "jeremy-cooper",
       "topics": [
         "active-inference",
         "belief-updating",
@@ -476,7 +485,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "jeremy-cooper",
+      "owner_name": "Jeremy Cooper"
     },
     {
       "id": "brain-metabolism",
@@ -488,7 +499,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "tim-huggers",
       "topics": [
         "active-inference",
         "brain-metabolism",
@@ -507,7 +517,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "tim-huggers",
+      "owner_name": "Tim Huggers"
     },
     {
       "id": "clinical-waveform",
@@ -519,7 +531,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "franklin-ducatez",
       "topics": [
         "active-inference",
         "bedside-decision-support",
@@ -540,7 +551,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "franklin-ducatez",
+      "owner_name": "Franklin Ducatez"
     },
     {
       "id": "cognarn",
@@ -552,7 +565,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "john-boik",
       "topics": [
         "active-inference",
         "cognitive-architecture",
@@ -585,7 +597,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "john-boik",
+      "owner_name": "John Boik"
     },
     {
       "id": "cognitive-agent-modeling",
@@ -597,7 +611,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "agent-modeling",
@@ -618,7 +631,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "collective-foraging",
@@ -630,7 +645,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "susan-hasty",
       "topics": [
         "active-inference",
         "behavioral-science",
@@ -650,7 +664,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "susan-hasty",
+      "owner_name": "Susan Hasty"
     },
     {
       "id": "courses",
@@ -662,7 +678,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "courses",
         "education",
@@ -675,7 +690,9 @@
       "links": {},
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "creativity-fep",
@@ -687,7 +704,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "hector-manrique",
       "topics": [
         "active-inference",
         "cognitive-science",
@@ -706,7 +722,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "hector-manrique",
+      "owner_name": "Héctor Manrique"
     },
     {
       "id": "cycle-book",
@@ -718,7 +736,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "anna-pereira",
       "topics": [
         "active-inference",
         "eduactive",
@@ -738,7 +755,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "anna-pereira",
+      "owner_name": "Anna Pereira"
     },
     {
       "id": "educational-course-development",
@@ -750,7 +769,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "course-development",
@@ -772,7 +790,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "educational-standards-qualifications",
@@ -784,7 +804,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "educational-pathways",
@@ -798,7 +817,9 @@
       "links": {},
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "einstein-model",
@@ -810,7 +831,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "theodoros-aliferis",
       "topics": [
         "active-inference",
         "formal-bridges",
@@ -829,7 +849,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "theodoros-aliferis",
+      "owner_name": "Theodoros Aliferis"
     },
     {
       "id": "farmworks",
@@ -841,7 +863,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "vladimir-baulin",
       "topics": [
         "active-inference",
         "agents",
@@ -867,7 +888,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "vladimir-baulin",
+      "owner_name": "Vladimir Baulin"
     },
     {
       "id": "froebel",
@@ -879,7 +902,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "joanne-phillips",
       "topics": [
         "active-inference",
         "cohort-based-learning",
@@ -899,7 +921,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "joanne-phillips",
+      "owner_name": "Joanne Phillips"
     },
     {
       "id": "fundamentals-active-inference",
@@ -911,7 +935,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "eduactive",
@@ -937,7 +960,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "geo-infer",
@@ -949,7 +974,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "agent-systems",
@@ -975,7 +999,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "geometric-inquiry",
@@ -987,7 +1013,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "bruce-tisler",
       "topics": [
         "active-inference",
         "formal-methods",
@@ -1007,7 +1032,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "bruce-tisler",
+      "owner_name": "Bruce Tisler"
     },
     {
       "id": "gnn",
@@ -1019,7 +1046,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "cognitive-modeling",
@@ -1047,7 +1073,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "graphical-interface",
@@ -1059,7 +1087,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "graphical-interface",
@@ -1079,7 +1106,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "graphspeak",
@@ -1091,7 +1120,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "andrew-djuwidja",
       "topics": [
         "generative-models",
         "graph-based-communication",
@@ -1110,7 +1138,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "andrew-djuwidja",
+      "owner_name": "Andrew Djuwidja"
     },
     {
       "id": "humanitys-story",
@@ -1122,7 +1152,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "shagor-shaggy-rahman",
       "topics": [
         "active-inference",
         "cognitive-science",
@@ -1142,7 +1171,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "shagor-shaggy-rahman",
+      "owner_name": "Shagor (Shaggy) Rahman"
     },
     {
       "id": "knowledge-engineering",
@@ -1154,7 +1185,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "bleu-knight",
       "topics": [
         "active-inference",
         "annotation",
@@ -1179,7 +1209,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "bleu-knight",
+      "owner_name": "Virginia Bleu Knight"
     },
     {
       "id": "m-theory-hdpls",
@@ -1191,7 +1223,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "david-hughes",
       "topics": [
         "active-inference",
         "hyper-dimensional-geometry",
@@ -1211,7 +1242,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "david-hughes",
+      "owner_name": "David Hughes"
     },
     {
       "id": "mathart",
@@ -1223,7 +1256,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "shanna-dobson",
       "topics": [
         "art",
         "art-science",
@@ -1243,7 +1275,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "shanna-dobson",
+      "owner_name": "Shanna Dobson"
     },
     {
       "id": "model-centric-cognition",
@@ -1255,7 +1289,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "robert-worden",
       "topics": [
         "active-inference",
         "cognitive-science",
@@ -1275,7 +1308,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "robert-worden",
+      "owner_name": "Robert Worden"
     },
     {
       "id": "myth-of-objectivity",
@@ -1287,7 +1322,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "shagor-shaggy-rahman",
       "topics": [
         "active-inference",
         "artificial-intelligence",
@@ -1306,7 +1340,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "shagor-shaggy-rahman",
+      "owner_name": "Shagor (Shaggy) Rahman"
     },
     {
       "id": "neurodivergent-learning",
@@ -1318,7 +1354,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "jesse-g",
       "topics": [
         "accessibility",
         "active-inference",
@@ -1338,7 +1373,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "jesse-g",
+      "owner_name": "Jesse G"
     },
     {
       "id": "numinia",
@@ -1350,7 +1387,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "pablofm",
       "topics": [
         "active-inference",
         "ai-agents",
@@ -1369,7 +1405,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "pablofm",
+      "owner_name": "PabloFM"
     },
     {
       "id": "perspective-architectures-for-coherent-and-attuned-artificial-agency",
@@ -1381,7 +1419,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "hongju-pae",
       "topics": [
         "ai-alignment",
         "agency",
@@ -1415,7 +1452,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "eduactive",
@@ -1435,7 +1471,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "robotic-microscopy",
@@ -1447,7 +1485,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "craig-arnold",
       "topics": [
         "active-inference",
         "ai-agents",
@@ -1467,7 +1504,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "craig-arnold",
+      "owner_name": "Craig Arnold"
     },
     {
       "id": "rxinfer",
@@ -1479,7 +1518,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "bayesian-inference",
@@ -1505,7 +1543,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "rxinfer-visualization",
@@ -1517,7 +1557,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "fraser-paterson",
       "topics": [
         "active-inference",
         "bayesian-inference",
@@ -1538,7 +1577,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "fraser-paterson",
+      "owner_name": "Fraser Paterson"
     },
     {
       "id": "seasonal-school",
@@ -1550,7 +1591,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "cohort-based",
@@ -1576,7 +1616,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "start",
@@ -1588,7 +1630,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "education",
@@ -1609,7 +1650,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "sweet-dogg",
@@ -1621,7 +1664,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "andrew-djuwidja",
       "topics": [
         "active-inference",
         "animal-behavior",
@@ -1641,7 +1683,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "andrew-djuwidja",
+      "owner_name": "Andrew Djuwidja"
     },
     {
       "id": "symbolic-robotics",
@@ -1653,7 +1697,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "jean-francois-cloutier",
       "topics": [
         "active-inference",
         "bayesian-reasoning",
@@ -1673,7 +1716,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "jean-francois-cloutier",
+      "owner_name": "Jean-François Cloutier"
     },
     {
       "id": "symposium",
@@ -1685,7 +1730,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "ai",
@@ -1712,7 +1756,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "textbook-group",
@@ -1724,7 +1770,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "cohort-learning",
@@ -1753,7 +1798,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "the-foundations-of-ideology",
@@ -1765,7 +1812,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "alexander-hemming",
       "topics": [
         "political-ideology",
         "computational-neuroscience",
@@ -1796,7 +1842,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "active-inference",
         "cognitive-science",
@@ -1830,7 +1875,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "three-mosqueteers",
@@ -1842,7 +1889,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "hector-manrique",
       "topics": [
         "accessibility",
         "active-inference",
@@ -1861,7 +1907,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "hector-manrique",
+      "owner_name": "Héctor Manrique"
     },
     {
       "id": "tower-of-babel",
@@ -1873,7 +1921,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "ana-magdalena-hurtado",
       "topics": [
         "active-inference",
         "conceptual-frameworks",
@@ -1893,7 +1940,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "ana-magdalena-hurtado",
+      "owner_name": "Ana Magdalena Hurtado"
     },
     {
       "id": "translation-agent",
@@ -1905,7 +1954,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "michael-carl",
       "topics": [
         "active-inference",
         "agent-architectures",
@@ -1926,7 +1974,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "michael-carl",
+      "owner_name": "Michael Carl"
     },
     {
       "id": "universal-basic-income",
@@ -1938,7 +1988,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "die-schwarze-katze",
       "topics": [
         "active-inference",
         "agent-based-modeling",
@@ -1957,7 +2006,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "die-schwarze-katze",
+      "owner_name": "Die Schwarze Katze"
     },
     {
       "id": "video-improvement",
@@ -1969,7 +2020,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "daniel-friedman",
       "topics": [
         "accessibility",
         "discoverability",
@@ -1990,7 +2040,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman"
     },
     {
       "id": "wave-hypothesis",
@@ -2002,7 +2054,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "robert-worden",
       "topics": [
         "brain-waves",
         "consciousness",
@@ -2023,7 +2074,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "robert-worden",
+      "owner_name": "Robert Worden"
     },
     {
       "id": "pymdp",
@@ -2035,7 +2088,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "conor-heins",
       "topics": [
         "active-inference",
         "markov-decision-process",
@@ -2051,7 +2103,9 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "conor-heins",
+      "owner_name": "Conor Heins"
     },
     {
       "id": "the-unordinary-bible-study-tubs",
@@ -2063,7 +2117,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "jesse-g",
       "topics": [
         "eduactive"
       ],
@@ -2072,7 +2125,9 @@
       "links": {},
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "jesse-g",
+      "owner_name": "Jesse G"
     },
     {
       "id": "digital-agents",
@@ -2084,7 +2139,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "pablofm",
       "topics": [
         "reinference"
       ],
@@ -2093,7 +2147,9 @@
       "links": {},
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "pablofm",
+      "owner_name": "PabloFM"
     },
     {
       "id": "active-inference-for-built-environments-cooperactive-systems",
@@ -2105,7 +2161,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "ivan-metelkin",
       "topics": [
         "reinference"
       ],
@@ -2114,7 +2169,9 @@
       "links": {},
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "ivan-metelkin",
+      "owner_name": "Ivan Metelkin"
     },
     {
       "id": "ed4all-active-inference-for-grounded-educational-knowledge-environments",
@@ -2126,7 +2183,6 @@
       "repository_url": null,
       "start_date": null,
       "end_date": null,
-      "owner_entity_id": "matthew-d-murphy",
       "topics": [
         "eduactive"
       ],
@@ -2135,7 +2191,9 @@
       "links": {},
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "owner_entity_id": "matthew-d-murphy",
+      "owner_name": "Matthew D Murphy"
     }
   ]
 }

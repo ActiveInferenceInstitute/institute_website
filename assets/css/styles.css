@@ -675,6 +675,13 @@ select:focus-visible {
   font-style: normal;
 }
 
+.export-artifact-hash {
+  overflow-wrap: anywhere;
+  color: var(--accent-text);
+  font-family: var(--ds-font-mono, "SFMono-Regular", Consolas, monospace);
+  font-size: 0.72rem;
+}
+
 .next-action-band {
   padding-top: clamp(2rem, 4vw, 3.5rem);
   padding-bottom: clamp(2rem, 4vw, 3.5rem);
@@ -1653,6 +1660,16 @@ body{transition:background-color 200ms,color 200ms}
 .activities-search input[type="search"] { flex: 1 1 280px; padding: 0.55rem 0.8rem; border-radius: 8px; border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.16)); background: var(--surface-2, #111); color: inherit; }
 .activities-search select { flex: 0 1 180px; padding: 0.55rem 0.8rem; border-radius: 8px; border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.16)); background: var(--surface-2, #111); color: inherit; }
 .activities-search span { font-size: 0.85rem; color: var(--text-dim, #9aa0a6); }
+
+/* Project catalog — Active grid + Archived band, per-section counts + empty states */
+.catalog-subhead { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; margin: 1.4rem 0 0.75rem; }
+.catalog-subhead h3 { margin: 0; font-size: 1.15rem; letter-spacing: -0.01em; }
+.catalog-subcount { font-size: 0.82rem; color: var(--text-dim, #9aa0a6); font-variant-numeric: tabular-nums; }
+.catalog-archived-band { margin-top: 2.2rem; padding-top: 1.6rem; border-top: 1px solid var(--glass-border, rgba(255, 255, 255, 0.14)); }
+.catalog-archived-band .catalog-subhead { margin-top: 0; }
+.catalog-empty { font-size: 0.9rem; color: var(--text-dim, #9aa0a6); margin: 0.5rem 0 0; }
+.catalog-lead { display: block; margin-top: 0.35rem; font-size: 0.78rem; color: var(--text-dim, #9aa0a6); font-style: normal; }
+.catalog-project-card[hidden] { display: none; }
 
 /* Narrative tables (rendered from transposed markdown bodies on about/structure/ecosystem) */
 .narrative-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0.5rem 0 1rem; }
