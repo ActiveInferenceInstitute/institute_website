@@ -7,7 +7,7 @@ file in this directory is served directly.
 **Two producers feed this directory** (see [`../../../GATING.md`](../../../GATING.md)):
 
 1. The registry slices (`people`, `projects`, `ideas`, `ontology`, `assets`,
-   `entities`, `policies`, `calendar`) are produced by
+   `entities`, `policies`, `programs`, `citations`, `calendar`) are produced by
    `scripts/sync_instituteos_public_data.py` and validated by
    `npm run check:instituteos`. (`processes.json` was removed 2026-07-05 —
    process/workflow mechanics are backend governance detail, confirmed not
@@ -138,6 +138,39 @@ Public governance policy registry overview.
     id: string, title: string, category: string,
     description: string, status: string,
     currentVersion: string, tags: string[]
+  }]
+}
+```
+
+### `programs.json`
+Public visitor-facing participation and support pathways. Staffing, entity
+links, process ids, policy ids, source workspace links, emails, and notes are
+deliberately omitted; public destinations remain authored through the site's
+verified `live-sources.json` registry.
+
+```
+{
+  description: string, source: string,
+  records: [{
+    id: string, name: string, description: string, version: string,
+    status: string, category: string, summary: string,
+    websiteSlug: string, topics: string[]
+  }]
+}
+```
+
+### `citations.json`
+Public bibliographic records used by research-domain pages and the Literature
+table in the Open Source Map. `sourceIds` resolve through the website's live
+source registry; no internal provenance or private annotations are included.
+
+```
+{
+  description: string, source: string,
+  records: [{
+    id: string, citationKey: string, authors: string[], year: number|null,
+    title: string, venue: string, doi: string,
+    sourceIds: string[], tags: string[]
   }]
 }
 ```

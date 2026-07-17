@@ -83,9 +83,11 @@ export function homeInstituteosGate(currentDir = "") {
           (siteData.instituteos.people.records || []).length +
             (siteData.instituteos.projects.records || []).length +
             (siteData.instituteos.ideas.records || []).length +
-            (siteData.instituteos.ontology.edges || []).length,
+            (siteData.instituteos.ontology.edges || []).length +
+            (siteData.instituteos.programs.records || []).length +
+            (siteData.instituteos.citations.records || []).length,
         ),
-        text: "Searchable public rows for people, repositories, ideas, and ontology relationships.",
+        text: "Searchable public rows for people, repositories, programs, literature, ideas, and ontology relationships.",
         href: hrefForSlug("knowledge", currentDir),
       })}
       ${gateMetric({

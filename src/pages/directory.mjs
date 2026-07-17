@@ -118,6 +118,8 @@ export function directoryPage() {
       { title: `Governance Members (${(siteData.instituteos.entities.people || []).length})`, text: "Public governance members including board, officers, and registered organizational roles.", links: [{ label: "Open governance table", href: "knowledge.html#members-table" }] },
       { title: `Publications (${(siteData.instituteos.communications.records || []).length})`, text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: "Open publications table", href: "knowledge.html#publications-table" }] },
       { title: `Governance Policies (${(siteData.instituteos.policies.records || []).length})`, text: "Public governance policy registry with category, status, version, and description.", links: [{ label: "Open policies table", href: "knowledge.html#policies-table" }] },
+      { title: `Programs (${(siteData.instituteos.programs.records || []).length})`, text: "Public participation and support pathways for volunteers, interns, fellows, mentors, partners, and supporters.", links: [{ label: "Open programs table", href: "knowledge.html#programs-table" }] },
+      { title: `Literature (${(siteData.instituteos.citations.records || []).length})`, text: "Public bibliographic records grounding the research-domain pages.", links: [{ label: "Open literature table", href: "knowledge.html#citations-table" }] },
     ], currentDir)}
     ${dataTable({ caption: "Every Open Source Map row anchor.", columns: knowledgeColumns, rows: knowledgeRows })}
   </section>`;

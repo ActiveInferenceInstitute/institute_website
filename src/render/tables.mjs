@@ -9,6 +9,8 @@ import {
   entityPeopleRows,
   communicationRows,
   policyRows,
+  programRows,
+  citationRows,
 } from "../lib/instituteos.mjs";
 import { sectionHeading } from "./components.mjs";
 import { sourceAnchor } from "./sources.mjs";
@@ -193,4 +195,26 @@ export function policiesTable(rows = policyRows()) {
     { label: "Tags", render: (item) => escapeHtml(listText(item.tags)) },
   ];
   return dataTable({ caption: "Public governance policy registry for the Active Inference Institute.", columns, rows });
+}
+
+export function programsTable(rows = programRows()) {
+  const columns = [
+    { label: "Program", render: (item) => `<a href="#${escapeHtml(item.rowId)}">${escapeHtml(item.name)}</a>` },
+    { label: "Category", render: (item) => categoryTag(item.category) },
+    { label: "Status", render: (item) => statusBadge(item.status) },
+    { label: "Summary", render: (item) => escapeHtml(sanitizePublicProse(item.summary || item.description || "").slice(0, 140)) },
+    { label: "Topics", render: (item) => escapeHtml(listText(item.topics)) },
+  ];
+  return dataTable({ caption: "Public participation and support programs at the Active Inference Institute.", columns, rows });
+}
+
+export function citationsTable(rows = citationRows()) {
+  const columns = [
+    { label: "Work", render: (item) => `<a href="#${escapeHtml(item.rowId)}">${escapeHtml(item.title)}</a>` },
+    { label: "Authors", render: (item) => escapeHtml(listText(item.authors)) },
+    { label: "Year", render: (item) => escapeHtml(item.year || "n.d.") },
+    { label: "Venue", render: (item) => escapeHtml(item.venue || "") },
+    { label: "DOI", render: (item) => item.sourceIds?.[0] ? sourceAnchor(item.sourceIds[0], item.doi || "Open source") : escapeHtml(item.doi || "") },
+  ];
+  return dataTable({ caption: "Public bibliography records used by Active Inference research domain pages.", columns, rows });
 }

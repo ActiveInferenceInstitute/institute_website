@@ -82,6 +82,8 @@ export const siteData = {
     entities: loadJson(path.join("instituteos", "entities.json")),
     communications: loadJson(path.join("instituteos", "communications_public.json")),
     policies: loadJson(path.join("instituteos", "policies.json")),
+    programs: loadJson(path.join("instituteos", "programs.json")),
+    citations: loadJson(path.join("instituteos", "citations.json")),
     techTreeGraph: loadJson(path.join("instituteos", "tech_tree_graph.json")),
     ontologyGraph: loadJson(path.join("instituteos", "ontology_graph.json")),
     governanceGraph: loadJson(path.join("instituteos", "governance_graph.json")),

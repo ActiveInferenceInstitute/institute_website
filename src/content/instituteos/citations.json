@@ -1,0 +1,398 @@
+{
+  "description": "Public bibliography for Active Inference research and learning pathways.",
+  "source": "instituteos/library/registries/citations.json",
+  "records": [
+    {
+      "id": "torzoni-2026-active-digital-twins",
+      "citationKey": "Torzoni2026ActiveDigitalTwins",
+      "authors": [
+        "Matteo Torzoni",
+        "Domenico Maisto",
+        "Andrea Manzoni",
+        "Francesco Donnarumma",
+        "Giovanni Pezzulo",
+        "Alberto Corigliano"
+      ],
+      "year": 2026,
+      "title": "Active Digital Twins via Active Inference",
+      "venue": "Engineering Applications of Artificial Intelligence",
+      "doi": "10.1016/j.engappai.2026.114519",
+      "sourceIds": [
+        "journal"
+      ],
+      "tags": [
+        "active-inference",
+        "digital-twins",
+        "healthcare",
+        "structural-health-monitoring"
+      ]
+    },
+    {
+      "id": "mapes-2025-active-inference-ai-spatial-web-medicine",
+      "citationKey": "Mapes2025SpatialWebMedicine",
+      "authors": [
+        "Dan Mapes"
+      ],
+      "year": 2025,
+      "title": "Active Inference AI and the Spatial Web for Medicine: A New Paradigm for Medical Research, Treatment, and Education",
+      "venue": "The Cancer Journal",
+      "doi": "10.1097/PPO.0000000000000798",
+      "sourceIds": [
+        "journal"
+      ],
+      "tags": [
+        "active-inference",
+        "digital-twins",
+        "healthcare",
+        "oncology"
+      ]
+    },
+    {
+      "id": "brankovic-2025-active-inference-llm-medical-devices",
+      "citationKey": "Brankovic2025LlmMedicalDevices",
+      "authors": [
+        "Aida Brankovic",
+        "David Cook",
+        "Jessica Rahman",
+        "Alana Delaforce",
+        "Jane Li",
+        "Farah Magrabi",
+        "Federico Cabitza",
+        "Enrico Coiera",
+        "DanaKai Bradford"
+      ],
+      "year": 2025,
+      "title": "An active inference strategy for prompting reliable responses from large language models in medical practice",
+      "venue": "npj Digital Medicine",
+      "doi": "10.1038/s41746-025-01516-2",
+      "sourceIds": [
+        "journal"
+      ],
+      "tags": [
+        "active-inference",
+        "clinical-decision-support",
+        "healthcare",
+        "large-language-models"
+      ]
+    },
+    {
+      "id": "badcock-davey-2024-active-inference-psychology-psychiatry",
+      "citationKey": "BadcockDavey2024ProgressToDate",
+      "authors": [
+        "Paul B. Badcock",
+        "Christopher G. Davey"
+      ],
+      "year": 2024,
+      "title": "Active Inference in Psychology and Psychiatry: Progress to Date?",
+      "venue": "Entropy",
+      "doi": "10.3390/e26100833",
+      "sourceIds": [
+        "journal"
+      ],
+      "tags": [
+        "active-inference",
+        "healthcare",
+        "psychiatry",
+        "psychology",
+        "review"
+      ]
+    },
+    {
+      "id": "ramstead-2023-active-inference-precis",
+      "citationKey": "Ramstead2023ActiveInferencePrecis",
+      "authors": [
+        "Maxwell J. D. Ramstead",
+        "Karl J. Friston",
+        "Axel Constant",
+        "Lancelot Da Costa",
+        "Casper Hesp",
+        "Beren Millidge",
+        "Alexander Tschantz"
+      ],
+      "year": 2023,
+      "title": "On Bayesian Mechanics: A Physics of and by Beliefs",
+      "venue": "arXiv",
+      "doi": "",
+      "sourceIds": [
+        "learning-ramstead-precis"
+      ],
+      "tags": [
+        "bayesian-mechanics",
+        "cross-domain",
+        "foundations"
+      ]
+    },
+    {
+      "id": "pio-lopez-2022-morphogenesis-computational-psychiatry",
+      "citationKey": "PioLopez2022MorphogenesisComputationalPsychiatry",
+      "authors": [
+        "Léo Pio-Lopez",
+        "Franz Kuchling",
+        "Angela Tung",
+        "Giovanni Pezzulo",
+        "Michael Levin"
+      ],
+      "year": 2022,
+      "title": "Active inference, morphogenesis, and computational psychiatry",
+      "venue": "Frontiers in Computational Neuroscience",
+      "doi": "10.3389/fncom.2022.988977",
+      "sourceIds": [
+        "journal"
+      ],
+      "tags": [
+        "active-inference",
+        "computational-psychiatry",
+        "healthcare",
+        "morphogenesis"
+      ]
+    },
+    {
+      "id": "parr-pezzulo-friston-2022-active-inference",
+      "citationKey": "ParrPezzuloFriston2022ActiveInference",
+      "authors": [
+        "Thomas Parr",
+        "Giovanni Pezzulo",
+        "Karl J. Friston"
+      ],
+      "year": 2022,
+      "title": "Active Inference: The Free Energy Principle in Mind, Brain, and Behavior",
+      "venue": "MIT Press",
+      "doi": "",
+      "sourceIds": [
+        "learning-active-inference-book-mit"
+      ],
+      "tags": [
+        "applications",
+        "book",
+        "foundations"
+      ]
+    },
+    {
+      "id": "kirchner-2022-broken-models-treatment-selection",
+      "citationKey": "Kirchner2022BrokenModelsTreatmentSelection",
+      "authors": [
+        "Lukas Kirchner",
+        "Anna-Lena Eckert",
+        "Max Berg"
+      ],
+      "year": 2022,
+      "title": "From Broken Models to Treatment Selection: Active Inference as a Tool to Guide Clinical Research and Practice",
+      "venue": "Clinical Psychology in Europe",
+      "doi": "10.32872/cpe.9697",
+      "sourceIds": [
+        "journal"
+      ],
+      "tags": [
+        "active-inference",
+        "depression",
+        "healthcare",
+        "personalized-medicine",
+        "psychiatry"
+      ]
+    },
+    {
+      "id": "friedman-2021-active-inference-ant-colony",
+      "citationKey": "Friedman2021AntColony",
+      "authors": [
+        "Daniel Ari Friedman",
+        "Alec Tschantz",
+        "Maxwell J. D. Ramstead",
+        "Karl J. Friston",
+        "Axel Constant"
+      ],
+      "year": 2021,
+      "title": "Active Inferants: An Active Inference Framework for Ant Colony Behavior",
+      "venue": "Frontiers in Behavioral Neuroscience",
+      "doi": "10.3389/fnbeh.2021.647732",
+      "sourceIds": [
+        "active-inferants"
+      ],
+      "tags": [
+        "active-inference",
+        "ants",
+        "collective-behavior",
+        "entomology"
+      ]
+    },
+    {
+      "id": "lanillos-2021-active-inference-robotics-survey",
+      "citationKey": "Lanillos2021RoboticsSurvey",
+      "authors": [
+        "Pablo Lanillos",
+        "Cristian Meo",
+        "Corrado Pezzato",
+        "et al."
+      ],
+      "year": 2021,
+      "title": "Active Inference in Robotics and Artificial Agents: Survey and Challenges",
+      "venue": "arXiv",
+      "doi": "10.48550/arXiv.2112.01871",
+      "sourceIds": [
+        "lanillos-2021-arxiv"
+      ],
+      "tags": [
+        "active-inference",
+        "control",
+        "robotics",
+        "survey"
+      ]
+    },
+    {
+      "id": "petzschner-2021-interoception-body-regulation",
+      "citationKey": "Petzschner2021InteroceptionBodyRegulation",
+      "authors": [
+        "Frederike H. Petzschner",
+        "Sarah N. Garfinkel",
+        "Martin P. Paulus",
+        "Christof Koch",
+        "Sahib S. Khalsa"
+      ],
+      "year": 2021,
+      "title": "Computational Models of Interoception and Body Regulation",
+      "venue": "Trends in Neurosciences",
+      "doi": "10.1016/j.tins.2020.09.012",
+      "sourceIds": [
+        "journal"
+      ],
+      "tags": [
+        "active-inference",
+        "allostasis",
+        "healthcare",
+        "interoception",
+        "review"
+      ]
+    },
+    {
+      "id": "da-costa-2020-active-inference-discrete",
+      "citationKey": "DaCosta2020DiscreteSynthesis",
+      "authors": [
+        "Lancelot Da Costa",
+        "Thomas Parr",
+        "Noor Sajid",
+        "Sebastijan Veselic",
+        "Victorita Neacsu",
+        "Karl J. Friston"
+      ],
+      "year": 2020,
+      "title": "Active inference on discrete state-spaces: A synthesis",
+      "venue": "Journal of Mathematical Psychology",
+      "doi": "10.1016/j.jmp.2020.102447",
+      "sourceIds": [
+        "learning-foundations-arxiv"
+      ],
+      "tags": [
+        "active-inference",
+        "discrete-state-space",
+        "foundations",
+        "methods"
+      ]
+    },
+    {
+      "id": "paulus-2019-interoceptive-psychopathology",
+      "citationKey": "Paulus2019InteroceptivePsychopathology",
+      "authors": [
+        "Martin P. Paulus",
+        "Justin S. Feinstein",
+        "Sahib S. Khalsa"
+      ],
+      "year": 2019,
+      "title": "An Active Inference Approach to Interoceptive Psychopathology",
+      "venue": "Annual Review of Clinical Psychology",
+      "doi": "10.1146/annurev-clinpsy-050718-095617",
+      "sourceIds": [
+        "journal"
+      ],
+      "tags": [
+        "active-inference",
+        "healthcare",
+        "interoception",
+        "psychopathology"
+      ]
+    },
+    {
+      "id": "pezzulo-2017-active-inference-process-theory",
+      "citationKey": "Pezzulo2017ActiveInferenceProcessTheory",
+      "authors": [
+        "Giovanni Pezzulo",
+        "Francesco Rigoli",
+        "Karl J. Friston"
+      ],
+      "year": 2017,
+      "title": "Active Inference, homeostatic regulation and adaptive behavioural control",
+      "venue": "Progress in Neurobiology",
+      "doi": "10.1016/j.pneurobio.2017.08.001",
+      "sourceIds": [
+        "learning-beren-papers"
+      ],
+      "tags": [
+        "adaptive-control",
+        "biology",
+        "homeostasis"
+      ]
+    },
+    {
+      "id": "buckley-2017-free-energy-mathematical-review",
+      "citationKey": "Buckley2017FreeEnergyMathematicalReview",
+      "authors": [
+        "Christopher L. Buckley",
+        "Chang Sub Kim",
+        "Simon McGregor",
+        "Anil K. Seth"
+      ],
+      "year": 2017,
+      "title": "The free energy principle for action and perception: A mathematical review",
+      "venue": "Journal of Mathematical Psychology",
+      "doi": "10.1016/j.jmp.2017.09.004",
+      "sourceIds": [
+        "learning-beren-papers"
+      ],
+      "tags": [
+        "foundations",
+        "mathematical-review",
+        "perception-action"
+      ]
+    },
+    {
+      "id": "pio-lopez-2016-robot-control-case-study",
+      "citationKey": "PioLopez2016RobotControlCaseStudy",
+      "authors": [
+        "Léo Pio-Lopez",
+        "Ange Nizard",
+        "Karl J. Friston",
+        "Giovanni Pezzulo"
+      ],
+      "year": 2016,
+      "title": "Active inference and robot control: a case study",
+      "venue": "Journal of the Royal Society Interface",
+      "doi": "10.1098/rsif.2016.0616",
+      "sourceIds": [
+        "journal"
+      ],
+      "tags": [
+        "active-inference",
+        "healthcare",
+        "motor-control",
+        "robotics"
+      ]
+    },
+    {
+      "id": "friston-2010-free-energy-principle",
+      "citationKey": "Friston2010FreeEnergyPrinciple",
+      "authors": [
+        "Karl J. Friston"
+      ],
+      "year": 2010,
+      "title": "The free-energy principle: a unified brain theory?",
+      "venue": "Nature Reviews Neuroscience",
+      "doi": "10.1038/nrn2787",
+      "sourceIds": [
+        "friston-2010-doi"
+      ],
+      "tags": [
+        "foundations",
+        "free-energy-principle",
+        "neuroscience"
+      ]
+    }
+  ]
+}

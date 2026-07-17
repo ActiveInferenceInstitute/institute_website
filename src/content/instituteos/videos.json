@@ -12586,8 +12586,7 @@
       "keywords": [],
       "ontologyTerms": [
         "term-active-inference",
-        "term-free-energy-principle",
-        "term-markov-blanket"
+        "term-free-energy-principle"
       ],
       "date": "2023-06-23",
       "youtubeUrl": "https://www.youtube.com/watch?v=dUW8cD8XUec",
@@ -13738,7 +13737,6 @@
       "ontologyTerms": [
         "term-active-inference",
         "term-entropy",
-        "term-markov-blanket",
         "term-physics"
       ],
       "date": "2023-05-18",
@@ -19734,9 +19732,7 @@
       "types": [],
       "keywords": [],
       "ontologyTerms": [
-        "term-generative-model",
-        "term-variational",
-        "term-variational-free-energy"
+        "term-generative-model"
       ],
       "date": "2022-05-04",
       "youtubeUrl": "https://youtu.be/O4u8PRzk1vY",
@@ -20013,8 +20009,7 @@
       "types": [],
       "keywords": [],
       "ontologyTerms": [
-        "term-evolution",
-        "term-self-organization"
+        "term-evolution"
       ],
       "date": "2022-04-27",
       "youtubeUrl": "https://youtu.be/IXJn-BMsKVw",
@@ -25985,7 +25980,6 @@
         "term-helmholtz-decomposition",
         "term-information-geometry",
         "term-markov-blanket",
-        "term-self-organization",
         "term-thermodynamic-system",
         "term-thermostatistics",
         "term-variational",
@@ -32169,7 +32163,6 @@
         "term-attracting-set",
         "term-ergodicity",
         "term-free-energy-principle",
-        "term-markov-blanket",
         "term-non-equilibrium-steady-state",
         "term-physics",
         "term-state-space"
@@ -34343,9 +34336,7 @@
       "ontologyTerms": [
         "term-active-inference",
         "term-cognition",
-        "term-markov-blanket",
-        "term-variational",
-        "term-variational-free-energy"
+        "term-markov-blanket"
       ],
       "date": "2021-04-13",
       "youtubeUrl": "https://youtu.be/MlvyehPDQXg",
@@ -36316,8 +36307,7 @@
       "types": [],
       "keywords": [],
       "ontologyTerms": [
-        "term-active-inference",
-        "term-free-energy-principle"
+        "term-active-inference"
       ],
       "date": "2021-02-11",
       "youtubeUrl": "https://youtu.be/i13aBAWuJxk",
@@ -37304,7 +37294,6 @@
       "types": [],
       "keywords": [],
       "ontologyTerms": [
-        "term-markov-blanket",
         "term-policy-selection"
       ],
       "date": "2021-01-15",

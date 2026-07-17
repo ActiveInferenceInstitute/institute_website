@@ -177,6 +177,8 @@ KNOWLEDGE_TABLE_IDS = {
     "ideas-table": "ideas",
     "ontology-table": "ontology",
     "research-table": "research",
+    "programs-table": "programs",
+    "citations-table": "citations",
 }
 KNOWLEDGE_FILTER_IDS = {
     "knowledge-search",
@@ -852,7 +854,7 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         errors.append("knowledge.html must be visitor-labeled as Open Source Map")
     if html.count("<caption>") < 5:
         errors.append(
-            "knowledge.html must render captions for people, repositories, ideas, ontology, and research tables"
+            "knowledge.html must render captions for people, repositories, ideas, ontology, research, program, and literature tables"
         )
     if html.count("<thead>") < 5 or html.count('scope="row"') < 5:
         errors.append("knowledge.html tables must include table heads and row headers")
@@ -860,7 +862,7 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         if required not in html:
             errors.append(f"knowledge.html missing {required}")
 
-    row_counts = {"people": 0, "projects": 0, "ideas": 0, "ontology": 0, "research": 0}
+    row_counts = {"people": 0, "projects": 0, "ideas": 0, "ontology": 0, "research": 0, "programs": 0, "citations": 0}
     for _tag, attrs in info.start_tags:
         kind = attrs.get("data-knowledge-kind")
         if kind in row_counts:
@@ -871,6 +873,8 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         "ideas": len(data["ideas"].get("records", [])),
         "ontology": len(data["ontology"].get("edges", [])),
         "research": len(research_resource_records(root)),
+        "programs": len(data["programs"].get("records", [])),
+        "citations": len(data["citations"].get("records", [])),
     }
     if row_counts != expected_counts:
         errors.append(f"knowledge.html row counts {row_counts} do not match sanitized registries {expected_counts}")
@@ -895,6 +899,14 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         *(
             f"research-{re.sub(r'[^a-z0-9]+', '-', item['sourceId'].lower()).strip('-')}"
             for item in research_resource_records(root)
+        ),
+        *(
+            f"program-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}"
+            for item in data["programs"].get("records", [])
+        ),
+        *(
+            f"citation-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}"
+            for item in data["citations"].get("records", [])
         ),
     ]
     for anchor_id in expected_anchor_ids:
@@ -984,6 +996,8 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
         *(knowledge_row_href("idea", item["id"]) for item in data["ideas"].get("records", [])),
         *(knowledge_row_href("ontology", item["id"]) for item in data["ontology"].get("edges", [])),
         *(knowledge_row_href("research", item["sourceId"]) for item in research_resource_records(root)),
+        *(knowledge_row_href("program", item["id"]) for item in data["programs"].get("records", [])),
+        *(knowledge_row_href("citation", item["id"]) for item in data["citations"].get("records", [])),
     ]
     for href in expected_row_links:
         if f'href="{href}"' not in html:
@@ -1235,6 +1249,8 @@ def check_instituteos_interface(root: Path, errors: list[str]) -> None:
         + len(data["projects"].get("records", []))
         + len(data["ideas"].get("records", []))
         + len(data["ontology"].get("edges", []))
+        + len(data["programs"].get("records", []))
+        + len(data["citations"].get("records", []))
     )
     required_home_snippets = {
         'id="public-interface"',

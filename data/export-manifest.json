@@ -134,6 +134,13 @@
       "target": "pages_domains"
     },
     {
+      "name": "citations.json",
+      "output_path": "src/content/instituteos/citations.json",
+      "record_count": 17,
+      "sha256": "f11fcdb08481d09c48698e3eedb8e6278f0dc17505f6a794c46e63d7f71f408d",
+      "target": "content"
+    },
+    {
       "name": "communications_public.json",
       "output_path": "src/content/instituteos/communications_public.json",
       "record_count": 4,
@@ -169,6 +176,13 @@
       "target": "content"
     },
     {
+      "name": "programs.json",
+      "output_path": "src/content/instituteos/programs.json",
+      "record_count": 9,
+      "sha256": "3b5a8a9d834686589a6805f5f9f0c0092de6133f58780a0d2c1f5627d623d1e3",
+      "target": "content"
+    },
+    {
       "name": "projects.json",
       "output_path": "data/projects.json",
       "record_count": 64,
@@ -193,11 +207,11 @@
       "name": "videos.json",
       "output_path": "src/content/instituteos/videos.json",
       "record_count": 694,
-      "sha256": "cdddd5f81fcf3de1b13711ffd7366e272d38a080d9274f5c2f72b252f772895a",
+      "sha256": "42028fce780c1172b9fc37fc24f169032fbdd1a4985ac0b2cb0c58618423eb2c",
       "target": "content"
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-07-17T18:31:33.878988+00:00",
-  "source_fingerprint": "50796b8cc612"
+  "generated_at": "2026-07-17T19:03:02.203863+00:00",
+  "source_fingerprint": "3b9152c323d6"
 }

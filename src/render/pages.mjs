@@ -24,6 +24,7 @@ import { homeInstituteosGate, instituteosFeatureSections } from "./feature-secti
 import { autolinkInternal } from "./autolink.mjs";
 import { knowledgePreview } from "./knowledge.mjs";
 import { relatedProjectsSection, projectCatalogSection, syllabusGrid, qaGrid, projectStatusForSlug } from "../pages/projects.mjs";
+import { programCatalogSection } from "../pages/programs.mjs";
 
 export function relatedSlugsForPage(page) {
   if (Array.isArray(page.relatedSlugs) && page.relatedSlugs.length) {
@@ -240,6 +241,7 @@ export function publicPage(page) {
     </div>
   </section>
   ${page.slug === "projects" ? projectCatalogSection(currentDir) : ""}
+  ${page.slug === "programs" ? programCatalogSection(currentDir) : ""}
   ${instituteosFeatureSections(page, currentDir)}
   <section class="content-band muted" id="key-surfaces">
     ${sectionHeading({ eyebrow: "Key surfaces", title: `${page.title} at a glance` })}

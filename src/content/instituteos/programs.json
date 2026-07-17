@@ -1,0 +1,165 @@
+{
+  "description": "Public visitor-facing catalog of Active Inference Institute programs.",
+  "source": "instituteos/library/registries/programs.json",
+  "records": [
+    {
+      "id": "grants",
+      "name": "Grants",
+      "description": "The Institute pursues grants as part of a commitment to sustainable development and open research. Submitted grant proposals are published on preprint servers like Zenodo to create stigmergic traces on the ecosystem. Recent awards include $270,000 to researchers in 2025. The program has submitted multiple applications to NSF, FLI, Foresight Institute, and Dana Frontiers with published documentation of outcomes.",
+      "version": "0.1",
+      "status": "active",
+      "category": "funding",
+      "summary": "Sustainable funding program seeking grants to support research and ecosystem development.",
+      "websiteSlug": "grants",
+      "topics": [
+        "ecosystem-sustainability",
+        "funding",
+        "grants",
+        "open-science",
+        "research-development",
+        "team-building"
+      ]
+    },
+    {
+      "id": "philanthropy",
+      "name": "Philanthropy",
+      "description": "The Active Inference Institute, officially recognized as a 501(c)(3) nonprofit by the IRS in 2024, welcomes philanthropic support from donors. Contributions help sustain and extend the Institute's work in advancing the accessibility, rigor, and applicability of Active Inference. Tax-exempt donations are available to qualified donors.",
+      "version": "0.1",
+      "status": "active",
+      "category": "funding",
+      "summary": "Tax-exempt donation program supporting the Active Inference Institute's mission and ecosystem work.",
+      "websiteSlug": "philanthropy",
+      "topics": [
+        "501c3",
+        "donations",
+        "funding",
+        "nonprofit",
+        "tax-exempt"
+      ]
+    },
+    {
+      "id": "open-source",
+      "name": "Open Source",
+      "description": "The Open Source program encompasses the Active Inference Institute's collection of open source repositories hosted in the Institute GitHub, covering implementations, simulations, utilities, and educational materials for Active Inference research and applications. All Institute materials use the CC BY-NC-SA 4.0 license by default, requiring attribution, permitting noncommercial use, and mandating share-alike terms for adaptations.",
+      "version": "0.1",
+      "status": "active",
+      "category": "open_source",
+      "summary": "Institute's open source software ecosystem, repositories, and collaborative development under CC BY-NC-SA 4.0 licensing.",
+      "websiteSlug": "open-source",
+      "topics": [
+        "active-inference-ecosystem",
+        "cc-by-nc-sa-4.0",
+        "github",
+        "open-source",
+        "repositories",
+        "software"
+      ]
+    },
+    {
+      "id": "ecosystem-support",
+      "name": "Ecosystem Support",
+      "description": "Ecosystem Support provides epistemic and pragmatic services to the Institute's participants. Activities include maintaining the Informational Commons with curated Active Inference education materials, facilitating community forums and discussion groups, providing platforms for sharing and presenting work, maintaining infrastructure systems, managing partnerships and donor relationships, and developing professionalization curriculum for organizational leaders.",
+      "version": "0.1",
+      "status": "active",
+      "category": "other",
+      "summary": "Resources and participation opportunities for individuals and organizations through educational, infrastructural, and administrative services.",
+      "websiteSlug": "ecosystem-support",
+      "topics": [
+        "community",
+        "education",
+        "funding",
+        "infrastructure",
+        "partnerships",
+        "professionalization"
+      ]
+    },
+    {
+      "id": "fellows",
+      "name": "Fellows",
+      "description": "Since 2024, the Active Inference Institute has hosted the Fellows program designed to support and advance research in Active Inference. Research Fellows conduct self-directed, innovative research projects that align with the Institute's research and education missions. The program is unpaid, with a default 2-year term and possible renewal. Fellows gain access to the Institute's facilities, computational resources, a network of leading experts, mentorship, training workshops, and support for open science practices.",
+      "version": "0.1",
+      "status": "active",
+      "category": "participation",
+      "summary": "Unpaid fellowship program supporting exceptional researchers conducting self-directed Active Inference research with Institute support and community access.",
+      "websiteSlug": "fellowship",
+      "topics": [
+        "active-inference",
+        "community",
+        "fellowship",
+        "mentorship",
+        "open-science",
+        "research"
+      ]
+    },
+    {
+      "id": "internship",
+      "name": "Internship",
+      "description": "The Internship program increases intern familiarity and expertise with Active Inference through self-guided learning and participation in projects, combined with research and development activities. Interns are assigned organizational points of contact and mentors, with periodic synchronous and asynchronous check-ins. Upon completion, interns receive acknowledgement, certification of completion, and access to research infrastructure, with possible letters of recommendation.",
+      "version": "0.1",
+      "status": "active",
+      "category": "participation",
+      "summary": "Customized internship program combining active inference education, research participation, and mentorship with flexible duration.",
+      "websiteSlug": "internship",
+      "topics": [
+        "active-inference",
+        "education",
+        "learning-groups",
+        "mentorship",
+        "research"
+      ]
+    },
+    {
+      "id": "volunteer",
+      "name": "Volunteer",
+      "description": "Operationally, all Institute participants are volunteers. The Volunteer program welcomes contributors of all backgrounds, time zones, and experience levels to engage in and lead projects such as study groups, livestreams, marketing, publications, symposiums, and applied research. The program provides official recognition through affiliations, digital resources, and documentation while maintaining flexibility and active inference principles.",
+      "version": "0.1",
+      "status": "active",
+      "category": "participation",
+      "summary": "Community-driven open science volunteers contribute to Active Inference Institute projects across diverse domains and time commitments.",
+      "websiteSlug": "volunteer",
+      "topics": [
+        "active-inference",
+        "community-driven",
+        "open-science",
+        "research-contribution",
+        "volunteer-work"
+      ]
+    },
+    {
+      "id": "mentorship",
+      "name": "Mentorship",
+      "description": "The Mentorship program connects interns with one-on-one mentor support through subject matter and prediction matter expertise. Participants submit personal statements via the mentorship form requesting specific advising tailored to their learning trajectory, and the Institute matches individuals on a rolling basis for authentic co-learning opportunities.",
+      "version": "0.1",
+      "status": "active",
+      "category": "partnership",
+      "summary": "One-on-one mentoring connecting interns with subject matter experts for co-learning.",
+      "websiteSlug": "mentorship",
+      "topics": [
+        "co-learning",
+        "expertise-matching",
+        "interns",
+        "learning",
+        "mentorship",
+        "one-on-one"
+      ]
+    },
+    {
+      "id": "partnership",
+      "name": "Partnership",
+      "description": "The Partnership Program fosters collaboration with organizations aligned with the Active Inference Institute's mission. By creating mutually beneficial relationships, partners contribute to and benefit from the Institute's research ecosystem spanning cognitive science, AI, education, and organizational dynamics. Partners gain access to researchers and thought leaders while supporting development of tools, frameworks, and materials leveraging Active Inference principles.",
+      "version": "0.1",
+      "status": "active",
+      "category": "partnership",
+      "summary": "Organizational partnership program fostering mutually beneficial collaborations with mission-aligned organizations to advance Active Inference understanding and application globally.",
+      "websiteSlug": "partnership",
+      "topics": [
+        "active-inference",
+        "collaboration",
+        "education",
+        "open-source",
+        "organizational-partnerships",
+        "research-ecosystem"
+      ]
+    }
+  ]
+}

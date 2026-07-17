@@ -18,6 +18,8 @@ export function instituteosCounts() {
     members: (siteData.instituteos.entities.people || []).length,
     publications: (siteData.instituteos.communications.records || []).length,
     policies: (siteData.instituteos.policies.records || []).length,
+    programs: (siteData.instituteos.programs.records || []).length,
+    citations: (siteData.instituteos.citations.records || []).length,
   };
 }
 
@@ -128,5 +130,21 @@ export function policyRows(limit = Infinity) {
     ...pol,
     rowId: rowAnchor("policy", pol.id),
     dataAttrs: knowledgeDataAttrs("policies", [pol.title, pol.category, pol.status, pol.description, pol.tags]),
+  }));
+}
+
+export function programRows(limit = Infinity) {
+  return (siteData.instituteos.programs.records || []).slice(0, limit).map((program) => ({
+    ...program,
+    rowId: rowAnchor("program", program.id),
+    dataAttrs: knowledgeDataAttrs("programs", [program.name, program.category, program.status, program.summary, program.topics]),
+  }));
+}
+
+export function citationRows(limit = Infinity) {
+  return (siteData.instituteos.citations.records || []).slice(0, limit).map((citation) => ({
+    ...citation,
+    rowId: rowAnchor("citation", citation.id),
+    dataAttrs: knowledgeDataAttrs("citations", [citation.title, citation.authors, citation.year, citation.venue, citation.tags]),
   }));
 }

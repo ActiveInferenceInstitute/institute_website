@@ -25,6 +25,8 @@ import {
   governanceMembersTable,
   publicationsTable,
   policiesTable,
+  programsTable,
+  citationsTable,
 } from "./tables.mjs";
 import { ontologyGraphSection } from "./graphs.mjs";
 import { layout } from "./layout.mjs";
@@ -105,6 +107,8 @@ export function knowledgePage() {
     <div><strong>${counts.members}</strong><span>governance members</span></div>
     <div><strong>${counts.publications}</strong><span>publications</span></div>
     <div><strong>${counts.policies}</strong><span>policies</span></div>
+    <div><strong>${counts.programs}</strong><span>programs</span></div>
+    <div><strong>${counts.citations}</strong><span>citations</span></div>
   </section>
   <section class="content-band page-index-band">
     <div class="page-index">
@@ -123,6 +127,8 @@ export function knowledgePage() {
         <a href="#members-table">Governance</a>
         <a href="#publications-table">Publications</a>
         <a href="#policies-table">Policies</a>
+        <a href="#programs-table">Programs</a>
+        <a href="#citations-table">Literature</a>
         <a href="#related-pages">Related pages</a>
       </nav>
     </div>
@@ -160,6 +166,8 @@ export function knowledgePage() {
       { title: "Governance", text: "Public governance members including board, officers, and registered organizational roles.", links: [{ label: "Governance table", href: "#members-table" }] },
       { title: "Publications", text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: "Publications table", href: "#publications-table" }] },
       { title: "Policies", text: "Public governance policy registry with category, status, version, and description.", links: [{ label: "Policies table", href: "#policies-table" }] },
+      { title: "Programs", text: "Public participation, learning, research, and support pathways for contributors.", links: [{ label: "Programs table", href: "#programs-table" }] },
+      { title: "Literature", text: "Bibliographic records that ground the public Active Inference domain pages.", links: [{ label: "Literature table", href: "#citations-table" }] },
     ], currentDir)}
   </section>
   <section class="content-band page-index-band">
@@ -181,9 +189,11 @@ export function knowledgePage() {
           <option value="members">Governance</option>
           <option value="publications">Publications</option>
           <option value="policies">Policies</option>
+          <option value="programs">Programs</option>
+          <option value="citations">Literature</option>
         </select>
       </label>
-      <p id="knowledge-count" class="result-count" aria-live="polite">${counts.people + counts.projects + counts.ideas + counts.ontology + counts.research + counts.organizations + counts.members + counts.publications + counts.policies} rows shown</p>
+      <p id="knowledge-count" class="result-count" aria-live="polite">${counts.people + counts.projects + counts.ideas + counts.ontology + counts.research + counts.organizations + counts.members + counts.publications + counts.policies + counts.programs + counts.citations} rows shown</p>
     </div>
   </section>
   ${tableSection({
@@ -258,6 +268,22 @@ export function knowledgePage() {
     text: "Public governance policy registry with category, current status, version, and description.",
     countLabel: `${counts.policies} policies shown`,
     tableHtml: policiesTable(),
+  })}
+  ${tableSection({
+    id: "programs-table",
+    eyebrow: "Programs",
+    title: `${counts.programs} public program rows`,
+    text: "Structured participation and support pathways derived from the Institute program registry.",
+    countLabel: `${counts.programs} programs shown`,
+    tableHtml: programsTable(),
+  })}
+  ${tableSection({
+    id: "citations-table",
+    eyebrow: "Literature",
+    title: `${counts.citations} public citation rows`,
+    text: "Bibliographic records used to ground the public Active Inference research-domain pages.",
+    countLabel: `${counts.citations} citations shown`,
+    tableHtml: citationsTable(),
   })}
   <section class="content-band muted" id="related-pages">
     ${sectionHeading({ eyebrow: "Related pages", title: "Continue through the public site" })}
@@ -343,6 +369,18 @@ export function knowledgeDirectoryRows(currentDir = "") {
       label: item.title,
       summary: `${title_case_token_js((item.category || "").replace(/_/g, " "))} / ${title_case_token_js(item.status || "")}`,
       href: hrefForSlug("knowledge", currentDir, rowAnchor("policy", item.id)),
+    })),
+    ...(siteData.instituteos.programs.records || []).map((item) => ({
+      kind: "Programs",
+      label: item.name,
+      summary: `${title_case_token_js(item.category || "")} / ${title_case_token_js(item.status || "")}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("program", item.id)),
+    })),
+    ...(siteData.instituteos.citations.records || []).map((item) => ({
+      kind: "Literature",
+      label: item.title,
+      summary: `${item.year || "n.d."} / ${item.venue || "Reference"}`,
+      href: hrefForSlug("knowledge", currentDir, rowAnchor("citation", item.id)),
     })),
   ];
   return rows.sort((a, b) => a.kind.localeCompare(b.kind) || a.label.localeCompare(b.label));

@@ -121,6 +121,13 @@ new content-level finding is open, and known residual gaps remain:
    `src/content/instituteos/communications.json` was deleted.
    `communications_public.json` (producer-2) remains the sole, authoritative
    source for this domain.
+8. **Program and bibliography projections (closed 2026-07-17).** The private
+   InstituteOS exporter now emits explicit public-safe `programs.json` and
+   `citations.json` slices. Programs retain visitor-facing descriptions,
+   categories, topics, and page slugs while dropping staffing, operational
+   process/policy links, entity links, and raw source URLs. Citations retain
+   bibliographic fields and verified `sourceIds`. Both slices are rendered in
+   the Open Source Map and covered by the static-site contract.
 6. **Governance glossary intentionally not exported (open, 2026-07-14).**
    `library/resources/definitions/glossary.json` (79 terms, private repo) is
    never projected onto this site. Only 7 of 79 terms are `core_concept`

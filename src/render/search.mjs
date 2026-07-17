@@ -25,6 +25,12 @@ export function buildSearchIndex() {
   for (const record of osm.policies.records || []) {
     entries.push({ t: record.title, u: knowledgeUrl, k: String(record.category || ""), c: "Policy" });
   }
+  for (const record of osm.programs.records || []) {
+    entries.push({ t: record.name, u: knowledgeUrl, k: `${record.category || ""} ${(record.topics || []).join(" ")} ${record.summary || ""}`.slice(0, 180), c: "Program" });
+  }
+  for (const record of osm.citations.records || []) {
+    entries.push({ t: record.title, u: knowledgeUrl, k: `${(record.authors || []).join(" ")} ${record.venue || ""} ${record.year || ""} ${(record.tags || []).join(" ")}`.slice(0, 180), c: "Literature" });
+  }
   for (const record of osm.entities.people || []) {
     entries.push({ t: record.name, u: knowledgeUrl, k: (record.roles || []).join(" "), c: "Person" });
   }
