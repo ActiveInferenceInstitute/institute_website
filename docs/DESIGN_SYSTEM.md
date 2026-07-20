@@ -366,8 +366,9 @@ All changes must pass the offline gates before committing:
 
 ```bash
 npm run build               # Render HTML
-npm run check               # All 9 sub-checks below, chained (see package.json)
+npm run check               # All sub-checks below except check:sources, chained (see package.json)
 npm run check:links         # Internal link verification
+npm run check:md-links      # Relative links in tracked Markdown docs
 npm run check:instituteos   # Public data freshness
 npm run check:design-system # Token fallback enforcement
 npm run check:site          # Content model & contract

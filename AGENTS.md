@@ -107,7 +107,7 @@ Generated public files should be limited to:
 
 Use `src/content/live-sources.json` as the canonical registry for volatile public URLs. Public resources, social links, page actions, section links, card links, official pages, and repository links should reference public destinations by `sourceId` whenever possible.
 
-Do not render direct resolved Coda destinations in public pages. When an official `*.activeinference.institute` shortlink redirects to Coda, render the shortlink from `live-sources.json:url`; keep the resolved target only in `finalUrl` for verification.
+Do not render direct resolved Coda destinations in public pages. When an official `*.activeinference.institute` shortlink redirects to Coda, render the shortlink from `live-sources.json:url`; resolved redirect targets are never committed — `check:sources` resolves them live at check time and errors on any committed `finalUrl`.
 
 The content model is split into registries:
 

@@ -22,9 +22,10 @@ A link descriptor on any content page is **either**:
 
 **[`live-sources.json`](live-sources.json) is the allowlist for every external anchor.**
 A raw external `href` fails `check:security`, even for vetted hosts — external links must
-go through a registered `sourceId`. Each source row carries the `url`, the verified
-`finalUrl`, an `ok`/`statusCode` reachability check, and a `checkedAt` timestamp; only
-reachable public links should be promoted.
+go through a registered `sourceId`. Each source row carries the `url`, an
+`ok`/`statusCode` reachability check, and a `checkedAt` timestamp; only
+reachable public links should be promoted. Redirect targets are resolved live by
+`check:sources` — a committed `finalUrl` field is an error.
 
 ## Registry reference
 
@@ -35,7 +36,7 @@ reachable public links should be promoted.
 | [`live-sources.json`](live-sources.json) | The external-anchor allowlist (see above). Every `sourceId` used anywhere must exist here. |
 | [`official-pages.json`](official-pages.json) | Official Institute pages and subdomain shortlinks, keyed by `sourceId`, with `group`, `category`, `audience`, `priority`, and `promoted`/`shortlink` flags. |
 | [`resources.json`](resources.json) | The resource directory: `types`, `categories`, `audiences`, `popularTags`, and `resources[]` (each a `sourceId` with `type`/`category`/`audience`/`tags`/`featured`). Official pages and repositories are merged in at build time. |
-| [`repositories.json`](repositories.json) | Public `ActiveInferenceInstitute` GitHub repos refreshed from the GitHub API — `sourceId`, `name`, `category`, `projectFamily`, `repoType`, `language`, `stars`, `relatedSlugs`. |
+| [`repositories.json`](repositories.json) | Public `ActiveInferenceInstitute` GitHub repos refreshed from the GitHub API — `sourceId`, `name`, `category`, `projectFamily`, `repoType`, `language`, `stars`, `relatedSlugs`. **No inline URLs**: repo and docs links resolve through `live-sources.json` via `sourceId`/`docsSourceId` (`check:site` rejects inline `url`/`docsUrl` fields). |
 | [`social.json`](social.json) | Ordered social channels as `{label, sourceId}` pairs (resolved through `live-sources.json`). |
 | [`metrics.json`](metrics.json) | Headline `{value, label}` stat cards (nonprofit status, verified link count, repo count, community size, recordings). |
 | [`audience-pathways.json`](audience-pathways.json) | Audience-specific routes (`newcomer`, `learner`, `researcher`, …), each with a `primaryHref` and `links[]` of `{label, sourceId}`. |

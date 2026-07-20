@@ -79,6 +79,34 @@ def verify(
     if not isinstance(sources, list):
         print("Live-source manifest is invalid: 'sources' must be a list.", file=sys.stderr)
         return 1
+
+    # The committed manifest must never carry resolved `finalUrl` values —
+    # they are check-time verification metadata (and historically leaked
+    # resolved coda.io destinations into source). Redirect targets are
+    # resolved live by check_url() on every run instead.
+    final_url_offenders = [
+        str(source.get("id", index))
+        for index, source in enumerate(sources)
+        if isinstance(source, dict) and "finalUrl" in source
+    ]
+    if final_url_offenders:
+        if write:
+            for source in sources:
+                if isinstance(source, dict):
+                    source.pop("finalUrl", None)
+            print(
+                f"note: stripped committed finalUrl from {len(final_url_offenders)} sources (resolved at check time only)"
+            )
+        else:
+            print(
+                "Live-source manifest must not commit resolved 'finalUrl' values "
+                "(check-time verification metadata; rerun with --write to strip):",
+                file=sys.stderr,
+            )
+            for offender in final_url_offenders:
+                print(f"- {offender}", file=sys.stderr)
+            return 1
+
     if offline:
         invalid = [
             str(source.get("id", index))
@@ -139,14 +167,13 @@ def verify(
             errors.append(f"{source['id']}: expected not promoted, but now reachable at {final_url}")
         elif not expected_ok and expected_status and status_code != expected_status:
             errors.append(f"{source['id']}: expected HTTP {expected_status}, got HTTP {status_code} at {final_url}")
-        elif status_code != expected_status or final_url != source.get("finalUrl"):
+        elif status_code != expected_status:
             notes.append(
-                f"{source['id']}: live result is HTTP {status_code} at {final_url}; manifest records HTTP {expected_status} at {source.get('finalUrl')}"
+                f"{source['id']}: live result is HTTP {status_code} at {final_url}; manifest records HTTP {expected_status}"
             )
 
         if write and not bot_blocked:
             source["statusCode"] = status_code
-            source["finalUrl"] = final_url
             source["ok"] = live_ok
             source["checkedAt"] = checked_at
 
@@ -173,7 +200,11 @@ def main() -> int:
     parser.add_argument("--timeout", type=int, default=10)
     parser.add_argument("--workers", type=int, default=16, help="Concurrent source checks (default: 16)")
     parser.add_argument("--total-timeout", type=int, default=90, help="Maximum batch wait in seconds (default: 90)")
-    parser.add_argument("--write", action="store_true", help="Update checkedAt/status/finalUrl fields")
+    parser.add_argument(
+        "--write",
+        action="store_true",
+        help="Update checkedAt/statusCode/ok fields (and strip any committed finalUrl)",
+    )
     parser.add_argument(
         "--offline",
         action="store_true",

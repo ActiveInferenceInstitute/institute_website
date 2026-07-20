@@ -13,8 +13,9 @@ sync, and translate that source. Run gates with no network access.
 | Command | Runs |
 | --- | --- |
 | `npm run build` | `node src/build.mjs` — render HTML + crawler files |
-| `npm run check` | `node --check` the build, `py_compile` every checker, then `check:links` → `check:instituteos` → `check:design-system` → `check:site` → `check:security` → `check:redirects` |
+| `npm run check` | `node --check` the build, `py_compile` every checker, then `check:links` → `check:md-links` → `check:instituteos` → `check:design-system` → `check:site` → `check:security` → `check:redirects` → `check:projects` → `check:catalog` |
 | `npm run check:links` | [`check_internal_links.py`](check_internal_links.py) |
+| `npm run check:md-links` | [`check_markdown_links.py`](check_markdown_links.py) |
 | `npm run check:instituteos` | [`sync_instituteos_public_data.py`](sync_instituteos_public_data.py) `--check` |
 | `npm run check:design-system` | [`check_design_system_export.mjs`](check_design_system_export.mjs) |
 | `npm run check:site` | [`check_site_contract.py`](check_site_contract.py) |
@@ -37,6 +38,14 @@ to missing files and `#fragment` links whose anchor does not exist in the target
 document. It derives the deployment base prefix from `site.json`'s `baseUrl`
 (`site_base_prefix`) and strips it before resolving absolute paths, so it tracks
 the canonical domain automatically.
+
+### [`check_markdown_links.py`](check_markdown_links.py) (`check:md-links`)
+Scans every git-tracked `*.md` file (including the per-folder `AGENTS.md`
+guides) for inline Markdown links `[text](target)` and fails with `file:line`
+on relative targets that do not resolve to an existing file or directory.
+External `http(s)`/`mailto:` targets and bare `#anchor` links are skipped;
+fragments on relative targets are ignored (file existence is what is gated).
+Fenced code blocks and inline code spans are excluded from scanning.
 
 ### [`check_site_contract.py`](check_site_contract.py) (`check:site`)
 The large content/structure gate. Reads the canonical origin from
@@ -110,8 +119,10 @@ colliding row so the surviving payload passes untouched.
 
 The **only networked** checker, deliberately excluded from `npm run check`.
 `curl`s every entry in `src/content/live-sources.json` and compares the live
-HTTP result against the recorded `ok`/`statusCode`/`finalUrl`. `--write` updates
-those fields plus `lastCheckedAt`; default is read-only verification. Every
+HTTP result against the recorded `ok`/`statusCode`. Redirect targets are
+resolved live at check time; a committed `finalUrl` field in the manifest is a
+hard error (`--write` strips it). `--write` updates the recorded fields plus
+`lastCheckedAt`; default is read-only verification. Every
 request has a per-source timeout and the batch has a total timeout. Use
 `--offline` in a disconnected environment to validate all source-record ids and
 URLs without making network requests.

@@ -375,13 +375,10 @@
           "title": "Draft Chapters",
           "description": "Write initial contents of the textbook.",
           "status": "in_progress",
-          "linked_process_id": "research-project-initiation",
-          "linked_step_id": "proposal-submission",
           "due": null,
           "start": null,
           "duration_days": null,
-          "event_id": null,
-          "agent_hint": null
+          "event_id": null
         },
         {
           "id": "scientific-review",
@@ -389,13 +386,10 @@
           "title": "Scientific Review",
           "description": "Review written contributions for accuracy against the Free Energy Principle.",
           "status": "todo",
-          "linked_process_id": "research-project-initiation",
-          "linked_step_id": "scientific-merit-review",
           "due": null,
           "start": null,
           "duration_days": null,
-          "event_id": null,
-          "agent_hint": null
+          "event_id": null
         }
       ],
       "owner_entity_id": "daniel-friedman",

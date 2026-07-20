@@ -5,7 +5,32 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
-_Nothing yet._
+- **Strategy map wired onto `/strategy/`.** `strategies_public.json` (the
+  public-safe InstituteOS strategy export) gained its first consumer:
+  `strategyMapSection()` in `src/render/feature-sections.mjs` renders a
+  `#strategy-map` section of department cards with grouped revenue streams
+  (streams attach by the department prefix of their `from` node id; an unmapped
+  prefix surfaces in a visible "Other revenue streams" card). Loaded through
+  `siteData.instituteos.strategies` in `src/data.mjs`.
+- **`repositories.json` inline URL dedup.** Repository rows no longer carry
+  inline `url`/`docsUrl` fields that duplicated `live-sources.json`; links now
+  resolve exclusively by `sourceId`/`docsSourceId`, matching
+  `social.json`/`official-pages.json`/`resources.json`. `check:site` now
+  rejects a reintroduced inline `url`/`docsUrl`, validates `docsSourceId`
+  against the live-source registry, and the resources/directory coverage arms
+  resolve expected repository hrefs through live-sources. The synced
+  `instituteos/projects.json` slice is byte-identical (its `url`/`docsUrl`
+  values were already equal to the registered live-source URLs).
+
+- **Mobile navigation disclosure.** New CSP-safe hamburger toggle (`#nav-toggle`
+  in `src/render/layout.mjs`, listeners in `assets/js/site.js`, styles in
+  `assets/css/styles.css`): under 720px the sticky header collapses the primary
+  nav behind a `tr("Menu")`-labeled button (`aria-expanded` +
+  `aria-controls="site-nav"`, Escape closes and refocuses the toggle) and wraps
+  into ~3 compact rows instead of stacking ~11. Progressive enhancement: without
+  JS the toggle stays hidden and the nav renders expanded. Added
+  `@media (pointer: coarse)` overrides giving header controls, disclosure menus,
+  tag chips, and footer links ≥44px touch targets.
 
 ## v4.0.0 — 2026-07-01
 

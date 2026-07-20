@@ -19,13 +19,14 @@ make a gate pass; fix the source and rebuild.
 
 ## What `npm run check` runs
 
-`check` first syntax-checks `src/build.mjs` (`node --check`) and `py_compile`s the five
+`check` first syntax-checks `src/build.mjs` (`node --check`) and `py_compile`s the
 checker scripts, then runs these sub-checks in order. Any non-zero exit fails the whole
 chain.
 
 | Sub-check | Command | Enforces |
 | --- | --- | --- |
 | `check:links` | [`scripts/check_internal_links.py`](../../../../scripts/check_internal_links.py) | No broken local links or missing asset references in generated HTML. |
+| `check:md-links` | [`scripts/check_markdown_links.py`](../../../../scripts/check_markdown_links.py) | No broken relative `[text](path)` links in tracked Markdown docs (incl. `AGENTS.md` guides). |
 | `check:instituteos` | [`scripts/sync_instituteos_public_data.py --check`](../../../../scripts/sync_instituteos_public_data.py) | The committed sanitized Open Source Map slices + brand assets match what the sync would produce; drift means re-run `npm run sync:instituteos`. |
 | `check:design-system` | [`scripts/check_design_system_export.mjs`](../../../../scripts/check_design_system_export.mjs) | `styles.css` token fallbacks are intact; when the sibling DS source is present, byte-compares `instituteos-ds.css` to catch a stale committed copy. |
 | `check:site` | [`scripts/check_site_contract.py`](../../../../scripts/check_site_contract.py) | The resource-hub content contract (see below). |

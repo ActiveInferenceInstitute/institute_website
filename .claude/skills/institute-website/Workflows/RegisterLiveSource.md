@@ -37,7 +37,6 @@ source disappears rather than shipping a dead link.
      "category": "Media",
      "url": "https://www.youtube.com/playlist?list=PLNm0u2n1IwdrZbHpBHCdYqQGmbnLAt7nf",
      "sourceBasis": "Public playlist verified directly on YouTube.",
-     "finalUrl": "https://www.youtube.com/playlist?list=PLNm0u2n1IwdrZbHpBHCdYqQGmbnLAt7nf",
      "statusCode": 200,
      "ok": true,
      "checkedAt": "2026-06-28T00:00:00Z"
@@ -47,9 +46,11 @@ source disappears rather than shipping a dead link.
    - `id` — stable, lowercase-kebab; this is what page JSON references.
    - `url` — the public-facing destination the page links to. This exact string
      (and its `/`-trimmed and `/`-suffixed variants) is what the gate matches
-     against. The renderer emits `source.url`, not `finalUrl`.
-   - `finalUrl`, `statusCode`, `ok`, `checkedAt` — the reachability snapshot from
+     against. The renderer emits `source.url`.
+   - `statusCode`, `ok`, `checkedAt` — the reachability snapshot from
      the last link check. Set `ok: true` only when the source actually resolves.
+     Never commit a `finalUrl` field: redirect targets are resolved live by
+     `check:sources`, and a committed `finalUrl` fails that gate.
    - `label` — default link text when the page-side descriptor omits one.
    - `sourceBasis` — one sentence on how the URL was verified.
 

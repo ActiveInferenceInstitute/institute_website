@@ -133,6 +133,10 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
         <em>${escapeHtml(siteData.site.tagline)}</em>
       </span>
     </a>
+    <!-- Mobile nav disclosure. CSP-safe: no inline handlers — site.js wires the
+         click listener and stamps data-nav-js on the header; without JS the
+         button stays hidden and the nav renders expanded (styles.css). -->
+    <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true">☰</span><span class="nav-toggle-label">${escapeHtml(tr("Menu"))}</span></button>
     ${nav(currentDir)}
     <div class="site-search" role="search">
       <input type="search" id="site-search-input" placeholder="${escapeHtml(tr("Search the Institute…"))}" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="${escapeHtml(tr("Search the site"))}" aria-controls="site-search-results" aria-expanded="false">

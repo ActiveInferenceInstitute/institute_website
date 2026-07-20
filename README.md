@@ -117,7 +117,7 @@ Public resources are split by purpose:
 - `src/content/audience-pathways.json` contains homepage routes for visitor intent.
 - `src/content/instituteos/*.json` contains sanitized Open Source Map tables: public GitHub people, public repositories, ideas, ontology relationships, and brand assets.
 - `src/content/pages/institute/instituteos.json` documents the public export boundary and links visitors to the public map, directory, and provenance surfaces.
-- `src/content/live-sources.json` remains the canonical registry for external URLs and verification status. Its `url` field is the public display URL; `finalUrl` records redirect verification only and is never rendered.
+- `src/content/live-sources.json` remains the canonical registry for external URLs and verification status. Its `url` field is the public display URL; redirect targets are resolved live by `check:sources` and never committed (`finalUrl` in the manifest is a gate error).
 
 Rendered resources use stable fields: `sourceId`, `type`, `category`, `audience`, `tags`, `summary`, `relatedSlugs`, `priority`, and `promoted`.
 
@@ -176,8 +176,9 @@ npm run check:sources              # optional bounded network probe
 git diff --check
 ```
 
-`npm run check` is the deterministic offline gate and already chains `check:links`, `check:instituteos`,
-`check:design-system`, `check:site`, and `check:security`; the individual
+`npm run check` is the deterministic offline gate and already chains `check:links`, `check:md-links`,
+`check:instituteos`, `check:design-system`, `check:site`, `check:security`,
+`check:redirects`, `check:projects`, and `check:catalog`; the individual
 commands above are listed for targeted runs. `check:sources` is intentionally
 separate because it probes the network; use `check_live_sources.py --offline`
 when only manifest integrity can be verified.

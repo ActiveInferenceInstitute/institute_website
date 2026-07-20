@@ -46,15 +46,52 @@ for (const group of navGroups) {
   });
 }
 
+// Mobile nav disclosure (hamburger). CSP-safe: the listener lives here, the
+// collapse styles live in styles.css. Progressive enhancement: data-nav-js is
+// stamped only when this script runs — without JS the header never collapses
+// and the toggle stays hidden, so the nav remains reachable.
+const navToggle = document.querySelector("#nav-toggle");
+const siteNav = document.querySelector("#site-nav");
+
+function closeMobileNav() {
+  if (header?.hasAttribute("data-nav-open")) {
+    header.removeAttribute("data-nav-open");
+    navToggle?.setAttribute("aria-expanded", "false");
+    return true;
+  }
+  return false;
+}
+
+if (header && navToggle && siteNav) {
+  header.setAttribute("data-nav-js", "");
+  navToggle.addEventListener("click", () => {
+    const open = header.toggleAttribute("data-nav-open");
+    navToggle.setAttribute("aria-expanded", String(open));
+    if (!open) {
+      closeNavGroups();
+    }
+  });
+}
+
 document.addEventListener("click", (event) => {
   if (!event.target.closest(".nav")) {
     closeNavGroups();
+  }
+  // Tapping outside the header also collapses the mobile drawer (but not when
+  // the tap is the toggle itself — its own listener owns that transition).
+  if (!event.target.closest(".site-header")) {
+    closeMobileNav();
   }
 });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeNavGroups();
+    // Escape also collapses the mobile drawer and hands focus back to the
+    // toggle so keyboard users are not left on a hidden element.
+    if (closeMobileNav()) {
+      navToggle?.focus();
+    }
   }
 });
 

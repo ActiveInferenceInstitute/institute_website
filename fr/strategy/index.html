@@ -57,7 +57,11 @@
         <em>Act. Infer. Serve.</em>
       </span>
     </a>
-    <nav class="nav" aria-label="Principal"><div class="nav-group">
+    <!-- Mobile nav disclosure. CSP-safe: no inline handlers — site.js wires the
+         click listener and stamps data-nav-js on the header; without JS the
+         button stays hidden and the nav renders expanded (styles.css). -->
+    <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true">☰</span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="nav" id="site-nav" aria-label="Principal"><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-0-institute" data-nav-toggle>
           <span>Institut</span>
           <span aria-hidden="true">+</span>
@@ -184,7 +188,31 @@
   </section>
 
 
-
+  <section class="content-band" id="strategy-map">
+    <div class="section-heading">
+    <p class="eyebrow">Strategy map</p>
+    <h2>Departments and revenue streams</h2>
+    <p>A public-safe slice of the Institute's strategy map: the departments that organize sustainability planning, and the revenue streams each is designed to generate. Synced from the private InstituteOS registry through the public export gate.</p>
+  </div>
+    <p class="category-count">4 departments and 12 revenue streams in the public export</p>
+    <div class="card-grid"><article class="info-card" id="aii-certificate-training-department">
+        <h3>AII Certificate Training Department</h3>
+        <p>11 strategy nodes in the public strategy map</p>
+        <div class="tag-row"><span>Grant Funding</span><span>Certificate Program Course Fees</span><span>Teacher Training Fees</span><span>Textbook Sales</span></div>
+      </article><article class="info-card" id="aii-consultancy-services-department">
+        <h3>AII Consultancy Services Department</h3>
+        <p>13 strategy nodes in the public strategy map</p>
+        <div class="tag-row"><span>Consulting Fees</span></div>
+      </article><article class="info-card" id="aii-publishing-data-access-department">
+        <h3>AII Publishing and Data Access Department</h3>
+        <p>5 strategy nodes in the public strategy map</p>
+        <div class="tag-row"><span>Publications</span><span>Database Access / Subscription</span><span>Database Access / API</span></div>
+      </article><article class="info-card" id="aii-membership-department">
+        <h3>AII Membership Department</h3>
+        <p>12 strategy nodes in the public strategy map</p>
+        <div class="tag-row"><span>Events Revenue</span><span>Membership Fees</span><span>Membership Fees (Tier 2)</span><span>Membership Fees (Tier 3)</span></div>
+      </article></div>
+  </section>
   <section class="content-band muted" id="key-surfaces">
     <div class="section-heading">
     <p class="eyebrow">Surfaces clés</p>
@@ -346,7 +374,7 @@
     <div class="social-links" aria-label="Liens publics vérifiés">
       <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-    <p class="build-stamp">v4.0.0 · build 5ce0d8205ed3</p>
+    <p class="build-stamp">v4.0.0 · build 77af741358e7</p>
   </footer>
   <script src="../../assets/js/theme.js" defer></script>
   <script src="../../assets/js/accent.js" defer></script>

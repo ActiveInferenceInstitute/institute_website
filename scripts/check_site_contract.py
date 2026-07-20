@@ -530,7 +530,7 @@ def check_content_model(root: Path, errors: list[str]) -> None:
             continue
         if "coda.io" in path.read_text(encoding="utf-8").lower():
             errors.append(
-                f"{path.relative_to(root)} may not contain direct Coda URLs; use live-sources.json finalUrl only"
+                f"{path.relative_to(root)} may not contain direct Coda URLs; render the registered shortlink from live-sources.json url instead"
             )
     shortlinks = [
         item for item in official_pages.get("pages", []) if item.get("shortlink") and item.get("promoted") is not False
@@ -597,7 +597,6 @@ def check_content_model(root: Path, errors: list[str]) -> None:
                 for required in (
                     "projectFamily",
                     "repoType",
-                    "docsUrl",
                     "docsSourceId",
                     "language",
                     "stars",
@@ -605,6 +604,18 @@ def check_content_model(root: Path, errors: list[str]) -> None:
                 ):
                     if required not in record:
                         errors.append(f"repositories.json:{source_id} missing public project field {required}")
+                # Repository rows must not carry inline URLs — every external
+                # link resolves through live-sources.json by sourceId /
+                # docsSourceId (same contract as social/official-pages/resources).
+                for forbidden in ("url", "docsUrl"):
+                    if forbidden in record:
+                        errors.append(
+                            f"repositories.json:{source_id} carries inline {forbidden}; "
+                            "resolve through live-sources.json by sourceId/docsSourceId instead"
+                        )
+                docs_source_id = record.get("docsSourceId")
+                if docs_source_id and docs_source_id not in live_id_set:
+                    errors.append(f"repositories.json:{source_id} references missing docs live source id: {docs_source_id}")
 
     for path in sorted((root / "src" / "content" / "pages").rglob("*.json")):
         page = load_json(path)
@@ -827,7 +838,12 @@ def check_resource_directory(root: Path, errors: list[str]) -> None:
         ):
             errors.append(f"resources.html missing official page {item.get('sourceId')}")
     for repo in repositories:
-        if repo.get("promoted") is not False and repo.get("url") not in hrefs:
+        # Repository rows carry no inline url — resolve through live-sources by
+        # sourceId, the same way the official-pages arm above resolves.
+        expected_url = source_urls.get(repo.get("sourceId", ""))
+        if repo.get("promoted") is not False and (
+            not expected_url or (expected_url not in hrefs and expected_url.rstrip("/") not in hrefs)
+        ):
             errors.append(f"resources.html missing repository {repo.get('fullName', repo.get('name'))}")
 
 
@@ -981,7 +997,13 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
         ):
             errors.append(f"directory.html missing official page {item.get('sourceId')}")
     for repo in repositories:
-        if repo.get("promoted") is not False and repo.get("url") not in directory_hrefs:
+        # Repository rows carry no inline url — resolve through live-sources by
+        # sourceId, the same way the official-pages arm above resolves.
+        expected_url = source_urls.get(repo.get("sourceId", ""))
+        if repo.get("promoted") is not False and (
+            not expected_url
+            or (expected_url not in directory_hrefs and expected_url.rstrip("/") not in directory_hrefs)
+        ):
             errors.append(f"directory.html missing repository {repo.get('fullName', repo.get('name'))}")
 
     data = instituteos_data(root)

@@ -269,8 +269,20 @@ def sanitize_people() -> dict[str, Any]:
     }
 
 
+def live_source_urls() -> dict[str, str]:
+    """URL for every registered live source, keyed by source id.
+
+    `repositories.json` carries no inline URLs — every external link resolves
+    through `live-sources.json` by `sourceId`/`docsSourceId`, matching how
+    `social.json`, `official-pages.json`, and `resources.json` resolve links.
+    """
+    live = load_json(PROJECT_ROOT / "src" / "content" / "live-sources.json")
+    return {source["id"]: source.get("url", "") for source in live.get("sources", []) if source.get("id")}
+
+
 def sanitize_projects(repositories_data: dict[str, Any]) -> dict[str, Any]:
     projects = []
+    source_urls = live_source_urls()
     for repo in repositories_data.get("repositories", []):
         if repo.get("promoted") is False:
             continue
@@ -280,7 +292,7 @@ def sanitize_projects(repositories_data: dict[str, Any]) -> dict[str, Any]:
                 "title": public_text(repo.get("name")),
                 "fullName": public_text(repo.get("fullName")),
                 "sourceId": repo.get("sourceId"),
-                "url": repo.get("url"),
+                "url": source_urls.get(repo.get("sourceId") or ""),
                 "category": repo.get("category", "projects"),
                 "audience": repo.get("audience", "developer"),
                 "projectFamily": repo.get("projectFamily") or title_case_token(repo.get("category", "projects")),
@@ -288,7 +300,7 @@ def sanitize_projects(repositories_data: dict[str, Any]) -> dict[str, Any]:
                 "language": repo.get("language") or "Unspecified",
                 "stars": int(repo.get("stars") or 0),
                 "updatedAt": repo.get("updatedAt") or "",
-                "docsUrl": repo.get("docsUrl") or "",
+                "docsUrl": source_urls.get(repo.get("docsSourceId") or "", "") if repo.get("docsSourceId") else "",
                 "docsSourceId": repo.get("docsSourceId") or "",
                 "summary": public_text(repo.get("summary") or repo.get("description")),
                 "tags": [public_text(tag) for tag in repo.get("tags", []) if public_text(tag)],

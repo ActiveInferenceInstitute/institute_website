@@ -95,15 +95,13 @@ new content-level finding is open, and known residual gaps remain:
    `src/render/tables.mjs`, `src/render/search.mjs`). "workspace" was
    confirmed a legitimate common-word false-positive and is no longer blocked.
    `npm run check:site` passes.
-4. **Resolved Coda destinations in source.** `src/content/live-sources.json`
-   stores resolved `finalUrl` values for verification; these are not rendered
-   into HTML but are committed in source. `check:sources`
-   (`scripts/check_live_sources.py`) **is** part of the default `npm run check`
-   chain (added 2026-07-07, `e0c973d4`) and re-verifies every source URL's
-   liveness on each run. The residual gap is narrower than previously stated:
-   the resolved `finalUrl` values themselves — including any that trace back
-   to a Coda redirect — remain committed in source even though the liveness
-   check now runs by default.
+4. **Resolved Coda destinations in source (closed 2026-07-20).**
+   `src/content/live-sources.json` no longer commits resolved `finalUrl`
+   values; redirect targets are resolved live by `check:sources`
+   (`scripts/check_live_sources.py`, the deliberately networked gate outside
+   the offline `npm run check` chain) on every run, and a committed
+   `finalUrl` field in the manifest is now a hard error in that gate — so
+   resolved Coda destinations can no longer recur in source.
 5. **Denylist blind spots.** `validate_public_payload` matches `PRIVATE_KEYS`
    only as exactly-quoted JSON keys and `FORBIDDEN_SUBSTRINGS` as substrings, so
    the per-field whitelist sanitizers — not the denylist — are the primary

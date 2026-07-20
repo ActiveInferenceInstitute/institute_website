@@ -30,7 +30,7 @@ node src/build.mjs          # render content -> committed HTML
 npm run check               # all gates (run before commit)
 ```
 
-`npm run check` = `check:links` (built HTML internal links) + `check:instituteos` (public-data parity/safety, `sync_instituteos_public_data.py --check`) + `check:design-system` (token parity) + `check:site` (`check_site_contract.py`, incl. `version.json`==`package.json`) + `check:security` (`check_static_security.py`, CSP + no coda.io/PII in HTML). Extra: `npm run sync:instituteos`, `npm run check:sources`, `npm run i18n:extract`, `npm run i18n:translate`.
+`npm run check` = `check:links` (built HTML internal links) + `check:md-links` (relative links in tracked Markdown docs, `check_markdown_links.py`) + `check:instituteos` (public-data parity/safety, `sync_instituteos_public_data.py --check`) + `check:design-system` (token parity) + `check:site` (`check_site_contract.py`, incl. `version.json`==`package.json`) + `check:security` (`check_static_security.py`, CSP + no coda.io/PII in HTML) + `check:redirects` + `check:projects` + `check:catalog`. Extra: `npm run sync:instituteos`, `npm run check:sources`, `npm run i18n:extract`, `npm run i18n:translate`.
 
 ## Doc map
 

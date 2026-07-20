@@ -232,9 +232,12 @@ Strategic revenue-stream / department map.
 }
 ```
 
-> **Note:** `strategies_public.json` currently has **no consumer** in the repo —
-> it ships but is not loaded by any renderer or feed. Either wire it into a page
-> or remove it (tracked in [`../../../TODO.md`](../../../TODO.md)).
+> Consumed by `strategyMapSection()` in
+> [`src/render/feature-sections.mjs`](../../render/feature-sections.mjs), which
+> renders the departments-and-revenue-streams section (`#strategy-map`) on the
+> `/strategy/` page. Revenue streams are grouped onto department cards by the
+> prefix of their `from` node id (`ctd_`/`csd_`/`pda_`/`mbr_`); an unmapped
+> prefix surfaces in a visible "Other revenue streams" card.
 
 ---
 

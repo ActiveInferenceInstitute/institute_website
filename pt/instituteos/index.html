@@ -57,7 +57,11 @@
         <em>Act. Infer. Serve.</em>
       </span>
     </a>
-    <nav class="nav" aria-label="Primário"><div class="nav-group">
+    <!-- Mobile nav disclosure. CSP-safe: no inline handlers — site.js wires the
+         click listener and stamps data-nav-js on the header; without JS the
+         button stays hidden and the nav renders expanded (styles.css). -->
+    <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true">☰</span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="nav" id="site-nav" aria-label="Primário"><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-0-institute" data-nav-toggle>
           <span>Instituto</span>
           <span aria-hidden="true">+</span>
@@ -208,7 +212,7 @@
       <div>
         <p class="eyebrow">Current public snapshot</p>
         <h3>31 artifacts, 1,336 manifest records</h3>
-        <p>Gate version 1.0.0; source fingerprint 5ce0d8205ed3; generated 2026-07-17T19:57:42.435Z.</p>
+        <p>Gate version 1.0.0; source fingerprint 77af741358e7; generated 2026-07-20T21:43:34.766Z.</p>
         <div class="mini-links">
           <a href="../knowledge/">Open Source Map</a>
           <a href="../directory/#open-source-map">Directory rows</a>
@@ -355,7 +359,7 @@
       <strong>projects.json</strong>
       <span>64 records</span>
       <em>data/projects.json</em>
-      <code class="export-artifact-hash" title="SHA-256 4dfa0d81736e54c492ff78a7a1f7dae23bab3c5a4cee938d8c4108b290b03d14">sha256:4dfa0d81736e</code>
+      <code class="export-artifact-hash" title="SHA-256 65492e8a18721be1c2fd273ea3c20d3bd8cfae539225ea0c2303d87997fe579f">sha256:65492e8a1872</code>
     </article><article class="export-artifact">
       <strong>strategies_public.json</strong>
       <span>16 records</span>
@@ -708,7 +712,7 @@
     <div class="social-links" aria-label="Links públicos verificados">
       <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-    <p class="build-stamp">v4.0.0 · build 5ce0d8205ed3</p>
+    <p class="build-stamp">v4.0.0 · build 77af741358e7</p>
   </footer>
   <script src="../../assets/js/theme.js" defer></script>
   <script src="../../assets/js/accent.js" defer></script>

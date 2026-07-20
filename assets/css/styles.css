@@ -1422,6 +1422,125 @@ body{transition:background-color 200ms,color 200ms}
 
 @media (max-width:720px){.theme-toggle{order:5}.accent-control{order:4}.lang-switcher{order:6}.tts-toggle{order:3}}
 
+/* Mobile nav disclosure (hamburger) ─────────────────────────────────────────
+   CSP-safe: the #nav-toggle button is static markup (src/render/layout.mjs),
+   the click listener lives in assets/js/site.js, and every style lives here.
+   Progressive enhancement contract:
+   - site.js stamps data-nav-js on .site-header when it runs; ONLY then does
+     the nav collapse behind the toggle. Without JS the toggle stays hidden
+     and the nav renders expanded, so navigation is always reachable.
+   - data-nav-open (toggled by site.js, mirrored by aria-expanded on the
+     button) shows the collapsed nav. */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: var(--radius);
+  cursor: pointer;
+  padding: 0.45rem 0.7rem;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1;
+  transition: background-color 200ms, color 200ms, border-color 200ms;
+}
+
+.nav-toggle:hover,
+.site-header[data-nav-open] .nav-toggle {
+  background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.nav-toggle-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@media (max-width: 720px) {
+  /* Compact header: wrap into rows instead of the ≤960px single column, so the
+     brand and the hamburger share the first row and the small control buttons
+     (TTS / accent / theme / language) share one row below the search field. */
+  .site-header {
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 0.6rem 0.75rem;
+  }
+
+  /* The nav takes a full-width row below the brand row (order 1 keeps it ahead
+     of the order-3 search field). Without JS it simply renders expanded here. */
+  .nav {
+    order: 1;
+    flex-basis: 100%;
+  }
+
+  .site-header[data-nav-js] .nav-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  /* JS present: collapse the nav behind the toggle. */
+  .site-header[data-nav-js] .nav {
+    display: none;
+  }
+
+  .site-header[data-nav-js][data-nav-open] .nav {
+    display: flex;
+  }
+}
+
+/* Touch-target compliance: give coarse-pointer (touch) devices ≥44px hit areas
+   on the header controls, disclosure menus, chips, and footer links (WCAG
+   2.5.8 AAA / Apple HIG 44pt). Fine-pointer layouts are unchanged. */
+@media (pointer: coarse) {
+  .nav-toggle,
+  .nav-menu-button,
+  .theme-toggle,
+  .tts-toggle,
+  .accent-toggle,
+  .lang-switcher > summary,
+  .site-search input,
+  .tag-filter-chips button {
+    min-height: 44px;
+  }
+
+  .nav-toggle,
+  .theme-toggle,
+  .tts-toggle,
+  .accent-toggle {
+    min-width: 44px;
+  }
+
+  .nav-menu a,
+  .lang-menu a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .accent-swatch {
+    width: 2.05rem;
+    height: 2.05rem;
+  }
+
+  .accent-menu {
+    flex-wrap: wrap;
+    max-width: min(20rem, 84vw);
+  }
+
+  .to-top {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
 
 /* Back-to-top control (created by site.js on long pages, CSP-safe). */
 .to-top {

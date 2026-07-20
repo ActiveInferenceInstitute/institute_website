@@ -23,7 +23,9 @@ export function nav(currentDir = "") {
       </div>`;
     })
     .join("");
-  return `<nav class="nav" aria-label="${escapeHtml(tr("Primary"))}">${groups}</nav>`;
+  // id="site-nav" is the aria-controls target of the mobile #nav-toggle button
+  // rendered by layout.mjs (the CSP-safe hamburger disclosure).
+  return `<nav class="nav" id="site-nav" aria-label="${escapeHtml(tr("Primary"))}">${groups}</nav>`;
 }
 
 export function socialLinks() {

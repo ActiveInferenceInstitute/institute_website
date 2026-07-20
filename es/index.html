@@ -57,7 +57,11 @@
         <em>Act. Infer. Serve.</em>
       </span>
     </a>
-    <nav class="nav" aria-label="Primario"><div class="nav-group">
+    <!-- Mobile nav disclosure. CSP-safe: no inline handlers — site.js wires the
+         click listener and stamps data-nav-js on the header; without JS the
+         button stays hidden and the nav renders expanded (styles.css). -->
+    <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true">☰</span><span class="nav-toggle-label">Menú</span></button>
+    <nav class="nav" id="site-nav" aria-label="Primario"><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-0-institute" data-nav-toggle>
           <span>Instituto</span>
           <span aria-hidden="true">+</span>
@@ -353,11 +357,11 @@
 
   <section class="content-band" id="domains">
     <div class="section-heading">
-    <p class="eyebrow">Domains</p>
-    <h2>Active Inference across domains</h2>
+    <p class="eyebrow">Dominios</p>
+    <h2>Inferencia activa a través de dominios</h2>
   </div>
-    <p>Explorable overviews of how Active Inference is applied across scientific and practical domains — each with orientation, key ideas, and entry points into related projects and resources.</p>
-    <div class="mini-links"><a href="active-inference/agriculture/">Agriculture</a><a href="active-inference/climate/">Climate Science</a><a href="active-inference/computational/">Computational Tools</a><a href="active-inference/cybersecurity/">Cybersecurity</a><a href="active-inference/ecology/">Ecology</a><a href="active-inference/economics/">Economics</a><a href="active-inference/education/">Education</a><a href="active-inference/entomology/">Entomology</a><a href="active-inference/healthcare/">Healthcare</a><a href="active-inference/law/">Law and Policy</a><a href="active-inference/linguistics/">Linguistics</a><a href="active-inference/medicine/">Medicine</a><a href="active-inference/music/">Music and Sound</a><a href="active-inference/neuroscience/">Neuroscience</a><a href="active-inference/psychology/">Psychology</a><a href="active-inference/robotics/">Robotics</a><a href="active-inference/social/">Social</a><a href="active-inference/scientific-method/">the Scientific Method</a><a href="active-inference/urban-planning/">Urban Planning</a><a href="active-inference/">All domains</a></div>
+    <p>Vistas generales explorables de cómo se aplica la inferencia activa en dominios científicos y prácticos — cada uno con orientación, ideas clave y puntos de entrada a proyectos y recursos relacionados.</p>
+    <div class="mini-links"><a href="active-inference/agriculture/">Agriculture</a><a href="active-inference/climate/">Climate Science</a><a href="active-inference/computational/">Computational Tools</a><a href="active-inference/cybersecurity/">Cybersecurity</a><a href="active-inference/ecology/">Ecology</a><a href="active-inference/economics/">Economics</a><a href="active-inference/education/">Education</a><a href="active-inference/entomology/">Entomology</a><a href="active-inference/healthcare/">Healthcare</a><a href="active-inference/law/">Law and Policy</a><a href="active-inference/linguistics/">Linguistics</a><a href="active-inference/medicine/">Medicine</a><a href="active-inference/music/">Music and Sound</a><a href="active-inference/neuroscience/">Neuroscience</a><a href="active-inference/psychology/">Psychology</a><a href="active-inference/robotics/">Robotics</a><a href="active-inference/social/">Social</a><a href="active-inference/scientific-method/">the Scientific Method</a><a href="active-inference/urban-planning/">Urban Planning</a><a href="active-inference/">Todos los dominios</a></div>
   </section>
   </main>
   <footer class="site-footer">
@@ -380,7 +384,7 @@
     <div class="social-links" aria-label="Enlaces públicos verificados">
       <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-    <p class="build-stamp">v4.0.0 · build 5ce0d8205ed3</p>
+    <p class="build-stamp">v4.0.0 · build 77af741358e7</p>
   </footer>
   <script src="../assets/js/theme.js" defer></script>
   <script src="../assets/js/accent.js" defer></script>

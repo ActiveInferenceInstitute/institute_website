@@ -7,6 +7,20 @@ strict Content Security Policy, gated by `npm run check`.
 
 ## Backlog / ideas
 
+- [ ] **i18n catalog backlog (2026-07-20):** the extract now collects ~2,264
+      strings (long-form knowledge/course prose entered the catalog with the
+      strategy-map wiring and content growth); ~1,050+ keys per locale await the
+      offline `npm run i18n:translate --all` pass (local Ollama; incremental/
+      resumable). Visible UI chrome (nav "Menu", the domains band set) was
+      translated 2026-07-20 for all 11 locales; untranslated content prose
+      falls back to English with the machine-translation notice, by design.
+      The translate pass must also include a TERMINOLOGY QA sweep: cross-vendor
+      review (2026-07-20) found established-term defects in the existing
+      catalogs (ru rendered "Active Inference" ungrammatically before this
+      session's base-key fix — residual derived entries remain; hi rendered it
+      as "active extraction" in at least one pre-existing entry, now fixed) —
+      re-translate against a per-locale glossary of established terms.
+
 ### From the 2026-06 deep review (see [`INDEX.md`](INDEX.md), [`GATING.md`](GATING.md))
 
 - [x] **Gating coverage (P0) — DONE, and now unconditional (2026-07-05).** The 7
@@ -41,23 +55,37 @@ strict Content Security Policy, gated by `npm run check`.
       annotated tags `v2.5.0`, `v2.6.0`. (Version number — minor `v2.7.0` vs major
       `v3.0.0` — is a judgement call: the baseUrl/domain cutover is a hard URL
       change, but the public URLs were preserved via redirects.)
-- [ ] `strategies_public.json` has **no consumer** in the repo — either wire it
+- [x] `strategies_public.json` has **no consumer** in the repo — either wire it
       into a page/feed or remove it from `src/content/instituteos/`.
-- [ ] `src/content/live-sources.json` commits resolved `coda.io` `finalUrl`
-      values (verification metadata, not rendered). Either drop `finalUrl` from the
-      committed file (resolve at check time) or add a gate forbidding `coda.io`
-      substrings there; `check:sources` is not in the default `npm run check` chain.
-- [ ] Add a **markdown link gate** (resolve relative links in `*.md`/`AGENTS.md`,
-      fail on missing targets) wired into `npm run check` — markdown cross-links are
-      currently ungated (`check:links` only scans built HTML).
-- [ ] `repositories.json` carries inline `url`/`docsUrl` that duplicate
-      `live-sources.json`; resolve by `sourceId`/`docsSourceId` (matching
-      social/official-pages/resources). Confirm no external consumer reads those
-      inline fields before removing them.
-- [ ] Mobile enhancement: add a CSP-safe hamburger/disclosure toggle (`site.js`,
-      under ~720px) so the sticky header collapses instead of stacking ~11 rows;
-      add `@media(pointer:coarse)` 44px touch-target overrides. (The 601–960px
-      detached-dropdown bug is already fixed in `assets/css/styles.css`.)
+      **Done 2026-07-20:** wired as the `#strategy-map` section on `/strategy/`
+      (`strategyMapSection()` in `src/render/feature-sections.mjs`) — department
+      cards with grouped revenue streams, loaded via `siteData.instituteos.strategies`.
+- [x] `src/content/live-sources.json` commits resolved `coda.io` `finalUrl`
+      values (verification metadata, not rendered). **Done 2026-07-20:** `finalUrl`
+      dropped from the committed file; `check_live_sources.py` resolves redirects at
+      check time and errors on any committed `finalUrl` (`--write` strips it).
+      `check:sources` remains deliberately outside the offline `npm run check` chain.
+- [x] Add a **markdown link gate** (resolve relative links in `*.md`/`AGENTS.md`,
+      fail on missing targets) wired into `npm run check` — **done 2026-07-20:**
+      `scripts/check_markdown_links.py` (`check:md-links`) is in the default chain
+      and the `py_compile` list.
+- [x] **`repositories.json` inline `url`/`docsUrl` dedup (2026-07-20) — DONE.**
+      Records now resolve through `live-sources.json` by `sourceId`/`docsSourceId`
+      (parent-repo consumer check: zero readers of the inline fields); a
+      `check:site` arm fails loudly if a future GitHub-API refresh reintroduces
+      inline URLs.
+- [x] **Mobile enhancement (2026-07-20) — DONE.** CSP-safe hamburger/disclosure
+      toggle: `#nav-toggle` button in the header (`src/render/layout.mjs`,
+      `tr("Menu")`-labeled, `aria-expanded`/`aria-controls="site-nav"`), click +
+      Escape wiring in `site.js` (no inline handlers), collapse styles in
+      `styles.css`. Progressive enhancement: `site.js` stamps `data-nav-js` on
+      the header — without JS the toggle stays hidden and the nav renders
+      expanded, so navigation stays reachable. Under 720px the header now wraps
+      into ~3 compact rows (brand+hamburger / search / control buttons) instead
+      of stacking ~11; `@media(pointer:coarse)` adds ≥44px touch targets for
+      header controls, nav/lang menus, tag chips, and footer links. (The
+      601–960px detached-dropdown bug was already fixed in
+      `assets/css/styles.css`.)
 
 ### Earlier backlog
 

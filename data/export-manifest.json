@@ -193,7 +193,7 @@
       "name": "projects.json",
       "output_path": "data/projects.json",
       "record_count": 64,
-      "sha256": "4dfa0d81736e54c492ff78a7a1f7dae23bab3c5a4cee938d8c4108b290b03d14",
+      "sha256": "65492e8a18721be1c2fd273ea3c20d3bd8cfae539225ea0c2303d87997fe579f",
       "target": "data"
     },
     {
@@ -219,6 +219,6 @@
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-07-17T19:57:42.435901+00:00",
-  "source_fingerprint": "5ce0d8205ed3"
+  "generated_at": "2026-07-20T21:43:34.766800+00:00",
+  "source_fingerprint": "77af741358e7"
 }

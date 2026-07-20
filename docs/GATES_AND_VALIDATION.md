@@ -14,11 +14,12 @@ This document is a complete reference for all gates and guards enforcing the sta
 # Build first (always) — gates read generated HTML
 node src/build.mjs
 
-# Run the deterministic offline gate suite (8 sub-checks, chained in package.json's "check" script)
+# Run the deterministic offline gate suite (9 sub-checks, chained in package.json's "check" script)
 npm run check
 
 # Explicitly run a single gate
 npm run check:links        # check_internal_links.py
+npm run check:md-links     # check_markdown_links.py -- relative links in tracked *.md docs
 npm run check:instituteos  # sync_instituteos_public_data.py --check
 npm run check:design-system  # check_design_system_export.mjs
 npm run check:site         # check_site_contract.py
@@ -618,7 +619,6 @@ External links are **not** raw `href` values. They're registered once in a manif
      "category": "Learning",
      "url": "https://example.org/guide",
      "sourceBasis": "Public guide verified on example.org",
-     "finalUrl": "https://example.org/guide",
      "statusCode": 200,
      "ok": true,
      "checkedAt": "2026-06-28T00:00:00Z"
@@ -703,6 +703,8 @@ The gate order matters because earlier gates set state for later ones. This mirr
 build (generates HTML)
   ↓
 check:links (validates generated HTML has no broken refs)
+  ↓
+check:md-links (validates relative links in tracked Markdown docs)
   ↓
 check:instituteos (validates public data sync)
   ↓

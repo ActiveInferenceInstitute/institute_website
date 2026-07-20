@@ -9,6 +9,7 @@ import { hrefForSlug } from "../url-taxonomy.mjs";
 import { sectionHeading } from "./components.mjs";
 import { relPrefix } from "./urls.mjs";
 import { sourceAnchor } from "./sources.mjs";
+import { tr } from "../i18n/index.mjs";
 
 // Book-cover feature section: renders a page's `books[]` (cover image + title,
 // authors, year, status, and a publisher link resolved via sourceId). Covers are
@@ -343,6 +344,70 @@ function ecosystemOrganizationsSection(currentDir = "") {
   </section>`;
 }
 
+// Strategy map: departments and the revenue streams that flow from them,
+// driven by the public-safe InstituteOS strategy export
+// (src/content/instituteos/strategies_public.json, a producer-2 slice gated by
+// check:instituteos). Each revenue-stream row carries an opaque origin-node id
+// whose prefix names its department subtree; the explicit map below keeps that
+// resolution auditable, and any stream with an unmapped prefix falls into a
+// visible "Other revenue streams" card rather than being silently dropped.
+const STRATEGY_STREAM_DEPARTMENTS = {
+  ctd: "aii-certificate-training-department",
+  csd: "aii-consultancy-services-department",
+  pda: "aii-publishing-data-access-department",
+  mbr: "aii-membership-department",
+};
+
+function strategyMapSection() {
+  const data = siteData.instituteos.strategies || {};
+  const departments = Array.isArray(data.departments) ? data.departments : [];
+  const streams = Array.isArray(data.revenueStreams) ? data.revenueStreams : [];
+  if (!departments.length) {
+    return "";
+  }
+  const streamsByDepartment = new Map(departments.map((dept) => [dept.id, []]));
+  const unmapped = [];
+  for (const stream of streams) {
+    const prefix = String(stream.from || "").split("_")[0];
+    const bucket = streamsByDepartment.get(STRATEGY_STREAM_DEPARTMENTS[prefix]);
+    (bucket || unmapped).push(stream);
+  }
+  const streamTags = (deptStreams) =>
+    deptStreams.length
+      ? `<div class="tag-row">${deptStreams.map((stream) => `<span>${escapeHtml(stream.label)}</span>`).join("")}</div>`
+      : "";
+  const cards = departments
+    .map((dept) => {
+      const deptStreams = streamsByDepartment.get(dept.id) || [];
+      const countText = tr("{n} strategy nodes in the public strategy map").replace("{n}", formatCount(dept.nodeCount));
+      return `<article class="info-card" id="${escapeHtml(dept.id)}">
+        <h3>${escapeHtml(dept.label)}</h3>
+        <p>${escapeHtml(countText)}</p>
+        ${streamTags(deptStreams)}
+      </article>`;
+    })
+    .join("");
+  const otherCard = unmapped.length
+    ? `<article class="info-card" id="strategy-other-revenue-streams">
+        <h3>${escapeHtml(tr("Other revenue streams"))}</h3>
+        <p>${escapeHtml(tr("Revenue streams not yet attributed to a department in the public export."))}</p>
+        ${streamTags(unmapped)}
+      </article>`
+    : "";
+  const countLabel = tr("{d} departments and {r} revenue streams in the public export")
+    .replace("{d}", formatCount(departments.length))
+    .replace("{r}", formatCount(streams.length));
+  return `<section class="content-band" id="strategy-map">
+    ${sectionHeading({
+      eyebrow: "Strategy map",
+      title: "Departments and revenue streams",
+      text: "A public-safe slice of the Institute's strategy map: the departments that organize sustainability planning, and the revenue streams each is designed to generate. Synced from the private InstituteOS registry through the public export gate.",
+    })}
+    <p class="category-count">${escapeHtml(countLabel)}</p>
+    <div class="card-grid">${cards}${otherCard}</div>
+  </section>`;
+}
+
 export function instituteosFeatureSections(page, currentDir = "") {
   if (GOVERNANCE_ROSTERS[page.slug]) {
     return governanceRosterSection(page.slug, currentDir);
@@ -390,6 +455,8 @@ export function instituteosFeatureSections(page, currentDir = "") {
         targetPage: "about",
         currentDir,
       });
+    case "strategy":
+      return strategyMapSection();
     case "activities":
       return activitiesFeatureSection(currentDir);
     case "video":
