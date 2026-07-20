@@ -34,12 +34,16 @@ function localeAlternateLinks(slug) {
   return `${links}\n  <link rel="alternate" hreflang="x-default" href="${escapeHtml(absoluteUrl(localeOutputPathForSlug(slug, DEFAULT_LOCALE)))}">`;
 }
 
-export function layout({ title, description, currentDir = "", canonicalPath, body, bodyClass = "", slug = "", robots = "", ogType, redirects = false } = {}) {
+export function layout({ title, description, currentDir = "", canonicalPath, body, bodyClass = "", slug = "", robots = "", ogType, redirects = false, hreflang = true } = {}) {
   const prefix = relPrefix(currentDir);
   const lang = activeLocale();
   const meta = localeMeta(lang);
   const dirAttr = meta.dir === "rtl" ? ' dir="rtl"' : "";
-  const hreflangLinks = localeAlternateLinks(slug);
+  // A noindexed page must not advertise itself as part of an hreflang cluster,
+  // and pages whose locale variants are noindexed (hreflang: false) advertise
+  // none at all — Google treats hreflang links to noindexed URLs as conflicting
+  // signals and picks its own canonical.
+  const hreflangLinks = hreflang && !robots.includes("noindex") ? localeAlternateLinks(slug) : "";
   // Machine-translated locales carry a visible, honest provenance note linking
   // back to the authoritative English original.
   const mtNotice =

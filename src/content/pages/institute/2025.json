@@ -1,14 +1,14 @@
 {
   "slug": "2025",
   "title": "2025",
-  "subtitle": "Annual overview of the Active Inference Institute for the year 2025.",
+  "subtitle": "Completed 2025 year in review — roundtables, the 5th Symposium, new groups and partnerships, and the transition to 2026 governance.",
   "audience": "Members, participants, collaborators, and the public who want a consolidated view of the Institute's year in 2025.",
-  "lede": "2025 is the Active Inference Institute's annual overview for the year — a consolidated, month-by-month entry point to the activities, programs, and events that ran across the organization under the motto Act. Infer. Serve. The detailed record continues to be maintained on the 2025 hub.",
+  "lede": "2025 was the Active Inference Institute's fifth full year: four Quarterly Roundtables, the 5th Applied Active Inference Symposium (November 12–14), the Theoretical Neurobiology Group joining the Institute, a new RxInfer.jl partnership, completion of the Project ~ Measurement system, and selection of the 2026 Board — a completed year in review, organized month by month. The detailed record continues to be maintained on the 2025 hub.",
   "order": 87,
   "relatedSlugs": [
-    "about",
-    "activities",
-    "structure"
+    "history",
+    "2026",
+    "activities"
   ],
   "resourceGroups": [
     "institute"
@@ -21,15 +21,15 @@
   "sections": [
     {
       "heading": "A Year in Review",
-      "body": "This page gathers the Institute's 2025 work into a single annual overview, organized by month. As a participatory, open-science 501(c)(3) nonprofit, the Institute conducts its work in public, so this overview is best read as a map to the year's activities, programs, and events. See the History page for how the year fits the Institute's longer story.",
+      "body": "2025 closed with the Institute's fifth Applied Active Inference Symposium and a completed governance cycle. This retrospective maps the year month by month: new groups hosted (Theoretical Neurobiology), a new partnership (RxInfer.jl Learning Group), four Quarterly Roundtables, the Project ~ Measurement system, and the selection of 2026 leadership. For the Institute's longer arc, see the History page; for the year that followed, see 2026.",
       "links": [
         {
           "label": "History",
           "href": "/history/"
         },
         {
-          "label": "Activities",
-          "href": "/activities/"
+          "label": "2026",
+          "href": "/2026/"
         }
       ]
     },
@@ -105,7 +105,7 @@
     },
     {
       "heading": "Full materials",
-      "body": "The complete, continuously updated record of 2025 goals, milestones, and events is maintained on the 2025 hub and is being migrated onto this site.",
+      "body": "The complete archival record of 2025 goals, milestones, and events — as they were tracked during the year — is maintained on the 2025 hub and is being migrated onto this site.",
       "links": [
         {
           "sourceId": "shortlink-2025"

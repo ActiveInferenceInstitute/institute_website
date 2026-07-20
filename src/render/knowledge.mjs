@@ -30,6 +30,7 @@ import {
 } from "./tables.mjs";
 import { ontologyGraphSection } from "./graphs.mjs";
 import { layout } from "./layout.mjs";
+import { domainsSection } from "./domains.mjs";
 
 export function knowledgePreview(page, currentDir = "") {
   const previewConfig = {
@@ -293,7 +294,8 @@ export function knowledgePage() {
       { title: "Learning", text: "Learning paths, research references, and concept orientation.", links: [{ label: "Learning and Research", href: "learning.html" }] },
       { title: "Directory", text: "Every rendered public page, resource group, official link, repository, and table row.", links: [{ label: "Global Directory", href: "directory.html" }] },
     ], currentDir)}
-  </section>`;
+  </section>
+  ${domainsSection(currentDir)}`;
   return layout({
     title: "Open Source Map",
     description: "Structured public tables for ActiveInferenceInstitute people, repositories, research links, ideas, and ontology relationships.",

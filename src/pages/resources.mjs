@@ -14,6 +14,7 @@ import {
 import { sectionHeading, cardGrid } from "../render/components.mjs";
 import { optionList } from "../render/forms.mjs";
 import { layout } from "../render/layout.mjs";
+import { domainsSection } from "../render/domains.mjs";
 import { resourceCards } from "../render/resources.mjs";
 
 export function resourcesPage() {
@@ -156,7 +157,8 @@ export function resourcesPage() {
   <section class="content-band">
     ${grouped}
   </section>
-  </section>`;
+  </section>
+  ${domainsSection(currentDir)}`;
   return layout({
     title: "Resources",
     description: "Searchable directory of verified public Active Inference Institute resources.",

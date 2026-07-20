@@ -19,6 +19,7 @@ import { sectionHeading, cardGrid, breadcrumb, pageGuide } from "./components.mj
 import { publicPagePager } from "./pager.mjs";
 import { resourceCards } from "./resources.mjs";
 import { layout } from "./layout.mjs";
+import { domainsSection } from "./domains.mjs";
 import { slugToHref, resolveInternalHref, relPrefix } from "./urls.mjs";
 import { homeInstituteosGate, instituteosFeatureSections } from "./feature-sections.mjs";
 import { autolinkInternal } from "./autolink.mjs";
@@ -172,7 +173,8 @@ export function homePage() {
   <section class="content-band">
     ${sectionHeading({ eyebrow: "Featured resources", title: "Verified public entry points", text: "These resources are checked through the public link registry and grouped by visitor need." })}
     ${resourceCards(featuredResources, { filterable: false, currentDir })}
-  </section>`;
+  </section>
+  ${domainsSection(currentDir)}`;
   return layout({
     title: siteData.site.name,
     currentDir,

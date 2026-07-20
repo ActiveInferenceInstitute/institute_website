@@ -1,5 +1,6 @@
 import { urlDirForSlug, hrefForSlug } from "../url-taxonomy.mjs";
 import { escapeHtml } from "../lib/text.mjs";
+import { activeLocale, isDefaultLocale } from "../i18n/index.mjs";
 import { siteData, ALL_ROUTED_SLUGS } from "../data.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
@@ -59,5 +60,12 @@ export function sitemapPage() {
     currentDir,
     body,
     slug: "sitemap",
+    // The localized sitemap variants are utility indexes whose content is not
+    // meaningfully different from the English page, so Google folds them into
+    // one canonical anyway (GSC duplicate-canonical report, 2026-07). Make the
+    // markup match that intent: only the default-locale page is indexable, and
+    // no locale variant advertises an hreflang cluster.
+    robots: isDefaultLocale(activeLocale()) ? "" : "noindex,follow",
+    hreflang: false,
   });
 }

@@ -8,12 +8,8 @@
   "sections": [
     {
       "heading": "The Year So Far",
-      "body": "This page gathers the Institute's 2026 work into a single overview, organized by month, as the year unfolds. As a participatory, open-science 501(c)(3) nonprofit, the Institute conducts its work in public, so this overview is best read as a map to the year's activities, programs, and events. See the History page for how the year fits the Institute's longer story.",
+      "body": "2026 is in progress: two of four Quarterly Roundtables have livestreamed (March 27 and June 26), the call for presenters is open for the 6th Applied Active Inference Symposium (November 12–14, 2026), and the year opened with Institute Structure clarification alongside the new Board of Directors and Scientific Advisory Board. This page grows month by month as the year unfolds — the Activities page and Calendar are the most current view. For the completed prior year, see the 2025 annual overview.",
       "links": [
-        {
-          "label": "History",
-          "href": "/history/"
-        },
         {
           "label": "Activities",
           "href": "/activities/"
@@ -21,6 +17,10 @@
         {
           "label": "Calendar",
           "href": "/calendar/"
+        },
+        {
+          "label": "2025",
+          "href": "/2025/"
         }
       ]
     },
@@ -65,7 +65,7 @@
     },
     {
       "heading": "Full materials",
-      "body": "The complete, continuously updated record of 2026 goals, milestones, and events is maintained on the 2026 hub and is being migrated onto this site.",
+      "body": "The live, continuously updated record of 2026 goals, milestones, and events is maintained on the 2026 hub; entries land on this page as months complete.",
       "links": [
         {
           "sourceId": "shortlink-2026"
@@ -124,7 +124,7 @@
     }
   ],
   "relatedSlugs": [
-    "about",
+    "2025",
     "activities",
     "structure"
   ],
