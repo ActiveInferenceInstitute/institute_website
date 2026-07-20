@@ -41,6 +41,8 @@
     "sab": "structure/scientific-advisory-board/",
     "structure": "structure/",
 
+    "leadership": "structure/",
+
     // Learn / research
     "courses": "learning/",
     "education": "learning/",
