@@ -111,7 +111,10 @@ colliding row so the surviving payload passes untouched.
 The **only networked** checker, deliberately excluded from `npm run check`.
 `curl`s every entry in `src/content/live-sources.json` and compares the live
 HTTP result against the recorded `ok`/`statusCode`/`finalUrl`. `--write` updates
-those fields plus `lastCheckedAt`; default is read-only verification.
+those fields plus `lastCheckedAt`; default is read-only verification. Every
+request has a per-source timeout and the batch has a total timeout. Use
+`--offline` in a disconnected environment to validate all source-record ids and
+URLs without making network requests.
 
 ## [`i18n_translate.mjs`](i18n_translate.mjs) (`i18n:translate`)
 

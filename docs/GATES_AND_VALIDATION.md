@@ -14,7 +14,7 @@ This document is a complete reference for all gates and guards enforcing the sta
 # Build first (always) — gates read generated HTML
 node src/build.mjs
 
-# Run the full gate suite (9 sub-checks, chained in package.json's "check" script)
+# Run the deterministic offline gate suite (8 sub-checks, chained in package.json's "check" script)
 npm run check
 
 # Explicitly run a single gate
@@ -24,7 +24,8 @@ npm run check:design-system  # check_design_system_export.mjs
 npm run check:site         # check_site_contract.py
 npm run check:security     # check_static_security.py
 npm run check:redirects    # check_redirects.py
-npm run check:sources      # check_live_sources.py -- network probe, part of npm run check
+npm run check:sources      # check_live_sources.py -- bounded network probe, separate from npm run check
+npm run check:sources -- --offline  # manifest-shape validation without network access
 npm run check:projects     # check_project_discoverability.py
 npm run check:catalog      # check_project_catalog_coverage.mjs
 ```
@@ -713,14 +714,15 @@ check:security (validates CSP, no disallowed tags, external anchors backed)
   ↓
 check:redirects (validates legacy-URL redirect coverage)
   ↓
-check:sources (network probe -- verifies live-sources.json URLs are reachable)
-  ↓
 check:projects (validates backend project ↔ website page discoverability)
   ↓
 check:catalog (validates every public project page is linked from the built catalog)
 ```
 
-**Key dependency:** `check:site` and `check:security` both validate external anchors against `live-sources.json`. If either fails, check:
+The optional `check:sources` probe is deliberately outside this deterministic
+chain: network outages must not make a reproducible local build hang or fail.
+Run it with its bounded per-source and batch timeouts when internet access is
+available. **Key dependency:** `check:site` and `check:security` both validate external anchors against `live-sources.json`. If either fails, check:
 
 1. Is the source in `live-sources.json`?
 2. Is `ok: true`?

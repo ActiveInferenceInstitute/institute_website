@@ -40,7 +40,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "active-entity-ontology-for-science",
@@ -70,7 +86,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "active-inferants",
@@ -111,7 +143,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "active-inference-journal",
@@ -151,7 +199,27 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "alexander-vyatkin",
-      "owner_name": "Alexander Vyatkin"
+      "owner_name": "Alexander Vyatkin",
+      "people": [
+        {
+          "id": "alexander-vyatkin",
+          "name": "Alexander Vyatkin",
+          "institute_roles": [
+            "Board Member",
+            "Officer"
+          ],
+          "active": false
+        },
+        {
+          "id": "holly-grimm",
+          "name": "Holly Grimm",
+          "institute_roles": [
+            "Scientific Advisor",
+            "Scientific Advisory Board"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "active-inference-ontology",
@@ -190,7 +258,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "active-inference-social-sciences",
@@ -224,7 +308,38 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "avel-guenin-carlut",
-      "owner_name": "Avel Guénin-Carlut"
+      "owner_name": "Avel Guénin-Carlut",
+      "people": [
+        {
+          "id": "avel-guenin-carlut",
+          "name": "Avel Guénin-Carlut",
+          "institute_roles": [
+            "Scientific Advisor",
+            "Scientific Advisory Board"
+          ],
+          "active": true
+        },
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        },
+        {
+          "id": "ben-white",
+          "name": "Ben White",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "active-inference-textbook",
@@ -284,7 +399,23 @@
         }
       ],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "ai2c-active-inference-alignment-coalition",
@@ -312,7 +443,17 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "people": [
+        {
+          "id": "mahault-albarracin",
+          "name": "Mahault Albarracin",
+          "institute_roles": [
+            "Fellow"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "aicacp",
@@ -353,7 +494,19 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "adam-safron",
-      "owner_name": "Adam Safron"
+      "owner_name": "Adam Safron",
+      "people": [
+        {
+          "id": "adam-safron",
+          "name": "Adam Safron",
+          "institute_roles": [
+            "Scientific Advisor",
+            "Unit Member",
+            "Scientific Advisory Board"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "anima",
@@ -386,7 +539,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "stell",
-      "owner_name": "Stell"
+      "owner_name": "Stell",
+      "people": [
+        {
+          "id": "stell",
+          "name": "Stell",
+          "institute_roles": [
+            "Project Facilitator"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "artificial-sentience",
@@ -419,7 +582,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "cleber-gomes",
-      "owner_name": "Cleber Gomes"
+      "owner_name": "Cleber Gomes",
+      "people": [
+        {
+          "id": "cleber-gomes",
+          "name": "Cleber Gomes",
+          "institute_roles": [
+            "Project Facilitator"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "audio-visual-production",
@@ -453,7 +626,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "belief-updating-ptsd",
@@ -487,7 +676,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "jeremy-cooper",
-      "owner_name": "Jeremy Cooper"
+      "owner_name": "Jeremy Cooper",
+      "people": [
+        {
+          "id": "jeremy-cooper",
+          "name": "Jeremy Cooper",
+          "institute_roles": [
+            "Unit Member"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "brain-metabolism",
@@ -519,7 +718,15 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "tim-huggers",
-      "owner_name": "Tim Huggers"
+      "owner_name": "Tim Huggers",
+      "people": [
+        {
+          "id": "tim-huggers",
+          "name": "Tim Huggers",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "clinical-waveform",
@@ -553,7 +760,15 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "franklin-ducatez",
-      "owner_name": "Franklin Ducatez"
+      "owner_name": "Franklin Ducatez",
+      "people": [
+        {
+          "id": "franklin-ducatez",
+          "name": "Franklin Ducatez",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "cognarn",
@@ -599,7 +814,18 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "john-boik",
-      "owner_name": "John Boik"
+      "owner_name": "John Boik",
+      "people": [
+        {
+          "id": "john-boik",
+          "name": "John Boik",
+          "institute_roles": [
+            "Unit Member",
+            "Fellow"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "cognitive-agent-modeling",
@@ -633,7 +859,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "collective-foraging",
@@ -666,7 +908,15 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "susan-hasty",
-      "owner_name": "Susan Hasty"
+      "owner_name": "Susan Hasty",
+      "people": [
+        {
+          "id": "susan-hasty",
+          "name": "Susan Hasty",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "courses",
@@ -692,7 +942,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "creativity-fep",
@@ -724,7 +990,61 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "hector-manrique",
-      "owner_name": "Héctor Manrique"
+      "owner_name": "Héctor Manrique",
+      "people": [
+        {
+          "id": "hector-manrique",
+          "name": "Héctor Manrique",
+          "institute_roles": [
+            "Scientific Advisor",
+            "Unit Member",
+            "Scientific Advisory Board"
+          ],
+          "active": true
+        },
+        {
+          "id": "avel-guenin-carlut",
+          "name": "Avel Guénin-Carlut",
+          "institute_roles": [
+            "Scientific Advisor",
+            "Scientific Advisory Board"
+          ],
+          "active": true
+        },
+        {
+          "id": "ana-magdalena-hurtado",
+          "name": "Ana Magdalena Hurtado",
+          "institute_roles": [
+            "Board Member",
+            "Director",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        },
+        {
+          "id": "dean-tickles",
+          "name": "Dean Tickles",
+          "institute_roles": [
+            "Board Member"
+          ],
+          "active": false
+        },
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "cycle-book",
@@ -757,7 +1077,18 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "anna-pereira",
-      "owner_name": "Anna Pereira"
+      "owner_name": "Anna Pereira",
+      "people": [
+        {
+          "id": "anna-pereira",
+          "name": "Anna Pereira",
+          "institute_roles": [
+            "Unit Member",
+            "Fellow"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "educational-course-development",
@@ -792,7 +1123,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "educational-standards-qualifications",
@@ -819,7 +1166,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "einstein-model",
@@ -851,7 +1214,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "theodoros-aliferis",
-      "owner_name": "Theodoros Aliferis"
+      "owner_name": "Theodoros Aliferis",
+      "people": [
+        {
+          "id": "theodoros-aliferis",
+          "name": "Theodoros Aliferis",
+          "institute_roles": [
+            "Unit Member"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "farmworks",
@@ -890,7 +1263,29 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "vladimir-baulin",
-      "owner_name": "Vladimir Baulin"
+      "owner_name": "Vladimir Baulin",
+      "people": [
+        {
+          "id": "vladimir-baulin",
+          "name": "Vladimir Baulin",
+          "institute_roles": [
+            "Board Member",
+            "Director",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        },
+        {
+          "id": "andrew-pashea",
+          "name": "Andrew Pashea",
+          "institute_roles": [
+            "Scientific Advisor",
+            "Scientific Advisory Board"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "froebel",
@@ -923,7 +1318,15 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "joanne-phillips",
-      "owner_name": "Joanne Phillips"
+      "owner_name": "Joanne Phillips",
+      "people": [
+        {
+          "id": "joanne-phillips",
+          "name": "Joanne Phillips",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "fundamentals-active-inference",
@@ -962,7 +1365,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "geo-infer",
@@ -1001,7 +1420,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "geometric-inquiry",
@@ -1034,7 +1469,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "bruce-tisler",
-      "owner_name": "Bruce Tisler"
+      "owner_name": "Bruce Tisler",
+      "people": [
+        {
+          "id": "bruce-tisler",
+          "name": "Bruce Tisler",
+          "institute_roles": [
+            "Project Facilitator"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "gnn",
@@ -1075,7 +1520,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "graphical-interface",
@@ -1108,7 +1569,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "graphspeak",
@@ -1140,7 +1617,31 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "andrew-djuwidja",
-      "owner_name": "Andrew Djuwidja"
+      "owner_name": "Andrew Djuwidja",
+      "people": [
+        {
+          "id": "andrew-djuwidja",
+          "name": "Andrew Djuwidja",
+          "institute_roles": [
+            "Intern"
+          ],
+          "active": true
+        },
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "humanitys-story",
@@ -1173,7 +1674,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "shagor-shaggy-rahman",
-      "owner_name": "Shagor (Shaggy) Rahman"
+      "owner_name": "Shagor (Shaggy) Rahman",
+      "people": [
+        {
+          "id": "shagor-shaggy-rahman",
+          "name": "Shagor (Shaggy) Rahman",
+          "institute_roles": [
+            "Unit Member"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "knowledge-engineering",
@@ -1211,7 +1722,33 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "bleu-knight",
-      "owner_name": "Virginia Bleu Knight"
+      "owner_name": "Virginia Bleu Knight",
+      "people": [
+        {
+          "id": "bleu-knight",
+          "name": "Virginia Bleu Knight",
+          "institute_roles": [
+            "Board Member",
+            "Director",
+            "Member"
+          ],
+          "active": true
+        },
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "m-theory-hdpls",
@@ -1244,7 +1781,15 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "david-hughes",
-      "owner_name": "David Hughes"
+      "owner_name": "David Hughes",
+      "people": [
+        {
+          "id": "david-hughes",
+          "name": "David Hughes",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "mathart",
@@ -1277,7 +1822,47 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "shanna-dobson",
-      "owner_name": "Shanna Dobson"
+      "owner_name": "Shanna Dobson",
+      "people": [
+        {
+          "id": "shanna-dobson",
+          "name": "Shanna Dobson",
+          "institute_roles": [],
+          "active": true
+        },
+        {
+          "id": "hector-manrique",
+          "name": "Héctor Manrique",
+          "institute_roles": [
+            "Scientific Advisor",
+            "Unit Member",
+            "Scientific Advisory Board"
+          ],
+          "active": true
+        },
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        },
+        {
+          "id": "dean-tickles",
+          "name": "Dean Tickles",
+          "institute_roles": [
+            "Board Member"
+          ],
+          "active": false
+        }
+      ]
     },
     {
       "id": "model-centric-cognition",
@@ -1310,7 +1895,18 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "robert-worden",
-      "owner_name": "Robert Worden"
+      "owner_name": "Robert Worden",
+      "people": [
+        {
+          "id": "robert-worden",
+          "name": "Robert Worden",
+          "institute_roles": [
+            "Unit Member",
+            "Fellow"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "myth-of-objectivity",
@@ -1342,7 +1938,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "shagor-shaggy-rahman",
-      "owner_name": "Shagor (Shaggy) Rahman"
+      "owner_name": "Shagor (Shaggy) Rahman",
+      "people": [
+        {
+          "id": "shagor-shaggy-rahman",
+          "name": "Shagor (Shaggy) Rahman",
+          "institute_roles": [
+            "Unit Member"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "neurodivergent-learning",
@@ -1375,7 +1981,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "jesse-g",
-      "owner_name": "Jesse G"
+      "owner_name": "Jesse G",
+      "people": [
+        {
+          "id": "jesse-g",
+          "name": "Jesse G",
+          "institute_roles": [
+            "Unit Member"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "numinia",
@@ -1407,7 +2023,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "pablofm",
-      "owner_name": "PabloFM"
+      "owner_name": "PabloFM",
+      "people": [
+        {
+          "id": "pablofm",
+          "name": "PabloFM",
+          "institute_roles": [
+            "Unit Member"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "perspective-architectures-for-coherent-and-attuned-artificial-agency",
@@ -1440,7 +2066,17 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "people": [
+        {
+          "id": "hongju-pae",
+          "name": "Hongju Pae",
+          "institute_roles": [
+            "Fellow"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "physics-course",
@@ -1473,7 +2109,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "robotic-microscopy",
@@ -1506,7 +2158,15 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "craig-arnold",
-      "owner_name": "Craig Arnold"
+      "owner_name": "Craig Arnold",
+      "people": [
+        {
+          "id": "craig-arnold",
+          "name": "Craig Arnold",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "rxinfer",
@@ -1545,7 +2205,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "rxinfer-visualization",
@@ -1579,7 +2255,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "fraser-paterson",
-      "owner_name": "Fraser Paterson"
+      "owner_name": "Fraser Paterson",
+      "people": [
+        {
+          "id": "fraser-paterson",
+          "name": "Fraser Paterson",
+          "institute_roles": [
+            "Unit Member"
+          ],
+          "active": true
+        },
+        {
+          "id": "chris-bennett",
+          "name": "Chris Bennett",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "seasonal-school",
@@ -1618,7 +2310,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "start",
@@ -1652,7 +2360,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "sweet-dogg",
@@ -1685,7 +2409,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "andrew-djuwidja",
-      "owner_name": "Andrew Djuwidja"
+      "owner_name": "Andrew Djuwidja",
+      "people": [
+        {
+          "id": "andrew-djuwidja",
+          "name": "Andrew Djuwidja",
+          "institute_roles": [
+            "Intern"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "symbolic-robotics",
@@ -1718,7 +2452,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "jean-francois-cloutier",
-      "owner_name": "Jean-François Cloutier"
+      "owner_name": "Jean-François Cloutier",
+      "people": [
+        {
+          "id": "jean-francois-cloutier",
+          "name": "Jean-François Cloutier",
+          "institute_roles": [
+            "Unit Member"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "symposium",
@@ -1758,7 +2502,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "textbook-group",
@@ -1800,7 +2560,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "the-foundations-of-ideology",
@@ -1830,7 +2606,23 @@
       },
       "linked_policies": [],
       "linked_processes": [],
-      "tasks": []
+      "tasks": [],
+      "people": [
+        {
+          "id": "alexander-hemming",
+          "name": "Alexander Hemming",
+          "institute_roles": [
+            "Fellow"
+          ],
+          "active": true
+        },
+        {
+          "id": "dylan-grove",
+          "name": "Dylan Grove",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "theoretical-neurobiology",
@@ -1877,7 +2669,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "three-mosqueteers",
@@ -1909,7 +2717,30 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "hector-manrique",
-      "owner_name": "Héctor Manrique"
+      "owner_name": "Héctor Manrique",
+      "people": [
+        {
+          "id": "hector-manrique",
+          "name": "Héctor Manrique",
+          "institute_roles": [
+            "Scientific Advisor",
+            "Unit Member",
+            "Scientific Advisory Board"
+          ],
+          "active": true
+        },
+        {
+          "id": "ana-magdalena-hurtado",
+          "name": "Ana Magdalena Hurtado",
+          "institute_roles": [
+            "Board Member",
+            "Director",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "tower-of-babel",
@@ -1942,7 +2773,28 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "ana-magdalena-hurtado",
-      "owner_name": "Ana Magdalena Hurtado"
+      "owner_name": "Ana Magdalena Hurtado",
+      "people": [
+        {
+          "id": "ana-magdalena-hurtado",
+          "name": "Ana Magdalena Hurtado",
+          "institute_roles": [
+            "Board Member",
+            "Director",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        },
+        {
+          "id": "dean-tickles",
+          "name": "Dean Tickles",
+          "institute_roles": [
+            "Board Member"
+          ],
+          "active": false
+        }
+      ]
     },
     {
       "id": "translation-agent",
@@ -1976,7 +2828,15 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "michael-carl",
-      "owner_name": "Michael Carl"
+      "owner_name": "Michael Carl",
+      "people": [
+        {
+          "id": "michael-carl",
+          "name": "Michael Carl",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "universal-basic-income",
@@ -2008,7 +2868,15 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "die-schwarze-katze",
-      "owner_name": "Die Schwarze Katze"
+      "owner_name": "Die Schwarze Katze",
+      "people": [
+        {
+          "id": "die-schwarze-katze",
+          "name": "Die Schwarze Katze",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "video-improvement",
@@ -2042,7 +2910,23 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "daniel-friedman",
-      "owner_name": "Daniel Friedman"
+      "owner_name": "Daniel Friedman",
+      "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "wave-hypothesis",
@@ -2076,7 +2960,18 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "robert-worden",
-      "owner_name": "Robert Worden"
+      "owner_name": "Robert Worden",
+      "people": [
+        {
+          "id": "robert-worden",
+          "name": "Robert Worden",
+          "institute_roles": [
+            "Unit Member",
+            "Fellow"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "pymdp",
@@ -2105,7 +3000,15 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "conor-heins",
-      "owner_name": "Conor Heins"
+      "owner_name": "Conor Heins",
+      "people": [
+        {
+          "id": "conor-heins",
+          "name": "Conor Heins",
+          "institute_roles": [],
+          "active": true
+        }
+      ]
     },
     {
       "id": "the-unordinary-bible-study-tubs",
@@ -2127,7 +3030,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "jesse-g",
-      "owner_name": "Jesse G"
+      "owner_name": "Jesse G",
+      "people": [
+        {
+          "id": "jesse-g",
+          "name": "Jesse G",
+          "institute_roles": [
+            "Unit Member"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "digital-agents",
@@ -2149,7 +3062,31 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "pablofm",
-      "owner_name": "PabloFM"
+      "owner_name": "PabloFM",
+      "people": [
+        {
+          "id": "pablofm",
+          "name": "PabloFM",
+          "institute_roles": [
+            "Unit Member"
+          ],
+          "active": true
+        },
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "active-inference-for-built-environments-cooperactive-systems",
@@ -2171,7 +3108,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "ivan-metelkin",
-      "owner_name": "Ivan Metelkin"
+      "owner_name": "Ivan Metelkin",
+      "people": [
+        {
+          "id": "ivan-metelkin",
+          "name": "Ivan Metelkin",
+          "institute_roles": [
+            "Unit Member"
+          ],
+          "active": true
+        }
+      ]
     },
     {
       "id": "ed4all-active-inference-for-grounded-educational-knowledge-environments",
@@ -2193,7 +3140,17 @@
       "linked_processes": [],
       "tasks": [],
       "owner_entity_id": "matthew-d-murphy",
-      "owner_name": "Matthew D Murphy"
+      "owner_name": "Matthew D Murphy",
+      "people": [
+        {
+          "id": "matthew-d-murphy",
+          "name": "Matthew D Murphy",
+          "institute_roles": [
+            "Project Facilitator"
+          ],
+          "active": true
+        }
+      ]
     }
   ]
 }

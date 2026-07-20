@@ -76,6 +76,7 @@ export function catalogProjects() {
       summary: project.summary || project.description || "",
       topics: project.topics || [],
       owner: project.owner_name || "",
+      people: Array.isArray(project.people) ? project.people : [],
       slug: project.website_slug,
     }))
     .sort((a, b) => a.title.localeCompare(b.title));
@@ -107,16 +108,19 @@ function catalogProjectCard(project, currentDir) {
   const topicKeys = escapeHtml(project.topics.map((topic) => String(topic).toLowerCase()).join(" "));
   const summary = sanitizePublicProse(project.summary).slice(0, 160);
   const search = escapeHtml(
-    `${project.title} ${project.summary} ${project.topics.join(" ")} ${project.owner}`.toLowerCase(),
+    `${project.title} ${project.summary} ${project.topics.join(" ")} ${project.owner} ${(project.people || []).map((person) => person.name).join(" ")}`.toLowerCase(),
   );
   const statusLabel = project.status === "active" ? "Active" : title_case_token_js(project.status);
   const lead = project.owner ? `<em class="catalog-lead">Lead: ${escapeHtml(sanitizePublicProse(project.owner))}</em>` : "";
+  const people = (project.people || []).slice(0, 3).map((person) => sanitizePublicProse(person.name || "")).filter(Boolean);
+  const peopleLabel = people.length ? `<em class="catalog-people">People: ${escapeHtml(people.join(", "))}</em>` : "";
   return `<a class="resource-card internal-card catalog-project-card" href="${slugToHref(project.slug, currentDir)}" data-catalog-row data-status="${escapeHtml(project.status)}" data-topics="${topicKeys}" data-search="${search}">
         <span>${escapeHtml(statusLabel)}</span>
         <strong>${escapeHtml(sanitizePublicProse(project.title))}</strong>
         <p>${escapeHtml(summary)}</p>
         ${topics ? `<em>${topics}</em>` : ""}
         ${lead}
+        ${peopleLabel}
       </a>`;
 }
 

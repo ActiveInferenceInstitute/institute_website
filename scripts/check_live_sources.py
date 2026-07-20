@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import TimeoutError as FuturesTimeoutError
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import subprocess
 import sys
@@ -27,11 +29,22 @@ def check_url(url: str, timeout: int) -> tuple[int, str]:
         "%{http_code}\t%{url_effective}",
         "--max-time",
         str(timeout),
+        "--connect-timeout",
+        str(max(1, min(timeout, 10))),
         "-A",
         USER_AGENT,
         url,
     ]
-    completed = subprocess.run(command, capture_output=True, text=True, check=False)
+    try:
+        completed = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=max(1, timeout + 5),
+        )
+    except subprocess.TimeoutExpired:
+        return 0, url
     output = completed.stdout.strip()
     if "\t" in output:
         status_text, final_url = output.split("\t", 1)
@@ -52,14 +65,59 @@ def write_manifest(path: Path, manifest: dict) -> None:
     path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def verify(manifest_path: Path, *, timeout: int, write: bool) -> int:
+def verify(
+    manifest_path: Path,
+    *,
+    timeout: int,
+    write: bool,
+    workers: int = 16,
+    total_timeout: int = 90,
+    offline: bool = False,
+) -> int:
     manifest = load_manifest(manifest_path)
+    sources = manifest.get("sources", [])
+    if not isinstance(sources, list):
+        print("Live-source manifest is invalid: 'sources' must be a list.", file=sys.stderr)
+        return 1
+    if offline:
+        invalid = [
+            str(source.get("id", index))
+            for index, source in enumerate(sources)
+            if not isinstance(source, dict) or not source.get("id") or not source.get("url")
+        ]
+        if invalid:
+            print(
+                "Offline live-source manifest validation failed for: " + ", ".join(invalid),
+                file=sys.stderr,
+            )
+            return 1
+        print(f"Offline live-source validation passed: {len(sources)} source records; network probes skipped.")
+        return 0
+
     checked_at = datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     errors: list[str] = []
     notes: list[str] = []
 
-    for source in manifest.get("sources", []):
-        status_code, final_url = check_url(source["url"], timeout)
+    workers = max(1, min(int(workers), 32))
+    total_timeout = max(1, int(total_timeout))
+    print(f"Checking {len(sources)} live sources with {workers} workers (per-source timeout={timeout}s).")
+    results: list[tuple[int, str]] = [(0, str(source.get("url", ""))) for source in sources]
+    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="live-source") as pool:
+        futures = {pool.submit(check_url, source["url"], timeout): index for index, source in enumerate(sources)}
+        try:
+            completed_futures = as_completed(futures, timeout=total_timeout)
+            for future in completed_futures:
+                index = futures[future]
+                try:
+                    results[index] = future.result()
+                except Exception as exc:  # an individual source must not abort the batch
+                    notes.append(f"{sources[index]['id']}: checker error {type(exc).__name__}")
+        except FuturesTimeoutError:
+            remaining = sum(1 for status_code, _ in results if status_code == 0)
+            notes.append(f"batch timeout after {total_timeout}s; {remaining} source checks remained bounded")
+
+    for index, source in enumerate(sources):
+        status_code, final_url = results[index]
         live_ok = 200 <= status_code < 400
         expected_ok = bool(source.get("ok"))
         expected_status = int(source.get("statusCode") or 0)
@@ -112,10 +170,24 @@ def verify(manifest_path: Path, *, timeout: int, write: bool) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("manifest", nargs="?", default=str(DEFAULT_MANIFEST))
-    parser.add_argument("--timeout", type=int, default=20)
+    parser.add_argument("--timeout", type=int, default=10)
+    parser.add_argument("--workers", type=int, default=16, help="Concurrent source checks (default: 16)")
+    parser.add_argument("--total-timeout", type=int, default=90, help="Maximum batch wait in seconds (default: 90)")
     parser.add_argument("--write", action="store_true", help="Update checkedAt/status/finalUrl fields")
+    parser.add_argument(
+        "--offline",
+        action="store_true",
+        help="Validate source-record shape without making network requests",
+    )
     args = parser.parse_args()
-    return verify(Path(args.manifest).resolve(), timeout=args.timeout, write=args.write)
+    return verify(
+        Path(args.manifest).resolve(),
+        timeout=args.timeout,
+        write=args.write,
+        workers=args.workers,
+        total_timeout=args.total_timeout,
+        offline=args.offline,
+    )
 
 
 if __name__ == "__main__":

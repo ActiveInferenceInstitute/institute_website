@@ -172,12 +172,15 @@ npm run check:sources
 npm run check:site
 npm run check:security
 npm run check:design-system
+npm run check:sources              # optional bounded network probe
 git diff --check
 ```
 
-`npm run check` already chains `check:links`, `check:instituteos`,
+`npm run check` is the deterministic offline gate and already chains `check:links`, `check:instituteos`,
 `check:design-system`, `check:site`, and `check:security`; the individual
-commands above are listed for targeted runs.
+commands above are listed for targeted runs. `check:sources` is intentionally
+separate because it probes the network; use `check_live_sources.py --offline`
+when only manifest integrity can be verified.
 
 Serve locally from the repository root:
 
@@ -218,7 +221,8 @@ Before pushing, confirm:
 - `npm run check:instituteos` confirms sanitized Open Source Map tables and brand assets are current.
 - `npm run check` passes.
 - `npm run check:links` passes.
-- `npm run check:sources` passes or has been intentionally refreshed with reachable public links.
+- `npm run check:sources` has been run when network access is available, or the
+  offline manifest check has been recorded when it is not.
 - `npm run check:site` passes.
 - `npm run check:security` passes.
 - `npm run check:design-system` confirms the CSS stays aligned with the design-system tokens.
