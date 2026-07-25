@@ -7,6 +7,10 @@
   "primaryActions": [
     {
       "label": "Newsletter archive",
+      "href": "/newsletter/"
+    },
+    {
+      "label": "Subscribe to the newsletter",
       "sourceId": "official-newsletter"
     },
     {
@@ -21,8 +25,12 @@
   "sections": [
     {
       "heading": "Newsletter",
-      "body": "The Active Inference Institute — March 2026 Newsletter (reference AII-NL-2026-03), dated March 1, 2026, is the most recently catalogued issue in the monthly newsletter series. See the newsletter archive for the latest issue.",
+      "body": "The June 2026 Newsletter, dated June 30, 2026, is the most recent issue in the monthly newsletter series. Browse the newsletter archive for the full catalogue.",
       "links": [
+        {
+          "label": "Open the archive",
+          "href": "/newsletter/"
+        },
         {
           "sourceId": "official-newsletter"
         }
@@ -54,9 +62,13 @@
   ],
   "cards": [
     {
-      "title": "Active Inference Institute — March 2026 Newsletter",
-      "text": "Monthly newsletter, dated March 1, 2026 (reference AII-NL-2026-03).",
+      "title": "Active Inference Institute — June 2026 Newsletter",
+      "text": "Monthly newsletter, dated June 30, 2026.",
       "links": [
+        {
+          "label": "Open the archive",
+          "href": "/newsletter/"
+        },
         {
           "sourceId": "official-newsletter"
         }

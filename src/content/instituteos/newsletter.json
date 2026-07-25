@@ -1,0 +1,767 @@
+{
+  "schema_version": "1.0",
+  "description": "Public catalogue of Active Inference Institute Substack newsletters and announcements.",
+  "publication": "Active Inference Institute",
+  "publication_url": "https://activeinferenceinstitute.substack.com/",
+  "snapshot_date": "2026-07-25",
+  "counts": {
+    "newsletter": 46,
+    "announcement": 8
+  },
+  "records": [
+    {
+      "id": "substack-newsletter-204201369",
+      "type": "newsletter",
+      "title": "June 2026 Newsletter 🌙🌵🕶️ Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2026-06-30",
+      "url": "https://activeinferenceinstitute.substack.com/p/june-2026-newsletter-active-inference",
+      "route": "2026-june",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-199779046",
+      "type": "newsletter",
+      "title": "May 2026 Newsletter 📡 🐟 🐌 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2026-05-29",
+      "url": "https://activeinferenceinstitute.substack.com/p/may-2026-newsletter-active-inference",
+      "route": "2026-may",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-196055476",
+      "type": "newsletter",
+      "title": "April 2026 Newsletter 🌿 🧅 🛠️ Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2026-04-30",
+      "url": "https://activeinferenceinstitute.substack.com/p/april-2026-newsletter-active-inference",
+      "route": "2026-april",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-192343537",
+      "type": "newsletter",
+      "title": "March 2026 Newsletter 🐐 📰 🏵️ Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2026-03-27",
+      "url": "https://activeinferenceinstitute.substack.com/p/march-2026-newsletter-active-inference",
+      "route": "2026-march",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-189396279",
+      "type": "newsletter",
+      "title": "February 2026 Newsletter 🕸️💓🚋 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2026-02-27",
+      "url": "https://activeinferenceinstitute.substack.com/p/february-2026-newsletter-active-inference",
+      "route": "2026-february",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-186342094",
+      "type": "newsletter",
+      "title": "January 2026 Newsletter 🥧 🌤️ 🖌️ Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2026-01-30",
+      "url": "https://activeinferenceinstitute.substack.com/p/january-2026-newsletter-active-inference",
+      "route": "2026-january",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-182657540",
+      "type": "newsletter",
+      "title": "December 2025 Newsletter 🗝️🎲🐧 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-12-26",
+      "url": "https://activeinferenceinstitute.substack.com/p/december-2025-newsletter-active-inference",
+      "route": "2025-december",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-180350677",
+      "type": "newsletter",
+      "title": "November 2025 Newsletter 🌙🍄🌲 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-11-30",
+      "url": "https://activeinferenceinstitute.substack.com/p/november-2025-newsletter-active-inference",
+      "route": "2025-november",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-177672717",
+      "type": "newsletter",
+      "title": "October 2025 Newsletter 🍃🚌🍎 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-10-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/october-2025-newsletter-active-inference",
+      "route": "2025-october",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-174553281",
+      "type": "newsletter",
+      "title": "September 2025 Newsletter 🦔🛠️🐚 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-09-25",
+      "url": "https://activeinferenceinstitute.substack.com/p/september-2025-newsletter-active",
+      "route": "2025-september",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-172426633",
+      "type": "newsletter",
+      "title": "August 2025 Newsletter ♣️🔗🐞 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-08-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/august-2025-newsletter-active-inference",
+      "route": "2025-august",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-169773192",
+      "type": "newsletter",
+      "title": "July 2025 Newsletter 🌊🐋🎢 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-07-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/july-2025-newsletter-active-inference",
+      "route": "2025-july",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-166987873",
+      "type": "newsletter",
+      "title": "June 2025 Newsletter 🎁🏄🐛 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-06-27",
+      "url": "https://activeinferenceinstitute.substack.com/p/june-2025-newsletter-active-inference",
+      "route": "2025-june",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-164819345",
+      "type": "newsletter",
+      "title": "May 2025 Newsletter 🌛🌷📜 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-05-30",
+      "url": "https://activeinferenceinstitute.substack.com/p/may-2025-newsletter-active-inference",
+      "route": "2025-may",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-162570076",
+      "type": "newsletter",
+      "title": "April 2025 Newsletter 🐧📒🐢 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-04-30",
+      "url": "https://activeinferenceinstitute.substack.com/p/april-newsletter-2025-newsletter",
+      "route": "2025-april",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-160262414",
+      "type": "newsletter",
+      "title": "March 2025 Newsletter ❇️🐞🌗 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-03-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/march-2025-newsletter-active-inference",
+      "route": "2025-march",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-158128221",
+      "type": "newsletter",
+      "title": "February 2025 Newsletter ⌚️🌷👂 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-02-28",
+      "url": "https://activeinferenceinstitute.substack.com/p/february-2025-newsletter-active-inference",
+      "route": "2025-february",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-156189632",
+      "type": "newsletter",
+      "title": "January 2025 Newsletter 💫🎱🌳 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2025-01-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/january-2025-newsletter-active-inference",
+      "route": "2025-january",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-153694768",
+      "type": "newsletter",
+      "title": "December 2024 Newsletter 🎹🎡💾 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-12-27",
+      "url": "https://activeinferenceinstitute.substack.com/p/december-2024-newsletter-active-inference",
+      "route": "2024-december",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-152380611",
+      "type": "newsletter",
+      "title": "November 2024 Newsletter 🔰🔌🏐 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-12-01",
+      "url": "https://activeinferenceinstitute.substack.com/p/november-2024-newsletter-active-inference",
+      "route": "2024-november",
+      "tags": [
+        "Active Inference",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-151006526",
+      "type": "newsletter",
+      "title": "October 2024 Newsletter 🔭🌲🍲 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-10-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/october-2024-newsletter-active-inference",
+      "route": "2024-october",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-announcement-150329153",
+      "type": "announcement",
+      "title": "Participant Registration Open: 4th Applied Active Inference Symposium on November 13-15, 2024",
+      "author": "Active Inference Institute",
+      "date": "2024-10-16",
+      "url": "https://activeinferenceinstitute.substack.com/p/participant-registration-open-4th",
+      "route": "2024-october-participant-registration-open-4th",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-149667756",
+      "type": "newsletter",
+      "title": "September 2024 Newsletter 🎑🏔🎃 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-10-01",
+      "url": "https://activeinferenceinstitute.substack.com/p/september-2024-newsletter-active",
+      "route": "2024-september",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-148314762",
+      "type": "newsletter",
+      "title": "August 2024 Newsletter 🦋♻️🐧 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-08-30",
+      "url": "https://activeinferenceinstitute.substack.com/p/august-2024-newsletter-active-inference",
+      "route": "2024-august",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-147220981",
+      "type": "newsletter",
+      "title": "July 2024 Newsletter 🎮👽🌀 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-08-01",
+      "url": "https://activeinferenceinstitute.substack.com/p/july-2024-newsletter-active-inference",
+      "route": "2024-july",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-146091137",
+      "type": "newsletter",
+      "title": "June 2024 Newsletter 📖✍🌐 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-06-28",
+      "url": "https://activeinferenceinstitute.substack.com/p/june-2024-newsletter-active-inference",
+      "route": "2024-june",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-145180234",
+      "type": "newsletter",
+      "title": "May 2024 Newsletter 📤⛎🎹 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-05-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/may-2024-newsletter-active-inference",
+      "route": "2024-may"
+    },
+    {
+      "id": "substack-announcement-144620803",
+      "type": "announcement",
+      "title": "The Institute is now 501(c)(3)!",
+      "author": "Active Inference Institute",
+      "date": "2024-05-14",
+      "url": "https://activeinferenceinstitute.substack.com/p/the-institute-is-now-501c3",
+      "route": "2024-may-the-institute-is-now-501c3"
+    },
+    {
+      "id": "substack-newsletter-144182951",
+      "type": "newsletter",
+      "title": "April 2024 Newsletter ➰❓🐞 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-04-30",
+      "url": "https://activeinferenceinstitute.substack.com/p/april-2024-newsletter-active-inference",
+      "route": "2024-april"
+    },
+    {
+      "id": "substack-announcement-144133919",
+      "type": "announcement",
+      "title": "Announcing two new programs: Research Fellows & Partnerships",
+      "author": "Active Inference Institute",
+      "date": "2024-04-29",
+      "url": "https://activeinferenceinstitute.substack.com/p/announcing-two-new-programs-research",
+      "route": "2024-april-announcing-two-new-programs-research",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research"
+      ]
+    },
+    {
+      "id": "substack-newsletter-143081798",
+      "type": "newsletter",
+      "title": "March 2024 Newsletter 🌹🎪🎺 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-03-29",
+      "url": "https://activeinferenceinstitute.substack.com/p/march-2024-newsletter-active-inference",
+      "route": "2024-march",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-142184259",
+      "type": "newsletter",
+      "title": "February 2024 Newsletter 🌼🐞🕯️ Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-02-29",
+      "url": "https://activeinferenceinstitute.substack.com/p/february-2024-newsletter-active-inference",
+      "route": "2024-february",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-141256045",
+      "type": "newsletter",
+      "title": "January 2024 Newsletter 🪁🛠️🌐 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2024-01-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/january-2024-newsletter-active-inference",
+      "route": "2024-january",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-140232126",
+      "type": "newsletter",
+      "title": "December 2023 Newsletter 🥂🕛🧑‍🎤 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-12-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/december-2023-newsletter-active-inference",
+      "route": "2023-december",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-139306787",
+      "type": "newsletter",
+      "title": "November 2023 Newsletter ☃️👽🖽 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-11-30",
+      "url": "https://activeinferenceinstitute.substack.com/p/november-2023-newsletter-active-inference",
+      "route": "2023-november",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-announcement-139023610",
+      "type": "announcement",
+      "title": "Scientific Advisory Board ~ Applications Open for 2024",
+      "author": "Active Inference Institute",
+      "date": "2023-11-20",
+      "url": "https://activeinferenceinstitute.substack.com/p/scientific-advisory-board-applications",
+      "route": "2023-november-scientific-advisory-board-applications",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research"
+      ]
+    },
+    {
+      "id": "substack-newsletter-138462619",
+      "type": "newsletter",
+      "title": "October 2023 Newsletter 🚀🎨🌟 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-10-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/october-2023-newsletter-active-inference",
+      "route": "2023-october",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-137526936",
+      "type": "newsletter",
+      "title": "September 2023 Newsletter 🎃🐧🥼Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-09-29",
+      "url": "https://activeinferenceinstitute.substack.com/p/september-2023-newsletter-active",
+      "route": "2023-september",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-136619051",
+      "type": "newsletter",
+      "title": "August 2023 Newsletter 🧟🌪️🥑Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-08-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/august-2023-newsletter-active-inference",
+      "route": "2023-august",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-135600683",
+      "type": "newsletter",
+      "title": "July 2023 Newsletter 🧠➿🦾 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-07-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/july-2023-newsletter-active-inference",
+      "route": "2023-july"
+    },
+    {
+      "id": "substack-newsletter-131934685",
+      "type": "newsletter",
+      "title": "June 2023 Newsletter ✂️🎨🧭 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-06-29",
+      "url": "https://activeinferenceinstitute.substack.com/p/june-2023-newsletter-active-inference",
+      "route": "2023-june",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-announcement-131271305",
+      "type": "announcement",
+      "title": "2023 Course: \"Constructing Cultural Landscapes: Active Inference for the Social Sciences\"",
+      "author": "Active Inference Institute",
+      "date": "2023-06-26",
+      "url": "https://activeinferenceinstitute.substack.com/p/2023-course-constructing-cultural",
+      "route": "2023-june-2023-course-constructing-cultural",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation"
+      ]
+    },
+    {
+      "id": "substack-newsletter-125057492",
+      "type": "newsletter",
+      "title": "May 2023 Newsletter 🌊📢🦌 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-05-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/may-2023-newsletter-active-inference",
+      "route": "2023-may",
+      "tags": [
+        "Active Inference",
+        "Education",
+        "Participation",
+        "Research",
+        "Newsletter"
+      ]
+    },
+    {
+      "id": "substack-newsletter-117939465",
+      "type": "newsletter",
+      "title": "April 2023 Newsletter ☂️🧷🎵 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-04-28",
+      "url": "https://activeinferenceinstitute.substack.com/p/april-2023-newsletter-active-inference",
+      "route": "2023-april"
+    },
+    {
+      "id": "substack-newsletter-111891271",
+      "type": "newsletter",
+      "title": "March 2023 Newsletter 🎢 🫠💮 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-03-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/march-2023-newsletter-active-inference",
+      "route": "2023-march"
+    },
+    {
+      "id": "substack-announcement-109631575",
+      "type": "announcement",
+      "title": "\"Physics as information processing\"",
+      "author": "Active Inference Institute",
+      "date": "2023-03-20",
+      "url": "https://activeinferenceinstitute.substack.com/p/physics-as-information-processing",
+      "route": "2023-march-physics-as-information-processing"
+    },
+    {
+      "id": "substack-newsletter-105704852",
+      "type": "newsletter",
+      "title": "February 2023 Newsletter 🐃🎨🧭 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-02-28",
+      "url": "https://activeinferenceinstitute.substack.com/p/february-2023-newsletter-active-inference",
+      "route": "2023-february"
+    },
+    {
+      "id": "substack-newsletter-100034135",
+      "type": "newsletter",
+      "title": "January 2023 Newsletter 🚗💭🌠 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2023-01-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/january-2022-newsletter-active-inference",
+      "route": "2023-january"
+    },
+    {
+      "id": "substack-announcement-95658907",
+      "type": "announcement",
+      "title": "Invitation ~ Fundamentals of Active Inference 2023",
+      "author": "Active Inference Institute",
+      "date": "2023-01-09",
+      "url": "https://activeinferenceinstitute.substack.com/p/invitation-fundamentals-of-active",
+      "route": "2023-january-invitation-fundamentals-of-active"
+    },
+    {
+      "id": "substack-newsletter-93760161",
+      "type": "newsletter",
+      "title": "December 2022 Newsletter 🐜🐝🏠 Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2022-12-30",
+      "url": "https://activeinferenceinstitute.substack.com/p/december-2022-newsletter-active-inference",
+      "route": "2022-december"
+    },
+    {
+      "id": "substack-newsletter-87808348",
+      "type": "newsletter",
+      "title": "November 2022 Newsletter 🎉🎱🏗️ Active Inference Institute",
+      "author": "Active Inference Institute",
+      "date": "2022-11-30",
+      "url": "https://activeinferenceinstitute.substack.com/p/november-2022-newsletter-active-inference",
+      "route": "2022-november"
+    },
+    {
+      "id": "substack-newsletter-81717008",
+      "type": "newsletter",
+      "title": "Active Inference Institute ~ October 2022 Newsletter",
+      "author": "Active Inference Institute",
+      "date": "2022-10-31",
+      "url": "https://activeinferenceinstitute.substack.com/p/active-inference-institute-october",
+      "route": "2022-october"
+    },
+    {
+      "id": "substack-newsletter-62511918",
+      "type": "newsletter",
+      "title": "ActInfLab ~ June 2022 Newsletter with Special Announcement ~ 🅰️👀",
+      "author": "Active Inference Institute",
+      "date": "2022-07-04",
+      "url": "https://activeinferenceinstitute.substack.com/p/actinflab-june-2022-newsletter-with",
+      "route": "2022-june"
+    },
+    {
+      "id": "substack-announcement-43833585",
+      "type": "announcement",
+      "title": "Coming soon",
+      "author": "Active Inference Institute",
+      "date": "2021-11-10",
+      "url": "https://activeinferenceinstitute.substack.com/p/coming-soon",
+      "route": "2021-november-coming-soon"
+    }
+  ]
+}

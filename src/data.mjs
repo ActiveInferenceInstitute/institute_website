@@ -92,6 +92,7 @@ export const siteData = {
     strategies: loadJson(path.join("instituteos", "strategies_public.json")),
     calendar: loadJson(path.join("instituteos", "calendar.json")),
     videos: loadJson(path.join("instituteos", "videos.json")),
+    newsletter: loadJson(path.join("instituteos", "newsletter.json")),
   },
   pages,
 };
@@ -127,5 +128,6 @@ export const ALL_ROUTED_SLUGS = [
   "search",
   "simulations",
   "calendar",
+  "newsletter",
   "sitemap",
 ];

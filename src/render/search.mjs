@@ -1,6 +1,7 @@
 import { siteData } from "../data.mjs";
 import { outputPathForSlug } from "../url-taxonomy.mjs";
 import { absoluteUrl } from "./urls.mjs";
+import { newsletterIssueOutputPath, newsletterRecords } from "../pages/newsletter.mjs";
 
 export function buildSearchIndex() {
   // Embedded, self-hosted client-side search index (no fetch — CSP-safe). Curated
@@ -107,6 +108,21 @@ export function buildSearchIndex() {
     k: "human-readable index of every public page site map navigation",
     c: "Page",
   });
+  const newsletterUrl = absoluteUrl(outputPathForSlug("newsletter"));
+  entries.push({
+    t: "Newsletter",
+    u: newsletterUrl,
+    k: "public newsletter archive monthly issues announcements updates Substack",
+    c: "Page",
+  });
+  for (const record of newsletterRecords()) {
+    entries.push({
+      t: record.title || "Newsletter issue",
+      u: absoluteUrl(newsletterIssueOutputPath(record.route)),
+      k: `${record.type || "communication"} ${record.date || ""} ${(record.tags || []).join(" ")}`.trim().slice(0, 180),
+      c: record.type === "newsletter" ? "Newsletter" : "Announcement",
+    });
+  }
   const searchPageUrl = absoluteUrl(outputPathForSlug("search"));
   // Synonym/alias expansion map: a canonical token to equivalent query terms.
   // Used by search.js/search-page.js to BOOST matches (never to require them).

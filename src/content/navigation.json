@@ -31,6 +31,10 @@
         "slug": "communications"
       },
       {
+        "label": "Newsletter",
+        "slug": "newsletter"
+      },
+      {
         "label": "InstituteOS Interface",
         "slug": "instituteos"
       },

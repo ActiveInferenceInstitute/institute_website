@@ -176,6 +176,13 @@
       "target": "content"
     },
     {
+      "name": "newsletter.json",
+      "output_path": "src/content/instituteos/newsletter.json",
+      "record_count": 54,
+      "sha256": "51ebfd6c4348b7bc59e075c656804ddd9f5eb33d96ed1f3d0000437554abdb88",
+      "target": "content"
+    },
+    {
       "name": "ontology_graph.json",
       "output_path": "src/content/instituteos/ontology_graph.json",
       "record_count": 30,
@@ -219,6 +226,6 @@
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-07-20T21:43:34.766800+00:00",
-  "source_fingerprint": "77af741358e7"
+  "generated_at": "2026-07-25T22:38:14.125968+00:00",
+  "source_fingerprint": "ba7c49d31f3d"
 }
