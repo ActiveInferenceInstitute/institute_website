@@ -12,22 +12,22 @@
         {
           "id": "active-inferants",
           "title": "Active InferAnts",
-          "href": "project-active-inferants.html"
+          "href": "/projects/active-inferants/"
         },
         {
           "id": "farmworks",
           "title": "FarmWorks",
-          "href": "project-farmworks.html"
+          "href": "/projects/farmworks/"
         },
         {
           "id": "geo-infer",
           "title": "GEO-INFER",
-          "href": "project-geo-infer.html"
+          "href": "/projects/geo-infer/"
         },
         {
           "id": "graphical-interface",
           "title": "Graphical Interface",
-          "href": "project-graphical-interface.html"
+          "href": "/projects/graphical-interface/"
         }
       ]
     },
@@ -63,7 +63,7 @@
         {
           "id": "active-inference-social-sciences",
           "title": "Active Inference for Social Sciences",
-          "href": "project-active-inference-social-sciences.html"
+          "href": "/projects/active-inference-social-sciences/"
         },
         {
           "id": "active-inference-textbook",
@@ -76,27 +76,27 @@
         {
           "id": "cycle-book",
           "title": "Active Inference Cycle Book for Self-Knowing",
-          "href": "project-cycle-book.html"
+          "href": "/projects/cycle-book/"
         },
         {
           "id": "educational-course-development",
           "title": "Educational Course Development",
-          "href": "project-educational-course-development.html"
+          "href": "/projects/educational-course-development/"
         },
         {
           "id": "froebel",
           "title": "Froebel's System",
-          "href": "project-froebel.html"
+          "href": "/projects/froebel/"
         },
         {
           "id": "fundamentals-active-inference",
           "title": "Fundamentals of Active Inference",
-          "href": "project-fundamentals-active-inference.html"
+          "href": "/projects/fundamentals-active-inference/"
         },
         {
           "id": "physics-course",
           "title": "Physics Course",
-          "href": "project-physics-course.html"
+          "href": "/projects/physics-course/"
         },
         {
           "id": "production",
@@ -105,32 +105,32 @@
         {
           "id": "rxinfer",
           "title": "RxInfer.jl Learning and Development Group",
-          "href": "project-rxinfer.html"
+          "href": "/projects/rxinfer/"
         },
         {
           "id": "seasonal-school",
           "title": "Seasonal School",
-          "href": "project-seasonal-school.html"
+          "href": "/projects/seasonal-school/"
         },
         {
           "id": "start",
           "title": "Start",
-          "href": "project-start.html"
+          "href": "/projects/start/"
         },
         {
           "id": "textbook-group",
           "title": "Textbook Group",
-          "href": "project-textbook-group.html"
+          "href": "/projects/textbook-group/"
         },
         {
           "id": "three-mosqueteers",
           "title": "The Three Mosqueteers",
-          "href": "project-three-mosqueteers.html"
+          "href": "/projects/three-mosqueteers/"
         },
         {
           "id": "video-improvement",
           "title": "Video Improvement Project",
-          "href": "project-video-improvement.html"
+          "href": "/projects/video-improvement/"
         }
       ]
     },
@@ -161,17 +161,17 @@
         {
           "id": "belief-updating-ptsd",
           "title": "Active Inference Account of Belief Updating in PTSD",
-          "href": "project-belief-updating-ptsd.html"
+          "href": "/projects/belief-updating-ptsd/"
         },
         {
           "id": "brain-metabolism",
           "title": "Energy Modeling Human Brain Metabolism",
-          "href": "project-brain-metabolism.html"
+          "href": "/projects/brain-metabolism/"
         },
         {
           "id": "einstein-model",
           "title": "The Einstein Model of a Solid as a Model of the Mental Apparatus",
-          "href": "project-einstein-model.html"
+          "href": "/projects/einstein-model/"
         },
         {
           "id": "research",
@@ -180,7 +180,7 @@
         {
           "id": "theoretical-neurobiology",
           "title": "Theoretical Neurobiology Group",
-          "href": "project-theoretical-neurobiology.html"
+          "href": "/projects/theoretical-neurobiology/"
         }
       ]
     },
@@ -191,12 +191,12 @@
         {
           "id": "froebel",
           "title": "Froebel's System",
-          "href": "project-froebel.html"
+          "href": "/projects/froebel/"
         },
         {
           "id": "tower-of-babel",
           "title": "Project Development for Solving the Tower of Babel Problem",
-          "href": "project-tower-of-babel.html"
+          "href": "/projects/tower-of-babel/"
         }
       ]
     },
@@ -207,12 +207,12 @@
         {
           "id": "m-theory-hdpls",
           "title": "M-Theory as Function of Hyper Dimensional Prismatic Light Scattering (HDPLS-TARS)",
-          "href": "project-m-theory-hdpls.html"
+          "href": "/projects/m-theory-hdpls/"
         },
         {
           "id": "physics-course",
           "title": "Physics Course",
-          "href": "project-physics-course.html"
+          "href": "/projects/physics-course/"
         }
       ]
     },
@@ -228,22 +228,22 @@
         {
           "id": "ai2c-active-inference-alignment-coalition",
           "title": "AI²C: Active Inference Alignment Coalition",
-          "href": "project-ai2c.html"
+          "href": "/projects/ai2c/"
         },
         {
           "id": "robotic-microscopy",
           "title": "From Instrument to Intelligent Agent: Robotic Microscopy",
-          "href": "project-robotic-microscopy.html"
+          "href": "/projects/robotic-microscopy/"
         },
         {
           "id": "symbolic-robotics",
           "title": "Symbolic Cognitive Robotics",
-          "href": "project-symbolic-robotics.html"
+          "href": "/projects/symbolic-robotics/"
         },
         {
           "id": "symposium",
           "title": "Applied Active Inference Symposium",
-          "href": "project-symposium.html"
+          "href": "/projects/symposium/"
         }
       ]
     },
@@ -254,7 +254,7 @@
         {
           "id": "rxinfer-visualization",
           "title": "Improving RxInfer.jl Model Visualization",
-          "href": "project-rxinfer-visualization.html"
+          "href": "/projects/rxinfer-visualization/"
         }
       ]
     },
@@ -280,22 +280,22 @@
         {
           "id": "ai2c-active-inference-alignment-coalition",
           "title": "AI²C: Active Inference Alignment Coalition",
-          "href": "project-ai2c.html"
+          "href": "/projects/ai2c/"
         },
         {
           "id": "robotic-microscopy",
           "title": "From Instrument to Intelligent Agent: Robotic Microscopy",
-          "href": "project-robotic-microscopy.html"
+          "href": "/projects/robotic-microscopy/"
         },
         {
           "id": "symbolic-robotics",
           "title": "Symbolic Cognitive Robotics",
-          "href": "project-symbolic-robotics.html"
+          "href": "/projects/symbolic-robotics/"
         },
         {
           "id": "symposium",
           "title": "Applied Active Inference Symposium",
-          "href": "project-symposium.html"
+          "href": "/projects/symposium/"
         }
       ]
     }
