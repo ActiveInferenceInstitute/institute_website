@@ -5,6 +5,7 @@ import { localePrefix, urlDirForSlug, hrefForSlug } from "../url-taxonomy.mjs";
 import { layout } from "../render/layout.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { resolveLink } from "../render/links.mjs";
+import { newsletterBody } from "./newsletter-content.mjs";
 
 const MONTHS = [
   "January",
@@ -128,10 +129,11 @@ export function newsletterIssuePage(record) {
     <div class="hero-actions">${external}</div>
   </section>
   <article class="content-band" id="issue-record">
-    ${sectionHeading({ eyebrow: "Archive record", title: "About this issue", text: "This stable page is the Institute's public catalogue entry; the original post remains the canonical reading experience." })}
+    ${sectionHeading({ eyebrow: "Full issue", title: "Newsletter content", text: "This page preserves the archived newsletter text, public links, and media." })}
     ${tags}
     <dl class="metadata-list"><div><dt>Published</dt><dd><time datetime="${escapeHtml(record.date || "")}">${escapeHtml(displayDate(record.date))}</time></dd></div><div><dt>Format</dt><dd>${escapeHtml(typeLabel(record))}</dd></div></dl>
-    <p>${external || "The original public post is not currently available."}</p>
+    ${newsletterBody(record, currentDir)}
+    <div class="newsletter-source">${external || "The original public post is not currently available."}</div>
   </article>`;
   return layout({
     title: record.title || "Newsletter issue",

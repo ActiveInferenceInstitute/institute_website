@@ -1800,6 +1800,50 @@ body{transition:background-color 200ms,color 200ms}
 .article-block ul { margin: 0.4rem 0 0.8rem; padding-left: 1.2rem; }
 .article-block li { margin: 0.2rem 0; }
 
+/* Full newsletter bodies are rendered from the public InstituteOS archive. */
+.newsletter-body {
+  max-width: 78ch;
+  margin-top: 1.5rem;
+  color: var(--ink);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+.newsletter-body h2,
+.newsletter-body h3,
+.newsletter-body h4,
+.newsletter-body h5,
+.newsletter-body h6 { margin: 2rem 0 0.65rem; color: var(--ink); }
+.newsletter-body h2 { font-size: 1.55rem; }
+.newsletter-body h3 { font-size: 1.3rem; }
+.newsletter-body p { margin: 0 0 1rem; }
+.newsletter-body ul,
+.newsletter-body ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+.newsletter-body li { margin: 0.35rem 0; }
+.newsletter-body blockquote {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1.25rem;
+  border-left: 3px solid var(--red);
+  background: var(--surface);
+  color: var(--muted);
+}
+.newsletter-body hr { margin: 2rem 0; border: 0; border-top: 1px solid var(--line); }
+.newsletter-body pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+  color: var(--ink);
+}
+.newsletter-body .newsletter-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.25rem auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.newsletter-source { margin-top: 2rem; }
+
 /* Governance roster (Board of Directors / Officers / Scientific Advisory Board pages) */
 .roster-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem 1.25rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 .roster-member { padding: 0.5rem 0; border-bottom: 1px solid var(--glass-border, rgba(255,255,255,0.1)); display: flex; flex-direction: column; gap: 0.1rem; }

@@ -200,9 +200,28 @@ def live_urls() -> set[str]:
     return urls
 
 
+def newsletter_urls() -> set[str]:
+    """Return external URLs explicitly projected from the public archive feed."""
+    path = CONTENT_DIR / "instituteos" / "newsletter.json"
+    if not path.exists():
+        return set()
+    data = json.loads(path.read_text(encoding="utf-8"))
+    urls: set[str] = set()
+    for record in data.get("records", []):
+        values = [record.get("url", ""), record.get("body_markdown", "")]
+        for value in values:
+            for match in re.findall(r"https?://[^\s<>\])]+", str(value)):
+                clean = match.rstrip(".,;:!?\\")
+                urls.add(clean)
+                urls.add(clean.rstrip("/"))
+                urls.add(f"{clean.rstrip('/')}/")
+    return urls
+
+
 def check_security() -> int:
     errors: list[str] = []
     allowed_live_urls = live_urls()
+    allowed_newsletter_urls = newsletter_urls()
     html_files = generated_html_files()
     instituteos_asset_dir = PROJECT_ROOT / "assets" / "img" / "instituteos"
     if instituteos_asset_dir.exists():
@@ -278,6 +297,8 @@ def check_security() -> int:
             backed = (
                 href in allowed_live_urls
                 or href.rstrip("/") in allowed_live_urls
+                or href in allowed_newsletter_urls
+                or href.rstrip("/") in allowed_newsletter_urls
                 or vetted_anchor_host(href)
             )
             if not backed:

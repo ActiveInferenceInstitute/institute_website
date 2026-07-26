@@ -29,3 +29,7 @@ These are the dynamic, list-driven pages of the site.
 - Locale-aware routing comes from `urlDirForSlug` / `hrefForSlug`
   (`../url-taxonomy.mjs`); every routed page is rendered once per locale.
 - Never hand-edit the built HTML these emit; edit the renderer and rebuild.
+- Newsletter issue pages render the complete `body_markdown` projection with
+  public links and locally mirrored media. The exporter strips auth-gated
+  workspace links and non-public email addresses before the data reaches this
+  renderer.
