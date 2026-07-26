@@ -241,10 +241,12 @@ Strategic revenue-stream / department map.
 
 ### `newsletter.json`
 
-The public-safe catalogue projected from the idempotent Substack archive. It
+The public-safe full-content projection of the idempotent Substack archive. It
 contains stable internal routes for monthly newsletters and other public
-announcements, plus the original public post URL. Archived article bodies stay
-in the private InstituteOS library because they may contain internal links.
+announcements, the original public post URL, complete rendered Markdown bodies,
+and relative media paths. Auth-gated workspace links and non-public email
+addresses are removed at the InstituteOS export boundary; ordinary public links
+and images remain intact.
 
 ```
 {
@@ -253,7 +255,8 @@ in the private InstituteOS library because they may contain internal links.
   publication_url: string,
   snapshot_date: string,
   counts: { newsletter: number, announcement: number },
-  records: [{ id, type, title, author, date, url, route, tags? }]
+  records: [{ id, type, title, author, date, url, route, tags?,
+              body_markdown, media?: string[] }]
 }
 ```
 

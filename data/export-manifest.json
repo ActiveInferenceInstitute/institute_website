@@ -176,10 +176,80 @@
       "target": "content"
     },
     {
+      "name": "newsletter-media/174553281-225f97b78d9f.webp",
+      "output_path": "assets/img/newsletters/174553281-225f97b78d9f.webp",
+      "record_count": 1,
+      "sha256": "269e4e10cfa65dea887af82822c523c5924c3ae974f0594f934d54b9ea512d03",
+      "target": "newsletter_assets"
+    },
+    {
+      "name": "newsletter-media/177672717-c24efa7da52e.png",
+      "output_path": "assets/img/newsletters/177672717-c24efa7da52e.png",
+      "record_count": 1,
+      "sha256": "6237753a716e57c728aa8bcd40497c8eb81d59b8e57f492272047b0dce6f0570",
+      "target": "newsletter_assets"
+    },
+    {
+      "name": "newsletter-media/180350677-2f485aced223.png",
+      "output_path": "assets/img/newsletters/180350677-2f485aced223.png",
+      "record_count": 1,
+      "sha256": "4c7c070a89bdc75a42b55f625d7e70ab4eda023d7c769cfeef78e49d791defe5",
+      "target": "newsletter_assets"
+    },
+    {
+      "name": "newsletter-media/182657540-0b2df800185b.webp",
+      "output_path": "assets/img/newsletters/182657540-0b2df800185b.webp",
+      "record_count": 1,
+      "sha256": "2df33b17ce17c04b1298e0669ebb93bd60d065142ed110d7c00c935b1a1ca091",
+      "target": "newsletter_assets"
+    },
+    {
+      "name": "newsletter-media/186342094-cc82629ddc0c.png",
+      "output_path": "assets/img/newsletters/186342094-cc82629ddc0c.png",
+      "record_count": 1,
+      "sha256": "98ccc4abf384a7b3a746a3ea54a2058e13e6d702e6f9b44621c700f7be65e016",
+      "target": "newsletter_assets"
+    },
+    {
+      "name": "newsletter-media/189396279-b96eb2700d9c.webp",
+      "output_path": "assets/img/newsletters/189396279-b96eb2700d9c.webp",
+      "record_count": 1,
+      "sha256": "1bdd6de7d264161537fd15b2282f2c578abe688bd7ce6285c8920bc11c7ab702",
+      "target": "newsletter_assets"
+    },
+    {
+      "name": "newsletter-media/192343537-3cdb02aabf99.png",
+      "output_path": "assets/img/newsletters/192343537-3cdb02aabf99.png",
+      "record_count": 1,
+      "sha256": "7412771aaabdcb6c520ff33f3dd670ed6a73269e5d3ec9670afe05ed56b1a1de",
+      "target": "newsletter_assets"
+    },
+    {
+      "name": "newsletter-media/196055476-c97d0aeac28f.png",
+      "output_path": "assets/img/newsletters/196055476-c97d0aeac28f.png",
+      "record_count": 1,
+      "sha256": "2d5fbe3801886fd5a8057b5897178be3cfc70eff528fb48f43c1c10bee12ee83",
+      "target": "newsletter_assets"
+    },
+    {
+      "name": "newsletter-media/199779046-dfcab3be1dda.png",
+      "output_path": "assets/img/newsletters/199779046-dfcab3be1dda.png",
+      "record_count": 1,
+      "sha256": "81040fe47d41ba75018a81166f5a0560daae0544fbca0a23492485d0785f3c5a",
+      "target": "newsletter_assets"
+    },
+    {
+      "name": "newsletter-media/204201369-f5daa5724a36.webp",
+      "output_path": "assets/img/newsletters/204201369-f5daa5724a36.webp",
+      "record_count": 1,
+      "sha256": "d23beadcc9e607cca8e5c14e46235999acce7d1e872680d060c3277bc6fbbce3",
+      "target": "newsletter_assets"
+    },
+    {
       "name": "newsletter.json",
       "output_path": "src/content/instituteos/newsletter.json",
       "record_count": 54,
-      "sha256": "51ebfd6c4348b7bc59e075c656804ddd9f5eb33d96ed1f3d0000437554abdb88",
+      "sha256": "4864115e1f40cd42b2bcb35eafc7af0b03576e9d36c96fbc6ae993b004b12a62",
       "target": "content"
     },
     {
@@ -226,6 +296,6 @@
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-07-25T22:38:14.125968+00:00",
-  "source_fingerprint": "ba7c49d31f3d"
+  "generated_at": "2026-07-26T02:11:13.496730+00:00",
+  "source_fingerprint": "0d0843b5ffd8"
 }

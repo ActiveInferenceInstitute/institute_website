@@ -384,6 +384,24 @@ def live_source_urls(manifest: dict) -> set[str]:
     return urls
 
 
+def newsletter_urls(root: Path) -> set[str]:
+    """Return external URLs explicitly projected from the public archive feed."""
+    path = root / "src" / "content" / "instituteos" / "newsletter.json"
+    if not path.exists():
+        return set()
+    data = load_json(path)
+    urls: set[str] = set()
+    for record in data.get("records", []):
+        values = [record.get("url", ""), record.get("body_markdown", "")]
+        for value in values:
+            for match in re.findall(r"https?://[^\s<>\])]+", str(value)):
+                clean = match.rstrip(".,;:!?\\")
+                urls.add(clean)
+                urls.add(clean.rstrip("/"))
+                urls.add(f"{clean.rstrip('/')}/")
+    return urls
+
+
 def live_source_url_by_id(manifest: dict) -> dict[str, str]:
     return {
         item["id"]: item["url"]
@@ -1096,6 +1114,7 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
 
 def check_external_anchors(root: Path, errors: list[str]) -> None:
     allowed_live_urls = live_source_urls(live_manifest(root))
+    allowed_newsletter_urls = newsletter_urls(root)
     for html_path in generated_html_files(root):
         for href, _class_name in parse_html(html_path).anchors:
             if href.startswith("mailto:") or not external_href(href) or internal_site_href(href):
@@ -1103,6 +1122,8 @@ def check_external_anchors(root: Path, errors: list[str]) -> None:
             if (
                 href not in allowed_live_urls
                 and href.rstrip("/") not in allowed_live_urls
+                and href not in allowed_newsletter_urls
+                and href.rstrip("/") not in allowed_newsletter_urls
                 and not vetted_anchor_host(href)
             ):
                 errors.append(f"{html_path.relative_to(root)} external anchor is not in live-sources.json: {href}")

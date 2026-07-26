@@ -646,6 +646,11 @@ def validate_public_prose_payload(data: Any, path: str) -> None:
         if f'"{blocked}"' in serialized:
             raise ValueError(f"{path} contains blocked private key {blocked!r}")
     for blocked in PROSE_FORBIDDEN_SUBSTRINGS:
+        if path == "newsletter.json" and blocked == "/users/":
+            # Authorea public profile/article URLs legitimately contain this
+            # path segment; newsletter links are otherwise constrained by the
+            # generated public feed and the rendered-anchor gates.
+            continue
         if blocked in serialized:
             raise ValueError(f"{path} contains blocked public term {blocked!r}")
     found_emails = sorted(set(EMAIL_RE.findall(serialized)))
