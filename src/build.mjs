@@ -23,6 +23,7 @@ import { searchPage } from "./pages/search.mjs";
 import { simulationsPage } from "./pages/simulations.mjs";
 import { calendarPage } from "./pages/calendar.mjs";
 import { sitemapPage } from "./pages/sitemap.mjs";
+import { newsletterIssuePages, newsletterPage, newsletterIssueOutputPath } from "./pages/newsletter.mjs";
 
 function build() {
   // Every routed page maps to <dir>/index.html via the clean-URL taxonomy.
@@ -36,6 +37,7 @@ function build() {
     ["search", searchPage],
     ["simulations", simulationsPage],
     ["calendar", calendarPage],
+    ["newsletter", newsletterPage],
     ["sitemap", sitemapPage],
     ...ecosystemDomainPages().map((page) => [page.slug, page.render]),
   ];
@@ -51,6 +53,10 @@ function build() {
     setActiveLocale(locale.code);
     for (const [slug, render] of slugRenderers) {
       writeFile(outputPathForSlug(slug), render());
+      pageCount += 1;
+    }
+    for (const issue of newsletterIssuePages()) {
+      writeFile(newsletterIssueOutputPath(issue.route), issue.render());
       pageCount += 1;
     }
   }
@@ -74,7 +80,10 @@ function build() {
   );
   // Sitemap + version urls: one clean directory URL per routed page (404 excluded).
   // absoluteUrl collapses <dir>/index.html to /<dir>/ (and root to /).
-  const urls = slugRenderers.map(([slug]) => outputPathForSlug(slug));
+  const urls = [
+    ...slugRenderers.map(([slug]) => outputPathForSlug(slug)),
+    ...newsletterIssuePages().map((issue) => newsletterIssueOutputPath(issue.route)),
+  ];
   // lastmod from the export date (stable per export, not a live clock); priority
   // by depth: home 1.0, top-level sections 0.8, deeper collection pages 0.6.
   const lastmod = (EXPORTED_AT || "").slice(0, 10);

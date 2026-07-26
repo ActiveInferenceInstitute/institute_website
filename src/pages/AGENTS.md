@@ -8,6 +8,7 @@ These are the dynamic, list-driven pages of the site.
 | Module | Renders | Reads |
 | --- | --- | --- |
 | `calendar.mjs` | `/calendar/` | `siteData` calendar feed |
+| `newsletter.mjs` | `/newsletter/` + per-issue pages | `siteData` newsletter export |
 | `directory.mjs` | `/directory/` | people/entity registries |
 | `ecosystem.mjs` | `/ecosystem/` | ecosystem orgs + `sanitizePublicProse` |
 | `projects.mjs` | `/projects/` + per-project pages | `loadProjectsData()` (`data/projects.json`) |

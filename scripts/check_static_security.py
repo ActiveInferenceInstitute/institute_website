@@ -34,6 +34,7 @@ VETTED_ANCHOR_HOST_SUFFIXES = (
     "meet.google.com",
     "twitch.tv",
     "odysee.com",
+    "substack.com",
 )
 ALLOWED_INSTITUTEOS_ASSETS = {"ActInferServe.png", "Dark_ActInfServe.png"}
 # Same patterns used by scripts/sync_instituteos_public_data.py's PII gate,

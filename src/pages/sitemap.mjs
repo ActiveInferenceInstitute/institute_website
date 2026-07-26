@@ -20,6 +20,7 @@ const SITEMAP_SECTION_LABELS = {
   search: "Search",
   simulations: "Simulations",
   sitemap: "Sitemap",
+  newsletter: "Newsletter",
 };
 
 export function sitemapPage() {

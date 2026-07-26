@@ -106,6 +106,7 @@ PRODUCER2_PUBLIC_JSON_FILES = (
     "narratives_public.json",
     "communications_public.json",
     "strategies_public.json",
+    "newsletter.json",
 )
 # Private structural keys that are unambiguously private even in prose payloads.
 # Drops slack/discord/linkedin (valid public node labels); email/phone are caught

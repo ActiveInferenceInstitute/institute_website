@@ -362,6 +362,7 @@ VETTED_ANCHOR_HOST_SUFFIXES = (
     "meet.google.com",
     "twitch.tv",
     "odysee.com",
+    "substack.com",
 )
 
 

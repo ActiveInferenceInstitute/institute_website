@@ -19,7 +19,7 @@ file in this directory is served directly.
    work with no effect on the rendered site.)
 2. The graph/narrative slices (`governance_graph`, `ontology_graph`,
    `tech_tree_graph`, `domain_projects`, `narratives_public`,
-   `communications_public`, `strategies_public`) arrive **pre-sanitized from a
+   `communications_public`, `strategies_public`, `newsletter`) arrive **pre-sanitized from a
    separate private InstituteOS export**, and are **also re-validated in-repo** by
    `validate_public_prose_payload` (a prose-tuned gate in
    `check_committed_public_payloads`, run by `npm run check:instituteos`) — see
@@ -238,6 +238,24 @@ Strategic revenue-stream / department map.
 > `/strategy/` page. Revenue streams are grouped onto department cards by the
 > prefix of their `from` node id (`ctd_`/`csd_`/`pda_`/`mbr_`); an unmapped
 > prefix surfaces in a visible "Other revenue streams" card.
+
+### `newsletter.json`
+
+The public-safe catalogue projected from the idempotent Substack archive. It
+contains stable internal routes for monthly newsletters and other public
+announcements, plus the original public post URL. Archived article bodies stay
+in the private InstituteOS library because they may contain internal links.
+
+```
+{
+  schema_version: string,
+  publication: string,
+  publication_url: string,
+  snapshot_date: string,
+  counts: { newsletter: number, announcement: number },
+  records: [{ id, type, title, author, date, url, route, tags? }]
+}
+```
 
 ---
 
