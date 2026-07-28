@@ -367,11 +367,31 @@ crawls them:
 - `zoom` → `us06web.zoom.us/j/…` — Zoom's `robots.txt` has `Disallow: /j/*`.
 
 These are lower priority than the `*form` set — they are utility shortlinks
-rather than application entry points, and neither is yet reported by GSC. The
-same remedy applies if they do surface: repoint `chat` at `/search/` or
-`/active-inference/` and `zoom` at `/calendar/`, each of which is a crawlable
-on-site page. Leaving them as-is is also defensible; the cost is a title-only
-index entry, not a broken link.
+rather than application entry points, and neither is yet reported by GSC. **The
+two need opposite treatment, and the difference matters:**
+
+**`chat` — safe to repoint.** No page in this repository links to
+`chat.activeinference.institute`; it is a bare DNS shortlink with no on-site
+referrer, so there is no loop risk and nothing to update in source. Repoint it
+at `https://activeinference.institute/active-inference/`, which is crawlable and
+preserves the original intent (the Perplexity query it currently targets is an
+Active Inference research prompt). `/search/` also works but is a weaker match.
+
+**`zoom` — do NOT repoint. It would break every meeting join link.**
+`/calendar/` links to `https://zoom.activeinference.institute/` as the join URL
+for its events — sourced from `src/content/instituteos/calendar.json`, rendered
+across all 12 locales. Repointing `zoom` at `/calendar/` would make the join
+button forward straight back to the calendar it was clicked from: an infinite
+loop, and a live outage for the Textbook Group sessions. The shortlink must keep
+forwarding to the real Zoom room.
+
+The residual cost of leaving `zoom` alone is a title-only index entry for a
+meeting-room shortlink. That is cosmetic, and every available "fix" is worse
+than the symptom — the same shape as the rejected interstitial above. Leave it.
+
+The general rule both cases illustrate: **before repointing a shortlink, check
+whether the site links to it.** A shortlink that appears in rendered output
+cannot be forwarded to the page that contains that link.
 
 The remaining external forwards were checked on the same date and their
 destinations are crawlable: `newsletter` (Substack), `obsidian`
