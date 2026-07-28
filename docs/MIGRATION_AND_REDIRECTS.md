@@ -194,14 +194,24 @@ pages before their nested families did).
 entry every year a new annual-report page ships (e.g. `"2027"`) — this is the
 one recurring manual step in an otherwise fully data-driven routing table.
 
-**Follow-up (manual, outside this repo):** the `2025`/`2026`/`sab`/`bod` DNS
-subdomain shortlinks (see the table below) point at the old paths and should
-be repointed to the new ones; submit a Search Console change-of-address for
-the 5 renamed URLs.
+**Follow-up (manual, outside this repo) — DONE, verified 2026-07-27:** the
+`2025`/`2026`/`sab`/`bod` subdomain shortlinks have been repointed to the new
+clean URLs. Each now resolves `200` at its `/years/…` or `/structure/…`
+destination (checked with a Googlebot user-agent).
 
-### Subdomain Shortlinks (DNS-Level Forwards, NOT in this repo)
+### Subdomain Shortlinks (Squarespace Domain Forwards, NOT in this repo)
 
-These are registrar/DNS forwards independent of the static site hosting. They remain unchanged through the cutover.
+These are forwarding rules administered in the **Squarespace** domain panel for
+`activeinference.institute` (confirmed by the `server: Squarespace` response
+header on every `*.activeinference.institute` shortlink). They are independent
+of the static-site hosting on GitHub Pages, and no file in this repository can
+change them. They remain unchanged through the cutover.
+
+Squarespace forwarding emits only a bare `301`/`302` — it cannot set an
+`X-Robots-Tag` header, and it cannot serve a per-subdomain `robots.txt`
+(a request to `<sub>.activeinference.institute/robots.txt` is itself
+forwarded). This matters: see
+[Externally-blocked forwards](#externally-blocked-forwards-seo-trap) below.
 
 | Subdomain | Destination | Type | Status |
 |---|---|---|---|
@@ -229,22 +239,146 @@ These are registrar/DNS forwards independent of the static site hosting. They re
 | `wave-hypothesis` | `/projects/wave-hypothesis/` | On-site (gap page) | Link to Coda hub until content migrated |
 | `video` | `/video/` | On-site (gap page) | Link to Coda hub until content migrated |
 | `weekly` | `/weekly/` | On-site (gap page) | Link to Coda hub until content migrated |
-| `2025` | `/years/2025/` | On-site (gap page) | Annual overview — **DNS still forwards to `/2025/`, needs repointing (v4.0.0)** |
-| `2026` | `/years/2026/` | On-site (gap page) | Annual overview — **DNS still forwards to `/2026/`, needs repointing (v4.0.0)** |
+| `2025` | `/years/2025/` | On-site (gap page) | Annual overview — repointed, verified `200` 2026-07-27 |
+| `2026` | `/years/2026/` | On-site (gap page) | Annual overview — repointed, verified `200` 2026-07-27 |
 | `aicacp` | `/projects/aicacp/` | On-site | Ready |
 | `ontology` | `/projects/active-inference-ontology/` | On-site | Ready |
-| `sab` | `/structure/scientific-advisory-board/` | On-site | **DNS still forwards to `/structure/#scientific-advisory-board`, needs repointing (v4.0.0)** |
-| `bod` | `/structure/board-of-directors/` | On-site | **DNS still forwards to `/structure/#board-of-directors`, needs repointing (v4.0.0)** |
-| `newsletter` | `http://newsletter.activeinference.institute/` | External | Permanent |
-| `chat` | Perplexity search | External | Permanent |
-| `obsidian` | Obsidian knowledge base (surfaced on `/active-inference/`) | External | Permanent |
-| `resnei` | `https://zenodo.org/records/15389683` | External | Permanent |
-| `zoom` | Zoom meeting room | External | Temporary (302) |
-| `start` | `https://github.com/ActiveInferenceInstitute/Start/` | External | Permanent |
-| `donate`, `paypal`, `support` | `https://www.paypal.com/donate/` | External | Permanent |
-| `discord` | `https://discord.gg/FSUvYD2p9S` | External | Permanent |
-| `measureform` | Coda form | External | Permanent (to be created) |
-| `prepareform` | Coda form | External | Permanent (to be created) |
+| `sab` | `/structure/scientific-advisory-board/` | On-site | Repointed, verified `200` 2026-07-27 |
+| `bod` | `/structure/board-of-directors/` | On-site | Repointed, verified `200` 2026-07-27 |
+| `newsletter` | `https://activeinferenceinstitute.substack.com/` | External | Permanent — destination crawlable |
+| `chat` | `https://www.perplexity.ai/search/…` | External | Permanent — ⚠️ **destination robots-blocked** (see below) |
+| `obsidian` | Obsidian knowledge base (surfaced on `/active-inference/`) | External | Permanent — destination crawlable |
+| `resnei` | `https://zenodo.org/records/15389683` | External | Permanent — destination crawlable |
+| `zoom` | Zoom meeting room (`us06web.zoom.us/j/…`) | External | Temporary (302) — ⚠️ **destination robots-blocked** (see below) |
+| `start` | `https://github.com/ActiveInferenceInstitute/Start/` | External | Permanent — destination crawlable |
+| `donate`, `paypal`, `support` | `https://www.paypal.com/donate/` | External | Permanent — destination crawlable |
+| `discord` | `https://discord.com/invite/FSUvYD2p9S` | External | Permanent — destination crawlable |
+| `bodform` | Coda/Superhuman form | External | Live — ⚠️ **destination robots-blocked** (see below) |
+| `sabform` | Coda/Superhuman form | External | Live — ⚠️ **destination robots-blocked** (see below) |
+| `internform` | Coda/Superhuman form | External | Live — ⚠️ **destination robots-blocked** (see below) |
+| `prepareform` | Coda/Superhuman form | External | Live — ⚠️ **destination robots-blocked** (see below) |
+| `measureform` | Coda/Superhuman form | External | Live — ⚠️ **destination robots-blocked** (see below) |
+
+All five `*form` shortlinks are registered in
+[`src/content/live-sources.json`](../src/content/live-sources.json) as
+`bodform`, `sabform`, `internform`, `prepareform`, `measureform` and are
+referenced from content pages by `sourceId`, per the external-link contract.
+
+### Externally-blocked forwards (SEO trap)
+
+**Symptom.** Google Search Console (property `sc-domain:activeinference.institute`,
+Page indexing report) flags shortlink subdomains as
+**"Indexed, though blocked by robots.txt"**. A validation attempt opened
+2026-07-20 failed 2026-07-24.
+
+**Verified chain** (2026-07-27, requests sent with a Googlebot user-agent):
+
+```
+https://bodform.activeinference.institute/
+  → 302  (server: Squarespace — domain forwarding)
+https://coda.io/form/Active-Inference-Institute-Board-of-Directors-application-form_dmZ3v7jK3mC
+  → 307  (Coda is now rebranded as Superhuman Docs)
+https://docs.superhuman.com/form/…
+  → 200, and that host serves:
+        User-agent: *
+        Disallow: /
+```
+
+`sabform`, `internform`, `prepareform` and `measureform` follow the identical
+chain to the same blocked host.
+
+**Why Google reports it this way.** Googlebot cannot fetch the final
+destination — `docs.superhuman.com/robots.txt` disallows everything — so it
+never retrieves any content for the shortlink. It still knows the URL exists
+(it is linked from `/structure/board-of-directors/`, `/programs/internship/`,
+`/prepare/`, and their 12 locale variants), so it indexes the shortlink URL
+**title-only, with no description**. That is exactly the state GSC labels
+"Indexed, though blocked by robots.txt".
+
+**Two things that look like fixes but are not:**
+
+1. *"Remove the `Disallow` rule."* The rule is not ours. It lives on
+   `docs.superhuman.com`, a third-party SaaS host. Nothing in this repository,
+   in the apex `robots.txt`, or in the Squarespace panel can change it.
+2. *"Keep it crawlable but add a `noindex` tag."* The destination form page
+   **already** carries `<meta name="robots" content="noindex"/>`. Googlebot can
+   never see it, because the robots.txt block prevents the fetch that would
+   reveal it. This is the classic *noindex-behind-a-robots-block* trap: a
+   `noindex` is only honoured on a page the crawler is allowed to read.
+   Squarespace domain forwarding cannot substitute for it either — a forwarding
+   rule emits a bare `301`/`302` and cannot set an `X-Robots-Tag` header, and
+   the subdomain has no `robots.txt` of its own (that path is forwarded too).
+
+**What actually resolves it.** The shortlink must resolve to a URL Googlebot is
+permitted to crawl, on a host we control. The fix is a change in the
+**Squarespace domain panel** and cannot be made from this repository.
+
+**Repoint each `*form` forward from the Coda URL to its existing on-site page:**
+
+| Shortlink | Current (broken) target | Repoint to |
+|---|---|---|
+| `bodform` | `coda.io/form/…Board-of-Directors…` | `https://activeinference.institute/structure/board-of-directors/` |
+| `sabform` | `coda.io/form/…Scientific-Advisory-Board…` | `https://activeinference.institute/structure/scientific-advisory-board/` |
+| `internform` | `coda.io/form/…Internship…` | `https://activeinference.institute/programs/internship/` |
+| `prepareform` | `coda.io/form/…Project-Preparation…` | `https://activeinference.institute/prepare/` |
+| `measureform` | `coda.io/form/…Short-Measurement…` | `https://activeinference.institute/measure/` |
+
+Googlebot then follows the `301` to an indexable page and consolidates the
+shortlink into it, so the GSC issue clears *and* the shortlink gains a real
+search appearance instead of a title-only entry. Use a **301** (permanent), not
+a 302, so the signal consolidates rather than leaving the shortlink as the
+canonical.
+
+The user cost is one click, and it is a cheap one: on all five destination pages
+the form is already the **first `primaryAction`** — a prominent CTA button
+rendered at the top of the page, backed by the registered `sourceId`
+(`"Apply to the Board"` → `bodform`, `"Apply for the internship"` → `internform`,
+and so on). Nothing in this repository needs to change for the repoint to work.
+
+**Rejected alternative — a `noindex` interstitial.** Adding thin on-site pages
+(e.g. `/forms/board-of-directors/`) that carry
+`<meta name="robots" content="noindex">` and bounce straight to the form would
+preserve one-click access, and `layout()` already supports a `robots` argument.
+It is nonetheless **not viable in this repository**, because such a page has no
+legal link target:
+
+- Linking to the Coda URL directly is blocked by `check:security` —
+  `check_static_security.py` raises *"direct Coda anchor is not allowed"* on any
+  rendered `coda.io` anchor, and `check_live_sources.py` strips committed
+  `finalUrl` values precisely because they "historically leaked resolved coda.io
+  destinations into source". Resolved Coda destinations are deliberately kept
+  out of source; see [GATING.md](../GATING.md).
+- Linking to the `*form` shortlink instead would create a redirect loop
+  (shortlink → interstitial → shortlink).
+
+Weakening either gate to allow the interstitial would trade a cosmetic search
+issue for a hole in the public-safety boundary. Not worth it.
+
+After repointing, re-run **Validate Fix** in GSC. The GSC *Removals* tool only
+suppresses a URL for ~6 months and does not address the cause.
+
+**Same trap, not yet reported by GSC.** Two further shortlinks forward to
+robots-blocked destinations and will surface the identical issue once Google
+crawls them:
+
+- `chat` → `www.perplexity.ai/search/…` — Perplexity's `robots.txt` has a
+  Googlebot-specific `Disallow: /search*` (the URL also returned `403` to a
+  Googlebot user-agent on 2026-07-27).
+- `zoom` → `us06web.zoom.us/j/…` — Zoom's `robots.txt` has `Disallow: /j/*`.
+
+These are lower priority than the `*form` set — they are utility shortlinks
+rather than application entry points, and neither is yet reported by GSC. The
+same remedy applies if they do surface: repoint `chat` at `/search/` or
+`/active-inference/` and `zoom` at `/calendar/`, each of which is a crawlable
+on-site page. Leaving them as-is is also defensible; the cost is a title-only
+index entry, not a broken link.
+
+The remaining external forwards were checked on the same date and their
+destinations are crawlable: `newsletter` (Substack), `obsidian`
+(`publish.obsidian.md`, `Allow: /`), `resnei` (Zenodo `/records/` is not
+disallowed), `start` (GitHub repo roots are not disallowed), `donate`/`paypal`/
+`support` (PayPal has no rule matching `/donate/`), and `discord`
+(`Allow: /invite`).
 
 ---
 
