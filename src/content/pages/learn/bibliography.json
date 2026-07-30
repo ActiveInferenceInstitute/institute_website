@@ -1,14 +1,14 @@
 {
   "slug": "bibliography",
   "title": "Bibliography",
-  "subtitle": "Curated references from the Active Inference Meta-Analysis project.",
-  "audience": "Researchers and learners seeking the canonical literature of Active Inference and the Free Energy Principle.",
-  "lede": "This page presents the curated bibliography from the Active Inference Meta-Analysis project — a computational meta-analysis of the Active Inference and Free Energy Principle literature. The references span foundational FEP papers, Active Inference textbooks, computational methods, knowledge-graph infrastructure, and related work. Each entry includes full bibliographic information and a DOI link to the original publication.",
+  "subtitle": "Curated references and structured outputs from the Active Inference Meta-Analysis project — 817 papers, 8 hypotheses, 5 topics, 8 subfields, and 71 curated references.",
+  "audience": "Researchers seeking the canonical literature, evidence scores, and structured analysis of the Active Inference and Free Energy Principle research field.",
+  "lede": "This page presents the complete structured outputs of the Active Inference Meta-Analysis project — a computational meta-analysis of 817 papers across the Active Inference and Free Energy Principle literature (2005–2026). The project employs multi-source retrieval from arXiv, Semantic Scholar, and OpenAlex; LLM-based assertion extraction into Nanopublications; citation-weighted hypothesis scoring; NMF topic modeling; and subfield classification. All 71 curated references are listed with full bibliographic information and DOI links.",
   "order": 42,
   "sections": [
     {
       "heading": "About this bibliography",
-      "body": "These 71 references are drawn from the manuscript bibliography of the Active Inference Meta-Analysis project (act_inf_metaanalysis). The project employs multi-source literature retrieval from arXiv, Semantic Scholar, and OpenAlex; LLM-based assertion extraction into Nanopublications; probabilistic knowledge graphs; and citation-weighted hypothesis scoring. The full BibTeX source and all project outputs are available on GitHub.",
+      "body": "This page presents the complete structured outputs of the Active Inference Meta-Analysis project. The bibliography includes 71 curated references drawn from the manuscript source, plus the full corpus analysis: field growth metrics, hypothesis evidence scores from LLM-extracted assertions, citation network analysis, NMF topic modeling, subfield classification, corpus coverage statistics, and project quality & reproducibility data. The full BibTeX source, all output data files, and the compiled manuscript are available on GitHub.",
       "links": [
         {
           "label": "View BibTeX source on GitHub",

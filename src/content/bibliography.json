@@ -1,8 +1,9 @@
 {
-  "description": "Bibliography of the Active Inference Meta-Analysis project — curated references spanning foundational FEP, Active Inference textbooks, methods, tools, and related work.",
-  "source": "act_inf_metaanalysis/manuscript/references.bib",
-  "total_entries": 71,
-  "sections": [
+  "description": "Comprehensive bibliography and structured outputs from the Active Inference Meta-Analysis project — a computational meta-analysis of 817 papers across the Active Inference and Free Energy Principle literature. Includes curated references, hypothesis evidence scores, citation network analysis, topic modeling, subfield classification, and corpus assessment statistics.",
+  "source": "act_inf_metaanalysis/",
+  "github_url": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis",
+  "total_references": 71,
+  "bibliography": [
     {
       "title": "Foundational FEP",
       "entries": [
@@ -1475,5 +1476,314 @@
       ]
     }
   ],
-  "github_url": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/manuscript/references.bib"
+  "field_overview": {
+    "total_papers": 817,
+    "first_year": 2005,
+    "last_year": 2026,
+    "peak_year": 2025,
+    "peak_count": 123,
+    "cagr": 20.4,
+    "doubling_time_years": 2.8,
+    "cumulative_2026": 817,
+    "year_counts": {
+      "2005": 1,
+      "2006": 0,
+      "2007": 1,
+      "2008": 4,
+      "2009": 4,
+      "2010": 6,
+      "2011": 6,
+      "2012": 12,
+      "2013": 14,
+      "2014": 13,
+      "2015": 18,
+      "2016": 20,
+      "2017": 21,
+      "2018": 32,
+      "2019": 52,
+      "2020": 61,
+      "2021": 90,
+      "2022": 94,
+      "2023": 97,
+      "2024": 99,
+      "2025": 123,
+      "2026": 49
+    }
+  },
+  "corpus_assessment": {
+    "total_papers": 819,
+    "abstract_coverage_pct": 96.5,
+    "open_access_pct": 94.6,
+    "pdf_availability_pct": 87.8,
+    "fulltext_sources": {
+      "arxiv": 485,
+      "publisher": 157,
+      "none": 100,
+      "repository": 67,
+      "openalex": 10
+    },
+    "identifier_coverage": {
+      "doi": 420,
+      "arxiv_id": 485,
+      "s2_id": 0,
+      "openalex_id": 334
+    }
+  },
+  "hypotheses": [
+    {
+      "id": "MORPHOGENESIS",
+      "name": "Morphogenesis",
+      "score": 1.0,
+      "pct": 100.0,
+      "supports": 24,
+      "neutral": 0,
+      "contradicts": 0,
+      "total_assertions": 24
+    },
+    {
+      "id": "AIF_OPTIMALITY",
+      "name": "Active Inference Optimality",
+      "score": 0.9724,
+      "pct": 97.2,
+      "supports": 291,
+      "neutral": 6,
+      "contradicts": 2,
+      "total_assertions": 299
+    },
+    {
+      "id": "PREDICTIVE_CODING",
+      "name": "Predictive Coding",
+      "score": 0.9377,
+      "pct": 93.8,
+      "supports": 233,
+      "neutral": 24,
+      "contradicts": 1,
+      "total_assertions": 258
+    },
+    {
+      "id": "CLINICAL_UTILITY",
+      "name": "Clinical Utility",
+      "score": 0.9256,
+      "pct": 92.6,
+      "supports": 23,
+      "neutral": 2,
+      "contradicts": 0,
+      "total_assertions": 25
+    },
+    {
+      "id": "SCALABILITY",
+      "name": "Scalability",
+      "score": 0.8488,
+      "pct": 84.9,
+      "supports": 108,
+      "neutral": 13,
+      "contradicts": 0,
+      "total_assertions": 121
+    },
+    {
+      "id": "LANGUAGE_AIF",
+      "name": "Language & Active Inference",
+      "score": 0.8299,
+      "pct": 83.0,
+      "supports": 31,
+      "neutral": 3,
+      "contradicts": 0,
+      "total_assertions": 34
+    },
+    {
+      "id": "MARKOV_BLANKET_REALISM",
+      "name": "Markov Blanket Realism",
+      "score": 0.7808,
+      "pct": 78.1,
+      "supports": 12,
+      "neutral": 2,
+      "contradicts": 4,
+      "total_assertions": 18
+    },
+    {
+      "id": "FEP_UNIVERSALITY",
+      "name": "FEP Universality",
+      "score": 0.4761,
+      "pct": 47.6,
+      "supports": 281,
+      "neutral": 429,
+      "contradicts": 1,
+      "total_assertions": 711
+    }
+  ],
+  "citation_network": {
+    "num_nodes": 817,
+    "num_edges": 2176,
+    "total_references": 29323,
+    "density": 0.003264,
+    "avg_degree": 2.7,
+    "top_pagerank_dois": [
+      {
+        "doi": "doi:10.1371/journal.pcbi.1000211",
+        "score": 0.0717
+      },
+      {
+        "doi": "doi:10.1371/journal.pone.0006421",
+        "score": 0.0244
+      },
+      {
+        "doi": "doi:10.1155/2010/621670",
+        "score": 0.0223
+      },
+      {
+        "doi": "doi:10.1371/journal.pcbi.1002327",
+        "score": 0.0197
+      },
+      {
+        "doi": "doi:10.1155/2012/937860",
+        "score": 0.0193
+      }
+    ]
+  },
+  "topics": [
+    {
+      "id": 0,
+      "top_words": [
+        "energy",
+        "free",
+        "systems",
+        "states",
+        "fep"
+      ],
+      "top_weights": [
+        0.063,
+        0.059,
+        0.05,
+        0.048,
+        0.046
+      ]
+    },
+    {
+      "id": 1,
+      "top_words": [
+        "agent",
+        "agents",
+        "environment",
+        "model",
+        "behavior"
+      ],
+      "top_weights": [
+        0.107,
+        0.05,
+        0.043,
+        0.035,
+        0.028
+      ]
+    },
+    {
+      "id": 2,
+      "top_words": [
+        "predictive",
+        "cognitive",
+        "brain",
+        "processing",
+        "cognition"
+      ],
+      "top_weights": [
+        0.061,
+        0.055,
+        0.046,
+        0.038,
+        0.036
+      ]
+    },
+    {
+      "id": 3,
+      "top_words": [
+        "active",
+        "inference",
+        "decision",
+        "agents",
+        "aif"
+      ],
+      "top_weights": [
+        0.06,
+        0.057,
+        0.041,
+        0.039,
+        0.036
+      ]
+    },
+    {
+      "id": 4,
+      "top_words": [
+        "model",
+        "learning",
+        "data",
+        "state",
+        "inference"
+      ],
+      "top_weights": [
+        0.057,
+        0.052,
+        0.036,
+        0.033,
+        0.032
+      ]
+    }
+  ],
+  "subfields": [
+    {
+      "id": "B_tools",
+      "name": "Tools & Methods",
+      "count": 170,
+      "pct": 20.8
+    },
+    {
+      "id": "C1_neuroscience",
+      "name": "Neuroscience",
+      "count": 161,
+      "pct": 19.7
+    },
+    {
+      "id": "C2_robotics",
+      "name": "Robotics & Agents",
+      "count": 136,
+      "pct": 16.6
+    },
+    {
+      "id": "C5_biology",
+      "name": "Biology / Morphogenesis",
+      "count": 135,
+      "pct": 16.5
+    },
+    {
+      "id": "A1_formal",
+      "name": "Formal / Mathematical",
+      "count": 64,
+      "pct": 7.8
+    },
+    {
+      "id": "A2_philosophy",
+      "name": "Philosophy",
+      "count": 60,
+      "pct": 7.3
+    },
+    {
+      "id": "C3_language",
+      "name": "Language",
+      "count": 58,
+      "pct": 7.1
+    },
+    {
+      "id": "C4_psychiatry",
+      "name": "Psychiatry / Clinical",
+      "count": 33,
+      "pct": 4.0
+    }
+  ],
+  "quality": {
+    "tests_passed": 558,
+    "tests_total": 558,
+    "coverage_pct": 94.8,
+    "all_validation_passed": true,
+    "total_checks": 4,
+    "pipeline_duration": 472.438,
+    "pipeline_stages": 7
+  }
 }
