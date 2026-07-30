@@ -76,19 +76,18 @@ def load_journal_index(journal_root: Path) -> dict[str, dict]:
 
 def sanitize_public_text(text: str) -> str:
     """Sanitize text for public-safety: replace internal-platform tokens."""
-    import re as _re
-    text = _re.sub(r'\bcoda\b', 'the platform', text, flags=_re.IGNORECASE)
+    text = re.sub(r'\bcoda\b', 'the platform', text, flags=re.IGNORECASE)
     text = text.replace("workspace", "work space")
     text = text.replace("Workspace", "Work space")
-    text = _re.sub(r'\bPDF\b', 'document', text)
-    text = _re.sub(r'\bpdf\b', 'document', text)
-    text = _re.sub(r'\bAII\.pdf\b', 'document', text, flags=_re.IGNORECASE)
-    text = _re.sub(r'\bSource Atlas\b', 'source index', text)
-    text = _re.sub(r'\bSource Manifest\b', 'source listing', text)
-    text = _re.sub(r'\bsource-page\b', 'source reference', text)
-    text = _re.sub(r'\bpdf-pages\b', 'document sections', text)
-    text = _re.sub(r'\batlas/\b', 'index/', text)
-    text = _re.sub(r'\bPages\s+(\d)', r'sections \1', text)
+    text = re.sub(r'\bPDF\b', 'document', text)
+    text = re.sub(r'\bpdf\b', 'document', text)
+    text = re.sub(r'\bAII\.pdf\b', 'document', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bSource Atlas\b', 'source index', text)
+    text = re.sub(r'\bSource Manifest\b', 'source listing', text)
+    text = re.sub(r'\bsource-page\b', 'source reference', text)
+    text = re.sub(r'\bpdf-pages\b', 'document sections', text)
+    text = re.sub(r'\batlas/\b', 'index/', text)
+    text = re.sub(r'\bPages\s+(\d)', r'sections \1', text)
     return text
 
 
@@ -233,6 +232,7 @@ def check_transcripts() -> int:
 
     issues = 0
     valid_ids = {v.get("id") for v in videos if v.get("id")}
+    existing_ids = set()
 
     # Check that every video has a transcript record
     if TRANSCRIPTS_OUT.is_dir():
@@ -259,6 +259,8 @@ def check_transcripts() -> int:
     else:
         print("  No transcript directory found (run sync first)")
 
+    if issues == 0:
+        print(f"  Transcript records OK: {len(existing_ids) if TRANSCRIPTS_OUT.is_dir() else 0} records match videos.json")
     return 0 if issues == 0 else 1
 
 

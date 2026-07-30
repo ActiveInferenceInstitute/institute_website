@@ -5,8 +5,6 @@ import { hrefForSlug, urlDirForSlug } from "../url-taxonomy.mjs";
 import { escapeHtml } from "../lib/text.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
-import { tr } from "../i18n/index.mjs";
-import { absoluteUrl } from "../render/urls.mjs";
 
 const _dir = path.dirname(fileURLToPath(import.meta.url));
 const transcriptDir = path.join(_dir, "..", "content", "video-transcripts");
