@@ -22,9 +22,11 @@ sync, and translate that source. Run gates with no network access.
 | `npm run check:security` | [`check_static_security.py`](check_static_security.py) |
 | `npm run check:redirects` | [`check_redirects.py`](check_redirects.py) |
 | `npm run check:sources` | [`check_live_sources.py`](check_live_sources.py) — **network; NOT part of `check`** |
-| `npm run sync:instituteos` | `sync_instituteos_public_data.py` (writes) |
-| `npm run i18n:extract` | `I18N_EXTRACT=1 node src/build.mjs` → `src/content/i18n/_strings.json` |
-| `npm run i18n:translate` | [`i18n_translate.mjs`](i18n_translate.mjs) |
+|| `npm run sync:instituteos` | `sync_instituteos_public_data.py` (writes) |
+|| `npm run i18n:extract` | `I18N_EXTRACT=1 node src/build.mjs` → `src/content/i18n/_strings.json` |
+|| `npm run i18n:translate` | [`i18n_translate.mjs`](i18n_translate.mjs) |
+|| `npm run sync:transcripts` | [`sync_video_transcripts.py`](sync_video_transcripts.py) — syncs video transcript excerpts from ActiveInferenceJournal |
+|| `npm run check:transcripts` | `sync_video_transcripts.py --check` — validates transcript records |
 
 `npm run check` is the offline gate (Python + Node, no network). Run it before
 committing any content or build change.

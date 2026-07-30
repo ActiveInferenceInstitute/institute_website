@@ -1,0 +1,24 @@
+{
+  "id": "insights-006",
+  "title": "Psychedelics, Emotions, The Body",
+  "series": "Insights",
+  "number": "#006",
+  "date": "2024-01-04",
+  "youtubeUrl": "https://youtu.be/7GGGBMFuRXE",
+  "youtubeId": "7GGGBMFuRXE",
+  "guests": [
+    "Adam Safron"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-evolution"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Welcome back everybody to the sixth episode of Active Inference Insights. I am back today with another fantastic guest, Adam Saffron. Adam is a postdoctoral research fellow at Johns Hopkins Center for Psychedelic and Consciousness Research. With deep roots in the Active Inference Framework, Adam's work has explored the nature of preferences and motivation, mindfulness, consciousness, agency, and psychedelics. In addition to this, he might well be our only guest thus far who has written a paper titled What is Orgasm? and then lifted 280 kilos for multiple reps in sandals, might I add. Note, by the way, that these two domains need not be related. Adam, thank you so much for joining me and welcome to the show. So good. I know I'm really glad you could join us. And as I said, I mean, I'm always blown away by the diversity of interests and research topics that our guests bring to the table. So it'd be great because I think we're going to have a wealth of things to cover. The first thing I wanted to ask is about the body. You write in one of your papers, bodies represent near ideal initial systems for learning and inference with this prototypical object and causal system providing basis for further modeling. I wanted to ask, because I've been interested in what Jakob Howie called the evidential boundary. Where can we kind of circle off the internal and the external with respect to Markov blankets and active inference? So I wanted to get your take on whether you thought that, what do you think of the body? Is it a prior that we could say the mind, the cognitive system, it's incorporating in its sort of predictive schema, or is it itself an object of inference that the mind, you know, conducts probabilistic reasoning over? Yes. To which one? Hello. We're on. So in that particular paper, I'm trying to provide an account of basically how core knowledge gets loaded into mind. So, you know, we need something like core knowledge, but what's a biologically plausible account of how we might arrive at it? And so then the idea is you're basically using the body as basically a way of structuring learning curricula to make them tractable for a computationally bound system and with limited learning opportunities, like making the most with the least. And the idea is you create basically the body acts as a near ideal like training wheel system to figure out where the conditions for inference are fruitfully constrained. And then you can use that in the structure learning process. Sure. And so you can think of it as, so the body would be both in a way an evolutionary prior and that the specific ways in which it's some, you know, like for instance, like the Rolf Pfeiffer, I think, speaks really well to this in terms of like the way that the limited shoulder, the range of what the mobility of the shoulder joint, for instance, already would make your arm go out in front of you and then like be more likely to grab things and where they're like, well, look right there at the right distance for me to both manipulate them and to observe them. And so those would be the kind of like evolutionary priors you might expect, but it's like a, in the bootstrapping process would be, you know, you could also think of it though, as like core knowledge to get to there. It would be maybe not necessarily an evolutionary prior, but a very reliably learnable posterior. So, or an empirical prior. So, you know, I think depending on like, but it might be so reliably learned and so canalized eight ways from Sunday that it might as well be an evolutionary prior, even though there is like this mediation by the learning that takes place, but it's basically in the bag because you did it because nature did it so well. So whether you would call it a prior or a posterior depends on your perspective. And some other people who've kind of talked to the body as a prior, like Micah Allen had a good paper. The body is prior talking about the way in which, for instance, our interoceptive…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Insights/Insights_006/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Insights/Insights_006"
+}

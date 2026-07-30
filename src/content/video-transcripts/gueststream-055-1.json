@@ -1,0 +1,25 @@
+{
+  "id": "gueststream-055-1",
+  "title": "Geometric constraints on human brain function",
+  "series": "GuestStream",
+  "number": "#055.1",
+  "date": "2023-08-30",
+  "youtubeUrl": "https://www.youtube.com/watch?v=a4DC1YCVpsU",
+  "youtubeId": "a4DC1YCVpsU",
+  "guests": [
+    "James Pang",
+    "Alex Fornito"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-dynamics"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello and welcome everyone. This is Active Inference Guest Stream number 55.1. It's August 30th, 2023. Today we are going to have a presentation followed by a discussion on geometric constraints on human brain function by James Pang and Alex Fornito. Thank you again for joining. Really looking forward to the presentation and the discussion. So please off to you two to introduce yourself and continue however you like. Thank you. Well thanks very much Daniel. My name is Alex Fornito. I'm based in the School of Psychological Sciences and Turner Institute for Brain and Mental Health at Monash University and over here have James Pang who is a research fellow working in the team. And so the idea today was that we were going to talk a little bit about this work. I'll begin by providing a bit of a historical and theoretical background and then James will take over and jump into the specifics of what we did and what we found. We're assuming some basic understanding of neuroscience and some elements of human brain imaging and we'll go through a little bit of maths but hopefully it'll be enough to give a picture and if there's any questions about it afterwards we'll be happy to try and answer them. So a key motivating factor for this work is really trying to understand how the structure or anatomy of the brain constrains its function. And if you look at a diverse range of systems found throughout nature we know that the structure of the system can strain its dynamics. So for example the shape of a racing car will influence its aerodynamics and how fast it can go. The folding patterns of a protein will influence the other proteins that it can interact with and have quite large effects. So here for example we've got an example of the hemoglobin protein in a healthy person and someone with sickle cell anemia and this change in the geometry of the protein leads to a 20-year difference in life expectancy. And here we've got the molecular structures of diamond and graphite. So both of these materials are made of the same atoms, they're all purely carbon atoms, it's just the bonds between them that are different and that difference is sufficient to create quite a variation in the properties of the material. So diamond being one of the hardest substances on earth and valued at somewhere between 12 to 90 million dollars per kilo whereas graphite is one of the most brittle and only costs you about 20 dollars per kilo. And so this is essentially the reason why we don't propose to people with a H2B pencil, we use diamond rings instead. Now the brain is no different, we think anatomy constraints functions but there has been a long-standing debate about the specific properties that are the most relevant and how we should best conceptualize them. And this can be traced back to the days of Ramoni Cahal and Camillo Golgi, two people considered to be some of the founding fathers of modern neuroscience. Golgi developed a technique for staining neurons that allowed you to visualize their structure under the microscope and Cahal really perfected that technique and studied the nervous system in extensive detail and really laid down the foundations for what we think about the anatomy of the brain to this day. Now both of these men were recognized for their efforts in 1906 with a Nobel prize but even at the award ceremony when giving their lectures they were in bitter disagreement. So if you actually look at the recordings of their lectures, Cahal says, we applied Golgi's method and our observations revealed in my opinion the terminal arrangement of the nerve fibers. Nerve elements possess reciprocal relationships in continuity but not in continuity. So here he's saying that cells are fundamentally discrete elements separated in physical space and that there's a gap between them at the synapse, the synaptic cleft, and that's and signaling occurs through this gap. Golgi on the other hand didn't agree. He said, while I admire the brilliancy of the doctrine which…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_055/transcript.txt",
+  "paperTitle": "Geometric constraints on human brain function",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_055"
+}

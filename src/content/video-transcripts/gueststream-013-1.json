@@ -1,0 +1,32 @@
+{
+  "id": "gueststream-013-1",
+  "title": "ALtered Beliefs Under pSychedelics (ALBUS): A unified predictive processing framework for states of consciousness and their alterations",
+  "series": "GuestStream",
+  "number": "#013.1",
+  "date": "2021-11-08",
+  "youtubeUrl": "https://youtu.be/eVbWeWEX9dA",
+  "youtubeId": "eVbWeWEX9dA",
+  "guests": [
+    "Adam Safron"
+  ],
+  "types": [
+    "Group",
+    "Presentation"
+  ],
+  "keywords": [
+    "Psychedelic",
+    "Brain",
+    "ALBUS"
+  ],
+  "ontologyTerms": [
+    "term-brain",
+    "term-predictive-coding"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hi i'm blue knight i'm here with daniel friedman today is november 8th 2021 for a guest stream with adam saffron adam please take it away um hi blue hi daniel hi everyone it's good to be talking with you today and um i guess we're here to talk about psychedelics and the 5ht2a and related systems and active inference and so i'll describe some recent work on this and looking forward to talking about it with you so let me get my screen sharing on okay coming through excellent so um i'm using my uh uh active inference workshop slides as a base and i'll go over those with a little bit slower than i did uh in the 10 minutes i had there and then we'll take it from there and talk it out so this is you know part of an ongoing project to both try to understand the mechanisms of psychedelics but also the impacted neurotransmitter neuromodulator systems and the roles they would have in active inference and their potential significances for their use as machine learning parameters potentially and so when it comes to psychedelics um much of the attention has been on the 5ht2a system and that's a lot of evidence indicates that it mediates the effects um barely any work has been done in machine learning on this and there has been work done in active inference and i'm going to introduce some a compatible but slightly different take on the potential significances of these systems so within machine learning a good amount of work and with an active inference has been done on the potential roles of dopamine as a parameter encoding the confidence one might have with respect to policy selection diane and others have suggested that serotonin can act with an impotency to dopamine based on a variety of lines of evidence from neurophysiology and so some work has also been done in introducing a complementary uncertainty parameter in the form of serotonin this opponency can be thought of um almost yin yang like with uh dopamine being more of the yang and serotonin being more of the yin dopamine in general uh indicating in the neuroscience literature's incentive salience uh confidence and if excessive potentially impulsivity uh serotonin would be an opponency or an or complementarity i would indicate the satisfaction of desires states of uncertainty and potentially a factor helping to allow for patience rather than impulsivity with respect to policy selection so very little work though has been done in machine learning uh on 5ht2a and also in terms of active inference in terms of actually uh modeling the 5hd2a system as an active inference parameter work is probably going to begin soon in this direction largely informed by the rebus paradigm which we'll talk about soon but go back to uh the fundamentals of these systems uh the work that's been done so far with the serotonin system can be thought of more as relating to the 1a system this would be in contrast to the higher threshold i believe it's a 5 to 1 ratio of sensitivity uh for the receptor of the two-way system so when serotonin uh both of these by so 5ht is serotonin and you have some i think 14 maybe 17 classes of receptors depending on how you count them but you know so how are we going to talk about all of them well maybe eventually but it seems that we might be able to go a fair ways uh focus in terms of understanding their significance focusing on a few classes and sort of working our way forward with the additional receptors maybe having a common significance to the other ones but just because they're located at different parts of the brain it's a common organism significance but functionally you need them to do different things if located in different places into more detail soon but the 1a system is shown to in general have more inhibitory effects on the signaling of pyramidal neurons while the 5 hd2a system tends to be more excitatory carhart harris and nut have suggested that these both in a face of challenge would be responses to challenge but the 1a might be something more like an active…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_013/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_013"
+}

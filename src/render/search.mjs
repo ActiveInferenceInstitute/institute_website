@@ -54,10 +54,10 @@ export function buildSearchIndex() {
       c: "Event",
     });
   }
-  // Videos: the page itself plus every public video/podcast, same treatment as
-  // Calendar — all entries resolve to the single /video/ page (which has its own
-  // in-page filter over the full table), so the header search and /search/ page
-  // surface individual recordings by title/series/guest/keyword too.
+  // Videos: the page itself plus every public video/podcast. Each video entry
+  // now resolves to its own per-video detail page (/video/<id>/) instead of the
+  // generic /video/ page, so clicking a search result for a specific recording
+  // lands on that recording's transcript and metadata.
   const videoUrl = absoluteUrl(outputPathForSlug("video"));
   entries.push({
     t: "Videos and Podcasts",
@@ -67,9 +67,10 @@ export function buildSearchIndex() {
   });
   for (const record of osm.videos?.videos || []) {
     const guestNames = (record.guests || []).map((g) => g.name).filter(Boolean).join(" ");
+    const detailUrl = absoluteUrl(outputPathForSlug(`video-${record.id}`));
     entries.push({
       t: record.title || "Untitled",
-      u: videoUrl,
+      u: detailUrl,
       k: `${record.series || ""} ${String(record.date || "").slice(0, 10)} ${(record.types || []).join(" ")} ${(record.keywords || []).join(" ")} ${(record.ontologyTerms || []).join(" ")} ${guestNames}`
         .trim()
         .slice(0, 180),

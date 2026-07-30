@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Deep temporal Models of the Translation Process | Active Inference Institute</title>
+  <meta name="description" content="Recorded session from GuestStream #062.1 with Michael Carl.">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/img/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../../../assets/img/icon-180.png">
+  <link rel="manifest" href="../../../manifest.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="Active Inference Institute — Updates" href="../../../feed.xml">
+  <link rel="alternate" type="application/feed+json" title="Active Inference Institute — Updates" href="../../../feed.json">
+  <link rel="canonical" href="https://activeinference.institute/es/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="en" href="https://activeinference.institute/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="es" href="https://activeinference.institute/es/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="de" href="https://activeinference.institute/de/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="it" href="https://activeinference.institute/it/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/video/gueststream-062-1/">
+  <link rel="alternate" hreflang="x-default" href="https://activeinference.institute/video/gueststream-062-1/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Active Inference Institute">
+  <meta property="og:title" content="Deep temporal Models of the Translation Process | Active Inference Institute">
+  <meta property="og:description" content="Recorded session from GuestStream #062.1 with Michael Carl.">
+  <meta property="og:url" content="https://activeinference.institute/es/video/gueststream-062-1/">
+  <meta property="og:image" content="https://activeinference.institute/assets/img/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Active Inference Institute — Deep temporal Models of the Translation Process | Active Inference Institute">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Deep temporal Models of the Translation Process | Active Inference Institute">
+  <meta name="twitter:description" content="Recorded session from GuestStream #062.1 with Michael Carl.">
+  <meta name="twitter:image" content="https://activeinference.institute/assets/img/social-card.png">
+  <meta name="generator" content="institute_website v4.0.0">
+  <link rel="stylesheet" href="../../../assets/css/instituteos-ds.css">
+  <link rel="stylesheet" href="../../../assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/es/video/gueststream-062-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/es/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/es/video/"},{"@type":"ListItem","position":3,"name":"Deep temporal Models of the Translation Process","item":"https://activeinference.institute/es/video/gueststream-062-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
+</head>
+<body class="">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="Active Inference Institute home">
+      <span class="brand-mark" aria-hidden="true">π</span>
+      <span>
+        <strong>Active Inference Institute</strong>
+        <em>Act. Infer. Serve.</em>
+      </span>
+    </a>
+    <!-- Mobile nav disclosure. CSP-safe: no inline handlers — site.js wires the
+         click listener and stamps data-nav-js on the header; without JS the
+         button stays hidden and the nav renders expanded (styles.css). -->
+    <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true">☰</span><span class="nav-toggle-label">Menú</span></button>
+    <nav class="nav" id="site-nav" aria-label="Primario"><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-0-institute" data-nav-toggle>
+          <span>Instituto</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">Sobre</a><a href="../../structure/">Estructura y Gobernanza</a><a href="../../structure/board-of-directors/">Consejo de Administración</a><a href="../../structure/officers/">Oficiales</a><a href="../../structure/scientific-advisory-board/">Consejo Asesor Científico</a><a href="../../ecosystem/">Ecosistema</a><a href="../../communications/">Communications</a><a href="../../newsletter/">Newsletter</a><a href="../../instituteos/">Interfaz InstituteOS</a><a href="../../directory/">Directorio Global</a><a href="../../resources/#official-shortlinks">Enlaces oficiales cortos</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
+          <span>Aprender</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-1-learn"><a href="../../active-inference/">Inferencia Activa</a><a href="../../learning/">Aprendizaje e Investigación</a><a href="../../activities/">Actividades</a><a href="../../calendar/">Calendario</a><a href="../../simulations/">Simulaciones</a><a href="../../resources/#learning">Recursos de Aprendizaje</a><a href="../../resources/#learning">Documentos de inicio</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-2-participate" data-nav-toggle>
+          <span>Participar</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-2-participate"><a href="../../programs/">Programas</a><a href="../../volunteer/">voluntario</a><a href="../../programs/internship/">Pasantía</a><a href="../../programs/fellowship/">Beca</a><a href="../../get-involved/">¡Únete!</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-3-projects" data-nav-toggle>
+          <span>Proyectos</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-3-projects"><a href="../../projects/">Todos los Proyectos</a><a href="../../eduactive/">Unidad EduActive</a><a href="../../reinference/">Unidad de Reinferencia</a><a href="../../directory/#repositories">Repositorios</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-4-resources" data-nav-toggle>
+          <span>Recursos</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Búsqueda</a><a href="../../resources/">Directorio de Recursos</a><a href="../../directory/">Índice Global</a><a href="../../knowledge/">Mapa de Código Abierto</a><a href="../../instituteos/#public-export-gate">Puerta de Exportación Pública</a><a href="../../directory/#official-pages">Páginas Oficiales</a><a href="../../resources/#research">Referencias de investigación</a><a href="../../#audience-pathways">Caminos de Audiencia</a></div>
+      </div></nav>
+    <div class="site-search" role="search">
+      <input type="search" id="site-search-input" placeholder="Buscar en el Instituto..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Buscar en el sitio" aria-controls="site-search-results" aria-expanded="false">
+      <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Resultados de búsqueda" hidden></div>
+    </div>
+    <details class="lang-switcher">
+      <summary aria-label="Elegir idioma" title="Elegir idioma"><span class="lang-globe" aria-hidden="true">🌐</span><span class="lang-current">ES</span></summary>
+      <div class="lang-menu" role="menu" aria-label="Idioma"><a role="menuitem" hreflang="en" lang="en" href="../../../video/gueststream-062-1/">English</a><a role="menuitem" hreflang="es" lang="es" href="./" aria-current="true">Español</a><a role="menuitem" hreflang="fr" lang="fr" href="../../../fr/video/gueststream-062-1/">Français</a><a role="menuitem" hreflang="de" lang="de" href="../../../de/video/gueststream-062-1/">Deutsch</a><a role="menuitem" hreflang="pt" lang="pt" href="../../../pt/video/gueststream-062-1/">Português</a><a role="menuitem" hreflang="it" lang="it" href="../../../it/video/gueststream-062-1/">Italiano</a><a role="menuitem" hreflang="ru" lang="ru" href="../../../ru/video/gueststream-062-1/">Русский</a><a role="menuitem" hreflang="zh" lang="zh" href="../../../zh/video/gueststream-062-1/">中文</a><a role="menuitem" hreflang="ja" lang="ja" href="../../../ja/video/gueststream-062-1/">日本語</a><a role="menuitem" hreflang="ko" lang="ko" href="../../../ko/video/gueststream-062-1/">한국어</a><a role="menuitem" hreflang="hi" lang="hi" href="../../../hi/video/gueststream-062-1/">हिन्दी</a><a role="menuitem" hreflang="ar" lang="ar" href="../../../ar/video/gueststream-062-1/">العربية</a></div>
+    </details>
+    <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Escucha esta página" title="Escucha esta página"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
+    <div class="accent-control">
+      <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Elige color de resaltado" title="Elige color de resaltado"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
+      <div id="accent-menu" class="accent-menu" role="menu" aria-label="Highlight color" hidden>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="red" aria-checked="true" aria-label="Red highlight (default)" title="Red"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="amber" aria-checked="false" aria-label="Amber highlight" title="Amber"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="green" aria-checked="false" aria-label="Green highlight" title="Green"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="teal" aria-checked="false" aria-label="Teal highlight" title="Teal"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="blue" aria-checked="false" aria-label="Blue highlight" title="Blue"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="violet" aria-checked="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="magenta" aria-checked="false" aria-label="Magenta highlight" title="Magenta"></button>
+      </div>
+    </div>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" aria-pressed="false" title="Cambiar tema claro/oscuro"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
+  </header>
+  <main id="main">
+    <p class="mt-notice" role="note"><span aria-hidden="true">🌐</span> Esta página fue traducida automáticamente desde el inglés. <a href="../../../video/gueststream-062-1/" hreflang="en" lang="en">Ver el original en inglés.</a></p><section class="page-hero compact">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../">Videos and Podcasts</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Deep temporal Models of the Translation Process</span>
+    </nav>
+    <p class="eyebrow">GuestStream #062.1</p>
+    <h1>Deep temporal Models of the Translation Process</h1>
+    <p>Oct 30, 2023 · with Michael Carl</p>
+    <a class="button primary" href="https://www.youtube.com/watch?v=ciFMH8svne4" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a>
+  </section>
+
+  <section class="content-band muted">
+    <div class="resource-grid compact-grid">
+      <article class="info-card">
+        <h3>Session details</h3>
+        <p><strong>Date:</strong> Oct 30, 2023</p>
+        <p><strong>Series:</strong> GuestStream #062.1</p>
+        <p><strong>Guests:</strong> Michael Carl</p>
+
+      </article>
+      <article class="info-card">
+        <h3>Watch and follow up</h3>
+        <p><a href="https://www.youtube.com/watch?v=ciFMH8svne4" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a></p>
+        <p><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_062" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a></p>
+        <p><a href="../">← Back to video library</a></p>
+      </article>
+    </div>
+
+  </section>
+
+
+  <section class="content-band" id="transcript">
+    <div class="section-heading">
+    <p class="eyebrow">Transcript</p>
+    <h2>AI-generated transcript excerpt</h2>
+    <p>The full transcript is available on GitHub. This excerpt is generated by automated speech recognition and may contain errors.</p>
+  </div>
+    <div class="transcript-block">
+      <p>Hello and welcome. It is October 30th, 2023. We're here in Active Inference Guest Stream number 62.1 with Michael Carle and friends. Today the talk is called Deep Temporal Models of the Translation Process, a Translation Agent Grounded in Empirical Data. We're going to have a presentation by Michael followed by a panel discussion. So if you're watching live, please feel free to write any questions in the live chat. Otherwise, we're looking forward to this presentation and discussion. So thank you again for joining Michael and friends to you for the presentation. Yeah, good morning. So I talk Deep Temporal Models of the Translation Process. I would like to outline an idea for an architecture for the translation process. And to do this, I have three points here. First, I would like to introduce translation process research, what this is and the data that we have collected. I will show the data acquisition tools, visualization and segmentation. Then I will come into an architecture that is based on these partial observable Markov decision processes and that uses the free energy principle. And in the end, I will talk about an experimental implementation and initialization of those parameters. Okay, before starting talking about translation process research, here is a small contextual contextualization of this field of research. So it started around 40 years ago. And it's all about investigating the thing what happens in the mind of the translator. So how do translators produce translations? How do they have, how is it possible to have two languages in one mind? What makes translations of those languages? What makes translations of those languages? What makes translations of those languages? So this type of research started around 40 years ago with CRINGS around the beginning of the 80s. And they were using introspection and think aloud protocols. That was a laboursome manual analysis that went along with this. Then 10 years later, aunt luke jacobsen devised a key logging tool called translog that would record keystrokes translator would sit in front of an editor and type in the translations and the keystrokes would be logged then 10 years later in 2005 eye tracking devices were added to this device so with an eye tracker the gaze on the screen would be recorded in time and with a keylogger the output so we have an eye tracker recording where on the screen the translator looks and the key logging would log where what the translator writes and so we have somehow an input and an output and then in 2010 around that time i started collecting all these data into a database putting the data that we had collected by then in one con one database and a couple of years ago we started having this with a browser interface and python and r interface and so i like to call this translation data analytics because it resembles a little bit data analytics so we have these these python tools and the large database that i will talk later a little bit about and so this our research is on behavioral measures means the keystrokes and gaze data but there's of course also other kinds of data acquisition like brain activities eeg fmri and so on but i will talk about this part where we have key key logging data and eye tracking okay so how does it work so this is a screen this is a picture of the kind of setup that we have used quite frequently in this research so you see here on that screen translog 2 that is an editor so in the on the top of this window here you have a source text window that translator is supposed to translate translate translate in the lower editing box here and by typing there the keystrokes would be logged in time so every keystroke it comes with a time stamp and one could then look into the rhythm and when in the rhythm of translations when does the translator type fluently and so on when do they pause and then in the addition we have here an eye tracker we have light bulbs here this light is reflected in the eyes of a translator and…</p>
+    </div>
+    <p class="section-link"><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_062/transcript.txt" target="_blank" rel="noopener noreferrer">View full transcript on GitHub ↗</a></p>
+  </section>
+
+  <section class="content-band" id="related">
+    <div class="section-heading">
+    <p class="eyebrow">Continue</p>
+    <h2>More from the video library</h2>
+    <p>Browse the complete library or find more sessions in this series.</p>
+  </div>
+    <div class="link-chips">
+      <a href="../"><span>All videos</span></a>
+      <a href="../../activities/"><span>Activities</span></a>
+      <a href="../../learning/"><span>Learning</span></a>
+    </div>
+  </section>
+  </main>
+  <footer class="site-footer">
+    <div>
+      <strong>Active Inference Institute</strong>
+      <p>Un instituto de ciencia abierta participativa que apoya la educación, investigación, capacitación y aplicaciones relacionadas con la Inferencia Activa.</p>
+    </div>
+    <nav class="footer-links" aria-label="Pie de página">
+      <a href="../../about/">Sobre</a>
+      <a href="../../projects/">Proyectos</a>
+      <a href="../../programs/">Programas</a>
+      <a href="../../directory/">Directorio</a>
+      <a href="../../resources/">Recursos</a>
+      <a href="../../knowledge/">Mapa de Código Abierto</a>
+      <a href="../../get-involved/">¡Únete!</a>
+      <a href="../../search/">Búsqueda</a>
+      <a href="../../sitemap/">Mapa del sitio</a>
+      <a href="mailto:blanket@activeinference.institute">blanket@activeinference.institute</a>
+    </nav>
+    <div class="social-links" aria-label="Enlaces públicos verificados">
+      <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="build-stamp">v4.0.0 · build 1f0e21cd09cd</p>
+  </footer>
+  <script src="../../../assets/js/theme.js" defer></script>
+  <script src="../../../assets/js/accent.js" defer></script>
+  <script src="../../../assets/js/tts.js" defer></script>
+  <script src="../../../assets/js/site.js" defer></script>
+  <script src="../../../assets/js/search-data.js" defer></script>
+  <script src="../../../assets/js/search.js" defer></script>
+</body>
+</html>

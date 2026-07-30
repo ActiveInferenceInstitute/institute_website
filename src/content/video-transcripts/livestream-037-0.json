@@ -1,0 +1,25 @@
+{
+  "id": "livestream-037-0",
+  "title": "Free Energy: A User's Guide",
+  "series": "Livestream",
+  "number": "#037.0",
+  "date": "2022-02-02",
+  "youtubeUrl": "https://youtu.be/chpbMBgDR84",
+  "youtubeId": "chpbMBgDR84",
+  "guests": [
+    "Stephen Mann"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-expected-free-energy",
+    "term-inference"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Thank you. All right, it's January 28th, 2022, and we're here in Actonflab livestream number 37.0, discussing the paper Free Energy, a User's Guide. Welcome to the Actonflab. We are a participatory online lab that is communicating, learning, and practicing applied active inference. You can find us at the links here. This is recorded and archived livestream, so please provide us with feedback so we can improve our work. All backgrounds and perspectives are welcome here, and we'll be following good etiquette on livestream. Go to activeinference.org if you want to learn more about anything happening in Actonflab. All right, so today in 37.0, we are going to learn and discuss and introduce and provide some background for this paper, Free Energy, a User's Guide, by Stephen Francis Mann, Ross Payne, and Michael Kirchhoff. And just like all the dot zeros and discussions, we're just going to introduce some ideas, give a little tip of the iceberg, and kind of warm up to talk about this paper in the coming two weeks. And so today we'll be going through a lot of the background and some of the key formalisms in the paper. And in the coming two weeks, we'll be discussing the paper, so let us know if you want to join. So first, there's this comment in red. Is this yours, Dean? Yeah. Do you want to go over here? Pardon me? Do you want to describe it here or in your intro? Yeah, in the intro. Great. All right. Well, we'll each just go around and say hello. And then I think we can just say one reason why we're excited to discuss it. I'm Daniel. I'm in California and was just enticed by the title, short and direct. And I think it has some great solidifications and perspectives and implications on multiple levels. So how about Stephen? Hello. I'm Stephen. I'm based in Toronto. Yeah, I was interested by another sort of way to surmise the free energy principle and active inference type approaches. in relation to the philosophy of biology and cognitive science. I thought that was interesting to see how that pitch was being made. Over to Dean. Hi, I'm Dean. I'm in Calgary. And anytime I see the word guide, I'm always curious because of my background in setting up programming where people were going into novel situations. So the authors kind of had me at that word. And then I wanted to sort of learn more about what they had to say. What are some key features of guides or things that guides should keep in mind before we head off on this journey? Yeah, well, for me, I sort of adopted the term wayfinding. Kind of as a blanket, not just a mark of a blanket, but as a way of maybe describing what that path could turn out to be without necessarily constraining people. So, and there, I'm sure there are other descriptions and definitions of the word guide, but that's the one I tend to, to, uh, gravity towards. All right. Steven. Yeah. And there's also what kind of guide we end up inhabiting. So, you know, this biological grounding, it feels like, uh, there's a desire to get into our feet and into the soil somehow, uh, as well as the cognitive science. So I feel it's a bit like I've been stretched up and, uh, pushed down into the ground. So there's something there. Okay. So one big question, probably not the only big question that could be raised, but just the question that approached us to this paper in some way is how can we learn and apply active inference? And then Dean, do you want to talk about what you wrote here? Well, I just like to kind of read it out. I don't. Yes. Okay. So assuming that making moves, which we could describe as behavior now has effects on what happens next and that those moves are at least. loosely based or inferred on evident and the, and the, and the authors use the terms, probabilities, predictions, and fitness. So that's in the paper. Then how might we begin to look at energy applied? Okay. And in calculating out our best guess is measure, measurable as or of what we think or believe will happen next. Step one, that road to…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Livestream/LiveStream_037/transcript.txt",
+  "paperTitle": "Free Energy: A User's Guide",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/Livestream/LiveStream_037"
+}

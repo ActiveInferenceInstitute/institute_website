@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>The Emperor’s New Markov Blankets [2020 version] | Active Inference Institute</title>
+  <meta name="description" content="Recorded session from Livestream #020.1.">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/img/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../../../assets/img/icon-180.png">
+  <link rel="manifest" href="../../../manifest.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="Active Inference Institute — Updates" href="../../../feed.xml">
+  <link rel="alternate" type="application/feed+json" title="Active Inference Institute — Updates" href="../../../feed.json">
+  <link rel="canonical" href="https://activeinference.institute/it/video/livestream-020-1/">
+  <link rel="alternate" hreflang="en" href="https://activeinference.institute/video/livestream-020-1/">
+  <link rel="alternate" hreflang="es" href="https://activeinference.institute/es/video/livestream-020-1/">
+  <link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/video/livestream-020-1/">
+  <link rel="alternate" hreflang="de" href="https://activeinference.institute/de/video/livestream-020-1/">
+  <link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/video/livestream-020-1/">
+  <link rel="alternate" hreflang="it" href="https://activeinference.institute/it/video/livestream-020-1/">
+  <link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/video/livestream-020-1/">
+  <link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/video/livestream-020-1/">
+  <link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/video/livestream-020-1/">
+  <link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/video/livestream-020-1/">
+  <link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/video/livestream-020-1/">
+  <link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/video/livestream-020-1/">
+  <link rel="alternate" hreflang="x-default" href="https://activeinference.institute/video/livestream-020-1/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Active Inference Institute">
+  <meta property="og:title" content="The Emperor’s New Markov Blankets [2020 version] | Active Inference Institute">
+  <meta property="og:description" content="Recorded session from Livestream #020.1.">
+  <meta property="og:url" content="https://activeinference.institute/it/video/livestream-020-1/">
+  <meta property="og:image" content="https://activeinference.institute/assets/img/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Active Inference Institute — The Emperor’s New Markov Blankets [2020 version] | Active Inference Institute">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Emperor’s New Markov Blankets [2020 version] | Active Inference Institute">
+  <meta name="twitter:description" content="Recorded session from Livestream #020.1.">
+  <meta name="twitter:image" content="https://activeinference.institute/assets/img/social-card.png">
+  <meta name="generator" content="institute_website v4.0.0">
+  <link rel="stylesheet" href="../../../assets/css/instituteos-ds.css">
+  <link rel="stylesheet" href="../../../assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/it/video/livestream-020-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/it/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/it/video/"},{"@type":"ListItem","position":3,"name":"The Emperor’s New Markov Blankets [2020 version]","item":"https://activeinference.institute/it/video/livestream-020-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
+</head>
+<body class="">
+  <a class="skip-link" href="#main">Salta al contenuto</a>
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="Active Inference Institute home">
+      <span class="brand-mark" aria-hidden="true">π</span>
+      <span>
+        <strong>Active Inference Institute</strong>
+        <em>Act. Infer. Serve.</em>
+      </span>
+    </a>
+    <!-- Mobile nav disclosure. CSP-safe: no inline handlers — site.js wires the
+         click listener and stamps data-nav-js on the header; without JS the
+         button stays hidden and the nav renders expanded (styles.css). -->
+    <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true">☰</span><span class="nav-toggle-label">Menu</span></button>
+    <nav class="nav" id="site-nav" aria-label="Primario"><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-0-institute" data-nav-toggle>
+          <span>Istituto</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">Informazioni su</a><a href="../../structure/">Struttura e Governance</a><a href="../../structure/board-of-directors/">Consiglio di Amministrazione</a><a href="../../structure/officers/">Ufficiali</a><a href="../../structure/scientific-advisory-board/">Consiglio consultivo scientifico</a><a href="../../ecosystem/">Eco-sistema</a><a href="../../communications/">Communications</a><a href="../../newsletter/">Newsletter</a><a href="../../instituteos/">Interfaccia InstituteOS</a><a href="../../directory/">Directory Globale</a><a href="../../resources/#official-shortlinks">Link ufficiali brevi</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
+          <span>Impara</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-1-learn"><a href="../../active-inference/">Inferenza Attiva</a><a href="../../learning/">Apprendimento e Ricerca</a><a href="../../activities/">Attività</a><a href="../../calendar/">Calendario</a><a href="../../simulations/">Simulazioni</a><a href="../../resources/#learning">Risorse di apprendimento</a><a href="../../resources/#learning">Documenti Inizio</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-2-participate" data-nav-toggle>
+          <span>Partecipare</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-2-participate"><a href="../../programs/">Programmi</a><a href="../../volunteer/">Volontario</a><a href="../../programs/internship/">Stage</a><a href="../../programs/fellowship/">Borsa di studio</a><a href="../../get-involved/">Iscriviti</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-3-projects" data-nav-toggle>
+          <span>Progetti</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-3-projects"><a href="../../projects/">Tutti i Progetti</a><a href="../../eduactive/">Unità EduActive</a><a href="../../reinference/">Unità di ReInferenza</a><a href="../../directory/#repositories">Repositori</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-4-resources" data-nav-toggle>
+          <span>Risorse</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Cerca</a><a href="../../resources/">Directory delle Risorse</a><a href="../../directory/">Indice Globale</a><a href="../../knowledge/">Mappa Open Source</a><a href="../../instituteos/#public-export-gate">Porta di Esportazione Pubblica</a><a href="../../directory/#official-pages">Pagine Ufficiali</a><a href="../../resources/#research">Riferimenti di Ricerca</a><a href="../../#audience-pathways">Percorsi per il pubblico</a></div>
+      </div></nav>
+    <div class="site-search" role="search">
+      <input type="search" id="site-search-input" placeholder="Cerca l'Istituto..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Cerca nel sito" aria-controls="site-search-results" aria-expanded="false">
+      <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Risultati della ricerca" hidden></div>
+    </div>
+    <details class="lang-switcher">
+      <summary aria-label="Scegli lingua" title="Scegli lingua"><span class="lang-globe" aria-hidden="true">🌐</span><span class="lang-current">IT</span></summary>
+      <div class="lang-menu" role="menu" aria-label="Lingua"><a role="menuitem" hreflang="en" lang="en" href="../../../video/livestream-020-1/">English</a><a role="menuitem" hreflang="es" lang="es" href="../../../es/video/livestream-020-1/">Español</a><a role="menuitem" hreflang="fr" lang="fr" href="../../../fr/video/livestream-020-1/">Français</a><a role="menuitem" hreflang="de" lang="de" href="../../../de/video/livestream-020-1/">Deutsch</a><a role="menuitem" hreflang="pt" lang="pt" href="../../../pt/video/livestream-020-1/">Português</a><a role="menuitem" hreflang="it" lang="it" href="./" aria-current="true">Italiano</a><a role="menuitem" hreflang="ru" lang="ru" href="../../../ru/video/livestream-020-1/">Русский</a><a role="menuitem" hreflang="zh" lang="zh" href="../../../zh/video/livestream-020-1/">中文</a><a role="menuitem" hreflang="ja" lang="ja" href="../../../ja/video/livestream-020-1/">日本語</a><a role="menuitem" hreflang="ko" lang="ko" href="../../../ko/video/livestream-020-1/">한국어</a><a role="menuitem" hreflang="hi" lang="hi" href="../../../hi/video/livestream-020-1/">हिन्दी</a><a role="menuitem" hreflang="ar" lang="ar" href="../../../ar/video/livestream-020-1/">العربية</a></div>
+    </details>
+    <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Ascolta questa pagina" title="Ascolta questa pagina"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
+    <div class="accent-control">
+      <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Scegli colore di evidenziazione" title="Scegli colore di evidenziazione"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
+      <div id="accent-menu" class="accent-menu" role="menu" aria-label="Highlight color" hidden>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="red" aria-checked="true" aria-label="Red highlight (default)" title="Red"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="amber" aria-checked="false" aria-label="Amber highlight" title="Amber"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="green" aria-checked="false" aria-label="Green highlight" title="Green"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="teal" aria-checked="false" aria-label="Teal highlight" title="Teal"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="blue" aria-checked="false" aria-label="Blue highlight" title="Blue"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="violet" aria-checked="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="magenta" aria-checked="false" aria-label="Magenta highlight" title="Magenta"></button>
+      </div>
+    </div>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambia tema" aria-pressed="false" title="Attiva/disattiva tema chiaro/scuro"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
+  </header>
+  <main id="main">
+    <p class="mt-notice" role="note"><span aria-hidden="true">🌐</span> Questa pagina è stata tradotta automaticamente dall'inglese. <a href="../../../video/livestream-020-1/" hreflang="en" lang="en">Visualizza l'originale in inglese.</a></p><section class="page-hero compact">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../">Videos and Podcasts</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">The Emperor’s New Markov Blankets [2020 version]</span>
+    </nav>
+    <p class="eyebrow">Livestream #020.1</p>
+    <h1>The Emperor’s New Markov Blankets [2020 version]</h1>
+    <p>Apr 20, 2021</p>
+    <a class="button primary" href="https://youtu.be/szCSh8pVEa4" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a>
+  </section>
+
+  <section class="content-band muted">
+    <div class="resource-grid compact-grid">
+      <article class="info-card">
+        <h3>Session details</h3>
+        <p><strong>Date:</strong> Apr 20, 2021</p>
+        <p><strong>Series:</strong> Livestream #020.1</p>
+
+        <p><strong>Paper:</strong> The Emperor’s New Markov Blankets [2020 version]</p>
+      </article>
+      <article class="info-card">
+        <h3>Watch and follow up</h3>
+        <p><a href="https://youtu.be/szCSh8pVEa4" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a></p>
+        <p><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Livestream/LiveStream_020" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a></p>
+        <p><a href="../">← Back to video library</a></p>
+      </article>
+    </div>
+    <div class="tag-row"><span>ergodicity</span><span>free energy principle</span></div>
+  </section>
+
+
+  <section class="content-band" id="transcript">
+    <div class="section-heading">
+    <p class="eyebrow">Transcript</p>
+    <h2>AI-generated transcript excerpt</h2>
+    <p>The full transcript is available on GitHub. This excerpt is generated by automated speech recognition and may contain errors.</p>
+  </div>
+    <div class="transcript-block">
+      <p>hello and welcome to the active inference lab this is active inference live stream number 20.0 on april 15 2021 i'm daniel and i am here with blue who will say hello hi i'm blue knight i'm an independent research consultant out of new mexico thanks for being on blue and looking forward to this conversation welcome to the active inference lab everyone we are a participatory online lab that is communicating learning and practicing applied active inference you can find us at the links here on this page this is a recorded and an archived live stream so please provide us with feedback so that we can improve on our work all backgrounds and perspectives are welcome here and we'll be following good video etiquette for live streams 20.0 is a contextualizing stream for the upcoming discussions that we'll have on april 20th and 27th about this paper the emperor's new markov blankets and we'll have some of the authors join us as well so this will be an awesome discussion here we are in number 20.0 and the goal of this discussion as stated is to set the context for the upcoming discussions that we'll have on number 20 and number 20.1 and that is about the paper the emperor's new markov blanket by yella brunberg at all and the link is provided here the video is just an introduction and us kind of working through the paper so that we're ready to interact with authors and really grasp what they're discussing and we'll be going through the usual sections of the paper um any uh just overall thoughts before we sort of lead into it blue just what did you like about it or what drew you to the paper i liked this paper i thought it really provided an overarching view of the markov blanket and its use throughout like historical use and also throughout the the first in context so i thought it was really thorough and gave a good treatment to all of those topics nice agreed so the paper is emperor's new markov blankets and the links provided here the aims of the claims of the paper that's where we're going to start with the aims and the abstract and the roadmap to just see how the authors laid out what they're going to be trying to do so we're going to evaluate their aims and then see whether the claims they make are valid and whether they support their aims that they laid out and they write i'll read the first one blue the aim of the paper is twofold first we want to explain how it has been possible for such an innocuous technical concept as a markov blanket to come to be used in order to settle central debates in the philosophy of biology and cognition so that's the main key aim here is how did we get here how did we get to debating a statistical technical concept like the markov blanket and having people talk about consciousness and emotion and multi-skill systems so how did we get here with the markov blanket and then blue you can go for the second name and what you thought it meant they say we will trace the development of markov blankets starting from their standard application in bayesian networks through the role that they play in variational inference to use to their use in the literature on active inference which is what i had said about the paper that i liked they say we will argue that in the course of this transition a new and largely independent theoretical construct has emerged one that is more closely aligned with the notions of sensory motor loops and agent environment boundaries do you have any thoughts on that daniel it's gonna be the core distinction that we're going to hit probably 50 times is that there's two ways to talk about boundaries maybe the ones that really are there and then the ones that we infer and that's what this paper's about so here we go to the abstract markov blankets have been used to settle disputes central to philosophy of mind and cognition their development from a technical concept in bayesian inference to a central concept within the free energy principle is analyzed so that's the historical component of…</p>
+    </div>
+    <p class="section-link"><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Livestream/LiveStream_020/transcript.txt" target="_blank" rel="noopener noreferrer">View full transcript on GitHub ↗</a></p>
+  </section>
+
+  <section class="content-band" id="related">
+    <div class="section-heading">
+    <p class="eyebrow">Continue</p>
+    <h2>More from the video library</h2>
+    <p>Browse the complete library or find more sessions in this series.</p>
+  </div>
+    <div class="link-chips">
+      <a href="../"><span>All videos</span></a>
+      <a href="../../activities/"><span>Activities</span></a>
+      <a href="../../learning/"><span>Learning</span></a>
+    </div>
+  </section>
+  </main>
+  <footer class="site-footer">
+    <div>
+      <strong>Active Inference Institute</strong>
+      <p>Un istituto di scienza aperta partecipativa che sostiene educazione, ricerca, formazione e applicazioni relative all'Inferenza Attiva.</p>
+    </div>
+    <nav class="footer-links" aria-label="Piede di pagina">
+      <a href="../../about/">Informazioni su</a>
+      <a href="../../projects/">Progetti</a>
+      <a href="../../programs/">Programmi</a>
+      <a href="../../directory/">Direttorio</a>
+      <a href="../../resources/">Risorse</a>
+      <a href="../../knowledge/">Mappa Open Source</a>
+      <a href="../../get-involved/">Impegnati</a>
+      <a href="../../search/">Cerca</a>
+      <a href="../../sitemap/">Mappa del sito</a>
+      <a href="mailto:blanket@activeinference.institute">blanket@activeinference.institute</a>
+    </nav>
+    <div class="social-links" aria-label="Link pubblici verificati">
+      <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="build-stamp">v4.0.0 · build 1f0e21cd09cd</p>
+  </footer>
+  <script src="../../../assets/js/theme.js" defer></script>
+  <script src="../../../assets/js/accent.js" defer></script>
+  <script src="../../../assets/js/tts.js" defer></script>
+  <script src="../../../assets/js/site.js" defer></script>
+  <script src="../../../assets/js/search-data.js" defer></script>
+  <script src="../../../assets/js/search.js" defer></script>
+</body>
+</html>

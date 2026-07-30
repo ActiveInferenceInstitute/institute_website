@@ -1,0 +1,25 @@
+{
+  "id": "applied-active-inference-symposium-karl-friston-2021-yqoivobn7o",
+  "title": "1st Applied Active Inference Symposium, part 1 (.edu)",
+  "series": "Applied Active Inference Symposium",
+  "number": "— Karl Friston 2021",
+  "date": "2021-06-21",
+  "youtubeUrl": "https://youtu.be/INRaCBikpso",
+  "youtubeId": "INRaCBikpso",
+  "guests": [
+    "Karl J Friston"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-free-energy-principle"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello and welcome to the Active Inference Lab to our first ever Applied Active Inference Symposium. Today it's June 21st, 2021, and we're very honored to be here with Professor Carl Friston and many of our lab participants. Just as a way of quick introduction, the Active Inference Lab is a non-profit organization that is a participatory open science laboratory and we're working to curate and develop applications related to the Active Inference Framework, something that hopefully we'll be going into a lot more in detail today and this is a screenshot of our website. As far as the overview of the symposium, there are three organizational units in the lab. .edu, education, .coms, communication, and .tools. And each of these units are going to facilitate a 45-minute or so session and we'll have a short break in between sessions. So in our weekly meetings over the past weeks for each organizational unit, we've been developing questions and getting excited about things that we wanted to talk to you about. As far as a few overarching themes that were kind of spoken to, really through the whole journey of our lab, but also across organizational units. The first theme is applying active inference across systems. Again, something that will come up probably in all sections. The idea of research debt. The idea that we don't want to be developing research frameworks that have a huge burden on those who are learning and applying. And that especially early in the formalization of frameworks, it's extremely valuable to increase the accessibility so that we don't end up with major headaches and incompatibilities later on. Collective intelligence and the ways in which that is manifest across different systems. Transdisciplinary teams, transdisciplinary teams, projects, and communities, which are kind of like nested levels of organization. But transdisciplinarity is something that is necessary for the type of work that we're all interested in. And also just modern challenges and opportunities for research and all that that means related to online and everything else. And of course, anything else that you have tumbling around and wanted to bring to the table thematically. So there we are with our sort of lab overview and introduction. Let's go to our first organizational unit dot edu. The goal of dot edu is to scaffold and create a participatory and dynamic active inference body of knowledge, which we'll talk more about in a second. And our progress and actions this year have been to release a terms list, V1, which benefited greatly from your feedback. And also we're now updating the terms list to version two, which now includes five complete language translations and many references and citations for the terms. The way that we're approaching the development of the terms is by using approaches that place ontology and progressively more formalized versions of ontologies as kind of the backbone of an educational body of knowledge. So we started on the left side here with a terms list in the first quarter of 2021. And the ontology working group is like a train that's pushing to the right as they're learning ontology by doing and developing progressively stronger and stronger ways of relating the terms and the concepts that are essential for understanding active inference. And this will help us develop principled educational material that's also able to be translated rapidly. Alex, do you want to give a quick thought on where knowledge engineering comes into play? Yeah, thanks. Thanks. At this slide, we are showing this work with ontology, with system engineering approach which we are also using in the lab and considering possible deliverables of working on educational materials and creating them. We should have at some point of time textbooks and educational courses. And actually maybe this lab is started from the idea that a textbook for active inference should be created. Also, we see some connection that can be applied to organizational…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Applied Active Inference Symposium/2021 Symposium with Karl Friston/transcript.txt",
+  "paperTitle": "Transcript of: Karl Friston, 1st Applied Active Inference Symposium, Active Inference Lab, June 21, 2021",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/Applied%20Active%20Inference%20Symposium/2021%20Symposium%20with%20Karl%20Friston"
+}

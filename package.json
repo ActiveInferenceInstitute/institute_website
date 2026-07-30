@@ -19,7 +19,9 @@
     "check:projects": "python3 scripts/check_project_discoverability.py",
     "check:catalog": "node scripts/check_project_catalog_coverage.mjs",
     "sync:instituteos": "python3 scripts/sync_instituteos_public_data.py",
-    "check:instituteos": "python3 scripts/sync_instituteos_public_data.py --check"
+    "check:instituteos": "python3 scripts/sync_instituteos_public_data.py --check",
+    "sync:transcripts": "python3 scripts/sync_video_transcripts.py",
+    "check:transcripts": "python3 scripts/sync_video_transcripts.py --check"
   },
   "engines": {
     "node": ">=20"

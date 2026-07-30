@@ -1,0 +1,29 @@
+{
+  "id": "applied-active-inference-symposium-enacting-ecosystems-2023-l8n-ebeqij",
+  "title": "3rd Applied Active Inference Symposium “Enacting Ecosystems of Shared Intelligence”, part 2",
+  "series": "Applied Active Inference Symposium",
+  "number": "— Enacting Ecosystems 2023",
+  "date": "2023-08-22",
+  "youtubeUrl": "https://www.youtube.com/watch?v=PVeyvHSAwmk",
+  "youtubeId": "PVeyvHSAwmk",
+  "guests": [
+    "Keith Duggar",
+    "Sanjeev Namjoshi",
+    "Inês Hipólito",
+    "Aswin Paul",
+    "Takuya Isomura",
+    "Shanna Dobson",
+    "Nynke Boiten",
+    "André Bastos"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello and welcome everyone. Welcome back. This is the second interval of the third Applied Active Inference Symposium at the Active Inference Institute on August 22nd, 2023. This is going to be another packed and exciting interval and we're kicking it off with Jean-Francois Cloutier, a collective of theorizers, First Steps. So JF, thank you for joining and to you for this presentation. And if anybody has questions for this presentation or any of the others, please just put it in the live chat and I'll do it. I can. So thanks JF to you. Well, thank you, Daniel. I'm a software engineer at a company called Smart Rent, where I write software for smart home systems. I also work on a research project at the Active Inference Institute called the Robotics and Embodied Project. My current focus is on supervised learning in active inference agents. In my presentation today, which is titled A Collective of Theorizers First Steps, I'll first start with a brief recap of the project, then dive into recent progress, and then I'll conclude with what I see as the next steps of the project. Well, since 2017, I've been experimenting with LEGO robots and models of cognition. I do this for my own education because, like I think most of us, I understand something better when I build it. What you see here is my latest robot model. It's a rover. It has a whole bunch of sensors and a number of effectors, actuators. As a matter of fact, those sensors and actuators can be understood as forming the Markov blanket of my robot. Last year, I presented at the symposium about the history of the project, its then status, and its ambitions. I presented a cognitive model that implemented predictive processing from an active inference perspective. So there were generative models, there was predictions, there was prediction errors, the models, and these generative models animated the robots so that they would roam, avoid obstacles, observe their companion, and also in a very simplistic way build a theory of mind of the other robot. They could, from observations, infer that the other robot had detected food, food being presented here as a sheet of paper on the floor, and then would kind of try to track the other robot to also get to the food. And fun stuff like this. The implementation combined multiprocessing and functional computing. There was nothing probabilistic in the implementation. I thought maybe we would see them in action. That's what was presented last year, but just to get a sense of what they do. I have two robots here, one named Carl and Andy. I named them before I knew I was going to present at the conference. So they benefited from a number of training sessions. They learned how to find which policies would achieve their goals better than others. And one here on the left found the food rather straight right away, but got closer to the pedestal where the beacon is that simulates the scent of food. The fear was getting into a collision and then backs off in a hurry, as we'll see. The other robot observes all this, sees the other, the robot backing off as being in a panic and decides to share in this emotion and backs up as well. So, you know, fun stuff. The, since from the beginning of the M implemented different cognition models, but they all have in common the fact that they implement a society of mind. So what is a society of mind? A society of mind is a concept by which the mind is not a monolithic structure, but a composition of simple actors, independent actors that interact with each other in simple ways. That view of the mind was put forth by Marvin Minsky 50 years ago. So this is not recent. Again, what I presented last year was a society of mind containing a hierarchy of, I call them cognition actors. Each cognition actor is an independent process. Each one has a scope, a level of abstraction as well. So for example, you would have a cognition actor that's concerned with the location of food. And it would have beliefs and perceptions about…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Other/PVeyvHSAwmk/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Other/PVeyvHSAwmk"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "modelstream-002-1",
+  "title": "Active Inference: Demystified and Compared",
+  "series": "ModelStream",
+  "number": "#002.1",
+  "date": "2021-04-16",
+  "youtubeUrl": "https://youtu.be/UDm0lriAIJw",
+  "youtubeId": "UDm0lriAIJw",
+  "guests": [
+    "Noor Sajid",
+    "Phillip Ball"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-expected-free-energy"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hello and welcome everyone to the active inference lab this is the model stream number 2.1 on april 16 2021 and today is going to be an awesome model stream we're just going to briefly go around and introduce ourselves and then i'll just mention how the session will be run today and then we'll pass it to noor for a presentation so i'm daniel and i'm a postdoctoral researcher in california i'll pass to philip hi yeah i'm currently a phd student at oxford in my second year and yeah i guess this is work i did kind of before i started my phd um alongside nor and i've currently more focusing on data efficiency within specifically reinforcement learning but i guess on that topic like a knowledge of active inference is obviously useful for approaching such research problems who and or hi hi i'm noah i'm a third year phd student in the theoretical neurobiology group at the welcome center for human neuroimaging um at ucl um so that's university college london um so my phd supervised by cars focused on these ideas pertaining to adaptation one of which i'll be focusing on today which is behavioral adaptation in non-stationary environments using active inference so thank you awesome thanks both for joining and for this presentation we're going to be hearing a who knows how long presentation from nor and then i'm gonna be compiling questions from the chat so please just type questions as they come to you and then we'll address them at the end so thanks again and nor please take it away perfect thank you um so today i'll be presenting some work um that i did in collaboration with philip who you've just heard from thomas parr and carl fristan um so it's titled active inference uh demystified and compared okay okay perfect okay so the presentation structured as follows can you hear the screens i think it's sharing or was it are you not able to see it i'm not seeing it could you just re-share it yep sure um technology i tell you there we go and i'll crop it so go for it thanks perfect thank you so the presentation structured as well as first i'll briefly motivate the problem setting and provide details of a particular active inference instantiation under consideration today which is the discrete state space setting and the second half of the presentation is going to be focused on some particular examples comparing the active influence formulation with reinforcement learning specifically q learning and bayesian model based algorithm and then what i'm going to do is provide some face validity of particular aspects of why you would want to even use active inference okay um so what is active inference um it's a first principles account of how biological or artificial agents may operate in dynamic non-stationary settings it stipulates that these agents in order to maintain homeostasis reside in attracting states that minimize their entropy or their surprise so if you take this particular example that we're seeing of this past little hungry agent opening the fridge the way it would work is like you would need to why would you open the fridge right so you want to make a particular choice between eating at home or outside and in order to do that you have to decide what is the optimal action that would allow you to resolve your own uncertainty about the current stage of affairs so um and that would help you then decide whether you want to cook at home or you want to walk to the restaurant and this particular instance this has led to the agent opening the fridge to check whether it even has food at home and what's nice about active inference is that it allows you to think about these problem settings in a more formal way by specifying that optimal behavior is determined by evaluating the evidence that is the sensory input under the agent's gender model of observations that it is being exposed to and in this particular presentation what we'll do is focus on just the process theory that underwrites active inference and not talk through the biological on…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_002/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_002"
+}

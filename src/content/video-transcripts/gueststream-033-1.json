@@ -1,0 +1,24 @@
+{
+  "id": "gueststream-033-1",
+  "title": "A taxonomy of surprise definitions",
+  "series": "GuestStream",
+  "number": "#033.1",
+  "date": "2023-01-17",
+  "youtubeUrl": "https://youtu.be/zICcGukKbAA",
+  "youtubeId": "zICcGukKbAA",
+  "guests": [
+    "Alireza Modirshanechi "
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-dynamics"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hello and welcome everyone it's active guest stream 33.1 January 17 2023 we are here with Ali and alireza modir shanichi we're going to hear about the taxonomy of surprise definitions there will first be a presentation followed by a discussion so Ali Reza thank you for joining please take it away with the presentation we'll be looking forward to this and the discussion thank you very much Daniel and Ali for inviting me um so as you said I'm going to talk about a taxonomy of surprise definitions uh which is um basically all the materials or most of the materials that we publish in this recent paper in the Journal of mathematical psychology uh that is a joint work with johanni Brea and Wolfram gerstner and lufranker is my PhD supervisor so talking about surprise let's start with a simple top experiment um let's say that you want to plan something for your weekend and to plan something for the weekend we need information like how the weather is going to be or we can plan something and or some cues like the spring that are informative about the weather of the weekend or that uh the weather forecast says is going to be sunny given these queues we can make some predictions that oh weather forecast said it's sunny and it's spring so most likely it's going to be sunny let's say that is Friday evening you plan that for example go for a bike you go to sleep wake up the day after uh open the window and it's snowing and seeing this note given that you expected the sunny weather this mismatch is what's been uh natural language would agree on that it's a feeling of surprise you know we can easily talk about this moment say that yeah I was surprised because I had planned to go for a bike but then in scientific Community we can ask this question that for these moments that you see a snowy weather when opening the window what does really happen in our brain and uh lots of literature in a long lasting debate in neuroscience and psychology about different roles of surprise in the brain and there's this slew of different uh what I call surprise related signal things like prediction error free energy surprisal or Bayesian surprise and people say that these things are related to learning play important role in model building or predictive coding some people say that they're quite important for exploration for example surprising even attract attention or drive curiosity uh there are also literature and memory that surprising events um segments or continuous stream of observation so they help us to segment our memory and of course there are lots of work and physiological signals of uh surprise signals for example when there is something surprising your pupil dilates or EG signal has a peak and so on so forth the thing is that if I enable look at this picture and from far away it seems like that surprises everywhere in the brain but then the puzzle is that it's really the surprise in the sentence surprise martial synaptic elasticity same as the one in the sentence surprise Drive curiosity or not that's basically the motivation of the main motivation of our work that uh different studies in neuroscience and psychology use similar words but to refer to different aspects of the moment of surprise and I would call this art piece the moment of surprise and uh basically the thing is that different studies different experiment different paper they all talk about moments like these situations like this that we can all agree on to call it a surprising moment but they talk about different aspects of it the way that some we summarize it or put it in verb in words in the abstract of the paper was there is no consensus on the definition of surprise when I posted the paper online on Twitter the linguist margin has to laugh wrote in reply that it's unsurprising that there is no consensus on the definition of surprise because it's not a technical term everyday words are usually somewhat awake and uniform definitions are desirable only for technical terms of science…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_033/transcript.txt",
+  "paperTitle": "A taxonomy of surprise definitions",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_033"
+}

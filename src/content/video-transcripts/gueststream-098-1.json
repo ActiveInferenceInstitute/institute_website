@@ -1,0 +1,24 @@
+{
+  "id": "gueststream-098-1",
+  "title": "Active Inference and Human--Computer Interaction",
+  "series": "GuestStream",
+  "number": "#098.1",
+  "date": "2025-02-10",
+  "youtubeUrl": "https://www.youtube.com/live/tU2PfMNp-OI",
+  "youtubeId": "tU2PfMNp-OI",
+  "guests": [
+    "Roderick Murray-Smith",
+    "John H. Williamson",
+    "Sebastian Stein"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": false,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello, welcome. This is Active Inference Guest Stream number 98.1 on February 10th, 2025. We will be discussing Active Inference in Human-Computer Interaction with the authors of this very interesting paper. So, thank you all for joining and a pass to the authors for their introduction and presentation. Thanks again, looking forward to it. I'm Roderick Murray-Smith, I'm a Professor at the University of Glasgow and the PI of the European Research Council project that's funded this work, the DEFI project. John? I'm John Williamson, I'm a Senior Lecturer here at the University of Glasgow and also one of the investigators on this project. And I'm Sebastian Stein, I'm a Research Fellow here in Glasgow and also one of the investigators on the project. Okay, so we published on Archive a review paper on Active Inference and Human-Computer Interaction and then the friendly team at the Active Inference Institute said, Oh, would you like to give a talk on this? So we're very honoured to be included in the Institute's presentation. So we're going to give an overview of it, but if you want to see things in more detail, then at the bottom of the screen you can see a link to the archive publication. Okay, let's get going. So, we'll cover a bit of motivation for the work, describe Active Inference and HCI, what the core elements are. We'll give an example of a particular case study in Ordinal Selection, which Sebastian will present. And that's work that we presented in Oxford at the Active Inference Workshop, where we thought it would be useful to have some concrete examples as part of the paper, as part of the discussion here. And then some of the challenges for applying this work in the context of human-computer interaction. Oops. So, a little bit of background about where this is all based. We started a year ago the five-year project called DEFI, Designing Interaction Freedom with Active Inference. And the idea was we wanted to look at how we could better build the flexible interfaces of the future that would use richer sensing, machine learning, machine learning in normal ways. And that has three main elements. Active inference is going to be the framework for building things. We wanted to use an approach called Optimal Mechanism Design to build the interaction mechanisms that could combine rich sensing, machine learning tools, and embed content into computational structures. And we wanted these mechanisms to also have shared autonomy mechanisms so that the amount of freedom the computer would have could be adapted. So, what we'll be talking about today is the first part of this activity on active inference. So, there's a bit of background for the motivation. You can think about, you know, how have humans gone about controlling the world around them? So, you know, the very first tools would just be simple rocks and things where humans could use their muscle power to pick up a rock and do something more than with their bare hands. As time went on, we had tools which would give us some more feedback about the world, that the actual design of a chisel might make it easier to feel the texture of the wood that you were working with. And then further development got us to take external power and modulate that. So that could be wind power or steam power. There's some external source of power which we could use to adapt our tools. But recent years have moved towards the insertion of external computational power. And you can see the framework that we're working with here. And the grey boxes in this figure are where computational power has been inserted. So the human can act on an interface, they can perceive the interface, and that computer that they're interacting with can also control the world. So this could be a smart car, and it could be tracking the road with its own cameras and augmenting the control to the steering wheel. But it can also be looking at the human and trying to infer their attention. It could be augmenting the display. So we…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_098/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_098"
+}

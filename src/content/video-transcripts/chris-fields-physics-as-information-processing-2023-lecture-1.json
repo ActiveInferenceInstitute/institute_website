@@ -1,0 +1,26 @@
+{
+  "id": "chris-fields-physics-as-information-processing-2023-lecture-1",
+  "title": "Lecture 1 — Course information",
+  "series": "Chris Fields ~ Physics As Information Processing ~ 2023",
+  "number": "Lecture 1",
+  "date": "2023-05-18",
+  "youtubeUrl": "https://www.youtube.com/watch?v=RpOrRw4EhTo&list=PLNm0u2n1Iwdq0UnnnnkUr446lUz00x6E7",
+  "youtubeId": "RpOrRw4EhTo",
+  "guests": [
+    "Chris Fields"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-entropy",
+    "term-physics"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello and welcome. It's July 29th, 2023 and we're here in session three discussion of the course Physics's Information Processing at the Active Inference Institute. We're having a follow-up discussion on Chris Fields' third lecture on Quantum Reference Frames and we're looking forward to your participation. So if you're watching along live and you've been invited to the calendar event, it's not too late to jump in. If you're watching on YouTube, you can write any questions or comments in the live chat with Dean and Ender here. We're going to be looking at some of the key points and taking it in a few different directions, sharing our reference frames, making a shared one. So, Ender would be awesome to have you zoom in a little bit on the slide and then feel free to take us through some of the key points so that we can see a little bit how you're seeing it. Thank you. That looks good? Yep. Okay. So let's start by reviewing the last lecture from a couple weeks ago and then we can open up the discussions if there's any questions that appear in the live chat. We can address those. All right. So in lecture two, Chris introduced this idea of the information processing between system A and B, you know, where they interact via qubits on a boundary and they have reference frames that give meaning to this communication. You want to think of information processing as a communication channel, the way Shannon thought about it. So that was in lecture two. And lecture three, a couple weeks ago, tried to make this more explicit by emphasizing the idea that this has to be physically embodied somewhere. Okay. And I think that because we are so used to information being fungible, in no small part because of the internet and everything, it's a little hard to understand that first when the claim is made that you have a QRF that it's non fungible, or you have a piece of quantum information that's non fungible or things like the no cloning theorem. We're so used to information being fungible to it being zeros and ones that it's a bit of a change in mindset at first, but that's exactly what lecture three introduced. This was all, all stuff, right? Could you maybe just unpack that a little bit? What would it mean for information to be fungible or what's that stance like? And then what does it mean for information to be non fungible? And what is that stance like? Yeah, I'm out to get there. So let me let me scroll down the slides. Because that's addressed here. So I was maybe I should have kept this in the beginning. But anyways, session two talked about how information theory makes this simple and obvious. Okay. And in session three, we talk about reference frames, and mechanistically how all of this works. So yeah, let's address that question of the difference between between, hold on one second, let me use my mouse to scroll down here. Okay, so that's, that's a little faster, right? Okay, so can you restate your question, Daniel? Yeah, what would it mean for information to be fungible or non fungible? People might be familiar with that in the economic setting, with non fungible tokens and all of that. But what are we talking about with informational fungibility? I think it basically comes down to whether you can replicate, I mean, it's basically the difference between classical and quantum information, as far as I know. Fungible information is everything that you can basically turn into a message of zeros and ones. It's, you know, how you transmit it may be different, you know, the channel, the physical hardware, and so on. But, but at the end of the day, it's something that you can write on a boundary, and something that you can transmit as zeros and ones. Whereas quantum information, you literally have to send the hardware, the piece of hardware, the QRF. At least that's how I understand it. So, a simple answer might be that it's information encoded in a piece of software versus a piece of hardware, but I don't, I don't think that analogy is…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Courses/PhysicsAsInformationProcessing_ChrisFields/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/Courses/PhysicsAsInformationProcessing_ChrisFields"
+}

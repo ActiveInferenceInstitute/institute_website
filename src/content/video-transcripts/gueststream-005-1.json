@@ -1,0 +1,43 @@
+{
+  "id": "gueststream-005-1",
+  "title": "A technical critique of some parts of the Free Energy Principle",
+  "series": "GuestStream",
+  "number": "#005.1",
+  "date": "2021-04-28",
+  "youtubeUrl": "https://youtu.be/Sxst-xBTMvU",
+  "youtubeId": "Sxst-xBTMvU",
+  "guests": [
+    "Martin Biehl"
+  ],
+  "types": [
+    "Presentation",
+    "Dyad"
+  ],
+  "keywords": [
+    "FEP",
+    "ActInf",
+    "Physics",
+    "Dynamic equilibrium",
+    "Variational Inference",
+    "Bayesian",
+    "Markov Blankets",
+    "Formalism"
+  ],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-bayesian",
+    "term-free-energy-principle",
+    "term-markov-blanket",
+    "term-non-equilibrium-steady-state",
+    "term-physics",
+    "term-variational",
+    "term-variational-free-energy"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "great hello and welcome everyone to actin flab today is april 28 2021 it's actin flab guest stream number 5.1 with martin beale martin thanks so much for joining us on today's stream and we're really looking forward to hearing about your perspective and what you have to share here so uh if anyone in the live chat would like to ask questions we'll be relaying those to you during and at the end of the stream other than that please take it away and thanks again for coming on uh thank you daniel um welcome to my talk everybody uh i will talk about uh or i will talk about at least in the background about the paper i wrote with felix pollock and rio techni which is called technical critique of some parts of the free energy principle but i will not go directly through this paper i will kind of try to give a more updated perspective um yeah what else to say i work at uh aurier in tokyo and this work is also funded by temperature world charity foundation and fedex was supported by the monash university okay so here's the content of this talk first i'll make some preliminary remarks and then then talk about my perspective basically on the free energy principle and how it can maybe maybe split into two parts uh the construction of agents and the identification of agents and then talk about what the fep agent construction is and what the fvp agent identification method kind of is and then i'll talk about the relation between those or at least the claimed relation between those and then i'll go through some issues with this agenda identification method and also with this relation okay um so yeah like i said the main publication uh is same name as the has the same title as the stock and um came out this year and it resulted from an effort with uh felix where we we actually set out to do like a discretized uh version of the life as we know it paper from 2013 but we failed and then in the end we wrote this critique um so yeah i will i will give this a in this talk i will give a my personal view a little bit of the free energy principle and why i find it interesting and like i said i want to go through the paper in detail um and instead summarize uh how i currently see the issues also the issues that we mentioned in the paper um but the ffp the free so fvp meets free energy principle as while we were writing this paper it has changed and so my perspective has also changed and but uh if you have questions uh particular questions uh about the paper then you can of course ask me afterwards okay so here's the [Music] maybe a little bit more detailed overview so in my opinion the free energy principle can be viewed as two parts um and the first part is basically what uh maybe you've heard this kind of this statement that markov blanket implies uh markov blankets imply bayesian inference and i so from my perspective this is kind of a way to identify agents in stochastic processes so this is one part that is contained in the fep literature and another part is about how to construct artificial agents for for example for reinforcement learning or partially or observable markov decision problems and i call this the constructing agents part and the claim the claim is that uh like if you read papers about this constructing agent pod the claim is that they that this construction is based on this identifying agent spot so the construction is based on this markov blanket's employability and inference um part of the literature and i will kind of argue that this is has not been established and i also kind of think it's questionable hey at least in the current state then i also present some other issues with the fep among those those that i mentioned in the paper and these issues so yeah one thing i want to say is that these issues they kind of affect would affect i mean if if they are if i'm if i'm correct about those issues then they affect the usefulness of the free energy principle or agent identification so so then we couldn't uh identify agents using the…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_005/transcript.txt",
+  "paperTitle": "A technical critique of some parts of the Free Energy Principle",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_005"
+}

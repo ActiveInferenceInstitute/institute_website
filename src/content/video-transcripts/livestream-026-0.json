@@ -1,0 +1,44 @@
+{
+  "id": "livestream-026-0",
+  "title": "Bayesian Mechanics for Stationary Processes",
+  "series": "Livestream",
+  "number": "#026.0",
+  "date": "2021-08-06",
+  "youtubeUrl": "https://youtu.be/eZlG_J7sPj4",
+  "youtubeId": "eZlG_J7sPj4",
+  "guests": [
+    "Lancelot Da Costa",
+    "Conor Heins"
+  ],
+  "types": [
+    "Paper",
+    "Context",
+    "Solo"
+  ],
+  "keywords": [
+    "Markov Blankets",
+    "ActInf",
+    "Variational Inference",
+    "Bayesian",
+    "non-equilibrium steady-state",
+    "predictive processing",
+    "FEP"
+  ],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-bayesian",
+    "term-free-energy-principle",
+    "term-markov-blanket",
+    "term-non-equilibrium-steady-state",
+    "term-predictive-processing",
+    "term-variational",
+    "term-variational-free-energy"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hello and welcome everyone this is the active inference lab it is active inference lab live stream number 26.0 on august 6 2021 we're going to be discussing the paper bayesian mechanics for stationary processes welcome to active inference lab everyone we are a participatory online lab that is communicating learning and practicing applied active inference you can find us at the links on this slide this is recorded in an archived live stream so please provide us with feedback so that we can improve on our work all backgrounds and perspectives are welcome here as well today as you can find out at this short link we're going to be having the context video for the discussions on august 10th and 17th in number 26.1 and 26.2 which are going to be group discussions with some of the authors joining so if you want to join for any of these talks or discussions then please just let us know and also we have a few weeks where we don't have a paper decided so if you have a suggestion and want to be in those discussions let us know all right today in acting stream number 26.0 the goal is going to be to learn and discuss this paper bayesian mechanics for stationary processes by decosta fristen heinz and pavliotis which was posted in june 2021 this video just like all the dot zeros is just an introduction to some of the ideas in a walk through the paper one way it's not a review or a final word we're gonna give some overview to the paper then address a few of the key words from a big picture perspective then go through the figures in the formalism i'm daniel and i'm a postdoc researcher in davis california so in this paper the aims and the claims are laid out as followed they wrote in this paper we considered the consequences of a boundary mediating interactions between states internal and external to a system so it's about interfaces and interactions that's the first point on unpacking this notion we found that the states internal to a markov blanket look as if they perform variational bayesian inference optimizing beliefs about their external counterparts so uh when the boundary is set up in a certain way for which kinds of systems that's what we'll be asking uh how do those systems look from the outside or what does it look as if they're doing and then three when subdividing the blanket into sensory and active states we found that autonomous states perform active inference in various forms of stochastic control i.e generalizations of pid control so a lot of these terms like variational bayesian markov blanket pid control we're going to be talking about more but at the overview level that's the aims and claims as the authors write them the abstract states that the paper develops a bayesian mechanics for adaptive systems and then there's only these three claims again which are again related to the blanket and adaptiveness of systems and then this partitioning of that interface into sense and action so first we model the interface between a system and its environment with a markov blanket this affords conditions under which states internals of the blanket encode information about external states second we introduce dynamics and represent adaptive systems as markov blankets at steady state this allows us to identify a wide class of systems whose internal states appear to infer external states consistent with variational inference in bayesian statistics and theoretical neuroscience finally whoops we partition the blanket into sensory and active states it follows that active states can be seen as performing active inference and well-known forms of stochastic control such as pid control which are prominent formulations of adaptive behavior in theoretical biology and engineering so this is going to be relating to math and physics with the markov blankets and the far from equilibrium thermodynamics component and information theory and then it's also going to be developed into some domain specific cases or shown to be a generalization of domain…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Livestream/LiveStream_026/transcript.txt",
+  "paperTitle": "Bayesian Mechanics for Stationary Processes",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Livestream/LiveStream_026"
+}

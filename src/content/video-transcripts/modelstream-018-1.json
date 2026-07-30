@@ -1,0 +1,24 @@
+{
+  "id": "modelstream-018-1",
+  "title": "Distributionally Robust Free Energy Principle for Decision-Making",
+  "series": "ModelStream",
+  "number": "#018.1",
+  "date": "2025-04-28",
+  "youtubeUrl": "https://www.youtube.com/live/7vbtSdkDgc8",
+  "youtubeId": "7vbtSdkDgc8",
+  "guests": [
+    "Giovanni Russo",
+    "Hozefa Jesawada",
+    "Karl J Friston"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": false,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello, welcome everyone. It is April 28th, 2025, and we're in ACTIMF Model Stream 18.1 on robust decision-making via free energy minimization. So thank you to the authors who have joined today, looking forward to this presentation and walkthrough. So thanks again, and to you all, go for it. Okay, thank you, Daniel, and thank you for the invite, for inviting us here. So we are, let's say, that's three of us today. Arash, unfortunately, was the other first author of the paper that made most of the mathematics. We cannot be here today, but we will basically go through the paper that we have just submitted. So let me start with thanking all the co-authors. So these are the co-authors of the paper that is currently on the archive. The paper provides a computational model, which we call Dr. Free, which relies basically on free energy minimization for policy computation and tries to install robustness into decision-making. So our angle is to design policies, making decisions that are robust against certain ambiguities. Our background, so from the group in Salerno, so Arash, Josef, and myself, is that of control theory. So I apologize if sometimes maybe I would speak about some control terminology. So I will start with some motivation. First of all, motivating the problem, why we should be able to design agents, autonomous agents that can make decisions amid ambiguity. And we will, let's say, check some differences between what is probably natural intelligence, how natural intelligence agents behave, and autonomous agents, current autonomous agents. Then I will jump into our solution for free energy minimization, which is Dr. Free, this computational model I'm going to talk about. And then I will let the floor to Josefa for some discussion about the code to finally conclude with some remarks. very well. So let's start to set out, set out to the ground first. So it is undeniable that autonomous agents have achieved groundbreaking performance. For example, in the figure here in the slide on the left, we can design today agents embodied in robots, for example, that can make very complex tasks, like building towers from blocks as the popular child game. But if we look closely to the picture, the agent is performing these tasks in a very controlled environment, which is a lab. And perhaps the policies that the agent learns, so the policies, the method that the agent uses to make actions are quite inflexible to changes against the environment and against the task. In contrast, natural intelligence, so for example, a child that is playing exactly the same game can do the same task in a much more robust way. And this is, of course, only a toy problem. Imagine what would happen if we had these mismatches with the environment, between the training and the environment. And what would happen if the agent starts to misbehave? We could have failures in the robot, for example, that could cause damages to the environment, to the robot and maybe to people around them. So the angle that we are going to to discuss today is an approach based on the free energy minimization that tries to install robustness into the decision making problem. Again, I speak here from the viewpoint of a person that comes from control theory. So we would like really to design policies, so making decisions that allow agents to compute optimal actions that are also robust against certain mismatches that we will see soon. I know this is a much broader topic because there is a lot of research that could feed a lot of research programs here that spans from, I don't know, science is designing better actuators, designing better sensors, better software, etc. Here we are really interested in the intelligent step. So we can see how we can do this. And in fact, this is a challenge that requires interdisciplinary foundations. And the approach that we present is in fact interdisciplinary. It mixes a few key ingredients, of course, free energy minimization that will serve us as a…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_018/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_018"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "livestream-030-2",
+  "title": "How to count biological minds: symbiosis, the free energy principle, and reciprocal multiscale integration",
+  "series": "Livestream",
+  "number": "#030.2",
+  "date": "2021-10-12",
+  "youtubeUrl": "https://youtu.be/VXLNOfkH5Rg",
+  "youtubeId": "VXLNOfkH5Rg",
+  "guests": [
+    "Matt Sims"
+  ],
+  "types": [
+    "Paper",
+    "Group"
+  ],
+  "keywords": [
+    "ActInf",
+    "FEP",
+    "Symbiosis",
+    "Nested Markov blankets",
+    "Multiscale integration",
+    "Cognitive evolution",
+    "Emergence",
+    "Physiological individuals"
+  ],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-agency",
+    "term-cognitive-science",
+    "term-evolution",
+    "term-free-energy-principle",
+    "term-hierarchical-model",
+    "term-markov-blanket",
+    "term-multi-scale-system",
+    "term-nested",
+    "term-particle",
+    "term-self-organization"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "it's life okay it is hello and welcome everyone thank you to joining the active inference lab it is october 1st 2021 and i'm daniel i'm here with blue and we're going to be talking about this paper how to count biological minds symbiosis the free energy principle and reciprocal multi-scale integration welcome to the active inference lab we are a participatory online lab that is communicating learning and practicing applied active inference you can find us at the links here on this page this is recorded in an archived live stream so please provide us with feedback so that we can be improving our work all backgrounds and perspectives are welcome here and we'll be following good video etiquette for live streams we are heading into october and the number 30 paper about biological minds we currently have the author matt sims scheduled to come on the october 5th discussion and then we'll have the 30.2 another participatory group discussion so check out the calendar here as well as these other series if you want to join or suggest somebody who we can invite today in acting stream number 30.0 the goal is to learn and discuss this paper how to count biological minds and it's by matthew sims it's from 2020 in the journal synthese and just like all the other zero videos this is just an introduction to some of the ideas some background that blue and i whip together literally leading up to the time of now so it's just an introduction and if you want to go deeper into an idea then come to the discussion we're going to go over the aims and claims abstract roadmap of the paper and then the figures and so on so let's just get started with the introduction readings blue and what makes you excited about this paper you know daniel i'm always interested in studying intelligence and how that scales from the subcellular to the systemic ecosystem level um and so this is kind of an interesting take and it echoes a lot of what we talked about in the discussion of mike levin's paper the computational boundary of the self back in july so i was excited that matthew agreed to come on the live stream and i've been excited about this paper um just because it it takes active inference the multi-scale aspect of active inference in a really enhanced integrative direction how about you what did you like i liked that it combined uh some general ideas and questions in philosophy philosophy of biology and then tied it to the natural history of a specific species so it's all good you know make claims about distributed systems or the microbiome and the host in general but then tying it to a system that can be studied and has a cool ecological history is a good approach kind of grounds the paper here's the paper and how to count biological minds symbiosis the free energy principle and reciprocal multi-scale integration i'll read the first aim and then blue you can say something or read the other ones to support the notion of symbiotic minds and the notion of nested biological cognizers that falls out of it this paper will develop and deploy the notion of reciprocal multiscale integration from within the free energy principle multiscale integration describes the case where each of two or more cognizing systems uses the other to provide evidence for its own model of the world and itself acting in that world as a case study in support of the notion of symbiotic minds i will look at the symbiosis of vibrio fischeri bacteria and the bobtail squid i will argue that the vibrio squid assemblage constitutes a functionally integrated cognitive hole the markov blanket of which constrains those of vibrio and the squid and in showing how the notion of a symbiotic mind can be supported by reciprocal multi-scale integration within the free energy principle this paper contributes to the philosophy of cognitive science demonstrating that our folk psychological conception of what cogniza what cognizers are require rethinking moreover if the account of symbiotic cognizance presented as…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Livestream/LiveStream_030/transcript.txt",
+  "paperTitle": "How to count biological minds: symbiosis, the free energy principle, and reciprocal multiscale integration",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Livestream/LiveStream_030"
+}

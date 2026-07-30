@@ -1,0 +1,26 @@
+{
+  "id": "livestream-042-1",
+  "title": "Robot navigation as hierarchical active inference",
+  "series": "Livestream",
+  "number": "#042.1",
+  "date": "2022-04-20",
+  "youtubeUrl": "https://youtu.be/UUQIVqcI-yw",
+  "youtubeId": "UUQIVqcI-yw",
+  "guests": [
+    "Tim Verbelen",
+    "Adam Safron"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-hierarchical-model",
+    "term-proprioception"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "All right. Hello and welcome to ACT-INF livestream number 42.0. It's April 16th, 2022. Welcome to the ACT-INF lab. We're a participatory online lab that is communicating, learning, and practicing applied active inference. You can find us at the links on this slide. This is recorded and an archived livestream, so please provide us feedback so we can improve our work. All backgrounds and perspectives are welcome, and we'll be following good video etiquette for livestreams. And Sid, thanks a ton for joining. Really looking forward to this conversation. If you want to learn more about ACT-INF lab activities, check out activeinference.org. Okay. We're here in ACT-INF livestream number 42.0, and we are starting to learn and discuss this paper, Robot Navigation as Hierarchical Active Inference, in the journal Neural Networks, October 2021. It's by Ozan Katal, Tim Verbellen, Toon Van de Malle, Bart Dote, and Adam Safran, and some of whom we're looking forward to speaking with in the upcoming weeks. And this video is an introduction for some of the ideas and just some background and context and rapidly assembled fun and memes that we'll go through. So it's just an introduction of a discussion, and we hope that if you're watching live or later that you can still contribute to this. And we're going to go over the main aims and claims of the paper, then the abstract and roadmap, and then walk through some cool keywords and context, which will be great to hear. Sid's perspective from working with robotics, which is an area that certainly I've never actually been involved in. So going through some of the more applied work that we're going to see with robotics, and also some of the more formal aspects from active inference, and then this third vector that maybe we both share, which is some of the biological basis of navigation. So we're going to just go into the introductions first. I'm Daniel. I'm a researcher in California, and I'll pass to Sid. So Sid, I'll walk through your slides, but yes, let's hear it. Yeah, let's go to slide nine. And before I even address myself, I would say that we need to address the elephant in the room, that this is live stream number 42, which is one of my favorite numbers. And the favorite number for a lot of people, because it's the answer to life, universe, and everything. So this is the first time that I am coming to an active inference live stream. And I'm actively inferring the whole idea of active inference itself. I'm very new to the field. So yeah, I'm very excited to learn a lot of things. And yeah, just as we are on this slide right now, 42 has a lot of other references that you can check out on that Wikipedia link. Okay, moving to the next slide. So I usually document like the many things that I've been up to at this particular link. And in the next slide, I highlight like the few places where I have had the fortune to be at. So I formerly have studied computer science and design. And I've like meandered by accident and by intention in a lot of different places that you can see here. So I studied computer science at a university in India, which practices a lot of hands-on experience. And that's where I got my start in robotics and a lot of other things. Then studied further through various participatory workshops and internships at space organizations, media labs, and then spent two years at financial services to understand how money works. And was introduced to robotics mostly through open source software in the bottom most thing that you see here. That's the Google Summer of Code program. And I would go into more detail about how that robotic journey even started. These days, I'm very much interested in how coordination happens and how we can think about security of countries and communities in general. And more importantly, all the emerging aspects of society. That's technology, economics, culture, and policy. So I know that active inference is a study of autonomous behavior. And we are moving…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Livestream/LiveStream_042/transcript.txt",
+  "paperTitle": "Robot navigation as hierarchical active inference",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/Livestream/LiveStream_042"
+}

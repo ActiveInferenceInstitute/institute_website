@@ -1,0 +1,26 @@
+{
+  "id": "gueststream-106-1",
+  "title": "Advances and Challenges in Foundation Agents: From Brain-Inspired Intelligence to Evolutionary, Collaborative, and Safe Systems",
+  "series": "GuestStream",
+  "number": "#106.1",
+  "date": "2025-05-05",
+  "youtubeUrl": "https://www.youtube.com/live/pqMph8eEUs4",
+  "youtubeId": "pqMph8eEUs4",
+  "guests": [
+    "Bang Liu",
+    "Hongzhang Liu",
+    "Shaokun Zhang",
+    "Xiaoqiang Wang",
+    "Haibo Jin"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": false,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello, welcome everyone. It's May 5th, 2025, and we're in ActiveInference Guest Stream 106.1 with Bang Liu and colleagues discussing an epic work, advances and challenges in Foundation Agents from Brain-inspired Intelligence to Evolutionary, Collaborative and Safe Systems. So thank you to many of the authors for joining, and I will pass to you all to present, and looking forward to hearing about this. Go for it. Okay, yeah. Thanks, Daniel, for this invitation. Hello, everyone. My name is Bang Liu. I'm an assistant professor at the University of Montreal and a member of the Dihau Institute Coutoua of the University, as well as a member of the Mila Quebec Air Institute. So today I'm going to briefly first introduce the concept of Foundation Agents. So this is a collective work together with many of our co-authors. So here today we have Shao Kuen, Hong Zhang and Xiao Xiang joined as well. So I will start from this brief introduction about the whole concept and why we do this work, and then our other co-authors will briefly talk about the paths they are more familiar with so that we can go through many paths of the largest way. But of course we cannot go through every detail of that long paper, so if you're interested, feel free to check the original paper and contact us if you have any questions. So I will start from the introduction. So as we know that our human beings have long been interested in developing some intelligent things as smart or maybe even smarter than ourselves. So for example, on the left figure, it is the Talos of Crete, where it shows a bronze automation from Greek mythology built by the Harvesters to protect Crete. So basically people want to build huge robots to defend their home. And in the middle, this image shows Leonardo da Vinci's humanoid robot, which is an early mechanical automation designed to mimic human motion. And on the right part is the figure that shows Alan Turian's paper, so the Computing Machinery and Intelligence, which is proposing the fundamental question, which is about like, can machines think? So we can see that AI has long been driven by humanity's ambition to create entities that mirrors our intelligence. So maybe let's start from the very simple question. What is exactly an AI agent? If you check a textbook, like the AI textbook, so maybe you will see some definition. Briefly speaking, you will see that agents is something intelligent beings continually perceive, and act autonomously. And like in this figure, I think this figure is from the blog of Dr. Von Lilian, which shows that how, what kind of components composed to form an LM agent. So traditionally, the agents are mostly role-based domain-specific, so it's hard to generalize. And with the development of electronic models, so we have developed electronic model powered agents, which has the natural language fluency, the broad reasoning capability, and dynamic adaptivity to different tasks, environments, and so on. So on the right figure, you see that LM agents composed of one LM, and together with several other components like memory module, planning, tools, actions, and so on. Of course, this is a very basic setting of LM agents. And like in real world, there are many different agent architectures, which may include much more rich components. So you may think like, why we conduct such a large scale survey? So we're actually motivated by several questions. The first is like, we want to know, where are we in AI research today? So we have powerful language models, impressive reasoning capabilities, but we still have limitations in AI safety, the controllability of AI models, the reliability of the answers and the transfer needs in different high stake fields. For example, can we safely utilize and trust AI in health domain, in legal domain, and so on? So what can be improved? This is our second question. So by making a comparison with biological intelligence, like with a thorough check of the current progress, we also know what…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_106/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_106"
+}

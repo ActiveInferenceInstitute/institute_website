@@ -1,0 +1,32 @@
+{
+  "id": "applied-active-inference-symposium-enacting-ecosystems-2023-g0xcjrdgos",
+  "title": "3rd Applied Active Inference Symposium “Enacting Ecosystems of Shared Intelligence”, part 1",
+  "series": "Applied Active Inference Symposium",
+  "number": "— Enacting Ecosystems 2023",
+  "date": "2023-08-22",
+  "youtubeUrl": "https://www.youtube.com/watch?v=rIemcswLfGg",
+  "youtubeId": "rIemcswLfGg",
+  "guests": [
+    "JF Cloutier",
+    "Conor Heins",
+    "Bert de Vries",
+    "Dmitry Bagaev",
+    "Bart van Erp",
+    "Rafael Kaufmann",
+    "Avel Guénin-Carlut",
+    "Pablo Fernandez-Maquieira",
+    "Anna Lembke",
+    "Curt Jaimungal",
+    "Karl J Friston"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello and welcome everyone. This is the third Applied Active Inference Symposium Enacting Ecosystems of Shared Intelligence. It is August 22, 2023. We have a lot of really awesome presentations and sessions coming up in the first interval and in the second interval. So let's just get right into it with our first talk. This will be by Andrei Bastos. So Andrei, thank you for joining and looking forward to your talk. Thank you very well, Daniel. And thank you for the other organizers of the Active Inference Conference and Symposium here. I'm glad to be talking to you guys today about my work. It's the title of the presentation is Multilaminar, Multi-Area Recordings and the Non-Human Primate. That's these guys right here, the CAC monkeys. Suggest that predictive coding is implemented via predictive routing. And so what do we mean by these things? Well, just as a point of introduction, I'd like to start by just saying that we started out, I started out working with Carl Fristen in about 2010. And we were really interested in trying to map the neurobiology of the predictive coding circuits that have been theorized and hypothesized onto portico laminar architecture, which you can see here. And in that work with him, we proposed that different layers and different oscillations were involved in either capturing and calculating prediction error or predictions. And so what we do in my lab, and I recently started as an assistant professor in the Department of Psychology at Vanderbilt. And so what we do is we train rhesus macaque monkeys on tasks which are more or less predictable and that have different sensory elements that are more or less predictable. And we'll get into what that looks like. And then we use multi-laminar probes, so high-density probes with dozens or hundreds of contacts that can record across different layers. And so this is a beautiful drawing here of what the layers look like of cortex by Santiago Ramon y Cajal over 100 years ago. And you can see this really beautiful layered architecture. Layer 1, 2, 3, 4 is this dense one in the middle, 5 you get these large brand little neurons, and then 6 on the bottom. And so we're interested in my lab primarily at two levels of explanation. The first is what do these neurons spike to? What makes them fire action potentials and excites them? And do they get more or less excitable depending on how predictable stimuli are? And second, how do they oscillate? In which frequency bands do those rhythmic activity tend to cause them to fire more or less action potentials? And so we record across layers in one area over here, but we might put in our electrodes in several other areas so that we can also capture aspects of cortical communication. And these oscillations in this communication we think is really intimately linked to the interaction between inhibitory cells, these cells in red here, and excitatory neurons, these cells in black that I've written. Okay, so without further ado, let's just dive right into it here. So here's the outline of my talk. In part one, we're going to be talking about first an overview of what do we actually mean by this predictive coding model, and how do we think it may be mapped onto cortex and paying special attention to the neurophysiology. So here's the bird's eye overview of predictive coding at the level that maybe a neurobiologist or a cognitive scientist or a cognitive neuroscientist might need to know about in order to be able to apply it to their own work. And so here's what I mean by predictive coding, that there's a hypothesized circuit that is especially rich in higher order areas. So here's like the front of the brain, which learns about the statistical regularities of the world and creates predictions about what is going to be seen and felt and touched and so on in the next moment in time and in this moment in time, and sends those predictions to earlier parts of the brain. So it's a lower order cortex, receive these predictions. And…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Other/rIemcswLfGg/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Other/rIemcswLfGg"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "modelstream-004-1",
+  "title": "Implementing Active Inference by Message Passing in a Factor Graph",
+  "series": "ModelStream",
+  "number": "#004.1",
+  "date": "2021-08-19",
+  "youtubeUrl": "https://youtu.be/uePR4DQv0yI",
+  "youtubeId": "uePR4DQv0yI",
+  "guests": [
+    "Dmitry Bagaev",
+    "Bert de Vries",
+    "Thijs W van de Laar"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-environment"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "a signal processing group and so i designed my training sorry actually i i just one thing changed could you just restart that but go for it okay uh thanks for the introduction then my name is bertie fries i'm a professor in eindhoven at eindhoven university of technology in the netherlands i'll be a part of an electrical engineering department in a signal processing group so we designed signal processing algorithms and about six seven years ago i read for the first time a paper by carl fiston it was called a rough guide to the brain and struck me that this could be fantastic for signal processing so since then i'm really trying to work with people in my lab on realizing realizing agents that will design will automate the design process of signal processing algorithms and as you know we're doing this by message passing and we want to talk about that today uh thais yeah um my name is tyson i'm a poster with bird's lab i did my phd also an active inference on how to automate those processes and uh also together with michael cox and all the colleagues from the lab we built the toolbox called fornilab and i'll be talking and walking you through um how we apply that in an active infra con inference context um and do some cool things with that and so that's for later yeah hello everyone so my name is nitri bhagav i'm a phd candidate in bias lab also in hue in university and yeah my work is mostly about reactive message pricing based bayesian inference that we hope will help with active inference as well but that's also for later i will talk about it on my uh time yeah my slot cool thank you okay um shall i uh go then and do a little introduction a few slides let's see that yeah okay um let's see if i can share my slide yep looks good yeah okay so the first slide is uh eindhoven um because you may wonder where is i know in relation to amsterdam well it's about 100 kilometers south of amsterdam close to the belgian border and not so far away from germany either um so it's a it's sort of a high-tech city phillips originated and opened on the right bottom you see a picture of the center and the right top is a view of the campus of our university of technology here's an aerial view of groups going through five here's an aerial view of our campus and uh so here let's see if i can share a pointer yeah so uh this is the building for electrical engineering so this is where we are ios lab is short for bayesian intelligent autonomous systems that's what we try to build we have about three let's say staff members faculty members and currently six phd students dmitry is one of those pc students and we have open positions if there are people watching that are interested in probabilistic programming or how to make active inference work then what are we trying to do this is a picture that's probably familiar to everybody in this uh forum right this is uh this wants to show that well the only thing that's really going on in the brain is for energy minimization or expected free energy minimization to do everything and that's a huge inspiration to us to us engineers so what we try to do is basically this we want to put this in an iphone or on a raspberry pi and let a robot learn how to ride a bike but the beauty of this framework for engineering purposes is that it's almost one solution approach to to to any problem so if we can do it you could teach a robot how to write a energy minimization probably we can also apply this in virtual reality and design algorithms for hearing aids or even self-driving cars the the big let's say promise or the attractiveness for engineering is that it it's just one always the same thing you just have to propose a model and minimize the free energy no matter what the application is but it's very uh appealing the problem for engineering is that this energy functional is a function of observations and observations are streaming data coming usually well could be at every millisecond so it's a highly time varying function…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_004/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_004"
+}

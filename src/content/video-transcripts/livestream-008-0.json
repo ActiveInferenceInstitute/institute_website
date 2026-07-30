@@ -1,0 +1,26 @@
+{
+  "id": "livestream-008-0",
+  "title": "Scaling active inference",
+  "series": "Livestream",
+  "number": "#008.0",
+  "date": "2020-11-14",
+  "youtubeUrl": "https://youtu.be/kXw1CPRkJCw",
+  "youtubeId": "kXw1CPRkJCw",
+  "guests": [
+    "Alec Tschantz"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-free-energy",
+    "term-policy-selection"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "all right hello and welcome everyone to the active inference live stream this is active inference live stream number 8.0 it is november 4th 2020 and i am daniel friedman i'll be doing a solo contextualizing discussion today welcome to teamcom everyone we are an experiment in online team communication learning and practice related to active inference you can find us on our twitter account at inferenceactive at activeinference gmail.com at our public key base team or at our youtube channel this is a recorded and an archived live stream so please provide us with feedback so that we can improve on our work all backgrounds and perspectives are welcome here and as far as video etiquette for live streams mute if there's noise in your background raise your hand so we can hear from everyone use respectful speech behavior etc so first the announcement is that we have chosen the papers and the dates and the time for the rest of the actin streams for 2020 all meetings for the rest of 2020 will be from 7 30 to 9 a.m pst and the papers will be reading number eight is scaling active inference that's what this 8.0 is going to be about and that's going to be on november 10th and 17th paper 9 will be the projective consciousness model and phenomenal selfhood a 2018 paper paper 10 is going to be a variational approach to scripts paper 11 is sophisticated active inference effective information sorry simulating anticipatory effective dynamics of imagining future events and you can see the dates that all these events are so set aside at times if it's possible for you to participate and if you have a time zone or kind of event that you want to do that's not reflected here just let us know and there's our twitter address all right so here's what's going to happen in active stream 8.0 this one the goal of this talk is going to be to set the context for 8.1 and 8.2 which are going to be on this same paper scaling active inference this is a paper by alex chance baltierri seth and buckley from 2019 with the archive 1911.10601 the video is an introduction to the context of some of these ideas it's not a review or a final word definitely i learned a lot just reading through the paper and researching for this presentation so the idea is that this video will contextualize some of the ideas math and notation and vocabulary of the shantz paper and the video should be accessible though this is also hopefully cool and cutting edge research and the punch line and don't worry if it doesn't make sense yet or the implications aren't clear yet is that active inference is scalable and it's homologous too so it's similar to and potentially preferable to other common algorithms in a similar space like control theory or machine learning so in 8.0 the first section is going to be some background on all the keywords that they used in this paper that they provided and then talk about the goals the abstract and the roadmap then the second part of 8.0 will be the key equations annotation and quotations walkthrough and we're going to do like the 80 20. so most of the notation most of the meaning but not all the sections not all the symbols and then talk about figure 1 and figure 2 and what they represent and how that supports the conclusions of the paper and then in 8.1 and 8.2 we will all come together to discuss the same paper so save and submit your questions or put them as a comment and then get in touch if you want to participate in this one okay so let's start with the keywords so these were just the keywords that the paper provided so i would think of them these are the topics that this research is going to be on the cutting edge with respect to that field hopefully so they are artificial intelligence machine learning and they mention also reinforcement learning and model based reinforcement learning and then systems and control and information theory and then a keyword that wasn't on the paper but we can just add here is of course active inference and the free energy…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Livestream/LiveStream_008/transcript.txt",
+  "paperTitle": "Scaling active inference",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Livestream/LiveStream_008"
+}

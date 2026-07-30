@@ -1,0 +1,30 @@
+{
+  "id": "gueststream-053-1",
+  "title": "A case for chaos theory inclusion in neuropsychoanalytic modeling",
+  "series": "GuestStream",
+  "number": "#053.1",
+  "date": "2023-08-23",
+  "youtubeUrl": "https://www.youtube.com/watch?v=_GHJO_bnyrY",
+  "youtubeId": "_GHJO_bnyrY",
+  "guests": [
+    "Mark Solms",
+    "Alexey Tolchinsky",
+    "Andrea Clarici",
+    "Michael Levin",
+    "Bryn O’Reilly",
+    "Albert D’Hulst"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-hypothesis",
+    "term-message-passing"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello and welcome everyone. This is guest stream number 53.1 at the Active Inference Institute. It's August 23rd, 2023. We're going to be having a presentation followed by a discussion around the recent work of Alexei Toczynski, a case for chaos theory inclusion in neuro-psychoanalytic modeling. So if you're watching live, please feel free to add any questions into the live chat. Otherwise, we will now have the presentation followed by a discussion with our excellent panelists. So thank you everybody for joining and Alexei to you for the presentation. Thank you, Daniel. Thank you, Mark, for finding the time. I'm very grateful and excited to talk about this. Thank you, Andrea, Bryn, Albert. I hope maybe Mike will join us. And thank you, Daniel and Active Inference Institute for organizing this meeting. So can you see the slides? Yep. Okay. So I'll just proceed then. This is the outline of the talk. I'll share some preliminary comments and talk briefly about assumptions in the current models, summarize the data, talk about free energy principle formulations as compatible with chaos, and talk about some future developments. And hopefully we can discuss that. I'm very much looking forward to have more questions than answers. I'd like to start with what Michael Levin taught me, I guess, is just why it's important. To me, the most important thing is the clinical applications. I think that with your work, Mark, and with Yuck Panksepp's work, we have been moving away from dualism over the course of some time. But I think the other big D, determinism, is still highly prevalent and dominant. And I do think it influences our clinical work, diagnosis and psychotherapy and assessments. And I think that it may be beneficial for some of the harder conditions we work with to consider including nonlinear framework. That's my main focus. This is the link to the preprint and the paper is published fully in NeuroPsychoAnalysis Journal. Some of it is a discussion with this foundational paper that you, Mark, wrote, the new project for a scientific psychology general scheme, which is a perhaps revision, a revival of Freud's famous paper, Project for Scientific Psychology. And I'd like to give you a credit mark that you have been opening conversations between disciplines that hadn't been talking to each other prior to your efforts, such as psychoanalysis and neurosciences. You've been doing it for more than 20 years with great success. In the same spirit, I wanted to mention that Society for Chaos Theory in Psychology exists since 91, which is when their first conference happened. About less than 20 years, then the first conference on Chaos in Lake Italy, around Lake Como in Italy in 76, which was mostly physicists at that time. And then psychologists joined. And I've attended the recent conference in Toronto, which was absolutely wonderful. And I've met extraordinary clinicians and scientists. And I think that it would be beneficial to open that dialogue as well, and maybe if there is a wall between us to consider demolishing the wall. In terms of intent for the paper, you, Mark, pointed out to me that you've had an exchange with Robert Galitzer-Levy. For those of you who may not know him, he's a psychoanalyst from Chicago, a psychoanalytic writer and teacher who wrote a book on nonlinear psychoanalysis, and deserves a lot of credit for his advocacy. And, you know, he's sharing his thoughts. He posed a question to you, Mark, of possibly considering nonlinear components in that seminal paper, your project for scientific psychology. And to which he responded that the key point in such discussion was whether the mental apparatus was indeed nonlinear. Mark Giles- So I took your comment as a task, as a challenge, if you wish, and decided to write a paper about it. I don't know if the data presented is sufficient, but I tried. Mark Giles- And very clearly, I don't intend to contradict or criticize, you know, that would be funny of me to do. I am hopeful…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_053/transcript.txt",
+  "paperTitle": "A case for chaos theory inclusion in neuropsychoanalytic modeling",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_053"
+}

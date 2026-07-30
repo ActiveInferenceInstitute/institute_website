@@ -1,0 +1,25 @@
+{
+  "id": "gueststream-114-1",
+  "title": "How do inner screens enable imaginative experience? Applying the free-energy principle directly to the study of conscious experience",
+  "series": "GuestStream",
+  "number": "#114.1",
+  "date": "2025-07-17",
+  "youtubeUrl": "https://www.youtube.com/live/C1NxyfMDP4U",
+  "youtubeId": "C1NxyfMDP4U",
+  "guests": [
+    "Chris Fields",
+    "Adam Safron",
+    "Maxwell J D Ramstead",
+    "Karl J Friston"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": false,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello, welcome everyone. It is July 17th, 2025. We're in Active Inference Guest Stream 114.1 with several of the authors of How Do Inner Screens Enable Imaginative Experience? Applying the Free Energy Principle Directly to the Study of Conscious Experience. Thank you to the authors who have joined into Koya for precipitating this stream. So, without further inner screen stream ado, Chris, please, however you'd like to take it, and I'll scroll to wherever you need. Okay, thank you, Daniel. Thank you, Adam and Maxwell, for being here. And thanks to our other co-authors who are not here for whatever reason, one of which is because we changed the schedule on this presentation by an hour at the very last moment. So, we just wanted to talk a little bit about this paper and then open it up to questions. So, it's good that you have some questions prepared. So, what's the basic motivation here? The basic motivation is simple. If one looks at any kind of standard Active Inference picture of what's going on, in the middle of that picture is a Markov blanket. And, in fact, we could look at figure one because that illustrates this. And this is all very familiar. One has some system that's interacting with some environment. And the interaction is mediated by a boundary. And the boundary is what keeps the states of the system conditionally independent from the states of the environment. It's called a Markov blanket. In the quantum formulation of the FEP, it's a holographic screen. They have exactly the same function. They encode information flowing from the environment to the system. That's called sensation. And they encode information that's flowing from the system to the environment. That's called action. Of course, that's what it's called from the system's point of view. From the environment's point of view, the system's actions are its sensations. And the environment's actions are the system's sensations. So, it's all a completely symmetric system with this Markov blanket boundary in between that encodes the information exchange from one to another. So, now in this standard picture, if we ask, what can the system possibly be conscious of? There's a fairly obvious answer. It can be conscious of its sensations and maybe conscious of its actions, because all that's data that's written on its Markov blanket. And then, in some vague sense, maybe it's conscious of something that's going on inside it. And that's where the problem is. What does it mean to say that a system is conscious of internal states or internally generated experience? And in the most straightforward reading of the FEP, that simply doesn't happen. All that's going on internally is some dynamical system doing its thing, some bunch of physics, some vector floating around in a state space. And we can make this very precise in the quantum formulation. And the quantum formulation, what's going on inside the system, may just be a unitary evolution of some pure state in some almost isolated Hilbert space. And so, on the inside of the system, at least in the quantum formulation, it's very easy to stipulate that there's no classical information at all. Nothing that could be experienced. No definite states that aren't big superpositions of all the possible values of all the possible degrees of freedom. So, at least in that way of thinking or in that formulation, if there are no boundaries inside the system that function as Markov blankets, there's no possibility of inner experience. And if there are boundaries in the inside of the system that function as Markov blankets, then the experiences encoded on those boundaries are the experiences of the systems that are bounded by those boundaries, i.e. of parts of the system, not the whole system. So, in this way of thinking about the FEP, which is, again, is kind of the most straightforward possible way of thinking about it, what a system experiences is only the data that's written on its Markov blanket, either by its environment or by…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_114/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_114"
+}

@@ -2,16 +2,16 @@ import { escapeHtml } from "../lib/text.mjs";
 import { tableRows } from "./tables.mjs";
 import { sectionHeading } from "./components.mjs";
 import { listText } from "./text.mjs";
+import { hrefForSlug } from "../url-taxonomy.mjs";
 
 // /video/ page: full searchable table of the Institute's public video/podcast
-// library (backed by InstituteOS's videos.json export). The Video column links
-// out directly to YouTube — every youtubeUrl in the export resolves to a
-// youtube.com/youtu.be host, which the site's external-anchor gate
-// (VETTED_ANCHOR_HOST_SUFFIXES in check_site_contract.py / check_static_security.py)
-// accepts without a per-URL live-sources.json entry, same treatment as the
-// per-event YouTube/Zoom links on /calendar/ (see pages/calendar.mjs eventCard).
-// isYoutubeHost() re-checks the host defensively at render time so a future
-// non-YouTube URL falls back to plain text instead of silently failing the gate.
+// library (backed by InstituteOS's videos.json export). The Page column links
+// to the per-video detail page (/video/<id>/); the Video column links directly
+// to YouTube — every youtubeUrl in the export resolves to a youtube.com/youtu.be
+// host, which the site's external-anchor gate accepts without a per-URL
+// live-sources.json entry. isYoutubeHost() re-checks the host defensively at
+// render time so a future non-YouTube URL falls back to plain text instead of
+// silently failing the gate.
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const YOUTUBE_HOST_SUFFIXES = ["youtube.com", "youtu.be"];
@@ -51,11 +51,11 @@ function videoLinkCell(url) {
     : `<span class="event-url">${escapeHtml(url)}</span>`;
 }
 
-function videoColumns() {
+function videoColumns(currentDir) {
   return [
     { label: "Date", sortKey: "date", render: (v) => escapeHtml(formatVideoDate(v.date)) },
     { label: "Series", sortKey: "series", render: (v) => escapeHtml([v.series, v.number].filter(Boolean).join(" ")) },
-    { label: "Title", sortKey: "title", render: (v) => escapeHtml(v.title || "Untitled") },
+    { label: "Title", sortKey: "title", render: (v) => `<a href="${escapeHtml(hrefForSlug(`video-${v.id}`, currentDir))}">${escapeHtml(v.title || "Untitled")}</a>` },
     { label: "Guests", sortKey: "guests", render: (v) => escapeHtml(listText((v.guests || []).map((g) => g.name), "")) },
     { label: "Video", render: (v) => videoLinkCell(v.youtubeUrl) },
   ];
@@ -188,7 +188,7 @@ export function videoTableSection(videos, currentDir = "") {
     })}
     <div id="video-table-mount">
       ${filterBar}
-      ${videoDataTable({ caption: "Active Inference Institute video and podcast library.", columns: videoColumns(), rows, className: "directory-table video-table" })}
+      ${videoDataTable({ caption: "Active Inference Institute video and podcast library.", columns: videoColumns(currentDir), rows, className: "directory-table video-table" })}
     </div>
   </section>`;
 }

@@ -1,0 +1,24 @@
+{
+  "id": "gueststream-039-1",
+  "title": "Sources of Richness and Ineffability for Phenomenally Conscious States",
+  "series": "GuestStream",
+  "number": "#039.1",
+  "date": "2023-03-16",
+  "youtubeUrl": "https://www.youtube.com/watch?v=jXEJO_5g0ho",
+  "youtubeId": "jXEJO_5g0ho",
+  "guests": [
+    "Xu Ji",
+    "Eric Elmoznino",
+    "Guillaume Dumas"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": false,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello and welcome. This is ACTIV Guest Stream number 39.1. It's March 16th, 2023. We are here with Xu Ji, Eric Elmosnino, and Guillaume Dumas. We're going to have a presentation followed by a discussion section. So thank you all for joining and off to you for the presentation. All right. Thanks, Daniel. Yeah, I'm Eric. I'm a PhD student in Yoshua Bengio's lab. I'm Xu Ji. I'm a postdoc with Yoshua. Yeah, and we're really excited to be here. Thanks for the invite. We're going to be talking about why we can't describe conscious experiences. So this is going to be our take on a really longstanding problem in the philosophy of mind, but we're going to be looking at it through the lens of computational neuroscience and information theory. So yeah, hopefully it'll be fun for everyone. It mixes a bunch of disciplines. So I think the most salient way to illustrate the problem that we're going to be addressing is to ask you to try and think about how you would describe the experience of seeing the color red. So probably the kind of stuff that's going in your head is things like, well, it's a bright, aggressive color, symbolizes love, that sort of stuff. And in a sense, this is a description. It's effective. I would be able to guess which color you were describing. But in another sense, it's really inadequate, right? If I were blind, for instance, your description would be totally useless. I would be no better in understanding what red looks like. So there's this real sense in which conscious experiences are ineffable such that we can't describe them. And this applies to percepts like red, but it also applies to experiences more broadly. Like the experience of having a thought is just so ineffable, so hard to describe. And really importantly, this doesn't happen with most of our knowledge, right? I could describe most of what I know, except for experiences, they have this special place. So it's a big topic in the philosophy of mind, because it relates a lot to this thing called the hard problem of consciousness. So basically, all the hard problem is, it's the problem of how and why physical processes give rise to conscious experiences in the first place. So this is probably the oldest and most debated problem in the philosophy of mind. And it's even led many to the conclusion that, you know, actually, we're going to give up and consciousness can't be explained with physical theories at all, you know, that it can't simply emerge from neuroscience, computation, or known physical laws. So that's a bold statement. And I want to get into all the details about what makes the hard problem so salient. But just here's a few, here's a few things. So first of all, we can logically conceive of what are called philosophical zombies. Philosophical zombies, very different from Hollywood zombies, they're basically beings that are physically identical to us, they behave exactly like us. In fact, they even have the exact same neural activity that we do. But they just aren't conscious. Right. So similarly, instead of these, these alternates, agents being unconscious, we can also imagine them as just experiencing different things when they're in the same states. So for instance, it's conceivable, at least that in an alternate universe, the same exact brain mechanisms that produce an experience of red in this world, would instead produce an experience of green and the other and that all experiences would kind of be like flipped in this way. So, you know, intuitively, we think that these these two thought experiments aren't actually possible in our universe. But even just their logical conceivability suggests some kind of explanatory gap where consciousness doesn't seem to neatly emerge from or be determined by, you know, physical state or function. Another really prominent thought experiment is the knowledge argument. And this is the main sort of problem that our work is going to address, we're not going to address all facets of the hard problem of…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_039/transcript.txt",
+  "paperTitle": "Sources of Richness and Ineffability for Phenomenally Conscious States",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/GuestStream/GuestStream_039"
+}

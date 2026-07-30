@@ -1,0 +1,25 @@
+{
+  "id": "mathstream-001-1",
+  "title": "Emergent Time and Chromatic Types",
+  "series": "MathStream",
+  "number": "#001.1",
+  "date": "2021-03-24",
+  "youtubeUrl": "https://youtu.be/1HKjMeEGLyY",
+  "youtubeId": "1HKjMeEGLyY",
+  "guests": [
+    "Shanna Dobson"
+  ],
+  "types": [
+    "Group",
+    "Presentation"
+  ],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": false,
+  "hasTranscript": true,
+  "transcriptExcerpt": "SPEAKER_01: hello welcome to the active inference lab this is math stream 1.1 our first math stream and we're really lucky today to be able to have some time with shauna dobson and we're going to be talking about emergent time and chromatic types and hear a lot more on this topic and also check in with everyone's questions that are in the live chat or in the comments later but First, we'll just quickly introduce ourself and then hear a presentation and then have a discussion. So again, I'm Daniel and I'm here with my co-organizer, Sarah. So maybe Sarah, say hi and then pass it off. SPEAKER_03: Hey, I'm Sarah calling in from lockdown forever, Berlin, Germany. And I'm looking forward to talking to Shana Dobson. Shana. Hi. SPEAKER_02: Hey, Sarah, thank you. Thank you for a nice intro. Hello, everyone. My name is Shanna, and I'll be a graduate student in the fall, but I've studied a whole bunch of stuff in the middle. I'm kind of, I guess, a polymath that got a bunch of degrees at once and did a master's, and I was hired right away as a full-time lecturer kind of everywhere and found a couple topics that I'm pretty interested in. So let's see if... if this can be exciting for someone. SPEAKER_03: Okay. SPEAKER_02: Okay. Daniel, can you see this? Okay. Yep. All right. Am I ready to go? Okay, good. Um, great. All right. So I want to talk about, um, emergent time and chromatic types and, you know, maybe, um, I mean, it's up to you all if you want to ask me questions as I go or maybe hold them because I'm trying to constellate what's going on here. You're going to see there's some heavy topics involved, but I try to make them as beautiful and palatable as I can. So let's just get right to it. What are these and what am I talking about? So I have a few questions. kind of driving this independent of the mathematics. I'm trying to make this not super math focused. I was trying to make this kind of more applicable to everyone because the math that I do is super niche and I was trying to not do that and be like a non-inclusive. So the big questions, the philosophy questions that are driving me is what is time? Is there anything that isn't time? Time is always modeled as either just like a Geiger counter or it's this sort of accepted background phenomena. And I don't really agree with that. I feel like we haven't focused too much on it. People think like, where is it? You know, I asked, like, sometimes I give talks. And my, my first question is like, where is yesterday? And of course, people like what, you know, you could zoom out and look at like the light, you know, the light cone data and things like that. But it's like phenomenologically really interesting. Where is it? And, you know, will it always be here? And I remember I was talking to Raphael, who's so and He's got this great paper about like, you know, I mean, is it, will it always be here? And maybe it's not. Maybe it's sort of just maybe, you know, it came at some point as well. Hence, I think it's sort of emergent. So and I like wasn't always here. And here's probably not the appropriate word, you're going to see that I love language. So again, I'm super polymath. And I, a lot of my math papers are super math philosophy. And so I think there's a lot of problematic terms that we need to actually go into. And so I actually say, where's non-Archimedean time? So non-Archimedean, to be Archimedean is to believe in infinitesimals that you can always have a number bigger or lower. And in quantum mechanics, you really have a cutoff, right? So if quantum mechanics is modeling cutoffs as spatial cutoffs, non-Archimedean. Why is time not also non-Archimedean? So I'm very interested in that. What would that actually look like? I'm going to go heavy into that. So, you know, Sarah, I had the Iliad, that's Derrida in the French continental philosophy, saying that there's always a there is. And in mathematics, we always go there exists, you know, there exists an X such that whatever. And so…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/MathStream/MathStream_001/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/MathStream/MathStream_001"
+}

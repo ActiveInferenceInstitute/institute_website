@@ -1,0 +1,48 @@
+{
+  "id": "livestream-027-1",
+  "title": "Active Inference: Applicability to Different Types of Social Organization Explained through Reference to Industrial Engineering and Quality Management",
+  "series": "Livestream",
+  "number": "#027.1",
+  "date": "2021-08-24",
+  "youtubeUrl": "https://youtu.be/Oq2oM55OKzE",
+  "youtubeId": "Oq2oM55OKzE",
+  "guests": [
+    "Stephen Fox"
+  ],
+  "types": [
+    "Paper",
+    "Group"
+  ],
+  "keywords": [
+    "Markov Blankets",
+    "ActInf",
+    "Artificial Intelligence",
+    "Industrial Engineering",
+    "information-theoretic entropy",
+    "organization",
+    "Prediction Error",
+    "Quality Management",
+    "Social",
+    "statistical process control",
+    "thermodynamic entropy",
+    "Variational Free Energy"
+  ],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-entropy",
+    "term-information",
+    "term-markov-blanket",
+    "term-niche",
+    "term-prediction-error",
+    "term-social",
+    "term-thermodynamic-system",
+    "term-variational-free-energy"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "three two one hello and welcome to active inference lab live stream number 27.0 it's august 23 2021 and we're going to be discussing the paper active inference applicability to different types of social organization explained through reference to industrial engineering and quality management so welcome to the active inference lab we are a participatory online lab that is communicating learning and practicing applied active inference you can find us at the links here on this slide this is a recorded and archived live stream so please provide us with feedback so that we can improve on our work all backgrounds and perspectives are welcome and we'll be following video etiquette for lifestreams at the short link you can find the roadmap of the upcoming discussions that we're going to be having and these are going to be group discussions on august 24th tomorrow and then august 31st for number 27.1 and 2 and hopefully the author will be joining us for both discussions and we have some openings in the coming weeks if you want to join for a session or if you want to recommend somebody who should join today in active stream 27.0 we're going to be learning and discussing about this paper with the aforementioned long title by stephen fox and the link is here and just like a lot of um the other zero videos all of them this video is just an introduction for some of the ideas it's not a review or a final word it's kind of always this assemblage of all of the participants here just modifying the slides and going down a few avenues that we thought were interesting and setting up some questions to discuss in the dot one and dot two so we'll go over the aims and the claims of the paper and the abstract and roadmap and then talk about keywords then go through the figures and tables so if you want to participate in these group discussions tomorrow or the following week then just let us know or save and submit your questions and get in touch with us if you want to participate so we can just start with hello and then it will be cool to hear from both of you what drew you to the paper or what made you interested in talking about it i'm daniel and i'm in california so whoever wants to go first i'm blue and i'm a independent research consultant in new mexico and um i liked this paper it was a really like refreshing kind of interesting um and very readable perspective compared to a lot of the other papers and um it made some links with industrial engineering which i thought was were interesting and um kind of like a a new take on active inference and fep dean i'm i'm up here in calgary and what i found interesting about the paper is just looking at it through the lens of engineering's uh engineering's priors i guess in terms of what they would hold up as active inference just because of what they do every single day um and again that kind of juxtaposed with the social piece was really interesting to me because not to over generalize but when you're focusing on how to break something down you don't tend to tend to look at the holes so i thought that was really interesting uh to try to pull those two things together and make them coherent i agree there's that discussion of the interfaces between the engineered system and the actual way it's used in the niche which i think we're going to return to when we're talking about like a bookshelf so the paper is the title the link are shown here and uh i guess uh maybe do either if you want to just read the first uh two aims and claims sure so the principal contribution of this paper is to relate active inference theory to everyday practice in social organization active inference is a cult corollary of the free energy principle which formalizes cognition in the autopolitic organization of living systems that resist the second law of thermodynamics by occupying a limit limited repertoire of states thus persisting as bounded self-organizing systems over time okay and then i'll read the last two then anyone can give…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Livestream/LiveStream_027/transcript.txt",
+  "paperTitle": "Active Inference: Applicability to Different Types of Social Organization Explained through Reference to Industrial Engineering and Quality Management",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Livestream/LiveStream_027"
+}

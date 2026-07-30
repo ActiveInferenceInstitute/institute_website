@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>An Active Inference Model of the Optimism Bias | Active Inference Institute</title>
+  <meta name="description" content="Recorded session from ModelStream #012.1 with Beth Fisher, Jakob Hohwy.">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/img/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../../../assets/img/icon-180.png">
+  <link rel="manifest" href="../../../manifest.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="Active Inference Institute — Updates" href="../../../feed.xml">
+  <link rel="alternate" type="application/feed+json" title="Active Inference Institute — Updates" href="../../../feed.json">
+  <link rel="canonical" href="https://activeinference.institute/ja/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="en" href="https://activeinference.institute/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="es" href="https://activeinference.institute/es/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="de" href="https://activeinference.institute/de/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="it" href="https://activeinference.institute/it/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/video/modelstream-012-1/">
+  <link rel="alternate" hreflang="x-default" href="https://activeinference.institute/video/modelstream-012-1/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Active Inference Institute">
+  <meta property="og:title" content="An Active Inference Model of the Optimism Bias | Active Inference Institute">
+  <meta property="og:description" content="Recorded session from ModelStream #012.1 with Beth Fisher, Jakob Hohwy.">
+  <meta property="og:url" content="https://activeinference.institute/ja/video/modelstream-012-1/">
+  <meta property="og:image" content="https://activeinference.institute/assets/img/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Active Inference Institute — An Active Inference Model of the Optimism Bias | Active Inference Institute">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="An Active Inference Model of the Optimism Bias | Active Inference Institute">
+  <meta name="twitter:description" content="Recorded session from ModelStream #012.1 with Beth Fisher, Jakob Hohwy.">
+  <meta name="twitter:image" content="https://activeinference.institute/assets/img/social-card.png">
+  <meta name="generator" content="institute_website v4.0.0">
+  <link rel="stylesheet" href="../../../assets/css/instituteos-ds.css">
+  <link rel="stylesheet" href="../../../assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/ja/video/modelstream-012-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/ja/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/ja/video/"},{"@type":"ListItem","position":3,"name":"An Active Inference Model of the Optimism Bias","item":"https://activeinference.institute/ja/video/modelstream-012-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
+</head>
+<body class="">
+  <a class="skip-link" href="#main">コンテンツをスキップ</a>
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="Active Inference Institute home">
+      <span class="brand-mark" aria-hidden="true">π</span>
+      <span>
+        <strong>Active Inference Institute</strong>
+        <em>Act. Infer. Serve.</em>
+      </span>
+    </a>
+    <!-- Mobile nav disclosure. CSP-safe: no inline handlers — site.js wires the
+         click listener and stamps data-nav-js on the header; without JS the
+         button stays hidden and the nav renders expanded (styles.css). -->
+    <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true">☰</span><span class="nav-toggle-label">メニュー</span></button>
+    <nav class="nav" id="site-nav" aria-label="プライマリー"><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-0-institute" data-nav-toggle>
+          <span>研究所</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">アクティブインファレンス研究所について</a><a href="../../structure/">構造とガバナンス</a><a href="../../structure/board-of-directors/">取締役会</a><a href="../../structure/officers/">役員</a><a href="../../structure/scientific-advisory-board/">科学顧問委員会</a><a href="../../ecosystem/">エコシステム</a><a href="../../communications/">Communications</a><a href="../../newsletter/">Newsletter</a><a href="../../instituteos/">インスティテュートOSインターフェース</a><a href="../../directory/">グローバルディレクトリ</a><a href="../../resources/#official-shortlinks">公式ショートリンク</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
+          <span>学ぶ</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-1-learn"><a href="../../active-inference/">アクティブインファレンス</a><a href="../../learning/">学習と研究</a><a href="../../activities/">活動</a><a href="../../calendar/">カレンダー</a><a href="../../simulations/">シミュレーション</a><a href="../../resources/#learning">学習リソース</a><a href="../../resources/#learning">ドキュメントの開始</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-2-participate" data-nav-toggle>
+          <span>参加する</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-2-participate"><a href="../../programs/">プログラム</a><a href="../../volunteer/">ボランティア</a><a href="../../programs/internship/">インターンシップ</a><a href="../../programs/fellowship/">フェローシップ</a><a href="../../get-involved/">参加する</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-3-projects" data-nav-toggle>
+          <span>プロジェクト</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-3-projects"><a href="../../projects/">すべてのプロジェクト</a><a href="../../eduactive/">EduActiveユニット</a><a href="../../reinference/">再推論ユニット</a><a href="../../directory/#repositories">リポジトリ</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-4-resources" data-nav-toggle>
+          <span>リソース</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">検索</a><a href="../../resources/">リソースディレクトリ</a><a href="../../directory/">グローバルインデックス</a><a href="../../knowledge/">オープンソースマップ</a><a href="../../instituteos/#public-export-gate">パブリックエクスポートゲート</a><a href="../../directory/#official-pages">公式ページ</a><a href="../../resources/#research">研究参照</a><a href="../../#audience-pathways">オーディエンス・パスウェイズ</a></div>
+      </div></nav>
+    <div class="site-search" role="search">
+      <input type="search" id="site-search-input" placeholder="Active Inference Instituteを検索する" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="サイトを検索" aria-controls="site-search-results" aria-expanded="false">
+      <div id="site-search-results" class="site-search-results" role="listbox" aria-label="検索結果" hidden></div>
+    </div>
+    <details class="lang-switcher">
+      <summary aria-label="言語を選択" title="言語を選択"><span class="lang-globe" aria-hidden="true">🌐</span><span class="lang-current">JA</span></summary>
+      <div class="lang-menu" role="menu" aria-label="言語"><a role="menuitem" hreflang="en" lang="en" href="../../../video/modelstream-012-1/">English</a><a role="menuitem" hreflang="es" lang="es" href="../../../es/video/modelstream-012-1/">Español</a><a role="menuitem" hreflang="fr" lang="fr" href="../../../fr/video/modelstream-012-1/">Français</a><a role="menuitem" hreflang="de" lang="de" href="../../../de/video/modelstream-012-1/">Deutsch</a><a role="menuitem" hreflang="pt" lang="pt" href="../../../pt/video/modelstream-012-1/">Português</a><a role="menuitem" hreflang="it" lang="it" href="../../../it/video/modelstream-012-1/">Italiano</a><a role="menuitem" hreflang="ru" lang="ru" href="../../../ru/video/modelstream-012-1/">Русский</a><a role="menuitem" hreflang="zh" lang="zh" href="../../../zh/video/modelstream-012-1/">中文</a><a role="menuitem" hreflang="ja" lang="ja" href="./" aria-current="true">日本語</a><a role="menuitem" hreflang="ko" lang="ko" href="../../../ko/video/modelstream-012-1/">한국어</a><a role="menuitem" hreflang="hi" lang="hi" href="../../../hi/video/modelstream-012-1/">हिन्दी</a><a role="menuitem" hreflang="ar" lang="ar" href="../../../ar/video/modelstream-012-1/">العربية</a></div>
+    </details>
+    <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="このページをご覧ください。" title="このページをご覧ください。"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
+    <div class="accent-control">
+      <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="ハイライト色を選択" title="ハイライト色を選択"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
+      <div id="accent-menu" class="accent-menu" role="menu" aria-label="Highlight color" hidden>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="red" aria-checked="true" aria-label="Red highlight (default)" title="Red"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="amber" aria-checked="false" aria-label="Amber highlight" title="Amber"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="green" aria-checked="false" aria-label="Green highlight" title="Green"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="teal" aria-checked="false" aria-label="Teal highlight" title="Teal"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="blue" aria-checked="false" aria-label="Blue highlight" title="Blue"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="violet" aria-checked="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="magenta" aria-checked="false" aria-label="Magenta highlight" title="Magenta"></button>
+      </div>
+    </div>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="テーマを切り替える" aria-pressed="false" title="ライト/ダークテーマの切り替え"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
+  </header>
+  <main id="main">
+    <p class="mt-notice" role="note"><span aria-hidden="true">🌐</span> このページは機械翻訳によって英語から日本語に翻訳されました。 <a href="../../../video/modelstream-012-1/" hreflang="en" lang="en">英語のオリジナルをご覧ください。</a></p><section class="page-hero compact">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../">Videos and Podcasts</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">An Active Inference Model of the Optimism Bias</span>
+    </nav>
+    <p class="eyebrow">ModelStream #012.1</p>
+    <h1>An Active Inference Model of the Optimism Bias</h1>
+    <p>Jun 27, 2024 · with Beth Fisher, Jakob Hohwy</p>
+    <a class="button primary" href="https://www.youtube.com/live/u0y-NFl8emU" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a>
+  </section>
+
+  <section class="content-band muted">
+    <div class="resource-grid compact-grid">
+      <article class="info-card">
+        <h3>Session details</h3>
+        <p><strong>Date:</strong> Jun 27, 2024</p>
+        <p><strong>Series:</strong> ModelStream #012.1</p>
+        <p><strong>Guests:</strong> Beth Fisher, Jakob Hohwy</p>
+
+      </article>
+      <article class="info-card">
+        <h3>Watch and follow up</h3>
+        <p><a href="https://www.youtube.com/live/u0y-NFl8emU" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a></p>
+        <p><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_012" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a></p>
+        <p><a href="../">← Back to video library</a></p>
+      </article>
+    </div>
+
+  </section>
+
+
+  <section class="content-band" id="transcript">
+    <div class="section-heading">
+    <p class="eyebrow">Transcript</p>
+    <h2>AI-generated transcript excerpt</h2>
+    <p>The full transcript is available on GitHub. This excerpt is generated by automated speech recognition and may contain errors.</p>
+  </div>
+    <div class="transcript-block">
+      <p>all right hello and welcome it is June 27th Z UTC 2024 and we are in active inference model stream number 12.1 with Beth fiser and yaka howi so we will have a presentation and a discussion on an active inference model of the optimism bias so thank you both for joining and Beth to you for the presentation great thanks Daniel um yep so I'm Beth and I'm going to talk about work we've just put out as a pre-print and active inference model of the optimism bias and this is work we've done along with Chris White who I think a lot of you will already know or read some of his work and yeah we're here in Australia at the Mones Center for Consciousness and contemplative studies and this is part of my PhD project so I'm doing my PhD with yako so what I'll do is I'll first of all give a bit of of an overview of what the optimism bias is and why this is interesting to study why I'm interested in it I'm then going to talk a bit about um the field of computational Psychiatry so I'm using active inference not so much in a way to like to understand the nitty R of active inference but more as an application as a tool in computational Psychiatry so I thought it would be helpful to explain how we can use these models in in these kinds of settings and and the purpose of why I'm using these models then I'll go through the simulations uh that we have in the paper and then just some conclusions so the optimism bias is a cognitive bias where our expectations are better than reality and what's interesting about the optimism bias is that you might think in order to make the best decisions in life and have the best life outcomes you should represent information as it is in reality and not have expectations that are better than reality but the optimism bias shows us that if we think things are better than they are and overestimate the likelihood of good things happening we have all these better life outcomes so people who are optimistic have a lower risk of all CA ality and reduce risk of cardiovascular disease they have decreased fatigue and chronic illness and they engage in more self-care behaviors there's even this really cool study that showed that people who are optimistic had improv cognitive functioning following a traumatic brain injury um optimists they just earn more money they have better immune systems and they just have less anxiety and worry um overall so why would it be that being optimistic and thinking things are better than they are leads to all the these positive things so to explain that I'm going to go through an example so imagine here you're someone who holds the reality beliefs so in reality it's true that 50% of marriages end in divorce if you work out you reduce your risk of heart disease by 14% And if you eat well you reduce your risk of cancer by 10% but then imagine that you're someone who's optimistic so if you're optimistic you might think no only 10% of marriages and in divorce if I uh work out I'll reduce my risk of heart disease by 40% and if I eat well I'll reduce my risk of cancer by 30% so if we hold these optimistic beliefs we're going to be way more likely to do these things so we'll be more likely to eat well we're going to be more likely to work out we're going to be more likely to go out there with the hope of finding a partner and although not everything will work out for you because the reality statistics are there on the left by going out and engaging in more activities and things in life we we increase our chances of some things working up it's like the idea of minimizing the risk of missed opportunity if I do go out there and work out and go to parties and eat well and all these things I'm going to have more likely chance of some of them working out than if I just stay at home and don't do anything so being optimistic increases our engagement in the world and this overall is a positive thing that can lead to all these health benefits so if optimism is really good for all these things what is the connection…</p>
+    </div>
+    <p class="section-link"><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_012/transcript.txt" target="_blank" rel="noopener noreferrer">View full transcript on GitHub ↗</a></p>
+  </section>
+
+  <section class="content-band" id="related">
+    <div class="section-heading">
+    <p class="eyebrow">Continue</p>
+    <h2>More from the video library</h2>
+    <p>Browse the complete library or find more sessions in this series.</p>
+  </div>
+    <div class="link-chips">
+      <a href="../"><span>All videos</span></a>
+      <a href="../../activities/"><span>Activities</span></a>
+      <a href="../../learning/"><span>Learning</span></a>
+    </div>
+  </section>
+  </main>
+  <footer class="site-footer">
+    <div>
+      <strong>Active Inference Institute</strong>
+      <p>アクティブインファレンスに関連する教育、研究、トレーニング、およびアプリケーションを支援する参加型オープン科学研究所。</p>
+    </div>
+    <nav class="footer-links" aria-label="フッター">
+      <a href="../../about/">アクティブインファレンス研究所について</a>
+      <a href="../../projects/">プロジェクト</a>
+      <a href="../../programs/">プログラム</a>
+      <a href="../../directory/">ディレクトリ</a>
+      <a href="../../resources/">リソース</a>
+      <a href="../../knowledge/">オープンソースマップ</a>
+      <a href="../../get-involved/">参加する</a>
+      <a href="../../search/">検索</a>
+      <a href="../../sitemap/">サイトマップ</a>
+      <a href="mailto:blanket@activeinference.institute">blanket@activeinference.institute</a>
+    </nav>
+    <div class="social-links" aria-label="検証済みの公開リンク">
+      <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="build-stamp">v4.0.0 · build 1f0e21cd09cd</p>
+  </footer>
+  <script src="../../../assets/js/theme.js" defer></script>
+  <script src="../../../assets/js/accent.js" defer></script>
+  <script src="../../../assets/js/tts.js" defer></script>
+  <script src="../../../assets/js/site.js" defer></script>
+  <script src="../../../assets/js/search-data.js" defer></script>
+  <script src="../../../assets/js/search.js" defer></script>
+</body>
+</html>

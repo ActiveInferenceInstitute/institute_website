@@ -1,0 +1,25 @@
+{
+  "id": "gueststream-003-1",
+  "title": "Active Inference, VR, and Psychedelics",
+  "series": "GuestStream",
+  "number": "#003.1",
+  "date": "2021-04-07",
+  "youtubeUrl": "https://youtu.be/YS2X_oW6NrM",
+  "youtubeId": "YS2X_oW6NrM",
+  "guests": [
+    "Sarah Hashkes"
+  ],
+  "types": [
+    "Presentation",
+    "Dyad"
+  ],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hello and welcome to the active inference lab this is active inference guest stream number 3.1 and we're really excited to be here today with sarah haskis we are going to be talking about as the title slide suggests active inference vr and psychedelics so sarah i'll leave it to you to just introduce the topic yourself and the ideas however you want and it sounds like we're going to be having a first section of the presentation then a question and answer and then a second section of the presentation and then we're going to have a second overall discussion so with that kind of structure in mind just uh introduce yourself and please take it away hi everyone so yeah we're going to be talking first about my research in vr inactive in france and then my research in psychedelics and how it relates to a few issues about active inference and we'll have a short break in the middle of our questions so uh yeah my name is sarah hashquist i have a master's degree in cognitive neuroscience i opened the first vr lab in the motor control department at radboud um where i was researching vr's effects on our brain body connection within the predictive coding framework i am now ceo of radix motion we're a startup that combines neuroscience and immersive technology and uh we're focusing on empowering the psychedelic ecosystem with embodied tech so yeah let's get right to it a lot of this is uh basically all of this lectures based on my research from academia it was pretty nice to go back and and reread all the things uh from 2017 but uh before i actually get into it i'd like to activate our active and friends and a very short interactive experience so wherever you are especially if you've been sitting a lot i actually suggest you stand up um and hopefully you can see my hand on the screen and i'm gonna ask you to put your hand in front of my screen and just follow it for a few minutes moments how about do it with your mouse move your mouse yes okay we can do that too if you can see the oh you oh i see you're not seeing my face in this okay yeah so follow the mouse uh for a few seconds uh and see if you can track this so what just happened here so okay i gave you a auditory um instruction that hit your brain and created a goal a top-down prediction um that you were supposed to well you didn't see my hand using my mouse but uh basically that prediction was that the position of your hand to the mouth should be the same position the difference should be zero um now uh your eyes were then giving you bottom up sensory input um that were telling you oh there's this difference between the mouse and the hand and due to active inference wanting to minimize this prediction error your hand was moved towards the mouse so this is a very simple example of active inference and this follow me um instruction and activity is really quite basic for how we learn motor skills as children and you can see this in the way kids play games if it's simon says or you know patty cake and the way children's look to their adult figures to actually copy them and learn movement patterns and just follow me example was part of the research i was doing so we'll get into that so what exactly was i trying to do well i was really hoping that if i could receive visual cues from inside of a body of a professional mover i would be able to activate this active inference ability of my brain and actually improve my movements i have a background in martial arts and dance but i'm actually from childhood a very clumsy human that took me really really i guess a lot longer to learn motor skills and i was looking for a way to hack this and i kept dreaming oh if i could just be inside the body of my martial arts teacher would i be able to punch like him would my body learn to adapt and move faster and more accurately because i wouldn't be receiving this prediction that i am actually him so um this is sort of where i started uh um exploring how i could research this now why would i even think it's…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_003/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_003"
+}

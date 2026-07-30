@@ -18,7 +18,7 @@
   // src/render/search.mjs's buildSearchIndex() never emits a "Process"-category
   // entry. Do not re-add it here without also adding process entries to the
   // index — that would be a governance/privacy regression, not a fix.
-  var GROUP_ORDER = ["Page", "Repository", "Concept", "Policy", "Person"];
+  var GROUP_ORDER = ["Page", "Repository", "Concept", "Policy", "Person", "Video", "Event"];
 
   function escapeHtml(value) {
     return String(value).replace(/[&<>"]/g, function (char) {

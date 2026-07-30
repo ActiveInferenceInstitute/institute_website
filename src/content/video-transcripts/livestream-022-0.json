@@ -1,0 +1,24 @@
+{
+  "id": "livestream-022-0",
+  "title": "Psychophysical identity and free energy",
+  "series": "Livestream",
+  "number": "#022.0",
+  "date": "2021-05-13",
+  "youtubeUrl": "https://youtu.be/bNB-7nQDdwM",
+  "youtubeId": "bNB-7nQDdwM",
+  "guests": [
+    "Alex Kiefer"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-gestalt"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hello and welcome everyone to actin flab this is actin flab live stream number palindromic 22.0 it's may 13th 2021 and this should be a really fun discussion just to introduce ourselves at the beginning i'm daniel i'm a postdoctoral researcher in california and i am joined by oh i'm dean i'm from calgary i'm retired and uh i'm i'm kind of new to this active inference thing but i'm trying to keep up i'm blue knight i'm an independent research consultant based out of new mexico nice so thanks to both of you so much for helping a lot on the slides and giving insights and we're all going to be sort of working through this together because there's a lot of big ideas that are going to come up in this discussion and then we're going to have the next two weeks with alex kiefer the author and other participants on the dot one and dot two streams so we're just gonna be surfacing probably more questions than answers today welcome to actinflab we are a participatory online lab that is communicating learning and practicing applied active inference you can find more information at these links this is a recorded in an archived live stream so please provide us with feedback so that we can improve on our work all backgrounds and perspectives are welcome here and we'll be following good live stream etiquette we're preparing and setting the context for the discussions on may 18th and may 25th 2021 where we'll be discussing the paper psychophysical identity and free energy which is a paper in 2020 by alex keefer and just like the other dot zeros this is a context and a background and just an initial stab it's not a review paper it's not authoritative this is us unpacking and exploring as we read the paper in preparation for the group discussions and similar to some of the other dot zeros we're going to start out with in the author's own words what are the aims and claims as well as abstract and roadmap and then we're going to ask some big questions we're going to talk about why it matters which is hopefully a discussion that includes everyone and then we're going to meander through some quotes from the paper some formalisms some related reading just a few ideas that we actually brought in during our learning process to help connect the dots because the paper is really like the tip of an iceberg and there's a long history of information and thermodynamics and that's even before you get to everything with the free energy principle so we hope that this will be a educational experience whether you're familiar with active inference and just learning about thermo or vice versa or not familiar with either any overarching thoughts that either of you would like to bring up before we jump in nope all right so i'll read the first aim of the paper and then either of you would be welcome to give a thought the target thesis of the paper is the claim that biological systems whose internal states come to encode statistical models as a result of spontaneous self-organization in response to environmental pressures learn and make use of these models by minimizing their physical free energies the identity thesis which is that yellow highlighted section does not specify precisely which approach to variational inference is thereby implemented or the minimum value the variational free energy must take it may be there may be for example that biological systems run an algorithm closer to contrast of divergence than simulated annealing so a lot of terms maybe first time hearing it or not but what's something that draws either of you or made you curious to read about the paper well for me it was it was contrasted with a contrastive piece it was the idea that in order for this any any kind of a modeling effort to work you can't start out by knowing you have to kind of have a bit of a fuzzy idea before there's anything that's edgy cool and the sec blue yeah so the second piece of the aims and claims here and very timely what is exciting about an identity thesis in 2020 and…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Livestream/LiveStream_022/transcript.txt",
+  "paperTitle": "Psychophysical identity and free energy",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Livestream/LiveStream_022"
+}

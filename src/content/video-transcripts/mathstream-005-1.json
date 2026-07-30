@@ -1,0 +1,24 @@
+{
+  "id": "mathstream-005-1",
+  "title": "Topological Deep Learning: Graphs, Complexes, Sheaves",
+  "series": "MathStream",
+  "number": "#005.1",
+  "date": "2023-07-17",
+  "youtubeUrl": "https://www.youtube.com/watch?v=QqEp4jtaQ2E",
+  "youtubeId": "QqEp4jtaQ2E",
+  "guests": [
+    "Cristian Bodnar"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-category-theory"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello and welcome. It's July 17th, 2023. We're here in Active Inference Math Stream number 5.1 with Chris Bodnar on topological deep learning, graphs, complexes, and sheaves. So thank you for joining, Chris. Looking forward to your presentation and discussion. Yeah, thanks. Thanks all for having me. So yeah, as I was just saying, this is my PhD thesis, which I finished a couple of months ago. It's also kind of a public online. So, you know, if you want to go into the details, just kind of look this up on the internet and you should be able to find it easily. Obviously, there's lots of stuff in there. So I kind of try to give an overview today and maybe also go in a little bit more detail in certain aspects, since there's not a lot of time to go through everything. So now I'm a Microsoft researcher. So this is some basic old work that I did in the past and when I was at University of Cambridge. All right. So let's get started. Right. So let's start very easily. Now I'm actually not sure exactly what's kind of the background of the people who are watching, but in machine learning, there's all these kind of subfield that emerged a few years ago, which is called geometric deep learning, which is essentially looking at how to apply these kind of deep learning neural network architectures on data, living on all sorts of, you know, kind of structures or geometries or spaces, if you want. And this has a lot of applications, especially in the life sciences. And there's kind of been a lot of instances of this in kind of, you know, very famous publications, I don't know, which you see here, but, you know, just to give some examples, for instance, if you have proteins or molecules or things like that, they usually represent it as graphs. And you kind of have some data living on these graphs, like kind of the properties of certain atoms and so on. So, so these kind of things. And so far, these kind of spaces or these kind of problems, learning problems, if you want, they have been approached mostly kind of with a geometrical mindset, as the kind of name of the of the subfield also mentions. But something that, you know, I would argue is that geometry is not everything that you need. And there's kind of other non geometrical aspects when you are in such a setting. And this is kind of quite obvious once you realize that the spaces that kind of show up in in the field and in many applications, they are very heterogeneous. So as I mentioned, for instance, you could have graphs that, you know, could represent anything in this case, it's the caffeine molecule that you see here on the left. And you want to, you know, have some models that predict certain properties of this molecule and so on. But for instance, you can have grids, and we see grids all the time, and data living on grids and are referring to images, videos, they are all kind of, you know, pixels living on a grid. And then you can have more sophisticated things, you could have some meshes, for instance, they're all over in computer graphics, and then you could have some sort of manifold. So for instance, if you're doing maybe weather modeling or something, you're, you know, we live on a sphere, topologically speaking. So you might want to model your data as living on a sphere, and so on. But nonetheless, even if these spaces are kind of geometrically kind of heterogeneous, and some of them don't even have a geometrical structure in kind of a strict mathematical sense, they all have what's called a topological structure, which is kind of like, kind of a weaker kind of structure. But it's kind of more general. And I'm going to talk a bit, in a few seconds about what that means. But in general, when you do kind of mathematical physics, you kind of have a ladder of structures where kind of, you know, you kind of keep building on top. And the more structure you have, the more sophisticated things you can do, and so on. And kind of at the basis of this diagram, just the sets, just kind of…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/MathStream/MathStream_005/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/MathStream/MathStream_005"
+}

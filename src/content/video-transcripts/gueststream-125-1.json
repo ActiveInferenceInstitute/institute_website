@@ -1,0 +1,24 @@
+{
+  "id": "gueststream-125-1",
+  "title": "From Charles Darwin’s “Root Brain” to Nikola Tesla’s “6G World Brain” and XAI-native 6G Networks",
+  "series": "GuestStream",
+  "number": "#125.1",
+  "date": "2025-12-17",
+  "youtubeUrl": "https://www.youtube.com/live/LmgPFAlNHNQ",
+  "youtubeId": "LmgPFAlNHNQ",
+  "guests": [
+    "Nika Hosseini",
+    "Martin Maier",
+    "Osman Tugay Bosaran"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": false,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello, welcome everyone. It is Active Inference Guest Stream 125.1 on December 17th, 2025. And we are with a group of researchers who will each present in sequence, presenting on from Charles Darwin's root brain to Nikola Tesla's 6G world brain and XAI native 6G networks. So Martin, Nika, Osman, thank you all for joining and looking forward to your presentation. To you, Martin. Thank you. Thank you, Daniel. So thanks for having us. So this is a co-presentation of three speakers. I will go first, followed by Nika and Osman. Just let me see. Okay. So I will draw the big picture. So the overarching goal is to realize an AGI, standing for Artificial General Intelligence, native 6G world brain. Of course, using Active Inference, Nika will elaborate on the superiority of Active Inference compared to Generative AI. And finally, Osman will show some ideas how to exploit Active Inference for realizing explainable AI. So the vision of a world brain goes back to Tesla, Nikola Tesla, who made this famous prophecy, when wireless is fully applied, the Earth will be converted into a huge brain. This has been standing there for decades. The point is that with emerging 6G and beyond technologies, we are now close to realizing his prophecy. Enabling technologies such as joint sensing and communication give rise to distributed sensing environment, which together create this perception arcs, this sensing arc. Similar to Active Inference, there will be also a loopback, an action arc. And there is a lot of research currently going on. I just mentioned two buzzwords. It's about AI embodiment and agentic AI. So there needs to be research to be done. But once this is done, you can see that this AGI native telecom brain creates a gigantic action perception loop similar to Active Inference. This AGI native telecom brain has been proposed in this, in this, sorry about this background noise. In this paper, you can find it on IEE explore. These are leading 6G scientists. The interesting part is in this paper, the term active inference is not mentioned once. Likewise, Carl Fristen is not mentioned once. These are stellar researchers but completely unaware of active inference. Of course, we follow a different approach. We apply active inference and couple it with a number of other strategies such as MIT's human AI strategy, which in a nutshell simply asks this question. So what would happen if we replace AI neurons with people? Keep in mind, we want to build a gigantic world brain. And it's not only humans, but also so called hyperintelligent cybernetic organisms which will emerge from existing AI systems in the coming age of hyperintelligence. The good news is that these cybernetic organisms will not compete with us humans, but live in a mutually beneficial symbiosis with us human beings. And because they are so superior, they will consider us humans as we now regard plants. This sounds like bad news, but actually it's an invitation for us to explore this so-called evolutionary continuum of human, and this is the official term from ecologists, more than human intelligence. An example is the so-called Wood White Web. But this term, Wood White Web, made some waves back in the 90s when it was published in Nature, a more technical term is mycorrhizal networks. This goes back to two Greek terms. Rhizal, that means roots, and myco, that means fungi. So these are two different species which live in symbiosis. Symbiosis comes in a number of different flavors. It can be negative, such as parasitism, as well as mycorrhizal networks. But mycorrhizal networks realize a mutually beneficial mutualism type of symbiosis. So this symbiotic flora-fungi mutualism forms a new research field in biology. It's highlighted down here. So it's all about decentralized exchange of information, resources, and exchanging reciprocal rewards to create a community and resilience underground of all forests. And you have these roots underground, and of course roots of different trees are…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_125/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_125"
+}

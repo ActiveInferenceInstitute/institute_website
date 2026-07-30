@@ -1,0 +1,24 @@
+{
+  "id": "gueststream-019-1",
+  "title": "Extended Predictive Minds: do Markov Blankets Matter?",
+  "series": "GuestStream",
+  "number": "#019.1",
+  "date": "2022-03-25",
+  "youtubeUrl": "https://youtu.be/e_JGrt4jbhE",
+  "youtubeId": "e_JGrt4jbhE",
+  "guests": [
+    "Marco Faccin"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-extended-cognition"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello, everyone. Welcome to ActInflab guest stream number 19.1. It's March 25th, 2022. And we are here with Marco Fackin. And we are going to be discussing the recent paper, Extended Predictive Minds, Do Markov Blankets Matter? So if you're watching live, please feel free to put comments or questions in the live chat and hopefully we can address them. And Marco, really appreciate you joining. Looking forward to hearing about this paper and your lines of research. So it would be awesome to hear an introduction and take it away. Okay. Hi, everyone. So I'm Marco Fackin. I actually am a PhD candidate in Italy. And the paper basically is an attempt to understand what was going on in the active inference literature with the externalism, internalism debate from a philosophical perspective. So I studied philosophy for the most part. I'm not super mathematical savvy. And I have basically a background in embodied extended cognition. And I stumbled upon the papers by Hoey or Amstead and other. And I wanted to understand what was going on with the Markov Blanket talk. And so I wrote a paper about it to understand what was going on. And to try to suggest that maybe that much emphasis on Markov Blanket is a bit misplaced. And yes, that's it for a general introduction for the paper, I think. And then I'm here for any question or any doubt or anything. Okay, cool. So maybe I'll just ask some questions and we'll just see where it goes. For somebody who was unfamiliar with extended cognitive processes or the state of the art, maybe outside of active inference, just what is this area? How are people looking at it outside of the active inference, FEP angle? And like, what is the contemporary state of that area? So, okay. So the extended cognition stuff, say officially is something that spawned out of paper by Clark and Chalmers in the early 2000s, basically. And their original idea was, as I understand it at the beginning, the first time I was going to say, is that sometimes at least you interact with the environment in a way such that part of cognition happens in the environment itself. So my go-to example is using pen and paper to do math. And when you use pen and paper to do math, you write down partial results. And that scrap of paper is working as a piece of your working memory. It's just that it's not inside your brain. And so that was basically the original idea. And from that, there has been a rich elaboration with people like Richard Minari suggesting that actually, DDD, we should think of extended cognitive processes as processes that transform our cognitive capacities is not just more stuff, more memory, more symbols, but new stuff, new capacities, new symbols, new cognitive processes that take place in the interaction in between the subject and the environment. So we have that line of research. And then you have a more, say, say, an active line of research that tends to stress the idea that basically all cognition takes place in the world interacting with affordances or interacting with your surrounding environments. But I'm not super expert on that line of research and the extended minor a bit more conservative. So DDD punchline would be this, that sometimes stuff in the external world really is in the most literal sense possible, a cog of the machinery that does your thinking. That is the clearest and in the most forceful way in which I'm able to put it the idea of the extended mind. And of course, sorry, once you have this idea on the table, the question is, okay, but where, when, where does it stop? Is pen and paper is in, but I don't know, are our cell phones in? Are our books in here at my left? You might not be able to see it, but there is a big library with a lot of books I read. Are all those books part of my memory? Probably not. But you need some sort of boundary. And that's you for Mark of Black, of course. So, I'll leave it back to this. Excellent. Well, I like this, how you said it was like a cog and it's kind of like…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_019/transcript.txt",
+  "paperTitle": "Extended Predictive Minds: do Markov Blankets Matter?",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_019"
+}

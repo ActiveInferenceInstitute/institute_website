@@ -1,0 +1,25 @@
+{
+  "id": "active-inference-for-the-social-sciences-basics-of-actinf-lecture",
+  "title": "Basics of ActInf (Lecture) — Course home",
+  "series": "Active Inference for the Social Sciences",
+  "number": "— Basics of ActInf (Lecture)",
+  "date": "2023-07-11",
+  "youtubeUrl": "https://www.youtube.com/watch?v=BNLnbOFdgc0&list=PLNm0u2n1IwdoE8kkRwf1B6o4qhrbVcyFw&",
+  "youtubeId": "BNLnbOFdgc0",
+  "guests": [
+    "Ben White"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-emotion",
+    "term-perceptual-inference"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "All right. Hello and welcome everyone. It is July 11th, 2023. We are in active inference for the social sciences. And today is going to be a lecture by Ben White on basics of active inference, the active inference agent. So Ben, thank you for the lecture. Off to you. And we're looking forward to it. Thank you very much. Yeah, me too. I'm very happy to be a part of this, to be kicking things off with the first module on this course. I'm going to be talking about the active inference agent and trying to cover some of the basics. I won't take too long introducing myself. Avel gave a very thorough introduction in his talk recently, but I'm a second year PhD student in philosophy at the University of Sussex. And I work with Andy Clark and with Avel and some other people using active inference to try and find things out about our relationship with technology and within the context of wellbeing and mental health. The aims for today, I'm going to try and provide quite a wide ranging overview of how active inference has connected with areas of philosophical interest and particularly how they relate to the individual agent and the experience of the agent and how the agent finds themselves in the world. So I've split this up to look at several different defined topics. So I'm going to move quite quickly through mind, agency, emotion, and phenomenology. And I'm going to say a little bit about the self as well. And then there's going to be a case study at the end that I'm going to move through if we have time. So one of the other aims that I have is to lay out very clearly some of the core concepts and core mechanisms like precision weighting and prediction error and generative models. I'm not going to go into any technical details whatsoever. This is all going to be fairly abstract. My background and my interest in these frameworks is philosophical. So it's quite, quite abstract in terms of how everything fits together. And I'm going to try and bring some of these threads together to, to build up a layered picture of what the active inference agent is like, because this course is kind of aimed towards seeing how active inference applies to larger scales, collective behavior, social norms, socio-cultural landscapes. And I think in order to do justice to those things, we need to first have a good idea of the individual in active inference. So we've got our work cut out for us. So I'll get started. So before I dive in, I wanted to just say a little bit about how these frameworks hang together. So active inference is based on Carl Friston's free energy principle. I think most of us are familiar with that, but it's the free energy principle just states that in order to persist through time, biological organisms must occupy only those states that it would expect to occupy given the type of thing that it is. So free energy is essentially a measure of the disattunement between a system and its environment. And I'm going to say, say a little bit more about attunement and how that gets cashed out in various ways as we go on. Active inference is a process theory that essentially explains how embodied organisms actually go about remaining in those expected states. So how we actually go about minimizing free energy. And the idea is that all adaptive behavior is explained by agents garnering evidence to confirm their own expectations. And predictive processing, for the purposes of the lecture today, I'm going to treat these as synonymous because most of the work that I kind of came up through as I was learning about this was predictive processing. And all of the papers that we're using today that refer to predictive processing refer to a predictive processing that I take to be more or less synonymous with active inference. So that's a very embodied inactive flavor of predictive processing. I think generally the difference is that predictive processing can be a much broader term and predictive processing can also apply to passive models of perception,…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Other/BNLnbOFdgc0/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Other/BNLnbOFdgc0"
+}

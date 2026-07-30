@@ -1,0 +1,27 @@
+{
+  "id": "chris-fields-physics-as-information-processing-2023-lecture-3",
+  "title": "Lecture 3 — Course information",
+  "series": "Chris Fields ~ Physics As Information Processing ~ 2023",
+  "number": "Lecture 3",
+  "date": "2023-07-13",
+  "youtubeUrl": "https://www.youtube.com/watch?v=TOZp_XNYijQ&list=PLNm0u2n1Iwdq0UnnnnkUr446lUz00x6E7&",
+  "youtubeId": "TOZp_XNYijQ",
+  "guests": [
+    "Chris Fields"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-environment",
+    "term-free-energy-principle",
+    "term-observer",
+    "term-representation"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello and welcome everyone. It's July 13th, 2023. We're here in Physics as Information Processing with the third lecture by Chris Fields. So please check out the course website, the platform document, where you can submit questions, check out the recordings and descriptions of all sessions and register if you want to participate in one of the discussion sections. So thank you again, Chris, to you. Thank you and welcome to Physics as Information Processing session three, which is about quantum reference frames. So in this course, we've talked about quantum information theory, which we characterized as a general theory that describes the exchange of information, exchange of finite information, between two finite agents that are separated by some boundary. And we've emphasized that this is a topological theory, not a geometric theory. So it makes no assumptions about an embedding spacetime. And last time, we showed how to characterize this boundary of script B as an array of N, some finite N quantum bits or qubits, and how to characterize the interaction of the agents A and B with the boundary as an alternating cycle of preparing and measuring these qubits in this array. And we showed that their interaction could be represented as a sum of operators, each of which act on just one of the qubits. And we also talked about the need for each of the agents, A and B, to choose a reference frame for their interaction with the qubits that defined which way was up. So what the orientations of the qubits meant. And emphasized that the two observers, A and B, could choose different reference frames, so different ways of measuring and preparing their qubits that use different meanings for the idea of up for each qubit. And we ended the last session with a pointer forward toward the quantum formulation of the free energy principle, which can be stated as the claim that interacting systems behave in a way that aligns their reference frames. And I'll point it out at that time, and I'll point it out at that time, that what this means is that the two agents, A and B, approach entanglement asymptotically, and that therefore the FEP is a classical limit of the principle of unitarity, which is the core principle of quantum theory. So we'll see in this session why this is true. So what we'll talk about today is what reference frames are in general, how they make observations and actions meaningful, so how they give physics a semantics. And then we'll talk about the free energy principle. So what is a reference frame? The idea that physics involves reference frames goes back at least to Galileo, but was probably familiar well before that, just not formalized in the way that Galileo formalized it. So the key idea can be thought of in terms of motion. And you're all familiar, for example, with riding a bicycle or driving a car and seeing the world as if it's passing by you at some velocity, with some velocity. And of course, with respect to the world, you're passing by it with some velocity. And this idea that velocity is not absolute, but that's relative to some observer who measures it in some reference frame is the foundation for theories of relativity. So Galileo developed his theory of relativity, which basically was just a way of converting from classical velocities measured by one observer to classical velocities measured by another observer that was moving with respect to the first one. And this provided the foundation for Einstein's theories of relativity, which modified Galileo's by adding the concept that the observers have to change, exchange information, and can only exchange it at the speed of light, which is finite. So this idea in physics has a long history. Of course, the core idea is that measurements are always with respect to something or other. And the something or other is a reference frame. And different agents can choose different reference frames. And this idea is very old. Here we have a picture of Anubis choosing a feather as the…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Other/TOZp_XNYijQ/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/Courses/PhysicsAsInformationProcessing_ChrisFields"
+}

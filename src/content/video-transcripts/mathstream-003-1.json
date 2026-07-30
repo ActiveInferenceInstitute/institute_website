@@ -1,0 +1,26 @@
+{
+  "id": "mathstream-003-1",
+  "title": "Shanna Dobson et al.",
+  "series": "MathStream",
+  "number": "#003.1",
+  "date": "2021-06-09",
+  "youtubeUrl": "https://youtu.be/bBE2w_BpuAw",
+  "youtubeId": "bBE2w_BpuAw",
+  "guests": [
+    "Shanna Dobson",
+    "Robert Prentner",
+    "Adam Safron"
+  ],
+  "types": [
+    "Group"
+  ],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": false,
+  "hasTranscript": true,
+  "transcriptExcerpt": "SPEAKER_00: All right. Welcome, everybody, and thanks for joining. Today, it is June 9th, 2021, and we're here in ACT-INF Lab Math Stream number 3.1 with Dobson, Safran, Knight, Prentner, and Friedman. Today is going to be a fun discussion. We hope that you're also able to, if you're watching live, ask us some questions because certainly we don't have much planned and would appreciate from that feedback with you. We're just going to jump right into it and by way of introduction and welcome, ask what is Active Inference and how we got here. We're going to go around and give just some initial conditions, initial thoughts on these questions. wherever we're coming from as we sort of converge on this discussion and then we'll just be writing down thoughts and ready to jump in and continue the discussion so who would like to give a first pass on either or both of these questions i could try thank you adam go for it um SPEAKER_03: So for me, active inference is a normative process theory for how a principle of what it takes to exist, the free energy principle, or what it takes to persist, can be realized. And it's what are the things you have to do if you're going to, however you want to say it, outsource your entropy or avoid getting all mixed up in the meat grinder of existence or whatever. What kind of intelligence, what kind of modeling will you need to exhibit to do this? And so in a way, it's for me the answer to the question of what is mind? And potentially with certain versions of it, what is life? And with other versions of it, what is consciousness? And maybe even what is free will? nice big questions and how did you get here i have no idea um i think it all started with an existential crisis when i was young that went on for a very long time um but then i would say i found my way to uh the architect aka carl friston um when i was Basically, through Jeff Hawkins' book on intelligence, I learned about predictive coding, and that was my on-ramp to Carl's work and the rest is history. SPEAKER_00: Awesome. So we heard some big general ideas. What is mind? What is life? Who else would like to go, or I'll give a thought? Blue, want to go for it? SPEAKER_02: Sure. I came to Active Inference through my interest in scaling. So how do you scale processes from very small, like subatomic, to cellular, to organismal, to societal? So that was kind of how I got hooked into the Active Inference framework. And for me, it's a framework that pretty... it gives a pretty good representation of how we tend to represent and think about the world. We predict, we have feedback from, like we predict something will happen, you know, if I turn the thermometer on, if I turn the temperature up, that the heat will go on. So we predict that, we take the action. And if the heat doesn't go on, we have a surprise. And so, you know, then we go, well, what made our model go wrong, right? Like maybe my heater's broken. So it's kind of minimizing the surprise and uncertainty in our interactions in the world. SPEAKER_00: Awesome. Would either of the two of you like to go or? SPEAKER_01: Sure, Shanna, do you want or should I? SPEAKER_05: Go ahead. I'll go after you. Go ahead. SPEAKER_01: okay well so i'm i'm perhaps in some sense the outsider because i'm not um i'm not doing research with active inference but i'm a philosopher my background is in philosophy and i think active inference is a very interesting thing first of course first of course i like this big general questions that adam raised at the beginning what is mind what is life what is consciousness and it's very close to what I normally think about. I'm a philosopher, I'm a bit skeptical whether one could actually answer this big question in a very... But that's a different story. I think active inference is very interesting from a philosophical, historical perspective as well, because it kind of... embodies a tension which ran through philosophy or through the history of thinking, which more or less…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/MathStream/MathStream_003/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/MathStream/MathStream_003"
+}

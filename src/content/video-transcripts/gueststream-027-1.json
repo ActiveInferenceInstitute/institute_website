@@ -1,0 +1,25 @@
+{
+  "id": "gueststream-027-1",
+  "title": "John Vervaeke",
+  "series": "GuestStream",
+  "number": "#027.1",
+  "date": "2022-09-13",
+  "youtubeUrl": "https://youtu.be/Pw2vxMRxF5o",
+  "youtubeId": "Pw2vxMRxF5o",
+  "guests": [
+    "John Vervaeke"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-perceptual-inference"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello, everyone. Welcome. It is September 13th, 2022. We're here at the Active Inference Institute with John Vervecki. So, John, welcome. Thank you for joining. I'm very much looking forward to this conversation. Hello, and to you. Thank you, Daniel. It's a great pleasure being here. I'm looking forward to this. Is there any introduction or hello that you'd like to provide as we head into this journey together? I guess I can give just a little bit of background so people know where I'm coming from. I'm an associate professor at the University of Toronto. I'm I'm appointed both in cognitive psychology and in cognitive science. I teach in both and I am the director of the cognitive science program. So, I do a lot of work integrating, especially psychology and ideas from artificial intelligence, large framework models, philosophical framework models for the nature of the mind. I especially do work on intelligence and consciousness, insight, flow, mindfulness, and wisdom, all centered upon a notion. Well, not a notion, a proposal, a theoretical proposal that I call relevance realization. And perhaps we'll get into that at some point. Into it we go. So, to provide some context, these live streams are multi-directional roads. We're going to be talking about different ideas. For some people, it'll be their day-to-day life and the water they swim in. For other people, it might be their first time hearing about relevance realization or predictive processing or active inference. And so, we always want to make it accessible and also provide depth. So, yesterday in speaking with some other participants at the Institute about how to frame this discussion, I was bringing a notion of a three-legged stool. And the three legs of this stool that provided stability are, again, those relevance realization, predictive processing, and active inference. And then a participant dean said, flip the stool, it's still stable. And so, that led to some discussions of what was the betweenness of these ideas and what were they really doing alone and what did they do together. And we're going to approach that. So, first, we'll be exploring relevance realization and predictive processing in terms of what they are and how you recently connected them in a recent paper. And then we'll bring in active inference as a third guest to the party. But first, what is relevance realization and what is predictive processing? How did you bring those two together in the recent work with Brett Anderson and Mark Miller? So, the two lines were working independently. I first got my first paper officially accepted in 2009. Didn't get published until 2012 because they were holding it back for a special issue that took forever to come out. The reason I mentioned the earlier date is that's before, I think, most of Friston's major publications. And that's just, and I'm not claiming precedent or anything. I'm just claiming independence. I didn't know about his work until after the theory was well developed. And I assume he might even not know of mine even now. And that's fine. So, the idea behind relevance realization is that if you take a look at many different problems within attempts to explain the mind in a non-homuncular, non-question-begging manner, you hit this problem of relevance realization. So, for example, how does categorization work? Well, we notice the two things are similar. What does it mean to say they're similar? Well, logically, it means they share many properties. And then Goodman famously pointed out that any two objects share an indefinite number of true properties. You know, a plumb and a lawnmower both have round shiny surfaces. They're both found in North America. Neither one existed 300 million years ago. Both have an odor. Neither one has a particularly good weapon, et cetera, et cetera, et cetera. And what people will say to me is they can't say those are false because they're all true. They'll say, but that doesn't matter. And that's the move, right?…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_027/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_027"
+}

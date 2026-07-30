@@ -1,0 +1,24 @@
+{
+  "id": "gueststream-071-1",
+  "title": "The empirical status of predictive coding and active inference",
+  "series": "GuestStream",
+  "number": "#071.1",
+  "date": "2024-02-22",
+  "youtubeUrl": "https://www.youtube.com/watch?v=nss0y1P3nso",
+  "youtubeId": "nss0y1P3nso",
+  "guests": [
+    "Ryan Smith",
+    "Marishka Mehta",
+    "Rowan Hodson"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": false,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello and welcome. This is Active Inference Guest Stream 71.1 on February 22nd, 2024, and we're here with Ryan Smith, Rowan Hodson, and Mariska Mehta. There will be a quick overview and then discussion on their recent work, The Empirical Status of Predictive Coding in Active Inference. So thank you all and let's hear about it. Okay, so you just want me to jump in and go? Yeah. Okay, cool. Well, thanks a ton, Daniel, for inviting us on. It's fun to get to present some of this stuff and hopefully get it out to the broader community a little bit. So I'm going to quickly just kind of walk through sections of the paper to orient people to generally what the point is and what we're trying to do. And then at that point, I think the goal is just to kind of launch into discussion and see if we can kind of extract out some of the more interesting points that might be most relevant or interesting to the Active Inference community. So just to start out with here, so the paper, as Daniel said, is called The Empirical Status of Predictive Coding in Active Inference. The main point of this is just that, you know, as a lot of people in this community know, it's, you know, at its kind of beginning and for a long time, you know, like the Active Inference is primarily, so the literature you'll see has been very focused on theoretical sort of conceptual work and simulation-based work, right? So you'll see a lot of things out there that's kind of, you know, an Active Inference model of X, where X is just some interesting psychological phenomena or condition. And usually that involves showing some, you know, fun, interesting simulations that are kind of potential computational explanations for, you know, whatever the, you know, specific phenomenon of interest is. And that work is great, and I think there's been a lot of developments there, but, you know, at a certain point, you know, we can come up with as many theories as we want, but without actually being able to test them scientifically, it's really hard to be able to say with any confidence that these are kind of accurate stories of what the brain's doing, and what are the kind of, yeah, again, like empirically supported theory, you know, what, which of all these different sort of models, the simulations people are proposing sort of actually correspond to what the brain's doing, and whether they can actually explain human behavior. So what we were interested in doing is actually kind of taking a step back and looking at what the, what the empirical studies that have been done using these sorts of modeling approaches, what they actually say, and how supportive the, the evidence actually is for, you know, the hypothesis that the brain is doing things like predictive coding and Active Inference. So that's why it's called the empirical status, right, is we're trying to say, okay, what is the current evidence, and where is evidence missing, right? So what should future work and future studies focus on to, to try to actually, you know, like, like fill in and answer questions and provide additional support, or not for, you know, for, for these theories as hypotheses for what, for what the brain is doing. So to kind of walk you through sections here, so we focused, you know, so people use this umbrella term of like predictive processing, but that's really a fairly vague overarching kind of umbrella term. And so we picked kind of the primary, you know, actually sort of like well-defined algorithms, you know, in, that are most prominent within the, kind of under the predictive processing umbrella, which is predictive coding and active inferences, a kind of well-defined mathematical algorithms that can be sufficiently precise to test empirically. Okay. So the first section is more or less just kind of an introduction that says more or less the sort of thing I just said about predictive coding and active inference being the kind of most prominent, precisely formulated algorithms that the brain might be…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_071/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_071"
+}

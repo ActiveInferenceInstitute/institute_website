@@ -1,0 +1,25 @@
+{
+  "id": "morphstream-001-1",
+  "title": "",
+  "series": "MorphStream",
+  "number": "#001.1",
+  "date": "2023-09-26",
+  "youtubeUrl": "https://www.youtube.com/watch?v=MzYmdBaJIYc",
+  "youtubeId": "MzYmdBaJIYc",
+  "guests": [
+    "David Kappel",
+    "Sarah Hamburg"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-active-inference"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello, everybody. Welcome. It is September 26th, 2023. We are here kicking off a new stream series at the Active Inference Institute. This is the Morph Stream 1.1. Today, we have David Kappel and also this section and streams facilitated by Sarah Hamburg. We're going to have an overview first presented by Sarah, then David will share some work on neuromorphic computing, and then we'll have some time to discuss. So thank you both for joining and Sarah to you for the first presentation and also to introduce yourself if you like. Yes, that's a good idea. Thank you very much, Daniel. So my name is Sarah. I'm a neuroscientist specializing in intelligence, currently working in the field of neuromorphic computing at Sheffield Hallam in the UK. So I'm going to give you a high level overview of what neuromorphic computing is before we hear David's exciting talk in the first edition of this new series. Just to let you know if you're watching on double time in the future, I talk quite fast, so you might not want to watch me on double time. So this QR code I put here will take you to a paper which I thought was a really nice introduction to the field. But neuromorphic computing can be defined as computing systems that are designed to mimic the structure and function of the nervous system. So this doesn't have to be the human nervous system. The field actually takes inspiration from all sorts of animals and insects, although the definitions online don't necessarily acknowledge that. So some people are quite open with what constitutes neuromorphic, while maybe others would prefer neuromorphic was reserved for hardware instantiations of biological like neurons, which are sometimes referred to as non-Von Neumann computers. And I think that's what the paper that the QR code refers to it as, as their definition. So what I think is really interesting is a little bit of the context. So like our current Von Neumann computer architecture was also inspired by neuroscience, and particularly the McCulloch and Pitts 43 neuron model inspired Von Neumann's first draft in 1945. So neuroscience has a long history of inspiring computer science. And this also includes reinforcement learning, which is based on theories about learning decision making from behavioural psychology, based on rewards and punishments, and also Hebbian learning principles of cells that fire together, wire together from 49 became foundational for unsupervised learning. So first of all, hang on one second. So in order to understand the why of neuromorphic computing, I really wanted to explain what's so great about the brain. So here's some inspiration for light bulbs. So I'm going to ask you a question, I just want you to think about it for a second. In terms of light bulbs, how much energy do you think the brain uses? Do you think it's more or less energy than the bulbs lighting the room that you're in? If you're in the future, by all means, pause this, pause this if you want to do some in-depth calculations, but I'm going to skip to the answer. The answer is here in the pink circle. So it's 20 watts. So that's the equivalent of one modern day energy efficient light bulb. So that's probably what's above me now basically in my room here. This QR code should take you to quite an interesting paper on power consumption in the brain if you're interested in that. So that works out about four bananas a day to power your brain. And this is calculated by the way, based on a calorie intake that the brain needs. So for context, the fastest supercomputer in Europe, I think it's called Lumi in Finland. It's been called exceptionally green and its power consumption is 8.5 million watts. So that's around half a million light bulbs. Well, your brain uses just one. So then the question is, well, what does your brain do with that one light bulb or four bananas? Apparently it does 1000 billion calculations per second. So there's lots of other massive estimates out there. This wasn't even the largest by…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/MorphStream/MorphStream_001/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/MorphStream/MorphStream_001"
+}

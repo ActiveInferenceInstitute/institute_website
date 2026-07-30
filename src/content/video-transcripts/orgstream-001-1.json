@@ -1,0 +1,26 @@
+{
+  "id": "orgstream-001-1",
+  "title": "Richard D. Bartlett",
+  "series": "OrgStream",
+  "number": "#001.1",
+  "date": "2021-10-28",
+  "youtubeUrl": "https://youtu.be/bUr87RcOQUQ",
+  "youtubeId": "bUr87RcOQUQ",
+  "guests": [
+    "Richard Bartlett"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-regime-of-attention",
+    "term-shared-generative-model"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "introducing myself i can go on at great length i'll try to be brief um i'm from new zealand that's why my english is weird i currently live in italy though um because i wanted to be connected to everything that's happening in europe um i studied engineering at university so i've got that frame of reference of thinking in terms of systems and modular parts and how things plug together and in the last 10 years i kind of drifted away from technology and that kind of innovation and got more interested in what you might call social technology so how do we organize people what kind of systems support them to work together effectively but with a different set of values that are usually applied in most organizations so instead of for instance prioritizing efficiency or quality or you know how quickly can we deliver stuff i'm interested in some other values which are more like how do people develop as humans how do we create relationships that really make a difference in our lives you know how do we pursue something that feels meaningful and has a positive impact those kind of values and then and then what kind of organizational structures support those kind of outcomes so that's my jam i've done that in lots of different formats so building a startup company working in an entrepreneurial ecosystem which is all self-managed with a couple hundred people and now i do a lot of um i guess designing general purpose community and organizational structures that can be reproduced in lots of different contexts thanks for the intro and i guess here on the slide we have one of your ongoing projects patterns for decentralized organizing just everywhere in there it's pretty cool it's like pattern languages and decentralization and organization all topics that are important inside of active inference as well as outside and in this work as well as in a episode 51 on the jim rutt show you talked about this multi-scale view on social systems so we're going to kind of structure this conversation along this ladder of nested systems or nested processes we might call them nested markov blankets in active inference so maybe could you go over this multi-scale nesting of social structures from the individual on up and why is it important to think about it that way sure so this is a lens that you can put on to understand social physics and it's not um not making any claims about defining reality or something like that but it is a really useful lens to put on to like what is going on in these group dynamics in this organization in this community so the smaller scale of the individual and even at that scale the one person it's useful sometimes to think of a person as a group to think about i'm not just richard i am all of these different tendencies all these different personalities affordances parts there's different parts of me some some of my parts are very enthusiastic and confident and bold other parts are anxious and withdrawn you know there's like all these different tendencies going on and it's interesting and useful to think about the metaphor between like there's a kind of parallel between the way that my parts are related to each other and the way that i relate to other people so there's like a kind of internal relationship going on which is a metaphor for the relationship that i have with you so if i am very um you know constricted and defensive around if i want to disown my anxious parts if i want to pretend like i don't have anxiety and just kind of like remove that whole part if you show up as my friend with anxiety i'm going to be defensive against that too it's like if i can't accept my anxiety i'm not going to be able to accept yours so this is a um a metaphor that's been really fruitful for me and i i kind of came across it through some amateur theorists and friends of mine just thinking about this way and then discovered that actually it's used in um therapeutic context so there's like transactional analysis internal family systems probably a…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/OrgStream/OrgStream_001/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/OrgStream/OrgStream_001"
+}

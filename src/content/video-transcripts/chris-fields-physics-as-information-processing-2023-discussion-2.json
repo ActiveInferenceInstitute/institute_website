@@ -1,0 +1,25 @@
+{
+  "id": "chris-fields-physics-as-information-processing-2023-discussion-2",
+  "title": "Discussion 2 — Course information",
+  "series": "Chris Fields ~ Physics As Information Processing ~ 2023",
+  "number": "Discussion 2",
+  "date": "2023-07-01",
+  "youtubeUrl": "https://www.youtube.com/watch?v=hSj7eOYuZe4&list=PLNm0u2n1Iwdq0UnnnnkUr446lUz00x6E7&",
+  "youtubeId": "hSj7eOYuZe4",
+  "guests": [
+    "Ander Aguirre",
+    "Chris Fields"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-quantum-mechanics"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello, it's July 1st, 2023. We're in Physics as Information Processing in the second discussion. So thanks all for joining. We'll see who else comes in. If you're watching live, feel free to write questions in the live chat and I'll relay them onwards. So Andre, thanks. And it would be awesome to begin with a little bit of some overview and some points that you wanted to get to. Yeah, thank you, Daniel. So good morning, everyone. So if you would start by bringing up a bit cold with Chris's spoke of last time. I have a few slides that I singled out. So now we're getting to reformulation of quantum theory in terms of reformulation of opposed to dynamical theory. And as we've talked in previous sessions, we need to think a little bit philosophically what the ontology of measurement entails. So Chris, last lecture started with these three basic ingredients. So an action, that's number one, a thing to ask about. This is the qubit, the physical degrees of freedom that we need to perturb in some way to ask a question. And then finally, a semantics, a language that makes sense, a context that makes sense of that information that we gather. So I should say, number one, I came up in the first session when, I can't exactly remember, but at some point we talked about what is information. And we came up with, or we brought up a definition that goes something like this. It's a nice adage. It's differences that make a difference. This is, Chris told me, I can't remember who first coined this adage, but I think it's quite old, at least early, early 70s. Anyway, so number one, basically, let's curve that part, right? If I want to gather some information, I need to perturb a system somehow. So I need to act. And this is literally in units of actions, right? So units of energy times time. And he provided the example of rhodopsin, right? Which is apparently near optimal from a quantum perspective. This is mechanically what goes on in your eyes as light comes in. And this is literally the difference that makes a difference in your brain. The second part were the physical degrees of freedom. So recall that we had a boundary, okay? So this theory of quantum mechanics as measurement necessarily breaks down the system into a bipartite system with a boundary. And you are in a boundary, which are a lot smaller than than the degrees of freedom of A and B, at least in terms of the dimension of the Hilbert space. And the other medium change, right? Sorry, can you repeat, Andre? I repeat what? Sorry? Just last 30 seconds. Yeah. So the second ingredient is the physical medium in which this information exchange occurs. So the physical degree of freedom, the qubits are arranged and these are physically perturbed in order to mediate that difference that makes a difference. So we can think of this duly as either preparing those qubits or decoding those qubits. And then finally, there was the notion of the reference frame. Okay. So this theory necessitates a free choice of the agent of a reference frame. And physically, what this amounts to is a free choice of a measurement axis for those qubits. So we can think of measuring Z-spin in those qubits on the boundary. So, you know, that requires a free choice of that axis. And this, you know, amounts to your reference frame, the context in which those measurements are performed. On one extreme case, we have that if those references are perfectly aligned, then the exchange of information is noiseless. There was somewhere over here, I think. I can't quite recall. But generically, these two reference frames of Alice and Bob A and B are not exactly the same. They get to choose the reference frames. I think it's all the way on the bottom, actually. Right? So they can be aligned. If they're aligned, they are exchanging noiseless information. Right? There is no randomness. If they are not superposition, and that's when you're going to get, you know, probabilities in the outcomes, trivial probabilities. So Marcia, good?…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Other/hSj7eOYuZe4/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/Courses/PhysicsAsInformationProcessing_ChrisFields"
+}

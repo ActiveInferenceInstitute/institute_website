@@ -1,0 +1,26 @@
+{
+  "id": "modelstream-017-1",
+  "title": "What's Wrong with Active Inference and How Lazy Dynamics Is Set to Solve It",
+  "series": "ModelStream",
+  "number": "#017.1",
+  "date": "2025-03-21",
+  "youtubeUrl": "https://www.youtube.com/live/pwfJQRN6iIc",
+  "youtubeId": "pwfJQRN6iIc",
+  "guests": [
+    "Albert Podusenko",
+    "Bart van Erp",
+    "Dmitry Bagaev",
+    "Ismail Șenöz",
+    "Bert de Vries"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [],
+  "summary": "",
+  "hasTimestamps": false,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello, welcome everyone. It's March 21st, 2025, and we are here with a bunch of the developers of RxInfer and LazyDynamics. We will be having a presentation followed by a discussion. So, looking forward to everyone's comments here on the panel, and to anyone watching live, looking forward to your questions in the live chat. Albert, to you for the presentation, and thanks everybody again for joining. Hi, hi everyone. Yeah, thanks Daniel for this introduction. Yeah, so for everyone, my name is Albert. I'm a CEO of LazyDynamics, which is a spin-out from Eindhoven University of Technology. And LazyDynamics essentially builds infrastructure for developing adaptive agents, such as active inference agents. And today, I'm pleased to have almost full LazyDynamics team here with me. So, yeah, let's get started. I must say that actually, yeah, this talk is going to be admittedly provocative, perhaps even a clickbait. But, yeah, let's just have some fun here. And actually, I hope that many of active inference practitioners can relate to the pain point I'm about to discuss. So, yeah, now I kind of expect that, yeah, some people won't like the way we pose the question. And, yeah, I'm hoping, I'm actually not going to answer in the way that people might anticipate. Because, yes, active inference is a theoretical framework, which is very elegant and very powerful. But if you look at this from a practitioner perspective, it leaves much to be desired. So, from a framework that claims to be superior to reinforcement learning, that promises to revolutionize AI, that's supposed to explain actually everything from bacterial behavior to human consciousness, what do we see in practice, right? What do people who are getting excited actually see in practice? Well, look at this. Beautiful theory, groundbreaking equations. And yet, this is sort of a typical reaction from a developer. So, they're literally like running away. And I don't think we can actually blame them for that. Because, well, we've somehow managed to take one of the most promising frameworks for intelligent systems and make it so complex that even a PhD student would think twice before implementing it. So, and I just want to draw sort of a parallel and look at what's happening in the rest of AI. Yeah? So, five lines of code. That's all it takes to access the state-of-the-art transformer models. So, if you want to analyze satellite imagery, done. Want to create a conversational agent, done. Want to synthesize a video or audio, done. So, half a page of the unique code. But meanwhile, implementing an active inference agent. Well, let me just walk you through this. So, what it takes. First, you read through hundreds of pages of dense mathematical theory. Then you spend months on implementing some custom algorithms. Then you debug some mysterious convergence issues. And after all that work. What do we have? Well, more often than not, it's going to be a T-Maze example. Or like maybe a mountain car. Yeah? I mean, come on. What is this? You just made me read dozens of pages of heavy math. You can solve me with moving pixels on the screen. Right? So, this is quite a leap between I am better than reinforcement learning. And I can do a T-Maze better than reinforcement learning. So, I mean, come on. So, we are like in 2025 now. So, the rest of AI is solving like really interesting world problems. And like having really interesting demos. And we are still celebrating when our agents can turn left or right. So, and truth to be told. I mean, I think my personal experience is that, yeah. Like each time I'm getting into this active inference literature. It's, to put it mildly, not always very much reproducible. Or like half of it is not. There is not much to reproduce. So, the point here is that this needs to be changed. So, and not just for convenience. But because this complexity is, I think, actively holding back the entire field. We are basically limiting the active inference to a tiny group of…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_017/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_017"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "gueststream-031-1",
+  "title": "Free Energy Principle & Active Inference in Synthetic Biological Intelligence: Existing Evidence & Current Challenges",
+  "series": "GuestStream",
+  "number": "#031.1",
+  "date": "2022-12-07",
+  "youtubeUrl": "https://youtu.be/57-aRIjUrC4",
+  "youtubeId": "57-aRIjUrC4",
+  "guests": [
+    "Brett Kagan",
+    "Adeel Razi"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-free-energy-principle"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "All right, hello and welcome everyone. It's December 7th, 2022. This is Active Inference live stream number 31.1. We are here with Brett Kagan and we're going to be hearing a presentation and having a discussion on free energy principle and active inference in synthetic biological intelligence. We'll have a presentation followed by a discussion, so feel free to submit any questions if you would like. Brett, thank you for joining. Really looking forward to this presentation and discussion. Off to you. Thanks so much, Daniel. Thank you everyone for joining us today. Hopefully we've got some interesting stuff. So what I want to talk to you about is the work that we've been doing in what we call synthetic biological intelligence and particularly the use of we've made of principles from the free energy principle and active inference frameworks. So if we jump to sort of the first question and we can kind of ask ourselves because we work with neural systems, what is there that's unique about neural systems? And one of the obvious answers to that is that they display this unique ability to collate information and apply it in an adaptive behavior in multiple contexts. And that could be a fitting definition for intelligence, if you like. But to actually be able to test this in actual cells in real time, what you have to do is be able to record the information from the cells and provide information back to the cells in real time. So how did we go about setting this up? How did we get these cells? So we did it in two ways. Either we took what's called a human induced pluripotent stem cell. That's the H-I-P-S-C there that you can see. And what you can do is develop these from any donor, blood, tissue or skin. And you can basically make a pluripotent stem cell line. And then you can use a number of different methods to turn that into neurons of quite a degree of specificity. We used quite a broad one for most of our work, which is called a JILS-MAD inhibition, which follows like natural ontological development or ontogeny development, I should say, to sort of create these predominantly cortical cultures in a dish. But you can use other direct methods, such as what's called an NGN2 direct differentiation, which gives rise from a more excitatory culture. And then we also took primary cortical neural cultures from mouse. And we grew them as a comparison because we wanted to make sure that we were using, at least in some sense, bona fide cortical neurons. And the best way to do that is to take it from animals. But fortunately, as you see, we will be able to move and we have moved away from that now in our current practice. So we're completely animal testing free at the moment. And then what we did was we plated these onto what's called a high density multi-electrode array. And essentially, I'll show you a bit more of this in a second. This is essentially a CMOS chip, which is a type of chip that you might get in a digital camera. But it's also can be used in this purpose, because what it can do is sense electrical signals, even very small ones, and actually be able to stimulate to them. And so just some evidence that we actually did do the work we said we did, here's some examples of some cultures that we've grown. And they show what we're able to do is use techniques to actually capture key markers of aspects of these cells. So for example, this blue over here, hopefully it's coming up all right on your screens. This shows something called DAPI, which marks all the nucleus of any cell. If you want, you can look at something called NUIN here. NUIN marks neurons. So all the green dots, and you might be able to see it a bit better in this picture, all the green dots show that this is actually a neuron. And then of course, one of the things that we know neurons have is that they send out axons. And that's what this thing called beta-3 tubulin marks in the red. And finally, we want to know, do they have dendrites? And you can see here in the…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_031/transcript.txt",
+  "paperTitle": "In vitro neurons learn and exhibit sentience when embodied in a simulated game-world",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/GuestStream/GuestStream_031"
+}

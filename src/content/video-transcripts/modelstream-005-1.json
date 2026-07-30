@@ -1,0 +1,27 @@
+{
+  "id": "modelstream-005-1",
+  "title": "Contrastive Active Inference",
+  "series": "ModelStream",
+  "number": "#005.1",
+  "date": "2022-01-28",
+  "youtubeUrl": "https://youtu.be/GR07coJNPUE",
+  "youtubeId": "GR07coJNPUE",
+  "guests": [
+    "Pietro Mazzaglia",
+    "Tim Verbelen"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-free-energy-principle",
+    "term-generative-model"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Okay, hello and welcome everyone. It is January 28th, 2022. We're here in ACTIMF Lab, model stream number 5.1 with Pietro Mazaglia and Tim Verbellen. So this is going to be a model stream presentation and discussion on their recent work, Contrastive Active Inference. We're going to have a presentation section and then a discussion. So please feel free to ask any questions during the presentation that we can address in the discussion. And Tim and Pietro, thanks a ton. We really appreciate you joining to share your work. So please take it away and thanks again. Yeah, thanks Daniel for inviting us as well. So I'm Tim Verbellen together with the colleague Pietro, we'll talk on our work on Contrastive Active Inference. So maybe first to set the scene, why are we looking at Active Inference? Well, basically our lab wants to build intelligent agents. And so from that perspective, we noticed early on, if you want to build something intelligent, it needs to be embodied, it needs to be interacting with its environment. And then it's a small step, of course, to delve into Active Inference, where basically your agent needs to understand the environment it's interacting with, and need to build a model, basically. So first, I give an overview on Active Inference and the way that we approach this. A lot of this material has also been covered in a previous model stream, I think number three. So if you want more details, you can dig up that one again. And so then afterwards, Pietro will take over, and he will go into the details of the Contrastive approach to Active Inference. So let's get started. So basically, Active Inference, it's a process theory of the brain. And basically, it says that your brain or the agent, he builds or he builds a generative model of the environment, which is basically a joint probability distribution over observations, so things that you can see or experience, actions, which we denote as A, and then states or hidden states of the environment. So basically, you have your agent that is separate from the environment, and it can do actions, it can interact with the environment. And this gives rise to new observations. And so the idea of the generative model is basically agent figures out which are kind of the hidden states that's the change by my actions, and that give rise to my observations. And if you can build such a model, then basically, this enables the agents to plan some actions to bring the agent to some preferred observations or observations and support. But so the crucial bits is basically how do you get this model of what happens if I do my actions, how does this influence the states and how does this influence the outcomes that I see. So the crucial part from Active Inference is two faults. First of all, it says, okay, this is what the agent does. And it does so by optimizing so called free energy, which isn't a proponent of surprise or prediction error. So basically, you turn this model allows the agent to predict the outcomes that it will see the witness. And the better these match your actual observations, the more happier you are as an agent. And you will also select the actions that will minimize the free energy you expect in the future. So we'll dig a bit into the mods. So we'll dig a bit into the results. Just to set the scene on the one hand notation wise so that we all know what O's and S's and A's are, but also to then see the move that Piet will make from the, let's say, vanilla Active Inference presentation towards a more contrastive formulation of the active Inference objective, free energy objective. So we start off with setting the C with a generative model. So it's a bit laid out the diagram of the agents and the environment that was on previous slides. So basically, this unfolds over time. So you are in a certain state that gives rise to a certain observation. And then given an action on your previous state, you basically move ahead to the next state. And this process unfolds over time.…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_005/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_005"
+}

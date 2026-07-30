@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Is the free-energy principle a formal theory of semantics? From variational density dynamics to neural and phenotypic representations | Active Inference Institute</title>
+  <meta name="description" content="Recorded session from Livestream #002.1.">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/img/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../../../assets/img/icon-180.png">
+  <link rel="manifest" href="../../../manifest.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="Active Inference Institute — Updates" href="../../../feed.xml">
+  <link rel="alternate" type="application/feed+json" title="Active Inference Institute — Updates" href="../../../feed.json">
+  <link rel="canonical" href="https://activeinference.institute/es/video/livestream-002-1/">
+  <link rel="alternate" hreflang="en" href="https://activeinference.institute/video/livestream-002-1/">
+  <link rel="alternate" hreflang="es" href="https://activeinference.institute/es/video/livestream-002-1/">
+  <link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/video/livestream-002-1/">
+  <link rel="alternate" hreflang="de" href="https://activeinference.institute/de/video/livestream-002-1/">
+  <link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/video/livestream-002-1/">
+  <link rel="alternate" hreflang="it" href="https://activeinference.institute/it/video/livestream-002-1/">
+  <link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/video/livestream-002-1/">
+  <link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/video/livestream-002-1/">
+  <link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/video/livestream-002-1/">
+  <link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/video/livestream-002-1/">
+  <link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/video/livestream-002-1/">
+  <link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/video/livestream-002-1/">
+  <link rel="alternate" hreflang="x-default" href="https://activeinference.institute/video/livestream-002-1/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Active Inference Institute">
+  <meta property="og:title" content="Is the free-energy principle a formal theory of semantics? From variational density dynamics to neural and phenotypic representations | Active Inference Institute">
+  <meta property="og:description" content="Recorded session from Livestream #002.1.">
+  <meta property="og:url" content="https://activeinference.institute/es/video/livestream-002-1/">
+  <meta property="og:image" content="https://activeinference.institute/assets/img/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Active Inference Institute — Is the free-energy principle a formal theory of semantics? From variational density dynamics to neural and phenotypic representations | Active Inference Institute">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Is the free-energy principle a formal theory of semantics? From variational density dynamics to neural and phenotypic representations | Active Inference Institute">
+  <meta name="twitter:description" content="Recorded session from Livestream #002.1.">
+  <meta name="twitter:image" content="https://activeinference.institute/assets/img/social-card.png">
+  <meta name="generator" content="institute_website v4.0.0">
+  <link rel="stylesheet" href="../../../assets/css/instituteos-ds.css">
+  <link rel="stylesheet" href="../../../assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/es/video/livestream-002-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/es/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/es/video/"},{"@type":"ListItem","position":3,"name":"Is the free-energy principle a formal theory of semantics? From variational density dynamics to neural and phenotypic representations","item":"https://activeinference.institute/es/video/livestream-002-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
+</head>
+<body class="">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="Active Inference Institute home">
+      <span class="brand-mark" aria-hidden="true">π</span>
+      <span>
+        <strong>Active Inference Institute</strong>
+        <em>Act. Infer. Serve.</em>
+      </span>
+    </a>
+    <!-- Mobile nav disclosure. CSP-safe: no inline handlers — site.js wires the
+         click listener and stamps data-nav-js on the header; without JS the
+         button stays hidden and the nav renders expanded (styles.css). -->
+    <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true">☰</span><span class="nav-toggle-label">Menú</span></button>
+    <nav class="nav" id="site-nav" aria-label="Primario"><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-0-institute" data-nav-toggle>
+          <span>Instituto</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">Sobre</a><a href="../../structure/">Estructura y Gobernanza</a><a href="../../structure/board-of-directors/">Consejo de Administración</a><a href="../../structure/officers/">Oficiales</a><a href="../../structure/scientific-advisory-board/">Consejo Asesor Científico</a><a href="../../ecosystem/">Ecosistema</a><a href="../../communications/">Communications</a><a href="../../newsletter/">Newsletter</a><a href="../../instituteos/">Interfaz InstituteOS</a><a href="../../directory/">Directorio Global</a><a href="../../resources/#official-shortlinks">Enlaces oficiales cortos</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
+          <span>Aprender</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-1-learn"><a href="../../active-inference/">Inferencia Activa</a><a href="../../learning/">Aprendizaje e Investigación</a><a href="../../activities/">Actividades</a><a href="../../calendar/">Calendario</a><a href="../../simulations/">Simulaciones</a><a href="../../resources/#learning">Recursos de Aprendizaje</a><a href="../../resources/#learning">Documentos de inicio</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-2-participate" data-nav-toggle>
+          <span>Participar</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-2-participate"><a href="../../programs/">Programas</a><a href="../../volunteer/">voluntario</a><a href="../../programs/internship/">Pasantía</a><a href="../../programs/fellowship/">Beca</a><a href="../../get-involved/">¡Únete!</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-3-projects" data-nav-toggle>
+          <span>Proyectos</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-3-projects"><a href="../../projects/">Todos los Proyectos</a><a href="../../eduactive/">Unidad EduActive</a><a href="../../reinference/">Unidad de Reinferencia</a><a href="../../directory/#repositories">Repositorios</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-4-resources" data-nav-toggle>
+          <span>Recursos</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Búsqueda</a><a href="../../resources/">Directorio de Recursos</a><a href="../../directory/">Índice Global</a><a href="../../knowledge/">Mapa de Código Abierto</a><a href="../../instituteos/#public-export-gate">Puerta de Exportación Pública</a><a href="../../directory/#official-pages">Páginas Oficiales</a><a href="../../resources/#research">Referencias de investigación</a><a href="../../#audience-pathways">Caminos de Audiencia</a></div>
+      </div></nav>
+    <div class="site-search" role="search">
+      <input type="search" id="site-search-input" placeholder="Buscar en el Instituto..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Buscar en el sitio" aria-controls="site-search-results" aria-expanded="false">
+      <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Resultados de búsqueda" hidden></div>
+    </div>
+    <details class="lang-switcher">
+      <summary aria-label="Elegir idioma" title="Elegir idioma"><span class="lang-globe" aria-hidden="true">🌐</span><span class="lang-current">ES</span></summary>
+      <div class="lang-menu" role="menu" aria-label="Idioma"><a role="menuitem" hreflang="en" lang="en" href="../../../video/livestream-002-1/">English</a><a role="menuitem" hreflang="es" lang="es" href="./" aria-current="true">Español</a><a role="menuitem" hreflang="fr" lang="fr" href="../../../fr/video/livestream-002-1/">Français</a><a role="menuitem" hreflang="de" lang="de" href="../../../de/video/livestream-002-1/">Deutsch</a><a role="menuitem" hreflang="pt" lang="pt" href="../../../pt/video/livestream-002-1/">Português</a><a role="menuitem" hreflang="it" lang="it" href="../../../it/video/livestream-002-1/">Italiano</a><a role="menuitem" hreflang="ru" lang="ru" href="../../../ru/video/livestream-002-1/">Русский</a><a role="menuitem" hreflang="zh" lang="zh" href="../../../zh/video/livestream-002-1/">中文</a><a role="menuitem" hreflang="ja" lang="ja" href="../../../ja/video/livestream-002-1/">日本語</a><a role="menuitem" hreflang="ko" lang="ko" href="../../../ko/video/livestream-002-1/">한국어</a><a role="menuitem" hreflang="hi" lang="hi" href="../../../hi/video/livestream-002-1/">हिन्दी</a><a role="menuitem" hreflang="ar" lang="ar" href="../../../ar/video/livestream-002-1/">العربية</a></div>
+    </details>
+    <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Escucha esta página" title="Escucha esta página"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
+    <div class="accent-control">
+      <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Elige color de resaltado" title="Elige color de resaltado"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
+      <div id="accent-menu" class="accent-menu" role="menu" aria-label="Highlight color" hidden>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="red" aria-checked="true" aria-label="Red highlight (default)" title="Red"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="amber" aria-checked="false" aria-label="Amber highlight" title="Amber"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="green" aria-checked="false" aria-label="Green highlight" title="Green"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="teal" aria-checked="false" aria-label="Teal highlight" title="Teal"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="blue" aria-checked="false" aria-label="Blue highlight" title="Blue"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="violet" aria-checked="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="magenta" aria-checked="false" aria-label="Magenta highlight" title="Magenta"></button>
+      </div>
+    </div>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" aria-pressed="false" title="Cambiar tema claro/oscuro"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
+  </header>
+  <main id="main">
+    <p class="mt-notice" role="note"><span aria-hidden="true">🌐</span> Esta página fue traducida automáticamente desde el inglés. <a href="../../../video/livestream-002-1/" hreflang="en" lang="en">Ver el original en inglés.</a></p><section class="page-hero compact">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../">Videos and Podcasts</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Is the free-energy principle a formal theory of semantics? From variational density dynamics to neural and phenotypic representations</span>
+    </nav>
+    <p class="eyebrow">Livestream #002.1</p>
+    <h1>Is the free-energy principle a formal theory of semantics? From variational density dynamics to neural and phenotypic representations</h1>
+    <p>Aug 11, 2020</p>
+    <a class="button primary" href="https://youtu.be/601-lt_8eVE" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a>
+  </section>
+
+  <section class="content-band muted">
+    <div class="resource-grid compact-grid">
+      <article class="info-card">
+        <h3>Session details</h3>
+        <p><strong>Date:</strong> Aug 11, 2020</p>
+        <p><strong>Series:</strong> Livestream #002.1</p>
+
+        <p><strong>Paper:</strong> Is the free-energy principle a formal theory of semantics? From variational density dynamics to neural and phenotypic representations</p>
+      </article>
+      <article class="info-card">
+        <h3>Watch and follow up</h3>
+        <p><a href="https://youtu.be/601-lt_8eVE" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a></p>
+        <p><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Livestream/LiveStream_002" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a></p>
+        <p><a href="../">← Back to video library</a></p>
+      </article>
+    </div>
+    <div class="tag-row"><span>Variational Free Energy</span><span>ActInf</span><span>neural representation</span><span>representationalism</span><span>instrumentalism</span><span>deflationary</span><span>active inference</span><span>deflationary</span><span>instrumentalism</span><span>representation</span><span>representationalism</span><span>variational free energy</span></div>
+  </section>
+
+
+  <section class="content-band" id="transcript">
+    <div class="section-heading">
+    <p class="eyebrow">Transcript</p>
+    <h2>AI-generated transcript excerpt</h2>
+    <p>The full transcript is available on GitHub. This excerpt is generated by automated speech recognition and may contain errors.</p>
+  </div>
+    <div class="transcript-block">
+      <p>hello everyone welcome to team com podcast number two this is going to be a journal discussion of ramstead at all 2020 and it is going to be a great discussion i'm really looking forward to it so before we start off the discussion of the paper could the other two panelists introduce themselves maybe sasha first sure hi my name is sasha i'm a neuroscientist and a free energy enthusiast andy vaughn hello my name is iran and i'm just interested in active inference stuff and today we got to read some soft book yes absolutely a tough book so does the screen look okay for sharing my slides all right here we go so the structure of this discussion will be as follows first we'll talk about some warm-up questions then we're going to jump into the paper discussion we'll go through the abstract and the big questions making sure that we really understand how the authors summarize their own work then we'll look at the roadmap of the paper which are just the section headers to understand how they kind of get from a to z we'll review some of the key claims and the aims of the paper so that we can evaluate later on whether the claims are justified or whether they end up achieving the aims that they set out to to achieve then we're going to go through each of the six figures of the paper and then um if not addressed during a through d we'll have extra time at the end to discuss any other questions about the paper or related topics and we have some other figures that we could put up if we need to so here we go with the warm-up questions first what is semantics or what does the word make you think of when you first hear the word semantics and you might want to think about logical and lexical semantics any thoughts there sasha um yeah i think this is uh kind of the getting into the confusing theme of the paper where you have to be extremely specific with the language that you use and so to me semantics means um how we use words and how we make meaning okay very nice and the way that we use words the meaning of words is often what people mean by semantics like syntax is how it's written and then semantics uh or at least the semantics of words is about how the words are related to each other and then also we have logical semantics which is just purely about logical statements and may or may not have any word representation behind it so there's that word representation and this is definitely one of the key words of the paper so maybe yvonne what do you think about or what does a representation mean to you to me as we can say yeah as as we as we are saying we actually represent in our mind different uh [Music] different things behind different conceptions so it's always hard to understand not always but usually have to understand what people saying when when they use one or another concept yep and that vagueness about the term representation is really one of the things that the paper sets out to clarify because a lot of times people will use the word representation assuming that one must exist oh if you're thinking of elephants there must be some neural state in your head that represents an elephant otherwise how could you be thinking about an elephant um and then this paper is going to really drill down what is the relationship between that conception and the neural representation um next question what is intentionality who or what has it so just kind of off the cuff because of course this is a big topic but what does intentionality mean or who gets to have intentionality either of you i think intention [Music] is became when when someone wanted wanted to do something yes intention it about the future so i will do it in the future any thoughts there um yeah another wonderfully vague word and um we often talk about uh in interpreting other people's actions whether or not we can infer their intent and of course that gets quite messy but with how vague the word is you could say that everything has intention because it um you know even a rock knows that…</p>
+    </div>
+    <p class="section-link"><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Livestream/LiveStream_002/transcript.txt" target="_blank" rel="noopener noreferrer">View full transcript on GitHub ↗</a></p>
+  </section>
+
+  <section class="content-band" id="related">
+    <div class="section-heading">
+    <p class="eyebrow">Continue</p>
+    <h2>More from the video library</h2>
+    <p>Browse the complete library or find more sessions in this series.</p>
+  </div>
+    <div class="link-chips">
+      <a href="../"><span>All videos</span></a>
+      <a href="../../activities/"><span>Activities</span></a>
+      <a href="../../learning/"><span>Learning</span></a>
+    </div>
+  </section>
+  </main>
+  <footer class="site-footer">
+    <div>
+      <strong>Active Inference Institute</strong>
+      <p>Un instituto de ciencia abierta participativa que apoya la educación, investigación, capacitación y aplicaciones relacionadas con la Inferencia Activa.</p>
+    </div>
+    <nav class="footer-links" aria-label="Pie de página">
+      <a href="../../about/">Sobre</a>
+      <a href="../../projects/">Proyectos</a>
+      <a href="../../programs/">Programas</a>
+      <a href="../../directory/">Directorio</a>
+      <a href="../../resources/">Recursos</a>
+      <a href="../../knowledge/">Mapa de Código Abierto</a>
+      <a href="../../get-involved/">¡Únete!</a>
+      <a href="../../search/">Búsqueda</a>
+      <a href="../../sitemap/">Mapa del sitio</a>
+      <a href="mailto:blanket@activeinference.institute">blanket@activeinference.institute</a>
+    </nav>
+    <div class="social-links" aria-label="Enlaces públicos verificados">
+      <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="build-stamp">v4.0.0 · build 1f0e21cd09cd</p>
+  </footer>
+  <script src="../../../assets/js/theme.js" defer></script>
+  <script src="../../../assets/js/accent.js" defer></script>
+  <script src="../../../assets/js/tts.js" defer></script>
+  <script src="../../../assets/js/site.js" defer></script>
+  <script src="../../../assets/js/search-data.js" defer></script>
+  <script src="../../../assets/js/search.js" defer></script>
+</body>
+</html>

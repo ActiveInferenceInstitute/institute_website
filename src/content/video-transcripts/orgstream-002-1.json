@@ -1,0 +1,24 @@
+{
+  "id": "orgstream-002-1",
+  "title": "Eugene Leventhal",
+  "series": "OrgStream",
+  "number": "#002.1",
+  "date": "2022-01-21",
+  "youtubeUrl": "https://youtu.be/eUBT37LMlLo",
+  "youtubeId": "eUBT37LMlLo",
+  "guests": [
+    "Eugene Leventhal"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-uncertainty"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "to organization and today should be a good one because we are here with Eugene who's going to be talking to us about decentralization and smart contracts and all kinds of other things. We also have this interactive whiteboard slash slide deck here so please write any comments in the chat and as soon as Eugene is back I'm sure he'll begin his initial presentation but welcome everybody looking forward to seeing your comments in the chat and welcome back your re-entry please provide a introduction and some context and really looking forward to this. Of course I got so excited to begin with that I closed out the wrong tab so that's always a good beginning but thank you for for hosting me Daniel excited to be here with the ActInf Lab and to get to talk a little bit about decentralization and yeah kind of see where the conversation goes so definitely really excited to hear what folks are thinking about and so please at any point if this isn't going kind of deep enough on any specific term you want more clarity on anything please please feel free to mention it in the chat and we will definitely be happy to to bring it up in conversation. So just to begin I'm Eugene Leventhal I'm currently the head of operations at the smart contract research forum we're a grant funded organization in the smart contract space or in the web 3 space overall excuse me and our focus is very much on helping to advance research around web 3. The starting point for that is just connecting folks from industry and academia and we're exploring a lot of various questions around what is public good infrastructure for research in web 3 but also for science more broadly look like so very happy to talk about smart contract research forum or scurf as we locally we call it ad nauseam but yeah for today the focus is on decentralization itself so I want to take it there. But the thing I wanted to kind of start off with and mention as the genesis of this conversation is the fact that the space of web 3 even the term web 3 right it's one I came across this github repo of just all these articles that where it's very well known technologists explaining why web 3 is all a bunch of baloney and none of this makes sense and in all fairness there is a lot of enthusiasm in this space that leads to there probably being more focused on areas that you know might have rock your grounds than others but the goal of this session is really to delve into a term that if you've been part of anything blockchain crypto web 3 in any kind of way you've definitely heard the term decentralization thrown around because the whole dichotomy and I don't know if it's even fair to call it a dichotomy because that oversimplifies the idea but at least this idea of a spectrum between there's centralized and somewhere along the line there's decentralization and what does that actually mean to be decentralized and for me another thing which I always love thinking not in binaries but sort of in spectra is decentralization and end point or is it itself only a certain change in the mark on a much wider spectra where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where where…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/OrgStream/OrgStream_002/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/OrgStream/OrgStream_002"
+}

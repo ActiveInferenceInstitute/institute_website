@@ -1,0 +1,35 @@
+{
+  "id": "livestream-001-1",
+  "title": "Narrative as active inference",
+  "series": "Livestream",
+  "number": "#001.1",
+  "date": "2020-07-28",
+  "youtubeUrl": "https://youtu.be/C94WDXAe4EE",
+  "youtubeId": "C94WDXAe4EE",
+  "guests": [],
+  "types": [
+    "Paper",
+    "Group"
+  ],
+  "keywords": [
+    "ActInf",
+    "Free Energy Principle",
+    "Remote Teams",
+    "Communication",
+    "Technology"
+  ],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-free-energy-principle",
+    "term-markov-blanket",
+    "term-narrative",
+    "term-technology"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hello everyone welcome to team com podcast one tentatively titled really looking forward to this discussion i'm daniel and along with me are yvonne alex do you want to introduce yourself briefly yeah my name is alex i just can't say what i'm a researcher in system management school in moscow by now just for protocol hello my name is ivan i'm just interested in internet active inference stuff great well to be interested in active inference is all that's needed for this paper and this discussion so let's get right into it we're gonna structure the discussion like this first we'll start with some warm-up questions then we'll get to the paper itself and this isn't the end-all be-all format for paper discussions but a few big areas that we'll hit upon we'll ask what are the big questions are this paper what do the authors want to address then we'll go through the abstract line by line because it's really important to understand how the authors summarize their own work we'll look at the road map of the paper at which sections come in which order so that we can have a big bird's eye perspective on where the paper is going then we'll go down into some definitions and claims that the authors make we can ask whether we agree with their definitions or whether their claims resonate with how we think about the world then we'll have time to have any questions that we want to address that are about the paper and then also there's a few slides at the end where we prepared some visualizations about markov blankets and about active inference itself so let's get to the warm-up questions and so either of you can maybe give a first thought here what what is a narrative and how is a narrative different than a story and this can come from the free energy active inference perspective or not but one of you two guys go ahead uh at the moment uh i believe what first we what we need to do what we need to define with difference because uh if we have two words uh it would mean something different but as in any case it's depends on perspective and interest from how we see it and um [Music] maybe his uh narrative and ontology is also some different and ontology is different from the story as well so some kind of more formal definition for it we have a great review on different papers presented in the text and so it looks like as state of the art in this field from scientific point of view but we if we go more engineering way and trying to find a way to and approaches to use functions of his narrative scientologists and lately stories very nice and we'll get to see exactly their definition of narrative it's actually the first sentences of the paper uh yvonne anything there no cool another question that is sort of a fundamental in communication but also very important applied question is how individual and collective narratives interact so do groups genuinely have narratives or do group narratives just consist of individual narratives we can i mean we can move past these these are really just for warming up and thinking about what the paper is arising out of and so just the last warm-up question that anyone could like a stretch before hitting the paper before you run the paper you might want to stretch with these questions and just to to really get us thinking big about what this paper could be about and what science can tell us about narratives this question is what does a functional evolutionary or statistical perspective on narratives look like so instead of just approaching it from a psychological or from an anthropological perspective how can we take it deeper and connect it to other areas any last warm-up thoughts or we can just go right into the paper uh maybe yes and it's about introduction and first sentence in introduction um about narratives a report of real or imagined events and maybe i was not so close inside but maybe we need to define some definition and perspective about events what is it events for us at this moment and in in systems uh and…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Livestream/LiveStream_001/transcript.txt",
+  "paperTitle": "Narrative as active inference",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Livestream/LiveStream_001"
+}

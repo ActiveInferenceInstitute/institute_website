@@ -1,0 +1,42 @@
+{
+  "id": "gueststream-008-1",
+  "title": "Exploring the Predictive Dynamics of Happiness and Well-Being",
+  "series": "GuestStream",
+  "number": "#008.1",
+  "date": "2021-08-09",
+  "youtubeUrl": "https://youtu.be/m8gUev5aVFs",
+  "youtubeId": "m8gUev5aVFs",
+  "guests": [
+    "Mark Miller",
+    "Ines Hipolito",
+    "Julian Kiverstein"
+  ],
+  "types": [
+    "Presentation",
+    "Group"
+  ],
+  "keywords": [
+    "Mental Behavior",
+    "Health",
+    "Social media",
+    "Behavioral Modeling",
+    "Affect",
+    "Anxiety",
+    "Brain",
+    "Philosophy",
+    "Computational"
+  ],
+  "ontologyTerms": [
+    "term-affect",
+    "term-behavior",
+    "term-brain",
+    "term-cognition"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hello everyone and welcome to the active inference lab today it is august 9th 2021 and we're here in guest stream number 8.1 with mark miller and guests so this is going to be an awesome presentation followed by a discussion so if you have any questions during the presentation please put them in the live chat and we'll make sure to ask the panel at the end of the presentation so thanks again to all of our great guests for coming on and please take it away thank you excellent thanks for that daniel okay i'm just going to share my screen oh can you uh turn on screen sharing for me on your side um it's under the advanced so at the bottom where it says share screen there should be a little little arrow and click that there should be an advanced feature and then should say allow got it okay go for it yeah that's it uh-huh great how's that can you just see my slide does that look right excellent great okay well daniel thanks thanks so much man for the invitation to come and give a talk i mean we've been trying to get we've been trying to find an opportunity to speak together for you know a couple of months now well since i moved to japan so i'm excited to be here and i'm excited to be talking about this topic which we're um we're really excited about it's a new paper that actually julian kiverstein who's here right now and myself and eric reitfeld um have a preprint out right now in the the paper title title of predictiveness of happiness and well-being we're also anticipating that um inez hippolyto and laura sinbad smith will be here this evening lars has had a slight emergency so um he's on the road but we're hoping he'll be able to call in um because actually the work that uh we feature in this paper it builds on or it's really closely related with the research that anez and lars are doing so the idea was that we're gonna be able to get um we're gonna be able to really talk to them about their individual portions so hopefully they're on the stream by the time we hit that place and uh if it turns out that they're not that's okay we can just go through and then we can chat at the end um if you don't know me uh my name is mark miller i'm an assistant professor at the university of hokkaido um in their center for human nature artificial intelligence and neuroscience and i am uh an active inference researcher right so let's see um right so i guess probably lots of people who are listening to the stream tonight and definitely the guests who are here right now hey anez great you made it right on um know that um recently there's been a huge amount of research coming out that's linking um using the active inference framework in order to investigate all sorts of psychopathologies you know mostly finding a home in computational psychiatry circles but really we're we're seeing active inference accounts come up you know relating to depression and addiction and ocd and schizophrenia and dissoci dissociative disorders and all sorts and while there is this sort of active inference boom right now in relationship to computational psychiatry and in particular psychopathology we're not seeing any work really talking about um how we might apply active inference frameworks to the theoretical and formal approach of discussing things like well-being so you know all those topics that would naturally fit in something like a positive psychology are still primarily being overlooked although you know um in all fairness we are starting to see it come up at the edges because we're starting to see people talk about the benefits of hallucinogens and also the benefits of meditation so that was part of our motivation in writing this paper was to see if there was anything interesting to say in a positive account yeah not just the negative account but the positive account um but the other reason why we decided to write this paper was because actually julian and eric and i have written a series of papers now on psychopathologies in particular using the active…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_008/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_008"
+}

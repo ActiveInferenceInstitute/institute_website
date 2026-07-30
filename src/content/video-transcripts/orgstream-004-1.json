@@ -1,0 +1,24 @@
+{
+  "id": "orgstream-004-1",
+  "title": "Plural Publics",
+  "series": "OrgStream",
+  "number": "#004.1",
+  "date": "2023-03-31",
+  "youtubeUrl": "https://www.youtube.com/watch?v=xXAllRLtyoc",
+  "youtubeId": "xXAllRLtyoc",
+  "guests": [
+    "Shrey Jain"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-thinking-through-other-minds"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hello and welcome it's March 31st 2023 we're in active inference or extreme number 4.1 and here today with Trey Jane one of the co-authors on the recent peace plural Publix so Trey thank you greatly for joining and we're going to start with a blank page please feel free to introduce yourself and the work and let's go from there sounds great yeah thank you for having me um I'm really excited to share some of the work that we've recently put out it feels very timely but before we get into it let me just give a brief intro as to who I am um so I'm sure I uh I currently work at Microsoft research I sit in the special projects division of Microsoft research and collaborate frequently with our team who is known as the plural technology collaboratory um where or PTC for short and we intersect across various different Labs at Microsoft as well as external collaborators including the Harvard software Center for ethics the Berkeley decentralized research teams uh decentralized like blockchain research teams and various different other partners that we have um the reason why I'm on this podcast today is in reference to some work that I've been doing in collaboration with Glenn Weil and debio siddarth which is called plural Publix um plural Public's uh the way I'd like to introduce it is starting a bit more with what is a state of communication today and why is this paper especially important and to give a bit of context here when we reference the internet as a communication tool we often reference it to be the the the most transformational tool that we've seen in human communication and that we reference it for for good reasons as well we say that we're able to communicate basically with anyone across the world who has an internet connection at almost instantaneous speeds and that is something that Humanity has never really experienced in until the birth of the internet and the applications that allow us to communicate on top of it which is very recent but the reasons under which that has been actually quite harmful to human communication is due to the inability to preserve what's known as context and context is this term that is thrown around in academic language and we want it to be very precise about its definition in the paper and so the definition that we give to context is information that is common knowledge amongst a set of people and so what I mean by that is it's known to be known it's known to it's known to be known it's known it's known to be known as known to be known to be known to known it's like this like iterative Loop of everyone knows that everyone knows everyone knows everyone knows something and to get a bit to give a couple of examples of that is when if I'm a doctor and I've read medical textbooks when I walk into a room with other Physicians who I know have practiced uh medicine in the country that I'm in it is common knowledge that they have a set of uh they have this dictionary that we both share and this dictionary that we share allows us to communicate incredibly efficiently as an example like if I had to walk into the operating room and had to explain to someone what some type of diagnosis meant every single time we walked into that room would be incredibly inefficient to communicate and so because we have this shared context but also because that context is common knowledge it allows us to communicate incredibly efficiently and other examples we can see in our life are things like inside jokes it could be cultural milias it could be religious Traditions it could be National memories these are all things that play a big role in the way that we communicate with people around us and some would argue that context actually is the necessary components to communication like if we didn't have context even English itself would just be a set of symbols and words that didn't even make any sense to us right like the only reason that you understand what I'm saying is because we have this shared context and symbols…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/OrgStream/OrgStream_004/transcript.txt",
+  "paperTitle": "Plural Publics",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/OrgStream/OrgStream_004"
+}

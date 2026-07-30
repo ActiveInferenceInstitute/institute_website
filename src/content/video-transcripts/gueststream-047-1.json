@@ -1,0 +1,26 @@
+{
+  "id": "gueststream-047-1",
+  "title": "The Predicting and Reflecting Framework for Dual Process Theory of Reasoning and Large Language Models.",
+  "series": "GuestStream",
+  "number": "#047.1",
+  "date": "2023-07-10",
+  "youtubeUrl": "https://www.youtube.com/watch?v=O6adLcDhOYU",
+  "youtubeId": "O6adLcDhOYU",
+  "guests": [
+    "Samuel C. Bellini-Leite"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-hypothesis",
+    "term-prediction",
+    "term-working-memory"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello and welcome. This is ACT-INF Guest Stream 47.1 on July 10th, 2023. We're here with Nick Bird and Samuel Bellini-Lechi, and we're going to have a presentation followed by a discussion. So thank you both for joining. And Sam, thanks again for this presentation. Off to you. Okay. Was Nick going to say something before I started? Oh, I can go ahead. Okay. Okay. So some introduction first. I'm a professor at Minas Gerais State University. I'm a psychologist, philosopher, mainly working in cognitive science. I'm going to talk about what I did in my PhD thesis and also some renewed interest I had on this based on some developments in large language models, which happened this year, most notably Chain of Thoughts and Tree of Thoughts. Those additions to large language model made me want to come back to this again and talk about this. So how do you know about human reasoning, which is the subject, the main subject underlying this topic? Well, we had empirical research from the 60s, starting with Peter Watson, who was challenging the notion that we have a logic module for reasoning or some general understanding of logic when we're adults. And he crafted tasks, which were hard to solve, but they had actually simple fundamentals to it. Which shows, which were taken to show people's irrationality, something like that. And also a huge tradition that's called heuristics and biases that also started in the 60s and 70s, mainly by Kahneman and Amos Horsky, which had similar tasks and went beyond and they even won the Nobel Prize for this work. I had here on the slides evolutionary psychology and language and pragmatics, which were also people in the 90s working with this sort of research. But I'm going to talk about dual process theory in the way formulated by Evans and Stanovich, which mainly summarizes the results of Watson and Kahneman and Versky, the Ristic Bias' literature. So I'm going to talk about how dual process theory came to be and then some problems that it has that I've tried to address. So one of the first reasoning tasks in this trans literature was the Watson selection task, which goes like this. Please indicate which cards can determine if the following rule is false. If a card has a vowel on one side, then has an even number on the other side. This sounds like a simple exercise. So the card A clearly is relevant because it has a vowel on one side. If it doesn't have an even number on the other, then the statement is false and everyone can find this neatly, or most people. But the problem comes with the card 7, which is not so intuitive. People actually choose the second one, the card 2 there, which has an even number on one side. But having that even number doesn't help at all to determine if the statement is false. What does help is the third, which is an odd number. And if it has a vowel on the other side, then the statement could be false. So this was one of the tasks that Watson was famous for. And Kahneman and Vrowski showed them. This one, their famous task as well. It's called the consumption fallacy, the issue that people arrive when solving this task. So it goes like this. It is a 31 years old, single, outspoken, and very bright. She majored in philosophy. As a student, she was deeply concerned with issues of discrimination and social justice. And also participated in anti-nuclear demonstrations. Please make the following statements by their probability, losing one for the most probable and eight for the least probable. What's interesting here is the statement, the last statement, Linda is a bank teller and is active in the feminist movement. Linda is a bank teller. Because there's also these statements without one another, without the conjunction, which is Linda is active in the feminist movement. Linda is a bank teller. Because of the description, people think that Linda is a feminist is very likely, given the description. But they think being a bank teller is not likely. The issue is that people usually…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_047/transcript.txt",
+  "paperTitle": "Dual Process Theory: Embodied and Predictive; Symbolic and Classical\nAnalytic Thinking (Type 2 or “System 2”) for Large Language Models: using Psychology to address hallucination and reliability issues",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/GuestStream/GuestStream_047/"
+}

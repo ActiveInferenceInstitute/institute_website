@@ -1,0 +1,40 @@
+{
+  "id": "gueststream-010-1",
+  "title": "The Cotard Delusion: Case Study of the Cognitive Architecture of Self Representation. A Pilot without a vessel",
+  "series": "GuestStream",
+  "number": "#010.1",
+  "date": "2021-11-19",
+  "youtubeUrl": "https://youtu.be/Hvr-RgWZ7p4",
+  "youtubeId": "Hvr-RgWZ7p4",
+  "guests": [
+    "Philip Gerrans"
+  ],
+  "types": [
+    "Presentation",
+    "Group"
+  ],
+  "keywords": [
+    "Perception",
+    "Cotard Syndrome",
+    "Pain",
+    "Asymbolia",
+    "ActInf",
+    "Embodied",
+    "Clinical",
+    "Affect"
+  ],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-affect",
+    "term-embedded-embodied-encultured-enactive-inference",
+    "term-embodied-belief",
+    "term-perception"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hello everyone welcome to the active inference lab today it's september 9th 2021 for guest stream number 10.1 double digits or double digits with a decimal and we're really honored and appreciative to have professor philip guerins today coming in from australia and also dave joining us on stream we're gonna have a presentation from philip and then we're gonna have some time for discussion and dialogue so if you're watching live please feel free to leave questions in the live chat and we will address those on the stream and we're just really looking forward to this and again appreciative that you're coming on our stream so thanks and take it away phillip okay great uh thank you very much thank you very much for the invitation i spoke to anna kanika who told me that she had a great experience with you guys so i'm very very happy to be able to present and to tell you a little bit about the background to this talk i was a originally a philosopher of mind and of cognitive science and i'm very interested in uh the use of models and techniques in cognitive science to understand psychiatric disorder and i found predictive processing very helpful when i was writing a book on this a few years ago but looking back at um some other psychiatric disorders like the cotard delusion and so on i think it's really great to kind of go a little bit deeper and more more fundamental if you think of predictive processing as kind of like a computational structure at the level of representation and algorithm but of course a lot of psychiatric disorders i think you've got a very sort of a bottom-up genesis we really need to know about how the brain is working to control the body and even how the body is working in its social world so the active inference framework for me has been very helpful in rethinking this in this book that i'm writing right now and also i think it's it's actually crucial to understanding a phenomenon that i'm talking about right now that the kotar delusion the cotard delusion is so interesting because um well it's interesting in itself as you'll see it's fascinating phenomenon but it points us to some really interesting uh interesting facts or yeah interesting evidence about the way the mind is mind is working at a really basic level and how that ramifies and cascades upwards throughout cognition and behavior so let's go i'll i'll just tell you what the kotar delusion is it's a delusion of sometimes people think of it in the folk world as the delusion that you're dead i was discovered in 1882 but we described it more accurately i think as a delusion of inexistence so here's a here's someone who has it she had the experience of having no identity or self and being only a body without content she convinced that her brain had disappeared and the whole body was translucent another one more recent one i speak and breathe and eat but i'm dead okay so there's some classic examples but here is a really recent one published in the last couple of years this is fascinating cases coming from mexico there's a really good group there that works on this so mr a was referred to the national institute of neurology because of psychotic and catatonic symptoms his appetite diminished he barely slept he stayed withdrawn and silent he complained about his body saying his tendons had dried up and his organs were getting bigger speak of an internal hemorrhage his organs have been torn apart he began to insist that he was dead i can't feel the blood flowing through my veins didn't deprive him of looking for sharp objects to cut his neck and forearms then he gradually improved first he became mute began to urinate on his clothes refused to eat and then speak finally you know after some treatment he said he's improved slightly but he said i don't have feelings because i'm dead he had a right-sided heart and that it stopped and then he kept on saying even after persisting treatment his nihilistic delusions as they're accurately called you know delusions of…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_010/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_010"
+}

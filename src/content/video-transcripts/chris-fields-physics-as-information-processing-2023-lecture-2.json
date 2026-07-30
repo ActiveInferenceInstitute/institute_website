@@ -1,0 +1,24 @@
+{
+  "id": "chris-fields-physics-as-information-processing-2023-lecture-2",
+  "title": "Lecture 2 — Course information",
+  "series": "Chris Fields ~ Physics As Information Processing ~ 2023",
+  "number": "Lecture 2",
+  "date": "2023-06-15",
+  "youtubeUrl": "https://www.youtube.com/watch?v=WkWIqpxWRM4&list=PLNm0u2n1Iwdq0UnnnnkUr446lUz00x6E7",
+  "youtubeId": "WkWIqpxWRM4",
+  "guests": [
+    "Chris Fields"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-quantum-mechanics"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello everyone, it's June 15th, 2023. We are here in lecture two of Chris Field's course, Physics as Information Processing. So thank you, Chris. Looking forward to the lecture. Thank you, Daniel. And yes, welcome to this session. This session is titled Why Quantum Physics? And if you will recall from the first session, we reviewed the history of physics and some of the history of mathematics and computer science from the end of the 19th century through to the beginning of the 21st century and discussed the slow development from classical thermodynamics of quantum information theory and specifically characterizing quantum information theory as a new kind of physics that describes systems that are exchanging finite amounts of discreetly encoded information across some intervening boundary. And so we use this very conventional graphical notation of two agents or physical systems, Alice and Bob, A and B, that are exchanging energy and information across some boundary. And I always use a blue ellipse like this to indicate the boundary that separates Alice from Bob. And this new approach to physics is entirely topological. It's not geometric. So it doesn't assume a particular background space-time. So it doesn't assume that Alice and Bob are spatially separated. And so this makes it a very different kind of theory from classical information theory in that the channel that separates Alice from Bob, this boundary, is a boundary in state space. It's not a boundary in some geometric embedding space. And in particular, it's not a boundary or a channel that's embedded in a three-dimensional space that separates Alice from Bob. So that's what we talked about last time. And today, what I want to discuss is how quantum theory in particular makes this idea of physics as a theory of communication simple and obvious. And quantum theory, of course, has a terrible reputation of being abstruse and mathematically incredibly complicated and counterintuitive and difficult to understand. And this is one quotation among many from leading physicists pointing out that quantum mechanics is just difficult. And as you probably know, there's an entire philosophical industry of interpretations of quantum theory that try to make sense of its ontology. And so what I don't want to do today is try to introduce quantum mechanics. We're not doing any of this. Some of you will recognize this as the table of contents, the first part of the table of contents of the famous textbook by Landau and Lifshitz. But if you've studied quantum theory in undergraduate or graduate school, you've probably dealt with a textbook structure much like this one. And you've probably been introduced to quantum mechanics as it was traditionally conceived as essentially a mechanical theory, a theory of motion with wave functions and particle representations and on and on and on. So we're not going to try to do this. What we're going to do instead is take a completely information-theoretic approach and we're going to characterize information transfer in a quantum-theoretic way without any assumptions about mechanics or space-time or any of that. So instead of this, we're going to ask a simple question. By a simple question, I mean a question with just a yes-no answer or a binary answer. So let's use up or down as our example question. And to ask this question, we need three things. First, we need an action. We need a way of asking it. For example, making a sound or writing something down. Second, we need a thing that we can ask the question of. We need an environment or a friend or the rest of the world or an experimental apparatus or some system or other that we're going to act on to ask this question. And the third thing that we need to ask this question is a shared language. And it's the shared language that's often neglected in models based in physics. And I think the importance of the shared language became clear in classical information theory. And it's become clear again, of course,…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Other/WkWIqpxWRM4/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/Courses/PhysicsAsInformationProcessing_ChrisFields"
+}

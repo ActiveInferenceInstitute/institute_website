@@ -1,0 +1,30 @@
+{
+  "id": "livestream-028-0",
+  "title": "Towards a computational phenomenology of mental action: modelling meta-awareness and attentional control with deep parametric active inference",
+  "series": "Livestream",
+  "number": "#028.0",
+  "date": "2021-09-06",
+  "youtubeUrl": "https://youtu.be/sjdjRJMRVfw",
+  "youtubeId": "sjdjRJMRVfw",
+  "guests": [
+    "Lars Sandved-Smith"
+  ],
+  "types": [
+    "Paper",
+    "Context",
+    "Group"
+  ],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-hidden-state",
+    "term-model"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hello and welcome to the active inference lab it's actin flab live stream number 28.0 on september 6 2021 we're going to be talking about the paper towards a computational phenomenology of mental action modeling meta awareness and attentional control with deep parametric active inference welcome to the active inference lab we are a participatory online lab that is communicating learning and practicing applied active inference you can find us at the links on this page this is a recorded and archived live stream so please provide us with feedback so that we can improve on our work all backgrounds and perspectives are welcome here and we'll be following good video etiquette for live streams thanks a ton blue and steven and dean nice fun to have a zero crew together here you'll see a slightly updated version of the upcoming streams calendar which you can get at from this short link here uh september 7th and 14th we're going to be discussing this paper we're going to be discussing in this one and then we don't have a paper for 29 and then we have some papers set with authors for all of october also check out the tabs to see other series other than the tuesday paper centric walkthroughs and of course anyone's welcome to co-organize an event or to be the guest for one of these types of streams all right so today in 28.0 we're going to be just learning and discussing this paper that was already mentioned by sandvik smith hesp mataut fristen lutz and ramstead out only a few weeks ago which is kind of cool to see and there's going to be a time to talk about it's a super interesting paper and if you want to participate in 28.1 or two you should get in touch otherwise if it's after that time then check out those videos and maybe find another one to participate in but i'm just looking forward to hearing what you all were excited about by way of introduction just want to hear from everybody and what was exciting to them about this paper or made them want to join for the dot zero um if i go first uh daniel yeah thanks um i'm really excited to or interested to see them moving beyond a computational approach to neuro phenomenology which i've seen before and into this broader idea of what they're calling computational phenomenology which wears a bolder claim and has more relevance potentially to other applications which i'm interested in and applied active inference context so you know we'll see how that bold claim can be uh applied nice okay so for me i thought it was like ultra meta um the paper really got into the hierarchical um levels of organization which i'm always excited to see and talk about uh for me it was the fact that i am doing some writing right now and i am interested in the idea that there is a way of putting this into some sort of a geometric relationship as well as the computational relationship cool okay uh the paper is let me just re-frame it is towards computational phenomenology of mental action modeling meta awareness and attentional control with deep parametric active inference in neuroscience of consciousness published um about two weeks ago 27th of august does someone want to read the three aims of the paper sure i'll go ahead the three aims are to explicitly model meta awareness to account for the computational consequences of meta awareness on cognitive control and lastly to provide a computational account of mental covert action okay and then maybe the second part sure formally speaking the crucial thing to note about these cognitive processes is that they are about other such processes the deployment and control of attentional states and processes for instance are quintessentially a higher level ability such states and processes monitor and monitor and modulate other typically lower level perceptual states third order higher level processes in turn oversee these attentional processes we can be aware of our attention being grabbed and make a deliberate decision to focus our attention elsewhere it would seem then…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/Livestream/LiveStream_028/transcript.txt",
+  "paperTitle": "Towards a computational phenomenology of mental action: modelling meta-awareness and attentional control with deep parametric active inference",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/Livestream/LiveStream_028"
+}

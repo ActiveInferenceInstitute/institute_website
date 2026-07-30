@@ -20,6 +20,7 @@
     "rules": [
       { "type": "prefix", "match": "project-", "dir": "projects/" },
       { "type": "prefix", "match": "active-inference-and-", "dir": "active-inference/" },
+      { "type": "prefix", "match": "video-", "dir": "video/" },
       { "type": "set", "match": "programSubpageSlugs", "dir": "programs/" },
       { "type": "set", "match": "orgPageSlugs", "dir": "structure/" },
       { "type": "set", "match": "yearPageSlugs", "dir": "years/" }

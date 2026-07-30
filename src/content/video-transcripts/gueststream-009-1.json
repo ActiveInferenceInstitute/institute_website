@@ -1,0 +1,40 @@
+{
+  "id": "gueststream-009-1",
+  "title": "Collective intelligence and active inference",
+  "series": "GuestStream",
+  "number": "#009.1",
+  "date": "2021-08-20",
+  "youtubeUrl": "https://youtu.be/odkks5F9ZMM",
+  "youtubeId": "odkks5F9ZMM",
+  "guests": [
+    "Rafael Kaufmann",
+    "Pranav Gupta"
+  ],
+  "types": [
+    "Presentation",
+    "Group"
+  ],
+  "keywords": [
+    "ActInf",
+    "Behavioral Modeling",
+    "Collective Behavior",
+    "Machine Learning",
+    "Computational",
+    "Intelligence",
+    "Simulation"
+  ],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-behavior",
+    "term-collective-behavior",
+    "term-intelligence",
+    "term-simulation"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "hello everyone welcome to the active inference lab today it is august 20th 2021 and we are here in guest stream number 9.1 with some awesome guests so we'll just start with introductions and then head into a short presentation before a question and answer period so if you're watching live definitely write questions in the chat so i'm daniel i'm a researcher in california and blue i'm blue knight i am an independent research consultant in new mexico and i'll pass it to raphael hi everyone uh thank you guys for having us over i'm rafael i'm also an independent researcher i have a day job at google that has some but not a lot to do with this topic and i've been working with pranav and jacob on this topic for about a year and a half now uh it's been a wild ride so right now go ahead hello everyone uh thank you daniel and pluto for inviting us i'm a phd student uh at carnegie mellon tepper school of business uh my areas of research are collective intelligence where does it come from building a causal model social technical architecture looking at collectives as adaptive systems um you know i was very interested in the uh active interest framework we met rafael i and jacob met you know across different ci conferences and got this project going so we're very excited to talk more about and learn from all the discussions that we have back over to you guys sounds cool so let's go to raphael's presentation and then we'll just have a bunch of time for questions so go for it all right before i get started can you all confirm that you can see me alright uh yeah we see the slides the slides perfect all right cool all right so um what are we doing here um so as we mentioned uh the the interest here is to try to understand better uh the phenomenon of collective intelligence and so two examples here what we're talking about and they're pretty different examples one of them is a pretty classic uh example it's the murmuration of starlings top left i know the bird that's solving a puzzle on the top right is a crow not a starling so i'm cheating a little bit but that's fine uh so uh the on the bottom the example is the discovery of the exposure which is an amazing example of kind of a large scale long-term scientific collaboration so those are both legit uh examples of collective intelligence and and yet the way that we approach analyzing these uh things uh tends to be a little bit different so uh if you're doing something around complex aerodynamical systems or computational biology uh you tend to look primarily at the collective behavior and to be able to do that uh in a computable way you assume that individual agents are following simple rules to react to the environment and to their peers and if you're doing something like uh like anthropology or social science uh you're probably thinking of collectives that look more like the bottom and so you're focused on these really sophisticated agents that have these um complex social cognitive capabilities that are the thing that endows them with the ability to access collectives and you try to build a picture of the collective behavior kind of bottom up from the some of those interactions and both of our valid perspectives of course but they're speaking pretty different languages uh and we think that there must be a missing link here because if you think about us humans uh i mean i i definitely feel like i am at the same time an autonomous an autonomous individual and a member of not just one but a bunch of collectors right so i fluidly go in and out of uh companies or sports team or uh or uh uh polity and of course i'm part of my family so all these collectives can demonstrate intelligence behavior that that cannot be explained exclusively by aggregation of of the individual intelligence and yet uh the collective itself is a complex system that is composed of components that are in and of themselves highly autonomous uh complex adaptive systems as well and that's how we frame the the goal of our of…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_009/transcript.txt",
+  "paperTitle": "An Active Inference Model of Collective Intelligence",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_009"
+}

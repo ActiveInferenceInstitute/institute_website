@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>PCT vs. FEP: A Comparison Between Reorganization Theory and Bayesian Inference | Active Inference Institute</title>
+  <meta name="description" content="Recorded session from GuestStream #124.1 with Ty Roachford.">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/img/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="../../../assets/img/icon-180.png">
+  <link rel="manifest" href="../../../manifest.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="Active Inference Institute — Updates" href="../../../feed.xml">
+  <link rel="alternate" type="application/feed+json" title="Active Inference Institute — Updates" href="../../../feed.json">
+  <link rel="canonical" href="https://activeinference.institute/de/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="en" href="https://activeinference.institute/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="es" href="https://activeinference.institute/es/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="de" href="https://activeinference.institute/de/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="it" href="https://activeinference.institute/it/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/video/gueststream-124-1/">
+  <link rel="alternate" hreflang="x-default" href="https://activeinference.institute/video/gueststream-124-1/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Active Inference Institute">
+  <meta property="og:title" content="PCT vs. FEP: A Comparison Between Reorganization Theory and Bayesian Inference | Active Inference Institute">
+  <meta property="og:description" content="Recorded session from GuestStream #124.1 with Ty Roachford.">
+  <meta property="og:url" content="https://activeinference.institute/de/video/gueststream-124-1/">
+  <meta property="og:image" content="https://activeinference.institute/assets/img/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Active Inference Institute — PCT vs. FEP: A Comparison Between Reorganization Theory and Bayesian Inference | Active Inference Institute">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PCT vs. FEP: A Comparison Between Reorganization Theory and Bayesian Inference | Active Inference Institute">
+  <meta name="twitter:description" content="Recorded session from GuestStream #124.1 with Ty Roachford.">
+  <meta name="twitter:image" content="https://activeinference.institute/assets/img/social-card.png">
+  <meta name="generator" content="institute_website v4.0.0">
+  <link rel="stylesheet" href="../../../assets/css/instituteos-ds.css">
+  <link rel="stylesheet" href="../../../assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/de/video/gueststream-124-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/de/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/de/video/"},{"@type":"ListItem","position":3,"name":"PCT vs. FEP: A Comparison Between Reorganization Theory and Bayesian Inference","item":"https://activeinference.institute/de/video/gueststream-124-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
+</head>
+<body class="">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="Active Inference Institute home">
+      <span class="brand-mark" aria-hidden="true">π</span>
+      <span>
+        <strong>Active Inference Institute</strong>
+        <em>Act. Infer. Serve.</em>
+      </span>
+    </a>
+    <!-- Mobile nav disclosure. CSP-safe: no inline handlers — site.js wires the
+         click listener and stamps data-nav-js on the header; without JS the
+         button stays hidden and the nav renders expanded (styles.css). -->
+    <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true">☰</span><span class="nav-toggle-label">Menü</span></button>
+    <nav class="nav" id="site-nav" aria-label="Primär"><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-0-institute" data-nav-toggle>
+          <span>Institut</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">Über uns</a><a href="../../structure/">Struktur &amp; Governance</a><a href="../../structure/board-of-directors/">Vorstand</a><a href="../../structure/officers/">Offiziere</a><a href="../../structure/scientific-advisory-board/">Wissenschaftlicher Beirat</a><a href="../../ecosystem/">Ökosystem</a><a href="../../communications/">Communications</a><a href="../../newsletter/">Newsletter</a><a href="../../instituteos/">InstitutOS-Schnittstelle</a><a href="../../directory/">Globales Verzeichnis</a><a href="../../resources/#official-shortlinks">Offizielle Kurzlinks</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
+          <span>Lernen</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-1-learn"><a href="../../active-inference/">Aktive Inferenz</a><a href="../../learning/">Lernen und Forschung</a><a href="../../activities/">Aktivitäten</a><a href="../../calendar/">Kalender</a><a href="../../simulations/">Simulationen</a><a href="../../resources/#learning">Lernressourcen</a><a href="../../resources/#learning">Dokumente beginnen</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-2-participate" data-nav-toggle>
+          <span>teilnehmen</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-2-participate"><a href="../../programs/">Programme</a><a href="../../volunteer/">Freiwilliger</a><a href="../../programs/internship/">Praktikum</a><a href="../../programs/fellowship/">Stipendium</a><a href="../../get-involved/">Beteilige dich</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-3-projects" data-nav-toggle>
+          <span>Projekte</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-3-projects"><a href="../../projects/">Alle Projekte</a><a href="../../eduactive/">EduActive-Einheit</a><a href="../../reinference/">Rückschluss-Einheit</a><a href="../../directory/#repositories">Repoziteure</a></div>
+      </div><div class="nav-group">
+        <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-4-resources" data-nav-toggle>
+          <span>Ressourcen</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Suche</a><a href="../../resources/">Ressourcenverzeichnis</a><a href="../../directory/">Globaler Index</a><a href="../../knowledge/">Offene Quellenkarte</a><a href="../../instituteos/#public-export-gate">Öffentliche Export-Schaltstelle</a><a href="../../directory/#official-pages">Offizielle Seiten</a><a href="../../resources/#research">Forschungsreferenzen</a><a href="../../#audience-pathways">Zielgruppenpfade</a></div>
+      </div></nav>
+    <div class="site-search" role="search">
+      <input type="search" id="site-search-input" placeholder="Suche im «Active Inference Institute" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Seite durchsuchen" aria-controls="site-search-results" aria-expanded="false">
+      <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Suchergebnisse" hidden></div>
+    </div>
+    <details class="lang-switcher">
+      <summary aria-label="Sprache auswählen" title="Sprache auswählen"><span class="lang-globe" aria-hidden="true">🌐</span><span class="lang-current">DE</span></summary>
+      <div class="lang-menu" role="menu" aria-label="Sprache"><a role="menuitem" hreflang="en" lang="en" href="../../../video/gueststream-124-1/">English</a><a role="menuitem" hreflang="es" lang="es" href="../../../es/video/gueststream-124-1/">Español</a><a role="menuitem" hreflang="fr" lang="fr" href="../../../fr/video/gueststream-124-1/">Français</a><a role="menuitem" hreflang="de" lang="de" href="./" aria-current="true">Deutsch</a><a role="menuitem" hreflang="pt" lang="pt" href="../../../pt/video/gueststream-124-1/">Português</a><a role="menuitem" hreflang="it" lang="it" href="../../../it/video/gueststream-124-1/">Italiano</a><a role="menuitem" hreflang="ru" lang="ru" href="../../../ru/video/gueststream-124-1/">Русский</a><a role="menuitem" hreflang="zh" lang="zh" href="../../../zh/video/gueststream-124-1/">中文</a><a role="menuitem" hreflang="ja" lang="ja" href="../../../ja/video/gueststream-124-1/">日本語</a><a role="menuitem" hreflang="ko" lang="ko" href="../../../ko/video/gueststream-124-1/">한국어</a><a role="menuitem" hreflang="hi" lang="hi" href="../../../hi/video/gueststream-124-1/">हिन्दी</a><a role="menuitem" hreflang="ar" lang="ar" href="../../../ar/video/gueststream-124-1/">العربية</a></div>
+    </details>
+    <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Diese Seite anhören" title="Diese Seite anhören"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
+    <div class="accent-control">
+      <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Farbe für die Hervorhebung auswählen" title="Farbe für die Hervorhebung auswählen"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
+      <div id="accent-menu" class="accent-menu" role="menu" aria-label="Highlight color" hidden>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="red" aria-checked="true" aria-label="Red highlight (default)" title="Red"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="amber" aria-checked="false" aria-label="Amber highlight" title="Amber"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="green" aria-checked="false" aria-label="Green highlight" title="Green"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="teal" aria-checked="false" aria-label="Teal highlight" title="Teal"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="blue" aria-checked="false" aria-label="Blue highlight" title="Blue"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="violet" aria-checked="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="magenta" aria-checked="false" aria-label="Magenta highlight" title="Magenta"></button>
+      </div>
+    </div>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Thema wechseln" aria-pressed="false" title="Schaltung zwischen hell/dunkel Thema"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
+  </header>
+  <main id="main">
+    <p class="mt-notice" role="note"><span aria-hidden="true">🌐</span> Diese Seite wurde maschinell aus dem Englischen übersetzt. <a href="../../../video/gueststream-124-1/" hreflang="en" lang="en">Sehen Sie sich die englische Originalversion an.</a></p><section class="page-hero compact">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="../">Videos and Podcasts</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">PCT vs. FEP: A Comparison Between Reorganization Theory and Bayesian Inference</span>
+    </nav>
+    <p class="eyebrow">GuestStream #124.1</p>
+    <h1>PCT vs. FEP: A Comparison Between Reorganization Theory and Bayesian Inference</h1>
+    <p>Dec 4, 2025 · with Ty Roachford</p>
+    <a class="button primary" href="https://www.youtube.com/live/AKyK7kKgI28" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a>
+  </section>
+
+  <section class="content-band muted">
+    <div class="resource-grid compact-grid">
+      <article class="info-card">
+        <h3>Session details</h3>
+        <p><strong>Date:</strong> Dec 4, 2025</p>
+        <p><strong>Series:</strong> GuestStream #124.1</p>
+        <p><strong>Guests:</strong> Ty Roachford</p>
+
+      </article>
+      <article class="info-card">
+        <h3>Watch and follow up</h3>
+        <p><a href="https://www.youtube.com/live/AKyK7kKgI28" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a></p>
+        <p><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_124" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a></p>
+        <p><a href="../">← Back to video library</a></p>
+      </article>
+    </div>
+
+  </section>
+
+
+  <section class="content-band" id="transcript">
+    <div class="section-heading">
+    <p class="eyebrow">Transcript</p>
+    <h2>AI-generated transcript excerpt</h2>
+    <p>The full transcript is available on GitHub. This excerpt is generated by automated speech recognition and may contain errors.</p>
+  </div>
+    <div class="transcript-block">
+      <p>Hello, welcome everyone. This is ACTIMF Guest Stream 124.1. It's December 4th, 2025. Interesting. 12.4. Good. And Ty Rochefort will be presenting on a recent paper, PCT vs. FEP, a comparison between reorganization theory and Bayesian inference. There will be a presentation, followed by some remarks from our panelists and questions. And I will also look in the live chat for any questions. So thank you, Ty and Warren and Andreas for joining, and to you, Ty, for the presentation. Absolutely. Happy to be here. So this is my presentation on recent paper, Perceptual Control Theory vs. Free Energy Principle, Comparison Between Reunerization Theory and Bayesian Inference. I did wrote this paper with my collaborator, Warren Menzel, and my PI, Dr. Rodrigo Penna. So getting into it, this is how the paper looks. We publish over in MDPI Foundations. And what we did was a full-stack comparison where we looked at the philosophy, the modeling, and the mathematics around both Perceptual Control Theory and the Free Energy Principle. And we're going to get into sort of what these two pictures, what all these pictures sort of mean in the context of the presentation here. So start off with, I think that there are a lot of scientific explanations that I would call principle-based frameworks, where instead of looking at a bunch of data and then creating theories and models based off of that, it sort of flips the whole entire thing on its head. And we're going from principles, theories, models, really theories and models constrained by principles to data that is being generated by those models. So in other words, we use principles to constrain the space of models that we're actually considering when we go out to model something that is in the world. And in physics, this has already been a thing. This has been a thing for sure in both physics and biology. So here are just some examples of that. Conservation of energy, the maximum entropy principle, the principle of least action, and in biology, having things like autopoiesis, self-organization, homeostasis, and also natural selection. So getting into Perceptual Control Theory as a principle-based framework, we can say that the principle of Perceptual Control Theory is behavior is the control of perception. So rather than looking at organisms as if they're, say, computers or particular functions that take an input and give a specific output, given that input, every single time deterministically, rather you should look at organisms as dedicated to controlling what their input is rather than their output. And so the idea is that more like a thermostat that controls the temperature, you can look at an organism like this, in that when the temperature comes into the thermostat, or even the organism as we see on the bottom here, what's happening is it's going to give a response or a behavior that brings it towards, that allows it to affect the temperature such that it minimizes the difference between its internal set point of 72 in this case, and the outside temperature that it's sensing. So in other words, if it's far too cold, if it's 60 degrees that comes in here, and we have a 72 degree set point, well, we're not responding specifically to the fact that it is 60 degrees, we're responding to the fact that there's a difference between our internal set point of 72 and 60. And there would be a different response if our internal set point was now at 75 rather than 60. So the output is actually depending on this discrepancy between the sense temperature and the internal reference point that is associated with that temperature. And the same thing goes on in organisms, but a bit more complicated, where we have multiple variables, internal variables that we're regulating, such as hunger and temperature and many other things for many more complicated organisms. And these are all in conflict. So the organism doesn't simply try to do them all at the same time, it sort of prioritizes certain ones over the other in…</p>
+    </div>
+    <p class="section-link"><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_124/transcript.txt" target="_blank" rel="noopener noreferrer">View full transcript on GitHub ↗</a></p>
+  </section>
+
+  <section class="content-band" id="related">
+    <div class="section-heading">
+    <p class="eyebrow">Continue</p>
+    <h2>More from the video library</h2>
+    <p>Browse the complete library or find more sessions in this series.</p>
+  </div>
+    <div class="link-chips">
+      <a href="../"><span>All videos</span></a>
+      <a href="../../activities/"><span>Activities</span></a>
+      <a href="../../learning/"><span>Learning</span></a>
+    </div>
+  </section>
+  </main>
+  <footer class="site-footer">
+    <div>
+      <strong>Active Inference Institute</strong>
+      <p>Ein teilnehmendes offenes Wissenschaftsinstitut, das Bildung, Forschung, Schulung und Anwendungen im Zusammenhang mit Aktiver Inferenz unterstützt.</p>
+    </div>
+    <nav class="footer-links" aria-label="Fußnote">
+      <a href="../../about/">Über uns</a>
+      <a href="../../projects/">Projekte</a>
+      <a href="../../programs/">Programme</a>
+      <a href="../../directory/">Verzeichnis</a>
+      <a href="../../resources/">Ressourcen</a>
+      <a href="../../knowledge/">Offene Quellenkarte</a>
+      <a href="../../get-involved/">Beteiligen Sie sich</a>
+      <a href="../../search/">Suche</a>
+      <a href="../../sitemap/">Sitemap</a>
+      <a href="mailto:blanket@activeinference.institute">blanket@activeinference.institute</a>
+    </nav>
+    <div class="social-links" aria-label="Verifizierte öffentliche Links">
+      <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="build-stamp">v4.0.0 · build 1f0e21cd09cd</p>
+  </footer>
+  <script src="../../../assets/js/theme.js" defer></script>
+  <script src="../../../assets/js/accent.js" defer></script>
+  <script src="../../../assets/js/tts.js" defer></script>
+  <script src="../../../assets/js/site.js" defer></script>
+  <script src="../../../assets/js/search-data.js" defer></script>
+  <script src="../../../assets/js/search.js" defer></script>
+</body>
+</html>

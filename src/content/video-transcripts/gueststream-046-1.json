@@ -1,0 +1,25 @@
+{
+  "id": "gueststream-046-1",
+  "title": "Active Inference AI & the Spatial Web",
+  "series": "GuestStream",
+  "number": "#046.1",
+  "date": "2023-06-23",
+  "youtubeUrl": "https://www.youtube.com/watch?v=dUW8cD8XUec",
+  "youtubeId": "dUW8cD8XUec",
+  "guests": [
+    "Denise Holt"
+  ],
+  "types": [],
+  "keywords": [],
+  "ontologyTerms": [
+    "term-active-inference",
+    "term-free-energy-principle"
+  ],
+  "summary": "",
+  "hasTimestamps": true,
+  "hasTranscript": true,
+  "transcriptExcerpt": "Hello, it's June 23rd, 2023. We're in ActInf Guest Stream 46.1 with Denise Holt. So Denise, thank you very much for joining. We'll have your presentation first, any length of time you want, and then we'll have a discussion about some of the topics you're bringing up, and I'll read some comments from the live chat too. So thanks again, Denise, looking forward to your presentation. Hi, Daniel. Thank you so much for having me today. Yeah, so let's just dive right in. Today, I'm going to be talking about Active Inference AI and the spatial web. And for those who are not familiar, there is a company called Versus AI, and they're basically delivering the next generation of AI. This is beyond the current machine learning, deep learning models that we're all so familiar with that are incredible tools, but really those are tools. They are great at creating content, performing tasks, things like that. But they operate in a way that is pattern matching, and they're all siloed in their ability for what they can do. They're trained on enormous amounts of data to increase the pattern recognition and hopefully increase accurate outputs. But that's really what they do. What Versus has created is something completely different. And it's based on Active Inference AI. And so Active Inference AI is entirely new. And this is the AI that will be able to get us to AGI, you know, leading to synthetic self-evolving intelligence. So today, what I'm going to be talking about in this deck is, you know, Active Inference AI and the spatial web and how these technologies are going to affect and change the world. We'll talk about how Active Inference works with artificial intelligence, how the spatial web protocol enables the perception and the belief updating of the AI, and how these technologies together enable the only AI in the world that can run critical operations for systems or infrastructure, smart cities, you know, the planet. So when you're talking about airports, hospitals, things like that. So yeah, so let's dive right in. So the spatial web, what is that? So the spatial web is being called the network of everything. Basically, it's the next evolution of the internet, and it's powered by AI. So this is taking us from a library of pages and documents that we have in the World Wide Web. And oh my gosh, my dog is wanting out. I'm so sorry. I have to let him out. Sorry about that. So the next evolution of the internet. Now, you know, as I said, World Wide Web, a library of pages, documents, you know, everything is static. The spatial web protocol, HSTP, hyperspace transaction protocol, and the programming language for the protocol called HSML, which is hyperspace modeling language. This new protocol takes us into a library of spaces where, you know, we have spatial domains and everything within any space can be locatable and programmable within this new network. So, and it's just extending the protocol that we have now, right? So same internet, just more capabilities. Now, Dr. Carl J. Friston and the Versus AI white paper, and I'm sure a lot of you are familiar with him, the father of active inference and the free energy principle. Now, so Versus with Dr. Friston has developed a new type of AI that mimics the self-organized systems of nested intelligence found in nature. And it's based on his methodologies of active inference and the free energy principle and the spatial web protocols, which I just mentioned, which were developed by Versus AI. In December, they put out a white paper called Designing Ecosystems of Intelligence from First Principles. And just to back up a second, you know, Versus created the protocol, the HSTP and the HSML, but donated it to the public because nobody can own the internet. But they needed that in place for what they wanted to do as a company. So that framework needed to be there. So then they also donated the protocol and the IP to the IEEE, which is one of the largest core standards bodies that develops everything…",
+  "transcriptSource": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/GuestStream/GuestStream_046/transcript.txt",
+  "paperTitle": "",
+  "githubUrl": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/tree/main/GuestStream/GuestStream_046"
+}

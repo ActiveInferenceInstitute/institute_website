@@ -24,6 +24,7 @@ import { simulationsPage } from "./pages/simulations.mjs";
 import { calendarPage } from "./pages/calendar.mjs";
 import { sitemapPage } from "./pages/sitemap.mjs";
 import { newsletterIssuePages, newsletterPage, newsletterIssueOutputPath } from "./pages/newsletter.mjs";
+import { videoDetailPage, videoRecordBySlug, allVideoSlugs } from "./pages/video-detail.mjs";
 
 function build() {
   // Every routed page maps to <dir>/index.html via the clean-URL taxonomy.
@@ -59,6 +60,16 @@ function build() {
       writeFile(newsletterIssueOutputPath(issue.route), issue.render());
       pageCount += 1;
     }
+    // Per-video detail pages: each carries its own transcript excerpt and
+    // metadata from the ActiveInferenceJournal. All video-* slugs route under
+    // /video/ per url-taxonomy.json.
+    for (const slug of allVideoSlugs()) {
+      const record = videoRecordBySlug(slug);
+      if (record) {
+        writeFile(outputPathForSlug(slug), videoDetailPage(record));
+        pageCount += 1;
+      }
+    }
   }
   setActiveLocale(DEFAULT_LOCALE);
   // 404 stays a flat root file (GitHub Pages requires /404.html). Its links use
@@ -83,6 +94,7 @@ function build() {
   const urls = [
     ...slugRenderers.map(([slug]) => outputPathForSlug(slug)),
     ...newsletterIssuePages().map((issue) => newsletterIssueOutputPath(issue.route)),
+    ...allVideoSlugs().map((slug) => outputPathForSlug(slug)),
   ];
   // lastmod from the export date (stable per export, not a live clock); priority
   // by depth: home 1.0, top-level sections 0.8, deeper collection pages 0.6.
