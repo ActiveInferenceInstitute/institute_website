@@ -5,6 +5,7 @@ import { hrefForSlug, urlDirForSlug } from "../url-taxonomy.mjs";
 import { escapeHtml } from "../lib/text.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
+import { absoluteUrl } from "../render/urls.mjs";
 
 const _dir = path.dirname(fileURLToPath(import.meta.url));
 const transcriptDir = path.join(_dir, "..", "content", "video-transcripts");
@@ -54,6 +55,54 @@ export function allVideoSlugs() {
 }
 
 /**
+ * Build Schema.org VideoObject JSON-LD for a video detail page.
+ * Provides crawlers with structured metadata about the recording.
+ */
+function videoObjectSchema(record, canonicalUrl) {
+  const obj = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": `${canonicalUrl}#video`,
+    name: record.title || "Video session",
+    description: record.transcriptExcerpt
+      ? record.transcriptExcerpt.slice(0, 300).replace(/\s+/g, " ").trim() + "…"
+      : `Recorded session from ${record.series || "the Institute"}.`,
+    uploadDate: record.date || "",
+    thumbnailUrl: "",
+  };
+  if (record.youtubeUrl) {
+    obj.embedUrl = record.youtubeUrl.replace("/live/", "/embed/").replace("watch?v=", "embed/");
+    obj.url = record.youtubeUrl;
+  }
+  return `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, "\\u003c")}</script>`;
+}
+
+/**
+ * Build a rich meta description from the video record.
+ * Uses transcript excerpt when available, falls back to metadata.
+ */
+function buildDescription(record) {
+  const title = record.title || "Video session";
+  const seriesLabel = [record.series, record.number].filter(Boolean).join(" ");
+  const guestNames = (record.guests || []).filter(Boolean);
+  const guestList = guestNames.length ? guestNames.join(", ") : "";
+
+  // Use transcript excerpt first ~155 chars as description for SEO
+  if (record.transcriptExcerpt) {
+    const clean = record.transcriptExcerpt.replace(/\s+/g, " ").trim();
+    if (clean.length > 160) return clean.slice(0, 157).replace(/\s+\S*$/, "") + "…";
+    return clean;
+  }
+
+  // Fallback: metadata-based description
+  const parts = [title];
+  if (seriesLabel) parts.push(`from ${seriesLabel}`);
+  if (guestList) parts.push(`with ${guestList}`);
+  if (record.date) parts.push(`(${record.date})`);
+  return parts.join(" ") + ".";
+}
+
+/**
  * Render a single video detail page.
  * @param {object} record - The video transcript record
  * @returns {string} HTML
@@ -63,6 +112,7 @@ export function videoDetailPage(record) {
   const currentDir = urlDirForSlug(slug);
   const seriesLabel = [record.series, record.number].filter(Boolean).join(" ");
   const dateStr = formatDate(record.date);
+  const canonicalUrl = absoluteUrl(`${currentDir}/`).replace(/\/+$/, "/");
 
   const guestNames = (record.guests || []).filter(Boolean);
   const guestList = guestNames.length
@@ -153,6 +203,7 @@ export function videoDetailPage(record) {
   </section>
 
   ${transcriptSection}
+  ${videoObjectSchema(record, canonicalUrl)}
 
   <section class="content-band" id="related">
     ${sectionHeading({
@@ -169,9 +220,10 @@ export function videoDetailPage(record) {
 
   return layout({
     title: record.title || "Video session",
-    description: `Recorded session${seriesLabel ? ` from ${seriesLabel}` : ""}${guestList ? ` with ${guestList}` : ""}.`,
+    description: buildDescription(record),
     currentDir,
     body,
     slug,
+    ogType: "video.other",
   });
 }
