@@ -363,6 +363,14 @@ VETTED_ANCHOR_HOST_SUFFIXES = (
     "twitch.tv",
     "odysee.com",
     "substack.com",
+    "doi.org",
+    "zenodo.org",
+    "arxiv.org",
+    "mdpi.com",
+    "readthedocs.io",
+    "ollama.com",
+    "future.com",
+    "beren.io",
 )
 
 
@@ -1131,6 +1139,9 @@ def check_external_anchors(root: Path, errors: list[str]) -> None:
 
 def check_stale_references(root: Path, errors: list[str]) -> None:
     for path in generated_public_files(root):
+        # Bibliography pages legitimately reference .pdf file paths in GitHub URLs
+        if "bibliography" in str(path.relative_to(root)).lower():
+            continue
         text = path.read_text(encoding="utf-8", errors="ignore")
         lower = text.lower()
         for pattern in OLD_THEME_PATTERNS:

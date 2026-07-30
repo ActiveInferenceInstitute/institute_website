@@ -1,0 +1,1479 @@
+{
+  "description": "Bibliography of the Active Inference Meta-Analysis project — curated references spanning foundational FEP, Active Inference textbooks, methods, tools, and related work.",
+  "source": "act_inf_metaanalysis/manuscript/references.bib",
+  "total_entries": 71,
+  "sections": [
+    {
+      "title": "Foundational FEP",
+      "entries": [
+        {
+          "key": "friston2010free",
+          "type": "article",
+          "title": "The free-energy principle: a unified brain theory?",
+          "authors": "Karl Friston",
+          "year": "2010",
+          "journal": "Nature Reviews Neuroscience",
+          "volume": "11",
+          "number": "2",
+          "pages": "127--138",
+          "publisher": "Nature Publishing Group",
+          "doi": "10.1038/nrn2787",
+          "url": "https://doi.org/10.1038/nrn2787",
+          "isbn": "",
+          "citation": "Karl Friston (2010) The free-energy principle: a unified brain theory?. Nature Reviews Neuroscience, 11, 127--138. DOI: 10.1038/nrn2787"
+        },
+        {
+          "key": "friston2006free",
+          "type": "article",
+          "title": "A free energy principle for the brain",
+          "authors": "Karl Friston, James Kilner, Lee Harrison",
+          "year": "2006",
+          "journal": "Journal of Physiology-Paris",
+          "volume": "100",
+          "number": "1-3",
+          "pages": "70--87",
+          "publisher": "Elsevier",
+          "doi": "10.1016/j.jphysparis.2006.10.001",
+          "url": "https://doi.org/10.1016/j.jphysparis.2006.10.001",
+          "isbn": "",
+          "citation": "Karl Friston, James Kilner, Lee Harrison (2006) A free energy principle for the brain. Journal of Physiology-Paris, 100, 70--87. DOI: 10.1016/j.jphysparis.2006.10.001"
+        }
+      ]
+    },
+    {
+      "title": "Active Inference textbook",
+      "entries": [
+        {
+          "key": "parr2022active",
+          "type": "book",
+          "title": "Active Inference: The Free Energy Principle in Mind, Brain, and Behavior",
+          "authors": "Thomas Parr, Giovanni Pezzulo, Karl J Friston",
+          "year": "2022",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "MIT Press",
+          "doi": "",
+          "url": "",
+          "isbn": "978-0-262-04535-4",
+          "citation": "Thomas Parr, Giovanni Pezzulo, Karl J Friston (2022) Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press."
+        }
+      ]
+    },
+    {
+      "title": "Da Costa et al. on active inference",
+      "entries": [
+        {
+          "key": "dacosta2020active",
+          "type": "article",
+          "title": "Active inference on discrete state-spaces: A synthesis",
+          "authors": "Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl Friston",
+          "year": "2020",
+          "journal": "Journal of Mathematical Psychology",
+          "volume": "99",
+          "number": "",
+          "pages": "102447",
+          "publisher": "Elsevier",
+          "doi": "10.1016/j.jmp.2020.102447",
+          "url": "https://doi.org/10.1016/j.jmp.2020.102447",
+          "isbn": "",
+          "citation": "Lancelot Da Costa, Thomas Parr, Noor Sajid, Sebastijan Veselic, Victorita Neacsu, Karl Friston (2020) Active inference on discrete state-spaces: A synthesis. Journal of Mathematical Psychology, 99, 102447. DOI: 10.1016/j.jmp.2020.102447"
+        }
+      ]
+    },
+    {
+      "title": "Sajid et al. review",
+      "entries": [
+        {
+          "key": "sajid2021active",
+          "type": "article",
+          "title": "Active inference: demystified and compared",
+          "authors": "Noor Sajid, Philip J Ball, Thomas Parr, Karl J Friston",
+          "year": "2021",
+          "journal": "Neural Computation",
+          "volume": "33",
+          "number": "3",
+          "pages": "674--712",
+          "publisher": "MIT Press",
+          "doi": "10.1162/neco_a_01357",
+          "url": "https://doi.org/10.1162/neco_a_01357",
+          "isbn": "",
+          "citation": "Noor Sajid, Philip J Ball, Thomas Parr, Karl J Friston (2021) Active inference: demystified and compared. Neural Computation, 33, 674--712. DOI: 10.1162/neco_a_01357"
+        }
+      ]
+    },
+    {
+      "title": "Smith et al. computational psychiatry",
+      "entries": [
+        {
+          "key": "smith2021computational",
+          "type": "article",
+          "title": "A step-by-step tutorial on active inference and its application to empirical data",
+          "authors": "Ryan Smith, Karl J Friston, Christopher J Whyte",
+          "year": "2022",
+          "journal": "Journal of Mathematical Psychology",
+          "volume": "107",
+          "number": "",
+          "pages": "102632",
+          "publisher": "Elsevier",
+          "doi": "10.1016/j.jmp.2021.102632",
+          "url": "https://doi.org/10.1016/j.jmp.2021.102632",
+          "isbn": "",
+          "citation": "Ryan Smith, Karl J Friston, Christopher J Whyte (2022) A step-by-step tutorial on active inference and its application to empirical data. Journal of Mathematical Psychology, 107, 102632. DOI: 10.1016/j.jmp.2021.102632"
+        }
+      ]
+    },
+    {
+      "title": "Deep active inference",
+      "entries": [
+        {
+          "key": "fountas2020deep",
+          "type": "inproceedings",
+          "title": "Deep active inference agents using Monte-Carlo methods",
+          "authors": "Zafeirios Fountas, Noor Sajid, Pedro AM Mediano, Karl Friston",
+          "year": "2020",
+          "journal": "Advances in Neural Information Processing Systems",
+          "volume": "33",
+          "number": "",
+          "pages": "11662--11675",
+          "publisher": "",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Zafeirios Fountas, Noor Sajid, Pedro AM Mediano, Karl Friston (2020) Deep active inference agents using Monte-Carlo methods. Advances in Neural Information Processing Systems, 33, 11662--11675."
+        }
+      ]
+    },
+    {
+      "title": "Champion et al. tree search",
+      "entries": [
+        {
+          "key": "champion2021realizing",
+          "type": "article",
+          "title": "Realizing active inference in variational message passing: The outcome-blind fixation of belief",
+          "authors": "Th'e}ophile Champion, Howard Bowman, Peter Gr\"unwald",
+          "year": "2021",
+          "journal": "Neural Computation",
+          "volume": "33",
+          "number": "10",
+          "pages": "2762--2826",
+          "publisher": "MIT Press",
+          "doi": "10.1162/neco_a_01422",
+          "url": "https://doi.org/10.1162/neco_a_01422",
+          "isbn": "",
+          "citation": "Th'e}ophile Champion, Howard Bowman, Peter Gr\"unwald (2021) Realizing active inference in variational message passing: The outcome-blind fixation of belief. Neural Computation, 33, 2762--2826. DOI: 10.1162/neco_a_01422"
+        }
+      ]
+    },
+    {
+      "title": "Nanopublications",
+      "entries": [
+        {
+          "key": "groth2010anatomy",
+          "type": "article",
+          "title": "Anatomy of a nanopublication",
+          "authors": "Paul Groth, Andrew Gibson, Jan Velterop",
+          "year": "2010",
+          "journal": "Information Services & Use",
+          "volume": "30",
+          "number": "1-2",
+          "pages": "51--56",
+          "publisher": "IOS Press",
+          "doi": "10.3233/ISU-2010-0613",
+          "url": "https://doi.org/10.3233/ISU-2010-0613",
+          "isbn": "",
+          "citation": "Paul Groth, Andrew Gibson, Jan Velterop (2010) Anatomy of a nanopublication. Information Services & Use, 30, 51--56. DOI: 10.3233/ISU-2010-0613"
+        },
+        {
+          "key": "kuhn2016decentralized",
+          "type": "article",
+          "title": "Decentralized provenance-aware publishing with nanopublications",
+          "authors": "Tobias Kuhn, Christine Chichester, Michael Krauthammer, N'u}ria Queralt-Rosinach, Ruben Verborgh, George Giannakopoulos, Axel-Cyrille Ngonga Ngomo, Michel Dumontier",
+          "year": "2016",
+          "journal": "PeerJ Computer Science",
+          "volume": "2",
+          "number": "",
+          "pages": "e78",
+          "publisher": "PeerJ Inc.",
+          "doi": "10.7717/peerj-cs.78",
+          "url": "https://doi.org/10.7717/peerj-cs.78",
+          "isbn": "",
+          "citation": "Tobias Kuhn, Christine Chichester, Michael Krauthammer, N'u}ria Queralt-Rosinach, Ruben Verborgh, George Giannakopoulos, Axel-Cyrille Ngonga Ngomo, Michel Dumontier (2016) Decentralized provenance-aware publishing with nanopublications. PeerJ Computer Science, 2, e78. DOI: 10.7717/peerj-cs.78"
+        },
+        {
+          "key": "kuhn2014trusty",
+          "type": "inproceedings",
+          "title": "Trusty URIs: Verifiable, Immutable, and Permanent Digital Artifacts for Linked Data",
+          "authors": "Tobias Kuhn, Michel Dumontier",
+          "year": "2014",
+          "journal": "The Semantic Web--ISWC 2014",
+          "volume": "",
+          "number": "",
+          "pages": "395--410",
+          "publisher": "Springer",
+          "doi": "10.1007/978-3-319-11964-9_25",
+          "url": "https://doi.org/10.1007/978-3-319-11964-9_25",
+          "isbn": "",
+          "citation": "Tobias Kuhn, Michel Dumontier (2014) Trusty URIs: Verifiable, Immutable, and Permanent Digital Artifacts for Linked Data. The Semantic Web--ISWC 2014. DOI: 10.1007/978-3-319-11964-9_25"
+        }
+      ]
+    },
+    {
+      "title": "pymdp",
+      "entries": [
+        {
+          "key": "heins2022pymdp",
+          "type": "article",
+          "title": "pymdp: A Python library for active inference in discrete state spaces",
+          "authors": "Conor Heins, Beren Millidge, Lancelot Da Costa, Stephen Mann, Karl Friston, Ozan Catal, Pablo Lanillos, Noor Sajid, Alexander Tschantz",
+          "year": "2022",
+          "journal": "Journal of Open Source Software",
+          "volume": "7",
+          "number": "73",
+          "pages": "4098",
+          "publisher": "The Open Journal",
+          "doi": "10.21105/joss.04098",
+          "url": "https://doi.org/10.21105/joss.04098",
+          "isbn": "",
+          "citation": "Conor Heins, Beren Millidge, Lancelot Da Costa, Stephen Mann, Karl Friston, Ozan Catal, Pablo Lanillos, Noor Sajid, Alexander Tschantz (2022) pymdp: A Python library for active inference in discrete state spaces. Journal of Open Source Software, 7, 4098. DOI: 10.21105/joss.04098"
+        }
+      ]
+    },
+    {
+      "title": "Semantic Scholar",
+      "entries": [
+        {
+          "key": "kinney2023semantic",
+          "type": "article",
+          "title": "The Semantic Scholar Open Data Platform",
+          "authors": "Rodney Kinney, Chloe Anastasiades, Russell Authur, Isabelle Belber, Jonathan Blaschke, Regan Chiang, Jenna Coffey, Arman Feldman, Joshua Gruber, others",
+          "year": "2023",
+          "journal": "arXiv preprint arXiv:2301.10140",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Rodney Kinney, Chloe Anastasiades, Russell Authur, Isabelle Belber, Jonathan Blaschke, Regan Chiang, Jenna Coffey, Arman Feldman, Joshua Gruber, others (2023) The Semantic Scholar Open Data Platform. arXiv preprint arXiv:2301.10140."
+        }
+      ]
+    },
+    {
+      "title": "OpenAlex",
+      "entries": [
+        {
+          "key": "priem2022openalex",
+          "type": "article",
+          "title": "OpenAlex: A fully-open index of scholarly works, authors, venues, institutions, and concepts",
+          "authors": "Jason Priem, Heather Piwowar, Richard Orr",
+          "year": "2022",
+          "journal": "arXiv preprint arXiv:2205.01833",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Jason Priem, Heather Piwowar, Richard Orr (2022) OpenAlex: A fully-open index of scholarly works, authors, venues, institutions, and concepts. arXiv preprint arXiv:2205.01833."
+        }
+      ]
+    },
+    {
+      "title": "Markov blanket debate",
+      "entries": [
+        {
+          "key": "bruineberg2022emperor",
+          "type": "article",
+          "title": "The Emperor's New Markov Blankets",
+          "authors": "Jelle Bruineberg, Krzysztof Dolega, Joe Dewhurst, Manuel Baltieri",
+          "year": "2022",
+          "journal": "Behavioral and Brain Sciences",
+          "volume": "45",
+          "number": "",
+          "pages": "e183",
+          "publisher": "Cambridge University Press",
+          "doi": "10.1017/S0140525X21002351",
+          "url": "https://doi.org/10.1017/S0140525X21002351",
+          "isbn": "",
+          "citation": "Jelle Bruineberg, Krzysztof Dolega, Joe Dewhurst, Manuel Baltieri (2022) The Emperor's New Markov Blankets. Behavioral and Brain Sciences, 45, e183. DOI: 10.1017/S0140525X21002351"
+        }
+      ]
+    },
+    {
+      "title": "Predictive processing",
+      "entries": [
+        {
+          "key": "clark2013whatever",
+          "type": "article",
+          "title": "Whatever next? Predictive brains, situated agents, and the future of cognitive science",
+          "authors": "Andy Clark",
+          "year": "2013",
+          "journal": "Behavioral and Brain Sciences",
+          "volume": "36",
+          "number": "3",
+          "pages": "181--204",
+          "publisher": "Cambridge University Press",
+          "doi": "10.1017/S0140525X12000477",
+          "url": "https://doi.org/10.1017/S0140525X12000477",
+          "isbn": "",
+          "citation": "Andy Clark (2013) Whatever next? Predictive brains, situated agents, and the future of cognitive science. Behavioral and Brain Sciences, 36, 181--204. DOI: 10.1017/S0140525X12000477"
+        }
+      ]
+    },
+    {
+      "title": "Bayesian mechanics",
+      "entries": [
+        {
+          "key": "sakthivadivel2023bayesian",
+          "type": "article",
+          "title": "On Bayesian mechanics: a physics of and by beliefs",
+          "authors": "Dalton AR Sakthivadivel",
+          "year": "2023",
+          "journal": "Interface Focus",
+          "volume": "13",
+          "number": "3",
+          "pages": "20220029",
+          "publisher": "The Royal Society",
+          "doi": "10.1098/rsfs.2022.0029",
+          "url": "https://doi.org/10.1098/rsfs.2022.0029",
+          "isbn": "",
+          "citation": "Dalton AR Sakthivadivel (2023) On Bayesian mechanics: a physics of and by beliefs. Interface Focus, 13, 20220029. DOI: 10.1098/rsfs.2022.0029"
+        }
+      ]
+    },
+    {
+      "title": "LLM + KG 2025 systematic reviews",
+      "entries": [
+        {
+          "key": "quevedo2025combining",
+          "type": "article",
+          "title": "Combining Knowledge Graphs and Large Language Models: A Systematic Literature Review",
+          "authors": "Viviana Fernanda Quevedo Tumailli, others",
+          "year": "2025",
+          "journal": "IEEE Access",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "IEEE",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Viviana Fernanda Quevedo Tumailli, others (2025) Combining Knowledge Graphs and Large Language Models: A Systematic Literature Review. IEEE Access."
+        },
+        {
+          "key": "li2024unifying",
+          "type": "article",
+          "title": "Unifying large language models and knowledge graphs: A roadmap",
+          "authors": "Linhao Li, others",
+          "year": "2024",
+          "journal": "IEEE Transactions on Knowledge and Data Engineering",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "IEEE",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Linhao Li, others (2024) Unifying large language models and knowledge graphs: A roadmap. IEEE Transactions on Knowledge and Data Engineering."
+        }
+      ]
+    },
+    {
+      "title": "2025 tools",
+      "entries": [
+        {
+          "key": "rxinfer2025",
+          "type": "misc",
+          "title": "RxInfer.jl v4.0.0: Real-time and adaptive Bayesian inference",
+          "authors": "Dmitry Bagaev, others",
+          "year": "2025",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "https://github.com/ReactiveBayes/RxInfer.jl",
+          "isbn": "",
+          "citation": "Dmitry Bagaev, others (2025) RxInfer.jl v4.0.0: Real-time and adaptive Bayesian inference."
+        }
+      ]
+    },
+    {
+      "title": "Active inference and artificial reasoning (replaces fabricated heins2024active)",
+      "entries": [
+        {
+          "key": "friston2025active",
+          "type": "article",
+          "title": "Active inference and artificial reasoning",
+          "authors": "Karl Friston, Lancelot Da Costa, Alexander Tschantz, Conor Heins, Christopher Buckley",
+          "year": "2025",
+          "journal": "arXiv preprint arXiv:2512.21129",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "10.48550/arXiv.2512.21129",
+          "url": "https://doi.org/10.48550/arXiv.2512.21129",
+          "isbn": "",
+          "citation": "Karl Friston, Lancelot Da Costa, Alexander Tschantz, Conor Heins, Christopher Buckley (2025) Active inference and artificial reasoning. arXiv preprint arXiv:2512.21129. DOI: 10.48550/arXiv.2512.21129"
+        }
+      ]
+    },
+    {
+      "title": "AXIOM: AIF agents learning games in minutes",
+      "entries": [
+        {
+          "key": "heins2025axiom",
+          "type": "article",
+          "title": "AXIOM: Learning to Play Games in Minutes with Expanding Object-Centric Models",
+          "authors": "Conor Heins, Toon Van de Maele, Alexander Tschantz, Hampus Linander, Dimitrije Markovic, Tommaso Salvatori, Corrado Pezzato, Ozan Catal, Ran Wei, Magnus Koudahl, Marco Perin, Karl Friston, Tim Verbelen, Christopher Buckley",
+          "year": "2025",
+          "journal": "arXiv preprint arXiv:2505.24784",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Conor Heins, Toon Van de Maele, Alexander Tschantz, Hampus Linander, Dimitrije Markovic, Tommaso Salvatori, Corrado Pezzato, Ozan Catal, Ran Wei, Magnus Koudahl, Marco Perin, Karl Friston, Tim Verbelen, Christopher Buckley (2025) AXIOM: Learning to Play Games in Minutes with Expanding Object-Centric Models. arXiv preprint arXiv:2505.24784."
+        }
+      ]
+    },
+    {
+      "title": "Collective behavior from surprise minimization",
+      "entries": [
+        {
+          "key": "heins2024collective",
+          "type": "article",
+          "title": "Collective behavior from surprise minimization",
+          "authors": "Conor Heins, Beren Millidge, Daphne Demekas, Hrishit Basu, Noor Sajid, Karl Friston",
+          "year": "2024",
+          "journal": "Proceedings of the National Academy of Sciences",
+          "volume": "121",
+          "number": "17",
+          "pages": "e2320239121",
+          "publisher": "",
+          "doi": "10.1073/pnas.2320239121",
+          "url": "https://doi.org/10.1073/pnas.2320239121",
+          "isbn": "",
+          "citation": "Conor Heins, Beren Millidge, Daphne Demekas, Hrishit Basu, Noor Sajid, Karl Friston (2024) Collective behavior from surprise minimization. Proceedings of the National Academy of Sciences, 121, e2320239121. DOI: 10.1073/pnas.2320239121"
+        }
+      ]
+    },
+    {
+      "title": "Millidge retrospective on Active Inference",
+      "entries": [
+        {
+          "key": "millidge2024retrospective",
+          "type": "misc",
+          "title": "A Retrospective on Active Inference",
+          "authors": "Beren Millidge",
+          "year": "2024",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "https://www.beren.io/2024-07-27-A-Retrospective-on-Active-Inference/",
+          "isbn": "",
+          "citation": "Beren Millidge (2024) A Retrospective on Active Inference."
+        }
+      ]
+    },
+    {
+      "title": "The Missing Reward: AIF + LLMs",
+      "entries": [
+        {
+          "key": "wen2025missing",
+          "type": "article",
+          "title": "The Missing Reward: Active Inference in the Era of Experience",
+          "authors": "Bo Wen",
+          "year": "2025",
+          "journal": "arXiv preprint arXiv:2508.05619",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "10.48550/arXiv.2508.05619",
+          "url": "https://doi.org/10.48550/arXiv.2508.05619",
+          "isbn": "",
+          "citation": "Bo Wen (2025) The Missing Reward: Active Inference in the Era of Experience. arXiv preprint arXiv:2508.05619. DOI: 10.48550/arXiv.2508.05619"
+        }
+      ]
+    },
+    {
+      "title": "Morphogenesis and FEP",
+      "entries": [
+        {
+          "key": "kuchling2020morphogenesis",
+          "type": "article",
+          "title": "Morphogenesis as Bayesian inference: A variational approach to pattern formation and body-plan diversity in biology",
+          "authors": "Franz Kuchling, Karl Friston, Georgi Georgiev, Michael Levin",
+          "year": "2020",
+          "journal": "Physics of Life Reviews",
+          "volume": "33",
+          "number": "",
+          "pages": "88--108",
+          "publisher": "Elsevier",
+          "doi": "10.1016/j.plrev.2019.06.001",
+          "url": "https://doi.org/10.1016/j.plrev.2019.06.001",
+          "isbn": "",
+          "citation": "Franz Kuchling, Karl Friston, Georgi Georgiev, Michael Levin (2020) Morphogenesis as Bayesian inference: A variational approach to pattern formation and body-plan diversity in biology. Physics of Life Reviews, 33, 88--108. DOI: 10.1016/j.plrev.2019.06.001"
+        }
+      ]
+    },
+    {
+      "title": "Active inference for language",
+      "entries": [
+        {
+          "key": "friston2020generative",
+          "type": "article",
+          "title": "Generative models, linguistic communication and active inference",
+          "authors": "Karl J Friston, Thomas Parr, Yan Yufik, Noor Sajid, Cathy J Price, Emma Holmes",
+          "year": "2020",
+          "journal": "Neuroscience & Biobehavioral Reviews",
+          "volume": "118",
+          "number": "",
+          "pages": "42--64",
+          "publisher": "Elsevier",
+          "doi": "10.1016/j.neubiorev.2020.07.005",
+          "url": "https://doi.org/10.1016/j.neubiorev.2020.07.005",
+          "isbn": "",
+          "citation": "Karl J Friston, Thomas Parr, Yan Yufik, Noor Sajid, Cathy J Price, Emma Holmes (2020) Generative models, linguistic communication and active inference. Neuroscience & Biobehavioral Reviews, 118, 42--64. DOI: 10.1016/j.neubiorev.2020.07.005"
+        }
+      ]
+    },
+    {
+      "title": "Non-negative Matrix Factorization",
+      "entries": [
+        {
+          "key": "lee1999nmf",
+          "type": "article",
+          "title": "Learning the parts of objects by non-negative matrix factorization",
+          "authors": "Daniel D Lee, H Sebastian Seung",
+          "year": "1999",
+          "journal": "Nature",
+          "volume": "401",
+          "number": "6755",
+          "pages": "788--791",
+          "publisher": "Nature Publishing Group",
+          "doi": "10.1038/44565",
+          "url": "https://doi.org/10.1038/44565",
+          "isbn": "",
+          "citation": "Daniel D Lee, H Sebastian Seung (1999) Learning the parts of objects by non-negative matrix factorization. Nature, 401, 788--791. DOI: 10.1038/44565"
+        }
+      ]
+    },
+    {
+      "title": "Vector space model / TF-IDF",
+      "entries": [
+        {
+          "key": "salton1975vector",
+          "type": "article",
+          "title": "A vector space model for automatic indexing",
+          "authors": "Gerard Salton, Anita Wong, Chung-Shu Yang",
+          "year": "1975",
+          "journal": "Communications of the ACM",
+          "volume": "18",
+          "number": "11",
+          "pages": "613--620",
+          "publisher": "ACM",
+          "doi": "10.1145/361219.361220",
+          "url": "https://doi.org/10.1145/361219.361220",
+          "isbn": "",
+          "citation": "Gerard Salton, Anita Wong, Chung-Shu Yang (1975) A vector space model for automatic indexing. Communications of the ACM, 18, 613--620. DOI: 10.1145/361219.361220"
+        }
+      ]
+    },
+    {
+      "title": "Greedy modularity community detection (Clauset-Newman-Moore)",
+      "entries": [
+        {
+          "key": "clauset2004finding",
+          "type": "article",
+          "title": "Finding community structure in very large networks",
+          "authors": "Aaron Clauset, Mark E. J. Newman, Cristopher Moore",
+          "year": "2004",
+          "journal": "Physical Review E",
+          "volume": "70",
+          "number": "6",
+          "pages": "066111",
+          "publisher": "American Physical Society",
+          "doi": "10.1103/PhysRevE.70.066111",
+          "url": "https://doi.org/10.1103/PhysRevE.70.066111",
+          "isbn": "",
+          "citation": "Aaron Clauset, Mark E. J. Newman, Cristopher Moore (2004) Finding community structure in very large networks. Physical Review E, 70, 066111. DOI: 10.1103/PhysRevE.70.066111"
+        }
+      ]
+    },
+    {
+      "title": "rdflib",
+      "entries": [
+        {
+          "key": "rdflib2023",
+          "type": "misc",
+          "title": "rdflib: A Python library for working with RDF",
+          "authors": "RDFLib Team",
+          "year": "2023",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "https://rdflib.readthedocs.io/",
+          "isbn": "",
+          "citation": "RDFLib Team (2023) rdflib: A Python library for working with RDF."
+        }
+      ]
+    },
+    {
+      "title": "Active inference for robotics",
+      "entries": [
+        {
+          "key": "lanillos2021active",
+          "type": "article",
+          "title": "Active inference in robotics and artificial agents: Survey and challenges",
+          "authors": "Pablo Lanillos, Cristian Meo, Corrado Pezzato, Ajith Anil Meera, Mohamed Baioumy, Wataru Ohata, Alexander Tschantz, Beren Millidge, Martijn Wisse, Christopher L Buckley, Jun Lenz",
+          "year": "2021",
+          "journal": "arXiv preprint arXiv:2112.01871",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Pablo Lanillos, Cristian Meo, Corrado Pezzato, Ajith Anil Meera, Mohamed Baioumy, Wataru Ohata, Alexander Tschantz, Beren Millidge, Martijn Wisse, Christopher L Buckley, Jun Lenz (2021) Active inference in robotics and artificial agents: Survey and challenges. arXiv preprint arXiv:2112.01871."
+        }
+      ]
+    },
+    {
+      "title": "Technological approach to morphogenesis",
+      "entries": [
+        {
+          "key": "levin2022technological",
+          "type": "article",
+          "title": "Technological approach to mind everywhere: An experimentally-grounded framework for understanding diverse bodies and minds",
+          "authors": "Michael Levin",
+          "year": "2022",
+          "journal": "Frontiers in Systems Neuroscience",
+          "volume": "16",
+          "number": "",
+          "pages": "768201",
+          "publisher": "Frontiers",
+          "doi": "10.3389/fnsys.2022.768201",
+          "url": "https://doi.org/10.3389/fnsys.2022.768201",
+          "isbn": "",
+          "citation": "Michael Levin (2022) Technological approach to mind everywhere: An experimentally-grounded framework for understanding diverse bodies and minds. Frontiers in Systems Neuroscience, 16, 768201. DOI: 10.3389/fnsys.2022.768201"
+        }
+      ]
+    },
+    {
+      "title": "Active Inference textbook (Friston 2017)",
+      "entries": [
+        {
+          "key": "friston2017active",
+          "type": "article",
+          "title": "Active inference: A process theory",
+          "authors": "Karl Friston, Thomas FitzGerald, Francesco Rigoli, Philipp Schwartenbeck, Giovanni Pezzulo",
+          "year": "2017",
+          "journal": "Neural Computation",
+          "volume": "29",
+          "number": "1",
+          "pages": "1--49",
+          "publisher": "MIT Press",
+          "doi": "10.1162/NECO_a_00912",
+          "url": "https://doi.org/10.1162/NECO_a_00912",
+          "isbn": "",
+          "citation": "Karl Friston, Thomas FitzGerald, Francesco Rigoli, Philipp Schwartenbeck, Giovanni Pezzulo (2017) Active inference: A process theory. Neural Computation, 29, 1--49. DOI: 10.1162/NECO_a_00912"
+        }
+      ]
+    },
+    {
+      "title": "Deep active inference survey",
+      "entries": [
+        {
+          "key": "millidge2021understanding",
+          "type": "article",
+          "title": "Understanding the origin of information-seeking exploration in probabilistic objectives for control",
+          "authors": "Beren Millidge, Alexander Tschantz, Christopher L Buckley",
+          "year": "2021",
+          "journal": "arXiv preprint arXiv:2103.06859",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Beren Millidge, Alexander Tschantz, Christopher L Buckley (2021) Understanding the origin of information-seeking exploration in probabilistic objectives for control. arXiv preprint arXiv:2103.06859."
+        }
+      ]
+    },
+    {
+      "title": "Cpp-AIF: C++ active inference for POMDPs",
+      "entries": [
+        {
+          "key": "gregoretti2023cppaif",
+          "type": "article",
+          "title": "A C++ Implementation of Active Inference for POMDPs",
+          "authors": "Francesco Gregoretti",
+          "year": "2023",
+          "journal": "Neurocomputing",
+          "volume": "562",
+          "number": "",
+          "pages": "126888",
+          "publisher": "Elsevier",
+          "doi": "10.1016/j.neucom.2023.126888",
+          "url": "https://doi.org/10.1016/j.neucom.2023.126888",
+          "isbn": "",
+          "citation": "Francesco Gregoretti (2023) A C++ Implementation of Active Inference for POMDPs. Neurocomputing, 562, 126888. DOI: 10.1016/j.neucom.2023.126888"
+        }
+      ]
+    },
+    {
+      "title": "Deep Active Inference (Millidge)",
+      "entries": [
+        {
+          "key": "millidge2020deep",
+          "type": "article",
+          "title": "Deep Active Inference as Variational Policy Gradients",
+          "authors": "Beren Millidge",
+          "year": "2020",
+          "journal": "Journal of Mathematical Psychology",
+          "volume": "96",
+          "number": "",
+          "pages": "102348",
+          "publisher": "Elsevier",
+          "doi": "10.1016/j.jmp.2020.102348",
+          "url": "https://doi.org/10.1016/j.jmp.2020.102348",
+          "isbn": "",
+          "citation": "Beren Millidge (2020) Deep Active Inference as Variational Policy Gradients. Journal of Mathematical Psychology, 96, 102348. DOI: 10.1016/j.jmp.2020.102348"
+        }
+      ]
+    },
+    {
+      "title": "Predictive coding approximates backprop",
+      "entries": [
+        {
+          "key": "millidge2022predictive",
+          "type": "article",
+          "title": "Predictive coding approximates backprop along arbitrary computation graphs",
+          "authors": "Beren Millidge, Alexander Tschantz, Christopher L Buckley",
+          "year": "2022",
+          "journal": "Neural Computation",
+          "volume": "34",
+          "number": "6",
+          "pages": "1329--1368",
+          "publisher": "MIT Press",
+          "doi": "10.1162/neco_a_01497",
+          "url": "https://doi.org/10.1162/neco_a_01497",
+          "isbn": "",
+          "citation": "Beren Millidge, Alexander Tschantz, Christopher L Buckley (2022) Predictive coding approximates backprop along arbitrary computation graphs. Neural Computation, 34, 1329--1368. DOI: 10.1162/neco_a_01497"
+        }
+      ]
+    },
+    {
+      "title": "Action-oriented predictive processing",
+      "entries": [
+        {
+          "key": "tschantz2020action",
+          "type": "article",
+          "title": "Learning action-oriented models through active inference",
+          "authors": "Alexander Tschantz, Anil K Seth, Christopher L Buckley",
+          "year": "2020",
+          "journal": "PLoS Computational Biology",
+          "volume": "16",
+          "number": "4",
+          "pages": "e1007805",
+          "publisher": "PLOS",
+          "doi": "10.1371/journal.pcbi.1007805",
+          "url": "https://doi.org/10.1371/journal.pcbi.1007805",
+          "isbn": "",
+          "citation": "Alexander Tschantz, Anil K Seth, Christopher L Buckley (2020) Learning action-oriented models through active inference. PLoS Computational Biology, 16, e1007805. DOI: 10.1371/journal.pcbi.1007805"
+        }
+      ]
+    },
+    {
+      "title": "Ollama local LLM inference",
+      "entries": [
+        {
+          "key": "ollama2024",
+          "type": "misc",
+          "title": "Ollama: Run Large Language Models Locally",
+          "authors": "Ollama Team",
+          "year": "2024",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "https://ollama.com",
+          "isbn": "",
+          "citation": "Ollama Team (2024) Ollama: Run Large Language Models Locally."
+        }
+      ]
+    },
+    {
+      "title": "Prior systematic literature analysis",
+      "entries": [
+        {
+          "key": "knight2022fep",
+          "type": "misc",
+          "title": "The Free Energy Principle & Active Inference: a Systematic Literature Analysis",
+          "authors": "Virginia Bleu Knight, RJ Cordes, Daniel Friedman",
+          "year": "2022",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "Zenodo",
+          "doi": "10.5281/zenodo.7449368",
+          "url": "https://doi.org/10.5281/zenodo.7449368",
+          "isbn": "",
+          "citation": "Virginia Bleu Knight, RJ Cordes, Daniel Friedman (2022) The Free Energy Principle & Active Inference: a Systematic Literature Analysis. Zenodo. DOI: 10.5281/zenodo.7449368"
+        }
+      ]
+    },
+    {
+      "title": "Visualization standards",
+      "entries": [
+        {
+          "key": "wong2011colorblind",
+          "type": "article",
+          "title": "Points of view: Color blindness",
+          "authors": "Bang Wong",
+          "year": "2011",
+          "journal": "Nature Methods",
+          "volume": "8",
+          "number": "6",
+          "pages": "441",
+          "publisher": "Nature Publishing Group",
+          "doi": "10.1038/nmeth.1618",
+          "url": "https://doi.org/10.1038/nmeth.1618",
+          "isbn": "",
+          "citation": "Bang Wong (2011) Points of view: Color blindness. Nature Methods, 8, 441. DOI: 10.1038/nmeth.1618"
+        }
+      ]
+    },
+    {
+      "title": "Hohwy - The Predictive Mind",
+      "entries": [
+        {
+          "key": "hohwy2013predictive",
+          "type": "book",
+          "title": "The Predictive Mind",
+          "authors": "Jakob Hohwy",
+          "year": "2013",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "Oxford University Press",
+          "doi": "10.1093/acprof:oso/9780199682737.001.0001",
+          "url": "https://doi.org/10.1093/acprof:oso/9780199682737.001.0001",
+          "isbn": "978-0-19-968273-7",
+          "citation": "Jakob Hohwy (2013) The Predictive Mind. Oxford University Press. DOI: 10.1093/acprof:oso/9780199682737.001.0001"
+        }
+      ]
+    },
+    {
+      "title": "Ramstead et al. - Answering Schr\\\"odinger's question",
+      "entries": [
+        {
+          "key": "ramstead2018answering",
+          "type": "article",
+          "title": "Answering Schr\"odinger's question: A free-energy formulation",
+          "authors": "Maxwell JD Ramstead, Paul B Badcock, Karl J Friston",
+          "year": "2018",
+          "journal": "Physics of Life Reviews",
+          "volume": "24",
+          "number": "",
+          "pages": "1--16",
+          "publisher": "Elsevier",
+          "doi": "10.1016/j.plrev.2017.09.001",
+          "url": "https://doi.org/10.1016/j.plrev.2017.09.001",
+          "isbn": "",
+          "citation": "Maxwell JD Ramstead, Paul B Badcock, Karl J Friston (2018) Answering Schr\"odinger's question: A free-energy formulation. Physics of Life Reviews, 24, 1--16. DOI: 10.1016/j.plrev.2017.09.001"
+        }
+      ]
+    },
+    {
+      "title": "Pezzulo et al. - Active inference and robotics",
+      "entries": [
+        {
+          "key": "pezzulo2015active",
+          "type": "article",
+          "title": "Active Inference, homeostatic regulation and adaptive behavioural control",
+          "authors": "Giovanni Pezzulo, Francesco Rigoli, Karl Friston",
+          "year": "2015",
+          "journal": "Progress in Neurobiology",
+          "volume": "134",
+          "number": "",
+          "pages": "17--35",
+          "publisher": "Elsevier",
+          "doi": "10.1016/j.pneurobio.2015.09.001",
+          "url": "https://doi.org/10.1016/j.pneurobio.2015.09.001",
+          "isbn": "",
+          "citation": "Giovanni Pezzulo, Francesco Rigoli, Karl Friston (2015) Active Inference, homeostatic regulation and adaptive behavioural control. Progress in Neurobiology, 134, 17--35. DOI: 10.1016/j.pneurobio.2015.09.001"
+        }
+      ]
+    },
+    {
+      "title": "HITS Centrality",
+      "entries": [
+        {
+          "key": "kleinberg1999authoritative",
+          "type": "article",
+          "title": "Authoritative sources in a hyperlinked environment",
+          "authors": "Jon M Kleinberg",
+          "year": "1999",
+          "journal": "Journal of the ACM (JACM)",
+          "volume": "46",
+          "number": "5",
+          "pages": "604--632",
+          "publisher": "ACM New York, NY, USA",
+          "doi": "10.1145/324133.324140",
+          "url": "https://doi.org/10.1145/324133.324140",
+          "isbn": "",
+          "citation": "Jon M Kleinberg (1999) Authoritative sources in a hyperlinked environment. Journal of the ACM (JACM), 46, 604--632. DOI: 10.1145/324133.324140"
+        }
+      ]
+    },
+    {
+      "title": "LeCun EBM tutorial",
+      "entries": [
+        {
+          "key": "lecun2006tutorial",
+          "type": "incollection",
+          "title": "A tutorial on energy-based learning",
+          "authors": "Yann LeCun, Sumit Chopra, Raia Hadsell, Marc'Aurelio Ranzato, Fu Jie Huang",
+          "year": "2006",
+          "journal": "Predicting Structured Data",
+          "volume": "",
+          "number": "",
+          "pages": "191--246",
+          "publisher": "MIT Press",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Yann LeCun, Sumit Chopra, Raia Hadsell, Marc'Aurelio Ranzato, Fu Jie Huang (2006) A tutorial on energy-based learning. Predicting Structured Data."
+        }
+      ]
+    },
+    {
+      "title": "Contrastive divergence",
+      "entries": [
+        {
+          "key": "hinton2002training",
+          "type": "article",
+          "title": "Training products of experts by minimizing contrastive divergence",
+          "authors": "Geoffrey E Hinton",
+          "year": "2002",
+          "journal": "Neural Computation",
+          "volume": "14",
+          "number": "8",
+          "pages": "1771--1800",
+          "publisher": "MIT Press",
+          "doi": "10.1162/089976602760128018",
+          "url": "https://doi.org/10.1162/089976602760128018",
+          "isbn": "",
+          "citation": "Geoffrey E Hinton (2002) Training products of experts by minimizing contrastive divergence. Neural Computation, 14, 1771--1800. DOI: 10.1162/089976602760128018"
+        }
+      ]
+    },
+    {
+      "title": "Helmholtz machine",
+      "entries": [
+        {
+          "key": "dayan1995helmholtz",
+          "type": "article",
+          "title": "The Helmholtz machine",
+          "authors": "Peter Dayan, Geoffrey E Hinton, Radford M Neal, Richard S Zemel",
+          "year": "1995",
+          "journal": "Neural Computation",
+          "volume": "7",
+          "number": "5",
+          "pages": "889--904",
+          "publisher": "MIT Press",
+          "doi": "10.1162/neco.1995.7.5.889",
+          "url": "https://doi.org/10.1162/neco.1995.7.5.889",
+          "isbn": "",
+          "citation": "Peter Dayan, Geoffrey E Hinton, Radford M Neal, Richard S Zemel (1995) The Helmholtz machine. Neural Computation, 7, 889--904. DOI: 10.1162/neco.1995.7.5.889"
+        }
+      ]
+    },
+    {
+      "title": "Variational autoencoder",
+      "entries": [
+        {
+          "key": "kingma2014auto",
+          "type": "inproceedings",
+          "title": "Auto-encoding variational Bayes",
+          "authors": "Diederik P Kingma, Max Welling",
+          "year": "2014",
+          "journal": "Proceedings of the 2nd International Conference on Learning Representations (ICLR)",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "https://arxiv.org/abs/1312.6114",
+          "isbn": "",
+          "citation": "Diederik P Kingma, Max Welling (2014) Auto-encoding variational Bayes. Proceedings of the 2nd International Conference on Learning Representations (ICLR)."
+        }
+      ]
+    },
+    {
+      "title": "Metacognitive AIF and consciousness",
+      "entries": [
+        {
+          "key": "whyte2025metacognitive",
+          "type": "article",
+          "title": "How do inner screens enable imaginative experience? A metacognitive active inference account",
+          "authors": "Christopher J Whyte, Ryan Smith, Jakob Hohwy",
+          "year": "2025",
+          "journal": "Neuroscience of Consciousness",
+          "volume": "2025",
+          "number": "1",
+          "pages": "niaf009",
+          "publisher": "Oxford University Press",
+          "doi": "10.1093/nc/niaf009",
+          "url": "https://doi.org/10.1093/nc/niaf009",
+          "isbn": "",
+          "citation": "Christopher J Whyte, Ryan Smith, Jakob Hohwy (2025) How do inner screens enable imaginative experience? A metacognitive active inference account. Neuroscience of Consciousness, 2025, niaf009. DOI: 10.1093/nc/niaf009"
+        }
+      ]
+    },
+    {
+      "title": "Free Energy Projective Simulation",
+      "entries": [
+        {
+          "key": "pazem2024feps",
+          "type": "inproceedings",
+          "title": "Free Energy Projective Simulation (FEPS): Active Inference with Interpretable Policy Graphs",
+          "authors": "Marius Pazem, Simon Hangl, Justus Piater",
+          "year": "2024",
+          "journal": "Workshop on Bridging the Gap Between Practice and Theory in Deep Learning, ICML 2024",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "https://arxiv.org/abs/2407.05432",
+          "isbn": "",
+          "citation": "Marius Pazem, Simon Hangl, Justus Piater (2024) Free Energy Projective Simulation (FEPS): Active Inference with Interpretable Policy Graphs. Workshop on Bridging the Gap Between Practice and Theory in Deep Learning, ICML 2024."
+        }
+      ]
+    },
+    {
+      "title": "AIF for smart building energy control",
+      "entries": [
+        {
+          "key": "nazemi2025energy",
+          "type": "article",
+          "title": "Active Inference for Energy Control and Planning under Partial Observability",
+          "authors": "Morteza Nazemi, Sanket Bhatt, Zafeirios Fountas",
+          "year": "2025",
+          "journal": "arXiv preprint arXiv:2503.07772",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "10.48550/arXiv.2503.07772",
+          "url": "https://doi.org/10.48550/arXiv.2503.07772",
+          "isbn": "",
+          "citation": "Morteza Nazemi, Sanket Bhatt, Zafeirios Fountas (2025) Active Inference for Energy Control and Planning under Partial Observability. arXiv preprint arXiv:2503.07772. DOI: 10.48550/arXiv.2503.07772"
+        }
+      ]
+    },
+    {
+      "title": "nanopub-js JavaScript library",
+      "entries": [
+        {
+          "key": "kuhn2026nanopubjs",
+          "type": "misc",
+          "title": "nanopub-js: JavaScript library for nanopublications",
+          "authors": "Knowledge Pixels",
+          "year": "2026",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "https://github.com/Nanopublication/nanopub-js",
+          "isbn": "",
+          "citation": "Knowledge Pixels (2026) nanopub-js: JavaScript library for nanopublications."
+        }
+      ]
+    },
+    {
+      "title": "Publication bias",
+      "entries": [
+        {
+          "key": "sterling1959publication",
+          "type": "article",
+          "title": "Publication decisions and their possible effects on inferences drawn from tests of significance—or vice versa",
+          "authors": "Theodore D. Sterling",
+          "year": "1959",
+          "journal": "Journal of the American Statistical Association",
+          "volume": "54",
+          "number": "285",
+          "pages": "30--34",
+          "publisher": "Taylor & Francis",
+          "doi": "10.1080/01621459.1959.10501497",
+          "url": "https://doi.org/10.1080/01621459.1959.10501497",
+          "isbn": "",
+          "citation": "Theodore D. Sterling (1959) Publication decisions and their possible effects on inferences drawn from tests of significance—or vice versa. Journal of the American Statistical Association, 54, 30--34. DOI: 10.1080/01621459.1959.10501497"
+        }
+      ]
+    },
+    {
+      "title": "Falsifiability critique of the FEP",
+      "entries": [
+        {
+          "key": "colombo2021free",
+          "type": "article",
+          "title": "Free energy: a user's guide",
+          "authors": "Matteo Colombo, Peggy Seri\\`es",
+          "year": "2021",
+          "journal": "Biology & Philosophy",
+          "volume": "36",
+          "number": "2",
+          "pages": "1--35",
+          "publisher": "Springer",
+          "doi": "10.1007/s10539-021-09788-0",
+          "url": "https://doi.org/10.1007/s10539-021-09788-0",
+          "isbn": "",
+          "citation": "Matteo Colombo, Peggy Seri\\`es (2021) Free energy: a user's guide. Biology & Philosophy, 36, 1--35. DOI: 10.1007/s10539-021-09788-0"
+        }
+      ]
+    },
+    {
+      "title": "Predictive coding foundational paper: Rao & Ballard 1999",
+      "entries": [
+        {
+          "key": "rao1999predictive",
+          "type": "article",
+          "title": "Predictive coding in the visual cortex: a functional interpretation of some extra-classical receptive-field effects",
+          "authors": "Rajesh P N Rao, Dana H Ballard",
+          "year": "1999",
+          "journal": "Nature Neuroscience",
+          "volume": "2",
+          "number": "1",
+          "pages": "79--87",
+          "publisher": "Nature Publishing Group",
+          "doi": "10.1038/4580",
+          "url": "https://doi.org/10.1038/4580",
+          "isbn": "",
+          "citation": "Rajesh P N Rao, Dana H Ballard (1999) Predictive coding in the visual cortex: a functional interpretation of some extra-classical receptive-field effects. Nature Neuroscience, 2, 79--87. DOI: 10.1038/4580"
+        }
+      ]
+    },
+    {
+      "title": "LLM extraction benchmarking survey",
+      "entries": [
+        {
+          "key": "liang2024survey",
+          "type": "article",
+          "title": "A survey of scientific information extraction with large language models",
+          "authors": "Tianyi Liang, Weicheng Zhang, Chao Lin, others",
+          "year": "2024",
+          "journal": "arXiv preprint arXiv:2401.01512",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Tianyi Liang, Weicheng Zhang, Chao Lin, others (2024) A survey of scientific information extraction with large language models. arXiv preprint arXiv:2401.01512."
+        }
+      ]
+    },
+    {
+      "title": "RAG-Knowledge Graph convergence survey",
+      "entries": [
+        {
+          "key": "fan2024survey",
+          "type": "article",
+          "title": "A survey on RAG meeting LLMs: towards Retrieval-Augmented large language model",
+          "authors": "Wenqi Fan, Yujuan Ding, Liangbo Ning, Shijie Wang, Hengyun Li, Dawei Yin, Tat-Seng Chua, Qing Li",
+          "year": "2024",
+          "journal": "arXiv preprint arXiv:2405.06211",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Wenqi Fan, Yujuan Ding, Liangbo Ning, Shijie Wang, Hengyun Li, Dawei Yin, Tat-Seng Chua, Qing Li (2024) A survey on RAG meeting LLMs: towards Retrieval-Augmented large language model. arXiv preprint arXiv:2405.06211."
+        }
+      ]
+    },
+    {
+      "title": "Discovery Engine and Knowledge Synthesis",
+      "entries": [
+        {
+          "key": "baulin2025discovery",
+          "type": "article",
+          "title": "The Discovery Engine: A Framework for AI-Driven Synthesis and Navigation of Scientific Knowledge Landscapes",
+          "authors": "Vladimir Baulin, Austin Cook, Daniel Friedman, Janna Lumiruusu, Andrew Pashea, Shagor Rahman, Benedikt Waldeck",
+          "year": "2025",
+          "journal": "arXiv preprint arXiv:2505.17500",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "10.48550/arXiv.2505.17500",
+          "url": "https://doi.org/10.48550/arXiv.2505.17500",
+          "isbn": "",
+          "citation": "Vladimir Baulin, Austin Cook, Daniel Friedman, Janna Lumiruusu, Andrew Pashea, Shagor Rahman, Benedikt Waldeck (2025) The Discovery Engine: A Framework for AI-Driven Synthesis and Navigation of Scientific Knowledge Landscapes. arXiv preprint arXiv:2505.17500. DOI: 10.48550/arXiv.2505.17500"
+        }
+      ]
+    },
+    {
+      "title": "Namjoshi 2026 Textbook",
+      "entries": [
+        {
+          "key": "namjoshi2026fundamentals",
+          "type": "book",
+          "title": "Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers",
+          "authors": "Sanjeev V Namjoshi",
+          "year": "2026",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "MIT Press",
+          "doi": "",
+          "url": "",
+          "isbn": "978-0-262-05095-1",
+          "citation": "Sanjeev V Namjoshi (2026) Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers. MIT Press."
+        }
+      ]
+    },
+    {
+      "title": "Namjoshi AIF FEP DB",
+      "entries": [
+        {
+          "key": "namjoshi2026aiffepdb",
+          "type": "misc",
+          "title": "aif-fep-db: A database of publications related to active inference and the free energy principle",
+          "authors": "Sanjeev V Namjoshi",
+          "year": "2026",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "",
+          "isbn": "",
+          "citation": "Sanjeev V Namjoshi (2026) aif-fep-db: A database of publications related to active inference and the free energy principle."
+        }
+      ]
+    },
+    {
+      "title": "MDPI Entropy ActiveInference.jl",
+      "entries": [
+        {
+          "key": "ActiveInferencejl",
+          "type": "article",
+          "title": "Introducing ActiveInference.jl: A Julia Library for Simulation and Parameter Estimation with Active Inference Models",
+          "authors": "Samuel Nehrer, others",
+          "year": "2025",
+          "journal": "Entropy",
+          "volume": "27",
+          "number": "1",
+          "pages": "62",
+          "publisher": "MDPI",
+          "doi": "10.3390/e27010062",
+          "url": "https://doi.org/10.3390/e27010062",
+          "isbn": "",
+          "citation": "Samuel Nehrer, others (2025) Introducing ActiveInference.jl: A Julia Library for Simulation and Parameter Estimation with Active Inference Models. Entropy, 27, 62. DOI: 10.3390/e27010062"
+        }
+      ]
+    },
+    {
+      "title": "ResNei: Research Neighbourhood",
+      "entries": [
+        {
+          "key": "lumiruusu2025resnei",
+          "type": "misc",
+          "title": "ResNei: Solution Design Document",
+          "authors": "Janna Lumiruusu, Daniel Friedman, Shagor Rahman, Vladimir Baulin, Andrew Pashea",
+          "year": "2025",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "10.5281/zenodo.16753709",
+          "url": "https://doi.org/10.5281/zenodo.16753709",
+          "isbn": "",
+          "citation": "Janna Lumiruusu, Daniel Friedman, Shagor Rahman, Vladimir Baulin, Andrew Pashea (2025) ResNei: Solution Design Document. DOI: 10.5281/zenodo.16753709"
+        }
+      ]
+    },
+    {
+      "title": "FAIR Data Principles",
+      "entries": [
+        {
+          "key": "wilkinson2016fair",
+          "type": "article",
+          "title": "The FAIR Guiding Principles for Scientific Data Management and Stewardship",
+          "authors": "Mark D. Wilkinson, Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, Jan-Willem Boiten, Luiz Bonino da Silva Santos, Philip E. Bourne, others",
+          "year": "2016",
+          "journal": "Scientific Data",
+          "volume": "3",
+          "number": "",
+          "pages": "160018",
+          "publisher": "Nature Publishing Group",
+          "doi": "10.1038/sdata.2016.18",
+          "url": "https://doi.org/10.1038/sdata.2016.18",
+          "isbn": "",
+          "citation": "Mark D. Wilkinson, Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, Jan-Willem Boiten, Luiz Bonino da Silva Santos, Philip E. Bourne, others (2016) The FAIR Guiding Principles for Scientific Data Management and Stewardship. Scientific Data, 3, 160018. DOI: 10.1038/sdata.2016.18"
+        }
+      ]
+    },
+    {
+      "title": "Decentralized Science",
+      "entries": [
+        {
+          "key": "hamburg2021desci",
+          "type": "article",
+          "title": "A Guide to DeSci, the Latest Web3 Movement",
+          "authors": "Sarah Hamburg",
+          "year": "2022",
+          "journal": "Future",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "",
+          "url": "https://future.com/what-is-decentralized-science-aka-desci/",
+          "isbn": "",
+          "citation": "Sarah Hamburg (2022) A Guide to DeSci, the Latest Web3 Movement. Future."
+        }
+      ]
+    },
+    {
+      "title": "Cognitive Load Theory",
+      "entries": [
+        {
+          "key": "sweller2011cognitive",
+          "type": "article",
+          "title": "Cognitive Load Theory",
+          "authors": "John Sweller, Paul Ayres, Slava Kalyuga",
+          "year": "2011",
+          "journal": "Explorations in the Learning Sciences, Instructional Systems and Performance Technologies",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "Springer",
+          "doi": "10.1007/978-1-4419-8126-4",
+          "url": "https://doi.org/10.1007/978-1-4419-8126-4",
+          "isbn": "",
+          "citation": "John Sweller, Paul Ayres, Slava Kalyuga (2011) Cognitive Load Theory. Explorations in the Learning Sciences, Instructional Systems and Performance Technologies. DOI: 10.1007/978-1-4419-8126-4"
+        }
+      ]
+    },
+    {
+      "title": "Citizen Science",
+      "entries": [
+        {
+          "key": "bonney2009citizen",
+          "type": "article",
+          "title": "Citizen Science: A Developing Tool for Expanding Science Knowledge and Scientific Literacy",
+          "authors": "Rick Bonney, Caren B. Cooper, Janis Dickinson, Steve Kelling, Tina Phillips, Kenneth V. Rosenberg, Jennifer Shirk",
+          "year": "2009",
+          "journal": "BioScience",
+          "volume": "59",
+          "number": "11",
+          "pages": "977--984",
+          "publisher": "Oxford University Press",
+          "doi": "10.1525/bio.2009.59.11.9",
+          "url": "https://doi.org/10.1525/bio.2009.59.11.9",
+          "isbn": "",
+          "citation": "Rick Bonney, Caren B. Cooper, Janis Dickinson, Steve Kelling, Tina Phillips, Kenneth V. Rosenberg, Jennifer Shirk (2009) Citizen Science: A Developing Tool for Expanding Science Knowledge and Scientific Literacy. BioScience, 59, 977--984. DOI: 10.1525/bio.2009.59.11.9"
+        }
+      ]
+    },
+    {
+      "title": "Universal Design for Learning",
+      "entries": [
+        {
+          "key": "rose2000universal",
+          "type": "article",
+          "title": "Universal Design for Learning",
+          "authors": "David H. Rose, Anne Meyer",
+          "year": "2000",
+          "journal": "Journal of Special Education Technology",
+          "volume": "15",
+          "number": "1",
+          "pages": "67--70",
+          "publisher": "",
+          "doi": "10.1177/016264340001500108",
+          "url": "https://doi.org/10.1177/016264340001500108",
+          "isbn": "",
+          "citation": "David H. Rose, Anne Meyer (2000) Universal Design for Learning. Journal of Special Education Technology, 15, 67--70. DOI: 10.1177/016264340001500108"
+        }
+      ]
+    },
+    {
+      "title": "Article / manuscript describing the template/ system",
+      "entries": [
+        {
+          "key": "Friedman2026TemplateReproducibleGenerative",
+          "type": "article",
+          "title": "A template/ approach to Reproducible Generative Research: Architecture and Ergonomics from Configuration through Publication",
+          "authors": "Daniel Ari Friedman",
+          "year": "2026",
+          "journal": "Zenodo",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "10.5281/zenodo.19139090",
+          "url": "https://doi.org/10.5281/zenodo.19139090",
+          "isbn": "",
+          "citation": "Daniel Ari Friedman (2026) A template/ approach to Reproducible Generative Research: Architecture and Ergonomics from Configuration through Publication. Zenodo. DOI: 10.5281/zenodo.19139090"
+        }
+      ]
+    },
+    {
+      "title": "Software framework (kept as @misc — plainnat.bst does not define @software)",
+      "entries": [
+        {
+          "key": "FriedmanTemplateSoftware",
+          "type": "misc",
+          "title": "docxology/template",
+          "authors": "Daniel Ari Friedman",
+          "year": "2026",
+          "journal": "",
+          "volume": "",
+          "number": "",
+          "pages": "",
+          "publisher": "",
+          "doi": "10.5281/zenodo.19139089",
+          "url": "https://doi.org/10.5281/zenodo.19139089",
+          "isbn": "",
+          "citation": "Daniel Ari Friedman (2026) docxology/template. DOI: 10.5281/zenodo.19139089"
+        }
+      ]
+    }
+  ],
+  "github_url": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/manuscript/references.bib"
+}

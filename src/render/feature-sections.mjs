@@ -2,6 +2,7 @@ import { techTreeExplorerSection, governanceGraphSection, ontologyTermsGraphSect
 import { tableSection, ontologyTermsTable } from "./tables.mjs";
 import { narrativeSection } from "./narrative.mjs";
 import { videoTableSection } from "./video-table.mjs";
+import { renderBibliographyList } from "../pages/bibliography.mjs";
 import { domainProjectsSection } from "../pages/ecosystem.mjs";
 import { EXPORT_PROVENANCE, siteData, loadProjectsData } from "../data.mjs";
 import { escapeHtml, sanitizePublicProse } from "../lib/text.mjs";
@@ -461,6 +462,8 @@ export function instituteosFeatureSections(page, currentDir = "") {
       return activitiesFeatureSection(currentDir);
     case "video":
       return videoTableSection(siteData.instituteos.videos.videos || [], currentDir);
+    case "bibliography":
+      return renderBibliographyList();
     default:
       return "";
   }

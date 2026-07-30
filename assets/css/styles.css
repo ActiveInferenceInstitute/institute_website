@@ -1866,3 +1866,31 @@ body{transition:background-color 200ms,color 200ms}
   margin: 0;
   white-space: pre-wrap;
 }
+
+/* Bibliography page */
+.bib-section { margin-bottom: 2rem; }
+.bib-section h3 {
+  font-size: 1rem;
+  color: var(--ds-accent, #dc2626);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.bib-list { list-style: none; margin: 0; padding: 0; }
+.bib-entry {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--glass-border, rgba(255,255,255,0.06));
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  line-height: 1.5;
+}
+.bib-entry:last-child { border-bottom: none; }
+.bib-title { font-weight: 600; }
+.bib-title a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--ds-accent, #dc2626); text-underline-offset: 0.2em; }
+.bib-title a:hover { color: var(--ds-accent, #dc2626); }
+.bib-meta { font-size: 0.88rem; color: var(--muted); }
+.bib-venue { font-size: 0.85rem; color: var(--muted); font-style: italic; }
+.bib-extra { font-size: 0.82rem; color: var(--text-dim, #9aa0a6); }

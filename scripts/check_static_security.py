@@ -35,6 +35,14 @@ VETTED_ANCHOR_HOST_SUFFIXES = (
     "twitch.tv",
     "odysee.com",
     "substack.com",
+    "doi.org",
+    "zenodo.org",
+    "arxiv.org",
+    "mdpi.com",
+    "readthedocs.io",
+    "ollama.com",
+    "future.com",
+    "beren.io",
 )
 ALLOWED_INSTITUTEOS_ASSETS = {"ActInferServe.png", "Dark_ActInfServe.png"}
 # Same patterns used by scripts/sync_instituteos_public_data.py's PII gate,

@@ -1,0 +1,80 @@
+{
+  "slug": "bibliography",
+  "title": "Bibliography",
+  "subtitle": "Curated references from the Active Inference Meta-Analysis project.",
+  "audience": "Researchers and learners seeking the canonical literature of Active Inference and the Free Energy Principle.",
+  "lede": "This page presents the curated bibliography from the Active Inference Meta-Analysis project — a computational meta-analysis of the Active Inference and Free Energy Principle literature. The references span foundational FEP papers, Active Inference textbooks, computational methods, knowledge-graph infrastructure, and related work. Each entry includes full bibliographic information and a DOI link to the original publication.",
+  "order": 42,
+  "sections": [
+    {
+      "heading": "About this bibliography",
+      "body": "These 71 references are drawn from the manuscript bibliography of the Active Inference Meta-Analysis project (act_inf_metaanalysis). The project employs multi-source literature retrieval from arXiv, Semantic Scholar, and OpenAlex; LLM-based assertion extraction into Nanopublications; probabilistic knowledge graphs; and citation-weighted hypothesis scoring. The full BibTeX source and all project outputs are available on GitHub.",
+      "links": [
+        {
+          "label": "View BibTeX source on GitHub",
+          "href": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/manuscript/references.bib"
+        },
+        {
+          "label": "Meta-analysis repository",
+          "href": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis"
+        },
+        {
+          "label": "Meta-analysis document",
+          "href": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/output/pdf/act_inf_metaanalysis_combined.pdf"
+        }
+      ]
+    },
+    {
+      "heading": "Scope and coverage",
+      "body": "The bibliography covers foundational work on the Free Energy Principle (Friston 2006, 2010), the Active Inference textbook (Parr, Pezzulo & Friston 2022), methodological advances in discrete and continuous state-space formulations, deep active inference, active inference for robotics and language, and the critical debate around Markov blankets and the FEP's scientific status. It also includes the computational infrastructure references: Nanopublications, knowledge graphs, the Semantic Scholar and OpenAlex platforms, and LLM-based scientific information extraction."
+    }
+  ],
+  "cards": [
+    {
+      "title": "Meta-analysis project",
+      "text": "The full meta-analysis codebase, pipeline, and manuscript source.",
+      "links": [
+        {
+          "label": "Repository",
+          "href": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis"
+        }
+      ]
+    },
+    {
+      "title": "BibTeX source",
+      "text": "The canonical references.bib file that drives this page.",
+      "links": [
+        {
+          "label": "references.bib",
+          "href": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/manuscript/references.bib"
+        }
+      ]
+    },
+    {
+      "title": "Published manuscript",
+      "text": "The compiled document with full results, figures, and analysis.",
+      "links": [
+        {
+          "label": "Download document",
+          "href": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/output/pdf/act_inf_metaanalysis_combined.pdf"
+        }
+      ]
+    }
+  ],
+  "primaryActions": [
+    {
+      "label": "View BibTeX source",
+      "href": "https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/manuscript/references.bib"
+    }
+  ],
+  "relatedSlugs": [
+    "learning",
+    "active-inference",
+    "knowledge"
+  ],
+  "resourceGroups": [
+    "learning",
+    "research"
+  ],
+  "externalSourceIds": ["repo-act-inf-metaanalysis"]
+}
