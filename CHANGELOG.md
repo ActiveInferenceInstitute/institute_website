@@ -5,6 +5,29 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **Lazy-load the site search index.** The 285KB (raw) / ~49KB (gzip) embedded
+  search index (`search-data.js`) was shipped on every one of the 10,000+ pages.
+  It is now loaded eagerly only on `/search/` (which renders the full grouped set
+  and prefills from `?q=`); every other page defers it and injects it lazily on
+  first engagement with the header quick-search (CSP-safe: same-`self` `<script
+  src>`, no fetch). Verified in-browser: header search loads the 1,322-entry
+  index on demand and returns results; `/search/` still renders full grouped
+  results. `src/render/layout.mjs`, `assets/js/search.js`.
+
+- **Fix ARIA menu-semantics misuse on the language and accent pickers.** The
+  header language switcher used `role="menu"`/`menuitem` and the accent picker
+  used `role="menu"`/`menuitemradio`, but neither implemented the roving-tabindex
+  + arrow-key navigation those roles legally require. The language switcher is
+  now a plain `<nav>` of links; the accent picker is a `role="group"` of
+  `aria-pressed` toggle buttons (matching the theme/TTS buttons). Verified
+  in-browser: accents still apply and `aria-pressed` tracks correctly.
+  `src/render/layout.mjs`, `assets/js/accent.js`.
+
+- **Add Twitter account attribution.** Pages now emit `twitter:site` and
+  `twitter:creator` (`@InferenceActive`, sourced from the verified X link in
+  `live-sources.json`) so rich Twitter cards attribute the account.
+  `src/render/layout.mjs`.
+
 - **Add `Course` + `FAQPage` structured data on course pages.** The two project
   pages that carry a `syllabus` (physics course, social-sciences course) now emit
   schema.org `Course` (with a free online `CourseInstance`/offer) and `FAQPage`

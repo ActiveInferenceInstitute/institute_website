@@ -16,11 +16,11 @@ function languageSwitcher(slug, currentDir, lang) {
   const items = LOCALES.map((locale) => {
     const href = crossLocaleHref(slug || "index", currentDir, locale.code);
     const current = locale.code === lang ? ' aria-current="true"' : "";
-    return `<a role="menuitem" hreflang="${locale.code}" lang="${locale.code}" href="${escapeHtml(href)}"${current}>${escapeHtml(locale.nativeName)}</a>`;
+    return `<a hreflang="${locale.code}" lang="${locale.code}" href="${escapeHtml(href)}"${current}>${escapeHtml(locale.nativeName)}</a>`;
   }).join("");
   return `<details class="lang-switcher">
       <summary aria-label="${escapeHtml(tr("Choose language"))}" title="${escapeHtml(tr("Choose language"))}"><span class="lang-globe" aria-hidden="true">🌐</span><span class="lang-current">${escapeHtml(lang.toUpperCase())}</span></summary>
-      <div class="lang-menu" role="menu" aria-label="${escapeHtml(tr("Language"))}">${items}</div>
+      <nav class="lang-menu" aria-label="${escapeHtml(tr("Language"))}">${items}</nav>
     </details>`;
 }
 
@@ -98,10 +98,17 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   const graphStyle = hasGraph ? `\n  <link rel="stylesheet" href="${prefix}assets/css/graphs.css">` : "";
   const graphScript = hasGraph ? `\n  <script src="${prefix}assets/js/graphs.js" defer></script>` : "";
   // Only the dedicated /search/ page (which embeds a #search-page-mount region)
-  // loads the full-results renderer. It reads the same embedded search index
-  // (search-data.js, 'self' origin) — no fetch, CSP-safe.
+  // loads the full-results renderer AND the embedded search index eagerly (it
+  // renders the FULL set and prefills from ?q=). Every other page ships only the
+  // lightweight header quick-search (search.js), which lazy-loads search-data.js
+  // on first user engagement — the index is ~49KB gzipped, so keeping it off the
+  // other 10,000+ pages is a meaningful page-weight win. Both scripts are 'self'
+  // origin, satisfying script-src 'self' (no fetch, CSP-safe).
   const hasSearchPage = normalizedBody.includes("search-page-mount");
-  const searchPageScript = hasSearchPage ? `\n  <script src="${prefix}assets/js/search-page.js" defer></script>` : "";
+  const searchPageScript = hasSearchPage ? `\n  <script src="${prefix}assets/js/search-data.js" defer></script>\n  <script src="${prefix}assets/js/search-page.js" defer></script>` : "";
+  // Pass the (locale-relative) search-data path to the header quick-search so it
+  // can lazy-inject the index on demand; it degrades to no-op if absent.
+  const searchDataSrc = `${prefix}assets/js/search-data.js`;
   // Only the /video/ page (which embeds a #video-table-mount region) loads the
   // client-side row filter. It filters DOM rows already rendered server-side —
   // no fetch, no external index, CSP-safe.
@@ -146,6 +153,8 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${escapeHtml(`${siteData.site.name} — ${pageTitle}`)}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@InferenceActive">
+  <meta name="twitter:creator" content="@InferenceActive">
   <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(pageDescription)}">
   <meta name="twitter:image" content="${escapeHtml(ogImage)}">
@@ -177,14 +186,14 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="${escapeHtml(tr("Listen to this page"))}" title="${escapeHtml(tr("Listen to this page"))}"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="${escapeHtml(tr("Choose highlight color"))}" title="${escapeHtml(tr("Choose highlight color"))}"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="menu" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="red" aria-checked="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="amber" aria-checked="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="green" aria-checked="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="teal" aria-checked="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="blue" aria-checked="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="violet" aria-checked="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" role="menuitemradio" data-accent="magenta" aria-checked="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="${escapeHtml(tr("Switch theme"))}" aria-pressed="false" title="${escapeHtml(tr("Toggle light/dark theme"))}"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -218,8 +227,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   <script src="${prefix}assets/js/accent.js" defer></script>
   <script src="${prefix}assets/js/tts.js" defer></script>
   <script src="${prefix}assets/js/site.js" defer></script>
-  <script src="${prefix}assets/js/search-data.js" defer></script>
-  <script src="${prefix}assets/js/search.js" defer></script>${searchPageScript}${graphScript}${videoTableScript}${redirectScript}
+  <script src="${prefix}assets/js/search.js" data-search-data="${escapeHtml(searchDataSrc)}" defer></script>${searchPageScript}${graphScript}${videoTableScript}${redirectScript}
 </body>
 </html>`;
 }

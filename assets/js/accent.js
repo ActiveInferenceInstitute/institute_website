@@ -81,7 +81,7 @@
 
   function syncChecked(name) {
     for (var i = 0; i < swatches.length; i += 1) {
-      swatches[i].setAttribute("aria-checked", swatches[i].getAttribute("data-accent") === name ? "true" : "false");
+      swatches[i].setAttribute("aria-pressed", swatches[i].getAttribute("data-accent") === name ? "true" : "false");
     }
   }
 

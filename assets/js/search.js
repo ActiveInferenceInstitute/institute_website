@@ -1,14 +1,66 @@
 // Global site search. Reads window.__SEARCH_INDEX__ (loaded from search-data.js,
 // same 'self' origin — no fetch, CSP-safe) and renders ranked results inline.
+// The index is NO LONGER shipped on every page; only the /search/ page loads it
+// eagerly (search-page.js needs it for the full grouped render + ?q= prefill).
+// Here we lazy-inject it on first user engagement (focus/keystroke) so the other
+// 10,000+ pages don't pay ~49KB gzipped for an index most visitors never open.
 (function () {
   "use strict";
   var input = document.getElementById("site-search-input");
   var results = document.getElementById("site-search-results");
+  if (!input || !results) {
+    return;
+  }
+  // search-data.js path is passed on this script's data-search-data attribute
+  // (locale-relative, from layout.mjs). On the /search/ page the index is already
+  // present, so this is a no-op there.
+  var script = document.currentScript;
+  var indexSrc = (script && script.getAttribute("data-search-data")) || "";
+  var loadingIndex = false;
   var index = window.__SEARCH_INDEX__;
   var searchPageUrl = window.__SEARCH_PAGE_URL__ || "";
   var synonyms = window.__SEARCH_SYNONYMS__ || {};
-  if (!input || !results || !index) {
-    return;
+
+  // Load the search index on demand (once). CSP-safe: injects a same-'self'
+  // <script src>, satisfying script-src 'self'; no fetch/connect. On the /search/
+  // page the index script is already in the document (defer), so we reuse that
+  // element instead of injecting a duplicate.
+  function ensureIndex(callback) {
+    if (index) {
+      callback();
+      return;
+    }
+    if (loadingIndex) {
+      return;
+    }
+    // An existing deferred search-data.js element (e.g. on /search/) is still
+    // loading — wire into it rather than fetching a second copy.
+    var pending = Array.prototype.slice.call(document.scripts).filter(function (s) {
+      return s.src.indexOf("search-data.js") !== -1;
+    })[0];
+    if (pending && !window.__SEARCH_INDEX__) {
+      loadingIndex = true;
+      pending.addEventListener("load", function () {
+        index = window.__SEARCH_INDEX__;
+        searchPageUrl = window.__SEARCH_PAGE_URL__ || searchPageUrl;
+        synonyms = window.__SEARCH_SYNONYMS__ || synonyms;
+        callback();
+      });
+      return;
+    }
+    if (!indexSrc) {
+      return;
+    }
+    loadingIndex = true;
+    var s = document.createElement("script");
+    s.src = indexSrc;
+    s.onload = function () {
+      index = window.__SEARCH_INDEX__;
+      searchPageUrl = window.__SEARCH_PAGE_URL__ || searchPageUrl;
+      synonyms = window.__SEARCH_SYNONYMS__ || synonyms;
+      callback();
+    };
+    document.head.appendChild(s);
   }
 
   function escapeHtml(value) {
@@ -201,11 +253,15 @@
   }
 
   input.addEventListener("input", function () {
-    render(input.value);
+    ensureIndex(function () {
+      render(input.value);
+    });
   });
   input.addEventListener("focus", function () {
     if (input.value.trim().length >= 2) {
-      render(input.value);
+      ensureIndex(function () {
+        render(input.value);
+      });
     }
   });
   input.addEventListener("keydown", function (event) {
