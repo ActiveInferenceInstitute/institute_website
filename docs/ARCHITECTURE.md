@@ -70,7 +70,7 @@ Every renderer reads the active locale via `activeLocale()` and uses it to:
 ```javascript
 export function writeFile(file, html) {
   ensure(path.dirname(out(file)));                    // Create parent dirs
-  fs.writeFileSync(out(file), 
+  fs.writeFileSync(out(file),
     html.replace(/[ \t]+$/gm, ''),                    // Trim trailing whitespace
     "utf8"
   );

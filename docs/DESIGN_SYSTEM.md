@@ -81,7 +81,7 @@ These are defined in the design system but are **not currently used** on the pub
   - `--ds-surface: #151515` — raised card/container surfaces
   - `--ds-surface-2: #2a2a2a` — stronger elevated surfaces
   - `--ds-glass: rgba(21, 21, 21, 0.85)` — translucent overlay surfaces
-  
+
 - **Text**
   - `--ds-text: #e5e5e5` — primary body text, white-ish
   - `--ds-text-muted: #999999` — secondary/meta text, medium gray
@@ -120,7 +120,7 @@ html.theme-light {
 - Link text (`--accent-text`) **flips per theme** to maintain WCAG AA contrast:
   - Dark mode: `#ef4444` (light red) on `#0a0a0a` ≈ 5.8:1 contrast
   - Light mode: `#dc2626` (brand red) on `#f9fafb` ≈ 5:1 contrast
-  
+
 The override lives in `styles.css` root:
 ```css
 html.theme-light {
@@ -137,11 +137,11 @@ All fonts are self-hosted as woff2, subset to Latin, with `font-display: swap` f
 - **Display/Serif** — `'Fraunces'`, fallback Georgia
   - Used for page titles (H1), major headings
   - Weights: 400, 600
-  
+
 - **Body/Sans** — `'Inter Tight'`, fallback system sans-serif
   - Used for body copy, labels, UI text
   - Weights: 400, 500, 600, 700
-  
+
 - **Mono** — `'JetBrains Mono'`, fallback SF Mono/Menlo
   - Used for code, technical labels, metadata
   - Weights: 400, 600
@@ -302,7 +302,7 @@ The site uses proper HTML landmarks:
    background: var(--surface);
    color: var(--ink);
    padding: var(--ds-space-4);
-   
+
    /* Bad */
    background: #151515;
    color: #e5e5e5;
@@ -313,7 +313,7 @@ The site uses proper HTML landmarks:
    ```css
    /* Good: fallback = canonical dark value */
    color: var(--ds-text, #e5e5e5);
-   
+
    /* Bad: fallback doesn't match dark theme */
    color: var(--ds-text, #ffffff);
    ```
@@ -328,7 +328,7 @@ The site uses proper HTML landmarks:
 5. **Support reduced motion in animations.**
    ```css
    transition: opacity var(--ds-motion) var(--ds-ease);
-   
+
    @media (prefers-reduced-motion: reduce) {
      * { transition-duration: 0.01ms !important; }
    }

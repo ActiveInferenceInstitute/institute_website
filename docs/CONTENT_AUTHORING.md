@@ -116,13 +116,13 @@ described above.
   "subtitle": "The AI Capabilities & Alignment Consensus Project — reshaping the conversation around AI capabilities, alignment, and regulation.",
   "audience": "Researchers, practitioners, and policy-oriented contributors interested in AI capabilities, alignment, world models, and agency.",
   "lede": "AICACP — the AI Capabilities & Alignment Consensus Project — is a multi-year initiative designed to reshape the conversation around AI capabilities, alignment, and regulation.",
-  
+
   // Non-empty primary actions; at least one uses sourceId
   "primaryActions": [
     { "label": "Project document", "sourceId": "aicacp-project-doc" },
     { "label": "ReInference Unit", "href": "/reinference/" }
   ],
-  
+
   // Body sections: heading + prose + optional links
   "sections": [
     {
@@ -136,7 +136,7 @@ described above.
       "links": [{ "label": "ReInference Unit", "href": "/reinference/" }]
     }
   ],
-  
+
   // Optional card grid
   "cards": [
     {
@@ -145,16 +145,16 @@ described above.
       "links": [{ "sourceId": "aicacp-project-doc" }]
     }
   ],
-  
+
   // Sort order in listings
   "order": 21,
-  
+
   // Cross-links and pager
   "relatedSlugs": ["reinference", "projects", "active-inference"],
-  
+
   // EVERY sourceId used on the page MUST be listed here
   "externalSourceIds": ["aicacp-project-doc", "discord"],
-  
+
   // Resource categories to filter/display resources
   "resourceGroups": ["projects", "research"]
 }
