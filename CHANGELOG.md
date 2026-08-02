@@ -5,6 +5,23 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **Add `Course` + `FAQPage` structured data on course pages.** The two project
+  pages that carry a `syllabus` (physics course, social-sciences course) now emit
+  schema.org `Course` (with a free online `CourseInstance`/offer) and `FAQPage`
+  (from their real `qanda` Q&A) alongside the existing breadcrumb/project/org
+  graph. Course rich results are a high-visibility eligibility improvement.
+  `src/render/seo.mjs`.
+
+- **Restore keyboard focus visibility on search results.** The site-search,
+  "see all", and search-page result links suppressed their focus outline,
+  leaving keyboard users with only a faint tint. Each now shows a visible 2px
+  focus ring on `:focus-visible`. `assets/css/styles.css`.
+
+- **Announce search result changes to screen readers.** Added an `aria-live`
+  "polite" region that announces "N results found" / "No matches found" as the
+  header search updates, plus a `.sr-only` utility class.
+  `src/render/layout.mjs`, `assets/js/search.js`, `assets/css/styles.css`.
+
 - **Fix broken feed item links.** RSS/JSON feeds pointed every update item at
   the bare `/activities/` page, but each communication's actual rendered anchor
   (`id="publication-<id>"`) lives on the Open Source Map (`/knowledge/`). Feed
@@ -17,6 +34,11 @@ This project follows [Semantic Versioning](https://semver.org/).
   labels to the descriptive `"Newsletter image"` default (keeping non-empty alt
   text required by `check:security`), replacing ~36 meaningless `alt="image.png"`
   across all locales. `src/pages/newsletter-content.mjs`.
+
+- **Docs hygiene.** Marked the TODO i18n-catalog and release-hygiene items done,
+  restored the missing `## v2.1.0` CHANGELOG heading (version chain now complete
+  v1.0.0–v4.0.0), and removed a duplicate `check:sources` line from the README
+  runbook. `TODO.md`, `CHANGELOG.md`, `README.md`.
 
 - **Full translation coverage for all 11 machine-translated locales.** Re-ran
   `npm run i18n:extract` (3,418 strings after the localized-head work) and ran
@@ -369,6 +391,8 @@ Subscription, installability, and disclosure.
 ### Notes
 - The PWA/favicon icons reuse the brand mark (non-square); a dedicated square icon
   can be swapped in later without code changes.
+
+## v2.1.0 — 2026-06-19
 
 Search-engine optimization and discoverability.
 

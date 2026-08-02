@@ -171,6 +171,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
     <div class="site-search" role="search">
       <input type="search" id="site-search-input" placeholder="${escapeHtml(tr("Search the Institute…"))}" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="${escapeHtml(tr("Search the site"))}" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="${escapeHtml(tr("Search results"))}" hidden></div>
+      <p id="site-search-status" class="sr-only" aria-live="polite"></p>
     </div>
     ${languageSwitcher(slug, currentDir, lang)}
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="${escapeHtml(tr("Listen to this page"))}" title="${escapeHtml(tr("Listen to this page"))}"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>

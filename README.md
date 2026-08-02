@@ -168,11 +168,10 @@ Run the local release gates:
 npm run check
 npm run check:instituteos
 npm run check:links
-npm run check:sources
+npm run check:sources              # optional bounded network probe
 npm run check:site
 npm run check:security
 npm run check:design-system
-npm run check:sources              # optional bounded network probe
 git diff --check
 ```
 

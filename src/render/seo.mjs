@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { loadProjectsData, siteData } from "../data.mjs";
+import { loadProjectsData, pageBySlug, siteData } from "../data.mjs";
 import { out } from "../lib/paths.mjs";
 import { outputPathForSlug, urlDirForSlug, stripLocalePrefix, localeOutputPathForSlug } from "../url-taxonomy.mjs";
 import { resolveLink } from "./links.mjs";
@@ -109,6 +109,57 @@ export function collectionStructuredNode(currentDir, canonicalUrl, rawTitle, des
   return [collectionPage, itemList];
 }
 
+// schema.org Course node for a project page that carries a `syllabus` block
+// (e.g. the physics and social-sciences courses). Emits an educational offering
+// with the provider pinned to the brand Organization. All URLs derive from
+// page data via absoluteUrl — no hardcoded literal URLs, so the security/contract
+// gates stay green.
+export function courseStructuredNode(slug, rawTitle, canonicalUrl, description, syllabus) {
+  const course = {
+    "@type": "Course",
+    "@id": `${canonicalUrl}#course`,
+    name: rawTitle,
+    url: canonicalUrl,
+    provider: { "@id": `${absoluteUrl("index.html")}#org` },
+  };
+  if (description) course.description = description;
+  const items = Array.isArray(syllabus.items) ? syllabus.items : [];
+  if (items.length) {
+    course.hasCourseInstance = {
+      "@type": "CourseInstance",
+      isAccessibleForFree: true,
+      courseMode: "online",
+      name: syllabus.heading || rawTitle,
+      courseWorkload: `PT${items.length}H`,
+      offers: {
+        "@type": "Offer",
+        category: "Free",
+        price: "0",
+        priceCurrency: "USD",
+      },
+    };
+  }
+  return course;
+}
+
+// schema.org FAQPage node from a page's `qanda` block (question/body pairs).
+// Only populated when there is at least one real Q&A item. Google restricts FAQ
+// rich results to certain authoritative sites, but the markup remains valid
+// schema and can surface as enhanced/answer snippets.
+export function faqStructuredNode(canonicalUrl, qanda) {
+  const items = Array.isArray(qanda.items) ? qanda.items.filter((i) => i && i.title && i.body) : [];
+  if (!items.length) return null;
+  return {
+    "@type": "FAQPage",
+    "@id": `${canonicalUrl}#faq`,
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.title,
+      acceptedAnswer: { "@type": "Answer", text: item.body },
+    })),
+  };
+}
+
 export function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", description = "", minimalSeo = false) {
   const base = absoluteUrl("index.html");
   // Soft-error pages (404) carry no entity markup and must not seed the graph.
@@ -177,10 +228,14 @@ export function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", de
   // On project pages, merge a SoftwareSourceCode/CreativeWork node into a single
   // @graph alongside the breadcrumb. Other pages keep the lone BreadcrumbList.
   if (slug.startsWith("project-")) {
-    return jsonLdScript({
-      "@context": "https://schema.org",
-      "@graph": [breadcrumb, projectStructuredNode(slug, rawTitle, canonicalUrl, description), orgNode],
-    });
+    const graph = [breadcrumb, projectStructuredNode(slug, rawTitle, canonicalUrl, description), orgNode];
+    const page = pageBySlug.get(slug);
+    if (page && page.syllabus) {
+      graph.push(courseStructuredNode(slug, rawTitle, canonicalUrl, description, page.syllabus));
+    }
+    const faq = page && page.qanda ? faqStructuredNode(canonicalUrl, page.qanda) : null;
+    if (faq) graph.push(faq);
+    return jsonLdScript({ "@context": "https://schema.org", "@graph": graph });
   }
   // Index/collection hubs (/projects/, /programs/) additionally publish a
   // CollectionPage + ItemList of their child pages so crawlers see the listing.

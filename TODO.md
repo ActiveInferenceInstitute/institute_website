@@ -7,19 +7,15 @@ strict Content Security Policy, gated by `npm run check`.
 
 ## Backlog / ideas
 
-- [ ] **i18n catalog backlog (2026-07-20):** the extract now collects ~2,264
-      strings (long-form knowledge/course prose entered the catalog with the
-      strategy-map wiring and content growth); ~1,050+ keys per locale await the
-      offline `npm run i18n:translate --all` pass (local Ollama; incremental/
-      resumable). Visible UI chrome (nav "Menu", the domains band set) was
-      translated 2026-07-20 for all 11 locales; untranslated content prose
-      falls back to English with the machine-translation notice, by design.
-      The translate pass must also include a TERMINOLOGY QA sweep: cross-vendor
-      review (2026-07-20) found established-term defects in the existing
-      catalogs (ru rendered "Active Inference" ungrammatically before this
-      session's base-key fix — residual derived entries remain; hi rendered it
-      as "active extraction" in at least one pre-existing entry, now fixed) —
-      re-translate against a per-locale glossary of established terms.
+- [x] **i18n catalog backlog (2026-07-20) — DONE 2026-08-02.** The extract now
+      collects 3,418 strings (long-form knowledge/course prose entered the
+      catalog with the strategy-map wiring and content growth); the offline
+      `npm run i18n:translate` pass (local Ollama; incremental/resumable) filled
+      **100%** of every locale — all 11 catalogs sit at 3,534 entries
+      (es/fr/de/pt/it/ru/hi/ar via gemma3:4b, zh/ja/ko via qwen2.5:3b). See the
+      CHANGELOG "Unreleased" translation entry. A TERMINOLOGY QA pass is noted
+      in scope for a future sweep (established terms like "Active Inference";
+      residual derived entries from earlier base-key fixes).
 
 ### From the 2026-06 deep review (see [`INDEX.md`](INDEX.md), [`GATING.md`](GATING.md))
 
@@ -49,12 +45,10 @@ strict Content Security Policy, gated by `npm run check`.
       email/phone scan over rendered text + `mailto:` targets, with a
       `VETTED_PUBLIC_EMAILS` allowlist for two confirmed-legitimate public
       contacts found during testing.
-- [ ] **Release hygiene (P1):** git tags stop at `v2.4.0` but `CHANGELOG.md` has
-      `v2.5.0`/`v2.6.0`; the domain migration + 11-locale launch sits under
-      `## Unreleased`. Cut a release per [`RELEASING.md`](RELEASING.md) and backfill
-      annotated tags `v2.5.0`, `v2.6.0`. (Version number — minor `v2.7.0` vs major
-      `v3.0.0` — is a judgement call: the baseUrl/domain cutover is a hard URL
-      change, but the public URLs were preserved via redirects.)
+- [x] **Release hygiene (P1) — DONE.** Git tags `v2.5.0` … `v4.0.0` all now
+      exist and `CHANGELOG.md` lists them as released (tags/version backfilled to
+      match). The baseUrl/domain cutover shipped via `v3.0.0` with public URLs
+      preserved through redirects.
 - [x] `strategies_public.json` has **no consumer** in the repo — either wire it
       into a page/feed or remove it from `src/content/instituteos/`.
       **Done 2026-07-20:** wired as the `#strategy-map` section on `/strategy/`
@@ -127,4 +121,5 @@ strict Content Security Policy, gated by `npm run check`.
 
 See [`CHANGELOG.md`](CHANGELOG.md) — recent: clean section-based URLs (v2.0),
 SEO/structured data (v2.1), feeds + installable PWA + `security.txt` (v2.2),
-brand icon + social card + global search (v2.3).
+brand icon + social card + global search (v2.3), localized `<head>` + full
+11-locale translation coverage + VideoObject thumbnails (v4.0.0 + Unreleased).

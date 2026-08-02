@@ -145,17 +145,23 @@
     return scored.slice(0, 12);
   }
 
+  // Visually-hidden aria-live region announcing how many results matched, so a
+  // screen-reader user is told when the result set changes while typing.
+  var status = document.getElementById("site-search-status");
+
   function render(rawQuery) {
     var query = rawQuery.trim().toLowerCase();
     if (query.length < 2) {
       close();
       results.innerHTML = "";
+      if (status) status.textContent = "";
       return;
     }
     var terms = query.split(/\s+/).filter(Boolean);
     var matches = rank(query);
     if (!matches.length) {
       results.innerHTML = '<p class="site-search-empty">No matches found.</p>';
+      if (status) status.textContent = "No matches found.";
     } else {
       var list = matches
         .map(function (match) {
@@ -182,6 +188,10 @@
           "&rdquo;</a>"
         : "";
       results.innerHTML = list + seeAll;
+      if (status) {
+        status.textContent =
+          matches.length === 1 ? "1 result found." : matches.length + " results found.";
+      }
     }
     open();
   }
