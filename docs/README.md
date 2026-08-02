@@ -64,6 +64,6 @@ task runbooks.
 
 ```bash
 npm run build      # render JSON content -> HTML into the repo root
-npm run check      # run all gates (links, site contract, security, design system, instituteos sync)
+npm run check      # run all gates (md-links, instituteos, design-system, site contract, security, redirects, projects, catalog)
 npm run i18n:translate   # update locale catalogs
 ```
