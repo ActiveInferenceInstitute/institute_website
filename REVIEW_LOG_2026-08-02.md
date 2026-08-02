@@ -87,13 +87,18 @@ See TO-DO.md (updated with this pass's findings; completed items marked with com
 | feb0f61a6 | docs: fix stale content (TROUBLESHOOTING determinism, INTERNATIONALIZATION lang-switcher markup + typo + file-ref row, SLUG_AND_URL_TAXONOMY add-route + /domains/ sections, RELEASING line refs, ARCHITECTURE strings path) |
 | 86e23f5d4 | docs: fix npm-script table (`||` rows + missing rows), strip trailing whitespace, INDEX.md map (Plans row + output dirs) |
 | 8fcd8c3b0 | chore: add CITATION.cff, SECURITY.md, `license` in package.json/package-lock.json, README License section, INDEX.md map update |
-| (final) | docs: TODO.md commit refs, CHANGELOG Unreleased entry, REVIEW_LOG |
+| f5145936f | docs: TODO.md commit refs, CHANGELOG Unreleased entry, REVIEW_LOG |
+| 646c52d6f | docs: complete the `npm run check` gate list in docs/README quick reference |
+
+Pushed to `origin/main`: `563b38d03..646c52d6f` (6 commits, 16 files changed).
 
 ## Phase 4 — Verification
 
-- [x] Full `npm run check` green on final state (baseline EXIT=0; final re-run below)
-- [x] `git diff --check` clean (below)
-- [x] Pushed to `origin/main`; `git status` up to date (below)
+- [x] Full `npm run check` green on final state — baseline EXIT=0; re-run after the
+      content commits EXIT=0 (10 gates); final run on the pushed state below
+- [x] `git diff --check` clean
+- [x] Pushed to `origin/main`; `git status` up to date (0 modified, 0 untracked;
+      local `main` == `origin/main` == 646c52d6f)
 
 ## Notes / skipped
 
