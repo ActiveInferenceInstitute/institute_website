@@ -5,6 +5,16 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **Full translation coverage for all 11 machine-translated locales.** Re-ran
+  `npm run i18n:extract` (3,418 strings after the localized-head work) and ran
+  the offline Ollama pipeline (`gemma3:4b`, `qwen2.5:3b` for CJK) for every
+  locale, filling the ~2,342 previously-missing strings in each of
+  es/fr/de/pt/it/ru/hi/ar/zh/ja/ko catalogs — from ~31% to **100% coverage**
+  (3,534 entries each). All translated page titles, descriptions, metadata, and
+  narrative prose now render in the visitor's chosen language. The ~32 spoken
+  transcript-excerpt strings remain English by design (sourced from the
+  Journal repos, not translated in the website catalog).
+
 - **Localized `<head>` metadata for all 12 locales.** Page `<title>`, `<meta
   name="description">`, Open Graph (`og:title`/`og:description`), and the
   BreadcrumbList JSON-LD `name` are now routed through `tr()` in

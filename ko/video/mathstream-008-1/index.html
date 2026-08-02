@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Introduction to Bayesian mechanics: state-based formalism (part 1) | Active Inference Institute</title>
-  <meta name="description" content="Hello and welcome everyone. It's January 26th, 2024. We're here in Active Inference Math Stream 8.1 with Richard Sarajevon. And we're going to have an…">
+  <title>bayesian 메카니즘 소개 : 상태 기반 형식화 (파트 1 ) | Active Inference Institute</title>
+  <meta name="description" content="안녕하세요everyone. 2024년 1월 26일에 오신 것을 환영합니다. 우리는 Active Inference 수학 스트림 8.1에서 리치리 사라제보인과 함께 있습니다. 그리고今天我们将会有一个…">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/icon.svg">
@@ -31,22 +31,22 @@
   <link rel="alternate" hreflang="x-default" href="https://activeinference.institute/video/mathstream-008-1/">
   <meta property="og:type" content="video.other">
   <meta property="og:site_name" content="Active Inference Institute">
-  <meta property="og:title" content="Introduction to Bayesian mechanics: state-based formalism (part 1) | Active Inference Institute">
-  <meta property="og:description" content="Hello and welcome everyone. It's January 26th, 2024. We're here in Active Inference Math Stream 8.1 with Richard Sarajevon. And we're going to have an…">
+  <meta property="og:title" content="bayesian 메카니즘 소개 : 상태 기반 형식화 (파트 1 ) | Active Inference Institute">
+  <meta property="og:description" content="안녕하세요everyone. 2024년 1월 26일에 오신 것을 환영합니다. 우리는 Active Inference 수학 스트림 8.1에서 리치리 사라제보인과 함께 있습니다. 그리고今天我们将会有一个…">
   <meta property="og:locale" content="ko_KR"><meta property="og:locale:alternate" content="en_US"> <meta property="og:locale:alternate" content="es_ES"> <meta property="og:locale:alternate" content="fr_FR"> <meta property="og:locale:alternate" content="de_DE"> <meta property="og:locale:alternate" content="pt_PT"> <meta property="og:locale:alternate" content="it_IT"> <meta property="og:locale:alternate" content="ru_RU"> <meta property="og:locale:alternate" content="zh_CN"> <meta property="og:locale:alternate" content="ja_JP"> <meta property="og:locale:alternate" content="hi_IN"> <meta property="og:locale:alternate" content="ar_SA">
   <meta property="og:url" content="https://activeinference.institute/ko/video/mathstream-008-1/">
   <meta property="og:image" content="https://activeinference.institute/assets/img/social-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Active Inference Institute — Introduction to Bayesian mechanics: state-based formalism (part 1) | Active Inference Institute">
+  <meta property="og:image:alt" content="Active Inference Institute — bayesian 메카니즘 소개 : 상태 기반 형식화 (파트 1 ) | Active Inference Institute">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Introduction to Bayesian mechanics: state-based formalism (part 1) | Active Inference Institute">
-  <meta name="twitter:description" content="Hello and welcome everyone. It's January 26th, 2024. We're here in Active Inference Math Stream 8.1 with Richard Sarajevon. And we're going to have an…">
+  <meta name="twitter:title" content="bayesian 메카니즘 소개 : 상태 기반 형식화 (파트 1 ) | Active Inference Institute">
+  <meta name="twitter:description" content="안녕하세요everyone. 2024년 1월 26일에 오신 것을 환영합니다. 우리는 Active Inference 수학 스트림 8.1에서 리치리 사라제보인과 함께 있습니다. 그리고今天我们将会有一个…">
   <meta name="twitter:image" content="https://activeinference.institute/assets/img/social-card.png">
   <meta name="generator" content="institute_website v4.0.0">
   <link rel="stylesheet" href="../../../assets/css/instituteos-ds.css">
   <link rel="stylesheet" href="../../../assets/css/styles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/ko/video/mathstream-008-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/ko/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/ko/video/"},{"@type":"ListItem","position":3,"name":"Introduction to Bayesian mechanics: state-based formalism (part 1)","item":"https://activeinference.institute/ko/video/mathstream-008-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/ko/video/mathstream-008-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/ko/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/ko/video/"},{"@type":"ListItem","position":3,"name":"bayesian 메카니즘 소개 : 상태 기반 형식화 (파트 1 )","item":"https://activeinference.institute/ko/video/mathstream-008-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
 </head>
 <body class="">
   <a class="skip-link" href="#main">콘텐츠로 건너뛰기</a>
@@ -67,7 +67,7 @@
           <span>연구소</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">활성 추론 연구소&quot;에 대해</a><a href="../../structure/">구조 및 거버넌스</a><a href="../../structure/board-of-directors/">이사회</a><a href="../../structure/officers/">관원들</a><a href="../../structure/scientific-advisory-board/">과학 자문 위원회</a><a href="../../ecosystem/">생태계</a><a href="../../communications/">Communications</a><a href="../../newsletter/">Newsletter</a><a href="../../instituteos/">인스티튜트 OS 인터페이스</a><a href="../../directory/">글로벌 디렉토리</a><a href="../../resources/#official-shortlinks">공식 단축 링크</a></div>
+        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">활성 추론 연구소&quot;에 대해</a><a href="../../structure/">구조 및 거버넌스</a><a href="../../structure/board-of-directors/">이사회</a><a href="../../structure/officers/">관원들</a><a href="../../structure/scientific-advisory-board/">과학 자문 위원회</a><a href="../../ecosystem/">생태계</a><a href="../../communications/">통신</a><a href="../../newsletter/">뉴스레터</a><a href="../../instituteos/">인스티튜트 OS 인터페이스</a><a href="../../directory/">글로벌 디렉토리</a><a href="../../resources/#official-shortlinks">공식 단축 링크</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
           <span>학습</span>
@@ -153,9 +153,9 @@
 
   <section class="content-band" id="transcript">
     <div class="section-heading">
-    <p class="eyebrow">Transcript</p>
-    <h2>AI-generated transcript excerpt</h2>
-    <p>The full transcript is available on GitHub. This excerpt is generated by automated speech recognition and may contain errors.</p>
+    <p class="eyebrow">트랜스cripts</p>
+    <h2>AI 생성 Transcript 예시</h2>
+    <p>GitHub에서 전체 트랜스크립트가 있습니다 {title}은 자동화된 발음 인식을 사용하여 생성되었으며 오류가 있을 수 있습니다.</p>
   </div>
     <div class="transcript-block">
       <p>Hello and welcome everyone. It's January 26th, 2024. We're here in Active Inference Math Stream 8.1 with Richard Sarajevon. And we're going to have an interesting presentation and discussion today on Introduction to Bayesian Mechanics, Free Energy Principle, and the State-Based Formalism. This is part one. So Richard, thank you for joining. Looking forward to this presentation and discussion. So to you. Hi everybody. So yeah, my name is Richard Sarajevon. I'm French working in Switzerland. I'm a PhD student at EPFL in Lausanne. And just to bring a bit of context, I'm not working on Bayesian Mechanics. We are, we do have a physics background, but we are interested in modeling bacterial evolution and ecology. And what happened is that something like, I mean, the free energy principle was always in the corner of my head. And one year and a half ago, I decided to really read about the free energy principle, especially if I wanted to transition to the field and I do want to transition to the field after my PhD. And so I started to ask many questions to the people from the FEP community. And I'm so grateful. Thanks for them. And also on the discord of the of the Active Inference Institute. And at some point, I said that I was preparing a lab meeting about the free energy principle. And Daniel proposed to have this discussed on the live stream because there isn't such material to specifically learn about Bayesian mechanics and the actual physics underlying the free energy principle. And so here I am. So once again, I'm not an expert on the matter. So always refer to the original papers. But hopefully I'm gonna I'm gonna do a decent job. So without further ado, let's let's start. I'm not going to tell you what we where we are heading what questions we would like to to address or whatever. I'm rather going to start building the framework right away. And at some point, what we're doing doing will become clear. So as you may know, there are two formulations or formalisms of the free energy principles, the so called state based formulation, and the so called path based formulation. So today, we will focus on the state based formalism. It's not like the old versus the new formulation. In fact, thinking in terms of path, or so called generalized coordinates of motion, I've been around forever, but in the literature, but it kind of came back to the front scene of the Bayesian mechanics literature, I think. Anyway, today, we will focus on the state based from formalism. So the very starting point is to write down a large my equation, a generic large my equation. So it's literally like saying, let's consider a random dynamical system. Very briefly for the people not acquainted with such an equation. X here is the state of your system. So it could be a simple scalar if you are considering a one dimensional process. But in general, X would be a vector. For instance, if I don't know, you want to model the 3D diffusion of a Brønian particle immersed in a liquid, X would be a 3D vector, whose components are the coordinates of your Brønian particle. And you can see on the left hand side, that we have dx over dt, the time derivative of the state vector. So that such an equation really describes or specifies the dynamics of the system. So many things can influence indeed the dynamics of the system. If I stick to my Brønian particle example, maybe it is subject to an external force. So whatever is relevant here, you put it in F, the so-called deterministic term or flow. We will refer to it as the flow for the presentation. However, in some cases, there is stuff you don't want to explicitly model. For instance, if I stick with my Brønian particle example, it is constantly hit by the molecules of the medium surrounding it, hence its Brønian motion, right? And it would be, so if you want to take into account these thermal fluctuations, it would be mission impossible to explicitly model every single molecule of the millions, if not billions of the…</p>
@@ -166,9 +166,9 @@
 
   <section class="content-band" id="related">
     <div class="section-heading">
-    <p class="eyebrow">Continue</p>
-    <h2>More from the video library</h2>
-    <p>Browse the complete library or find more sessions in this series.</p>
+    <p class="eyebrow">계속</p>
+    <h2>영상 라ibrary에서 더 많은 것</h2>
+    <p>전체 라이브러리를 둘러보거나 이 시리즈에서 더 많은 세션을 찾으세요.</p>
   </div>
     <div class="link-chips">
       <a href="../"><span>All videos</span></a>

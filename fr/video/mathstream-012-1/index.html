@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>ELBOing Stein: Variational Bayes with Stein Mixture Inference | Active Inference Institute</title>
-  <meta name="description" content="Hello, welcome. It is April 10th, 2025. We're in Active Inference Math Stream 12.1 with Ola Running, going to be discussing Elbowing Stein, Variational…">
+  <title>ELBOing Stein : Inférence par mélange de Stein avec les Bayes variationnels | Active Inference Institute</title>
+  <meta name="description" content="Bonjour, bienvenue. Le 10 avril 2025. Nous sommes dans le flux mathématique Active Inference 12.1 avec Ola Running, où nous discuterons d'Elbowing Stein, de…">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/icon.svg">
@@ -31,22 +31,22 @@
   <link rel="alternate" hreflang="x-default" href="https://activeinference.institute/video/mathstream-012-1/">
   <meta property="og:type" content="video.other">
   <meta property="og:site_name" content="Active Inference Institute">
-  <meta property="og:title" content="ELBOing Stein: Variational Bayes with Stein Mixture Inference | Active Inference Institute">
-  <meta property="og:description" content="Hello, welcome. It is April 10th, 2025. We're in Active Inference Math Stream 12.1 with Ola Running, going to be discussing Elbowing Stein, Variational…">
+  <meta property="og:title" content="ELBOing Stein : Inférence par mélange de Stein avec les Bayes variationnels | Active Inference Institute">
+  <meta property="og:description" content="Bonjour, bienvenue. Le 10 avril 2025. Nous sommes dans le flux mathématique Active Inference 12.1 avec Ola Running, où nous discuterons d'Elbowing Stein, de…">
   <meta property="og:locale" content="fr_FR"><meta property="og:locale:alternate" content="en_US"> <meta property="og:locale:alternate" content="es_ES"> <meta property="og:locale:alternate" content="de_DE"> <meta property="og:locale:alternate" content="pt_PT"> <meta property="og:locale:alternate" content="it_IT"> <meta property="og:locale:alternate" content="ru_RU"> <meta property="og:locale:alternate" content="zh_CN"> <meta property="og:locale:alternate" content="ja_JP"> <meta property="og:locale:alternate" content="ko_KR"> <meta property="og:locale:alternate" content="hi_IN"> <meta property="og:locale:alternate" content="ar_SA">
   <meta property="og:url" content="https://activeinference.institute/fr/video/mathstream-012-1/">
   <meta property="og:image" content="https://activeinference.institute/assets/img/social-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Active Inference Institute — ELBOing Stein: Variational Bayes with Stein Mixture Inference | Active Inference Institute">
+  <meta property="og:image:alt" content="Active Inference Institute — ELBOing Stein : Inférence par mélange de Stein avec les Bayes variationnels | Active Inference Institute">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ELBOing Stein: Variational Bayes with Stein Mixture Inference | Active Inference Institute">
-  <meta name="twitter:description" content="Hello, welcome. It is April 10th, 2025. We're in Active Inference Math Stream 12.1 with Ola Running, going to be discussing Elbowing Stein, Variational…">
+  <meta name="twitter:title" content="ELBOing Stein : Inférence par mélange de Stein avec les Bayes variationnels | Active Inference Institute">
+  <meta name="twitter:description" content="Bonjour, bienvenue. Le 10 avril 2025. Nous sommes dans le flux mathématique Active Inference 12.1 avec Ola Running, où nous discuterons d'Elbowing Stein, de…">
   <meta name="twitter:image" content="https://activeinference.institute/assets/img/social-card.png">
   <meta name="generator" content="institute_website v4.0.0">
   <link rel="stylesheet" href="../../../assets/css/instituteos-ds.css">
   <link rel="stylesheet" href="../../../assets/css/styles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/fr/video/mathstream-012-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/fr/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/fr/video/"},{"@type":"ListItem","position":3,"name":"ELBOing Stein: Variational Bayes with Stein Mixture Inference","item":"https://activeinference.institute/fr/video/mathstream-012-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/fr/video/mathstream-012-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/fr/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/fr/video/"},{"@type":"ListItem","position":3,"name":"ELBOing Stein : Inférence par mélange de Stein avec les Bayes variationnels","item":"https://activeinference.institute/fr/video/mathstream-012-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
 </head>
 <body class="">
   <a class="skip-link" href="#main">Sauter au contenu</a>
@@ -67,7 +67,7 @@
           <span>Institut</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">À propos</a><a href="../../structure/">Structure et Gouvernance</a><a href="../../structure/board-of-directors/">Conseil d'administration</a><a href="../../structure/officers/">Officiers</a><a href="../../structure/scientific-advisory-board/">Conseil scientifique</a><a href="../../ecosystem/">Écosystème</a><a href="../../communications/">Communications</a><a href="../../newsletter/">Newsletter</a><a href="../../instituteos/">Interface InstituteOS</a><a href="../../directory/">Répertoire Global</a><a href="../../resources/#official-shortlinks">Liens courts officiels</a></div>
+        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">À propos</a><a href="../../structure/">Structure et Gouvernance</a><a href="../../structure/board-of-directors/">Conseil d'administration</a><a href="../../structure/officers/">Officiers</a><a href="../../structure/scientific-advisory-board/">Conseil scientifique</a><a href="../../ecosystem/">Écosystème</a><a href="../../communications/">Communications</a><a href="../../newsletter/">Lettre d'information</a><a href="../../instituteos/">Interface InstituteOS</a><a href="../../directory/">Répertoire Global</a><a href="../../resources/#official-shortlinks">Liens courts officiels</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
           <span>Apprendre</span>
@@ -153,9 +153,9 @@
 
   <section class="content-band" id="transcript">
     <div class="section-heading">
-    <p class="eyebrow">Transcript</p>
-    <h2>AI-generated transcript excerpt</h2>
-    <p>The full transcript is available on GitHub. This excerpt is generated by automated speech recognition and may contain errors.</p>
+    <p class="eyebrow">Transcription</p>
+    <h2>Extrait de transcription généré par l'IA</h2>
+    <p>Le transcript complet est disponible sur GitHub. Ce extrait est généré par reconnaissance automatique de la parole et peut contenir des erreurs.</p>
   </div>
     <div class="transcript-block">
       <p>Hello, welcome. It is April 10th, 2025. We're in Active Inference Math Stream 12.1 with Ola Running, going to be discussing Elbowing Stein, Variational Bayes with Stein Mixer Inference. So, thank you for joining. Looking forward to this presentation and discussion. Great, thanks for having me. I'm Ola Running presenting the work I've done with Eric Nolestek, Christoph Lai, Frederick Smith and Thomas Hammerruck on Variational Bayes with Stein Mixtures. So let's get into it. So, this is the plan. We'll talk about patient inference and particle-based methods and particular Stein-based methods which came about in 2016. I'll just go over an overview of what these are to get everybody up and then the key problem with them which is the underestimated variance as our models get high dimensional. Then I'll talk shortly about our approach which is Stein Mixture Inference. The new thing here is introducing a neighborhood to each other particles. We'll talk a little bit about that and then evidence that this mixture actually helps with the issue of dimensionality, of course, of dimensionality. And finally, Stein Mixture Inference is a black box inference engine in the probabilistic programming language of Pyro. So I'll plug that a little bit at the end. Yeah, so just to set the stage here. So making predictions and sort of modeling systems is ubiquitous. So the group I'm in works with structural biology, but I'm looking to applications in robotics and potentially finance as well. And sort of at an abstract level, what we're looking for is a trustworthy systems. We want something that's accurate when it meets, when our data meets our expectation and uncertain when it's either surprising, ambiguous or missing. So illustrating it here by where we have a data generating process dotted line, and then we have a method which is trying to infer to infer the process. This is the red line. And so we only give it sufficient data in the green regions. And what we're looking for is something that captures the process in the green region and gets uncertain in this in between region. And so on the left hand side, you would have something that's accurate, but it's but it's overly confident because it the uncertainties is collapsed in the in between region. And the right hand side is what we're what we're what we want. So here, the blue region could be any potential curve. And it's like 95 or 90% HDI. So it's like the likelihood there would be in here. Good. Yeah. And so just to make it slightly more concrete. So in prediction, you might have something like a overconfident, overconfident mobile, mobile robot. So if you for example, have a robot navigating North a tree, it will have a sort of uncertainty about its orientation and position. But as you put it into new terrain, for example, by removing a tree, you would want this uncertainty to spread out so that you can invoke emergency protocols and then overconfident protocol would sorry, overconfident robot might lead to crashes because it's there's a disambiguity between its actual location and where it believes it's at. And this is a this is a we have a talking with some underwater robotics labs and they say that this is an issue in one out of 250 missions. And this can be quite expensive with robot costing between 20,000 euros and 10 million depending on the size of the robot or deep sea robots. Another issue. So that was sort of when we're talking about prediction, but when we're talking about modeling protein structures, three dimensional protein structures have regions which are conserved. So they stay ordered so they don't fluctuate very much. But it's it's a it's a molecule interacting with the solvent around it. So the whole thing will move slightly. And then you have some regions which are unstructured and highly disordered, and they will be moving around. So if you want a description of the structure, it's not enough of the three dimensional structure to protein, it's not enough to know just…</p>
@@ -166,9 +166,9 @@
 
   <section class="content-band" id="related">
     <div class="section-heading">
-    <p class="eyebrow">Continue</p>
-    <h2>More from the video library</h2>
-    <p>Browse the complete library or find more sessions in this series.</p>
+    <p class="eyebrow">Continuer</p>
+    <h2>Plus d'éléments de la bibliothèque vidéo</h2>
+    <p>Parcourir la bibliothèque complète ou trouver d’autres sessions de cette série.</p>
   </div>
     <div class="link-chips">
       <a href="../"><span>All videos</span></a>

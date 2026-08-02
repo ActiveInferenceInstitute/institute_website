@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>RxEnvironments.jl | Active Inference Institute</title>
-  <meta name="description" content="Hello and welcome. This is Active Inference Model Stream number 10.1 on April 4th, 2024, 4-4-24. And we're really excited today to be with Bart Van Earp and…">
+  <meta name="description" content="Olá e bem-vindo. Este é o Fluxo do Modelo de Inferência Ativa número 10.1 em 4/4/2024, 4-4-24. E estamos realmente animados hoje em estar com Bart Van Earp e…">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/icon.svg">
@@ -32,7 +32,7 @@
   <meta property="og:type" content="video.other">
   <meta property="og:site_name" content="Active Inference Institute">
   <meta property="og:title" content="RxEnvironments.jl | Active Inference Institute">
-  <meta property="og:description" content="Hello and welcome. This is Active Inference Model Stream number 10.1 on April 4th, 2024, 4-4-24. And we're really excited today to be with Bart Van Earp and…">
+  <meta property="og:description" content="Olá e bem-vindo. Este é o Fluxo do Modelo de Inferência Ativa número 10.1 em 4/4/2024, 4-4-24. E estamos realmente animados hoje em estar com Bart Van Earp e…">
   <meta property="og:locale" content="pt_PT"><meta property="og:locale:alternate" content="en_US"> <meta property="og:locale:alternate" content="es_ES"> <meta property="og:locale:alternate" content="fr_FR"> <meta property="og:locale:alternate" content="de_DE"> <meta property="og:locale:alternate" content="it_IT"> <meta property="og:locale:alternate" content="ru_RU"> <meta property="og:locale:alternate" content="zh_CN"> <meta property="og:locale:alternate" content="ja_JP"> <meta property="og:locale:alternate" content="ko_KR"> <meta property="og:locale:alternate" content="hi_IN"> <meta property="og:locale:alternate" content="ar_SA">
   <meta property="og:url" content="https://activeinference.institute/pt/video/modelstream-010-2/">
   <meta property="og:image" content="https://activeinference.institute/assets/img/social-card.png">
@@ -41,7 +41,7 @@
   <meta property="og:image:alt" content="Active Inference Institute — RxEnvironments.jl | Active Inference Institute">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="RxEnvironments.jl | Active Inference Institute">
-  <meta name="twitter:description" content="Hello and welcome. This is Active Inference Model Stream number 10.1 on April 4th, 2024, 4-4-24. And we're really excited today to be with Bart Van Earp and…">
+  <meta name="twitter:description" content="Olá e bem-vindo. Este é o Fluxo do Modelo de Inferência Ativa número 10.1 em 4/4/2024, 4-4-24. E estamos realmente animados hoje em estar com Bart Van Earp e…">
   <meta name="twitter:image" content="https://activeinference.institute/assets/img/social-card.png">
   <meta name="generator" content="institute_website v4.0.0">
   <link rel="stylesheet" href="../../../assets/css/instituteos-ds.css">
@@ -67,7 +67,7 @@
           <span>Instituto</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">Sobre</a><a href="../../structure/">Estrutura e Governança</a><a href="../../structure/board-of-directors/">Conselho Diretor</a><a href="../../structure/officers/">Oficiais</a><a href="../../structure/scientific-advisory-board/">Conselho Consultivo Científico</a><a href="../../ecosystem/">Ecossistema</a><a href="../../communications/">Communications</a><a href="../../newsletter/">Newsletter</a><a href="../../instituteos/">Interface InstituteOS</a><a href="../../directory/">Diretório Global</a><a href="../../resources/#official-shortlinks">Atas curtas oficiais</a></div>
+        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">Sobre</a><a href="../../structure/">Estrutura e Governança</a><a href="../../structure/board-of-directors/">Conselho Diretor</a><a href="../../structure/officers/">Oficiais</a><a href="../../structure/scientific-advisory-board/">Conselho Consultivo Científico</a><a href="../../ecosystem/">Ecossistema</a><a href="../../communications/">Comunicações</a><a href="../../newsletter/">Boletim informativo</a><a href="../../instituteos/">Interface InstituteOS</a><a href="../../directory/">Diretório Global</a><a href="../../resources/#official-shortlinks">Atas curtas oficiais</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
           <span>Aprender</span>
@@ -153,9 +153,9 @@
 
   <section class="content-band" id="transcript">
     <div class="section-heading">
-    <p class="eyebrow">Transcript</p>
-    <h2>AI-generated transcript excerpt</h2>
-    <p>The full transcript is available on GitHub. This excerpt is generated by automated speech recognition and may contain errors.</p>
+    <p class="eyebrow">Transcrição</p>
+    <h2>Transcrição de excerto gerada por IA</h2>
+    <p>O transcrito completo está disponível no GitHub. Esta extração foi gerada por reconhecimento automático de fala e pode conter erros.</p>
   </div>
     <div class="transcript-block">
       <p>Hello and welcome. This is Active Inference Model Stream number 10.1 on April 4th, 2024, 4-4-24. And we're really excited today to be with Bart Van Earp and Albert Potosenko talking about building a drone with RxInfer. We have an ongoing RxInfer learning group at the Institute and a lot of participants have been excited to use even early versions of this package and connect it to all the exciting math and developments. So thank you both for joining, looking forward to this very pragmatic presentation. Awesome. Thanks, Daniel. Thanks for the kind words, the nice introduction. Also welcome everyone online. As Daniel mentioned, we're going to build a drone today. So last week I didn't know anything about drones whatsoever, but in the meantime, I was able to craft one with the help of my colleagues. And I want to kind of transfer the learning experience that I obtained over this week to all of you, such that you can leverage the power of our toolbox RxInfer in the end to make your own very cool applications, your own drone, your own autonomous vehicle, whatever you want. And we will then be there also to support you in this journey. But for now, let's get started. How are we going to build a drone with RxInfer? So first of all, let me briefly introduce myself. My name is Bart Van Earp. I'm a PhD student and teaching assistant in BIOS App, which is the research group here at Eindhoven University of Technology. And together with Albert, we will be also live and we'll also be monitoring the chat in case there are any questions pop up along the way. We will be your host today together with Daniel. This talk will be supported by Reactive Base. So Reactive Base is the overcoupling GitHub organization of RxInfer and all the packages on which it's built. At the moment, we're looking for contributors. So if you're interested after this talk, please reach out and then definitely we can get you acquainted with the toolbox and with our environment there. So we're from BiosLab, the Eindhoven University of Technology. We are located here in Eindhoven, also called City of Light. And from here, we're doing very interesting research on building agents, probabilistic graphical models and using these to craft all kinds of engineering applications, trying to solve real world problems with our engine. Our engine, RxInfer, you might have already heard about this, but our engine is a Julia engine, which allows us to perform automatic Bayesian inference, specifically through reactive message passing. The engine that we have built is completely reactive, which means that it doesn't do anything unless there is something to do for it. So it's relatively energy efficient because it doesn't consume energy during all the other moments. And we perform message passing, but I'll give a more detailed discussion on this. More explanation will follow later in this talk. And we're going to use this toolbox in order to craft a drone, a drone that can actually fly using some simplified drone mechanics, go from position A to position B. And I'm very eager to show you how this journey, how this development journey looks like. So let's get started. So what I'm going to talk about are three parts, basically, in this talk. I'm going to first start off with the model specification. So in the Bayesian inference methodology, the first part is always that we need to craft a model. And this model will include some drone physics. So I'll be taking you back to high school, where you learned all these concepts, refresh a couple of them. And based on that, I'm going to construct a generative model of how a simplified drone would look like. Furthermore, I'll then continue upon the probabilistic inference. So if we have crafted this model, and we want this model actually to do something, inference allows us to compute posteriors in this model. And the inference on this model is actually the underlying control algorithm that we will be crafting. And this will be automated using our…</p>
@@ -167,8 +167,8 @@
   <section class="content-band" id="related">
     <div class="section-heading">
     <p class="eyebrow">Continue</p>
-    <h2>More from the video library</h2>
-    <p>Browse the complete library or find more sessions in this series.</p>
+    <h2>Mais do vídeo biblioteca</h2>
+    <p>Explore a completa biblioteca ou encontre mais sessões desta série.</p>
   </div>
     <div class="link-chips">
       <a href="../"><span>All videos</span></a>

@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>How to Accelerate? Implementing &amp; Meta-Analyzing an Active Inference Mountain Car in RxInfer.jl | Active Inference Institute</title>
-  <meta name="description" content="All right, it's December 26, 2024. This is Daniel Friedman. It's Active Inference Stream 009.1. How to Accelerate Active Inference Mountain Car in…">
+  <title>如何加速？在RxInfer.jl中实施及元分析一个Active Inference山Car | Active Inference Institute</title>
+  <meta name="description" content="好的，是二〇二四年十二月二十六日。这是丹尼尔·弗里德曼。这是Active Inference流009.1。如何加速Active Inference山车……">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/icon.svg">
@@ -31,22 +31,22 @@
   <link rel="alternate" hreflang="x-default" href="https://activeinference.institute/video/active-inferant-stream-009-1/">
   <meta property="og:type" content="video.other">
   <meta property="og:site_name" content="Active Inference Institute">
-  <meta property="og:title" content="How to Accelerate? Implementing &amp; Meta-Analyzing an Active Inference Mountain Car in RxInfer.jl | Active Inference Institute">
-  <meta property="og:description" content="All right, it's December 26, 2024. This is Daniel Friedman. It's Active Inference Stream 009.1. How to Accelerate Active Inference Mountain Car in…">
+  <meta property="og:title" content="如何加速？在RxInfer.jl中实施及元分析一个Active Inference山Car | Active Inference Institute">
+  <meta property="og:description" content="好的，是二〇二四年十二月二十六日。这是丹尼尔·弗里德曼。这是Active Inference流009.1。如何加速Active Inference山车……">
   <meta property="og:locale" content="zh_CN"><meta property="og:locale:alternate" content="en_US"> <meta property="og:locale:alternate" content="es_ES"> <meta property="og:locale:alternate" content="fr_FR"> <meta property="og:locale:alternate" content="de_DE"> <meta property="og:locale:alternate" content="pt_PT"> <meta property="og:locale:alternate" content="it_IT"> <meta property="og:locale:alternate" content="ru_RU"> <meta property="og:locale:alternate" content="ja_JP"> <meta property="og:locale:alternate" content="ko_KR"> <meta property="og:locale:alternate" content="hi_IN"> <meta property="og:locale:alternate" content="ar_SA">
   <meta property="og:url" content="https://activeinference.institute/zh/video/active-inferant-stream-009-1/">
   <meta property="og:image" content="https://activeinference.institute/assets/img/social-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Active Inference Institute — How to Accelerate? Implementing &amp; Meta-Analyzing an Active Inference Mountain Car in RxInfer.jl | Active Inference Institute">
+  <meta property="og:image:alt" content="Active Inference Institute — 如何加速？在RxInfer.jl中实施及元分析一个Active Inference山Car | Active Inference Institute">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How to Accelerate? Implementing &amp; Meta-Analyzing an Active Inference Mountain Car in RxInfer.jl | Active Inference Institute">
-  <meta name="twitter:description" content="All right, it's December 26, 2024. This is Daniel Friedman. It's Active Inference Stream 009.1. How to Accelerate Active Inference Mountain Car in…">
+  <meta name="twitter:title" content="如何加速？在RxInfer.jl中实施及元分析一个Active Inference山Car | Active Inference Institute">
+  <meta name="twitter:description" content="好的，是二〇二四年十二月二十六日。这是丹尼尔·弗里德曼。这是Active Inference流009.1。如何加速Active Inference山车……">
   <meta name="twitter:image" content="https://activeinference.institute/assets/img/social-card.png">
   <meta name="generator" content="institute_website v4.0.0">
   <link rel="stylesheet" href="../../../assets/css/instituteos-ds.css">
   <link rel="stylesheet" href="../../../assets/css/styles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/zh/video/active-inferant-stream-009-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/zh/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/zh/video/"},{"@type":"ListItem","position":3,"name":"How to Accelerate? Implementing & Meta-Analyzing an Active Inference Mountain Car in RxInfer.jl","item":"https://activeinference.institute/zh/video/active-inferant-stream-009-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/zh/video/active-inferant-stream-009-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/zh/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/zh/video/"},{"@type":"ListItem","position":3,"name":"如何加速？在RxInfer.jl中实施及元分析一个Active Inference山Car","item":"https://activeinference.institute/zh/video/active-inferant-stream-009-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
 </head>
 <body class="">
   <a class="skip-link" href="#main">跳转到内容</a>
@@ -67,7 +67,7 @@
           <span>研究所</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">关于</a><a href="../../structure/">结构与治理</a><a href="../../structure/board-of-directors/">董事会</a><a href="../../structure/officers/">官员</a><a href="../../structure/scientific-advisory-board/">科学顾问委员会</a><a href="../../ecosystem/">生态系统</a><a href="../../communications/">Communications</a><a href="../../newsletter/">Newsletter</a><a href="../../instituteos/">Active推理研究所界面</a><a href="../../directory/">全球目录</a><a href="../../resources/#official-shortlinks">官方简链接</a></div>
+        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">关于</a><a href="../../structure/">结构与治理</a><a href="../../structure/board-of-directors/">董事会</a><a href="../../structure/officers/">官员</a><a href="../../structure/scientific-advisory-board/">科学顾问委员会</a><a href="../../ecosystem/">生态系统</a><a href="../../communications/">通信</a><a href="../../newsletter/">新闻简报</a><a href="../../instituteos/">Active推理研究所界面</a><a href="../../directory/">全球目录</a><a href="../../resources/#official-shortlinks">官方简链接</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
           <span>学习</span>
@@ -153,9 +153,9 @@
 
   <section class="content-band" id="transcript">
     <div class="section-heading">
-    <p class="eyebrow">Transcript</p>
-    <h2>AI-generated transcript excerpt</h2>
-    <p>The full transcript is available on GitHub. This excerpt is generated by automated speech recognition and may contain errors.</p>
+    <p class="eyebrow">transcript</p>
+    <h2>AI生成のテキストエクスポート</h2>
+    <p>全文转cript 可在 GitHub 上获取。此摘录 由自动语音识别生成 或可能包含错误。</p>
   </div>
     <div class="transcript-block">
       <p>All right, it's December 26, 2024. This is Daniel Friedman. It's Active Inference Stream 009.1. How to Accelerate Active Inference Mountain Car in rxinfer.jl. And hope everyone is having a good end of year season. Looking forward to different updates, different live chats, see what happens along the way. I'll start the stream off with making a GitHub push. All right, while that's happening, I'm going to head over into Cursor. This is what we're going to be exploring, covering today, which is modifying an rxinfer package example made by the developers. And moving it from a notebook format into a script format, adding some more visualizations and analyses, and then doing a setup script, hopefully to make it easier to get it going on your computer, and meta-analysis. And right now there's a big meta-analysis happening, but we'll look at some past runs that finished just a few seconds ago. Okay, so check the GitHub. This is based on the current version 3.8 of reactivebase slash rxinfer.jl. And just to keep it separate and clear, made a fork or a branch from the exact version today. And then put all of the work that I'm about to go into, into this examples folder slash mountain car. So it's a branch on rxinfer.jl. And in the video description are all the links. Okay. So GitHub push worked. Now to start another standalone and meta-analysis. So here's where I've gotten to after many speed bumps and fun along the way. This is in cursor. Right-click, open an integrated terminal. First, if you haven't, run the script Julia setup.jl. Probably also other settings will need to be bumped up against on different settings. Also, I brought it up, synced it to the current version just after building part of it. So there's probably a lot of inefficiencies. It's, of course, very cursor slash Claude-esque. So there could be a lot of redundancy, a lot of ways to go. But I'm going to run the setup script. Then we'll look at the standalone and the meta-analysis. Okay. So this is, as mentioned, branches off of the rxinfer example active inference mountain car. Okay. Let's just briefly look at setup. See what's happening while it's finishing this. There could probably be a lot of sorting of this. Different packages are installed. The rxinfer keystone package is installed from the local GitHub repo. So probably it would take some other different way to export functions in a different way. Calls, probably some set of automatic dependency installations. Pre-existing, explicit calls that I typed in. Like most recently, this stats plots. So definitely figure out what else could be changed to get this working on your own computer. But at the end, I hope it accurately says, yes, rxinfer's functional. Some of the core packages that we need are loaded. Here's the Julia version project path rxinfer path. And then how to run the scripts. And that can be probably developed. Okay. So that's the setup. Then there's the standalone Julia. Mountain car. Standalone. This one has today's date and a file name. Just to give it a static version as a single file snapshot. But the meta analysis is much more scattered across methods scripts. So the single mountain car standalone has the dates. Okay. Okay. So let's look before we go into the code. How they set up and characterize the mountain car problem. Okay. So it's written in this sort of notebook, blog post, multimedia style. Active inference mountain car. This is from the rxinfer jail documentation. A group of friends is going to a camping site that is located on the biggest mountain in the Netherlands. They use an electric car for the trip. When they are almost there, the car's battery is almost empty and is therefore limiting the engine force. Unfortunately, they are in the middle of a valley and don't have enough power to reach the camping site. Night is falling. And they still need to reach the top of the mountain. As rescuers, let us develop an active inference AI agent that can get them up the hill with limited…</p>
@@ -166,9 +166,9 @@
 
   <section class="content-band" id="related">
     <div class="section-heading">
-    <p class="eyebrow">Continue</p>
-    <h2>More from the video library</h2>
-    <p>Browse the complete library or find more sessions in this series.</p>
+    <p class="eyebrow">继续</p>
+    <h2>视频库中的更多内容</h2>
+    <p>浏览完整库或在此系列中查找更多 session。</p>
   </div>
     <div class="link-chips">
       <a href="../"><span>All videos</span></a>

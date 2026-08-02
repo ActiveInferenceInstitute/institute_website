@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Poisson Variational Autoencoder | Active Inference Institute</title>
-  <meta name="description" content="all right hello this is active inference model stream 11.1 we're with hadhi vafai we'll be discussing the recent paper puts on variational autoencoder…">
+  <title>Autoencoder Variacional de Poisson | Active Inference Institute</title>
+  <meta name="description" content="todo bien, hola, esto es el flujo del modelo de inferencia activa 11.1 estamos con hadhi vafai y discutiremos el reciente artículo sobre los autoencoders…">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/icon.svg">
@@ -31,22 +31,22 @@
   <link rel="alternate" hreflang="x-default" href="https://activeinference.institute/video/modelstream-011-1/">
   <meta property="og:type" content="video.other">
   <meta property="og:site_name" content="Active Inference Institute">
-  <meta property="og:title" content="Poisson Variational Autoencoder | Active Inference Institute">
-  <meta property="og:description" content="all right hello this is active inference model stream 11.1 we're with hadhi vafai we'll be discussing the recent paper puts on variational autoencoder…">
+  <meta property="og:title" content="Autoencoder Variacional de Poisson | Active Inference Institute">
+  <meta property="og:description" content="todo bien, hola, esto es el flujo del modelo de inferencia activa 11.1 estamos con hadhi vafai y discutiremos el reciente artículo sobre los autoencoders…">
   <meta property="og:locale" content="es_ES"><meta property="og:locale:alternate" content="en_US"> <meta property="og:locale:alternate" content="fr_FR"> <meta property="og:locale:alternate" content="de_DE"> <meta property="og:locale:alternate" content="pt_PT"> <meta property="og:locale:alternate" content="it_IT"> <meta property="og:locale:alternate" content="ru_RU"> <meta property="og:locale:alternate" content="zh_CN"> <meta property="og:locale:alternate" content="ja_JP"> <meta property="og:locale:alternate" content="ko_KR"> <meta property="og:locale:alternate" content="hi_IN"> <meta property="og:locale:alternate" content="ar_SA">
   <meta property="og:url" content="https://activeinference.institute/es/video/modelstream-011-1/">
   <meta property="og:image" content="https://activeinference.institute/assets/img/social-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Active Inference Institute — Poisson Variational Autoencoder | Active Inference Institute">
+  <meta property="og:image:alt" content="Active Inference Institute — Autoencoder Variacional de Poisson | Active Inference Institute">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Poisson Variational Autoencoder | Active Inference Institute">
-  <meta name="twitter:description" content="all right hello this is active inference model stream 11.1 we're with hadhi vafai we'll be discussing the recent paper puts on variational autoencoder…">
+  <meta name="twitter:title" content="Autoencoder Variacional de Poisson | Active Inference Institute">
+  <meta name="twitter:description" content="todo bien, hola, esto es el flujo del modelo de inferencia activa 11.1 estamos con hadhi vafai y discutiremos el reciente artículo sobre los autoencoders…">
   <meta name="twitter:image" content="https://activeinference.institute/assets/img/social-card.png">
   <meta name="generator" content="institute_website v4.0.0">
   <link rel="stylesheet" href="../../../assets/css/instituteos-ds.css">
   <link rel="stylesheet" href="../../../assets/css/styles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/es/video/modelstream-011-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/es/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/es/video/"},{"@type":"ListItem","position":3,"name":"Poisson Variational Autoencoder","item":"https://activeinference.institute/es/video/modelstream-011-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https://activeinference.institute/es/video/modelstream-011-1/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://activeinference.institute/es/"},{"@type":"ListItem","position":2,"name":"Video","item":"https://activeinference.institute/es/video/"},{"@type":"ListItem","position":3,"name":"Autoencoder Variacional de Poisson","item":"https://activeinference.institute/es/video/modelstream-011-1/"}]},{"@type":"Organization","@id":"https://activeinference.institute/#org","additionalType":"https://schema.org/NGO","name":"Active Inference Institute","url":"https://activeinference.institute/","logo":"https://activeinference.institute/assets/img/icon-512.png","description":"A participatory open science institute supporting education, research, training, and applications related to Active Inference.","email":"blanket@activeinference.institute","contactPoint":{"@type":"ContactPoint","contactType":"general inquiries","email":"blanket@activeinference.institute"},"sameAs":["https://discord.activeinference.institute","https://www.youtube.com/@ActiveInference/","https://x.com/InferenceActive","https://bsky.app/profile/activeinference.bsky.social","https://activeinference.podbean.com/","https://www.facebook.com/ActiveInference","https://www.linkedin.com/company/active-inference/"]}]}</script>
 </head>
 <body class="">
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -67,7 +67,7 @@
           <span>Instituto</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">Sobre</a><a href="../../structure/">Estructura y Gobernanza</a><a href="../../structure/board-of-directors/">Consejo de Administración</a><a href="../../structure/officers/">Oficiales</a><a href="../../structure/scientific-advisory-board/">Consejo Asesor Científico</a><a href="../../ecosystem/">Ecosistema</a><a href="../../communications/">Communications</a><a href="../../newsletter/">Newsletter</a><a href="../../instituteos/">Interfaz InstituteOS</a><a href="../../directory/">Directorio Global</a><a href="../../resources/#official-shortlinks">Enlaces oficiales cortos</a></div>
+        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">Sobre</a><a href="../../structure/">Estructura y Gobernanza</a><a href="../../structure/board-of-directors/">Consejo de Administración</a><a href="../../structure/officers/">Oficiales</a><a href="../../structure/scientific-advisory-board/">Consejo Asesor Científico</a><a href="../../ecosystem/">Ecosistema</a><a href="../../communications/">Comunicaciones</a><a href="../../newsletter/">Boletín informativo</a><a href="../../instituteos/">Interfaz InstituteOS</a><a href="../../directory/">Directorio Global</a><a href="../../resources/#official-shortlinks">Enlaces oficiales cortos</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
           <span>Aprender</span>
@@ -153,9 +153,9 @@
 
   <section class="content-band" id="transcript">
     <div class="section-heading">
-    <p class="eyebrow">Transcript</p>
-    <h2>AI-generated transcript excerpt</h2>
-    <p>The full transcript is available on GitHub. This excerpt is generated by automated speech recognition and may contain errors.</p>
+    <p class="eyebrow">Transcripción</p>
+    <h2>Extracto de transcripción generado por IA</h2>
+    <p>El transcript completo está disponible en GitHub. Este extracto es generado por reconocimiento automático del habla y puede contener errores.</p>
   </div>
     <div class="transcript-block">
       <p>all right hello this is active inference model stream 11.1 we're with hadhi vafai we'll be discussing the recent paper puts on variational autoencoder there'll be a presentation and a discussion so thank you to you all right thanks for having me um all right i'm excited to tell you about this new work that we did along with jake who's my postdoc mentor and decal who's a phd student in our lab so the big picture motivation behind this work is that we think we're going to understand the brain through this study of brain-like artificial neural networks but why do we think this way so all right think about a dream experiment where we recorded every single neuron in the brain of many animals doing complicated tasks in their natural environments we also have electron microscopy connectome of every single neuron and then you know learning dynamics is available to us as well we know everything about that those brains um this experiment is very difficult it's probably going to be impossible for the next i don't know 50 million years but if we had that data the challenge is we don't even know what to do with that kind of data set so the idea is that we're going to use anns as computational models of the brain to generate knowledge and theories and computational models to be able to analyze that kind of data whenever they're available so that's that's the motivation the motivation but there's a challenge here so if you want to use anns to study the brain you better make them brain-like because you know as the cliche saying goes um all models are wrong but some are useful and the degree of usefulness of these anns is um is it corresponds to uh how brain-like they are in this particular work i'm going to show you uh what i mean by brain like it's it this word could mean many different things to different people but i have a very specific meaning in mind which i will tell you about and in this work our work focuses on uh models of visual perception so we're going to build an ann model that perceives visual stimuli and we're going to make it brain-like that's the whole idea so if you want to build um brain-like models you better draw inspiration from neuroscience and the idea is that we want to narrow down our search space because the space of all anns is huge and these are the specific there are three inspirations that we're going to rely on perception is inference rate coding and predictive coding i'm going to describe each of these separately first let's start by this all right so there's this idea that perception um involves two components there's this external component that is provided to us by the sensory data for example the photons that land on your retina and there's this internal component you have some subjective experience by living this world that gives rise to prior expectations that is combined with the sensory data to give rise to perceptions and this idea is not really new um you can trace it back to over a thousand years ago uh by alhausen he mentioned um vision occurs in the brain rather than the eyes and he was the first to discuss the subjective uh elements of perception and also more famously helmholtz said perceptions are best guess as to what is in the world given our current sensory evidence and our prior experience and the current sensory evidence is just this external component and prior experience is the internal component let me give you an example so this is known as the aims room illusion we see this image and we immediately think that oh this must be a giant man and this must be a really short man but in reality um there's a bit you know different explanation so uh this room is designed in a very specific way to give rise to this illusion so we usually think rooms are rectangular like this dashed line over here but this room is not and the sensory data that is coming from person a on this corner is consistent with two different uh possible explanations one explanation that the room is rectangular and the…</p>
@@ -166,9 +166,9 @@
 
   <section class="content-band" id="related">
     <div class="section-heading">
-    <p class="eyebrow">Continue</p>
-    <h2>More from the video library</h2>
-    <p>Browse the complete library or find more sessions in this series.</p>
+    <p class="eyebrow">Continúa</p>
+    <h2>Más del vídeo</h2>
+    <p>Explorar la biblioteca completa o encontrar más sesiones en esta serie.</p>
   </div>
     <div class="link-chips">
       <a href="../"><span>All videos</span></a>
