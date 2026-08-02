@@ -16,7 +16,7 @@ A quickstart for contributors. For the conceptual model read
 ## Build the site
 
 ```bash
-cd repos/institute_website
+cd institute_website
 npm run build
 ```
 

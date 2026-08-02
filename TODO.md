@@ -107,6 +107,95 @@ strict Content Security Policy, gated by `npm run check`.
       value)**: the current duplication is intentional defense-in-depth for the
       security gate; only refactor if both gates keep passing identically.
 
+## Docs review — 2026-08-02 mega-deep documentation pass
+
+> **Last reviewed:** 2026-08-02 (HEAD 563b38d03). Severity: **Minor** = typo /
+> formatting / broken table / stale single reference; **Medium** = stale section
+> rewrite, doc restructure, added missing guide, public-repo hygiene; **Major** =
+> large doc-system overhaul / cross-cutting refactor. Completed items carry a ✓
+> and the commit that shipped them; the open list at the bottom is deferred.
+
+### Minor
+
+- [x] **Fix `||`-prefixed table rows in `scripts/AGENTS.md`** (lines 25–29: the
+      `sync:instituteos`/`i18n:extract`/`i18n:translate`/`sync:transcripts`/
+      `check:transcripts` rows render as literal text, breaking the npm-script
+      table) and add the missing `check:projects` / `check:catalog` rows. ✓
+- [x] **Strip trailing whitespace** in `docs/ARCHITECTURE.md:73`,
+      `docs/CONTENT_AUTHORING.md` (119, 125, 139, 148, 151, 154, 157), and
+      `docs/DESIGN_SYSTEM.md` (84, 123, 140, 144, 305, 316, 331). ✓
+- [x] **INDEX.md stale `Plans/` row** — the directory does not exist; remove the
+      row (or mark it absent) so the top-level map only lists real entries. ✓
+- [x] **INDEX.md output-dir list incomplete** — add `bibliography/`,
+      `communications/`, `newsletter/`, `open-source/` to the "all other tracked
+      root dirs" row. ✓
+- [x] **RELEASING.md stale line reference** — `src/build.mjs:103-113` no longer
+      points at the `version.json` writer (it moved to ~140-143); drop the exact
+      line numbers so the reference cannot drift again. ✓
+- [x] **docs/ARCHITECTURE.md `_strings.json` path** — `content/i18n/_strings.json`
+      reads as root-relative in the "Root Singletons" list; clarify to
+      `src/content/i18n/_strings.json`. ✓
+- [x] **docs/INTERNATIONALIZATION.md file-reference row** — `url-taxonomy.json`
+      is described as "Program subpage routing rules" only; it now carries the
+      full routing table (`programSubpageSlugs`, `orgPageSlugs`, `yearPageSlugs`,
+      `routing.rules`). ✓
+
+### Medium
+
+- [x] **Remove private monorepo path references (public-repo hygiene)** —
+      `repos/institute_website` appears in `docs/GETTING_STARTED.md:19`,
+      `docs/README.md:4`, `.claude/skills/institute-website/SKILL.md:4,16`; and
+      `../../library/design-system` / `../../repos/institute_website` appear in
+      `docs/GATES_AND_VALIDATION.md` (149, 162, 170, 172, 183, 185) plus the
+      error hint in `scripts/check_design_system_export.mjs:171`. Rewrite to
+      neutral, standalone-checkout phrasing (`INSTITUTEOS_DS_ROOT`). ✓
+- [x] **docs/TROUBLESHOOTING.md "Huge diff after a build" is stale** — it claims
+      the footer build-stamp changes on every rebuild; the build is
+      byte-deterministic (verified: two rebuilds, zero modified files). Rewrite
+      the section to explain what a large diff actually signals. ✓
+- [x] **docs/INTERNATIONALIZATION.md stale language-switcher markup** — the
+      sample still shows `role="menu"`/`role="menuitem"` (removed in 563b38d03);
+      the build now emits `<nav class="lang-menu" aria-label="Language">` with
+      plain links. Also fixes a `</a>`→`</details>` typo in the sample. ✓
+- [x] **docs/SLUG_AND_URL_TAXONOMY.md "Adding a New URL/Route Pattern"** — steps
+      2–3 still instruct hardcoded `if/else` edits to `baseDirForSlug()`,
+      contradicting the v4.0.0 data-driven rule table documented in the same
+      file (lines 55–70, 119–127). Rewrite for the JSON-rule workflow. ✓
+- [x] **Add CITATION.cff** — public research-org repo with no citation file;
+      ground it in the real LICENSE (CC-BY-4.0), repository URL, and current
+      version (4.0.0). ✓
+- [x] **Add SECURITY.md** — point at the existing RFC 9116
+      `.well-known/security.txt` (vetted public contact
+      `blanket@activeinference.institute` from `site.json`). ✓
+- [x] **Declare the license in package metadata** — `package.json` (and
+      `package-lock.json` root entry) lack `license`; add `"CC-BY-4.0"` to match
+      `LICENSE` and `.aii/config.yaml`. ✓
+- [x] **README has no License section** — add a short one referencing `LICENSE`
+      and the new `CITATION.cff`. ✓
+
+### Major
+
+- [ ] **Unified docs index refresh** — `docs/README.md` is the hub but the root
+      `INDEX.md` doc map and `docs/README.md` list root longform docs
+      independently; a small cross-check pass keeps them in sync. **Deferred:**
+      low marginal value — both are currently accurate and the per-folder
+      `AGENTS.md` precedence is well documented; revisit only when a new root
+      doc is added.
+- [ ] **Line-number references in docs drift** — `SLUG_AND_URL_TAXONOMY.md` and
+      `RELEASING.md` cite exact source line numbers (`src/data.mjs:45-58`, …)
+      that will rot. **Deferred:** mechanically removing them all is churn with
+      no gate impact; the stale one in RELEASING.md was fixed this pass and the
+      taxonomy doc's refs were spot-verified accurate.
+
+### Open / deferred
+
+- [ ] **docs/ folder audit subagent was interrupted** (provider billing error) —
+      its coverage was completed first-hand this pass; the docs/ set is now
+      verified against the repo.
+- [ ] **Terminology QA on machine-translated catalogs** — noted in the existing
+      i18n backlog above; not part of this docs pass.
+- [ ] **Per-page `lastmod` in sitemap.xml** — existing deferred item; unchanged.
+
 ## Conventions
 
 - Edit `src/content/*` and `src/build.mjs`; never hand-edit generated `*.html`.

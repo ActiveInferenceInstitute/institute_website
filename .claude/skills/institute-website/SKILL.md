@@ -1,7 +1,7 @@
 ---
 name: institute-website
 description: >-
-  Work on the Active Inference Institute public website (repos/institute_website):
+  Work on the Active Inference Institute public website (institute_website):
   a static, zero-dependency Node build that renders JSON content into clean-URL
   HTML for GitHub Pages, with a strict CSP + link + public-safety contract. USE
   WHEN adding or editing a page, adding a project, registering an external link,
@@ -13,7 +13,8 @@ description: >-
 
 # Institute Website skill
 
-The single entry point for agents working in `repos/institute_website`. Read this,
+The single entry point for agents working in this repository (`institute_website`).
+Read this,
 then the relevant `Workflows/*.md` for the task and the `AGENTS.md` in the folder
 you are editing.
 

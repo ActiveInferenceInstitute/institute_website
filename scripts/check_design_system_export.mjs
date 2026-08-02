@@ -168,7 +168,10 @@ for (const { name, fallback } of findDsVarRefs(styleCss)) {
 
 if (errors.length) {
   console.error(errors.map((error) => `- ${error}`).join("\n"));
-  console.error("Run: npm run export:website -- --to ../../repos/institute_website/assets/css/instituteos-ds.css");
+  console.error(
+    "Run: re-export assets/css/instituteos-ds.css from the design-system source" +
+      " (point INSTITUTEOS_DS_ROOT at it), then re-run this check.",
+  );
   console.error("Fallback mismatches: update assets/css/styles.css :root to match the canonical token values.");
   process.exit(1);
 }

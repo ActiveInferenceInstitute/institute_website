@@ -1,7 +1,7 @@
 # Institute Website — Documentation
 
 A curated, task-oriented guide to the Active Inference Institute website
-(`repos/institute_website`): a **static, zero-dependency Node build** that renders
+(`institute_website`): a **static, zero-dependency Node build** that renders
 JSON content into clean-URL HTML for GitHub Pages, under a strict CSP + link +
 public-safety contract.
 

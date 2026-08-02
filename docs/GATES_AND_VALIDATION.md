@@ -146,7 +146,9 @@ InstituteOS public data sync check failed:
 
 **What it enforces:**
 - `assets/css/styles.css` token fallbacks stay aligned with the canonical design-system values
-- When the design-system source is present (`../../library/design-system`), `assets/css/instituteos-ds.css` is a fresh byte-for-byte export
+- When the design-system source is present (a sibling `library/design-system`
+  checkout, or wherever `INSTITUTEOS_DS_ROOT` points), `assets/css/instituteos-ds.css`
+  is a fresh byte-for-byte export
 - Font file list and bytes match the canonical export
 
 **How to run:**
@@ -159,7 +161,8 @@ node scripts/check_design_system_export.mjs
 **Scope:**
 - Reads `assets/css/styles.css` for `var(--ds-x, <fallback>)` declarations
 - Compares fallback values against the canonical dark-mode `:root` tokens from:
-  - `../../library/design-system/src/styles/tokens.css` (if source present)
+  - The design-system source's `src/styles/tokens.css` (if present via
+    `INSTITUTEOS_DS_ROOT` or the default sibling checkout)
   - Or `assets/css/instituteos-ds.css` itself (standalone checkout)
 - Byte-compares font files in `assets/css/fonts/`
 
@@ -167,9 +170,9 @@ node scripts/check_design_system_export.mjs
 
 | Failure | Cause | Fix |
 |---------|-------|-----|
-| `Website design-system CSS is stale` | CSS export in the committed file is outdated | Run the design-system export: `npm run export:website -- --to ../../repos/institute_website/assets/css/instituteos-ds.css` in the sibling `design-system` monorepo |
+| `Website design-system CSS is stale` | CSS export in the committed file is outdated | Re-export from the design-system source (`npm run export:website`) and copy the result to `assets/css/instituteos-ds.css`; point `INSTITUTEOS_DS_ROOT` at the source so `check:design-system` can verify freshness |
 | `styles.css fallback for --ds-red is not aligned with the design-system value` | Fallback was edited without updating the canonical token | Edit `assets/css/styles.css` `:root` to match the canonical value |
-| `Website design-system font is stale` | Font binary has been updated upstream but not synced | Copy fresh fonts from `../../library/design-system/src/styles/fonts/*.woff2` to `assets/css/fonts/` |
+| `Website design-system font is stale` | Font binary has been updated upstream but not synced | Copy fresh fonts from the design-system source's `src/styles/fonts/*.woff2` to `assets/css/fonts/` |
 | `Website design-system font list differs from export` | Font filenames have changed | Sync font filenames from the design-system source |
 
 **Failure messages:**
@@ -180,9 +183,12 @@ node scripts/check_design_system_export.mjs
 ```
 
 **How to fix violations:**
-1. **Stale CSS export:** Navigate to `../../library/design-system` and run `npm run export:website -- --to ../../repos/institute_website/assets/css/instituteos-ds.css`
+1. **Stale CSS export:** Re-export from the design-system source and copy the
+   result to `assets/css/instituteos-ds.css` (set `INSTITUTEOS_DS_ROOT` to the
+   source so `check:design-system` re-verifies the freshness byte-compare)
 2. **Fallback mismatch:** Edit `assets/css/styles.css` and update the `:root` block to match the canonical value printed in the error
-3. **Stale fonts:** Copy all `.woff2` files from `../../library/design-system/src/styles/fonts/` to `assets/css/fonts/`
+3. **Stale fonts:** Copy all `.woff2` files from the design-system source's
+   `src/styles/fonts/` to `assets/css/fonts/`
 
 **Key insight:**
 - The design-system gate ensures the "degraded" state (fallbacks without instituteos-ds.css loaded) still looks correct
