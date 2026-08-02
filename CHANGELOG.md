@@ -5,6 +5,19 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **Fix broken feed item links.** RSS/JSON feeds pointed every update item at
+  the bare `/activities/` page, but each communication's actual rendered anchor
+  (`id="publication-<id>"`) lives on the Open Source Map (`/knowledge/`). Feed
+  item `link`/`url` now resolve to `/knowledge/#publication-<id>`, so subscribers
+  land on the content instead of a page root. `src/feeds.mjs`.
+
+- **Fix newsletter image alt text.** Bare markdown image labels (e.g. `image.png`,
+  `Substack image`) previously leaked through as the `<img alt>` value on
+  newsletter pages. The newsletter renderer now maps filename-only / boilerplate
+  labels to the descriptive `"Newsletter image"` default (keeping non-empty alt
+  text required by `check:security`), replacing ~36 meaningless `alt="image.png"`
+  across all locales. `src/pages/newsletter-content.mjs`.
+
 - **Full translation coverage for all 11 machine-translated locales.** Re-ran
   `npm run i18n:extract` (3,418 strings after the localized-head work) and ran
   the offline Ollama pipeline (`gemma3:4b`, `qwen2.5:3b` for CJK) for every

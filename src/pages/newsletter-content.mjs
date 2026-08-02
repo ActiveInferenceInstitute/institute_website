@@ -45,13 +45,30 @@ function linkMarkup(label, target, record, currentDir, image = false) {
     return formatText(label);
   }
   if (image) {
-    return `<img class="newsletter-image" src="${escapeHtml(href)}" alt="${escapeHtml(label || "Newsletter image")}" loading="lazy" decoding="async">`;
+    // A bare filename (e.g. "image.png", "Screenshot 2023-...png") or the
+    // auto-generated "Substack image" boilerplate label is not meaningful alt
+    // text for screen readers, so fall back to the descriptive site default.
+    // (Non-empty alt is required by the static-security gate.)
+    const alt = meaningfulAlt(label);
+    return `<img class="newsletter-image" src="${escapeHtml(href)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async">`;
   }
   const external = /^https?:\/\//i.test(href);
   const attrs = external
     ? ' data-newsletter-link="true" target="_blank" rel="noopener noreferrer"'
     : "";
   return `<a href="${escapeHtml(href)}"${attrs}>${formatText(label)}</a>`;
+}
+
+// Return descriptive alt text for a newsletter image. When the label is a bare
+// image filename or the generic "image"/"Substack image" boilerplate (no real
+// description), fall back to the meaningful site-wide default so every image has
+// non-empty, sensible alt text (required by check:security).
+function meaningfulAlt(label) {
+  const clean = String(label || "").trim();
+  if (!clean) return "Newsletter image";
+  if (/^[\w\-. ]+\.(png|jpe?g|gif|webp|avif|svg|bmp)$/i.test(clean)) return "Newsletter image";
+  if (/^(image|substack image|picture|photo|screenshot)$/i.test(clean)) return "Newsletter image";
+  return clean;
 }
 
 function inlineMarkdown(value, record, currentDir) {

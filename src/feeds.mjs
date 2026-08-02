@@ -13,16 +13,22 @@ function communicationsRecords() {
   return records.slice().sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
 }
 
+// Each communication's rendered anchor lives on the Open Source Map
+// (/knowledge/) as `id="publication-<id>"`. Point feed items at that anchor so
+// the link actually resolves to the content, rather than to a bare page root.
+function publicationUrl(id) {
+  return `${absoluteUrl("knowledge/index.html")}#publication-${id}`;
+}
+
 export function buildRssFeed() {
   const base = absoluteUrl("index.html");
-  const updatesUrl = absoluteUrl("activities/index.html");
   const items = communicationsRecords()
     .map((communication) => {
       const title = communication.title || communication.type || "Update";
       const pubDate = new Date(`${communication.date}T00:00:00Z`).toUTCString();
       return `    <item>
       <title>${escapeHtml(title)}</title>
-      <link>${escapeHtml(updatesUrl)}</link>
+      <link>${escapeHtml(publicationUrl(communication.id))}</link>
       <guid isPermaLink="false">${escapeHtml(`${base}#${communication.id}`)}</guid>
       <pubDate>${pubDate}</pubDate>
       <category>${escapeHtml(communication.type || "update")}</category>
@@ -46,7 +52,6 @@ ${items}
 
 export function buildJsonFeed() {
   const base = absoluteUrl("index.html");
-  const updatesUrl = absoluteUrl("activities/index.html");
   return (
     JSON.stringify(
       {
@@ -57,11 +62,11 @@ export function buildJsonFeed() {
         description: siteData.site.description,
         language: "en",
         items: communicationsRecords().map((communication) => ({
-          id: `${base}#${communication.id}`,
+          id: publicationUrl(communication.id),
           title: communication.title || communication.type || "Update",
           content_text: `${communication.type || "update"}: ${communication.title || ""}`.trim(),
           date_published: new Date(`${communication.date}T00:00:00Z`).toISOString(),
-          url: updatesUrl,
+          url: publicationUrl(communication.id),
           tags: communication.type ? [communication.type] : [],
         })),
       },
