@@ -401,31 +401,22 @@ The page automatically routes to `/my-new-page/` via the default rule in `baseDi
 
 ### 2. If it needs a custom directory pattern (e.g., `/custom/<slug>/`)
 
-Modify **`src/url-taxonomy.mjs`** in the `baseDirForSlug()` function:
+Add a **routing rule** to **`src/url-taxonomy.json`** — this is a data-only
+change since v4.0.0; no code edit in `src/url-taxonomy.mjs` is needed (both the
+JS build and `scripts/check_site_contract.py` build their behavior generically
+from this table, so they can never disagree):
 
-```javascript
-export function baseDirForSlug(slug) {
-  if (slug === "index") {
-    return "";
-  }
-  if (slug.startsWith("custom-")) {
-    return `custom/${slug.slice("custom-".length)}`;  // → /custom/<slug>/
-  }
-  if (slug.startsWith("project-")) {
-    return `projects/${slug.slice("project-".length)}`;
-  }
-  if (PROGRAM_SUBPAGE_SLUGS.has(slug)) {
-    return `programs/${slug}`;
-  }
-  return slug;
-}
+```json
+{ "routing": { "rules": [ { "type": "prefix", "match": "custom-", "dir": "custom/" } ] } }
 ```
 
-Now slugs like `"custom-my-route"` will output to `/custom/my-route/`.
+Now slugs like `"custom-my-route"` will output to `/custom/my-route/`. Use a
+`"prefix"` rule when every slug in the family shares a literal prefix, or a
+`"set"` rule (see next step) when the family shares no prefix.
 
-### 3. If it's a program-like subpage
+### 3. If it's a program-like subpage (a named slug set)
 
-Add the slug to **`src/url-taxonomy.json`**:
+Add the slug to the appropriate slug-set array in **`src/url-taxonomy.json`**:
 
 ```json
 {
@@ -440,7 +431,12 @@ Add the slug to **`src/url-taxonomy.json`**:
 }
 ```
 
-Then reference it in `baseDirForSlug()` via the existing `PROGRAM_SUBPAGE_SLUGS` check.
+Then add a `"set"` rule referencing that array name under `routing.rules`
+(`{ "type": "set", "match": "programSubpageSlugs", "dir": "programs/" }` — the
+`programs/` rule already exists; a new set like `orgPageSlugs`/`yearPageSlugs`
+needs only its array plus a `"set"` rule). `_SLUG_SETS` is built generically
+from whatever array name a `"set"` rule's `match` references, so no
+`url-taxonomy.mjs` or `check_site_contract.py` change is required.
 
 ### 4. If it's a programmatically generated page (like ecosystem domains)
 
@@ -488,54 +484,55 @@ The slug `"about"` will always output to `/about/index.html` no matter where the
 
 ### Q: What would have to change to put AI&X pages under a `/domains/` URL prefix?
 
-**Answer:** Add a conditional in `baseDirForSlug()` to detect domain-related slugs and map them accordingly.
+**Answer:** Add a routing rule to `src/url-taxonomy.json` — a data-only change
+since v4.0.0 (see ["Adding a New URL/Route Pattern"](#adding-a-new-urlroute-pattern)).
 
-Currently, ecosystem pages are generated with slugs like `"ecosystem/ai-and-ecology"` and route to `/ecosystem/ai-and-ecology/` because `baseDirForSlug("ecosystem/ai-and-ecology")` returns the slug itself (default rule at line 46).
+Currently, ecosystem pages are generated with slugs like `"ecosystem/ai-and-ecology"` and route to `/ecosystem/ai-and-ecology/` because `baseDirForSlug("ecosystem/ai-and-ecology")` returns the slug itself (default rule).
 
 To route under `/domains/`:
 
 **Option 1: Rename the slug prefix**
 
 In `src/pages/ecosystem.mjs:62`, change:
+
 ```javascript
 const routedSlug = `ecosystem/${domain.slug}`;
 ```
 
 to:
+
 ```javascript
 const routedSlug = `domain-${domain.slug}`;
 ```
 
-Then add a rule in `src/url-taxonomy.mjs`:
-```javascript
-if (slug.startsWith("domain-")) {
-  return `domains/${slug.slice("domain-".length)}`;
-}
+Then add a `"prefix"` rule in `src/url-taxonomy.json`:
+
+```json
+{ "type": "prefix", "match": "domain-", "dir": "domains/" }
 ```
 
 Result: `"domain-ai-and-ecology"` → `/domains/ai-and-ecology/`
 
-**Option 2: Pattern matching by slug**
+**Option 2: A named slug set**
 
-If the slugs are not systematically named, add a list in `url-taxonomy.json`:
+If the slugs are not systematically named, add a list in `url-taxonomy.json` and route it with a `"set"` rule:
+
 ```json
 {
-  "domainSlugs": ["ecosystem/ai-and-ecology", "ecosystem/healthcare", /* ... */],
-  "programSubpageSlugs": [ /* ... */ ]
+  "ecosystemDomainSlugs": ["ecosystem/ai-and-ecology", "ecosystem/healthcare"],
+  "routing": { "rules": [ { "type": "set", "match": "ecosystemDomainSlugs", "dir": "domains/" } ] }
 }
 ```
 
-Then in `baseDirForSlug()`:
-```javascript
-if (DOMAIN_SLUGS.has(slug)) {
-  return `domains/${slug.replace(/^ecosystem\//, "")}`;
-}
-```
+A `"set"` rule reroots the full slug (`"ecosystem/ai-and-ecology"` →
+`domains/ecosystem/ai-and-ecology`); to also strip the `ecosystem/` prefix,
+rename the generated slugs (Option 1) or add a `"prefix"` rule on top.
 
 **Changes required:**
-- `src/url-taxonomy.mjs` (add the conditional logic)
-- `src/url-taxonomy.json` (optionally add the slug list if pattern matching)
+- `src/url-taxonomy.json` (add the rule — no `.mjs`/`.py` code change)
 - `src/pages/ecosystem.mjs` (optionally rename slugs to use a consistent prefix)
+- `assets/js/redirects.js` (locale-aware redirect entry for the old URLs — see
+  the shipped v3.0.0 example below)
 - Run `npm run check:site` to validate
 
 ### Q: How was the `active-inference-and-*` → `active-inference/` migration actually done? (v3.0.0, shipped)

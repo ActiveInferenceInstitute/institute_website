@@ -96,4 +96,4 @@ After all locale passes complete, these files emit once in the default-locale co
 - `manifest.webmanifest` — PWA manifest
 - `.well-known/security.txt` — Responsible-disclosure contact
 - `assets/js/search-data.js` — Embedded search index
-- `content/i18n/_strings.json` — (only if `I18N_EXTRACT=1`)
+- `src/content/i18n/_strings.json` — (only if `I18N_EXTRACT=1`)

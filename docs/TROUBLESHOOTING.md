@@ -65,6 +65,16 @@ Remove the references (or repoint them) before removing the entry from
 
 ## Huge diff after a build
 
-The footer `build-stamp` carries a per-build hash, so **every page shows a one-line diff
-on every rebuild**. That churn is expected; the semantic change is in the source JSON and
-the affected pages' bodies.
+The build is **byte-deterministic**: `version.json`'s `built_at` mirrors the
+export timestamp (`EXPORTED_AT` from `data/export-manifest.json`), and the
+footer `build-stamp` carries the export's `source_fingerprint` — neither uses a
+live clock, so rebuilding without touching source changes nothing
+(CI asserts committed HTML == `build(source)`). A large diff therefore signals
+**real drift**, not churn:
+
+- A `package.json` version bump or a new `data/export-manifest.json` export
+  changes the stamp on every page — expected, and the diff is one line per page.
+- A content/source change touches only the pages that consume it.
+- If a rebuild produces a large diff you did not intend, you likely edited a
+  built `*/index.html` (see above) or the export manifest changed underneath you
+  — check `git diff --stat` before committing.

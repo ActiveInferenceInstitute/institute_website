@@ -354,16 +354,18 @@ On every page, a CSP-safe `<details>`-based language switcher in the header (pur
 ```html
 <details class="lang-switcher">
   <summary>🌐 EN</summary>
-  <div class="lang-menu" role="menu">
-    <a role="menuitem" hreflang="en" href="../../about/">English</a>
-    <a role="menuitem" hreflang="es" href="../../es/about/">Español</a>
-    <a role="menuitem" hreflang="fr" href="../../fr/about/">Français</a>
+  <nav class="lang-menu" aria-label="Language">
+    <a hreflang="en" lang="en" href="./" aria-current="true">English</a>
+    <a hreflang="es" lang="es" href="../es/about/">Español</a>
+    <a hreflang="fr" lang="fr" href="../fr/about/">Français</a>
     …
-  </a>
+  </nav>
 </details>
 ```
 
-Links are relative (calculated by `crossLocaleHref()`), so they work regardless of nesting depth.
+Links are plain `<a>` elements (no ARIA `menu`/`menuitem` roles — the widget is a
+disclosure, not a menu) with relative `href`s calculated by `crossLocaleHref()`,
+so they work regardless of nesting depth.
 
 ### Machine-Translation Notice
 
@@ -507,7 +509,7 @@ A locale with `"dir": "rtl"` (currently only Arabic) renders `<html lang="ar" di
 | [`src/content/i18n/_strings.json`](../src/content/i18n/_strings.json) | Extracted English source strings (translator's work list) |
 | [`src/content/i18n/<code>.json`](../src/content/i18n/) | Committed translation catalogs (e.g., `es.json`, `de.json`) |
 | [`src/url-taxonomy.mjs`](../src/url-taxonomy.mjs) | Locale-aware routing (single point: `urlDirForSlug()`) |
-| [`src/url-taxonomy.json`](../src/url-taxonomy.json) | Program subpage routing rules |
+| [`src/url-taxonomy.json`](../src/url-taxonomy.json) | Routing rule table: `programSubpageSlugs`/`orgPageSlugs`/`yearPageSlugs` slug sets + `routing.rules` (`prefix`/`set` rules) |
 | [`src/build.mjs`](../src/build.mjs) | Build loop: renders every routed page once per locale |
 | [`src/render/layout.mjs`](../src/render/layout.mjs) | Page chrome: `<html lang dir>`, `hreflang` alternates, language switcher, MT notice |
 | [`scripts/i18n_translate.mjs`](../scripts/i18n_translate.mjs) | Offline translator (Ollama or hosted API) |
