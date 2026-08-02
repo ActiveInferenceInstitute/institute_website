@@ -57,8 +57,19 @@ export function allVideoSlugs() {
 /**
  * Build Schema.org VideoObject JSON-LD for a video detail page.
  * Provides crawlers with structured metadata about the recording.
+ * Google's VideoObject rich result requires a crawlable thumbnailUrl, so we
+ * derive it from the YouTube id (img.youtube.com) with a fallback to the
+ * site social card when the id is absent.
  */
 function videoObjectSchema(record, canonicalUrl) {
+  // Google's VideoObject rich result requires a crawlable thumbnailUrl. We derive
+  // it from the YouTube id. maxresdefault (1280x720) is not published for every
+  // video, so we use sddefault (640x360), which YouTube serves for all videos and
+  // which meets Google's >=640px thumbnail guidance. Falls back to the site social
+  // card for the rare record lacking a youtube id. Build stays offline/deterministic.
+  const thumbnail =
+    (record.youtubeId && `https://img.youtube.com/vi/${record.youtubeId}/sddefault.jpg`) ||
+    absoluteUrl("assets/img/social-card.png");
   const obj = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
@@ -68,7 +79,7 @@ function videoObjectSchema(record, canonicalUrl) {
       ? record.transcriptExcerpt.slice(0, 300).replace(/\s+/g, " ").trim() + "…"
       : `Recorded session from ${record.series || "the Institute"}.`,
     uploadDate: record.date || "",
-    thumbnailUrl: "",
+    thumbnailUrl: thumbnail,
   };
   if (record.youtubeUrl) {
     obj.embedUrl = record.youtubeUrl.replace("/live/", "/embed/").replace("watch?v=", "embed/");
