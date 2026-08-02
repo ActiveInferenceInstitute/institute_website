@@ -3,6 +3,7 @@
   "version": "4.0.0",
   "private": true,
   "type": "module",
+  "license": "CC-BY-4.0",
   "description": "GitHub Pages website for public Active Inference Institute information.",
   "scripts": {
     "build": "node src/build.mjs",

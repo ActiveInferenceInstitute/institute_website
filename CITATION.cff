@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: >-
+  If you use the Active Inference Institute website or reference its
+  content, please cite this repository.
+title: "Active Inference Institute Website"
+type: software
+authors:
+  - name: "Active Inference Institute"
+    website: https://activeinference.institute/
+license: CC-BY-4.0
+url: https://github.com/ActiveInferenceInstitute/institute_website
+repository-code: https://github.com/ActiveInferenceInstitute/institute_website
+repository-artifact: https://activeinference.institute/
+version: "4.0.0"
+date-released: "2026-07-01"
+keywords:
+  - active inference
+  - website
+  - open science
+  - static site

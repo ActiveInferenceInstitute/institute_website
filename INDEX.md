@@ -18,8 +18,8 @@ Static, zero-runtime-dependency site for the Active Inference Institute. `node s
 | `node_modules/` | TOOLING | never | npm-managed, gitignored — not build output |
 | **all other tracked root dirs** — `about/`, `active-inference/`, `activities/`, `bibliography/`, `calendar/`, `communications/`, `directory/`, `ecosystem/`, `eduactive/`, `get-involved/`, `grants/`, `history/`, `instituteos/`, `knowledge/`, `learning/`, `measure/`, `newsletter/`, `open-source/`, `prepare/`, `programs/`, `projects/`, `reinference/`, `resources/`, `search/`, `simulations/`, `sitemap/`, `strategy/`, `structure/`, `video/`, `volunteer/`, `weekly/`, `years/`, and locales `ar/ de/ es/ fr/ hi/ it/ ja/ ko/ pt/ ru/ zh/` | OUTPUT | **never** | **Generated, tracked HTML — regenerate via `node src/build.mjs`** |
 | `index.html` `404.html` `sitemap.xml` `feed.json` `feed.xml` `version.json` `manifest.webmanifest` `robots.txt` `.nojekyll` | OUTPUT | never | Generated root files |
-| `CNAME` `package.json` `package-lock.json` `.gitignore` | CONFIG | yes | Domain + npm/build config |
-| `README.md` `AGENTS.md` `INDEX.md` `CHANGELOG.md` `CONTRIBUTING.md` `TODO.md` `RELEASING.md` `MIGRATION.md` `SWITCHOVER.md` `GATING.md` `DESIGN_SYSTEM.md` `INTERNATIONALIZATION.md` | DOCS | yes | Root docs (see Doc map) |
+| `CNAME` `package.json` `package-lock.json` `.gitignore` `LICENSE` `CITATION.cff` | CONFIG | yes | Domain + npm/build config, license, citation metadata |
+| `README.md` `AGENTS.md` `INDEX.md` `CHANGELOG.md` `CONTRIBUTING.md` `TODO.md` `RELEASING.md` `MIGRATION.md` `SWITCHOVER.md` `GATING.md` `DESIGN_SYSTEM.md` `INTERNATIONALIZATION.md` `SECURITY.md` | DOCS | yes | Root docs (see Doc map) |
 
 ## Build & gates
 

@@ -228,6 +228,14 @@ Before pushing, confirm:
 - `npm run check:design-system` confirms the CSS stays aligned with the design-system tokens.
 - Browser checks cover desktop home, Resources, Directory, mobile navigation, Projects, Get Involved, and 404.
 
+## License
+
+This repository is licensed under the
+[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
+— the Active Inference Institute's standard open license; see [`LICENSE`](LICENSE)
+for the full terms. If you use or reference the site in your work, please cite
+this repository (see [`CITATION.cff`](CITATION.cff)).
+
 ## Design Contract
 
 - Dark mode by default.
