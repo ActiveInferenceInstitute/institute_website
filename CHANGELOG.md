@@ -5,6 +5,18 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **Docs mega-deep pass (2026-08-02).** Reviewed and hardened all documentation:
+  removed private monorepo path references from public docs (`repos/…`,
+  `../../library/design-system` → neutral phrasing + `INSTITUTEOS_DS_ROOT`),
+  fixed stale content (deterministic-build note in TROUBLESHOOTING, the
+  language-switcher markup sample in INTERNATIONALIZATION, the pre-v4.0.0
+  hardcoded-routing instructions in SLUG_AND_URL_TAXONOMY, drift-prone line
+  references in RELEASING), repaired the npm-script table in `scripts/AGENTS.md`
+  (`||` rows) and INDEX.md's top-level map, and added `CITATION.cff`,
+  `SECURITY.md`, a README License section, and the `license` field in
+  `package.json`/`package-lock.json`. See TODO.md "Docs review — 2026-08-02".
+  Docs only — no rendered-output change.
+
 - **Lazy-load the site search index.** The 285KB (raw) / ~49KB (gzip) embedded
   search index (`search-data.js`) was shipped on every one of the 10,000+ pages.
   It is now loaded eagerly only on `/search/` (which renders the full grouped set

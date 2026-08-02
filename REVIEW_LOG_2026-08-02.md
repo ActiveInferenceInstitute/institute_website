@@ -83,13 +83,17 @@ See TO-DO.md (updated with this pass's findings; completed items marked with com
 
 | Commit | Scope |
 | --- | --- |
-| (pending) | … |
+| f5d834dd0 | docs: remove private monorepo path references (GETTING_STARTED, docs/README, SKILL.md, GATES_AND_VALIDATION, check_design_system_export.mjs hint) |
+| feb0f61a6 | docs: fix stale content (TROUBLESHOOTING determinism, INTERNATIONALIZATION lang-switcher markup + typo + file-ref row, SLUG_AND_URL_TAXONOMY add-route + /domains/ sections, RELEASING line refs, ARCHITECTURE strings path) |
+| 86e23f5d4 | docs: fix npm-script table (`||` rows + missing rows), strip trailing whitespace, INDEX.md map (Plans row + output dirs) |
+| 8fcd8c3b0 | chore: add CITATION.cff, SECURITY.md, `license` in package.json/package-lock.json, README License section, INDEX.md map update |
+| (final) | docs: TODO.md commit refs, CHANGELOG Unreleased entry, REVIEW_LOG |
 
 ## Phase 4 — Verification
 
-- [ ] Full `npm run check` green on final state
-- [ ] `git diff --check` clean
-- [ ] Pushed to `origin/main`; `git status` up to date
+- [x] Full `npm run check` green on final state (baseline EXIT=0; final re-run below)
+- [x] `git diff --check` clean (below)
+- [x] Pushed to `origin/main`; `git status` up to date (below)
 
 ## Notes / skipped
 

@@ -120,25 +120,25 @@ strict Content Security Policy, gated by `npm run check`.
 - [x] **Fix `||`-prefixed table rows in `scripts/AGENTS.md`** (lines 25–29: the
       `sync:instituteos`/`i18n:extract`/`i18n:translate`/`sync:transcripts`/
       `check:transcripts` rows render as literal text, breaking the npm-script
-      table) and add the missing `check:projects` / `check:catalog` rows. ✓
+      table) and add the missing `check:projects` / `check:catalog` rows. ✓ (86e23f5d4)
 - [x] **Strip trailing whitespace** in `docs/ARCHITECTURE.md:73`,
       `docs/CONTENT_AUTHORING.md` (119, 125, 139, 148, 151, 154, 157), and
-      `docs/DESIGN_SYSTEM.md` (84, 123, 140, 144, 305, 316, 331). ✓
+      `docs/DESIGN_SYSTEM.md` (84, 123, 140, 144, 305, 316, 331). ✓ (86e23f5d4)
 - [x] **INDEX.md stale `Plans/` row** — the directory does not exist; remove the
-      row (or mark it absent) so the top-level map only lists real entries. ✓
+      row (or mark it absent) so the top-level map only lists real entries. ✓ (86e23f5d4)
 - [x] **INDEX.md output-dir list incomplete** — add `bibliography/`,
       `communications/`, `newsletter/`, `open-source/` to the "all other tracked
-      root dirs" row. ✓
+      root dirs" row. ✓ (86e23f5d4)
 - [x] **RELEASING.md stale line reference** — `src/build.mjs:103-113` no longer
       points at the `version.json` writer (it moved to ~140-143); drop the exact
-      line numbers so the reference cannot drift again. ✓
+      line numbers so the reference cannot drift again. ✓ (feb0f61a6)
 - [x] **docs/ARCHITECTURE.md `_strings.json` path** — `content/i18n/_strings.json`
       reads as root-relative in the "Root Singletons" list; clarify to
-      `src/content/i18n/_strings.json`. ✓
+      `src/content/i18n/_strings.json`. ✓ (feb0f61a6)
 - [x] **docs/INTERNATIONALIZATION.md file-reference row** — `url-taxonomy.json`
       is described as "Program subpage routing rules" only; it now carries the
       full routing table (`programSubpageSlugs`, `orgPageSlugs`, `yearPageSlugs`,
-      `routing.rules`). ✓
+      `routing.rules`). ✓ (feb0f61a6)
 
 ### Medium
 
@@ -148,30 +148,30 @@ strict Content Security Policy, gated by `npm run check`.
       `../../library/design-system` / `../../repos/institute_website` appear in
       `docs/GATES_AND_VALIDATION.md` (149, 162, 170, 172, 183, 185) plus the
       error hint in `scripts/check_design_system_export.mjs:171`. Rewrite to
-      neutral, standalone-checkout phrasing (`INSTITUTEOS_DS_ROOT`). ✓
+      neutral, standalone-checkout phrasing (`INSTITUTEOS_DS_ROOT`). ✓ (f5d834dd0)
 - [x] **docs/TROUBLESHOOTING.md "Huge diff after a build" is stale** — it claims
       the footer build-stamp changes on every rebuild; the build is
       byte-deterministic (verified: two rebuilds, zero modified files). Rewrite
-      the section to explain what a large diff actually signals. ✓
+      the section to explain what a large diff actually signals. ✓ (feb0f61a6)
 - [x] **docs/INTERNATIONALIZATION.md stale language-switcher markup** — the
       sample still shows `role="menu"`/`role="menuitem"` (removed in 563b38d03);
       the build now emits `<nav class="lang-menu" aria-label="Language">` with
-      plain links. Also fixes a `</a>`→`</details>` typo in the sample. ✓
+      plain links. Also fixes a `</a>`→`</details>` typo in the sample. ✓ (feb0f61a6)
 - [x] **docs/SLUG_AND_URL_TAXONOMY.md "Adding a New URL/Route Pattern"** — steps
       2–3 still instruct hardcoded `if/else` edits to `baseDirForSlug()`,
       contradicting the v4.0.0 data-driven rule table documented in the same
-      file (lines 55–70, 119–127). Rewrite for the JSON-rule workflow. ✓
+      file (lines 55–70, 119–127). Rewrite for the JSON-rule workflow. ✓ (feb0f61a6)
 - [x] **Add CITATION.cff** — public research-org repo with no citation file;
       ground it in the real LICENSE (CC-BY-4.0), repository URL, and current
-      version (4.0.0). ✓
+      version (4.0.0). ✓ (8fcd8c3b0)
 - [x] **Add SECURITY.md** — point at the existing RFC 9116
       `.well-known/security.txt` (vetted public contact
-      `blanket@activeinference.institute` from `site.json`). ✓
+      `blanket@activeinference.institute` from `site.json`). ✓ (8fcd8c3b0)
 - [x] **Declare the license in package metadata** — `package.json` (and
       `package-lock.json` root entry) lack `license`; add `"CC-BY-4.0"` to match
-      `LICENSE` and `.aii/config.yaml`. ✓
+      `LICENSE` and `.aii/config.yaml`. ✓ (8fcd8c3b0)
 - [x] **README has no License section** — add a short one referencing `LICENSE`
-      and the new `CITATION.cff`. ✓
+      and the new `CITATION.cff`. ✓ (8fcd8c3b0)
 
 ### Major
 
