@@ -152,6 +152,7 @@ ALLOWED_TEMPLATE_EXTERNAL_URLS = {
     "https://schema.org",  # JSON-LD @context (structured data; non-fetched identifier)
     "https://schema.org/NGO",  # Organization additionalType (non-fetched schema.org identifier)
     "http://www.w3.org/2005/Atom",  # RSS atom:link namespace (feed.xml)
+    "http://www.w3.org/1999/xhtml",  # xhtml namespace for sitemap hreflang alternates (sitemap.xml)
     "https://jsonfeed.org/version/1.1",  # JSON Feed version identifier (feed.json)
 }
 CURATED_SECTION_IDS = {

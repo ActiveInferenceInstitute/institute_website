@@ -109,12 +109,28 @@ function build() {
     const depth = url.split("/").filter((part) => part && part !== "index.html").length;
     return depth >= 2 ? "monthly" : "weekly";
   };
+  // Every page is rendered once per locale (home -> /, en/about -> /about/,
+  // es/about -> /es/about/). Google's recommended pairing for a multilingual
+  // site advertises the alternate language versions inside each sitemap <url>
+  // via <xhtml:link rel="alternate" hreflang="..."/>. The default-locale output
+  // path is the <loc>; the alternate for locale code C is the same path under
+  // the C-prefixed subtree (default-locale paths already carry no prefix, so we
+  // only prepend for non-default locales). x-default mirrors the English root.
+  const localeAlternatesFor = (defaultPath) => {
+    const alternates = LOCALES.map(
+      (locale) =>
+        `  <xhtml:link rel="alternate" hreflang="${locale.code}" href="${absoluteUrl(
+          locale.code === DEFAULT_LOCALE ? defaultPath : `${locale.code}/${defaultPath}`,
+        )}"/>`,
+    ).join("\n");
+    return `${alternates}\n  <xhtml:link rel="alternate" hreflang="x-default" href="${absoluteUrl(defaultPath)}"/>`;
+  };
   writeFile(
     "sitemap.xml",
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls
       .map(
         (url) =>
-          `  <url><loc>${absoluteUrl(url)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}<changefreq>${sitemapChangefreq(url)}</changefreq><priority>${sitemapPriority(url)}</priority></url>`,
+          `  <url><loc>${absoluteUrl(url)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}<changefreq>${sitemapChangefreq(url)}</changefreq><priority>${sitemapPriority(url)}</priority>\n${localeAlternatesFor(url)}  </url>`,
       )
       .join("\n")}\n</urlset>\n`,
   );

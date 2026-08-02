@@ -5,6 +5,32 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **Localized `<head>` metadata for all 12 locales.** Page `<title>`, `<meta
+  name="description">`, Open Graph (`og:title`/`og:description`), and the
+  BreadcrumbList JSON-LD `name` are now routed through `tr()` in
+  `src/render/layout.mjs`, so every machine-translated non-English page emits
+  its own translated title/description to search engines and social scrapers
+  (previously all locales advertised English `<title>`/meta description even
+  though their body H1 was localized).
+
+- **Open Graph locale tags.** Every page now emits `og:locale`
+  (`en_US`, `es_ES`, `zh_CN`, …) plus an `og:locale:alternate` per translated
+  sibling, mirroring the existing `hreflang` alternates so Facebook/Open Graph
+  understands and surfaces the page's language and translations.
+
+- **Multilingual sitemap alternates.** `sitemap.xml` now declares the `xhtml`
+  namespace and, for each of the 880 routed URLs, `<xhtml:link
+  rel="alternate" hreflang>` for all 12 locales plus `x-default`
+  (Google's recommended sitemap pairing for multilingual sites). The
+  `www.w3.org/1999/xhtml` namespace URI is registered as a non-fetched
+  identifier in `scripts/check_site_contract.py`.
+
+- **Design-system token fallback alignment.** The bibliography/transcript
+  styles in `assets/css/styles.css` used `var(--ds-accent, #dc2626)` /
+  `var(--ds-surface, rgba(255,255,255,0.03))` fallbacks that drifted from the
+  canonical tokens (`var(--ds-red)` / `#151515`), failing `check:design-system`;
+  corrected so the full `npm run check` gate passes.
+
 - **Strategy map wired onto `/strategy/`.** `strategies_public.json` (the
   public-safe InstituteOS strategy export) gained its first consumer:
   `strategyMapSection()` in `src/render/feature-sections.mjs` renders a

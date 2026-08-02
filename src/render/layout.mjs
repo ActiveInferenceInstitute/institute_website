@@ -34,6 +34,27 @@ function localeAlternateLinks(slug) {
   return `${links}\n  <link rel="alternate" hreflang="x-default" href="${escapeHtml(absoluteUrl(localeOutputPathForSlug(slug, DEFAULT_LOCALE)))}">`;
 }
 
+// Map the site's ISO-639 language codes to the Open Graph "language_TERRITORY"
+// locale format Facebook/Open Graph expects. Each language uses its primary
+// territory (the conventional default), so a shared /es/ page advertises
+// og:locale=es_ES, /en → en_US, etc. Only emits values for known codes; unknown
+// codes fall back to "en_US" so the tag is never malformed.
+const OG_TERRITORY = {
+  en: "US", es: "ES", fr: "FR", de: "DE", pt: "PT", it: "IT",
+  ru: "RU", zh: "CN", ja: "JP", ko: "KR", hi: "IN", ar: "SA",
+};
+function ogLocaleFor(code) {
+  return OG_TERRITORY[code] ? `${code}_${OG_TERRITORY[code]}` : "en_US";
+}
+
+// Alternate-version Open Graph locale tags for the other 11 locales, matching
+// the hreflang alternates so crawlers/sharers know the page has translations.
+function ogLocaleAlternatesFor(currentLang) {
+  return LOCALES.filter((l) => l.code !== currentLang)
+    .map((l) => `<meta property="og:locale:alternate" content="${escapeHtml(ogLocaleFor(l.code))}">`)
+    .join(" ");
+}
+
 export function layout({ title, description, currentDir = "", canonicalPath, body, bodyClass = "", slug = "", robots = "", ogType, redirects = false, hreflang = true } = {}) {
   const prefix = relPrefix(currentDir);
   const lang = activeLocale();
@@ -55,8 +76,16 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   // Brand link points to the CURRENT locale's home (not the site root), so
   // navigating "home" keeps the visitor in their chosen language.
   const homeHref = hrefForSlug("index", currentDir);
-  const pageTitle = title === siteData.site.name ? title : `${title} | ${siteData.site.name}`;
-  const pageDescription = metaDescription(description || siteData.site.description);
+  // Translate the page title and description for the active locale so the <head>
+  // metadata (title, meta description, OG/Twitter) matches the localized body —
+  // otherwise all 11 machine-translated locales advertise English titles/descs
+  // to search engines. tr() falls back to the English source when a locale is
+  // missing a catalog entry, and the brand name is left untranslated (it is a
+  // proper noun, not a UI string, so it is never keyed in the catalogs).
+  const localizedTitle = tr(title);
+  const pageTitle =
+    localizedTitle === siteData.site.name ? localizedTitle : `${localizedTitle} | ${siteData.site.name}`;
+  const pageDescription = metaDescription(tr(description || siteData.site.description));
   // Content/detail pages are articles; section hubs and the root are websites.
   const resolvedOgType = ogType || (slug.startsWith("project-") ? "article" : "website");
   const robotsTag = robots ? `\n  <meta name="robots" content="${escapeHtml(robots)}">` : "";
@@ -110,6 +139,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   <meta property="og:site_name" content="${escapeHtml(siteData.site.name)}">
   <meta property="og:title" content="${escapeHtml(pageTitle)}">
   <meta property="og:description" content="${escapeHtml(pageDescription)}">
+  <meta property="og:locale" content="${escapeHtml(ogLocaleFor(lang))}">${ogLocaleAlternatesFor(lang)}
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}">
   <meta property="og:image" content="${escapeHtml(ogImage)}">
   <meta property="og:image:width" content="1200">
@@ -121,7 +151,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   <meta name="twitter:image" content="${escapeHtml(ogImage)}">
   <meta name="generator" content="institute_website v${SITE_VERSION}">
   <link rel="stylesheet" href="${prefix}assets/css/instituteos-ds.css">
-  <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}${structuredData(title, currentDir, canonicalUrl, slug, pageDescription, !!robots)}
+  <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}${structuredData(localizedTitle, currentDir, canonicalUrl, slug, pageDescription, !!robots)}
 </head>
 <body class="${bodyClass}">
   <a class="skip-link" href="#main">${escapeHtml(tr("Skip to content"))}</a>

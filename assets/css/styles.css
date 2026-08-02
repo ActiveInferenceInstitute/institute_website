@@ -1853,8 +1853,8 @@ body{transition:background-color 200ms,color 200ms}
 /* Transcript excerpt block on per-video detail pages */
 .transcript-block {
   padding: 1.25rem 1.5rem;
-  border-left: 3px solid var(--ds-accent, #dc2626);
-  background: var(--ds-surface, rgba(255, 255, 255, 0.03));
+  border-left: 3px solid var(--ds-accent, var(--ds-red));
+  background: var(--ds-surface, #151515);
   border-radius: var(--radius, 4px);
   max-height: 28rem;
   overflow-y: auto;
@@ -1871,7 +1871,7 @@ body{transition:background-color 200ms,color 200ms}
 .bib-section { margin-bottom: 2rem; }
 .bib-section h3 {
   font-size: 1rem;
-  color: var(--ds-accent, #dc2626);
+  color: var(--ds-accent, var(--ds-red));
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.75rem;
@@ -1889,8 +1889,8 @@ body{transition:background-color 200ms,color 200ms}
 }
 .bib-entry:last-child { border-bottom: none; }
 .bib-title { font-weight: 600; }
-.bib-title a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--ds-accent, #dc2626); text-underline-offset: 0.2em; }
-.bib-title a:hover { color: var(--ds-accent, #dc2626); }
+.bib-title a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--ds-accent, var(--ds-red)); text-underline-offset: 0.2em; }
+.bib-title a:hover { color: var(--ds-accent, var(--ds-red)); }
 .bib-meta { font-size: 0.88rem; color: var(--muted); }
 .bib-venue { font-size: 0.85rem; color: var(--muted); font-style: italic; }
 .bib-extra { font-size: 0.82rem; color: var(--text-dim, #9aa0a6); }
@@ -1907,7 +1907,7 @@ body{transition:background-color 200ms,color 200ms}
   border-radius: 4px; overflow: hidden;
 }
 .topic-bar-fill, .score-bar-fill {
-  display: block; height: 100%; background: var(--ds-accent, #dc2626);
+  display: block; height: 100%; background: var(--ds-accent, var(--ds-red));
   border-radius: 4px; transition: width 0.3s;
 }
 .topic-bar-value, .score-bar-value {
