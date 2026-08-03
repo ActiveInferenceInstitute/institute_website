@@ -187,7 +187,68 @@ strict Content Security Policy, gated by `npm run check`.
       no gate impact; the stale one in RELEASING.md was fixed this pass and the
       taxonomy doc's refs were spot-verified accurate.
 
-### Open / deferred
+### Follow-up — completed audit batch findings (deleg_aca05bf9)
+
+Second wave of verified findings from the two completed audit subagents
+(implemented 2026-08-02, commits 93d3289ba + b14832dbc):
+
+- [x] **RunGates.md: "52 repositories" → 37** (the gate enforces 37 per
+      `check_site_contract.py`); add the missing `check:redirects` /
+      `check:projects` / `check:catalog` rows to the gate table. ✓ (93d3289ba)
+- [x] **EditRedirects.md: document `PREFIX_REDIRECTS`/`SET_REDIRECTS`** — "all
+      redirects live in the MAP object" was outdated. ✓ (93d3289ba)
+- [x] **ci.yml: "no lockfile is committed" comment was false** (package-lock.json
+      is tracked); reword. ✓ (93d3289ba)
+- [x] **Unregistered `official-participation` sourceId in templates** —
+      `src/content/pages/AGENTS.md`, `_TEMPLATES.md`, `AddProject.md` used a
+      sourceId absent from `live-sources.json`; swap to registered
+      `aicacp-project-doc`. ✓ (93d3289ba)
+- [x] **`participate/` folder listing wrong** — `learning` lives there,
+      `measure` is in `institute/`. ✓ (93d3289ba)
+- [x] **src/AGENTS.md**: add `newsletter` to standalone renderers + `pages/`
+      map. ✓ (93d3289ba)
+- [x] **src/render/AGENTS.md**: add `autolink`/`domains`/`graphs`/
+      `video-table` module rows. ✓ (93d3289ba)
+- [x] **assets/AGENTS.md**: add `video-table.js` row + `books/`/`newsletters/`/
+      `tnb/` img dirs. ✓ (93d3289ba)
+- [x] **docs/README.md `src/pages/` renderer list**: drop `knowledge` (it is a
+      render module, not a page renderer) and add the real modules. ✓ (93d3289ba)
+- [x] **GATES_AND_VALIDATION.md impossible failure example** — the
+      "README.md contains visible Coda/workspace wording" message can never
+      fire on a `.md` file (wording scan is `.html`-only); show a generated
+      HTML file instead. ✓ (93d3289ba)
+- [x] **AGENTS.md migration parenthetical in past tense** (cutover is
+      complete). ✓ (b14832dbc)
+- [x] **README stale client-side sentence + incomplete scripts/ tree**. ✓ (b14832dbc)
+- [x] **INDEX.md `version.json` shape** — add `exported_at`; note `built_at`
+      mirrors the export timestamp and `commit` is always null. ✓ (b14832dbc)
+- [x] **DESIGN_SYSTEM.md regenerate wording** — the gate reports staleness; it
+      does not regenerate. ✓ (b14832dbc)
+- [x] **RELEASING.md Unreleased rule vs reality** — soften to "accumulates on
+      main; emptied when a release is cut". ✓ (b14832dbc)
+- [x] **Missing CHANGELOG Unreleased entries** for the video detail pages,
+      bibliography/citations, and VideoObject thumbnailUrl commits. ✓ (b14832dbc)
+- [x] **Add CODE_OF_CONDUCT.md** (adapted from Contributor Covenant 2.1) and
+      link from CONTRIBUTING/README/INDEX. ✓ (b14832dbc)
+
+### Open / deferred (from the audits)
+
+- [ ] **Cut a release** — 17 Unreleased entries sit on `main` at version 4.0.0
+      with no tag. Deferred: the RELEASING rule now documents the accumulate-
+      on-main practice; cutting a release (version bump → rebuild → tag) is a
+      user decision affecting the live site's `version.json`.
+- [ ] **Stale i18n catalog keys "52 public repositories"** in all 11 locale
+      catalogs (leftover from the older repo count; absent from `_strings.json`
+      and unused). Deferred: translation data, not docs — needs an
+      `npm run i18n:extract` + re-translate sweep.
+- [ ] **README ↔ AGENTS.md contract duplication** (Design Contract /
+      Operating Contract lists). Deferred: both are accurate today and the
+      split is intentional (human overview vs agent contract).
+- [ ] **docs/MIGRATION_AND_REDIRECTS.md:279 literal `https://coda.io` URL** —
+      documents a legacy redirect target; safe today because the coda-URL scan
+      covers only root README/AGENTS, but fragile if that scan ever widens.
+
+### Open / deferred (original)
 
 - [ ] **docs/ folder audit subagent was interrupted** (provider billing error) —
       its coverage was completed first-hand this pass; the docs/ set is now

@@ -89,8 +89,16 @@ See TO-DO.md (updated with this pass's findings; completed items marked with com
 | 8fcd8c3b0 | chore: add CITATION.cff, SECURITY.md, `license` in package.json/package-lock.json, README License section, INDEX.md map update |
 | f5145936f | docs: TODO.md commit refs, CHANGELOG Unreleased entry, REVIEW_LOG |
 | 646c52d6f | docs: complete the `npm run check` gate list in docs/README quick reference |
+| 93d3289ba | docs: audit-batch follow-up — RunGates.md (37 repos + 3 gate rows), EditRedirects.md (PREFIX/SET), ci.yml lockfile comment, template sourceIds, folder-guide accuracy (src/, src/render/, assets/, docs/README), GATES example |
+| b14832dbc | docs: root-doc fixes (AGENTS past tense, README sentence + scripts tree, INDEX version.json shape, DESIGN_SYSTEM wording, RELEASING rule), 3 missing CHANGELOG entries, CODE_OF_CONDUCT.md |
+| (final) | docs: TODO.md follow-up refs + deferred list, REVIEW_LOG final |
 
-Pushed to `origin/main`: `563b38d03..646c52d6f` (6 commits, 16 files changed).
+The audit batch (deleg_aca05bf9, delivered after the first push) added 16
+completed fixes + 4 deferred items — all verified against source before
+editing; see TODO.md "Follow-up — completed audit batch findings".
+
+Pushed to `origin/main`: `563b38d03..3642104d9` (7 commits), then follow-up
+commits 93d3289ba + b14832dbc (+ final log commit) — see final state below.
 
 ## Phase 4 — Verification
 
