@@ -30,7 +30,10 @@ This site helps visitors quickly find:
 - Structured public tables for public GitHub people, open-source repositories, research links, ideas, and ontology relationships.
 - A visible InstituteOS public-interface page that explains how private `docs/` and `library/` sources are projected, gated, and verified before they reach the public site.
 
-The site is intentionally a static GitHub Pages build: no runtime framework, no server dependency, and no client-side requirement beyond the small navigation and resource-filter script.
+The site is intentionally a static GitHub Pages build: no runtime framework and
+no server dependency. Client-side scripts are small, self-hosted, and
+CSP-safe — navigation and resource filtering, quick-search (`search.js`),
+theme/accent/TTS controls, and the graph renderer.
 
 ## Public Content Policy
 
@@ -72,9 +75,18 @@ InstituteOS-adjacent data may be injected only through the public sync script or
 │   ├── generate-cards.mjs        # Per-page Open Graph social cards
 │   ├── generate-icons.sh         # Brand icon / favicon generation
 │   ├── check_internal_links.py   # Local HTML and asset link checker
-│   ├── check_live_sources.py     # External-link verifier
+│   ├── check_markdown_links.py   # Relative-link gate for tracked Markdown docs
+│   ├── check_live_sources.py     # External-link verifier (network)
 │   ├── check_site_contract.py    # Public resource-hub contract checker
-│   └── check_static_security.py  # Static-site security contract checker
+│   ├── check_static_security.py  # Static-site security contract checker
+│   ├── check_redirects.py        # Redirect map vs url-taxonomy gate
+│   ├── check_design_system_export.mjs # Design-token fallback gate
+│   ├── check_project_discoverability.py # Project-page coverage gate
+│   ├── check_project_catalog_coverage.mjs # data/projects.json vs pages gate
+│   ├── i18n_translate.mjs        # Offline translation (Ollama/hosted API)
+│   ├── sync_video_transcripts.py # Video transcript excerpts from the Journal
+│   ├── generate_bibliography.py  # Bibliography/citations from act_inf_metaanalysis
+│   └── …
 ├── index.html                    # Generated public root (only flat HTML besides 404)
 ├── 404.html                      # Generated not-found page (served by GitHub Pages)
 ├── resources/index.html          # Generated searchable resource directory (clean URL /resources/)
@@ -234,7 +246,9 @@ This repository is licensed under the
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
 — the Active Inference Institute's standard open license; see [`LICENSE`](LICENSE)
 for the full terms. If you use or reference the site in your work, please cite
-this repository (see [`CITATION.cff`](CITATION.cff)).
+this repository (see [`CITATION.cff`](CITATION.cff)). Contributions are welcome —
+see [`CONTRIBUTING.md`](CONTRIBUTING.md) and the
+[Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Design Contract
 

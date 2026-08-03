@@ -2,8 +2,9 @@
 
 This repository builds the public GitHub Pages website for the Active Inference Institute.
 Canonical domain (post-cutover): **[https://activeinference.institute/](https://activeinference.institute/)**
-(during the Squarespace → Pages migration; pre-cutover it served at
-`activeinferenceinstitute.github.io/institute_website/`). See [SWITCHOVER.md](SWITCHOVER.md).
+(the Squarespace → Pages migration is complete; before the 2026-06 cutover the
+site served at `activeinferenceinstitute.github.io/institute_website/`).
+See [SWITCHOVER.md](SWITCHOVER.md).
 
 ## Documentation map
 

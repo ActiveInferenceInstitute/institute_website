@@ -21,8 +21,8 @@ Pages link two stylesheets, in this order:
    surfaces, text, type scale, spacing, radius, shadow, motion) for both the
    default dark theme and the light theme. **Do not hand-edit this file** — it is
    produced by the upstream design system and committed here so GitHub Pages can
-   serve it statically. Regenerate it with `npm run check:design-system` guidance
-   rather than editing it in place.
+   serve it statically. Do not hand-edit it; regenerate it from the upstream
+   design system and let `npm run check:design-system` report staleness.
 2. **`assets/css/styles.css`** — the **site layer**. It consumes the `--ds-*`
    tokens and adds the page-specific layout and components. This is the file to
    edit for site styling.

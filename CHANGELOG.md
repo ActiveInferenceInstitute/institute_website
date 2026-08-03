@@ -17,6 +17,25 @@ This project follows [Semantic Versioning](https://semver.org/).
   `package.json`/`package-lock.json`. See TODO.md "Docs review — 2026-08-02".
   Docs only — no rendered-output change.
 
+- **Video detail pages with transcript excerpts.** Every video in the Open
+  Source Map library now has its own page at `/video/<video-id>/` (slug
+  `video-<video-id>`) with a filterable/sortable table, YouTube links, and
+  sanitized transcript excerpts synced from ActiveInferenceJournal via
+  `scripts/sync_video_transcripts.py`. `src/pages/video-detail.mjs`,
+  `src/render/video-table.mjs`, `src/url-taxonomy.json`, search index.
+
+- **Bibliography and citations pages.** `/bibliography/` renders the full
+  citation list plus structured outputs (field overview, corpus assessment,
+  hypotheses, subfields, topics, citation network, quality) generated from
+  `act_inf_metaanalysis` by `scripts/generate_bibliography.py`.
+  `src/pages/bibliography.mjs`, `src/render/feature-sections.mjs`.
+
+- **Populate VideoObject `thumbnailUrl`.** Video detail pages now emit a real
+  YouTube thumbnail (`https://img.youtube.com/vi/<id>/sddefault.jpg`, with the
+  site social card as fallback) instead of an empty `thumbnailUrl`, fixing the
+  Google rich-result "Missing field thumbnailUrl" error across ~51 URLs.
+  `src/pages/video-detail.mjs`.
+
 - **Lazy-load the site search index.** The 285KB (raw) / ~49KB (gzip) embedded
   search index (`search-data.js`) was shipped on every one of the 10,000+ pages.
   It is now loaded eagerly only on `/search/` (which renders the full grouped set

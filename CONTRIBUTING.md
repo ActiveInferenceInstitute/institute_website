@@ -70,7 +70,8 @@ A few conventions worth knowing:
 
 Please be respectful and constructive in issues, pull requests, and email. We aim
 to keep this a welcoming space for contributors of every background and
-experience level.
+experience level. See the full [Code of Conduct](CODE_OF_CONDUCT.md); reports go
+to **blanket@activeinference.institute**.
 
 ---
 

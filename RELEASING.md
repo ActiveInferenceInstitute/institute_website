@@ -47,8 +47,8 @@ other fails `npm run check`.
 
 - Tags are the authoritative release markers — every CHANGELOG-versioned release
   must have a matching annotated tag.
-- `## Unreleased` must be emptied into a versioned section whenever shipped output
-  reaches `main`.
+- `## Unreleased` accumulates shipped changes on `main` and is emptied into a
+  versioned section when a release is cut (step 6 below).
 - Contributors must always commit the rebuilt HTML (see
   [CONTRIBUTING.md](CONTRIBUTING.md)).
 

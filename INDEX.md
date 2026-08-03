@@ -19,7 +19,7 @@ Static, zero-runtime-dependency site for the Active Inference Institute. `node s
 | **all other tracked root dirs** — `about/`, `active-inference/`, `activities/`, `bibliography/`, `calendar/`, `communications/`, `directory/`, `ecosystem/`, `eduactive/`, `get-involved/`, `grants/`, `history/`, `instituteos/`, `knowledge/`, `learning/`, `measure/`, `newsletter/`, `open-source/`, `prepare/`, `programs/`, `projects/`, `reinference/`, `resources/`, `search/`, `simulations/`, `sitemap/`, `strategy/`, `structure/`, `video/`, `volunteer/`, `weekly/`, `years/`, and locales `ar/ de/ es/ fr/ hi/ it/ ja/ ko/ pt/ ru/ zh/` | OUTPUT | **never** | **Generated, tracked HTML — regenerate via `node src/build.mjs`** |
 | `index.html` `404.html` `sitemap.xml` `feed.json` `feed.xml` `version.json` `manifest.webmanifest` `robots.txt` `.nojekyll` | OUTPUT | never | Generated root files |
 | `CNAME` `package.json` `package-lock.json` `.gitignore` `LICENSE` `CITATION.cff` | CONFIG | yes | Domain + npm/build config, license, citation metadata |
-| `README.md` `AGENTS.md` `INDEX.md` `CHANGELOG.md` `CONTRIBUTING.md` `TODO.md` `RELEASING.md` `MIGRATION.md` `SWITCHOVER.md` `GATING.md` `DESIGN_SYSTEM.md` `INTERNATIONALIZATION.md` `SECURITY.md` | DOCS | yes | Root docs (see Doc map) |
+| `README.md` `AGENTS.md` `INDEX.md` `CHANGELOG.md` `CONTRIBUTING.md` `CODE_OF_CONDUCT.md` `TODO.md` `RELEASING.md` `MIGRATION.md` `SWITCHOVER.md` `GATING.md` `DESIGN_SYSTEM.md` `INTERNATIONALIZATION.md` `SECURITY.md` | DOCS | yes | Root docs (see Doc map) |
 
 ## Build & gates
 
@@ -45,7 +45,7 @@ This repo is a **gated, sanitized public projection** of the private InstituteOS
 
 ## How to version & improve
 
-- **Single source of truth:** `package.json` `version` → `src/data.mjs` `SITE_VERSION` → `src/build.mjs` writes `version.json` `{site_version, built_at, source_fingerprint (from data/export-manifest.json), pages, commit}` and stamps every page. `feed.json`/`feed.xml` (`src/feeds.mjs`) carry no version. `check:site` asserts `version.json` site_version == `package.json` version.
+- **Single source of truth:** `package.json` `version` → `src/data.mjs` `SITE_VERSION` → `src/build.mjs` writes `version.json` `{site_version, built_at, exported_at, source_fingerprint (from data/export-manifest.json), pages, commit}` and stamps every page. `built_at`/`exported_at` mirror the export timestamp (byte-stable, not a live clock) and `commit` is always `null`. `feed.json`/`feed.xml` (`src/feeds.mjs`) carry no version. `check:site` asserts `version.json` site_version == `package.json` version.
 - **SemVer policy (content site):** patch = copy/link/data fix + rebuild · minor = new pages/sections/locale · major = URL-taxonomy or domain/baseUrl change requiring redirects.
 - **Release checklist:** edit source → `node src/build.mjs` → `npm run check` → commit source AND all regenerated HTML together → bump `package.json` → rebuild (refresh `version.json`) → add dated `## vX.Y.Z` CHANGELOG section (empty `## Unreleased`) → `git tag -a vX.Y.Z` → push to `origin`. Full procedure: [RELEASING.md](RELEASING.md).
 - **Improve loop:** reproduce/observe → edit `src/` → rebuild → `npm run check` → commit source + HTML → release when shipped to main.
