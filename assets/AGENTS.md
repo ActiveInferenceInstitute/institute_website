@@ -38,6 +38,7 @@ All files are IIFE, `"use strict"`, no dependencies, no `fetch`.
 | `tts.js` | Read-aloud using the Web Speech API (`window.speechSynthesis`); progressive enhancement — control stays hidden where unsupported. |
 | `search.js` | Global inline search; reads `window.__SEARCH_INDEX__` and renders ranked results. |
 | `search-page.js` | Dedicated `/search/` page renderer; reads the same index, shows the full result set, prefills from `?q=`. |
+| `video-table.js` | Filter/sort behavior for the video-library tables on `/video/` and video detail pages. |
 | `search-data.js` | **BUILD-GENERATED** by `../src/build.mjs`. Defines `window.__SEARCH_INDEX__`, `window.__SEARCH_PAGE_URL__`, and `window.__SEARCH_SYNONYMS__`. Do not hand-edit; regenerate via the build. |
 | `graphs.js` | Deterministic (seeded) node-link graph renderer reading build-baked JSON `<script>` blocks. Contract must match `build.mjs` output (`.graph-mount[data-graph-source]` + `#graph-data-<NAME>`). |
 | `redirects.js` | Three mechanisms: `MAP` (legacy, English-only Squarespace-URL → clean-URL aliases), `PREFIX_REDIRECTS` (locale-aware slug-prefix-strip → new output-dir renames from URL-taxonomy changes, applied across all 12 locales), and `SET_REDIRECTS` (locale-aware exact-slug-match renames for "set"-routed families with no shared prefix, e.g. board-of-directors/officers/scientific-advisory-board → structure/, 2025/2026 → years/). Loaded **only** on `404.html` (GitHub Pages serves it for unresolved paths). Reads `data-base` and calls `location.replace()`; no network. See [`../docs/MIGRATION_AND_REDIRECTS.md`](../docs/MIGRATION_AND_REDIRECTS.md). |
@@ -48,5 +49,6 @@ All files are IIFE, `"use strict"`, no dependencies, no `fetch`.
 
 Site imagery: favicons and app icons (`favicon-32.png`, `icon-180.png`,
 `icon-192.png`, `icon-512.png`, `icon.svg`), social cards
-(`social-card.png`/`.svg`), `cards/` (per-page card art), and `instituteos/`
-(brand/logo assets, light + dark variants).
+(`social-card.png`/`.svg`), `cards/` (per-page card art), `instituteos/`
+(brand/logo assets, light + dark variants), `books/`, `newsletters/`, and
+`tnb/` (book/newsletter/TNB cover art).

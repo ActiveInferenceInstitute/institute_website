@@ -14,7 +14,8 @@ hand-edit a generated `*/index.html`.
 - `["index", homePage]` — the home page, the only root `index.html`.
 - one entry per `siteData.pages` page → `() => publicPage(page)`.
 - standalone renderers: `knowledge`, `resources`, `directory`, `search`,
-  `simulations`, `calendar`, `sitemap`.
+  `simulations`, `calendar`, `sitemap`, `newsletter`.
+- one entry per `newsletterIssuePages()` issue.
 - one entry per `ecosystemDomainPages()` domain page.
 
 Then it loops:
@@ -88,7 +89,8 @@ Single source of truth for slug → directory. The output file is always
 - [`i18n/`](i18n/) — locale registry and the active-locale switch / string
   extraction.
 - [`pages/`](pages/) — standalone page renderers (`directory`, `resources`,
-  `search`, `simulations`, `calendar`, `sitemap`, `ecosystem`).
+  `search`, `simulations`, `calendar`, `sitemap`, `ecosystem`, `projects`,
+  `programs`, `newsletter`, `bibliography`, `video-detail`).
 
 ## Verify
 

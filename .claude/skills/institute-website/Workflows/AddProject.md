@@ -37,7 +37,7 @@ as a model.
   "audience": "Who this project is for.",
   "lede": "A paragraph framing the project and its relation to Active Inference.",
   "primaryActions": [
-    { "label": "Project page", "sourceId": "official-participation" },
+    { "label": "Project document", "sourceId": "aicacp-project-doc" },
     { "label": "ReInference Unit", "href": "/reinference/" }
   ],
   "sections": [
@@ -54,7 +54,7 @@ as a model.
   ],
   "order": 22,
   "relatedSlugs": ["reinference", "projects", "active-inference"],
-  "externalSourceIds": ["github-org", "discord", "official-participation"],
+  "externalSourceIds": ["github-org", "discord", "aicacp-project-doc"],
   "resourceGroups": ["projects", "research"]
 }
 ```

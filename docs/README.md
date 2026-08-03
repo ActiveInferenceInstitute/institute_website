@@ -47,7 +47,7 @@ This conceptual set defers to the implementation contracts that live with the co
 - [`src/lib/AGENTS.md`](../src/lib/AGENTS.md) — pure helpers
 - [`src/content/AGENTS.md`](../src/content/AGENTS.md) — JSON registries
 - [`src/content/pages/AGENTS.md`](../src/content/pages/AGENTS.md) — page content + schema
-- [`src/pages/AGENTS.md`](../src/pages/AGENTS.md) — registry-derived page renderers (directory, resources, knowledge, ecosystem, calendar, search, simulations, sitemap)
+- [`src/pages/AGENTS.md`](../src/pages/AGENTS.md) — registry-derived page renderers (directory, resources, ecosystem, calendar, search, simulations, sitemap, projects, programs, newsletter, bibliography, video-detail)
 - [`scripts/AGENTS.md`](../scripts/AGENTS.md) — gates, sync, i18n
 - [`assets/AGENTS.md`](../assets/AGENTS.md) — CSS, JS, images, redirects
 

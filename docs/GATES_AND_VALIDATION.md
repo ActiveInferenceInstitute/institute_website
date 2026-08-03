@@ -444,7 +444,7 @@ Site contract check failed:
 - obsolete public artifact remains: atlas
 - obsolete public source-render image remains
 - assets/css/styles.css contains a stale legacy theme value
-- README.md contains visible Coda/workspace wording
+- about/index.html contains visible Coda/workspace wording
 - src/build.mjs hardcodes external URLs instead of live-sources.json: ['https://example.org/x']
 - site.json still contains the obsolete sourcePdf field
 ```

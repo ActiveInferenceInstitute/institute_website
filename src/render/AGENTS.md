@@ -89,6 +89,10 @@ add `linkAttrs()` (`target="_blank" rel="noopener noreferrer"`) for external hre
 | [`icons.mjs`](icons.mjs) | Inline SVG `cardIcon` glyphs. |
 | [`forms.mjs`](forms.mjs) | Placeholder — no `<form>` is emitted (CSP forbids forms). |
 | [`pager.mjs`](pager.mjs) | Prev/next pager for public content pages. |
+| [`autolink.mjs`](autolink.mjs) | Curated, high-confidence internal link targets (auto-linking for narrative prose). |
+| [`domains.mjs`](domains.mjs) | Domain-knowledge page renderers (`/active-inference/<domain>/`). |
+| [`graphs.mjs`](graphs.mjs) | Node-link graph markup + data blocks for the `graphs.js` renderer. |
+| [`video-table.mjs`](video-table.mjs) | Video-library tables (filter/sort) with detail-page links. |
 
 ## Before committing
 

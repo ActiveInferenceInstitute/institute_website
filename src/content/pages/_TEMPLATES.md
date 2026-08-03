@@ -128,7 +128,7 @@ File: `pages/projects/project-<name>.json`. The `project-` prefix maps the URL u
   "audience": "Who the project is for.",
   "lede": "What the project is and does.",
   "primaryActions": [
-    { "label": "Project page", "sourceId": "official-participation" },
+    { "label": "Project document", "sourceId": "aicacp-project-doc" },
     { "label": "ReInference Unit", "href": "/reinference/" }
   ],
   "sections": [
@@ -136,7 +136,7 @@ File: `pages/projects/project-<name>.json`. The `project-` prefix maps the URL u
   ],
   "order": 21,
   "relatedSlugs": ["reinference", "projects"],
-  "externalSourceIds": ["github-org", "official-participation"],
+  "externalSourceIds": ["aicacp-project-doc", "github-org"],
   "resourceGroups": ["projects", "research"]
 }
 ```

@@ -36,9 +36,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      # No npm dependencies (zero-dependency build), and no lockfile is committed,
-      # so a plain install is correct here. It is a no-op when there is nothing
-      # to install but keeps the step honest if a dev dependency is ever added.
+      # Zero-dependency build: no runtime npm packages are installed, so a
+      # plain install is a no-op; it keeps the step honest if a dev dependency
+      # is ever added. package-lock.json is committed (repository metadata),
+      # but nothing is installed from it.
       - name: Install Node dependencies
         run: npm install --no-audit --no-fund
 

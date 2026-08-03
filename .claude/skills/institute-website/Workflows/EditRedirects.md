@@ -1,8 +1,30 @@
 # Edit a legacy-URL redirect
 
 Workflow for adding, changing, or removing a redirect from an old Squarespace
-URL to a new clean-URL page. All redirects live in one place: the `MAP` object
-in [`assets/js/redirects.js`](../../../../assets/js/redirects.js).
+URL to a new clean-URL page. Redirects live in
+[`assets/js/redirects.js`](../../../../assets/js/redirects.js), which has **three
+mechanisms**:
+
+- `MAP` — legacy, English-only Squarespace-URL → clean-URL aliases (this
+  workflow).
+- `PREFIX_REDIRECTS` — locale-aware structural renames for slug families that
+  share a string prefix (`active-inference-and-*` → `active-inference/`); one
+  entry covers all 12 locales.
+- `SET_REDIRECTS` — locale-aware exact-slug renames for families with no shared
+  prefix (e.g. `board-of-directors`/`officers`/`scientific-advisory-board` →
+  `structure/`, `2025`/`2026` → `years/`).
+
+The `PREFIX_REDIRECTS`/`SET_REDIRECTS` entries must stay consistent with the
+`"prefix"`/`"set"` rules in [`src/url-taxonomy.json`](../../../../src/url-taxonomy.json)
+and the current build output — `check:redirects` (`scripts/check_redirects.py`)
+validates both, including that the old pre-migration output directories were
+actually removed (GitHub Pages must 404 before the client-side script can fire).
+See [`assets/AGENTS.md`](../../../../assets/AGENTS.md) and
+[`docs/MIGRATION_AND_REDIRECTS.md`](../../../../docs/MIGRATION_AND_REDIRECTS.md).
+
+This workflow covers the `MAP` object; for a structural rename, edit
+`PREFIX_REDIRECTS`/`SET_REDIRECTS` **and** the matching `url-taxonomy.json` rule
+together, then follow the same verification steps below.
 
 ## How redirects work here
 

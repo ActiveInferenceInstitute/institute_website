@@ -31,6 +31,9 @@ chain.
 | `check:design-system` | [`scripts/check_design_system_export.mjs`](../../../../scripts/check_design_system_export.mjs) | `styles.css` token fallbacks are intact; when the sibling DS source is present, byte-compares `instituteos-ds.css` to catch a stale committed copy. |
 | `check:site` | [`scripts/check_site_contract.py`](../../../../scripts/check_site_contract.py) | The resource-hub content contract (see below). |
 | `check:security` | [`scripts/check_static_security.py`](../../../../scripts/check_static_security.py) | Strict CSP meta tag (`script-src 'self'`, `connect-src 'none'`), referrer policy, and no `<form>`/`<iframe>`/`<object>`/`<embed>` or inline event-handler attributes. |
+| `check:redirects` | [`scripts/check_redirects.py`](../../../../scripts/check_redirects.py) | `assets/js/redirects.js` entries resolve to real built files and stay consistent with `src/url-taxonomy.json` and the build output. |
+| `check:projects` | [`scripts/check_project_discoverability.py`](../../../../scripts/check_project_discoverability.py) | Every public project page is linked from `/projects/` (with an allowlist for intentionally page-less projects). |
+| `check:catalog` | [`scripts/check_project_catalog_coverage.mjs`](../../../../scripts/check_project_catalog_coverage.mjs) | `data/projects.json` catalog rows all have rendered project pages. |
 
 ### What `check:site` covers
 
@@ -40,9 +43,9 @@ read from [`src/content/site.json`](../../../../src/content/site.json) `baseUrl`
 - **Versioning** — `version.json` `site_version` matches `package.json`, and its `pages`
   count matches the `<loc>` count in `sitemap.xml`.
 - **Content model** — required nav slugs, required live-source ids, registry record
-  counts (resources, official pages, 52 repositories, people/projects/ideas), and that
-  every content page has non-empty `audience`, `resourceGroups`, `primaryActions`,
-  `relatedSlugs`, and `externalSourceIds`.
+  counts (resources, official pages, 37 public repositories, people/projects/ideas),
+  and that every content page has non-empty `audience`, `resourceGroups`,
+  `primaryActions`, `relatedSlugs`, and `externalSourceIds`.
 - **Curated pages** — each page renders the `next-actions`, `resources`,
   `official-pages`, `repositories`, and `related-pages` sections with cards, an `On this
   page` guide, and at least one verified external action.
