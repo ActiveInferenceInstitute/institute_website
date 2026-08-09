@@ -190,6 +190,23 @@ export function publicPage(page) {
   const curated = normalizedCuratedResources();
   const official = normalizedOfficialPages();
   const repositories = normalizedRepositories();
+  // Detail pages should point to their own evidence first.  Broad category
+  // fallback remains useful for top-level guides, but it makes project and
+  // domain pages repeat the same global catalog at the bottom of every page.
+  const isDetailPage = page.slug.startsWith("project-") || page.slug.startsWith("active-inference-and-");
+  const curatedEntries = entriesForPage(page, curated, 12, { fallbackToCategory: !isDetailPage });
+  const officialEntries = entriesForPage(page, official, 8, { fallbackToCategory: false });
+  const repositoryEntries = entriesForPage(page, repositories, page.slug === "projects" ? 16 : 8, {
+    fallbackToCategory: false,
+  });
+  const hasKeySurfaces = Array.isArray(page.cards) && page.cards.length > 0;
+  const surfaceIds = [
+    hasKeySurfaces ? "key-surfaces" : "",
+    curatedEntries.length ? "resources" : "",
+    officialEntries.length ? "official-pages" : "",
+    repositoryEntries.length ? "repositories" : "",
+    "related-pages",
+  ].filter(Boolean);
   // Every project detail page (slug "project-*") surfaces its registry status
   // here, not only on the /projects/ catalog card, so a visitor landing
   // directly on an archived project's page (search engine, shared link,
@@ -211,7 +228,7 @@ export function publicPage(page) {
     <p>${escapeHtml(tr(page.subtitle))}</p>${archivedProjectNotice}
     ${actionButtons(page.primaryActions, currentDir)}
   </section>
-  ${pageGuide(page, currentDir)}
+  ${pageGuide(page, currentDir, surfaceIds)}
   ${bestNextActions(page, currentDir)}
   ${page.syllabus ? syllabusGrid(page.syllabus, currentDir) : ""}
   <section class="content-band">
@@ -245,26 +262,26 @@ export function publicPage(page) {
   ${page.slug === "projects" ? projectCatalogSection(currentDir) : ""}
   ${page.slug === "programs" ? programCatalogSection(currentDir) : ""}
   ${instituteosFeatureSections(page, currentDir)}
-  <section class="content-band muted" id="key-surfaces">
+  ${hasKeySurfaces ? `<section class="content-band muted" id="key-surfaces">
     ${sectionHeading({ eyebrow: "Key surfaces", title: `${page.title} at a glance` })}
     ${cardGrid(page.cards, currentDir)}
-  </section>
+  </section>` : ""}
   ${page.slug.startsWith("project-") ? relatedProjectsSection(page, currentDir) : ""}
   ${knowledgePreview(page, currentDir)}
   ${page.qanda ? qaGrid(page.qanda, currentDir) : ""}
-  <section class="content-band" id="resources">
+  ${curatedEntries.length ? `<section class="content-band" id="resources">
     ${sectionHeading({ eyebrow: "Related resources", title: "Public links for this page", text: "External links are resolved from the shared registry so visitor-facing destinations stay centralized and checkable." })}
-    ${resourceCards(entriesForPage(page, curated, 12), { currentDir })}
-  </section>
-  <section class="content-band muted" id="official-pages">
+    ${resourceCards(curatedEntries, { currentDir })}
+  </section>` : ""}
+  ${officialEntries.length ? `<section class="content-band muted" id="official-pages">
     ${sectionHeading({ eyebrow: "Official pages", title: "Official Institute surfaces" })}
-    ${resourceCards(entriesForPage(page, official, 8), { compact: true, currentDir })}
-  </section>
-  <section class="content-band" id="repositories">
+    ${resourceCards(officialEntries, { compact: true, currentDir })}
+  </section>` : ""}
+  ${repositoryEntries.length ? `<section class="content-band" id="repositories">
     ${sectionHeading({ eyebrow: "Repositories", title: "Related open-source repositories" })}
-    ${resourceCards(entriesForPage(page, repositories, page.slug === "projects" ? 16 : 8), { compact: true, currentDir })}
+    ${resourceCards(repositoryEntries, { compact: true, currentDir })}
     <p class="section-link"><a href="${hrefForSlug("directory", currentDir, "repositories")}">${escapeHtml(tr("View all {n} public repositories").replace("{n}", siteData.repositories.repositories.length))}</a></p>
-  </section>
+  </section>` : ""}
   <section class="content-band muted" id="related-pages">
     ${sectionHeading({ eyebrow: "Related pages", title: "Continue through the site" })}
     ${relatedPages(page, currentDir)}

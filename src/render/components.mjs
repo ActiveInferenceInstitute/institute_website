@@ -61,7 +61,7 @@ export function breadcrumb(page, currentDir = "") {
   </nav>`;
 }
 
-export function pageGuide(page, currentDir = "") {
+export function pageGuide(page, currentDir = "", surfaceIds = []) {
   const sectionLinks = page.sections
     .map((section) => `<a href="#${escapeHtml(slugifyAnchor(section.heading))}">${escapeHtml(tr(section.heading))}</a>`)
     .join("");
@@ -74,12 +74,12 @@ export function pageGuide(page, currentDir = "") {
       <nav aria-label="${escapeHtml(tr(page.title))} ${escapeHtml(tr("page sections"))}">
         ${sectionLinks}
         <a href="#next-actions">${escapeHtml(tr("Best next actions"))}</a>
-        <a href="#key-surfaces">${escapeHtml(tr("Key surfaces"))}</a>
+        ${surfaceIds.includes("key-surfaces") ? `<a href="#key-surfaces">${escapeHtml(tr("Key surfaces"))}</a>` : ""}
         <a href="${hrefForSlug("knowledge", currentDir)}">${escapeHtml(tr("Open Source Map"))}</a>
-        <a href="#resources">${escapeHtml(tr("Related resources"))}</a>
-        <a href="#official-pages">${escapeHtml(tr("Official pages"))}</a>
-        <a href="#repositories">${escapeHtml(tr("Repositories"))}</a>
-        <a href="#related-pages">${escapeHtml(tr("Related pages"))}</a>
+        ${surfaceIds.includes("resources") ? `<a href="#resources">${escapeHtml(tr("Related resources"))}</a>` : ""}
+        ${surfaceIds.includes("official-pages") ? `<a href="#official-pages">${escapeHtml(tr("Official pages"))}</a>` : ""}
+        ${surfaceIds.includes("repositories") ? `<a href="#repositories">${escapeHtml(tr("Repositories"))}</a>` : ""}
+        ${surfaceIds.includes("related-pages") ? `<a href="#related-pages">${escapeHtml(tr("Related pages"))}</a>` : ""}
       </nav>
     </div>
   </section>`;

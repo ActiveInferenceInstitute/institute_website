@@ -81,7 +81,10 @@ resource resolves to a registered live source.
 - `uniqueEntries(entries)` — dedupe by `sourceId || href`.
 - `recordMatchesPage(record, page)` — true when a record relates to a page via
   `relatedSlugs`, `resourceGroups`, or `externalSourceIds`.
-- `entriesForPage(page, entries, limit = 8)` — filter + cap for a page.
+- `entriesForPage(page, entries, limit = 8, options)` — prefer direct page
+  links, then optionally fall back to the page category (`options.fallbackToCategory`,
+  default `true`). Detail-page renderers disable that fallback so generic catalog
+  cards do not repeat beneath every project/domain page.
 
 ## Rules
 

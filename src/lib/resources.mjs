@@ -75,6 +75,14 @@ export function normalizeResource(resource, sourceKind) {
   };
 }
 
-export function entriesForPage(page, entries, limit = 8) {
+export function entriesForPage(page, entries, limit = 8, { fallbackToCategory = true } = {}) {
+  const direct = entries.filter(
+    (entry) =>
+      (entry.relatedSlugs || []).includes(page.slug) ||
+      (page.externalSourceIds || []).includes(entry.sourceId),
+  );
+  if (direct.length || !fallbackToCategory) {
+    return direct.slice(0, limit);
+  }
   return entries.filter((entry) => recordMatchesPage(entry, page)).slice(0, limit);
 }

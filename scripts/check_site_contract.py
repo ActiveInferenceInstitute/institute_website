@@ -221,6 +221,7 @@ REQUIRED_SOURCE_IDS = {
     "official-measure",
     "official-projects-shortlink",
     "official-symposium-shortlink",
+    "symposium-2026-register",
     "official-textbook-group-shortlink",
     "official-volunteer",
     "shortlink-2025",
@@ -461,6 +462,15 @@ def collect_source_ids(value: object) -> set[str]:
     return found
 
 
+def contains_key(value: object, key: str) -> bool:
+    """Return whether a structured payload contains an exact dictionary key."""
+    if isinstance(value, dict):
+        return key in value or any(contains_key(child, key) for child in value.values())
+    if isinstance(value, list):
+        return any(contains_key(child, key) for child in value)
+    return False
+
+
 def live_manifest(root: Path) -> dict:
     return load_json(root / "src" / "content" / "live-sources.json")
 
@@ -663,6 +673,10 @@ def check_content_model(root: Path, errors: list[str]) -> None:
                 errors.append(f"{slug}: references blocked governance source id {source_id}")
             if source_id not in live_id_set:
                 errors.append(f"{slug}: references missing live source id: {source_id}")
+        if slug == "project-symposium":
+            action_ids = {action.get("sourceId") for action in page.get("primaryActions", [])}
+            if "symposium-2026-register" not in action_ids:
+                errors.append("project-symposium must expose the 2026 participant registration action")
 
     data = instituteos_data(root)
     # The public "projects" feed is the promoted subset of repositories.json
@@ -692,7 +706,7 @@ def check_content_model(root: Path, errors: list[str]) -> None:
     for label, payload in data.items():
         serialized = json.dumps(payload, ensure_ascii=False).lower()
         for blocked in PRIVATE_INSTITUTEOS_KEYS:
-            if f'"{blocked}"' in serialized:
+            if contains_key(payload, blocked):
                 errors.append(f"src/content/instituteos/{label}.json contains private field {blocked}")
         for blocked_text in (
             "coda.io",
@@ -754,15 +768,18 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
 
         if "On this page" not in html:
             errors.append(f"{slug}: missing page-local guide label")
-        if not {"#next-actions", "#resources", "#official-pages", "#repositories", "#related-pages"}.issubset(
-            set(hrefs)
-        ):
-            errors.append(
-                f"{slug}: page guide does not link to next actions, resources, official pages, repositories, and related sections"
-            )
-        missing_ids = CURATED_SECTION_IDS - info.ids
-        if missing_ids:
-            errors.append(f"{slug}: missing section ids {sorted(missing_ids)}")
+        required_hrefs = {"#next-actions", "#related-pages"}
+        if not required_hrefs.issubset(set(hrefs)):
+            errors.append(f"{slug}: page guide is missing required navigation links")
+        # Bottom surfaces are intentionally data-dependent.  A page only gets
+        # a section and guide link when it has page-specific content for that
+        # surface; this prevents every project/domain page from repeating the
+        # same global resource, official-page, and repository catalogs.
+        for section_id in CURATED_SECTION_IDS - {"next-actions", "related-pages"}:
+            has_id = section_id in info.ids
+            has_link = f"#{section_id}" in hrefs
+            if has_id != has_link:
+                errors.append(f"{slug}: guide/section mismatch for {section_id}")
 
         # Clean-URL hrefs for resources/directory are caller-relative from this page.
         resources_href = href_for_slug("resources", current_dir)
@@ -778,11 +795,14 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
         if not any(f'href="{href}"' in related_section for href in related_page_hrefs):
             errors.append(f"{slug}: related-pages section lacks a related internal page link")
 
-        resources_section = section_between(html, 'id="resources"', 'id="official-pages"')
-        if not re.search(r'href="https?://', resources_section):
-            errors.append(f"{slug}: resources section lacks an external verified link")
+        if "resources" in info.ids:
+            resources_section = section_between(html, 'id="resources"', 'id="official-pages"')
+            if not re.search(r'href="https?://', resources_section):
+                errors.append(f"{slug}: resources section lacks an external verified link")
 
         for section_id in ("official-pages", "repositories"):
+            if section_id not in info.ids:
+                continue
             section = section_between(
                 html,
                 f'id="{section_id}"',

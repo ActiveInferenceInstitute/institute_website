@@ -291,11 +291,11 @@
       "name": "videos.json",
       "output_path": "src/content/instituteos/videos.json",
       "record_count": 694,
-      "sha256": "42028fce780c1172b9fc37fc24f169032fbdd1a4985ac0b2cb0c58618423eb2c",
+      "sha256": "b496fd6b463a4d18024b27e7fcc89b4c22064704d80bb8e2f856f064ea9697d2",
       "target": "content"
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-07-26T23:14:46.807452+00:00",
-  "source_fingerprint": "1f0e21cd09cd"
+  "generated_at": "2026-08-09T21:24:20.680377+00:00",
+  "source_fingerprint": "154f28ec37b1"
 }
