@@ -256,6 +256,28 @@
       "promoted": true
     },
     {
+      "sourceId": "symposium-2026-register",
+      "title": "Register for the 2026 Symposium",
+      "type": "official",
+      "group": "Activities",
+      "category": "community",
+      "audience": "newcomer",
+      "tags": [
+        "symposium",
+        "registration",
+        "free",
+        "online"
+      ],
+      "summary": "Free online participant registration for the 6th Applied Active Inference Symposium.",
+      "relatedSlugs": [
+        "project-symposium",
+        "activities",
+        "2026"
+      ],
+      "priority": 30,
+      "promoted": true
+    },
+    {
       "sourceId": "shortlink-2025",
       "title": "2025 planning shortlink",
       "type": "official",

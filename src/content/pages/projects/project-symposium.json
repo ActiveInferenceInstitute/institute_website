@@ -14,6 +14,10 @@
       "sourceId": "symposium-2026-submit"
     },
     {
+      "label": "Register as a participant (free, online)",
+      "sourceId": "symposium-2026-register"
+    },
+    {
       "label": "Email the organizers",
       "href": "mailto:blanket@activeinference.institute"
     }
@@ -136,6 +140,10 @@
         },
         {
           "sourceId": "symposium-2026-submit"
+        },
+        {
+          "sourceId": "symposium-2026-register",
+          "label": "Register as a participant (free, online)"
         }
       ]
     },
@@ -145,6 +153,10 @@
       "links": [
         {
           "sourceId": "symposium-2026-submit"
+        },
+        {
+          "sourceId": "symposium-2026-register",
+          "label": "Register as a participant (free, online)"
         },
         {
           "sourceId": "official-symposium-shortlink"
@@ -203,6 +215,15 @@
       ]
     },
     {
+      "title": "Register to participate",
+      "text": "Join the 6th Symposium online at no cost. Registration is open to participants.",
+      "links": [
+        {
+          "sourceId": "symposium-2026-register"
+        }
+      ]
+    },
+    {
       "title": "Sponsor the Symposium",
       "text": "Three sponsorship levels supporting open Active Inference research and education.",
       "links": [
@@ -224,6 +245,7 @@
   "externalSourceIds": [
     "official-symposium-shortlink",
     "symposium-2026-submit",
+    "symposium-2026-register",
     "symposium-2021-transcript",
     "symposium-2022-transcript",
     "symposium-2022-program",

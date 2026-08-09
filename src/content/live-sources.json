@@ -396,6 +396,16 @@
       "checkedAt": "2026-07-12T21:15:00Z"
     },
     {
+      "id": "symposium-2026-register",
+      "label": "2026 Symposium participant registration",
+      "category": "Activities",
+      "url": "https://registersymposium2026.activeinference.institute/",
+      "sourceBasis": "Public 2026 Symposium participant registration destination supplied by the Institute.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-09T00:00:00Z"
+    },
+    {
       "id": "symposium-2021-video-1",
       "label": "1st Symposium (2021) recording — part 1",
       "category": "Activities",
