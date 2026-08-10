@@ -2830,10 +2830,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "gueststream-104-1",
@@ -2904,10 +2904,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "active-inferant-stream-012-2",
@@ -2978,10 +2978,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "mathstream-012-1",
@@ -3108,10 +3108,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "active-inferant-stream-011-1",
@@ -3177,10 +3177,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "modelstream-017-1",
@@ -3241,10 +3241,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "gueststream-100-1",
@@ -3289,10 +3289,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "gueststream-099-1",
@@ -3337,10 +3337,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-7-meeting-11-chapter-6-part-2",
@@ -3359,10 +3359,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "active-inferant-stream-010-2",
@@ -3433,10 +3433,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "gueststream-098-1",
@@ -4400,10 +4400,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "gueststream-088-1",
@@ -4448,10 +4448,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-6-meeting-20-chapter-9-part-1",
@@ -4470,10 +4470,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "modelstream-014-1",
@@ -4544,10 +4544,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "artstream-003-1",
@@ -4674,10 +4674,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-6-meeting-18-chapter-8-part-1",
@@ -4696,10 +4696,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "modelstream-013-1",
@@ -4774,10 +4774,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-6-meeting-17-applying-actinf-4",
@@ -4796,10 +4796,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "active-inferant-stream-002-1",
@@ -4874,10 +4874,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-6-meeting-16-chapter-7-part-2",
@@ -4896,10 +4896,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "mathstream-011-1",
@@ -4944,10 +4944,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-6-meeting-15-chapter-7-part-1",
@@ -4966,10 +4966,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "gueststream-085-1",
@@ -5070,10 +5070,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-6-meeting-14-applying-actinf-3",
@@ -5092,10 +5092,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "gueststream-082-4",
@@ -5178,10 +5178,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-6-meeting-13-applying-actinf-2",
@@ -5200,10 +5200,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "gueststream-084-1-v2ol0bio0b",
@@ -5330,10 +5330,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 7,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 7
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-6-meeting-12-applying-actinf-1",
@@ -5352,10 +5352,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "mathartstream-4",
@@ -6467,10 +6467,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-5-chapter-10-part-2",
@@ -6489,10 +6489,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "modelstream-010-1",
@@ -6645,10 +6645,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "roundtable-2024-1",
@@ -6839,10 +6839,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-5-chapter-9-part-2",
@@ -6861,10 +6861,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "insights-016",
@@ -6939,10 +6939,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-5-chapter-9-part-1",
@@ -6961,10 +6961,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "insights-015",
@@ -7047,10 +7047,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-5-chapter-8-part-2",
@@ -7069,10 +7069,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "insights-014",
@@ -7169,10 +7169,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-5-chapter-8-part-1",
@@ -7191,10 +7191,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "gueststream-073-1",
@@ -7317,10 +7317,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-5-chapter-7-part-2",
@@ -7339,10 +7339,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "insights-012",
@@ -7421,10 +7421,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-5-chapter-7-part-1",
@@ -7443,10 +7443,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "insights-011",
@@ -7517,10 +7517,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-5-chapter-6-part-2",
@@ -7539,10 +7539,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "gueststream-070-1",
@@ -7639,10 +7639,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 6,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 6
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-5-chapter-6-part-1",
@@ -7661,10 +7661,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "mathstream-008-2",
@@ -8380,10 +8380,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-10-part-2",
@@ -8404,10 +8404,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "livestream-056-2",
@@ -8504,10 +8504,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-10-part-1",
@@ -8528,10 +8528,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "livestream-056-1",
@@ -8576,10 +8576,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-9-part-2",
@@ -8600,10 +8600,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "gueststream-063-1",
@@ -8726,10 +8726,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-9-part-1",
@@ -8750,10 +8750,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "gueststream-062-1",
@@ -8850,10 +8850,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-8-part-2",
@@ -8874,10 +8874,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "livestream-055-0",
@@ -9026,10 +9026,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-8-part-1",
@@ -9050,10 +9050,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "chris-fields-physics-as-information-processing-2023-lecture-6",
@@ -9098,10 +9098,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-7-part-1",
@@ -9122,10 +9122,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-5-chapter-1-part-2",
@@ -9144,10 +9144,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "chris-fields-physics-as-information-processing-2023-discussion-5",
@@ -9213,10 +9213,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-6-part-2",
@@ -9237,10 +9237,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "morphstream-001-1",
@@ -9432,10 +9432,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 5,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 5
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-6-part-1",
@@ -9456,10 +9456,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "mathstream-007-1",
@@ -9960,10 +9960,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "gueststream-053-1",
@@ -10440,10 +10440,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-3-chapter-10-uc5glv7a-q",
@@ -10464,10 +10464,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "gueststream-052-1",
@@ -10544,10 +10544,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-3-chapter-10-eptd-tusqz",
@@ -10568,10 +10568,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-3-chapter-9-fxgq6zbq94",
@@ -10592,10 +10592,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "active-inference-for-the-social-sciences-collective-behavior-lecture",
@@ -10721,10 +10721,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "chris-fields-physics-as-information-processing-2023-discussion-3",
@@ -10934,10 +10934,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "gueststream-049-1",
@@ -10984,10 +10984,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "active-inference-for-the-social-sciences-basics-of-actinf-discussion",
@@ -11269,10 +11269,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "gueststream-048-1",
@@ -11323,10 +11323,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "mathstream-005-1",
@@ -11609,12 +11609,7 @@
       "title": "Lecture 3 — Course information",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [
-        "term-environment",
-        "term-free-energy-principle",
-        "term-observer",
-        "term-representation"
-      ],
+      "ontologyTerms": [],
       "date": "2023-07-13",
       "youtubeUrl": "https://www.youtube.com/watch?v=TOZp_XNYijQ&list=PLNm0u2n1Iwdq0UnnnnkUr446lUz00x6E7&",
       "paperLink": "",
@@ -11631,98 +11626,7 @@
           "entityId": "chris-fields"
         }
       ],
-      "sessions": [
-        {
-          "index": 1,
-          "title": "Introduction",
-          "start": "0:00:00",
-          "sessionName": "TOZp_XNYijQ_sess01"
-        },
-        {
-          "index": 2,
-          "title": "Quantum Information Theory",
-          "start": "0:00:45",
-          "sessionName": "TOZp_XNYijQ_sess02"
-        },
-        {
-          "index": 3,
-          "title": "Last Time",
-          "start": "0:01:18",
-          "sessionName": "TOZp_XNYijQ_sess03"
-        },
-        {
-          "index": 4,
-          "title": "Outline",
-          "start": "0:03:23",
-          "sessionName": "TOZp_XNYijQ_sess04"
-        },
-        {
-          "index": 5,
-          "title": "Reference Frames",
-          "start": "0:03:46",
-          "sessionName": "TOZp_XNYijQ_sess05"
-        },
-        {
-          "index": 6,
-          "title": "Embodied Reference Frames",
-          "start": "0:11:53",
-          "sessionName": "TOZp_XNYijQ_sess06"
-        },
-        {
-          "index": 7,
-          "title": "Representation",
-          "start": "0:17:17",
-          "sessionName": "TOZp_XNYijQ_sess07"
-        },
-        {
-          "index": 8,
-          "title": "Observer",
-          "start": "0:19:22",
-          "sessionName": "TOZp_XNYijQ_sess08"
-        },
-        {
-          "index": 9,
-          "title": "Metabolic Tradeoff",
-          "start": "0:22:53",
-          "sessionName": "TOZp_XNYijQ_sess09"
-        },
-        {
-          "index": 10,
-          "title": "Consequences of Metabolic Tradeoff",
-          "start": "0:24:51",
-          "sessionName": "TOZp_XNYijQ_sess10"
-        },
-        {
-          "index": 11,
-          "title": "Three Directions",
-          "start": "0:29:27",
-          "sessionName": "TOZp_XNYijQ_sess11"
-        },
-        {
-          "index": 12,
-          "title": "Interactive QA",
-          "start": "0:43:08",
-          "sessionName": "TOZp_XNYijQ_sess12"
-        },
-        {
-          "index": 13,
-          "title": "Free Energy Principle",
-          "start": "0:49:49",
-          "sessionName": "TOZp_XNYijQ_sess13"
-        },
-        {
-          "index": 14,
-          "title": "Physical Processes",
-          "start": "0:52:52",
-          "sessionName": "TOZp_XNYijQ_sess14"
-        },
-        {
-          "index": 15,
-          "title": "Environment",
-          "start": "0:55:26",
-          "sessionName": "TOZp_XNYijQ_sess15"
-        }
-      ]
+      "sessions": []
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-2-part-2",
@@ -11743,10 +11647,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-3-chapter-8-hcfyz8hb68",
@@ -11767,10 +11671,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "active-inference-for-the-social-sciences-basics-of-actinf-lecture",
@@ -12211,10 +12115,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-2-part-1",
@@ -12235,10 +12139,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "chris-fields-physics-as-information-processing-2023-discussion-2",
@@ -12247,9 +12151,7 @@
       "title": "Discussion 2 — Course information",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [
-        "term-quantum-mechanics"
-      ],
+      "ontologyTerms": [],
       "date": "2023-07-01",
       "youtubeUrl": "https://www.youtube.com/watch?v=hSj7eOYuZe4&list=PLNm0u2n1Iwdq0UnnnnkUr446lUz00x6E7&",
       "paperLink": "",
@@ -12270,98 +12172,7 @@
           "entityId": "chris-fields"
         }
       ],
-      "sessions": [
-        {
-          "index": 1,
-          "title": "Introduction",
-          "start": "0:00:00",
-          "sessionName": "hSj7eOYuZe4_sess01"
-        },
-        {
-          "index": 2,
-          "title": "Physical Degrees of Freedom",
-          "start": "0:03:00",
-          "sessionName": "hSj7eOYuZe4_sess02"
-        },
-        {
-          "index": 3,
-          "title": "Internal and External Time",
-          "start": "0:06:00",
-          "sessionName": "hSj7eOYuZe4_sess03"
-        },
-        {
-          "index": 4,
-          "title": "Mechanical and Theoretical",
-          "start": "0:09:00",
-          "sessionName": "hSj7eOYuZe4_sess04"
-        },
-        {
-          "index": 5,
-          "title": "Reference Frame",
-          "start": "0:15:25",
-          "sessionName": "hSj7eOYuZe4_sess05"
-        },
-        {
-          "index": 6,
-          "title": "Computer Science",
-          "start": "0:16:52",
-          "sessionName": "hSj7eOYuZe4_sess06"
-        },
-        {
-          "index": 7,
-          "title": "Painting",
-          "start": "0:18:27",
-          "sessionName": "hSj7eOYuZe4_sess07"
-        },
-        {
-          "index": 8,
-          "title": "Preparation Measurement",
-          "start": "0:19:41",
-          "sessionName": "hSj7eOYuZe4_sess08"
-        },
-        {
-          "index": 9,
-          "title": "Carpet is Binary",
-          "start": "0:24:28",
-          "sessionName": "hSj7eOYuZe4_sess09"
-        },
-        {
-          "index": 10,
-          "title": "Carpet is a Wave",
-          "start": "0:26:13",
-          "sessionName": "hSj7eOYuZe4_sess10"
-        },
-        {
-          "index": 11,
-          "title": "Asking a Question",
-          "start": "0:30:56",
-          "sessionName": "hSj7eOYuZe4_sess11"
-        },
-        {
-          "index": 12,
-          "title": "Binary Questions",
-          "start": "0:32:22",
-          "sessionName": "hSj7eOYuZe4_sess12"
-        },
-        {
-          "index": 13,
-          "title": "OnOff Comparison",
-          "start": "0:40:38",
-          "sessionName": "hSj7eOYuZe4_sess13"
-        },
-        {
-          "index": 14,
-          "title": "Quantum Mechanics",
-          "start": "0:43:27",
-          "sessionName": "hSj7eOYuZe4_sess14"
-        },
-        {
-          "index": 15,
-          "title": "Questions",
-          "start": "0:46:13",
-          "sessionName": "hSj7eOYuZe4_sess15"
-        }
-      ]
+      "sessions": []
     },
     {
       "id": "roundtable-2023-2",
@@ -12548,10 +12359,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-3-chapter-7-rqp-mxlwsz",
@@ -12572,10 +12383,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "gueststream-046-1",
@@ -12830,10 +12641,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-4-chapter-1-part-1",
@@ -12854,10 +12665,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "gueststream-045-1",
@@ -13136,9 +12947,7 @@
       "title": "Lecture 2 — Course information",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [
-        "term-quantum-mechanics"
-      ],
+      "ontologyTerms": [],
       "date": "2023-06-15",
       "youtubeUrl": "https://www.youtube.com/watch?v=WkWIqpxWRM4&list=PLNm0u2n1Iwdq0UnnnnkUr446lUz00x6E7",
       "paperLink": "",
@@ -13155,110 +12964,7 @@
           "entityId": "chris-fields"
         }
       ],
-      "sessions": [
-        {
-          "index": 1,
-          "title": "Introduction",
-          "start": "0:00:00",
-          "sessionName": "WkWIqpxWRM4_sess01"
-        },
-        {
-          "index": 2,
-          "title": "Quantum Theory",
-          "start": "0:02:54",
-          "sessionName": "WkWIqpxWRM4_sess02"
-        },
-        {
-          "index": 3,
-          "title": "Quantum Mechanics",
-          "start": "0:04:09",
-          "sessionName": "WkWIqpxWRM4_sess03"
-        },
-        {
-          "index": 4,
-          "title": "Simple Questions",
-          "start": "0:05:19",
-          "sessionName": "WkWIqpxWRM4_sess04"
-        },
-        {
-          "index": 5,
-          "title": "Action",
-          "start": "0:07:44",
-          "sessionName": "WkWIqpxWRM4_sess05"
-        },
-        {
-          "index": 6,
-          "title": "Example",
-          "start": "0:11:07",
-          "sessionName": "WkWIqpxWRM4_sess06"
-        },
-        {
-          "index": 7,
-          "title": "What to be asked",
-          "start": "0:14:49",
-          "sessionName": "WkWIqpxWRM4_sess07"
-        },
-        {
-          "index": 8,
-          "title": "Shared language",
-          "start": "0:17:36",
-          "sessionName": "WkWIqpxWRM4_sess08"
-        },
-        {
-          "index": 9,
-          "title": "Hamiltonian operator",
-          "start": "0:20:32",
-          "sessionName": "WkWIqpxWRM4_sess09"
-        },
-        {
-          "index": 10,
-          "title": "Operator M",
-          "start": "0:25:04",
-          "sessionName": "WkWIqpxWRM4_sess10"
-        },
-        {
-          "index": 11,
-          "title": "Alice and Bob",
-          "start": "0:34:16",
-          "sessionName": "WkWIqpxWRM4_sess11"
-        },
-        {
-          "index": 12,
-          "title": "holographic principle",
-          "start": "0:38:26",
-          "sessionName": "WkWIqpxWRM4_sess12"
-        },
-        {
-          "index": 13,
-          "title": "unitary evolution",
-          "start": "0:42:01",
-          "sessionName": "WkWIqpxWRM4_sess13"
-        },
-        {
-          "index": 14,
-          "title": "summary",
-          "start": "0:46:39",
-          "sessionName": "WkWIqpxWRM4_sess14"
-        },
-        {
-          "index": 15,
-          "title": "free choice of reference frames",
-          "start": "0:48:35",
-          "sessionName": "WkWIqpxWRM4_sess15"
-        },
-        {
-          "index": 16,
-          "title": "Superpositions",
-          "start": "0:49:43",
-          "sessionName": "WkWIqpxWRM4_sess16"
-        },
-        {
-          "index": 17,
-          "title": "Conclusion",
-          "start": "0:55:24",
-          "sessionName": "WkWIqpxWRM4_sess17"
-        }
-      ]
+      "sessions": []
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-3-chapter-6-ycmhvkuqqb",
@@ -13279,10 +12985,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "gueststream-044-1",
@@ -13434,10 +13140,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 4,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 4
     },
     {
       "id": "chris-fields-physics-as-information-processing-2023-discussion-1",
@@ -13446,9 +13152,7 @@
       "title": "Discussion 1 — Course information",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [
-        "term-information"
-      ],
+      "ontologyTerms": [],
       "date": "2023-06-03",
       "youtubeUrl": "https://www.youtube.com/watch?v=rOoTkgLI1Z8&list=PLNm0u2n1Iwdq0UnnnnkUr446lUz00x6E7",
       "paperLink": "",
@@ -13465,110 +13169,7 @@
           "entityId": "ander-aguirre"
         }
       ],
-      "sessions": [
-        {
-          "index": 1,
-          "title": "Introduction",
-          "start": "0:00:00",
-          "sessionName": "rOoTkgLI1Z8_sess01"
-        },
-        {
-          "index": 2,
-          "title": "Ander Aguirre",
-          "start": "0:01:00",
-          "sessionName": "rOoTkgLI1Z8_sess02"
-        },
-        {
-          "index": 3,
-          "title": "Ross",
-          "start": "0:02:08",
-          "sessionName": "rOoTkgLI1Z8_sess03"
-        },
-        {
-          "index": 4,
-          "title": "Avo",
-          "start": "0:02:46",
-          "sessionName": "rOoTkgLI1Z8_sess04"
-        },
-        {
-          "index": 5,
-          "title": "Alexia",
-          "start": "0:03:39",
-          "sessionName": "rOoTkgLI1Z8_sess05"
-        },
-        {
-          "index": 6,
-          "title": "Francesco",
-          "start": "0:04:57",
-          "sessionName": "rOoTkgLI1Z8_sess06"
-        },
-        {
-          "index": 7,
-          "title": "Corby",
-          "start": "0:06:00",
-          "sessionName": "rOoTkgLI1Z8_sess07"
-        },
-        {
-          "index": 8,
-          "title": "Daniel",
-          "start": "0:07:37",
-          "sessionName": "rOoTkgLI1Z8_sess08"
-        },
-        {
-          "index": 9,
-          "title": "Alex",
-          "start": "0:14:14",
-          "sessionName": "rOoTkgLI1Z8_sess09"
-        },
-        {
-          "index": 10,
-          "title": "Information",
-          "start": "0:22:04",
-          "sessionName": "rOoTkgLI1Z8_sess10"
-        },
-        {
-          "index": 11,
-          "title": "Questions",
-          "start": "0:23:04",
-          "sessionName": "rOoTkgLI1Z8_sess11"
-        },
-        {
-          "index": 12,
-          "title": "Wick Rotation",
-          "start": "0:35:21",
-          "sessionName": "rOoTkgLI1Z8_sess12"
-        },
-        {
-          "index": 13,
-          "title": "Local Time",
-          "start": "0:38:31",
-          "sessionName": "rOoTkgLI1Z8_sess13"
-        },
-        {
-          "index": 14,
-          "title": "Space Time",
-          "start": "0:44:31",
-          "sessionName": "rOoTkgLI1Z8_sess14"
-        },
-        {
-          "index": 15,
-          "title": "Information Processing",
-          "start": "0:51:36",
-          "sessionName": "rOoTkgLI1Z8_sess15"
-        },
-        {
-          "index": 16,
-          "title": "Materialist Dualism",
-          "start": "0:55:04",
-          "sessionName": "rOoTkgLI1Z8_sess16"
-        },
-        {
-          "index": 17,
-          "title": "Two Types of Information Processing",
-          "start": "0:57:17",
-          "sessionName": "rOoTkgLI1Z8_sess17"
-        }
-      ]
+      "sessions": []
     },
     {
       "id": "livestream-054-0",
@@ -13971,10 +13572,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-chapter-6-welcome-back",
@@ -13995,10 +13596,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "roundtable-2023-1",
@@ -14282,10 +13883,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-chapter-10-3c2ai7qwwm",
@@ -14306,10 +13907,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "gueststream-040-1",
@@ -14521,10 +14122,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-chapter-10-lnirwqd4ef",
@@ -14545,10 +14146,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "livestream-053-0",
@@ -14616,7 +14217,146 @@
           "entityId": "guillaume-dumas"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "Introduction",
+          "start": "0:00:00",
+          "sessionName": "jXEJO_5g0ho_sess01"
+        },
+        {
+          "index": 2,
+          "title": "The Hard Problem of Consciousness",
+          "start": "0:02:20",
+          "sessionName": "jXEJO_5g0ho_sess02"
+        },
+        {
+          "index": 3,
+          "title": "The Knowledge Argument",
+          "start": "0:04:28",
+          "sessionName": "jXEJO_5g0ho_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Presentation Structure",
+          "start": "0:06:38",
+          "sessionName": "jXEJO_5g0ho_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Why Richness and Ineffability",
+          "start": "0:08:10",
+          "sessionName": "jXEJO_5g0ho_sess05"
+        },
+        {
+          "index": 6,
+          "title": "State Attracters",
+          "start": "0:11:17",
+          "sessionName": "jXEJO_5g0ho_sess06"
+        },
+        {
+          "index": 7,
+          "title": "Global Workspace Theory",
+          "start": "0:15:21",
+          "sessionName": "jXEJO_5g0ho_sess07"
+        },
+        {
+          "index": 8,
+          "title": "Other Related Arguments",
+          "start": "0:17:55",
+          "sessionName": "jXEJO_5g0ho_sess08"
+        },
+        {
+          "index": 9,
+          "title": "Information Theory",
+          "start": "0:18:52",
+          "sessionName": "jXEJO_5g0ho_sess09"
+        },
+        {
+          "index": 10,
+          "title": "Source of Ineffability",
+          "start": "0:22:42",
+          "sessionName": "jXEJO_5g0ho_sess10"
+        },
+        {
+          "index": 11,
+          "title": "Recap",
+          "start": "0:28:33",
+          "sessionName": "jXEJO_5g0ho_sess11"
+        },
+        {
+          "index": 12,
+          "title": "Conscious Experience and Working Memory",
+          "start": "0:29:09",
+          "sessionName": "jXEJO_5g0ho_sess12"
+        },
+        {
+          "index": 13,
+          "title": "Generalizing Ineffability",
+          "start": "0:30:27",
+          "sessionName": "jXEJO_5g0ho_sess13"
+        },
+        {
+          "index": 14,
+          "title": "Pathways",
+          "start": "0:30:31",
+          "sessionName": "jXEJO_5g0ho_sess14"
+        },
+        {
+          "index": 15,
+          "title": "Interpersonal Communication",
+          "start": "0:33:00",
+          "sessionName": "jXEJO_5g0ho_sess15"
+        },
+        {
+          "index": 16,
+          "title": "Congo of Complexity",
+          "start": "0:33:35",
+          "sessionName": "jXEJO_5g0ho_sess16"
+        },
+        {
+          "index": 17,
+          "title": "Results",
+          "start": "0:38:00",
+          "sessionName": "jXEJO_5g0ho_sess17"
+        },
+        {
+          "index": 18,
+          "title": "Cognitive dissimilarity",
+          "start": "0:40:43",
+          "sessionName": "jXEJO_5g0ho_sess18"
+        },
+        {
+          "index": 19,
+          "title": "Theory of Mind",
+          "start": "0:41:54",
+          "sessionName": "jXEJO_5g0ho_sess19"
+        },
+        {
+          "index": 20,
+          "title": "Grounding Problem",
+          "start": "0:43:33",
+          "sessionName": "jXEJO_5g0ho_sess20"
+        },
+        {
+          "index": 21,
+          "title": "Observations of Spelling",
+          "start": "0:45:39",
+          "sessionName": "jXEJO_5g0ho_sess21"
+        },
+        {
+          "index": 22,
+          "title": "Future Directions",
+          "start": "0:49:46",
+          "sessionName": "jXEJO_5g0ho_sess22"
+        },
+        {
+          "index": 23,
+          "title": "Opening Remarks",
+          "start": "0:51:57",
+          "sessionName": "jXEJO_5g0ho_sess23"
+        }
+      ]
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-3-chapter-4-pfu3epitov",
@@ -14637,10 +14377,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-chapter-9-dzj6jctuyg",
@@ -14661,10 +14401,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "bookstream-001-010",
@@ -14711,10 +14451,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "livestream-052-2",
@@ -14787,10 +14527,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-3-chapter-3-x9l9hagr76",
@@ -14811,10 +14551,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "livestream-052-1",
@@ -14861,10 +14601,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "livestream-052-0",
@@ -14963,10 +14703,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-chapter-8-sabylhzk-v",
@@ -14987,10 +14727,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-3-chapter-2-rh-kgcs6xh",
@@ -15011,10 +14751,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-chapter-7-hs0gzgrl6r",
@@ -15035,10 +14775,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "bookstream-001-2",
@@ -15170,10 +14910,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "gueststream-036-1",
@@ -15329,10 +15069,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "bookstream-001-09",
@@ -15404,10 +15144,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-chapter-6-j9a5u2m131",
@@ -15428,10 +15168,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "bookstream-001-08",
@@ -15674,10 +15414,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 3,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 3
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-chapter-6-jhboc79lec",
@@ -15698,10 +15438,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "gueststream-035-1",
@@ -15813,7 +15553,134 @@
           "entityId": "karl-j-friston"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "Introduction",
+          "start": "0:00:00",
+          "sessionName": "uX8iSoDR83g_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Welcome",
+          "start": "0:00:35",
+          "sessionName": "uX8iSoDR83g_sess02"
+        },
+        {
+          "index": 3,
+          "title": "Installing pymdp",
+          "start": "0:02:18",
+          "sessionName": "uX8iSoDR83g_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Review",
+          "start": "0:03:25",
+          "sessionName": "uX8iSoDR83g_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Graphical Model",
+          "start": "0:05:25",
+          "sessionName": "uX8iSoDR83g_sess05"
+        },
+        {
+          "index": 6,
+          "title": "Factorization",
+          "start": "0:08:15",
+          "sessionName": "uX8iSoDR83g_sess06"
+        },
+        {
+          "index": 7,
+          "title": "State Space Representation",
+          "start": "0:11:18",
+          "sessionName": "uX8iSoDR83g_sess07"
+        },
+        {
+          "index": 8,
+          "title": "Collab",
+          "start": "0:15:28",
+          "sessionName": "uX8iSoDR83g_sess08"
+        },
+        {
+          "index": 9,
+          "title": "Hidden State Factors",
+          "start": "0:19:53",
+          "sessionName": "uX8iSoDR83g_sess09"
+        },
+        {
+          "index": 10,
+          "title": "Unwrapped Representations",
+          "start": "0:24:48",
+          "sessionName": "uX8iSoDR83g_sess10"
+        },
+        {
+          "index": 11,
+          "title": "QuestionsComments",
+          "start": "0:30:18",
+          "sessionName": "uX8iSoDR83g_sess11"
+        },
+        {
+          "index": 12,
+          "title": "Feedback loops",
+          "start": "0:40:48",
+          "sessionName": "uX8iSoDR83g_sess12"
+        },
+        {
+          "index": 13,
+          "title": "Graphs",
+          "start": "0:41:48",
+          "sessionName": "uX8iSoDR83g_sess13"
+        },
+        {
+          "index": 14,
+          "title": "Why do you do that",
+          "start": "0:45:48",
+          "sessionName": "uX8iSoDR83g_sess14"
+        },
+        {
+          "index": 15,
+          "title": "Endorsement comments",
+          "start": "0:46:48",
+          "sessionName": "uX8iSoDR83g_sess15"
+        },
+        {
+          "index": 16,
+          "title": "Semimarkovian Dynamics",
+          "start": "0:49:48",
+          "sessionName": "uX8iSoDR83g_sess16"
+        },
+        {
+          "index": 17,
+          "title": "Initial States",
+          "start": "0:51:48",
+          "sessionName": "uX8iSoDR83g_sess17"
+        },
+        {
+          "index": 18,
+          "title": "Multiarm Bandit",
+          "start": "0:54:48",
+          "sessionName": "uX8iSoDR83g_sess18"
+        },
+        {
+          "index": 19,
+          "title": "Observation Modalities",
+          "start": "0:55:48",
+          "sessionName": "uX8iSoDR83g_sess19"
+        },
+        {
+          "index": 20,
+          "title": "Hidden State Factor Levels",
+          "start": "0:57:48",
+          "sessionName": "uX8iSoDR83g_sess20"
+        },
+        {
+          "index": 21,
+          "title": "Choice Control State",
+          "start": "0:58:48",
+          "sessionName": "uX8iSoDR83g_sess21"
+        }
+      ]
     },
     {
       "id": "gueststream-033-1",
@@ -16700,10 +16567,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-10-2uvj51ekhq",
@@ -16724,10 +16591,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "livestream-051-2",
@@ -16774,10 +16641,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-10-eqffjjrqbr",
@@ -16798,10 +16665,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "orgstream-003-1",
@@ -17031,10 +16898,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-9-zn1xbaxrh3",
@@ -17055,10 +16922,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "livestream-051-0",
@@ -17105,10 +16972,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-9-fkcvxrh6yb",
@@ -17129,7 +16996,6 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
       "sessions": [
@@ -17175,7 +17041,8 @@
           "start": "0:47:57",
           "sessionName": "HCuGxvefPOE_sess07"
         }
-      ]
+      ],
+      "cohort": 1
     },
     {
       "id": "livestream-050-1",
@@ -17284,7 +17151,6 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
       "sessions": [
@@ -17354,7 +17220,8 @@
           "start": "0:44:29",
           "sessionName": "QvAApEfYBmk_sess11"
         }
-      ]
+      ],
+      "cohort": 1
     },
     {
       "id": "gueststream-029-1",
@@ -17453,10 +17320,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-8-mypbybalsa",
@@ -17477,10 +17344,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "livestream-049-1",
@@ -17489,7 +17356,10 @@
       "title": "A Worked Example of the Bayesian Mechanics of Classical Objects",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [],
+      "ontologyTerms": [
+        "term-bayesian-mechanics",
+        "term-quantum-mechanics"
+      ],
       "date": "2022-10-05",
       "youtubeUrl": "https://youtu.be/dAtC-Enmc8M",
       "paperLink": "",
@@ -17506,7 +17376,80 @@
           "entityId": "dalton-sakthivadivel"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 24,
+          "title": "Introduction",
+          "start": "0:00:00",
+          "sessionName": "dAtC-Enmc8M_sess24"
+        },
+        {
+          "index": 25,
+          "title": "Introductions",
+          "start": "0:01:45",
+          "sessionName": "dAtC-Enmc8M_sess25"
+        },
+        {
+          "index": 26,
+          "title": "Context",
+          "start": "0:10:00",
+          "sessionName": "dAtC-Enmc8M_sess26"
+        },
+        {
+          "index": 27,
+          "title": "Dynamics Mechanics and Principles",
+          "start": "0:10:30",
+          "sessionName": "dAtC-Enmc8M_sess27"
+        },
+        {
+          "index": 28,
+          "title": "Dynamics vs Mechanics",
+          "start": "0:11:00",
+          "sessionName": "dAtC-Enmc8M_sess28"
+        },
+        {
+          "index": 29,
+          "title": "Mechanics",
+          "start": "0:12:40",
+          "sessionName": "dAtC-Enmc8M_sess29"
+        },
+        {
+          "index": 30,
+          "title": "G Theory",
+          "start": "0:25:00",
+          "sessionName": "dAtC-Enmc8M_sess30"
+        },
+        {
+          "index": 31,
+          "title": "Bayesian Mechanics",
+          "start": "0:32:00",
+          "sessionName": "dAtC-Enmc8M_sess31"
+        },
+        {
+          "index": 32,
+          "title": "Notes",
+          "start": "0:37:49",
+          "sessionName": "dAtC-Enmc8M_sess32"
+        },
+        {
+          "index": 33,
+          "title": "Classical Mechanics",
+          "start": "0:40:34",
+          "sessionName": "dAtC-Enmc8M_sess33"
+        },
+        {
+          "index": 34,
+          "title": "Statistical Mechanics",
+          "start": "0:48:34",
+          "sessionName": "dAtC-Enmc8M_sess34"
+        },
+        {
+          "index": 35,
+          "title": "Quantum Mechanics",
+          "start": "0:55:49",
+          "sessionName": "dAtC-Enmc8M_sess35"
+        }
+      ]
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-chapter-2-kovhxdona4",
@@ -17527,10 +17470,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-7-nwh0-gdfk",
@@ -17551,10 +17494,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "livestream-049-0",
@@ -17563,7 +17506,9 @@
       "title": "A Worked Example of the Bayesian Mechanics of Classical Objects",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [],
+      "ontologyTerms": [
+        "term-bayesian-mechanics"
+      ],
       "date": "2022-09-30",
       "youtubeUrl": "https://youtu.be/OtX2Fpzn7KA",
       "paperLink": "",
@@ -17580,7 +17525,146 @@
           "entityId": "dalton-sakthivadivel"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "OtX2Fpzn7KA_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Introductions and Warm-Ups",
+          "start": "0:02:51",
+          "sessionName": "OtX2Fpzn7KA_sess02"
+        },
+        {
+          "index": 3,
+          "title": "What Is Bayesian Mechanics",
+          "start": "0:08:28",
+          "sessionName": "OtX2Fpzn7KA_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Relevance of Bayesian Mechanics",
+          "start": "0:08:35",
+          "sessionName": "OtX2Fpzn7KA_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Derivation of Classical Physics from the Principle of Constraint Maximum Entropy",
+          "start": "0:15:34",
+          "sessionName": "OtX2Fpzn7KA_sess05"
+        },
+        {
+          "index": 6,
+          "title": "Introduction",
+          "start": "0:17:31",
+          "sessionName": "OtX2Fpzn7KA_sess06"
+        },
+        {
+          "index": 7,
+          "title": "Section 4 Is a Question of Quantum Ontology",
+          "start": "0:18:07",
+          "sessionName": "OtX2Fpzn7KA_sess07"
+        },
+        {
+          "index": 8,
+          "title": "Historical Perspectives",
+          "start": "0:21:12",
+          "sessionName": "OtX2Fpzn7KA_sess08"
+        },
+        {
+          "index": 9,
+          "title": "Introduction of the Concept of Blanket Index",
+          "start": "0:49:50",
+          "sessionName": "OtX2Fpzn7KA_sess09"
+        },
+        {
+          "index": 10,
+          "title": "Three Faces of Bayesian Mechanics",
+          "start": "0:54:17",
+          "sessionName": "OtX2Fpzn7KA_sess10"
+        },
+        {
+          "index": 11,
+          "title": "The Dynamics of a System",
+          "start": "0:56:50",
+          "sessionName": "OtX2Fpzn7KA_sess11"
+        },
+        {
+          "index": 12,
+          "title": "The Principle of Stationary Action",
+          "start": "1:01:26",
+          "sessionName": "OtX2Fpzn7KA_sess12"
+        },
+        {
+          "index": 13,
+          "title": "Newtonian Mechanics",
+          "start": "1:05:31",
+          "sessionName": "OtX2Fpzn7KA_sess13"
+        },
+        {
+          "index": 14,
+          "title": "James's Maximum Entropy Principle",
+          "start": "1:10:37",
+          "sessionName": "OtX2Fpzn7KA_sess14"
+        },
+        {
+          "index": 15,
+          "title": "The Heisenberg's Uncertainty Principle",
+          "start": "1:12:34",
+          "sessionName": "OtX2Fpzn7KA_sess15"
+        },
+        {
+          "index": 16,
+          "title": "Bayesian Mechanics",
+          "start": "1:17:23",
+          "sessionName": "OtX2Fpzn7KA_sess16"
+        },
+        {
+          "index": 17,
+          "title": "The Constraints Maximum Entropy Principle",
+          "start": "1:20:10",
+          "sessionName": "OtX2Fpzn7KA_sess17"
+        },
+        {
+          "index": 18,
+          "title": "Three Phases of Bayesian Mechanics",
+          "start": "1:23:17",
+          "sessionName": "OtX2Fpzn7KA_sess18"
+        },
+        {
+          "index": 19,
+          "title": "Section 2 Classical Physics",
+          "start": "1:26:03",
+          "sessionName": "OtX2Fpzn7KA_sess19"
+        },
+        {
+          "index": 20,
+          "title": "Mode Matching",
+          "start": "1:31:48",
+          "sessionName": "OtX2Fpzn7KA_sess20"
+        },
+        {
+          "index": 21,
+          "title": "Mode Tracking",
+          "start": "1:33:59",
+          "sessionName": "OtX2Fpzn7KA_sess21"
+        },
+        {
+          "index": 22,
+          "title": "Terminal Mode Matching",
+          "start": "1:34:49",
+          "sessionName": "OtX2Fpzn7KA_sess22"
+        },
+        {
+          "index": 23,
+          "title": "Section Seven",
+          "start": "1:38:21",
+          "sessionName": "OtX2Fpzn7KA_sess23"
+        }
+      ]
     },
     {
       "id": "roundtable-2022-3",
@@ -17601,7 +17685,32 @@
       "thumbnailImage": "",
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "DJ9n6a8mMzM_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Welcome to Active Inference Institute! The Active Inference Institute is dedicated to learning",
+          "start": "0:00:38",
+          "sessionName": "DJ9n6a8mMzM_sess02"
+        },
+        {
+          "index": 3,
+          "title": "Institute Structure Learning",
+          "start": "0:07:20",
+          "sessionName": "DJ9n6a8mMzM_sess03"
+        },
+        {
+          "index": 4,
+          "title": "What might a good understanding enable?",
+          "start": "0:48:12",
+          "sessionName": "DJ9n6a8mMzM_sess04"
+        }
+      ]
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-chapter-2-ua1q9sw5ce",
@@ -17622,10 +17731,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-7-tah6ibrpls",
@@ -17646,10 +17755,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-chapter-1-4by6beqa2p",
@@ -17670,10 +17779,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-6-w1tawabbuw",
@@ -17694,10 +17803,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "twitter-spaces-002-1",
@@ -17718,7 +17827,32 @@
       "thumbnailImage": "",
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "Sb8A0jNzWPE_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Description of Web3",
+          "start": "0:01:08",
+          "sessionName": "Sb8A0jNzWPE_sess02"
+        },
+        {
+          "index": 3,
+          "title": "Top-Down Structural Modeling and the Bottom-Up Modeling",
+          "start": "0:08:38",
+          "sessionName": "Sb8A0jNzWPE_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Formalism of Active Inference",
+          "start": "0:24:20",
+          "sessionName": "Sb8A0jNzWPE_sess04"
+        }
+      ]
     },
     {
       "id": "livestream-048-2",
@@ -17753,7 +17887,9 @@
       "title": "Category Theory",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [],
+      "ontologyTerms": [
+        "term-category-theory"
+      ],
       "date": "2022-09-13",
       "youtubeUrl": "https://youtu.be/aN1GXOZp6xY",
       "paperLink": "",
@@ -17770,7 +17906,116 @@
           "entityId": "david-spivak"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "aN1GXOZp6xY_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Applied Category Theory",
+          "start": "0:02:44",
+          "sessionName": "aN1GXOZp6xY_sess02"
+        },
+        {
+          "index": 3,
+          "title": "Arrangements and Dynamics",
+          "start": "0:40:28",
+          "sessionName": "aN1GXOZp6xY_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Dynamical System",
+          "start": "0:44:21",
+          "sessionName": "aN1GXOZp6xY_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Digital Circuits and Control Systems",
+          "start": "0:45:53",
+          "sessionName": "aN1GXOZp6xY_sess05"
+        },
+        {
+          "index": 6,
+          "title": "Control Systems",
+          "start": "0:47:53",
+          "sessionName": "aN1GXOZp6xY_sess06"
+        },
+        {
+          "index": 7,
+          "title": "Deep Neural Networks",
+          "start": "0:50:46",
+          "sessionName": "aN1GXOZp6xY_sess07"
+        },
+        {
+          "index": 8,
+          "title": "Dynamic Organizational Structure",
+          "start": "0:50:55",
+          "sessionName": "aN1GXOZp6xY_sess08"
+        },
+        {
+          "index": 9,
+          "title": "Computational Boundary of the Self",
+          "start": "1:00:12",
+          "sessionName": "aN1GXOZp6xY_sess09"
+        },
+        {
+          "index": 10,
+          "title": "Language of Category Theory",
+          "start": "1:01:41",
+          "sessionName": "aN1GXOZp6xY_sess10"
+        },
+        {
+          "index": 11,
+          "title": "What Is the Application of Category Theory",
+          "start": "1:02:47",
+          "sessionName": "aN1GXOZp6xY_sess11"
+        },
+        {
+          "index": 12,
+          "title": "Category Theory",
+          "start": "1:05:41",
+          "sessionName": "aN1GXOZp6xY_sess12"
+        },
+        {
+          "index": 13,
+          "title": "Jeffrey Epstein",
+          "start": "1:07:13",
+          "sessionName": "aN1GXOZp6xY_sess13"
+        },
+        {
+          "index": 14,
+          "title": "Is It Possible To Conceive a Level of Abstraction Even More Meta than Category Theory in Mathematics",
+          "start": "1:29:36",
+          "sessionName": "aN1GXOZp6xY_sess14"
+        },
+        {
+          "index": 15,
+          "title": "What Does Nesting and Enclosure Mean",
+          "start": "1:32:17",
+          "sessionName": "aN1GXOZp6xY_sess15"
+        },
+        {
+          "index": 16,
+          "title": "Physical Arrangement and Logical Arrangement",
+          "start": "1:32:56",
+          "sessionName": "aN1GXOZp6xY_sess16"
+        },
+        {
+          "index": 17,
+          "title": "Layer of Temporal Nesting",
+          "start": "1:35:49",
+          "sessionName": "aN1GXOZp6xY_sess17"
+        },
+        {
+          "index": 18,
+          "title": "Spike Time Dependent Plasticity",
+          "start": "1:43:14",
+          "sessionName": "aN1GXOZp6xY_sess18"
+        }
+      ]
     },
     {
       "id": "gueststream-027-1",
@@ -17893,10 +18138,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-6-git8hyomff",
@@ -17917,10 +18162,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "livestream-048-1",
@@ -17972,7 +18217,50 @@
           "entityId": "remi-tison"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "zqiZjjY9H7M_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Roadmap",
+          "start": "0:07:28",
+          "sessionName": "zqiZjjY9H7M_sess02"
+        },
+        {
+          "index": 3,
+          "title": "Dynamical Systems Model",
+          "start": "0:14:34",
+          "sessionName": "zqiZjjY9H7M_sess03"
+        },
+        {
+          "index": 4,
+          "title": "The Ecological Interpretation of Active Inference",
+          "start": "0:33:38",
+          "sessionName": "zqiZjjY9H7M_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Conclusion",
+          "start": "0:49:31",
+          "sessionName": "zqiZjjY9H7M_sess05"
+        },
+        {
+          "index": 6,
+          "title": "Model of How To Frame Complex Ecosystems",
+          "start": "0:56:12",
+          "sessionName": "zqiZjjY9H7M_sess06"
+        },
+        {
+          "index": 7,
+          "title": "Final Final Thoughts",
+          "start": "1:04:56",
+          "sessionName": "zqiZjjY9H7M_sess07"
+        }
+      ]
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-2-onboarding",
@@ -17993,10 +18281,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 2,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 2
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-review-welcome",
@@ -18017,10 +18305,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "modelstream-006-1",
@@ -18029,7 +18317,9 @@
       "title": "Branching Time Active Inference: the theory and its generality",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [],
+      "ontologyTerms": [
+        "term-active-inference"
+      ],
       "date": "2022-09-01",
       "youtubeUrl": "https://youtu.be/xBKRLG97cz4",
       "paperLink": "",
@@ -18046,7 +18336,146 @@
           "entityId": "theophile-champion"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "xBKRLG97cz4_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Active Inference",
+          "start": "0:02:36",
+          "sessionName": "xBKRLG97cz4_sess02"
+        },
+        {
+          "index": 3,
+          "title": "The Entropy of the Likelihood Mapping",
+          "start": "0:05:03",
+          "sessionName": "xBKRLG97cz4_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Exact Inference",
+          "start": "0:06:31",
+          "sessionName": "xBKRLG97cz4_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Practical Example",
+          "start": "0:11:22",
+          "sessionName": "xBKRLG97cz4_sess05"
+        },
+        {
+          "index": 6,
+          "title": "Community Index",
+          "start": "0:12:26",
+          "sessionName": "xBKRLG97cz4_sess06"
+        },
+        {
+          "index": 7,
+          "title": "Multi-Clarative Research",
+          "start": "0:13:14",
+          "sessionName": "xBKRLG97cz4_sess07"
+        },
+        {
+          "index": 8,
+          "title": "What Is Bias and Filtering",
+          "start": "0:23:16",
+          "sessionName": "xBKRLG97cz4_sess08"
+        },
+        {
+          "index": 9,
+          "title": "Definition of the Generality Model",
+          "start": "0:26:16",
+          "sessionName": "xBKRLG97cz4_sess09"
+        },
+        {
+          "index": 10,
+          "title": "Performance",
+          "start": "0:26:46",
+          "sessionName": "xBKRLG97cz4_sess10"
+        },
+        {
+          "index": 11,
+          "title": "What Is Belief Propagation",
+          "start": "0:27:45",
+          "sessionName": "xBKRLG97cz4_sess11"
+        },
+        {
+          "index": 12,
+          "title": "Temporal Styles",
+          "start": "0:30:52",
+          "sessionName": "xBKRLG97cz4_sess12"
+        },
+        {
+          "index": 13,
+          "title": "The Generative Model",
+          "start": "0:32:48",
+          "sessionName": "xBKRLG97cz4_sess13"
+        },
+        {
+          "index": 14,
+          "title": "Expected Free Launch",
+          "start": "0:37:38",
+          "sessionName": "xBKRLG97cz4_sess14"
+        },
+        {
+          "index": 15,
+          "title": "State Aggregation",
+          "start": "0:40:31",
+          "sessionName": "xBKRLG97cz4_sess15"
+        },
+        {
+          "index": 16,
+          "title": "Add Transition",
+          "start": "0:45:36",
+          "sessionName": "xBKRLG97cz4_sess16"
+        },
+        {
+          "index": 17,
+          "title": "Graphical User Interface",
+          "start": "0:46:54",
+          "sessionName": "xBKRLG97cz4_sess17"
+        },
+        {
+          "index": 18,
+          "title": "Analysis of the Computational Complexity",
+          "start": "1:03:45",
+          "sessionName": "xBKRLG97cz4_sess18"
+        },
+        {
+          "index": 19,
+          "title": "The Variational Distribution",
+          "start": "1:07:03",
+          "sessionName": "xBKRLG97cz4_sess19"
+        },
+        {
+          "index": 20,
+          "title": "Conditional Probability Table",
+          "start": "1:14:28",
+          "sessionName": "xBKRLG97cz4_sess20"
+        },
+        {
+          "index": 21,
+          "title": "Hierarchical Nesting of Models and Learning",
+          "start": "1:22:11",
+          "sessionName": "xBKRLG97cz4_sess21"
+        },
+        {
+          "index": 22,
+          "title": "How Do Nesting and Learning Influence the Theoretical and the Realized Computational Complexity",
+          "start": "1:22:16",
+          "sessionName": "xBKRLG97cz4_sess22"
+        },
+        {
+          "index": 23,
+          "title": "Belief Propagation Algorithm",
+          "start": "1:31:26",
+          "sessionName": "xBKRLG97cz4_sess23"
+        }
+      ]
     },
     {
       "id": "livestream-047-2",
@@ -18072,7 +18501,38 @@
           "entityId": "majid-d-beni"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 10,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "riJYh87FPx4_sess10"
+        },
+        {
+          "index": 11,
+          "title": "Introductions",
+          "start": "0:01:57",
+          "sessionName": "riJYh87FPx4_sess11"
+        },
+        {
+          "index": 12,
+          "title": "Road and Path Metaphor",
+          "start": "1:11:54",
+          "sessionName": "riJYh87FPx4_sess12"
+        },
+        {
+          "index": 13,
+          "title": "Why They Use Dynamical Systems Theory",
+          "start": "1:22:29",
+          "sessionName": "riJYh87FPx4_sess13"
+        },
+        {
+          "index": 14,
+          "title": "Counterfactual Generation",
+          "start": "1:39:58",
+          "sessionName": "riJYh87FPx4_sess14"
+        }
+      ]
     },
     {
       "id": "gueststream-026-1",
@@ -18110,7 +18570,38 @@
           "entityId": "william-fischer"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "J7cu4slfIBA_sess01"
+        },
+        {
+          "index": 2,
+          "title": "A Decentralized Maker Centric Ecosystem",
+          "start": "0:29:14",
+          "sessionName": "J7cu4slfIBA_sess02"
+        },
+        {
+          "index": 3,
+          "title": "What Is Attention in Active Inference",
+          "start": "1:08:39",
+          "sessionName": "J7cu4slfIBA_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Where and How Is Active Inference Being Applied",
+          "start": "1:09:39",
+          "sessionName": "J7cu4slfIBA_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Content Accessibility",
+          "start": "1:28:40",
+          "sessionName": "J7cu4slfIBA_sess05"
+        }
+      ]
     },
     {
       "id": "livestream-047-1",
@@ -18162,7 +18653,62 @@
           "entityId": "majid-d-beni"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "WKjqw3My_xM_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Paper Overviews",
+          "start": "0:16:01",
+          "sessionName": "WKjqw3My_xM_sess02"
+        },
+        {
+          "index": 3,
+          "title": "Background in Context",
+          "start": "0:28:58",
+          "sessionName": "WKjqw3My_xM_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Abduction and Semiotics",
+          "start": "0:43:11",
+          "sessionName": "WKjqw3My_xM_sess04"
+        },
+        {
+          "index": 5,
+          "title": "What Is Abductive Reasoning",
+          "start": "0:46:18",
+          "sessionName": "WKjqw3My_xM_sess05"
+        },
+        {
+          "index": 6,
+          "title": "Generative Abduction and Selective Abduction",
+          "start": "0:46:34",
+          "sessionName": "WKjqw3My_xM_sess06"
+        },
+        {
+          "index": 7,
+          "title": "Realism and Instrumentalism",
+          "start": "0:57:01",
+          "sessionName": "WKjqw3My_xM_sess07"
+        },
+        {
+          "index": 8,
+          "title": "Section 3",
+          "start": "1:12:47",
+          "sessionName": "WKjqw3My_xM_sess08"
+        },
+        {
+          "index": 9,
+          "title": "The Leading Principle of Active Inferences",
+          "start": "1:33:44",
+          "sessionName": "WKjqw3My_xM_sess09"
+        }
+      ]
     },
     {
       "id": "gueststream-025-1",
@@ -18188,7 +18734,110 @@
           "entityId": "brett-anderson"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "ZYhrtsyzS_w_sess01"
+        },
+        {
+          "index": 2,
+          "title": "The Diametric Model of Autism and Psychosis",
+          "start": "0:02:13",
+          "sessionName": "ZYhrtsyzS_w_sess02"
+        },
+        {
+          "index": 3,
+          "title": "Evidence for the Diametric Model",
+          "start": "0:04:38",
+          "sessionName": "ZYhrtsyzS_w_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Paternally Expressed Genes Promote Autism",
+          "start": "0:04:55",
+          "sessionName": "ZYhrtsyzS_w_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Autistic like Traits",
+          "start": "0:07:07",
+          "sessionName": "ZYhrtsyzS_w_sess05"
+        },
+        {
+          "index": 6,
+          "title": "The Precision Weighting of Sensory Input Hypothesis",
+          "start": "0:07:50",
+          "sessionName": "ZYhrtsyzS_w_sess06"
+        },
+        {
+          "index": 7,
+          "title": "Differences along the Autism Schizotype Continuum",
+          "start": "0:10:36",
+          "sessionName": "ZYhrtsyzS_w_sess07"
+        },
+        {
+          "index": 8,
+          "title": "Rubber Hand Illusion",
+          "start": "0:11:32",
+          "sessionName": "ZYhrtsyzS_w_sess08"
+        },
+        {
+          "index": 9,
+          "title": "Imagination",
+          "start": "0:14:07",
+          "sessionName": "ZYhrtsyzS_w_sess09"
+        },
+        {
+          "index": 10,
+          "title": "How Can the Psi Hypothesis Account for this",
+          "start": "0:16:14",
+          "sessionName": "ZYhrtsyzS_w_sess10"
+        },
+        {
+          "index": 11,
+          "title": "Apophinia",
+          "start": "0:22:51",
+          "sessionName": "ZYhrtsyzS_w_sess11"
+        },
+        {
+          "index": 12,
+          "title": "Evolutionary Implications the Autism Schizotypal Continuum",
+          "start": "0:27:48",
+          "sessionName": "ZYhrtsyzS_w_sess12"
+        },
+        {
+          "index": 13,
+          "title": "Imprinted Genes",
+          "start": "0:35:15",
+          "sessionName": "ZYhrtsyzS_w_sess13"
+        },
+        {
+          "index": 14,
+          "title": "The Engineers of Jihad",
+          "start": "0:40:30",
+          "sessionName": "ZYhrtsyzS_w_sess14"
+        },
+        {
+          "index": 15,
+          "title": "What Are the Varieties of the Attention Experience",
+          "start": "0:51:50",
+          "sessionName": "ZYhrtsyzS_w_sess15"
+        },
+        {
+          "index": 16,
+          "title": "How Do We Shape Our Attention To Be Who We Want To Be",
+          "start": "0:57:27",
+          "sessionName": "ZYhrtsyzS_w_sess16"
+        },
+        {
+          "index": 17,
+          "title": "Reciprocal Narrowing",
+          "start": "1:02:22",
+          "sessionName": "ZYhrtsyzS_w_sess17"
+        }
+      ]
     },
     {
       "id": "applied-active-inference-symposium-robotics-2022-qiljhbdsle",
@@ -18230,7 +18879,50 @@
           "entityId": "wen-hua-chen"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "zm2d9o5n0PU_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Tim Schneider \"Active Inference for Robotic Manipulation\"",
+          "start": "0:03:46",
+          "sessionName": "zm2d9o5n0PU_sess02"
+        },
+        {
+          "index": 3,
+          "title": "Tim Verbelen \"Robots Modeling the World from Pixels using Deep Active Inference\"",
+          "start": "0:32:10",
+          "sessionName": "zm2d9o5n0PU_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Ben White \"Artificial Empathy: Active Inference and Collective Intelligence\"",
+          "start": "1:01:10",
+          "sessionName": "zm2d9o5n0PU_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Noor Sajid \"Learning agent preferences\"",
+          "start": "1:34:04",
+          "sessionName": "zm2d9o5n0PU_sess05"
+        },
+        {
+          "index": 6,
+          "title": "Wen-Hua Chen \"Dual Control for Exploitation and Exploration and its Applications in Robotic Autonomous Search\"",
+          "start": "2:04:13",
+          "sessionName": "zm2d9o5n0PU_sess06"
+        },
+        {
+          "index": 7,
+          "title": "Roundtable with Wen-Hua Chen & Daniel Friedman",
+          "start": "2:39:49",
+          "sessionName": "zm2d9o5n0PU_sess07"
+        }
+      ]
     },
     {
       "id": "applied-active-inference-symposium-robotics-2022-5-ushd-ow8",
@@ -18272,7 +18964,44 @@
           "entityId": "karl-j-friston"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 8,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "dTVHHenms_Y_sess08"
+        },
+        {
+          "index": 9,
+          "title": "Bruno Lara \"Prediction error dynamics: a proof of concept implementation.\"",
+          "start": "0:01:48",
+          "sessionName": "dTVHHenms_Y_sess09"
+        },
+        {
+          "index": 10,
+          "title": "Matt Brown \"Real-time Robotic Control through Embodied Homeostatic Feedback\"",
+          "start": "0:32:44",
+          "sessionName": "dTVHHenms_Y_sess10"
+        },
+        {
+          "index": 11,
+          "title": "Adam Safron \"Generalized Simultaneous Localization and Mapping (G-SLAM) as unification framework for natural and artificial intelligences\"",
+          "start": "1:05:44",
+          "sessionName": "dTVHHenms_Y_sess11"
+        },
+        {
+          "index": 12,
+          "title": "JF Cloutier \"Towards a symbolic implementation of Active Inference for Lego robots\"",
+          "start": "1:42:12",
+          "sessionName": "dTVHHenms_Y_sess12"
+        },
+        {
+          "index": 13,
+          "title": "Roundtable with Jakub Smekal, Bruno Lara, Adam Safron, JF Cloutier Karl Friston",
+          "start": "2:23:13",
+          "sessionName": "dTVHHenms_Y_sess13"
+        }
+      ]
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-feedback-projects",
@@ -18293,10 +19022,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-part-1-review-synthesis",
@@ -18317,10 +19046,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-5-3upzf5lv-v",
@@ -18343,7 +19072,6 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
       "sessions": [
@@ -18407,7 +19135,8 @@
           "start": "0:48:50",
           "sessionName": "ZATda5W08qY_sess10"
         }
-      ]
+      ],
+      "cohort": 1
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-5-wxcblae2ph",
@@ -18430,7 +19159,6 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
       "sessions": [
@@ -18518,7 +19246,8 @@
           "start": "0:48:40",
           "sessionName": "NT30pJ_sb6A_sess14"
         }
-      ]
+      ],
+      "cohort": 1
     },
     {
       "id": "gueststream-015-2",
@@ -18565,10 +19294,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "roundtable-2022-2",
@@ -18589,7 +19318,50 @@
       "thumbnailImage": "",
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "2s27lSZDqGM_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Updates on the Project Scale",
+          "start": "0:05:02",
+          "sessionName": "2s27lSZDqGM_sess02"
+        },
+        {
+          "index": 3,
+          "title": "Education",
+          "start": "0:15:40",
+          "sessionName": "2s27lSZDqGM_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Active Entities",
+          "start": "0:23:27",
+          "sessionName": "2s27lSZDqGM_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Systems Thinking Summer Intensive",
+          "start": "0:45:40",
+          "sessionName": "2s27lSZDqGM_sess05"
+        },
+        {
+          "index": 6,
+          "title": "Educational Activities",
+          "start": "0:47:06",
+          "sessionName": "2s27lSZDqGM_sess06"
+        },
+        {
+          "index": 7,
+          "title": "Expanding and Scaling the Active Inference Journal",
+          "start": "0:50:09",
+          "sessionName": "2s27lSZDqGM_sess07"
+        }
+      ]
     },
     {
       "id": "gueststream-024-1",
@@ -18727,10 +19499,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "livestream-046-2",
@@ -18783,7 +19555,6 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
       "sessions": [
@@ -18889,7 +19660,8 @@
           "start": "0:56:40",
           "sessionName": "AKeKLERgmQA_sess17"
         }
-      ]
+      ],
+      "cohort": 1
     },
     {
       "id": "livestream-046-1",
@@ -18915,7 +19687,44 @@
           "entityId": "alex-kiefer"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 7,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "JPsdk7pVa1I_sess07"
+        },
+        {
+          "index": 8,
+          "title": "Welcome to the Active Inference Lab",
+          "start": "0:00:44",
+          "sessionName": "JPsdk7pVa1I_sess08"
+        },
+        {
+          "index": 9,
+          "title": "Eliminativism",
+          "start": "0:17:16",
+          "sessionName": "JPsdk7pVa1I_sess09"
+        },
+        {
+          "index": 10,
+          "title": "Applications of the Active Inference Formalism",
+          "start": "0:46:34",
+          "sessionName": "JPsdk7pVa1I_sess10"
+        },
+        {
+          "index": 11,
+          "title": "Direction of Fit",
+          "start": "1:18:24",
+          "sessionName": "JPsdk7pVa1I_sess11"
+        },
+        {
+          "index": 12,
+          "title": "Joint Probability Density",
+          "start": "1:35:21",
+          "sessionName": "JPsdk7pVa1I_sess12"
+        }
+      ]
     },
     {
       "id": "livestream-046-0",
@@ -18941,7 +19750,44 @@
           "entityId": "ryan-smith"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "skcKoCcAQJI_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Big Question",
+          "start": "0:05:55",
+          "sessionName": "skcKoCcAQJI_sess02"
+        },
+        {
+          "index": 3,
+          "title": "Aims of the paper.",
+          "start": "0:10:55",
+          "sessionName": "skcKoCcAQJI_sess03"
+        },
+        {
+          "index": 4,
+          "title": "From predictive coding to active inference",
+          "start": "0:38:06",
+          "sessionName": "skcKoCcAQJI_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Preliminary considerations",
+          "start": "0:44:42",
+          "sessionName": "skcKoCcAQJI_sess05"
+        },
+        {
+          "index": 6,
+          "title": "Variational & Expected Free Energy considerations",
+          "start": "0:55:09",
+          "sessionName": "skcKoCcAQJI_sess06"
+        }
+      ]
     },
     {
       "id": "gueststream-023-1",
@@ -18950,7 +19796,9 @@
       "title": "Rebooting the Free Energy Principle Literature",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [],
+      "ontologyTerms": [
+        "term-free-energy-principle"
+      ],
       "date": "2022-06-13",
       "youtubeUrl": "https://youtu.be/igY9iyowesc",
       "paperLink": "",
@@ -18971,7 +19819,68 @@
           "entityId": "dalton-sakthivadivel"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "igY9iyowesc_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Section One Is the Introduction",
+          "start": "0:27:09",
+          "sessionName": "igY9iyowesc_sess02"
+        },
+        {
+          "index": 3,
+          "title": "The Three Faces of Bayesian Mechanics",
+          "start": "0:46:56",
+          "sessionName": "igY9iyowesc_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Free Energy Principle",
+          "start": "0:57:07",
+          "sessionName": "igY9iyowesc_sess04"
+        },
+        {
+          "index": 5,
+          "title": "What Is a Gauge Theory",
+          "start": "1:02:32",
+          "sessionName": "igY9iyowesc_sess05"
+        },
+        {
+          "index": 6,
+          "title": "Active Inference Framework",
+          "start": "1:15:47",
+          "sessionName": "igY9iyowesc_sess06"
+        },
+        {
+          "index": 7,
+          "title": "The Free Energy Principle",
+          "start": "1:24:38",
+          "sessionName": "igY9iyowesc_sess07"
+        },
+        {
+          "index": 8,
+          "title": "Nested Representationalism",
+          "start": "1:25:35",
+          "sessionName": "igY9iyowesc_sess08"
+        },
+        {
+          "index": 9,
+          "title": "Maximum Entropy Inference",
+          "start": "1:28:52",
+          "sessionName": "igY9iyowesc_sess09"
+        },
+        {
+          "index": 10,
+          "title": "What Does It Mean To Have a Non-Stationary Density over Paths",
+          "start": "1:37:07",
+          "sessionName": "igY9iyowesc_sess10"
+        }
+      ]
     },
     {
       "id": "gueststream-016-2",
@@ -19018,10 +19927,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "livestream-045-2",
@@ -19030,7 +19939,9 @@
       "title": "The free energy principle made simpler but not too simple",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [],
+      "ontologyTerms": [
+        "term-generalized-synchrony"
+      ],
       "date": "2022-06-08",
       "youtubeUrl": "https://youtu.be/S5-jXzhiG18",
       "paperLink": "",
@@ -19051,7 +19962,50 @@
           "entityId": "thomas-parr"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 39,
+          "title": "<Untitled Chapter 1>",
+          "start": "0:00:00",
+          "sessionName": "S5-jXzhiG18_sess39"
+        },
+        {
+          "index": 40,
+          "title": "How Can Seemingly Irrational Non-Optimal Behavior in some Organisms Be Accounted for in Active Inference",
+          "start": "0:22:43",
+          "sessionName": "S5-jXzhiG18_sess40"
+        },
+        {
+          "index": 41,
+          "title": "The Complete Plus Theorem",
+          "start": "0:28:59",
+          "sessionName": "S5-jXzhiG18_sess41"
+        },
+        {
+          "index": 42,
+          "title": "Bounded Rationality",
+          "start": "0:31:44",
+          "sessionName": "S5-jXzhiG18_sess42"
+        },
+        {
+          "index": 43,
+          "title": "Generalized Synchrony",
+          "start": "1:02:37",
+          "sessionName": "S5-jXzhiG18_sess43"
+        },
+        {
+          "index": 44,
+          "title": "Information Diagram",
+          "start": "1:29:34",
+          "sessionName": "S5-jXzhiG18_sess44"
+        },
+        {
+          "index": 45,
+          "title": "Sentient Behavior and Action Observation",
+          "start": "1:38:32",
+          "sessionName": "S5-jXzhiG18_sess45"
+        }
+      ]
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-2-mb6ky5ljoc",
@@ -19072,7 +20026,6 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
       "sessions": [
@@ -19130,7 +20083,8 @@
           "start": "0:28:11",
           "sessionName": "JJaQ0F81Ucs_sess09"
         }
-      ]
+      ],
+      "cohort": 1
     },
     {
       "id": "livestream-045-1",
@@ -19139,7 +20093,9 @@
       "title": "The free energy principle made simpler but not too simple",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [],
+      "ontologyTerms": [
+        "term-generalized-synchrony"
+      ],
       "date": "2022-06-01",
       "youtubeUrl": "https://youtu.be/V0l9fOJgbtc",
       "paperLink": "",
@@ -19160,7 +20116,98 @@
           "entityId": "thomas-parr"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 24,
+          "title": "Introduction",
+          "start": "0:00:00",
+          "sessionName": "V0l9fOJgbtc_sess24"
+        },
+        {
+          "index": 25,
+          "title": "The simpler one",
+          "start": "0:04:50",
+          "sessionName": "V0l9fOJgbtc_sess25"
+        },
+        {
+          "index": 26,
+          "title": "Layout and roadmap",
+          "start": "0:06:20",
+          "sessionName": "V0l9fOJgbtc_sess26"
+        },
+        {
+          "index": 27,
+          "title": "A burning question",
+          "start": "0:10:20",
+          "sessionName": "V0l9fOJgbtc_sess27"
+        },
+        {
+          "index": 28,
+          "title": "Hidden causes",
+          "start": "0:16:55",
+          "sessionName": "V0l9fOJgbtc_sess28"
+        },
+        {
+          "index": 29,
+          "title": "Utility of the FEP",
+          "start": "0:19:50",
+          "sessionName": "V0l9fOJgbtc_sess29"
+        },
+        {
+          "index": 30,
+          "title": "What is variational inference",
+          "start": "0:24:35",
+          "sessionName": "V0l9fOJgbtc_sess30"
+        },
+        {
+          "index": 31,
+          "title": "Is this all in the service of homeostasis",
+          "start": "0:30:25",
+          "sessionName": "V0l9fOJgbtc_sess31"
+        },
+        {
+          "index": 32,
+          "title": "What is homeostasis",
+          "start": "0:34:55",
+          "sessionName": "V0l9fOJgbtc_sess32"
+        },
+        {
+          "index": 33,
+          "title": "Generalized homeostasis",
+          "start": "0:37:25",
+          "sessionName": "V0l9fOJgbtc_sess33"
+        },
+        {
+          "index": 34,
+          "title": "Generalized synchrony",
+          "start": "0:38:55",
+          "sessionName": "V0l9fOJgbtc_sess34"
+        },
+        {
+          "index": 35,
+          "title": "Taylor expansion",
+          "start": "0:44:25",
+          "sessionName": "V0l9fOJgbtc_sess35"
+        },
+        {
+          "index": 36,
+          "title": "Compactness",
+          "start": "0:45:15",
+          "sessionName": "V0l9fOJgbtc_sess36"
+        },
+        {
+          "index": 37,
+          "title": "Social Thomas",
+          "start": "0:50:00",
+          "sessionName": "V0l9fOJgbtc_sess37"
+        },
+        {
+          "index": 38,
+          "title": "Fast and slow",
+          "start": "0:56:20",
+          "sessionName": "V0l9fOJgbtc_sess38"
+        }
+      ]
     },
     {
       "id": "livestream-045-0",
@@ -19169,7 +20216,10 @@
       "title": "The free energy principle made simpler but not too simple",
       "types": [],
       "keywords": [],
-      "ontologyTerms": [],
+      "ontologyTerms": [
+        "term-markov-blanket",
+        "term-path-of-least-action"
+      ],
       "date": "2022-05-27",
       "youtubeUrl": "https://youtu.be/9MQQKaKEXs0",
       "paperLink": "",
@@ -19190,7 +20240,146 @@
           "entityId": "thomas-parr"
         }
       ],
-      "sessions": []
+      "sessions": [
+        {
+          "index": 1,
+          "title": "Introduction",
+          "start": "0:00:00",
+          "sessionName": "9MQQKaKEXs0_sess01"
+        },
+        {
+          "index": 2,
+          "title": "Welcome",
+          "start": "0:00:40",
+          "sessionName": "9MQQKaKEXs0_sess02"
+        },
+        {
+          "index": 3,
+          "title": "Title",
+          "start": "0:01:15",
+          "sessionName": "9MQQKaKEXs0_sess03"
+        },
+        {
+          "index": 4,
+          "title": "Introducing Daniel",
+          "start": "0:02:27",
+          "sessionName": "9MQQKaKEXs0_sess04"
+        },
+        {
+          "index": 5,
+          "title": "Questions",
+          "start": "0:03:06",
+          "sessionName": "9MQQKaKEXs0_sess05"
+        },
+        {
+          "index": 6,
+          "title": "Aims and claims",
+          "start": "0:04:46",
+          "sessionName": "9MQQKaKEXs0_sess06"
+        },
+        {
+          "index": 7,
+          "title": "Abstract",
+          "start": "0:06:52",
+          "sessionName": "9MQQKaKEXs0_sess07"
+        },
+        {
+          "index": 8,
+          "title": "Road Map",
+          "start": "0:08:32",
+          "sessionName": "9MQQKaKEXs0_sess08"
+        },
+        {
+          "index": 9,
+          "title": "Keywords",
+          "start": "0:11:32",
+          "sessionName": "9MQQKaKEXs0_sess09"
+        },
+        {
+          "index": 10,
+          "title": "Bayesian analysis",
+          "start": "0:11:45",
+          "sessionName": "9MQQKaKEXs0_sess10"
+        },
+        {
+          "index": 11,
+          "title": "Nonequilibrium",
+          "start": "0:14:13",
+          "sessionName": "9MQQKaKEXs0_sess11"
+        },
+        {
+          "index": 12,
+          "title": "Selforganization",
+          "start": "0:17:31",
+          "sessionName": "9MQQKaKEXs0_sess12"
+        },
+        {
+          "index": 13,
+          "title": "Variational inference",
+          "start": "0:20:26",
+          "sessionName": "9MQQKaKEXs0_sess13"
+        },
+        {
+          "index": 14,
+          "title": "Markov blanket",
+          "start": "0:23:33",
+          "sessionName": "9MQQKaKEXs0_sess14"
+        },
+        {
+          "index": 15,
+          "title": "Section 1 Introduction",
+          "start": "0:26:09",
+          "sessionName": "9MQQKaKEXs0_sess15"
+        },
+        {
+          "index": 16,
+          "title": "What is the Free Energy Principle",
+          "start": "0:30:18",
+          "sessionName": "9MQQKaKEXs0_sess16"
+        },
+        {
+          "index": 17,
+          "title": "Is the FEP useful",
+          "start": "0:34:52",
+          "sessionName": "9MQQKaKEXs0_sess17"
+        },
+        {
+          "index": 18,
+          "title": "Roadmap",
+          "start": "0:39:10",
+          "sessionName": "9MQQKaKEXs0_sess18"
+        },
+        {
+          "index": 19,
+          "title": "Systems states and fluctuations",
+          "start": "0:39:38",
+          "sessionName": "9MQQKaKEXs0_sess19"
+        },
+        {
+          "index": 20,
+          "title": "Path of least action",
+          "start": "0:48:25",
+          "sessionName": "9MQQKaKEXs0_sess20"
+        },
+        {
+          "index": 21,
+          "title": "Formalisms",
+          "start": "0:51:06",
+          "sessionName": "9MQQKaKEXs0_sess21"
+        },
+        {
+          "index": 22,
+          "title": "Steady States and Nonequilibrium",
+          "start": "0:52:45",
+          "sessionName": "9MQQKaKEXs0_sess22"
+        },
+        {
+          "index": 23,
+          "title": "Stochastic Chaos and Markov Blankets",
+          "start": "0:55:32",
+          "sessionName": "9MQQKaKEXs0_sess23"
+        }
+      ]
     },
     {
       "id": "parr-pezzulo-friston-2022-textbook-cohort-1-chapter-2-0-widwvfpi",
@@ -19213,7 +20402,6 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
       "sessions": [
@@ -19265,7 +20453,8 @@
           "start": "0:50:10",
           "sessionName": "Z7Z29pu6NnY_sess08"
         }
-      ]
+      ],
+      "cohort": 1
     },
     {
       "id": "livestream-044-2",
@@ -19316,7 +20505,6 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
       "sessions": [
@@ -19398,7 +20586,8 @@
           "start": "0:35:21",
           "sessionName": "8OT2EC-l0N4_sess13"
         }
-      ]
+      ],
+      "cohort": 1
     },
     {
       "id": "livestream-044-1",
@@ -19631,10 +20820,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "livestream-043-2",
@@ -19719,10 +20908,10 @@
       "summary": "",
       "coverImage": "",
       "thumbnailImage": "",
-      "cohort": 1,
       "hasTimestamps": false,
       "guests": [],
-      "sessions": []
+      "sessions": [],
+      "cohort": 1
     },
     {
       "id": "livestream-043-1",
