@@ -3,6 +3,7 @@ import path from "node:path";
 import { loadProjectsData, pageBySlug, siteData } from "../data.mjs";
 import { out } from "../lib/paths.mjs";
 import { outputPathForSlug, urlDirForSlug, stripLocalePrefix, localeOutputPathForSlug } from "../url-taxonomy.mjs";
+import { tr } from "../i18n/index.mjs";
 import { resolveLink } from "./links.mjs";
 import { absoluteUrl } from "./urls.mjs";
 
@@ -114,7 +115,7 @@ export function collectionStructuredNode(currentDir, canonicalUrl, rawTitle, des
 // with the provider pinned to the brand Organization. All URLs derive from
 // page data via absoluteUrl — no hardcoded literal URLs, so the security/contract
 // gates stay green.
-export function courseStructuredNode(slug, rawTitle, canonicalUrl, description, syllabus) {
+export function courseStructuredNode(slug, rawTitle, canonicalUrl, description, syllabus, lang = "") {
   const course = {
     "@type": "Course",
     "@id": `${canonicalUrl}#course`,
@@ -122,6 +123,7 @@ export function courseStructuredNode(slug, rawTitle, canonicalUrl, description, 
     url: canonicalUrl,
     provider: { "@id": `${absoluteUrl("index.html")}#org` },
   };
+  if (lang) course.inLanguage = lang;
   if (description) course.description = description;
   const items = Array.isArray(syllabus.items) ? syllabus.items : [];
   if (items.length) {
@@ -160,7 +162,7 @@ export function faqStructuredNode(canonicalUrl, qanda) {
   };
 }
 
-export function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", description = "", minimalSeo = false) {
+export function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", description = "", minimalSeo = false, lang = "") {
   const base = absoluteUrl("index.html");
   // Soft-error pages (404) carry no entity markup and must not seed the graph.
   if (minimalSeo) {
@@ -216,10 +218,11 @@ export function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", de
   let position = 2;
   if (parts.length === 2) {
     const section = parts[0];
+    const sectionLabel = section.charAt(0).toUpperCase() + section.slice(1);
     items.push({
       "@type": "ListItem",
       position: position++,
-      name: section.charAt(0).toUpperCase() + section.slice(1),
+      name: tr(sectionLabel),
       item: absoluteUrl(localeOutputPathForSlug(section)),
     });
   }
@@ -231,7 +234,7 @@ export function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", de
     const graph = [breadcrumb, projectStructuredNode(slug, rawTitle, canonicalUrl, description), orgNode];
     const page = pageBySlug.get(slug);
     if (page && page.syllabus) {
-      graph.push(courseStructuredNode(slug, rawTitle, canonicalUrl, description, page.syllabus));
+      graph.push(courseStructuredNode(slug, rawTitle, canonicalUrl, description, page.syllabus, lang));
     }
     const faq = page && page.qanda ? faqStructuredNode(canonicalUrl, page.qanda) : null;
     if (faq) graph.push(faq);
