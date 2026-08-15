@@ -675,21 +675,6 @@
     },
     {
       "active": true,
-      "id": "colleen-pridemore",
-      "name": "Colleen Pridemore",
-      "orgId": "ecosystem",
-      "policyRoles": [],
-      "roles": [
-        "Ecosystem Contributor"
-      ],
-      "tags": [
-        "ecosystem",
-        "cognitive-somatic-regulator"
-      ],
-      "title": "Project Lead, Cognitive Somatic Regulator"
-    },
-    {
-      "active": true,
       "id": "cory-slater",
       "name": "Cory Slater",
       "orgId": "active-inference-institute",
@@ -700,23 +685,6 @@
       ],
       "tags": [],
       "title": ""
-    },
-    {
-      "active": true,
-      "id": "daniel-corva",
-      "name": "Daniel Corva",
-      "orgId": "ecosystem",
-      "policyRoles": [],
-      "roles": [
-        "Ecosystem Contributor"
-      ],
-      "tags": [
-        "ecosystem",
-        "cpomdp",
-        "python",
-        "continuous-state"
-      ],
-      "title": "Project Lead, cpomdp"
     },
     {
       "active": true,
@@ -845,24 +813,6 @@
       ],
       "tags": [],
       "title": "Board Member (2022-2024)"
-    },
-    {
-      "active": true,
-      "id": "dr-martin-bello",
-      "name": "Dr. Martin Bello",
-      "orgId": "ecosystem",
-      "policyRoles": [],
-      "roles": [
-        "Ecosystem Contributor",
-        "Principal Investigator"
-      ],
-      "tags": [
-        "ecosystem",
-        "regime-dependent-active-inference",
-        "computational-psychiatry",
-        "addiction"
-      ],
-      "title": "Principal Investigator, Regime-Dependent Active Inference"
     },
     {
       "active": null,
@@ -1272,22 +1222,6 @@
       ],
       "tags": [],
       "title": ""
-    },
-    {
-      "active": true,
-      "id": "travis-james",
-      "name": "Travis James",
-      "orgId": "ecosystem",
-      "policyRoles": [],
-      "roles": [
-        "Ecosystem Contributor"
-      ],
-      "tags": [
-        "ecosystem",
-        "coherence-density",
-        "complex-systems"
-      ],
-      "title": "Project Lead, Coherence Density"
     },
     {
       "active": true,
