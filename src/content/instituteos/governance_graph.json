@@ -797,6 +797,46 @@
         "entity_type": "organization"
       },
       "href": "knowledge.html#org-lazy-dynamics"
+    },
+    {
+      "id": "entity:daniel-corva",
+      "label": "Daniel Corva",
+      "type": "entity",
+      "meta": {
+        "entity_type": "person",
+        "title": "Project Lead, cpomdp"
+      },
+      "href": "knowledge.html#member-daniel-corva"
+    },
+    {
+      "id": "entity:travis-james",
+      "label": "Travis James",
+      "type": "entity",
+      "meta": {
+        "entity_type": "person",
+        "title": "Project Lead, Coherence Density"
+      },
+      "href": "knowledge.html#member-travis-james"
+    },
+    {
+      "id": "entity:colleen-pridemore",
+      "label": "Colleen Pridemore",
+      "type": "entity",
+      "meta": {
+        "entity_type": "person",
+        "title": "Project Lead, Cognitive Somatic Regulator"
+      },
+      "href": "knowledge.html#member-colleen-pridemore"
+    },
+    {
+      "id": "entity:dr-martin-bello",
+      "label": "Dr. Martin Bello",
+      "type": "entity",
+      "meta": {
+        "entity_type": "person",
+        "title": "Principal Investigator, Regime-Dependent Active Inference"
+      },
+      "href": "knowledge.html#member-dr-martin-bello"
     }
   ],
   "edges": [

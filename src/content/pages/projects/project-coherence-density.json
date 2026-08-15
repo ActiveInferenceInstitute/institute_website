@@ -1,0 +1,46 @@
+{
+  "slug": "project-coherence-density",
+  "title": "Coherence Density",
+  "subtitle": "Measuring internal coordination in complex adaptive systems.",
+  "audience": "Complex systems researchers, modelers, and Active Inference practitioners studying organizational coordination.",
+  "lede": "Coherence Density is an exploratory Ecosystem research project establishing a measurement-focused framework to quantify internal coordination, stability, and information flow in complex adaptive systems under Active Inference.",
+  "order": 95,
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Coherence Density develops testable indicators and formal relationships to evaluate how internal organization and coordination are maintained while systems minimize free energy and adapt to uncertainty.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Collaborators in complex systems, measurement modeling, and Active Inference theory are invited to review concepts, attend syncs, and contribute feedback.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "projects",
+    "ecosystem"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ]
+}

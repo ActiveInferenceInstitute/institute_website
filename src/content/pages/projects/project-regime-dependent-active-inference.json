@@ -1,0 +1,47 @@
+{
+  "slug": "project-regime-dependent-active-inference",
+  "title": "Regime-Dependent Active Inference",
+  "subtitle": "A generalized generative-model framework for addiction and recovery dynamics.",
+  "audience": "Researchers in computational psychiatry, addiction medicine, dynamical systems, and Active Inference.",
+  "lede": "Regime-Dependent Active Inference develops a generalized generative-model framework combining continuous latent cognitive-affective states with discrete regime transitions to model the dynamics of addiction, relapse, and recovery.",
+  "order": 97,
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "The framework extends standard single-regime Active Inference by modeling the addictive cycle as transitions among inferred operating regimes (recovery/Wise Mind, emotional destabilization, cognitive capture, policy collapse, and aftermath) while preserving core variational and expected free energy principles.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Researchers in computational psychiatry, stochastic systems, control theory, and clinical addiction research are invited to collaborate on mathematical formulations, simulation models, and empirical evaluations.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "projects",
+    "reinference",
+    "ecosystem"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ]
+}

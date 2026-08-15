@@ -1,0 +1,47 @@
+{
+  "slug": "project-cpomdp",
+  "title": "cpomdp \u2014 Continuous Active Inference for Python",
+  "subtitle": "A tested, documented continuous-state Active Inference library in Python.",
+  "audience": "Python developers, researchers, and engineers implementing continuous-state Active Inference models.",
+  "lede": "cpomdp is an open-source Python library for continuous-state Active Inference. It provides factor-graph message passing, Kalman and reference filtering, state-dependent observation and process noise, certifiable tolerances, and matched classical control baselines.",
+  "order": 94,
+  "primaryActions": [
+    {
+      "label": "Ecosystem",
+      "sourceId": "ecosystem"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "cpomdp brings rigorous continuous-state Active Inference to Python. Agents maintain Gaussian beliefs over continuous latent states, update via message passing on Forney-style factor graphs, and select actions by minimizing expected free energy over declared action sets with certified warrant tolerances.",
+      "links": [
+        {
+          "sourceId": "ecosystem"
+        }
+      ]
+    },
+    {
+      "heading": "Participate",
+      "body": "Contributors interested in numerical analysis, JAX/NumPy reference kernels, Kalman filtering, and continuous generative modeling are welcome to participate via Discord and GitHub.",
+      "links": [
+        {
+          "sourceId": "discord"
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "ecosystem"
+  ],
+  "externalSourceIds": [
+    "ecosystem",
+    "discord"
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ]
+}

@@ -3145,6 +3145,160 @@
           "active": true
         }
       ]
+    },
+    {
+      "id": "cpomdp",
+      "title": "cpomdp — Continuous Active Inference for Python",
+      "description": "cpomdp is an open-source Python library for continuous-state Active Inference. It provides factor-graph message passing, Kalman and reference filtering, state-dependent noise, certifiable tolerances, and matched classical control baselines.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "topics": [
+        "active-inference",
+        "python",
+        "continuous-state",
+        "open-source",
+        "reinference",
+        "control-theory"
+      ],
+      "summary": "A tested, documented continuous-state Active Inference Python library with certifiable tolerances and reference implementations.",
+      "website_slug": "project-cpomdp",
+      "links": {
+        "website": "project-cpomdp.html"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": [],
+      "owner_entity_id": "daniel-corva",
+      "owner_name": "Daniel Corva",
+      "people": [
+        {
+          "id": "daniel-corva",
+          "name": "Daniel Corva",
+          "institute_roles": [
+            "Ecosystem Contributor"
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "coherence-density",
+      "title": "Coherence Density: Measuring Coordination in Complex Adaptive Systems",
+      "description": "Coherence Density is a research framework for evaluating and quantifying internal coordination, stability, and information flow in complex adaptive systems within the Active Inference formulation.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "topics": [
+        "active-inference",
+        "complex-systems",
+        "coordination",
+        "measurement",
+        "adaptive-systems"
+      ],
+      "summary": "A measurement-focused framework evaluating internal coordination and stability in complex adaptive systems.",
+      "website_slug": "project-coherence-density",
+      "links": {
+        "website": "project-coherence-density.html"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": [],
+      "owner_entity_id": "travis-james",
+      "owner_name": "Travis James",
+      "people": [
+        {
+          "id": "travis-james",
+          "name": "Travis James",
+          "institute_roles": [
+            "Ecosystem Contributor"
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "cognitive-somatic-regulator",
+      "title": "Cognitive Somatic Regulator",
+      "description": "Cognitive Somatic Regulator explores Active Inference applications to somatic regulation, ethical threshold gating, and neuro-somatic feedback in complex cognitive-affective architectures.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "topics": [
+        "active-inference",
+        "somatic-regulation",
+        "affective-cognition",
+        "cognitive-modeling"
+      ],
+      "summary": "Active Inference modeling applied to somatic regulation, ethical threshold gating, and neuro-somatic dynamics.",
+      "website_slug": "project-cognitive-somatic-regulator",
+      "links": {
+        "website": "project-cognitive-somatic-regulator.html"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": [],
+      "owner_entity_id": "colleen-pridemore",
+      "owner_name": "Colleen Pridemore",
+      "people": [
+        {
+          "id": "colleen-pridemore",
+          "name": "Colleen Pridemore",
+          "institute_roles": [
+            "Ecosystem Contributor"
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "regime-dependent-active-inference",
+      "title": "Regime-Dependent Active Inference: Addiction & Recovery Dynamics",
+      "description": "A generalized generative-model framework extending Active Inference with regime-dependent hybrid continuous-discrete transitions, modeling qualitative shifts across addiction, emotional dysregulation, relapse, and recovery.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "topics": [
+        "active-inference",
+        "computational-psychiatry",
+        "addiction",
+        "generative-models",
+        "hybrid-systems",
+        "emotional-regulation"
+      ],
+      "summary": "Extending Active Inference with regime-dependent generative models to represent dynamic progressions in addiction, relapse, and recovery.",
+      "website_slug": "project-regime-dependent-active-inference",
+      "links": {
+        "website": "project-regime-dependent-active-inference.html"
+      },
+      "linked_policies": [],
+      "linked_processes": [],
+      "tasks": [],
+      "owner_entity_id": "dr-martin-bello",
+      "owner_name": "Dr. Martin Bello",
+      "people": [
+        {
+          "id": "dr-martin-bello",
+          "name": "Dr. Martin Bello",
+          "institute_roles": [
+            "Ecosystem Contributor",
+            "Principal Investigator"
+          ],
+          "active": true
+        }
+      ]
     }
   ]
 }
