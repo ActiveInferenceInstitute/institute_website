@@ -76,7 +76,7 @@
     },
     {
       "heading": "Mission, Vision, Values, and Principles",
-      "body": "Our mission is to improve the accessibility, rigor, and applicability of Active Inference across science, engineering, education, and practical domains. The Institute operates by the motto Act. Infer. Serve. — a commitment to learning, action, and service. Our vision is a future in which Active Inference is used as widely as Machine Learning, given its demonstrated utility and impact across the Domains of Application it serves. Our values and principles include Active Inference and Exploration, Integrity, Institute- and Ecosystem-Scale Generative Modeling, Anticipatory Behavior, Continuous Development, and Participatory Engagement. We practice open science: making research reproducible and navigable, publishing under open licenses, and stewarding shared infrastructure. Diversity of background, discipline, and familiarity level is a feature of the community, not a constraint.",
+      "body": "Our vision is a world where active inference, a framework of adaptive behavior grounded in first principles, is known, taught, and applied across science, engineering, and everyday life. Our mission is to translate the science of how natural systems adapt and self-organize, known as active inference, into practical tools, resources, and educational experiences that empower people, communities, and technology to enhance decision making and reduce uncertainty. Our values and principles include Active Inference and Exploration, Integrity, Institute- and Ecosystem-Scale Generative Modeling, Anticipatory Behavior, Continuous Development, and Participatory Engagement. We practice open science: making research reproducible and navigable, publishing under open licenses, and stewarding shared infrastructure. Diversity of background, discipline, and familiarity level is a feature of the community, not a constraint.",
       "links": [
         {
           "sourceId": "shortlink-welcome"
@@ -159,7 +159,7 @@
     },
     {
       "heading": "Open Science and the Ecosystem",
-      "body": "The Institute publishes its work under open licenses and maintains public repositories, a video archive, the Newsletter, an Active Inference Ontology, and the Active Inference Journal. We participate in and support the broader Active Inference Ecosystem — a growing network of researchers, practitioners, and learners working across disciplines including computational neuroscience, cognitive science, ecology, economics, and engineering.",
+      "body": "The Institute publishes its work under open licenses and maintains public repositories, a video archive, the Newsletter, an Active Inference Ontology, and the Active Inference Journal. We participate in and support the broader Active Inference Ecosystem \u2014 a growing network of researchers, practitioners, and learners working across disciplines including computational neuroscience, cognitive science, ecology, economics, and engineering.",
       "links": [
         {
           "sourceId": "github-org"

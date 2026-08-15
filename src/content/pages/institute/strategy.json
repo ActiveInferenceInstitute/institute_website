@@ -3,7 +3,7 @@
   "title": "Strategy",
   "subtitle": "How the Active Inference Institute turns its mission into coordinated action through Act, Infer, Serve.",
   "audience": "Members, partners, funders, and prospective contributors who want to understand the Institute's strategic direction and how its work is organized.",
-  "lede": "The Institute's strategy is organized around its motto — Act. Infer. Serve. — and pursued across four areas: Education, Research, Outreach & Engagement, and Methods. Each area is approached at three scales: the participant, the Institute, and the wider ecosystem. Together these give a single, legible frame for how the Institute advances Active Inference as a scientific, educational, and applied practice.",
+  "lede": "The Institute's strategy is organized around its motto \u2014 Act. Infer. Serve. \u2014 and pursued across four areas: Education, Research, Outreach & Engagement, and Methods. Each area is approached at three scales: the participant, the Institute, and the wider ecosystem. Together these give a single, legible frame for how the Institute advances Active Inference as a scientific, educational, and applied practice.",
   "order": 80,
   "relatedSlugs": [
     "about",
@@ -20,8 +20,8 @@
   ],
   "sections": [
     {
-      "heading": "Mission and Motto",
-      "body": "The Institute's strategy follows directly from its mission: to advance Active Inference as a scientific, educational, and applied practice; to strengthen cognitive security and healthy information ecosystems; to make research more reproducible and accessible; and to teach and mentor broadly, including under-served communities. The motto — Act. Infer. Serve. — names the orientation that holds these aims together. Strategy is pursued across four areas — Education, Research, Outreach & Engagement, and Methods — and each is read at three scales: the participant, the Institute as an organization, and the wider Active Inference ecosystem.",
+      "heading": "Vision and Mission",
+      "body": "Vision: A world where active inference, a framework of adaptive behavior grounded in first principles, is known, taught, and applied across science, engineering, and everyday life.\n\nMission: To translate the science of how natural systems adapt and self-organize, known as active inference, into practical tools, resources, and educational experiences that empower people, communities, and technology to enhance decision making and reduce uncertainty.",
       "links": [
         {
           "label": "About the Institute",
@@ -34,8 +34,22 @@
       ]
     },
     {
+      "heading": "Our Values and Principles",
+      "body": "We are committed to fostering a culture of excellence, collaboration, and innovation. Our values and principles serve as the guiding principles that shape our Strategy and define our organization's character.\n\nActive Inference and Exploration. At The Institute, we embrace the principle of Active Inference, Systems Approach, and open-ended exploration as a fundamental driving force. We cultivate a culture of curiosity and continuous learning. Through engaging in endeavors across multiple scales (person, project, Institute, Ecosystem), we enrich our understanding and make relevant contributions to our niche.\n\nIntegrity. We strive to uphold and promote honesty, accountability, professionalism, as well as responsible conduct in research, education, and facilitation among members of The Institute, Ecosystem, and communities we serve. We foster diversity, respect, and global inclusion through community engagement. We treat differences in perspective and understanding as a wellspring of valuable creative and productive potential, driving breakthroughs and strengthening collaborative research outcomes.\n\nTowards Institute- and Ecosystem-Scale Generative Modeling: At The Institute, we aim to use model-based approaches towards organizational design and operation. Informally we use the Active Inference Ontology where possible, and looking towards more sophisticated computational modeling in the future. We support shared informational niches for different scales, spanning the Ecosystem, Institute, Organizational Units, and Projects. We continuously develop and refine hierarchical models, drawing on sensory information, exploiting data, and gathering feedback. Our dynamic self-modeling enables efficient resource allocation.\n\nAnticipatory Behavior: The Institute's commitment to anticipatory behavior equips us to excel in uncertain environments. Leveraging our internal models, we generate predictions at various scales and time horizons, empowering us to take initiative and adapt our policies accordingly. This forward-thinking approach enables us to plan strategically and make informed decisions, thus remaining at the forefront of our fields.\n\nContinuous Development: Embodying the ideas of open-endedness and techno-evolution, we wholeheartedly embrace the principle of continuous development at The Institute. Recognizing the dynamic nature of our environment and the constant advancements in science and technology, we continually evolve our internal models and approaches. This perpetual learning and evolution enable us to remain adaptive and at the cutting edge of our fields, driving impactful research that contributes significantly to the scientific community. In the spirit of action and perception, we encourage learners to produce and share artifacts, then receive feedback: informally and formally (through Prepare and Measure).\n\nParticipatory Engagement: At the Institute, we encourage collaborative active learning through artifacts. Digital, stigmergic modifications of our online environment are the central method for engagement. Projects are enacted through preparation and periodic measurements that trace development through time. We support the accessibility, applicability, and inclusivity of Active Inference by seeking Open Source (and related: Open Science, DeSci) approaches where possible.",
+      "links": [
+        {
+          "label": "Institute structure",
+          "href": "/structure/"
+        },
+        {
+          "label": "Ecosystem",
+          "href": "/ecosystem/"
+        }
+      ]
+    },
+    {
       "heading": "Education",
-      "body": "At the participant scale, we approach a participant's Active Inference mastery as a system of interest. To reflect a plurality of individual priors, expertise levels, and preferences, we develop different educational formats — workshops, discussion groups, online courses, project-based learning, internships, and more — and our preference is to have up to a thousand participants involved in education. At the Institute scale, the organization learns state-of-the-art ways of working and practices across functional domains to build and strengthen organizational capabilities. At the ecosystem scale, the Institute works on education and on reducing research debt for a broad community, developing public video and audio content to spread Active Inference and aiming to reach tens of thousands of people with it.",
+      "body": "At the participant scale, we approach a participant's Active Inference mastery as a system of interest. To reflect a plurality of individual priors, expertise levels, and preferences, we develop different educational formats \u2014 workshops, discussion groups, online courses, project-based learning, internships, and more \u2014 and our preference is to have up to a thousand participants involved in education. At the Institute scale, the organization learns state-of-the-art ways of working and practices across functional domains to build and strengthen organizational capabilities. At the ecosystem scale, the Institute works on education and on reducing research debt for a broad community, developing public video and audio content to spread Active Inference and aiming to reach tens of thousands of people with it.",
       "links": [
         {
           "label": "Education unit (EduActive)",
@@ -53,7 +67,7 @@
     },
     {
       "heading": "Research",
-      "body": "At the participant scale, we provide affordances to scaffold and launch research and development projects by participants; projects can be driven by participants inside or outside the organization, and the Institute provides relevant support, with the expectation of dozens of research outcomes such as papers and workshop and conference presentations. At the Institute scale, the organization arranges, catalyzes, and participates in Active Inference research projects with long-term impact or public-goods features — such as ontology development and knowledge engineering — and events like symposiums and conferences. At the ecosystem scale, we recognize and seek to carry out, apply, and improve upon research practices from open science.",
+      "body": "At the participant scale, we provide affordances to scaffold and launch research and development projects by participants; projects can be driven by participants inside or outside the organization, and the Institute provides relevant support, with the expectation of dozens of research outcomes such as papers and workshop and conference presentations. At the Institute scale, the organization arranges, catalyzes, and participates in Active Inference research projects with long-term impact or public-goods features \u2014 such as ontology development and knowledge engineering \u2014 and events like symposiums and conferences. At the ecosystem scale, we recognize and seek to carry out, apply, and improve upon research practices from open science.",
       "links": [
         {
           "label": "Research unit (ReInference)",
@@ -71,7 +85,7 @@
     },
     {
       "heading": "Outreach & Engagement",
-      "body": "At the participant scale, we think of participants as ambassadors of the Institute, and we welcome and support their initiatives to share a voice about Active Inference across situations and communities. At the Institute scale, we aim to set up partnerships with other organizations from academia, industry, and beyond, supporting high-quality science communication, education, and collaboration around research topics such as Active Inference. At the ecosystem scale, we acknowledge the diversity of people's initial conditions — familiarity with language, science, philosophy, and computation — and we develop the Active Inference online journal and create popular-science content for different social media.",
+      "body": "At the participant scale, we think of participants as ambassadors of the Institute, and we welcome and support their initiatives to share a voice about Active Inference across situations and communities. At the Institute scale, we aim to set up partnerships with other organizations from academia, industry, and beyond, supporting high-quality science communication, education, and collaboration around research topics such as Active Inference. At the ecosystem scale, we acknowledge the diversity of people's initial conditions \u2014 familiarity with language, science, philosophy, and computation \u2014 and we develop the Active Inference online journal and create popular-science content for different social media.",
       "links": [
         {
           "label": "Get involved",
@@ -89,7 +103,7 @@
     },
     {
       "heading": "Methods",
-      "body": "At the participant scale, we educate participants so they grow their expertise across disciplines; because disciplinary expertise entails competency in practices and tools, we take a holistic approach to participant professional development. At the Institute scale, continuous organizational evolution is our fundamental effort — the Institute seeks to obtain and use the most advanced expertise in all practices, applying Active Inference, Systems Thinking, and other first-principles approaches to its own operations. At the ecosystem scale, we share and promote the methods we use through the community to increase the quality and efficiency of collaborations, and we remain open to recommendations for new methods and strategies to consider.",
+      "body": "At the participant scale, we educate participants so they grow their expertise across disciplines; because disciplinary expertise entails competency in practices and tools, we take a holistic approach to participant professional development. At the Institute scale, continuous organizational evolution is our fundamental effort \u2014 the Institute seeks to obtain and use the most advanced expertise in all practices, applying Active Inference, Systems Thinking, and other first-principles approaches to its own operations. At the ecosystem scale, we share and promote the methods we use through the community to increase the quality and efficiency of collaborations, and we remain open to recommendations for new methods and strategies to consider.",
       "links": [
         {
           "label": "Active Inference",
@@ -103,7 +117,7 @@
     },
     {
       "heading": "Full materials",
-      "body": "This page presents the Institute's standing strategy across Education, Research, Outreach & Engagement, and Methods. Time-specific priorities and planning — and the periodic review of Strategy, Mission, Vision, Values, and Principles — are maintained on the strategy hub and are progressively migrated onto this site.",
+      "body": "This page presents the Institute's standing strategy across Education, Research, Outreach & Engagement, and Methods. Time-specific priorities and planning \u2014 and the periodic review of Strategy, Mission, Vision, Values, and Principles \u2014 are maintained on the strategy hub and are progressively migrated onto this site.",
       "links": [
         {
           "sourceId": "shortlink-strategy"
@@ -114,7 +128,7 @@
   "cards": [
     {
       "title": "Education",
-      "text": "Plural formats — courses, groups, internships, project-based learning — from participant to ecosystem scale.",
+      "text": "Plural formats \u2014 courses, groups, internships, project-based learning \u2014 from participant to ecosystem scale.",
       "links": [
         {
           "label": "EduActive",
