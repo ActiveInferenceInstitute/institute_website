@@ -128,6 +128,26 @@ Public governance members and organizations.
 }
 ```
 
+### `fellows.json`
+Public Research Fellows roster. Derived from the `fellowship` block on person
+entities, and deliberately separate from `entities.json`: a published fellowship
+is a program roster entry, not a governance role, so it crosses the boundary
+without relaxing the `roster-import` CRM gate that withholds directory contacts
+from the governance tables. Sorted newest appointment first, then by name.
+
+```
+{
+  description: string, source: string,
+  fellows: [{
+    id: string, name: string, position: string,
+    start: string,            // "M/YYYY" as published
+    status: "current"|"past", // only "current" renders on /programs/fellowship/
+    orcid: string,            // bare ORCID iD, or "" when unpublished
+    focus: string, overview: string
+  }]
+}
+```
+
 ### `policies.json`
 Public governance policy registry overview.
 
@@ -268,5 +288,6 @@ and images remain intact.
 - Private fields (contacts, email, phone, interactions, etc.) must never be present in any file. **Enforcement status:** producer-1 slices are gated by `validate_public_payload` (denylist + email regex) and producer-2 slices by `validate_public_prose_payload` (prose-tuned denylist + email/phone regex), both via `check:instituteos`. The rendered HTML is independently gated by `check:security` (no `coda.io`, no PII, external links forced through the `live-sources.json` allowlist).
 - `entities.json` uses `people`/`organizations` keys (not `records`) — handle both patterns in consuming code.
 - `ontology.json` uses `trees`/`edges` keys (not `records`).
+- `fellows.json` uses a `fellows` key (not `records`).
 - All other files use a top-level `records` array.
 - Run `python3 scripts/sync_instituteos_public_data.py --check` to verify files are current.

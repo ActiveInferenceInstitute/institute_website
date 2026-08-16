@@ -69,17 +69,22 @@ export function relatedProjectsForPage(page) {
 export function catalogProjects() {
   return (loadProjectsData().projects || [])
     .filter((project) => project && project.website_slug)
-    .map((project) => ({
+    .map((project) => {
+      if (project.affiliation !== "institute" && project.affiliation !== "ecosystem") {
+        throw new Error(`Project ${project.id || "<unknown>"} has no valid public affiliation`);
+      }
+      return {
       id: project.id,
       title: project.title || project.id,
       status: project.status || "unknown",
-      affiliation: project.affiliation === "ecosystem" ? "ecosystem" : "institute",
+      affiliation: project.affiliation,
       summary: project.summary || project.description || "",
       topics: project.topics || [],
       owner: project.owner_name || "",
       people: Array.isArray(project.people) ? project.people : [],
       slug: project.website_slug,
-    }))
+      };
+    })
     .sort((a, b) => a.title.localeCompare(b.title));
 }
 

@@ -906,7 +906,8 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Unit Member"
+        "Unit Member",
+        "Fellow"
       ],
       "tags": [],
       "title": "Primary point of contact / IE project facilitator for Symbolic cognitive robotics"

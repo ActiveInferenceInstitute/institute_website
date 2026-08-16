@@ -1,9 +1,9 @@
 import { techTreeExplorerSection, governanceGraphSection, ontologyTermsGraphSection } from "./graphs.mjs";
-import { tableSection, ontologyTermsTable } from "./tables.mjs";
+import { dataTable, tableSection, ontologyTermsTable } from "./tables.mjs";
 import { narrativeSection } from "./narrative.mjs";
 import { videoTableSection } from "./video-table.mjs";
 import { renderBibliographyList } from "../pages/bibliography.mjs";
-import { domainProjectsSection } from "../pages/ecosystem.mjs";
+import { ecosystemTopicsSection, TOPIC_NARRATIVE_SECTION } from "../pages/ecosystem.mjs";
 import { EXPORT_PROVENANCE, siteData, loadProjectsData } from "../data.mjs";
 import { escapeHtml, sanitizePublicProse } from "../lib/text.mjs";
 import { hrefForSlug } from "../url-taxonomy.mjs";
@@ -39,6 +39,39 @@ function bookCoversSection(page, currentDir = "") {
     ${sectionHeading({ eyebrow: "Textbooks", title: "The books we read", text: "The Textbook Group works cohort-by-cohort through these Active Inference texts." })}
     <div class="book-covers">${figures}</div>
   </section>`;
+}
+
+// Current Research Fellows, generated from the InstituteOS fellows roster
+// (library/registries/entities.json -> fellows.json). The roster is data, never
+// prose: adding or ending a fellowship is a registry edit, not a page edit.
+// ORCID iDs render as text, not anchors — orcid.org is not in the live-source
+// allowlist and per-fellow identifiers are data, so the external-anchor gate
+// would (correctly) reject one anchor per row.
+export function fellowsSection(currentDir = "") {
+  const fellows = (siteData.instituteos.fellows.fellows || []).filter((fellow) => fellow.status === "current");
+  if (!fellows.length) {
+    return "";
+  }
+  const columns = [
+    { label: tr("Fellow"), render: (item) => escapeHtml(sanitizePublicProse(item.name)) },
+    { label: tr("Position"), render: (item) => escapeHtml(sanitizePublicProse(item.position)) },
+    { label: tr("Fellow since"), render: (item) => escapeHtml(item.start || "—") },
+    { label: tr("Focus"), render: (item) => escapeHtml(sanitizePublicProse(item.focus)) || "—" },
+    { label: tr("ORCID"), render: (item) => escapeHtml(item.orcid) || "—" },
+    { label: tr("Research"), render: (item) => escapeHtml(sanitizePublicProse(item.overview)) || "—" },
+  ];
+  return tableSection({
+    id: "current-fellows",
+    eyebrow: "Current Research Fellows",
+    title: `${fellows.length} current Research Fellows`,
+    text: "Each fellow works on a defined scope of research and reports on it publicly. Rows come from the Institute's Research Fellows roster.",
+    countLabel: `${fellows.length} fellows shown`,
+    tableHtml: dataTable({
+      caption: "Current Research Fellows at the Active Inference Institute.",
+      columns,
+      rows: fellows,
+    }),
+  });
 }
 
 // ── InstituteOS feature sections (graphs, narratives, domains, related projects) ──
@@ -422,6 +455,8 @@ export function instituteosFeatureSections(page, currentDir = "") {
       return ontologyTermsFeature(currentDir);
     case "learning":
       return techTreeExplorerSection(currentDir);
+    case "fellowship":
+      return fellowsSection(currentDir);
     case "structure":
       return (
         governanceGraphSection(currentDir) +
@@ -437,14 +472,15 @@ export function instituteosFeatureSections(page, currentDir = "") {
     case "ecosystem":
       return (
         ecosystemOrganizationsSection(currentDir) +
-        domainProjectsSection(currentDir) +
+        ecosystemTopicsSection(currentDir) +
         narrativeSection({
           id: "ecosystem-narratives",
           eyebrow: "Ecosystem",
           title: "The Active Inference ecosystem",
-          text: "Public narrative content describing the ecosystem and its domains of application.",
+          text: "Public narrative content describing the ecosystem as a whole. Each domain of application has its own topic page above.",
           targetPage: "ecosystem",
           currentDir,
+          excludeSections: [TOPIC_NARRATIVE_SECTION],
         })
       );
     case "about":

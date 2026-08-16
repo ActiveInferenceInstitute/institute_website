@@ -51,8 +51,8 @@ merges them into the rendered resource directory and shortlink surfaces.
 `scripts/sync_instituteos_public_data.py` (`npm run sync:instituteos`). These are
 build-time inputs, never served directly. **Do not hand-edit them** — regenerate from
 source and verify with `python3 scripts/sync_instituteos_public_data.py --check`.
-Most files use a top-level `records` array; `entities.json` uses `people`/`organizations`
-and `ontology.json` uses `trees`/`edges`. Private fields (contacts, email, rosters,
+Most files use a top-level `records` array; `entities.json` uses `people`/`organizations`,
+`fellows.json` uses `fellows`, and `ontology.json` uses `trees`/`edges`. Private fields (contacts, email, rosters,
 operational detail) are never present. See [`instituteos/README.md`](instituteos/README.md)
 for per-file schemas.
 

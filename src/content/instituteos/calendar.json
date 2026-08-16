@@ -47,22 +47,22 @@
     {
       "allDay": false,
       "end": "2024-01-12T19:00:00",
-      "id": "97d68205ef5a0e04",
-      "start": "2024-01-12T18:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "Asia/Yerevan",
-      "title": "Journal DevOps meeting",
-      "url": ""
-    },
-    {
-      "allDay": false,
-      "end": "2024-01-12T19:00:00",
       "id": "1c5e3760f1f68677",
       "start": "2024-01-12T18:00:00",
       "status": "CONFIRMED",
       "timeZone": "Asia/Yerevan",
       "title": "Journal DevOps meeting",
       "url": "https://discord.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2024-01-12T19:00:00",
+      "id": "97d68205ef5a0e04",
+      "start": "2024-01-12T18:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "Asia/Yerevan",
+      "title": "Journal DevOps meeting",
+      "url": ""
     },
     {
       "allDay": false,
@@ -1002,7 +1002,7 @@
       "status": "CONFIRMED",
       "timeZone": "UTC",
       "title": "Math Discussion with Octopus",
-      "url": ""
+      "url": "https://octopus.activeinference.institute/"
     },
     {
       "allDay": false,
@@ -1032,7 +1032,7 @@
       "status": "CONFIRMED",
       "timeZone": "UTC",
       "title": "Math Discussion with Octopus",
-      "url": ""
+      "url": "https://octopus.activeinference.institute/"
     },
     {
       "allDay": false,
@@ -2736,63 +2736,13 @@
     },
     {
       "allDay": false,
-      "end": "2026-06-23T18:00:00",
-      "id": "e255f1f1681ac142",
-      "start": "2026-06-23T17:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
-      "url": "https://zoom.activeinference.institute/"
-    },
-    {
-      "allDay": false,
-      "end": "2026-06-24T18:00:00",
-      "id": "25e04db2019e3eb9",
-      "start": "2026-06-24T17:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "CogNarr Ecosystem project",
-      "url": ""
-    },
-    {
-      "allDay": false,
-      "end": "2026-06-25T14:00:00",
-      "id": "c43a3db68a946d32",
-      "start": "2026-06-25T13:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "RxInfer.jl ~ Learning session",
-      "url": ""
-    },
-    {
-      "allDay": false,
-      "end": "2026-06-26T14:00:00",
-      "id": "00cf81b1976e4d7e",
-      "start": "2026-06-26T13:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
-      "url": "https://zoom.activeinference.institute/"
-    },
-    {
-      "allDay": false,
-      "end": "2026-06-26T19:00:00+00:00",
+      "end": "2026-06-30T00:00:00+00:00",
       "id": "678b6595036b9915",
-      "start": "2026-06-26T18:00:00+00:00",
+      "start": "2026-06-29T23:00:00+00:00",
       "status": "CONFIRMED",
       "timeZone": "UTC",
       "title": "2026 ~ 2nd Quarterly Roundtable Livestream",
       "url": "https://www.youtube.com/live/nmu_ZVvv_-A"
-    },
-    {
-      "allDay": false,
-      "end": "2026-06-30T18:00:00",
-      "id": "97425190ea84de0b",
-      "start": "2026-06-30T17:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
-      "url": "https://zoom.activeinference.institute/"
     },
     {
       "allDay": false,
@@ -2806,19 +2756,29 @@
     },
     {
       "allDay": false,
-      "end": "2026-07-02T14:00:00",
-      "id": "57219612e3112fe3",
-      "start": "2026-07-02T13:00:00",
+      "end": "2026-07-14T16:30:00+00:00",
+      "id": "4c382b00327025db",
+      "start": "2026-07-14T15:00:00+00:00",
       "status": "CONFIRMED",
       "timeZone": "UTC",
-      "title": "RxInfer.jl ~ Learning session",
-      "url": ""
+      "title": "Active Inference GuestStream #128.1 ~ Active Inference as the Test-Time Scaling Law for Physical AI Agents",
+      "url": "https://www.youtube.com/live/vjtYYbO9jCY"
     },
     {
       "allDay": false,
-      "end": "2026-07-03T14:00:00",
-      "id": "7eae125b072a5125",
-      "start": "2026-07-03T13:00:00",
+      "end": "2026-07-27T13:30:00+00:00",
+      "id": "b6dad470c3a31724",
+      "start": "2026-07-27T12:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #129.1 ~ TRIAD & ITCE Launch: The Thermodynamics of Ethics",
+      "url": "https://youtube.com/live/mXCOz4OOpho"
+    },
+    {
+      "allDay": false,
+      "end": "2026-07-28T18:00:00+00:00",
+      "id": "ecace6e64af6340a",
+      "start": "2026-07-28T17:00:00+00:00",
       "status": "CONFIRMED",
       "timeZone": "UTC",
       "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
@@ -2826,9 +2786,29 @@
     },
     {
       "allDay": false,
-      "end": "2026-07-07T18:00:00",
-      "id": "d59ae3a2e0a6d1ce",
-      "start": "2026-07-07T17:00:00",
+      "end": "2026-07-29T14:30:00+00:00",
+      "id": "475a901459c83214",
+      "start": "2026-07-29T13:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "GuestStream #130.1 ~ Understanding Integrative Complexity Through Active Inference",
+      "url": "https://www.youtube.com/live/IOuJgpK9M_A"
+    },
+    {
+      "allDay": false,
+      "end": "2026-07-29T20:30:00+00:00",
+      "id": "94a239eb3177c2d4",
+      "start": "2026-07-29T19:00:00+00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "ModelStream ~ Active Circuit Discovery: A Multi-Action POMDP Agent for Causal Feature Identification in Transformer Attribution Graphs",
+      "url": "https://www.youtube.com/live/U9Z0TIeq1Fc"
+    },
+    {
+      "allDay": false,
+      "end": "2026-07-31T14:00:00+00:00",
+      "id": "8fce8e26c3e7a388",
+      "start": "2026-07-31T13:00:00+00:00",
       "status": "CONFIRMED",
       "timeZone": "UTC",
       "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
@@ -2836,143 +2816,13 @@
     },
     {
       "allDay": false,
-      "end": "2026-07-08T18:00:00",
-      "id": "b0e22a8ebdd29ced",
-      "start": "2026-07-08T17:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "CogNarr Ecosystem project",
-      "url": ""
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-09T14:00:00",
-      "id": "446a707191faeb8e",
-      "start": "2026-07-09T13:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "RxInfer.jl ~ Learning session",
-      "url": ""
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-10T14:00:00",
-      "id": "215de1205fad4ec6",
-      "start": "2026-07-10T13:00:00",
+      "end": "2026-08-18T18:00:00",
+      "id": "ffc557155b6838fd",
+      "start": "2026-08-18T17:00:00",
       "status": "CONFIRMED",
       "timeZone": "UTC",
       "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
       "url": "https://zoom.activeinference.institute/"
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-14T18:00:00",
-      "id": "23a1d22790e3fb41",
-      "start": "2026-07-14T17:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
-      "url": "https://zoom.activeinference.institute/"
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-16T14:00:00",
-      "id": "a5672de7cba873de",
-      "start": "2026-07-16T13:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "RxInfer.jl ~ Learning session",
-      "url": ""
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-17T14:00:00",
-      "id": "8ee41f7a95fc3ae4",
-      "start": "2026-07-17T13:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
-      "url": "https://zoom.activeinference.institute/"
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-21T18:00:00",
-      "id": "4e8a27d55233bf72",
-      "start": "2026-07-21T17:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
-      "url": "https://zoom.activeinference.institute/"
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-22T18:00:00",
-      "id": "ed2255c5a75ffc5d",
-      "start": "2026-07-22T17:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "CogNarr Ecosystem project",
-      "url": ""
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-23T14:00:00",
-      "id": "a4f421734c8f736c",
-      "start": "2026-07-23T13:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "RxInfer.jl ~ Learning session",
-      "url": ""
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-24T14:00:00",
-      "id": "3eb6239f26870acf",
-      "start": "2026-07-24T13:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
-      "url": "https://zoom.activeinference.institute/"
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-28T18:00:00",
-      "id": "e1b93a5d5e000f4d",
-      "start": "2026-07-28T17:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
-      "url": "https://zoom.activeinference.institute/"
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-30T14:00:00",
-      "id": "dafa1e9b8b774ce6",
-      "start": "2026-07-30T13:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "RxInfer.jl ~ Learning session",
-      "url": ""
-    },
-    {
-      "allDay": false,
-      "end": "2026-07-31T14:00:00",
-      "id": "3b14e9330a6d5dd4",
-      "start": "2026-07-31T13:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
-      "url": "https://zoom.activeinference.institute/"
-    },
-    {
-      "allDay": false,
-      "end": "2026-08-05T18:00:00",
-      "id": "50f92f78b20598dc",
-      "start": "2026-08-05T17:00:00",
-      "status": "CONFIRMED",
-      "timeZone": "UTC",
-      "title": "CogNarr Ecosystem project",
-      "url": ""
     },
     {
       "allDay": false,
@@ -2986,6 +2836,66 @@
     },
     {
       "allDay": false,
+      "end": "2026-08-20T14:00:00",
+      "id": "3e571051b9fb129e",
+      "start": "2026-08-20T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl ~ Learning session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-08-21T14:00:00",
+      "id": "d4dccd094f14a670",
+      "start": "2026-08-21T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-08-25T18:00:00",
+      "id": "32bbddf82a02bc59",
+      "start": "2026-08-25T17:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-08-27T14:00:00",
+      "id": "489befb05fef1ca8",
+      "start": "2026-08-27T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl ~ Learning session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-08-28T14:00:00",
+      "id": "96070737ee954c84",
+      "start": "2026-08-28T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-01T18:00:00",
+      "id": "37c77e5b3eab703c",
+      "start": "2026-09-01T17:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
       "end": "2026-09-02T18:00:00",
       "id": "ff5f2f986bcf4f84",
       "start": "2026-09-02T17:00:00",
@@ -2996,6 +2906,126 @@
     },
     {
       "allDay": false,
+      "end": "2026-09-03T14:00:00",
+      "id": "1d8b5f70d48833c3",
+      "start": "2026-09-03T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl ~ Learning session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-04T14:00:00",
+      "id": "e447555289769ad3",
+      "start": "2026-09-04T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-08T18:00:00",
+      "id": "5b5f24e2a14269ac",
+      "start": "2026-09-08T17:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-10T14:00:00",
+      "id": "74f0719bd8c81619",
+      "start": "2026-09-10T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl ~ Learning session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-11T14:00:00",
+      "id": "b771dbf370606ce3",
+      "start": "2026-09-11T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-15T18:00:00",
+      "id": "69d1514cae922a0c",
+      "start": "2026-09-15T17:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-16T18:00:00",
+      "id": "54582fc97341b98c",
+      "start": "2026-09-16T17:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "CogNarr Ecosystem project",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-17T14:00:00",
+      "id": "e0491c300582fe00",
+      "start": "2026-09-17T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl ~ Learning session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-18T14:00:00",
+      "id": "4b8184e6ae192254",
+      "start": "2026-09-18T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-22T18:00:00",
+      "id": "a018f463fe57938c",
+      "start": "2026-09-22T17:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-24T14:00:00",
+      "id": "cd644579ecae2428",
+      "start": "2026-09-24T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "RxInfer.jl ~ Learning session",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-25T14:00:00",
+      "id": "bdee6bdb331326aa",
+      "start": "2026-09-25T13:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "\"Fundamentals of Active Inference\" ~ Textbook Group",
+      "url": "https://zoom.activeinference.institute/"
+    },
+    {
+      "allDay": false,
       "end": "2026-09-25T19:00:00+00:00",
       "id": "6d0ebabddf296257",
       "start": "2026-09-25T18:00:00+00:00",
@@ -3003,6 +3033,36 @@
       "timeZone": "UTC",
       "title": "2026 ~ 3rd Quarterly Roundtable Livestream",
       "url": "https://www.youtube.com/live/WrixYErQot0"
+    },
+    {
+      "allDay": false,
+      "end": "2026-09-30T18:00:00",
+      "id": "54185529a3c2f3ce",
+      "start": "2026-09-30T17:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "CogNarr Ecosystem project",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-10-14T18:00:00",
+      "id": "1a7c67fade789226",
+      "start": "2026-10-14T17:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "CogNarr Ecosystem project",
+      "url": ""
+    },
+    {
+      "allDay": false,
+      "end": "2026-10-28T18:00:00",
+      "id": "3f9e84b210534860",
+      "start": "2026-10-28T17:00:00",
+      "status": "CONFIRMED",
+      "timeZone": "UTC",
+      "title": "CogNarr Ecosystem project",
+      "url": ""
     },
     {
       "allDay": false,

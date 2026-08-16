@@ -80,6 +80,7 @@ export const siteData = {
     ontology: loadJson(path.join("instituteos", "ontology.json")),
     assets: loadJson(path.join("instituteos", "assets.json")),
     entities: loadJson(path.join("instituteos", "entities.json")),
+    fellows: loadJson(path.join("instituteos", "fellows.json")),
     communications: loadJson(path.join("instituteos", "communications_public.json")),
     policies: loadJson(path.join("instituteos", "policies.json")),
     programs: loadJson(path.join("instituteos", "programs.json")),

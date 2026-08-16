@@ -156,8 +156,11 @@ export function narrativesForTarget(targetPage) {
 }
 
 // Render a narrative collection as one content-band with stacked prose blocks.
-export function narrativeSection({ id, eyebrow, title, text, targetPage, currentDir = "" }) {
-  const entries = narrativesForTarget(targetPage);
+// `excludeSections` drops narratives that are rendered elsewhere (e.g. the
+// per-topic ecosystem narratives, which each own a page under /ecosystem/).
+export function narrativeSection({ id, eyebrow, title, text, targetPage, currentDir = "", excludeSections = [] }) {
+  const excluded = new Set(excludeSections);
+  const entries = narrativesForTarget(targetPage).filter((entry) => !excluded.has(entry.section));
   if (!entries.length) {
     return "";
   }

@@ -4,11 +4,9 @@ import { siteData } from "../data.mjs";
 import {
   instituteosCounts,
   brandAsset,
-  peopleRows,
   projectRows,
   ideaRows,
   ontologyRows,
-  researchRows,
   publicationRows,
 } from "../lib/instituteos.mjs";
 import { rowAnchor } from "./text.mjs";
@@ -17,12 +15,9 @@ import { sectionHeading, cardGrid } from "./components.mjs";
 import { actionButtons, linkChips } from "./page-sections.mjs";
 import {
   tableSection,
-  peopleTable,
   projectsTable,
   ideasTable,
   ontologyTable,
-  researchTable,
-  organizationsTable,
   governanceMembersTable,
   publicationsTable,
   policiesTable,
@@ -35,13 +30,6 @@ import { domainsSection } from "./domains.mjs";
 
 export function knowledgePreview(page, currentDir = "") {
   const previewConfig = {
-    about: {
-      eyebrow: "Public GitHub people",
-      title: "Visible public contributors",
-      text: "A compact view of externally visible GitHub profiles connected to public Institute repositories.",
-      table: peopleTable(peopleRows(6)),
-      anchor: "people-table",
-    },
     projects: {
       eyebrow: "Public repositories",
       title: "Open-source project registry",
@@ -85,7 +73,7 @@ export function knowledgePage() {
     <div class="knowledge-hero-layout">
       <div>
         <h1>Open Source Map</h1>
-        <p>Structured public tables for externally visible people, public repositories, research links, ideas, and ontology relationships across the Active Inference Institute ecosystem.</p>
+        <p>Structured public tables for public repositories, ideas, ontology relationships, governance, publications, policies, programs, and literature across the Active Inference Institute ecosystem.</p>
         ${actionButtons([
           { label: "Filter resources", href: "resources.html" },
           { label: "Browse repositories", href: "directory.html#repositories" },
@@ -100,12 +88,9 @@ export function knowledgePage() {
     </div>
   </section>
   <section class="metrics-band" aria-label="Open Source Map summary">
-    <div><strong>${counts.people}</strong><span>public people</span></div>
     <div><strong>${counts.projects}</strong><span>public repositories</span></div>
     <div><strong>${counts.ideas}</strong><span>idea rows</span></div>
-    <div><strong>${counts.research}</strong><span>research links</span></div>
     <div><strong>${counts.ontology}</strong><span>relationship rows</span></div>
-    <div><strong>${counts.organizations}</strong><span>organizations</span></div>
     <div><strong>${counts.members}</strong><span>governance members</span></div>
     <div><strong>${counts.publications}</strong><span>publications</span></div>
     <div><strong>${counts.policies}</strong><span>policies</span></div>
@@ -120,12 +105,9 @@ export function knowledgePage() {
       </div>
       <nav aria-label="Open Source Map sections">
         <a href="#public-data-policy">Public link policy</a>
-        <a href="#people-table">People</a>
         <a href="#projects-table">Repositories</a>
         <a href="#ideas-table">Ideas</a>
         <a href="#ontology-table">Ontology</a>
-        <a href="#research-table">Research</a>
-        <a href="#organizations-table">Organizations</a>
         <a href="#members-table">Governance</a>
         <a href="#publications-table">Publications</a>
         <a href="#policies-table">Policies</a>
@@ -156,15 +138,12 @@ export function knowledgePage() {
     ${sectionHeading({
       eyebrow: "Public link policy",
       title: "External-first public data",
-      text: "These tables render public GitHub profiles, public repositories, verified research links, and public concept metadata only. Internal operational records and private working details are excluded.",
+      text: "These tables render public repositories, public concept metadata, and public governance records only. Internal operational records and private working details are excluded.",
     })}
     ${cardGrid([
-      { title: "People", text: "Externally visible public GitHub profile rows with public repository context.", links: [{ label: "People table", href: "#people-table" }] },
       { title: "Repositories", text: "Public ActiveInferenceInstitute repositories with project family, type, language, stars, and updated date.", links: [{ label: "Repository table", href: "#projects-table" }] },
       { title: "Ideas", text: "Concept, method, tool, value, and publication nodes from public-safe tech-tree metadata.", links: [{ label: "Ideas table", href: "#ideas-table" }] },
       { title: "Ontology", text: "Directed relationships between public ideas, methods, values, tools, and applications.", links: [{ label: "Ontology table", href: "#ontology-table" }] },
-      { title: "Research", text: "Verified public research, paper, and reference links from the resource registry.", links: [{ label: "Research table", href: "#research-table" }] },
-      { title: "Organizations", text: "Public organizations in the governance registry — governing bodies, internal units, partners, and technology providers.", links: [{ label: "Organizations table", href: "#organizations-table" }] },
       { title: "Governance", text: "Public governance members including board, officers, and registered organizational roles.", links: [{ label: "Governance table", href: "#members-table" }] },
       { title: "Publications", text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: "Publications table", href: "#publications-table" }] },
       { title: "Policies", text: "Public governance policy registry with category, status, version, and description.", links: [{ label: "Policies table", href: "#policies-table" }] },
@@ -176,18 +155,15 @@ export function knowledgePage() {
     <div class="knowledge-tools" aria-label="Open Source Map filters">
       <label>
         <span>Search Open Source Map</span>
-        <input id="knowledge-search" type="search" placeholder="Search people, repositories, papers, ideas, relationships">
+        <input id="knowledge-search" type="search" placeholder="Search repositories, ideas, relationships, governance, publications">
       </label>
       <label>
         <span>Table</span>
         <select id="knowledge-kind">
           <option value="">All tables</option>
-          <option value="people">People</option>
           <option value="projects">Repositories</option>
           <option value="ideas">Ideas</option>
           <option value="ontology">Ontology</option>
-          <option value="research">Research</option>
-          <option value="organizations">Organizations</option>
           <option value="members">Governance</option>
           <option value="publications">Publications</option>
           <option value="policies">Policies</option>
@@ -195,17 +171,9 @@ export function knowledgePage() {
           <option value="citations">Literature</option>
         </select>
       </label>
-      <p id="knowledge-count" class="result-count" aria-live="polite">${counts.people + counts.projects + counts.ideas + counts.ontology + counts.research + counts.organizations + counts.members + counts.publications + counts.policies + counts.programs + counts.citations} rows shown</p>
+      <p id="knowledge-count" class="result-count" aria-live="polite">${counts.projects + counts.ideas + counts.ontology + counts.members + counts.publications + counts.policies + counts.programs + counts.citations} rows shown</p>
     </div>
   </section>
-  ${tableSection({
-    id: "people-table",
-    eyebrow: "People",
-    title: `${counts.people} public people rows`,
-    text: "Public GitHub profiles visible through public ActiveInferenceInstitute repository metadata.",
-    countLabel: `${counts.people} people shown`,
-    tableHtml: peopleTable(),
-  })}
   ${tableSection({
     id: "projects-table",
     eyebrow: "Repositories",
@@ -230,22 +198,6 @@ export function knowledgePage() {
     text: "Directed relationships from the Active Inference and Free Energy Principle tech trees.",
     countLabel: `${counts.ontology} relationships shown`,
     tableHtml: ontologyTable(),
-  })}
-  ${tableSection({
-    id: "research-table",
-    eyebrow: "Research",
-    title: `${counts.research} research and paper rows`,
-    text: "Verified public research, paper, and reference links surfaced from the resource registry.",
-    countLabel: `${counts.research} research links shown`,
-    tableHtml: researchTable(),
-  })}
-  ${tableSection({
-    id: "organizations-table",
-    eyebrow: "Organizations",
-    title: `${counts.organizations} organization rows`,
-    text: "Public organizations in the governance registry — governing bodies, internal units, partners, and technology providers.",
-    countLabel: `${counts.organizations} organizations shown`,
-    tableHtml: organizationsTable(),
   })}
   ${tableSection({
     id: "members-table",
@@ -299,7 +251,7 @@ export function knowledgePage() {
   ${domainsSection(currentDir)}`;
   return layout({
     title: "Open Source Map",
-    description: "Structured public tables for ActiveInferenceInstitute people, repositories, research links, ideas, and ontology relationships.",
+    description: "Structured public tables for ActiveInferenceInstitute repositories, ideas, ontology relationships, governance, publications, policies, programs, and literature.",
     currentDir,
     body,
     slug: "knowledge",
@@ -308,12 +260,6 @@ export function knowledgePage() {
 
 export function knowledgeDirectoryRows(currentDir = "") {
   const rows = [
-    ...siteData.instituteos.people.records.map((item) => ({
-      kind: "Public People",
-      label: item.name,
-      summary: `${item.publicRole}: @${item.login}`,
-      href: hrefForSlug("knowledge", currentDir, rowAnchor("person", item.id)),
-    })),
     ...siteData.instituteos.projects.records.map((item) => ({
       kind: "Repositories",
       label: item.title,
@@ -331,18 +277,6 @@ export function knowledgeDirectoryRows(currentDir = "") {
       label: `${item.sourceLabel} -> ${item.targetLabel}`,
       summary: `${item.treeTitle} / ${item.relationship}`,
       href: hrefForSlug("knowledge", currentDir, rowAnchor("ontology", item.id)),
-    })),
-    ...researchRows().map((item) => ({
-      kind: "Research and Papers",
-      label: item.label,
-      summary: `${item.categoryLabel} / ${item.audienceLabel}`,
-      href: hrefForSlug("knowledge", currentDir, rowAnchor("research", item.sourceId)),
-    })),
-    ...(siteData.instituteos.entities.organizations || []).map((item) => ({
-      kind: "Organizations",
-      label: item.name,
-      summary: `${title_case_token_js(item.type || "")}`,
-      href: hrefForSlug("knowledge", currentDir, rowAnchor("org", item.id)),
     })),
     ...(siteData.instituteos.entities.people || []).map((item) => {
       const title = item.title || "";

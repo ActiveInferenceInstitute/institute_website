@@ -857,7 +857,8 @@
       "meta": {
         "entity_type": "",
         "roles": [
-          "Unit Member"
+          "Unit Member",
+          "Fellow"
         ]
       },
       "href": "knowledge.html#member-jean-francois-cloutier"

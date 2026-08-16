@@ -16,7 +16,7 @@ import { buildManifest, buildSecurityTxt } from "./render/metadata.mjs";
 import { buildRssFeed, buildJsonFeed } from "./feeds.mjs";
 import { homePage, publicPage } from "./render/pages.mjs";
 import { knowledgePage } from "./render/knowledge.mjs";
-import { ecosystemDomainPages } from "./pages/ecosystem.mjs";
+import { ecosystemTopicPages } from "./pages/ecosystem.mjs";
 import { directoryPage } from "./pages/directory.mjs";
 import { resourcesPage } from "./pages/resources.mjs";
 import { searchPage } from "./pages/search.mjs";
@@ -40,7 +40,7 @@ function build() {
     ["calendar", calendarPage],
     ["newsletter", newsletterPage],
     ["sitemap", sitemapPage],
-    ...ecosystemDomainPages().map((page) => [page.slug, page.render]),
+    ...ecosystemTopicPages().map((page) => [page.slug, page.render]),
   ];
   // Render every routed page once per locale. The default locale writes to the
   // site root; each non-default locale writes to its own /<code>/ subtree. The

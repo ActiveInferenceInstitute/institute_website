@@ -1792,6 +1792,20 @@
   <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/sitemap/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/sitemap/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/sitemap/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/biology/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/biology/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/biology/"/>  </url>
   <url><loc>https://activeinference.institute/ecosystem/bioregional-modeling/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/bioregional-modeling/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/bioregional-modeling/"/>
@@ -1806,6 +1820,62 @@
   <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/bioregional-modeling/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/bioregional-modeling/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/bioregional-modeling/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/category-theory/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/category-theory/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/category-theory/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/desci/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/desci/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/desci/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/domains-of-application/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/domains-of-application/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/domains-of-application/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/economics/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/economics/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/economics/"/>  </url>
   <url><loc>https://activeinference.institute/ecosystem/education/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/education/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/education/"/>
@@ -1820,6 +1890,62 @@
   <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/education/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/education/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/education/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/implementations-of-active-inference/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/implementations-of-active-inference/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/implementations-of-active-inference/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/legal/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/legal/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/legal/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/logistics/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/logistics/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/logistics/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/mental-health/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/mental-health/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/mental-health/"/>  </url>
   <url><loc>https://activeinference.institute/ecosystem/neuroscience/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/neuroscience/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/neuroscience/"/>
@@ -1862,6 +1988,20 @@
   <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/physics/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/physics/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/physics/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/pymdp/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/pymdp/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/pymdp/"/>  </url>
   <url><loc>https://activeinference.institute/ecosystem/robotics/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/robotics/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/robotics/"/>
@@ -1890,6 +2030,48 @@
   <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/rxinfer-jl/"/>
   <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/rxinfer-jl/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/rxinfer-jl/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/scientific-method/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/scientific-method/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/scientific-method/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/social/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/social/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/social/"/>  </url>
+  <url><loc>https://activeinference.institute/ecosystem/spm-statistical-parametric-mapping/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://activeinference.institute/fr/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="de" href="https://activeinference.institute/de/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="pt" href="https://activeinference.institute/pt/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="it" href="https://activeinference.institute/it/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="ru" href="https://activeinference.institute/ru/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="zh" href="https://activeinference.institute/zh/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="ja" href="https://activeinference.institute/ja/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="ko" href="https://activeinference.institute/ko/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="hi" href="https://activeinference.institute/hi/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="ar" href="https://activeinference.institute/ar/ecosystem/spm-statistical-parametric-mapping/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://activeinference.institute/ecosystem/spm-statistical-parametric-mapping/"/>  </url>
   <url><loc>https://activeinference.institute/ecosystem/symbolic-cognitive-robotics/</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://activeinference.institute/ecosystem/symbolic-cognitive-robotics/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://activeinference.institute/es/ecosystem/symbolic-cognitive-robotics/"/>

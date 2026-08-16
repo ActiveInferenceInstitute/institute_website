@@ -9,7 +9,7 @@ import {
   normalizedRepositories,
   allResourceEntries,
 } from "../lib/resources.mjs";
-import { researchRows, publicationRows } from "../lib/instituteos.mjs";
+import { publicationRows } from "../lib/instituteos.mjs";
 import { linkAttrs } from "../render/links.mjs";
 import { actionButtons } from "../render/page-sections.mjs";
 import { sectionHeading, cardGrid } from "../render/components.mjs";
@@ -106,15 +106,12 @@ export function directoryPage() {
     ${sectionHeading({
       eyebrow: "Open Source Map",
       title: `${knowledgeRows.length} structured public rows`,
-      text: "Public-safe table rows for GitHub people, repositories, research links, ideas, and ontology relationships.",
+      text: "Public-safe table rows for repositories, ideas, ontology relationships, governance, publications, policies, programs, and literature.",
     })}
     ${cardGrid([
-      { title: `People (${siteData.instituteos.people.records.length})`, text: "Public GitHub profile rows visible through repository metadata.", links: [{ label: "Open people table", href: "knowledge.html#people-table" }] },
       { title: `Repositories (${siteData.instituteos.projects.records.length})`, text: "Public repository rows derived from the ActiveInferenceInstitute GitHub namespace.", links: [{ label: "Open repository table", href: "knowledge.html#projects-table" }] },
       { title: `Ideas (${siteData.instituteos.ideas.records.length})`, text: "Concept, method, tool, value, and application rows from the concept graph.", links: [{ label: "Open ideas table", href: "knowledge.html#ideas-table" }] },
       { title: `Ontology (${siteData.instituteos.ontology.edges.length})`, text: "Directed relationship rows from the concept graph.", links: [{ label: "Open ontology table", href: "knowledge.html#ontology-table" }] },
-      { title: `Research (${researchRows().length})`, text: "Verified public research, paper, and reference rows.", links: [{ label: "Open research table", href: "knowledge.html#research-table" }] },
-      { title: `Organizations (${(siteData.instituteos.entities.organizations || []).length})`, text: "Governing bodies, internal units, partners, and technology providers in the governance registry.", links: [{ label: "Open organizations table", href: "knowledge.html#organizations-table" }] },
       { title: `Governance Members (${(siteData.instituteos.entities.people || []).length})`, text: "Public governance members including board, officers, and registered organizational roles.", links: [{ label: "Open governance table", href: "knowledge.html#members-table" }] },
       { title: `Publications (${publicationRows().length})`, text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: "Open publications table", href: "knowledge.html#publications-table" }] },
       { title: `Governance Policies (${(siteData.instituteos.policies.records || []).length})`, text: "Public governance policy registry with category, status, version, and description.", links: [{ label: "Open policies table", href: "knowledge.html#policies-table" }] },

@@ -173,11 +173,9 @@ RESOURCE_FILTER_IDS = {
     "repo-sort",
 }
 KNOWLEDGE_TABLE_IDS = {
-    "people-table": "people",
     "projects-table": "projects",
     "ideas-table": "ideas",
     "ontology-table": "ontology",
-    "research-table": "research",
     "programs-table": "programs",
     "citations-table": "citations",
 }
@@ -926,17 +924,17 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         if required not in html:
             errors.append(f"knowledge.html missing {required}")
 
-    row_counts = {"people": 0, "projects": 0, "ideas": 0, "ontology": 0, "research": 0, "programs": 0, "citations": 0}
+    # People, research, and organizations tables were retired from /knowledge/;
+    # their rows and anchors are no longer expected on the page.
+    row_counts = {"projects": 0, "ideas": 0, "ontology": 0, "programs": 0, "citations": 0}
     for _tag, attrs in info.start_tags:
         kind = attrs.get("data-knowledge-kind")
         if kind in row_counts:
             row_counts[kind] += 1
     expected_counts = {
-        "people": len(data["people"].get("records", [])),
         "projects": len(data["projects"].get("records", [])),
         "ideas": len(data["ideas"].get("records", [])),
         "ontology": len(data["ontology"].get("edges", [])),
-        "research": len(research_resource_records(root)),
         "programs": len(data["programs"].get("records", [])),
         "citations": len(data["citations"].get("records", [])),
     }
@@ -944,10 +942,6 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         errors.append(f"knowledge.html row counts {row_counts} do not match sanitized registries {expected_counts}")
 
     expected_anchor_ids = [
-        *(
-            f"person-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}"
-            for item in data["people"].get("records", [])
-        ),
         *(
             f"project-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}"
             for item in data["projects"].get("records", [])
@@ -959,10 +953,6 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         *(
             f"ontology-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}"
             for item in data["ontology"].get("edges", [])
-        ),
-        *(
-            f"research-{re.sub(r'[^a-z0-9]+', '-', item['sourceId'].lower()).strip('-')}"
-            for item in research_resource_records(root)
         ),
         *(
             f"program-{re.sub(r'[^a-z0-9]+', '-', item['id'].lower()).strip('-')}"
@@ -1060,12 +1050,13 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
         anchor = f"{prefix}-{re.sub(r'[^a-z0-9]+', '-', key.lower()).strip('-')}"
         return href_for_slug("knowledge", directory_dir, anchor)
 
+    # Open Source Map row anchors the Directory must deep-link. GitHub people,
+    # research links, and organizations are intentionally absent: those three
+    # tables were retired from /knowledge/, so no anchor exists to link to.
     expected_row_links = [
-        *(knowledge_row_href("person", item["id"]) for item in data["people"].get("records", [])),
         *(knowledge_row_href("project", item["id"]) for item in data["projects"].get("records", [])),
         *(knowledge_row_href("idea", item["id"]) for item in data["ideas"].get("records", [])),
         *(knowledge_row_href("ontology", item["id"]) for item in data["ontology"].get("edges", [])),
-        *(knowledge_row_href("research", item["sourceId"]) for item in research_resource_records(root)),
         *(knowledge_row_href("program", item["id"]) for item in data["programs"].get("records", [])),
         *(knowledge_row_href("citation", item["id"]) for item in data["citations"].get("records", [])),
     ]

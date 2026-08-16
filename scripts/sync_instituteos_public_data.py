@@ -57,6 +57,7 @@ REQUIRED_PUBLIC_JSON_FILES = (
     "ideas.json",
     "ontology.json",
     "entities.json",
+    "fellows.json",
     "policies.json",
     "assets.json",
 )
@@ -412,6 +413,56 @@ def record_is_public_safe(record: dict[str, Any]) -> bool:
     return True
 
 
+def sanitize_fellows(entities_data: dict[str, Any]) -> dict[str, Any]:
+    """Project Research Fellow appointments into the public fellows roster.
+
+    Fellows are a **published program roster**, not a CRM slice: the Institute
+    publishes name, appointment, start, ORCID, project focus, and the fellow's own
+    research description at ``fellows.activeinference.institute``. Only that
+    projection crosses the boundary here — never the person's title, internal
+    roles, org, tags, contacts, or policy links. That is why this runs beside
+    :func:`sanitize_entities` rather than inside it: the ``roster-import`` CRM gate
+    that withholds directory contacts from the governance tables must stay exactly
+    as strict as it is, and a published fellowship is not a governance role.
+
+    Sort order is start date (newest appointment first), then name, so the roster
+    is deterministic across runs.
+    """
+    fellows = []
+    for entity in entities_data.get("entities", []):
+        if entity.get("entity_type") != "person" or entity.get("role_placeholder"):
+            continue
+        fellowship = entity.get("fellowship")
+        if not isinstance(fellowship, dict):
+            continue
+        record = {
+            "id": entity.get("id"),
+            "name": public_text(entity.get("name")),
+            "position": public_text(fellowship.get("position")) or "Research Fellow",
+            "start": public_text(fellowship.get("start")),
+            "status": public_text(fellowship.get("status")) or "current",
+            "orcid": public_text(fellowship.get("orcid")),
+            "focus": public_text(fellowship.get("focus")),
+            "overview": public_text(fellowship.get("overview")),
+        }
+        if record_is_public_safe(record):
+            fellows.append(record)
+
+    def start_key(item: dict[str, Any]) -> tuple[int, int]:
+        month, _, year = (item.get("start") or "").partition("/")
+        try:
+            return (-int(year), -int(month))
+        except ValueError:
+            return (0, 0)
+
+    fellows.sort(key=lambda item: (start_key(item), item["name"].lower()))
+    return {
+        "description": "Public Research Fellows roster derived from InstituteOS entity fellowship records.",
+        "source": "instituteos/library/registries/entities.json",
+        "fellows": fellows,
+    }
+
+
 def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
     people = []
     organizations = []
@@ -698,6 +749,7 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
         "ideas.json": sanitize_ideas(tech_tree_data),
         "ontology.json": sanitize_ontology(tech_tree_data),
         "entities.json": sanitize_entities(entities_data),
+        "fellows.json": sanitize_fellows(entities_data),
         "policies.json": sanitize_policies(policies_data),
     }
     # Calendar is optional: only synced when the InstituteOS pull has been run.

@@ -64,7 +64,7 @@
       "title": "Active Entity Ontology for Science (AEOS)",
       "description": "AEOS is a 2022 framework that applies Active Inference principles to model scientific activity as a collective cognitive process. It provides composable, versionable systems for understanding both traditional institutional science and decentralized science approaches, integrating BOLTS perspective (Business, Operations, Legal, Technical, Social) for comprehensive analysis. The framework enables epistemic community emergence, transparent resource allocation, and tools for decentralized scientific governance while maintaining rigor in institutional settings.",
       "version": "0.1",
-      "status": "active",
+      "status": "archived",
       "category": "research",
       "repository_url": null,
       "start_date": null,
@@ -2379,7 +2379,8 @@
           "id": "jean-francois-cloutier",
           "name": "Jean-François Cloutier",
           "institute_roles": [
-            "Unit Member"
+            "Unit Member",
+            "Fellow"
           ],
           "active": true
         }

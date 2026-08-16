@@ -16,7 +16,7 @@ hand-edit a generated `*/index.html`.
 - standalone renderers: `knowledge`, `resources`, `directory`, `search`,
   `simulations`, `calendar`, `sitemap`, `newsletter`.
 - one entry per `newsletterIssuePages()` issue.
-- one entry per `ecosystemDomainPages()` domain page.
+- one entry per `ecosystemTopicPages()` ecosystem topic page.
 
 Then it loops:
 
