@@ -15,8 +15,16 @@
       "label": "Daniel Friedman",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "President & Treasurer"
+        "entity_type": "",
+        "roles": [
+          "President",
+          "Treasurer",
+          "Board Member",
+          "Officer",
+          "Member",
+          "Unit Member",
+          "Board of Directors"
+        ]
       },
       "href": "knowledge.html#member-daniel-friedman"
     },
@@ -203,8 +211,13 @@
       "label": "Vladimir Baulin",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Board Member"
+        "entity_type": "",
+        "roles": [
+          "Board Member",
+          "Director",
+          "Unit Member",
+          "Board of Directors"
+        ]
       },
       "href": "knowledge.html#member-vladimir-baulin"
     },
@@ -213,8 +226,12 @@
       "label": "Virginia Bleu Knight",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Board Member"
+        "entity_type": "",
+        "roles": [
+          "Board Member",
+          "Director",
+          "Member"
+        ]
       },
       "href": "knowledge.html#member-bleu-knight"
     },
@@ -223,8 +240,11 @@
       "label": "Alianna Maren",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Board Member"
+        "entity_type": "",
+        "roles": [
+          "Board Member",
+          "Director"
+        ]
       },
       "href": "knowledge.html#member-alianna-maren"
     },
@@ -233,8 +253,12 @@
       "label": "Alexander Sabine",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Board Member"
+        "entity_type": "",
+        "roles": [
+          "Board Member",
+          "Director",
+          "Board of Directors"
+        ]
       },
       "href": "knowledge.html#member-alexander-sabine"
     },
@@ -243,8 +267,13 @@
       "label": "Ana Magdalena Hurtado",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Board Member"
+        "entity_type": "",
+        "roles": [
+          "Board Member",
+          "Director",
+          "Unit Member",
+          "Board of Directors"
+        ]
       },
       "href": "knowledge.html#member-ana-magdalena-hurtado"
     },
@@ -253,8 +282,12 @@
       "label": "Ann Stapleton",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Board Member"
+        "entity_type": "",
+        "roles": [
+          "Board Member",
+          "Director",
+          "Board of Directors"
+        ]
       },
       "href": "knowledge.html#member-ann-stapleton"
     },
@@ -263,8 +296,11 @@
       "label": "Ed Ober",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Board Member"
+        "entity_type": "",
+        "roles": [
+          "Board Member",
+          "Director"
+        ]
       },
       "href": "knowledge.html#member-ed-ober"
     },
@@ -273,8 +309,12 @@
       "label": "Austin Cook",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Board Member"
+        "entity_type": "",
+        "roles": [
+          "Board Member",
+          "Director",
+          "Board of Directors"
+        ]
       },
       "href": "knowledge.html#member-austin-cook"
     },
@@ -283,8 +323,12 @@
       "label": "Ellynne Dec",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Board Member"
+        "entity_type": "",
+        "roles": [
+          "Board Member",
+          "Director",
+          "Board of Directors"
+        ]
       },
       "href": "knowledge.html#member-ellynne-dec"
     },
@@ -293,8 +337,13 @@
       "label": "Alexandra Mikhailova",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Vice President & Secretary"
+        "entity_type": "",
+        "roles": [
+          "Vice President",
+          "Secretary",
+          "Officer",
+          "Board Member"
+        ]
       },
       "href": "knowledge.html#member-alexandra-mikhailova"
     },
@@ -303,8 +352,11 @@
       "label": "Alexander Vyatkin",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Vice President (2022-2024)"
+        "entity_type": "",
+        "roles": [
+          "Board Member",
+          "Officer"
+        ]
       }
     },
     {
@@ -312,8 +364,10 @@
       "label": "Dean Tickles",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Board Member (2022-2024)"
+        "entity_type": "",
+        "roles": [
+          "Board Member"
+        ]
       },
       "href": "knowledge.html#member-dean-tickles"
     },
@@ -322,8 +376,11 @@
       "label": "John Clippinger",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Scientific Advisory Board; Board Member (2022-2025)"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-john-clippinger"
     },
@@ -332,8 +389,11 @@
       "label": "Mike Smith",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Scientific Advisory Board; Board Member (2022-2025)"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-mike-smith"
     },
@@ -342,8 +402,10 @@
       "label": "Rafael Kaufmann",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Board Member (2022-2024)"
+        "entity_type": "",
+        "roles": [
+          "Board Member"
+        ]
       },
       "href": "knowledge.html#member-rafael-kaufmann"
     },
@@ -352,8 +414,12 @@
       "label": "Adam Safron",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Primary point of contact / IE project facilitator for AICACP"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Unit Member",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-adam-safron"
     },
@@ -362,7 +428,11 @@
       "label": "Adeel Razi",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-adeel-razi"
     },
@@ -371,7 +441,11 @@
       "label": "Alexander Ororbia",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-alexander-ororbia"
     },
@@ -380,7 +454,11 @@
       "label": "Ali Rahmjoo",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-ali-rahmjoo"
     },
@@ -389,7 +467,11 @@
       "label": "Andrew Pashea",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-andrew-pashea"
     },
@@ -398,7 +480,11 @@
       "label": "Antonio Lucas-Alba",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-antonio-lucas-alba"
     },
@@ -407,7 +493,11 @@
       "label": "Arun Niranjan",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-arun-niranjan"
     },
@@ -416,7 +506,11 @@
       "label": "Avel Guénin-Carlut",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-avel-guenin-carlut"
     },
@@ -425,7 +519,11 @@
       "label": "Bradly Alicea",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-bradly-alicea"
     },
@@ -434,7 +532,11 @@
       "label": "Candice Pattisapu",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-candice-pattisapu"
     },
@@ -443,7 +545,11 @@
       "label": "Chris Fields",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-chris-fields"
     },
@@ -452,7 +558,11 @@
       "label": "Christo Kurisummoottil Thomas",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-christo-kurisummoottil-thomas"
     },
@@ -461,7 +571,11 @@
       "label": "Cory Slater",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-cory-slater"
     },
@@ -470,7 +584,11 @@
       "label": "Elliott Hauser",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-elliott-hauser"
     },
@@ -479,7 +597,11 @@
       "label": "Haris Neophytou",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-haris-neophytou"
     },
@@ -488,7 +610,12 @@
       "label": "Héctor Manrique",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Unit Member",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-hector-manrique"
     },
@@ -497,7 +624,11 @@
       "label": "Holly Grimm",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-holly-grimm"
     },
@@ -506,7 +637,11 @@
       "label": "Ian Tennant",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-ian-tennant"
     },
@@ -515,7 +650,11 @@
       "label": "Jana Lumi",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-jana-lumi"
     },
@@ -524,7 +663,11 @@
       "label": "Joel Dietz",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-joel-dietz"
     },
@@ -533,7 +676,11 @@
       "label": "Joshua Shane",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-joshua-shane"
     },
@@ -542,7 +689,11 @@
       "label": "Karl John Friston",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Member",
+          "Scientific Advisor"
+        ]
       },
       "href": "knowledge.html#member-karl-john-friston"
     },
@@ -551,7 +702,11 @@
       "label": "Luca Possati",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-luca-possati"
     },
@@ -560,7 +715,11 @@
       "label": "Matt Brown",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-matt-brown"
     },
@@ -569,7 +728,11 @@
       "label": "Maxwell J D Ramstead",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-maxwell-j-d-ramstead"
     },
@@ -578,7 +741,11 @@
       "label": "Michael Lennon",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-michael-lennon"
     },
@@ -587,7 +754,11 @@
       "label": "Scott David",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-scott-david"
     },
@@ -596,7 +767,11 @@
       "label": "Sebastian Alvarado",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-sebastian-alvarado"
     },
@@ -605,7 +780,11 @@
       "label": "Shady El Damaty",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-shady-el-damaty"
     },
@@ -614,7 +793,11 @@
       "label": "Thomas Kehler",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Scientific Advisor",
+          "Scientific Advisory Board"
+        ]
       },
       "href": "knowledge.html#member-thomas-kehler"
     },
@@ -623,7 +806,10 @@
       "label": "PabloFM",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Unit Member"
+        ]
       },
       "href": "knowledge.html#member-pablofm"
     },
@@ -632,7 +818,10 @@
       "label": "Jesse G",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Unit Member"
+        ]
       },
       "href": "knowledge.html#member-jesse-g"
     },
@@ -641,7 +830,11 @@
       "label": "Anna Pereira",
       "type": "entity",
       "meta": {
-        "entity_type": "person"
+        "entity_type": "",
+        "roles": [
+          "Unit Member",
+          "Fellow"
+        ]
       },
       "href": "knowledge.html#member-anna-pereira"
     },
@@ -650,8 +843,10 @@
       "label": "Jeremy Cooper",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Primary point of contact / IE project facilitator for Active Inference Account of Belief Updating in PTSD"
+        "entity_type": "",
+        "roles": [
+          "Unit Member"
+        ]
       },
       "href": "knowledge.html#member-jeremy-cooper"
     },
@@ -660,8 +855,10 @@
       "label": "Jean-François Cloutier",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Primary point of contact / IE project facilitator for Symbolic cognitive robotics"
+        "entity_type": "",
+        "roles": [
+          "Unit Member"
+        ]
       },
       "href": "knowledge.html#member-jean-francois-cloutier"
     },
@@ -670,8 +867,10 @@
       "label": "Shagor (Shaggy) Rahman",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Primary point of contact / IE project facilitator for Humanity's Story of an Uncertain Self"
+        "entity_type": "",
+        "roles": [
+          "Unit Member"
+        ]
       },
       "href": "knowledge.html#member-shagor-shaggy-rahman"
     },
@@ -680,8 +879,10 @@
       "label": "Fraser Paterson",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Primary point of contact / IE project facilitator for Improving RxInfer.jl's Model Visualization Capabilities"
+        "entity_type": "",
+        "roles": [
+          "Unit Member"
+        ]
       },
       "href": "knowledge.html#member-fraser-paterson"
     },
@@ -690,8 +891,11 @@
       "label": "John Boik",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Primary point of contact / IE project facilitator for CogNarr Ecosystem: Facilitating Group Cognition at Scale"
+        "entity_type": "",
+        "roles": [
+          "Unit Member",
+          "Fellow"
+        ]
       },
       "href": "knowledge.html#member-john-boik"
     },
@@ -700,8 +904,11 @@
       "label": "Robert Worden",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Primary point of contact / IE project facilitator for Model-Centric cognition"
+        "entity_type": "",
+        "roles": [
+          "Unit Member",
+          "Fellow"
+        ]
       },
       "href": "knowledge.html#member-robert-worden"
     },
@@ -710,8 +917,10 @@
       "label": "Theodoros Aliferis",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Primary point of contact / IE project facilitator for The Einstein Model of a Solid as a Model of the Mental Apparatus from the Economic Perspective of Psychoanalytic Theory"
+        "entity_type": "",
+        "roles": [
+          "Unit Member"
+        ]
       },
       "href": "knowledge.html#member-theodoros-aliferis"
     },
@@ -720,8 +929,10 @@
       "label": "Ivan Metelkin",
       "type": "entity",
       "meta": {
-        "entity_type": "person",
-        "title": "Primary point of contact / IE project facilitator for Active Inference for Built Environments & CooperActive Systems"
+        "entity_type": "",
+        "roles": [
+          "Unit Member"
+        ]
       },
       "href": "knowledge.html#member-ivan-metelkin"
     },
