@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
@@ -109,6 +110,11 @@ def url_dir_for_slug(slug: str, locale: str = "") -> str:
 def output_path_for_slug(slug: str) -> str:
     directory = url_dir_for_slug(slug)
     return f"{directory}/index.html" if directory else "index.html"
+
+
+def slugify_anchor(value: str) -> str:
+    """Mirror of slugifyAnchor() in src/lib/text.mjs."""
+    return re.sub(r"[^a-z0-9]+", "-", str(value).lower()).strip("-")
 
 
 def html_path_for_slug(root: Path, slug: str) -> Path:
@@ -1331,6 +1337,86 @@ def check_instituteos_interface(root: Path, errors: list[str]) -> None:
             errors.append(f"index.html missing InstituteOS interface homepage snippet {snippet!r}")
 
 
+def check_ecosystem_topic_pages(root: Path, errors: list[str]) -> None:
+    """Every ecosystem topic in the data must be a page, linked from every index.
+
+    The topic set is derived the same way the build derives it — the union, by
+    slug, of the ``domains-of-application`` narratives and the domains that carry
+    mapped projects. Nothing here is hardcoded, so a topic added to (or dropped
+    from) the backend moves this check with it instead of against it.
+    """
+    data = instituteos_data(root)
+    slugs: dict[str, str] = {}
+    for entry in data.get("narratives_public", {}).get("narratives", []):
+        if entry.get("section") == "domains-of-application" and entry.get("target_page") == "ecosystem":
+            title = entry.get("title") or ""
+            if slugify_anchor(title):
+                slugs[slugify_anchor(title)] = title
+    for domain in data.get("domain_projects", {}).get("domains", []):
+        if domain.get("projects") and domain.get("slug"):
+            slugs.setdefault(domain["slug"], domain.get("domain", domain["slug"]))
+    if not slugs:
+        errors.append("no ecosystem topics found in the backend data")
+        return
+
+    index_pages = {
+        "ecosystem": html_path_for_slug(root, "ecosystem"),
+        "sitemap": html_path_for_slug(root, "sitemap"),
+        "directory": html_path_for_slug(root, "directory"),
+    }
+    for name, path in index_pages.items():
+        if not path.exists():
+            errors.append(f"{name}/index.html is missing")
+            return
+    html_by_index = {name: path.read_text(encoding="utf-8") for name, path in index_pages.items()}
+
+    for slug, title in sorted(slugs.items()):
+        topic_slug = f"ecosystem/{slug}"
+        if not html_path_for_slug(root, topic_slug).exists():
+            errors.append(f"ecosystem topic {title!r} has no page at /{topic_slug}/")
+            continue
+        for name, html in html_by_index.items():
+            href = href_for_slug(topic_slug, url_dir_for_slug(name))
+            if f'href="{href}"' not in html:
+                errors.append(f"{name}/index.html does not link ecosystem topic {title!r} ({href})")
+
+    # A narrative that owns a topic page must not also be dumped inline on the
+    # overview, or the same prose ships twice under two different URLs.
+    for slug, title in sorted(slugs.items()):
+        anchor_id = f'id="narrative-domains-of-application-{slug}"'
+        if anchor_id in html_by_index["ecosystem"]:
+            errors.append(f"ecosystem/index.html still inlines the {title!r} narrative that owns /ecosystem/{slug}/")
+
+
+def check_fellowship_page(root: Path, errors: list[str]) -> None:
+    """The fellowship page must render exactly the current fellows, and only those.
+
+    Guards both directions: a fellow published in the roster but missing from the
+    page is a silent omission, and a fellow the roster marks ``past`` appearing on
+    the page is a false public claim about a named person.
+    """
+    fellows = instituteos_data(root).get("fellows", {}).get("fellows", [])
+    if not fellows:
+        errors.append("fellows.json carries no fellows — the roster export is empty")
+        return
+    html_path = html_path_for_slug(root, "fellowship")
+    if not html_path.exists():
+        errors.append("programs/fellowship/index.html is missing")
+        return
+    html = html_path.read_text(encoding="utf-8")
+    current = [fellow for fellow in fellows if fellow.get("status") == "current"]
+    if not current:
+        errors.append("fellows.json carries no current fellows")
+    for fellow in current:
+        if escape(fellow["name"]) not in html:
+            errors.append(f"fellowship page does not render current fellow {fellow['name']!r}")
+    for fellow in fellows:
+        if fellow.get("status") != "current" and escape(fellow["name"]) in html:
+            errors.append(f"fellowship page renders {fellow['name']!r}, who the roster marks as {fellow.get('status')!r}")
+    if 'id="current-fellows"' not in html:
+        errors.append("fellowship page is missing the current-fellows table section")
+
+
 def check_site_contract(root: Path) -> int:
     errors: list[str] = []
     check_version(root, errors)
@@ -1340,6 +1426,8 @@ def check_site_contract(root: Path) -> int:
     check_resource_directory(root, errors)
     check_knowledge_page(root, errors)
     check_directory_page(root, errors)
+    check_ecosystem_topic_pages(root, errors)
+    check_fellowship_page(root, errors)
     check_instituteos_interface(root, errors)
     check_navigation(root, errors)
     check_design_system_contract(root, errors)

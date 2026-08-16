@@ -6,6 +6,7 @@ import { sectionHeading } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
 import { metaDescription } from "../render/seo.mjs";
 import { dataTable } from "../render/tables.mjs";
+import { ecosystemTopics } from "./ecosystem.mjs";
 
 // Human-readable HTML sitemap (/sitemap/). Emitted programmatically like the
 // search/directory pages (NOT a curated src/content/pages JSON), so it is not
@@ -38,6 +39,16 @@ export function sitemapPage() {
     summary: "",
     href: hrefForSlug(slug, currentDir),
   }));
+  // Ecosystem topic pages are routed programmatically (not curated page JSON),
+  // so they are absent from siteData.pages and from ALL_ROUTED_SLUGS. List them
+  // from the same generator that emits them, so the two cannot drift.
+  const topicRows = ecosystemTopics().map((topic) => ({
+    label: topic.label ?? topic.title,
+    summary: topic.projects.length
+      ? `${topic.projects.length} public project${topic.projects.length === 1 ? "" : "s"} mapped to this topic.`
+      : "Public Institute narrative for this area of the Active Inference ecosystem.",
+    href: hrefForSlug(`ecosystem/${topic.slug}`, currentDir),
+  }));
   const linkColumn = { label: "Page", render: (item) => `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>` };
   const summaryColumn = { label: "Summary", render: (item) => escapeHtml(item.summary) };
   const body = `
@@ -54,6 +65,10 @@ export function sitemapPage() {
   <section class="content-band muted" id="sitemap-pages">
     ${sectionHeading({ eyebrow: "Pages", title: `${curatedRows.length} curated public pages` })}
     ${dataTable({ caption: "Every curated public page.", columns: [linkColumn, summaryColumn], rows: curatedRows })}
+  </section>
+  <section class="content-band" id="sitemap-topics">
+    ${sectionHeading({ eyebrow: "Topics", title: `${topicRows.length} ecosystem topic pages` })}
+    ${dataTable({ caption: "Every ecosystem topic page.", columns: [linkColumn, summaryColumn], rows: topicRows })}
   </section>`;
   return layout({
     title: "Sitemap",

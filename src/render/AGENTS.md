@@ -80,7 +80,7 @@ add `linkAttrs()` (`target="_blank" rel="noopener noreferrer"`) for external hre
 | [`components.mjs`](components.mjs) | Shared `sectionHeading`, `cardGrid`, `breadcrumb`, `pageGuide` primitives. |
 | [`feature-sections.mjs`](feature-sections.mjs) | InstituteOS feature bands and the home export gate. |
 | [`tables.mjs`](tables.mjs) | Tabular renderers for directory/registry data. |
-| [`knowledge.mjs`](knowledge.mjs) | Open Source Map tables and per-page knowledge previews. |
+| [`knowledge.mjs`](knowledge.mjs) | Open Source Map tables (repositories, ideas, ontology, governance, publications, policies, programs, literature) and per-page knowledge previews. |
 | [`narrative.mjs`](narrative.mjs) | Narrative-prose section rendering. |
 | [`resources.mjs`](resources.mjs) | Resource-card grids (filterable / compact). |
 | [`search.mjs`](search.mjs) | Search-page mount markup and embedded index hooks. |

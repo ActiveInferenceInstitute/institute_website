@@ -15,6 +15,7 @@ import { actionButtons } from "../render/page-sections.mjs";
 import { sectionHeading, cardGrid } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
 import { knowledgeDirectoryRows } from "../render/knowledge.mjs";
+import { ecosystemTopics } from "./ecosystem.mjs";
 import { dataTable } from "../render/tables.mjs";
 import { slugToHref } from "../render/urls.mjs";
 
@@ -26,6 +27,10 @@ export function directoryPage() {
   const publicPages = siteData.pages;
   const shortlinks = official.filter((item) => item.shortlink);
   const knowledgeRows = knowledgeDirectoryRows(currentDir);
+  // Topic pages are routed programmatically, so siteData.pages never sees them.
+  // The Directory claims to index "every public page", so it has to read them
+  // from the generator that emits them.
+  const topics = ecosystemTopics();
   const officialColumns = [
     { label: "Official page", render: (item) => `<a href="${escapeHtml(item.href)}"${linkAttrs(item.href)}>${escapeHtml(item.label)}</a>` },
     { label: "Group", render: (item) => escapeHtml(item.categoryLabel) },
@@ -64,6 +69,7 @@ export function directoryPage() {
     <div><strong>${official.length}</strong><span>official public pages</span></div>
     <div><strong>${shortlinks.length}</strong><span>official shortlinks</span></div>
     <div><strong>${repositories.length}</strong><span>public repositories</span></div>
+    <div><strong>${topics.length}</strong><span>ecosystem topic pages</span></div>
     <div><strong>${knowledgeRows.length}</strong><span>open-source map rows</span></div>
   </section>
   <section class="content-band" id="site-pages">
@@ -77,6 +83,18 @@ export function directoryPage() {
         </article>`)
         .join("")}
     </div>
+  </section>
+  <section class="content-band muted" id="ecosystem-topics">
+    ${sectionHeading({ eyebrow: "Ecosystem topics", title: `${topics.length} ecosystem topic pages` })}
+    ${dataTable({
+      caption: "Every ecosystem topic page, with the public projects mapped to it.",
+      columns: [
+        { label: "Topic", render: (item) => `<a href="${escapeHtml(slugToHref(`ecosystem/${item.slug}`, currentDir))}">${escapeHtml(item.title)}</a>` },
+        { label: "Projects", render: (item) => String(item.projects.length) },
+        { label: "Narrative", render: (item) => (item.html ? "Yes" : "No") },
+      ],
+      rows: topics,
+    })}
   </section>
   <section class="content-band muted" id="resource-groups">
     ${sectionHeading({ eyebrow: "Resource groups", title: "Directory groups" })}

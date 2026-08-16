@@ -14,12 +14,15 @@ import { projectPageSlugForDataId } from "./projects.mjs";
 // stacked on the ecosystem overview.
 export const TOPIC_NARRATIVE_SECTION = "domains-of-application";
 
-// Ecosystem topics, keyed by slug, merged from the two backend sources that
+// Ecosystem topics, keyed by slug, merged from three backend sources that
 // describe the same thing from different angles:
 //   * narratives_public.json — the prose for a domain of application
 //   * domain_projects.json   — the public projects mapped to that domain
-// A topic needs only one of the two to earn a page; when both exist they render
-// on the same page, which is why the slug (not the source) is the identity.
+//   * the curated research-domain pages (active-inference-and-<slug>)
+// Membership comes from the NAME, not from having content: a domain the backend
+// names is a topic even when its narrative body is still empty, so an unwritten
+// narrative shows up as a thin page rather than vanishing from the site with no
+// trace. The slug is the identity, which is what lets the three sources merge.
 export function ecosystemTopics() {
   const topics = new Map();
   const upsert = (name, patch) => {
@@ -31,6 +34,13 @@ export function ecosystemTopics() {
     const existing = topics.get(slug) || { slug, title, projects: [], html: "" };
     topics.set(slug, { ...existing, ...patch, slug, title: existing.title || title });
   };
+  for (const entry of siteData.instituteos.narratives.narratives || []) {
+    if (entry.target_page === "ecosystem" && entry.section === TOPIC_NARRATIVE_SECTION) {
+      upsert(entry.title, {});
+    }
+  }
+  // Bodies come from the rendered narrative set (markdown -> safe HTML); entries
+  // whose body is empty simply contribute no html.
   for (const entry of narrativesForTarget("ecosystem")) {
     if (entry.section === TOPIC_NARRATIVE_SECTION) {
       upsert(entry.title, { html: entry.html });
@@ -40,6 +50,14 @@ export function ecosystemTopics() {
     if ((domain.projects || []).length) {
       upsert(domain.domain, { projects: domain.projects });
     }
+  }
+  // A topic whose name matches a curated research-domain page gets cross-linked
+  // to it, so /ecosystem/computational/ leads somewhere substantive even when the
+  // topic itself carries no prose of its own.
+  const pageSlugs = new Set(siteData.pages.map((page) => page.slug));
+  for (const topic of topics.values()) {
+    const domainSlug = `active-inference-and-${topic.slug}`;
+    topic.domainPageSlug = pageSlugs.has(domainSlug) ? domainSlug : "";
   }
   return [...topics.values()].sort((a, b) => a.title.localeCompare(b.title));
 }
@@ -78,11 +96,16 @@ export function ecosystemTopicsSection(currentDir = "") {
       const count = topic.projects.length;
       const projectLine = count
         ? `<p>${count} public project${count === 1 ? "" : "s"} mapped to this topic.</p>`
+        : topic.html
+          ? "<p>Public Institute narrative for this area.</p>"
+          : "<p>Named domain of application; the Institute narrative for it is not yet published.</p>";
+      const domainLink = topic.domainPageSlug
+        ? `<a href="${slugToHref(topic.domainPageSlug, currentDir)}">Research: ${escapeHtml(topic.title)}</a>`
         : "";
       return `<article class="info-card domain-card" id="${escapeHtml(slugifyAnchor(`topic-${topic.slug}`))}">
         <h3><a href="${href}">${escapeHtml(topic.title)}</a></h3>
         ${projectLine}
-        <div class="mini-links">${projectLinks(topic.projects, currentDir)}</div>
+        <div class="mini-links">${domainLink}${projectLinks(topic.projects, currentDir)}</div>
       </article>`;
     })
     .join("");
@@ -115,7 +138,11 @@ export function ecosystemTopicPages() {
         ? tr(`{n} public projects mapped to the {domain} domain of application.`)
             .replace("{n}", count)
             .replace("{domain}", escapeHtml(topic.title))
-        : escapeHtml(tr("Public Institute narrative for this area of the Active Inference ecosystem."));
+        : topic.html
+          ? escapeHtml(tr("Public Institute narrative for this area of the Active Inference ecosystem."))
+          : escapeHtml(
+              tr("A named domain of application in the Active Inference ecosystem. The Institute narrative for it is not yet published."),
+            );
       const narrativeBand = topic.html
         ? `<section class="content-band" id="topic-narrative">
     ${sectionHeading({ eyebrow: "Ecosystem", title: `About ${topic.title}` })}
@@ -138,7 +165,20 @@ export function ecosystemTopicPages() {
   ${narrativeBand}
   ${projectsBand}
   <section class="content-band muted" id="topic-related">
-    <p class="mini-links"><a href="${hrefForSlug("ecosystem", currentDir)}">${escapeHtml(tr("Back to the ecosystem overview"))}</a></p>
+    ${
+      topic.domainPageSlug
+        ? sectionHeading({
+            eyebrow: "Research",
+            title: `Active Inference and ${topic.title}`,
+            text: "The curated research-domain page for this area carries the literature, applications, and further reading.",
+          })
+        : ""
+    }
+    <p class="mini-links">${
+      topic.domainPageSlug
+        ? `<a href="${slugToHref(topic.domainPageSlug, currentDir)}">${escapeHtml(tr("Open the research-domain page"))}</a>`
+        : ""
+    }<a href="${hrefForSlug("ecosystem", currentDir)}">${escapeHtml(tr("Back to the ecosystem overview"))}</a></p>
   </section>`;
       return layout({
         title: topic.title,

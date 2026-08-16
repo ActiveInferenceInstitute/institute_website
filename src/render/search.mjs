@@ -2,6 +2,7 @@ import { siteData } from "../data.mjs";
 import { outputPathForSlug } from "../url-taxonomy.mjs";
 import { absoluteUrl } from "./urls.mjs";
 import { newsletterIssueOutputPath, newsletterRecords } from "../pages/newsletter.mjs";
+import { ecosystemTopics } from "../pages/ecosystem.mjs";
 
 export function buildSearchIndex() {
   // Embedded, self-hosted client-side search index (no fetch — CSP-safe). Curated
@@ -75,6 +76,34 @@ export function buildSearchIndex() {
         .trim()
         .slice(0, 180),
       c: "Video",
+    });
+  }
+  // Ecosystem topic pages (/ecosystem/<topic>/) are programmatic like the video
+  // detail pages, so they never went through the siteData.pages loop. Each topic
+  // resolves to its own page, keyed on the topic title plus its project titles so
+  // searching a project name also surfaces the topic it sits in.
+  for (const topic of ecosystemTopics()) {
+    entries.push({
+      t: topic.title,
+      u: absoluteUrl(outputPathForSlug(`ecosystem/${topic.slug}`)),
+      k: `ecosystem domain of application ${topic.projects.map((project) => project.title || project.id).join(" ")}`
+        .trim()
+        .slice(0, 180),
+      c: "Topic",
+    });
+  }
+  // Research Fellows resolve to the fellowship roster, so searching a fellow by
+  // name lands on the table row rather than nowhere.
+  const fellowshipUrl = absoluteUrl(outputPathForSlug("fellowship"));
+  for (const fellow of osm.fellows.fellows || []) {
+    if (fellow.status !== "current") {
+      continue;
+    }
+    entries.push({
+      t: fellow.name,
+      u: fellowshipUrl,
+      k: `${fellow.position} ${fellow.start} ${fellow.focus} ${fellow.overview}`.trim().slice(0, 180),
+      c: "Fellow",
     });
   }
   // Directory, Resources, Simulations, and Sitemap are programmatically-rendered
