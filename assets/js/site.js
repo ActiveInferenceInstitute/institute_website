@@ -329,29 +329,21 @@ if (activitiesProjectSearch && activitiesProjectRows.length) {
   applyActivitiesProjectFilter();
 }
 
-// Projects page — full catalog search + topic filter, split into an Active
-// grid and an Archived band. Search matches name / topic / lead; the topic
-// <select> narrows to one topic. Each section shows a live count and an empty
-// state so a narrowed search never leaves a bare heading.
+// Projects page — full catalog search + topic filter, split first by the
+// canonical Institute/Ecosystem affiliation and then by Active/Archived status.
+// Search matches name / topic / lead; the topic <select> narrows to one topic.
+// Each section shows a live count and an empty state.
 const catalogSearch = document.querySelector("#project-catalog-search");
 const catalogTopic = document.querySelector("#project-catalog-topic");
 const catalogRows = [...document.querySelectorAll("[data-catalog-row]")];
 const catalogCount = document.querySelector("#project-catalog-count");
 if (catalogRows.length) {
   const pluralize = (n) => `${n} project${n === 1 ? "" : "s"}`;
-  const sections = [
-    {
-      grid: document.querySelector("#project-catalog-active-grid"),
-      count: document.querySelector("#project-catalog-active-count"),
-      empty: document.querySelector("#project-catalog-active-empty"),
-    },
-    {
-      grid: document.querySelector("#project-catalog-archived-grid"),
-      count: document.querySelector("#project-catalog-archived-count"),
-      empty: document.querySelector("#project-catalog-archived-empty"),
-      band: document.querySelector("#project-catalog-archived"),
-    },
-  ].filter((section) => section.grid);
+  const sections = ["institute", "ecosystem"].flatMap((affiliation) => ["active", "archived"].map((status) => ({
+    grid: document.querySelector(`#${affiliation}-projects-${status}-grid`),
+    count: document.querySelector(`#${affiliation}-projects-${status}-count`),
+    empty: document.querySelector(`#${affiliation}-projects-${status}-empty`),
+  }))).filter((section) => section.grid);
   const applyCatalogFilter = () => {
     const query = (catalogSearch?.value || "").trim().toLowerCase();
     const topic = catalogTopic?.value || "";
@@ -364,25 +356,13 @@ if (catalogRows.length) {
         const matchesTopic = !topic || rowTopics.includes(` ${topic} `);
         const match = matchesQuery && matchesTopic;
         row.hidden = !match;
-        if (match) {
-          sectionShown += 1;
-        }
+        if (match) sectionShown += 1;
       }
       shown += sectionShown;
-      if (section.count) {
-        section.count.textContent = pluralize(sectionShown);
-      }
-      if (section.empty) {
-        section.empty.hidden = sectionShown !== 0;
-      }
-      // Collapse the whole archived band (heading + count) when a filter empties it.
-      if (section.band) {
-        section.band.hidden = sectionShown === 0 && (Boolean(query) || Boolean(topic));
-      }
+      if (section.count) section.count.textContent = pluralize(sectionShown);
+      if (section.empty) section.empty.hidden = sectionShown !== 0;
     }
-    if (catalogCount) {
-      catalogCount.textContent = `${pluralize(shown)} shown`;
-    }
+    if (catalogCount) catalogCount.textContent = `${pluralize(shown)} shown`;
   };
   catalogSearch?.addEventListener("input", applyCatalogFilter);
   catalogTopic?.addEventListener("change", applyCatalogFilter);

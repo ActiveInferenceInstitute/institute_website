@@ -39,6 +39,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -85,6 +86,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -142,6 +144,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -198,6 +201,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "alexander-vyatkin",
       "owner_name": "Alexander Vyatkin",
       "people": [
@@ -257,6 +261,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -307,6 +312,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "avel-guenin-carlut",
       "owner_name": "Avel Guénin-Carlut",
       "people": [
@@ -331,12 +337,6 @@
             "Unit Member",
             "Board of Directors"
           ],
-          "active": true
-        },
-        {
-          "id": "ben-white",
-          "name": "Ben White",
-          "institute_roles": [],
           "active": true
         }
       ]
@@ -392,6 +392,7 @@
           "event_id": null
         }
       ],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -438,16 +439,8 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
-      "people": [
-        {
-          "id": "mahault-albarracin",
-          "name": "Mahault Albarracin",
-          "institute_roles": [
-            "Fellow"
-          ],
-          "active": true
-        }
-      ]
+      "affiliation": "institute",
+      "people": []
     },
     {
       "id": "aicacp",
@@ -487,6 +480,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "adam-safron",
       "owner_name": "Adam Safron",
       "people": [
@@ -532,18 +526,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "stell",
       "owner_name": "Stell",
-      "people": [
-        {
-          "id": "stell",
-          "name": "Stell",
-          "institute_roles": [
-            "Project Facilitator"
-          ],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "artificial-sentience",
@@ -575,18 +561,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "cleber-gomes",
       "owner_name": "Cleber Gomes",
-      "people": [
-        {
-          "id": "cleber-gomes",
-          "name": "Cleber Gomes",
-          "institute_roles": [
-            "Project Facilitator"
-          ],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "audio-visual-production",
@@ -619,6 +597,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -669,6 +648,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "jeremy-cooper",
       "owner_name": "Jeremy Cooper",
       "people": [
@@ -711,16 +691,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "tim-huggers",
       "owner_name": "Tim Huggers",
-      "people": [
-        {
-          "id": "tim-huggers",
-          "name": "Tim Huggers",
-          "institute_roles": [],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "clinical-waveform",
@@ -753,16 +727,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "franklin-ducatez",
       "owner_name": "Franklin Ducatez",
-      "people": [
-        {
-          "id": "franklin-ducatez",
-          "name": "Franklin Ducatez",
-          "institute_roles": [],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "cognarn",
@@ -807,6 +775,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "john-boik",
       "owner_name": "John Boik",
       "people": [
@@ -852,6 +821,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -901,16 +871,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "susan-hasty",
       "owner_name": "Susan Hasty",
-      "people": [
-        {
-          "id": "susan-hasty",
-          "name": "Susan Hasty",
-          "institute_roles": [],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "courses",
@@ -935,6 +899,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -983,6 +948,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "hector-manrique",
       "owner_name": "Héctor Manrique",
       "people": [
@@ -1070,6 +1036,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "anna-pereira",
       "owner_name": "Anna Pereira",
       "people": [
@@ -1116,6 +1083,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -1159,6 +1127,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -1207,6 +1176,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "theodoros-aliferis",
       "owner_name": "Theodoros Aliferis",
       "people": [
@@ -1256,6 +1226,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "vladimir-baulin",
       "owner_name": "Vladimir Baulin",
       "people": [
@@ -1311,16 +1282,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "joanne-phillips",
       "owner_name": "Joanne Phillips",
-      "people": [
-        {
-          "id": "joanne-phillips",
-          "name": "Joanne Phillips",
-          "institute_roles": [],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "fundamentals-active-inference",
@@ -1358,6 +1323,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -1413,6 +1379,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -1462,18 +1429,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "bruce-tisler",
       "owner_name": "Bruce Tisler",
-      "people": [
-        {
-          "id": "bruce-tisler",
-          "name": "Bruce Tisler",
-          "institute_roles": [
-            "Project Facilitator"
-          ],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "gnn",
@@ -1513,6 +1472,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -1562,6 +1522,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -1610,17 +1571,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "andrew-djuwidja",
       "owner_name": "Andrew Djuwidja",
       "people": [
-        {
-          "id": "andrew-djuwidja",
-          "name": "Andrew Djuwidja",
-          "institute_roles": [
-            "Intern"
-          ],
-          "active": true
-        },
         {
           "id": "daniel-friedman",
           "name": "Daniel Friedman",
@@ -1667,6 +1621,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "shagor-shaggy-rahman",
       "owner_name": "Shagor (Shaggy) Rahman",
       "people": [
@@ -1715,6 +1670,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "bleu-knight",
       "owner_name": "Virginia Bleu Knight",
       "people": [
@@ -1774,16 +1730,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "david-hughes",
       "owner_name": "David Hughes",
-      "people": [
-        {
-          "id": "david-hughes",
-          "name": "David Hughes",
-          "institute_roles": [],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "mathart",
@@ -1815,15 +1765,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "shanna-dobson",
       "owner_name": "Shanna Dobson",
       "people": [
-        {
-          "id": "shanna-dobson",
-          "name": "Shanna Dobson",
-          "institute_roles": [],
-          "active": true
-        },
         {
           "id": "hector-manrique",
           "name": "Héctor Manrique",
@@ -1888,6 +1833,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "robert-worden",
       "owner_name": "Robert Worden",
       "people": [
@@ -1931,6 +1877,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "shagor-shaggy-rahman",
       "owner_name": "Shagor (Shaggy) Rahman",
       "people": [
@@ -1974,6 +1921,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "jesse-g",
       "owner_name": "Jesse G",
       "people": [
@@ -2016,6 +1964,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "pablofm",
       "owner_name": "PabloFM",
       "people": [
@@ -2061,16 +2010,8 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
-      "people": [
-        {
-          "id": "hongju-pae",
-          "name": "Hongju Pae",
-          "institute_roles": [
-            "Fellow"
-          ],
-          "active": true
-        }
-      ]
+      "affiliation": "institute",
+      "people": []
     },
     {
       "id": "physics-course",
@@ -2102,6 +2043,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -2151,16 +2093,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "craig-arnold",
       "owner_name": "Craig Arnold",
-      "people": [
-        {
-          "id": "craig-arnold",
-          "name": "Craig Arnold",
-          "institute_roles": [],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "rxinfer",
@@ -2198,6 +2134,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -2248,6 +2185,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "fraser-paterson",
       "owner_name": "Fraser Paterson",
       "people": [
@@ -2257,12 +2195,6 @@
           "institute_roles": [
             "Unit Member"
           ],
-          "active": true
-        },
-        {
-          "id": "chris-bennett",
-          "name": "Chris Bennett",
-          "institute_roles": [],
           "active": true
         }
       ]
@@ -2303,6 +2235,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -2353,6 +2286,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -2402,18 +2336,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "andrew-djuwidja",
       "owner_name": "Andrew Djuwidja",
-      "people": [
-        {
-          "id": "andrew-djuwidja",
-          "name": "Andrew Djuwidja",
-          "institute_roles": [
-            "Intern"
-          ],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "symbolic-robotics",
@@ -2445,6 +2371,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "jean-francois-cloutier",
       "owner_name": "Jean-François Cloutier",
       "people": [
@@ -2495,6 +2422,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -2553,6 +2481,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -2601,22 +2530,8 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
-      "people": [
-        {
-          "id": "alexander-hemming",
-          "name": "Alexander Hemming",
-          "institute_roles": [
-            "Fellow"
-          ],
-          "active": true
-        },
-        {
-          "id": "dylan-grove",
-          "name": "Dylan Grove",
-          "institute_roles": [],
-          "active": true
-        }
-      ]
+      "affiliation": "institute",
+      "people": []
     },
     {
       "id": "theoretical-neurobiology",
@@ -2662,6 +2577,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -2710,6 +2626,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "hector-manrique",
       "owner_name": "Héctor Manrique",
       "people": [
@@ -2766,6 +2683,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "ana-magdalena-hurtado",
       "owner_name": "Ana Magdalena Hurtado",
       "people": [
@@ -2821,16 +2739,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "michael-carl",
       "owner_name": "Michael Carl",
-      "people": [
-        {
-          "id": "michael-carl",
-          "name": "Michael Carl",
-          "institute_roles": [],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "universal-basic-income",
@@ -2861,16 +2773,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "die-schwarze-katze",
       "owner_name": "Die Schwarze Katze",
-      "people": [
-        {
-          "id": "die-schwarze-katze",
-          "name": "Die Schwarze Katze",
-          "institute_roles": [],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "video-improvement",
@@ -2903,6 +2809,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
       "owner_name": "Daniel Friedman",
       "people": [
@@ -2953,6 +2860,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "institute",
       "owner_entity_id": "robert-worden",
       "owner_name": "Robert Worden",
       "people": [
@@ -2993,16 +2901,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "conor-heins",
       "owner_name": "Conor Heins",
-      "people": [
-        {
-          "id": "conor-heins",
-          "name": "Conor Heins",
-          "institute_roles": [],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "the-unordinary-bible-study-tubs",
@@ -3023,6 +2925,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "jesse-g",
       "owner_name": "Jesse G",
       "people": [
@@ -3055,6 +2958,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "pablofm",
       "owner_name": "PabloFM",
       "people": [
@@ -3101,6 +3005,7 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "ivan-metelkin",
       "owner_name": "Ivan Metelkin",
       "people": [
@@ -3133,18 +3038,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "matthew-d-murphy",
       "owner_name": "Matthew D Murphy",
-      "people": [
-        {
-          "id": "matthew-d-murphy",
-          "name": "Matthew D Murphy",
-          "institute_roles": [
-            "Project Facilitator"
-          ],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "cpomdp",
@@ -3172,18 +3069,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "daniel-corva",
       "owner_name": "Daniel Corva",
-      "people": [
-        {
-          "id": "daniel-corva",
-          "name": "Daniel Corva",
-          "institute_roles": [
-            "Ecosystem Contributor"
-          ],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "coherence-density",
@@ -3210,18 +3099,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "travis-james",
       "owner_name": "Travis James",
-      "people": [
-        {
-          "id": "travis-james",
-          "name": "Travis James",
-          "institute_roles": [
-            "Ecosystem Contributor"
-          ],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "cognitive-somatic-regulator",
@@ -3247,18 +3128,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "colleen-pridemore",
       "owner_name": "Colleen Pridemore",
-      "people": [
-        {
-          "id": "colleen-pridemore",
-          "name": "Colleen Pridemore",
-          "institute_roles": [
-            "Ecosystem Contributor"
-          ],
-          "active": true
-        }
-      ]
+      "people": []
     },
     {
       "id": "regime-dependent-active-inference",
@@ -3286,19 +3159,10 @@
       "linked_policies": [],
       "linked_processes": [],
       "tasks": [],
+      "affiliation": "ecosystem",
       "owner_entity_id": "dr-martin-bello",
       "owner_name": "Dr. Martin Bello",
-      "people": [
-        {
-          "id": "dr-martin-bello",
-          "name": "Dr. Martin Bello",
-          "institute_roles": [
-            "Ecosystem Contributor",
-            "Principal Investigator"
-          ],
-          "active": true
-        }
-      ]
+      "people": []
     }
   ]
 }

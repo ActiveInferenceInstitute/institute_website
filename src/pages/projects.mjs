@@ -73,6 +73,7 @@ export function catalogProjects() {
       id: project.id,
       title: project.title || project.id,
       status: project.status || "unknown",
+      affiliation: project.affiliation === "ecosystem" ? "ecosystem" : "institute",
       summary: project.summary || project.description || "",
       topics: project.topics || [],
       owner: project.owner_name || "",
@@ -114,8 +115,9 @@ function catalogProjectCard(project, currentDir) {
   const lead = project.owner ? `<em class="catalog-lead">Lead: ${escapeHtml(sanitizePublicProse(project.owner))}</em>` : "";
   const people = (project.people || []).slice(0, 3).map((person) => sanitizePublicProse(person.name || "")).filter(Boolean);
   const peopleLabel = people.length ? `<em class="catalog-people">People: ${escapeHtml(people.join(", "))}</em>` : "";
-  return `<a class="resource-card internal-card catalog-project-card" href="${slugToHref(project.slug, currentDir)}" data-catalog-row data-status="${escapeHtml(project.status)}" data-topics="${topicKeys}" data-search="${search}">
-        <span>${escapeHtml(statusLabel)}</span>
+  const affiliationLabel = project.affiliation === "ecosystem" ? "Ecosystem" : "Institute-hosted";
+  return `<a class="resource-card internal-card catalog-project-card" href="${slugToHref(project.slug, currentDir)}" data-catalog-row data-affiliation="${escapeHtml(project.affiliation)}" data-status="${escapeHtml(project.status)}" data-topics="${topicKeys}" data-search="${search}">
+        <span>${escapeHtml(affiliationLabel)} · ${escapeHtml(statusLabel)}</span>
         <strong>${escapeHtml(sanitizePublicProse(project.title))}</strong>
         <p>${escapeHtml(summary)}</p>
         ${topics ? `<em>${topics}</em>` : ""}
@@ -129,32 +131,32 @@ export function projectCatalogSection(currentDir = "") {
   if (!projects.length) {
     return "";
   }
-  const active = projects.filter((project) => project.status === "active");
-  const archived = projects.filter((project) => project.status !== "active");
   const topics = topCatalogTopics(projects);
   const topicOptions = topics
     .map(({ topic, count }) => `<option value="${escapeHtml(topic)}">${escapeHtml(title_case_token_js(topic))} (${count})</option>`)
     .join("");
-
-  const activeGrid = active.map((project) => catalogProjectCard(project, currentDir)).join("");
-  const archivedGrid = archived.map((project) => catalogProjectCard(project, currentDir)).join("");
-
-  const archivedSection = archived.length
-    ? `<div class="catalog-archived-band" id="project-catalog-archived">
-      <div class="catalog-subhead">
-        <h3>Archived &amp; completed projects</h3>
-        <span class="catalog-subcount" id="project-catalog-archived-count">${archived.length} project${archived.length === 1 ? "" : "s"}</span>
-      </div>
-      <div class="resource-grid compact-grid" id="project-catalog-archived-grid">${archivedGrid}</div>
-      <p class="catalog-empty" id="project-catalog-archived-empty" hidden>No archived projects match your search.</p>
-    </div>`
-    : "";
-
+  const groups = [
+    { key: "institute", title: "Institute-hosted projects", anchor: "institute-projects" },
+    { key: "ecosystem", title: "Ecosystem projects", anchor: "ecosystem-projects" },
+  ];
+  const sections = groups.map(({ key, title, anchor }) => {
+    const group = projects.filter((project) => project.affiliation === key);
+    const active = group.filter((project) => project.status === "active");
+    const archived = group.filter((project) => project.status !== "active");
+    const renderStatus = (items, status, label, suffix) => items.length
+      ? `<div class="catalog-subhead"><h4>${label}</h4><span class="catalog-subcount" id="${anchor}-${suffix}-count">${items.length} project${items.length === 1 ? "" : "s"}</span></div><div class="resource-grid compact-grid" id="${anchor}-${suffix}-grid">${items.map((project) => catalogProjectCard(project, currentDir)).join("")}</div><p class="catalog-empty" id="${anchor}-${suffix}-empty" hidden>No ${status} ${key} projects match your search.</p>`
+      : "";
+    return `<section class="catalog-affiliation" id="${anchor}" data-affiliation="${key}">
+      <div class="catalog-subhead"><h3>${title}</h3><span class="catalog-subcount">${group.length} project${group.length === 1 ? "" : "s"}</span></div>
+      ${renderStatus(active, "active", "Active projects", "active")}
+      ${renderStatus(archived, "archived or completed", "Archived &amp; completed projects", "archived")}
+    </section>`;
+  }).join("");
   return `<section class="content-band" id="project-catalog">
     ${sectionHeading({
       eyebrow: "Full catalog",
       title: `Browse all ${projects.length} public projects`,
-      text: "Every Institute and Ecosystem project with a public page, generated directly from the InstituteOS project registry export. Active projects lead; archived and completed work follows below. Search by name, topic, or lead, or narrow by topic.",
+      text: "Projects are classified by the canonical InstituteOS affiliation field: Institute-hosted or Ecosystem. Active and archived work remain distinct within each section. Search by name, topic, or lead, or narrow by topic.",
     })}
     <div class="activities-search">
       <input id="project-catalog-search" type="search" placeholder="Search ${projects.length} projects by name, topic, or lead…" autocomplete="off" aria-label="Search all projects">
@@ -164,13 +166,7 @@ export function projectCatalogSection(currentDir = "") {
       </select>
       <span id="project-catalog-count" aria-live="polite"></span>
     </div>
-    <div class="catalog-subhead">
-      <h3>Active projects</h3>
-      <span class="catalog-subcount" id="project-catalog-active-count">${active.length} project${active.length === 1 ? "" : "s"}</span>
-    </div>
-    <div class="resource-grid compact-grid" id="project-catalog-active-grid">${activeGrid}</div>
-    <p class="catalog-empty" id="project-catalog-active-empty" hidden>No active projects match your search.</p>
-    ${archivedSection}
+    ${sections}
   </section>`;
 }
 
