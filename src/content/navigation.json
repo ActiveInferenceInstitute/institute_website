@@ -117,12 +117,14 @@
         "slug": "projects"
       },
       {
-        "label": "EduActive Unit",
-        "slug": "eduactive"
+        "label": "Institute Projects",
+        "slug": "projects",
+        "anchor": "eduactive-unit-institute-projects"
       },
       {
-        "label": "ReInference Unit",
-        "slug": "reinference"
+        "label": "Ecosystem Projects",
+        "slug": "projects",
+        "anchor": "ecosystem-projects"
       },
       {
         "label": "Repositories",

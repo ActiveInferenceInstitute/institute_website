@@ -412,9 +412,8 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Unit Member",
-        "Scientific Advisory Board"
+        "SAB membership",
+        "Unit Member"
       ],
       "tags": [],
       "title": "Primary point of contact / IE project facilitator for AICACP"
@@ -426,8 +425,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -439,8 +437,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -452,25 +449,10 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member",
-        "Director",
         "Board of Directors"
       ],
       "tags": [],
       "title": "Board Member"
-    },
-    {
-      "active": false,
-      "id": "alexander-vyatkin",
-      "name": "Alexander Vyatkin",
-      "orgId": "active-inference-institute",
-      "policyRoles": [],
-      "roles": [
-        "Board Member",
-        "Officer"
-      ],
-      "tags": [],
-      "title": "Vice President (2022-2024)"
     },
     {
       "active": null,
@@ -482,7 +464,7 @@
         "Vice President",
         "Secretary",
         "Officer",
-        "Board Member"
+        "Board of Directors"
       ],
       "tags": [],
       "title": "Vice President & Secretary"
@@ -494,8 +476,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -507,8 +488,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member",
-        "Director"
+        "Board of Directors"
       ],
       "tags": [],
       "title": "Board Member"
@@ -520,10 +500,8 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member",
-        "Director",
-        "Unit Member",
-        "Board of Directors"
+        "Board of Directors",
+        "Unit Member"
       ],
       "tags": [],
       "title": "Board Member"
@@ -535,8 +513,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -548,8 +525,6 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member",
-        "Director",
         "Board of Directors"
       ],
       "tags": [],
@@ -575,8 +550,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -588,8 +562,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -601,8 +574,6 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member",
-        "Director",
         "Board of Directors"
       ],
       "tags": [],
@@ -615,8 +586,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -628,8 +598,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -641,8 +610,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -654,8 +622,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -667,8 +634,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -680,8 +646,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -788,11 +753,10 @@
       "roles": [
         "President",
         "Treasurer",
-        "Board Member",
+        "Board of Directors",
         "Officer",
         "Member",
-        "Unit Member",
-        "Board of Directors"
+        "Unit Member"
       ],
       "tags": [
         "leadership",
@@ -809,7 +773,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member"
+        "Board of Directors"
       ],
       "tags": [],
       "title": "Board Member (2022-2024)"
@@ -821,8 +785,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member",
-        "Director"
+        "Board of Directors"
       ],
       "tags": [],
       "title": "Board Member"
@@ -834,8 +797,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -847,8 +809,6 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member",
-        "Director",
         "Board of Directors"
       ],
       "tags": [],
@@ -873,8 +833,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -886,8 +845,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -899,9 +857,8 @@
       "orgId": "eduactive",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Unit Member",
-        "Scientific Advisory Board"
+        "SAB membership",
+        "Unit Member"
       ],
       "tags": [],
       "title": ""
@@ -913,8 +870,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -938,8 +894,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -987,8 +942,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -1013,8 +967,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": "Scientific Advisory Board; Board Member (2022-2025)"
@@ -1026,8 +979,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -1040,7 +992,7 @@
       "policyRoles": [],
       "roles": [
         "Member",
-        "Scientific Advisor"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -1052,8 +1004,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -1065,8 +1016,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -1078,8 +1028,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -1091,8 +1040,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -1104,8 +1052,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": "Scientific Advisory Board; Board Member (2022-2025)"
@@ -1129,7 +1076,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member"
+        "Board of Directors"
       ],
       "tags": [],
       "title": "Board Member (2022-2024)"
@@ -1154,8 +1101,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -1167,8 +1113,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -1180,8 +1125,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -1217,8 +1161,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Scientific Advisor",
-        "Scientific Advisory Board"
+        "SAB membership"
       ],
       "tags": [],
       "title": ""
@@ -1230,8 +1173,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member",
-        "Director",
+        "Board of Directors",
         "Member"
       ],
       "tags": [],
@@ -1244,10 +1186,8 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board Member",
-        "Director",
-        "Unit Member",
-        "Board of Directors"
+        "Board of Directors",
+        "Unit Member"
       ],
       "tags": [],
       "title": "Board Member"

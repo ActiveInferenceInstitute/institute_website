@@ -16,7 +16,7 @@ export function instituteosCounts() {
     research: researchRows().length,
     organizations: (siteData.instituteos.entities.organizations || []).length,
     members: (siteData.instituteos.entities.people || []).length,
-    publications: (siteData.instituteos.communications.records || []).length,
+    publications: publicationRows().length,
     policies: (siteData.instituteos.policies.records || []).length,
     programs: (siteData.instituteos.programs.records || []).length,
     citations: (siteData.instituteos.citations.records || []).length,
@@ -123,6 +123,24 @@ export function communicationRows(limit = Infinity) {
     rowId: rowAnchor("publication", comm.id),
     dataAttrs: knowledgeDataAttrs("publications", [comm.title, comm.type, comm.date, comm.author]),
   }));
+}
+
+export function newsletterPublicationRows(limit = Infinity) {
+  return (siteData.instituteos.newsletter?.records || [])
+    .filter((record) => record.type === "newsletter")
+    .slice(0, limit)
+    .map((record) => ({
+      ...record,
+      rowId: rowAnchor("publication", record.id),
+      dataAttrs: knowledgeDataAttrs("publications", [record.title, record.type, record.date, record.author]),
+    }));
+}
+
+export function publicationRows(limit = Infinity) {
+  const otherCommunications = communicationRows().filter((item) => item.type !== "newsletter");
+  return [...otherCommunications, ...newsletterPublicationRows()]
+    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))
+    .slice(0, limit);
 }
 
 export function policyRows(limit = Infinity) {

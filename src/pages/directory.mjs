@@ -9,7 +9,7 @@ import {
   normalizedRepositories,
   allResourceEntries,
 } from "../lib/resources.mjs";
-import { researchRows } from "../lib/instituteos.mjs";
+import { researchRows, publicationRows } from "../lib/instituteos.mjs";
 import { linkAttrs } from "../render/links.mjs";
 import { actionButtons } from "../render/page-sections.mjs";
 import { sectionHeading, cardGrid } from "../render/components.mjs";
@@ -116,7 +116,7 @@ export function directoryPage() {
       { title: `Research (${researchRows().length})`, text: "Verified public research, paper, and reference rows.", links: [{ label: "Open research table", href: "knowledge.html#research-table" }] },
       { title: `Organizations (${(siteData.instituteos.entities.organizations || []).length})`, text: "Governing bodies, internal units, partners, and technology providers in the governance registry.", links: [{ label: "Open organizations table", href: "knowledge.html#organizations-table" }] },
       { title: `Governance Members (${(siteData.instituteos.entities.people || []).length})`, text: "Public governance members including board, officers, and registered organizational roles.", links: [{ label: "Open governance table", href: "knowledge.html#members-table" }] },
-      { title: `Publications (${(siteData.instituteos.communications.records || []).length})`, text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: "Open publications table", href: "knowledge.html#publications-table" }] },
+      { title: `Publications (${publicationRows().length})`, text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: "Open publications table", href: "knowledge.html#publications-table" }] },
       { title: `Governance Policies (${(siteData.instituteos.policies.records || []).length})`, text: "Public governance policy registry with category, status, version, and description.", links: [{ label: "Open policies table", href: "knowledge.html#policies-table" }] },
       { title: `Programs (${(siteData.instituteos.programs.records || []).length})`, text: "Public participation and support pathways for volunteers, interns, fellows, mentors, partners, and supporters.", links: [{ label: "Open programs table", href: "knowledge.html#programs-table" }] },
       { title: `Literature (${(siteData.instituteos.citations.records || []).length})`, text: "Public bibliographic records grounding the research-domain pages.", links: [{ label: "Open literature table", href: "knowledge.html#citations-table" }] },

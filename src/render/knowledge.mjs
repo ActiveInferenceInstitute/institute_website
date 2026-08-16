@@ -9,6 +9,7 @@ import {
   ideaRows,
   ontologyRows,
   researchRows,
+  publicationRows,
 } from "../lib/instituteos.mjs";
 import { rowAnchor } from "./text.mjs";
 import { relPrefix } from "./urls.mjs";
@@ -260,7 +261,7 @@ export function knowledgePage() {
     title: `${counts.publications} publication rows`,
     text: "Approved public communications — reports, announcements, and newsletters.",
     countLabel: `${counts.publications} publications shown`,
-    tableHtml: publicationsTable(),
+    tableHtml: publicationsTable(publicationRows(), currentDir),
   })}
   ${tableSection({
     id: "policies-table",
@@ -360,7 +361,7 @@ export function knowledgeDirectoryRows(currentDir = "") {
         href: hrefForSlug("knowledge", currentDir, rowAnchor("member", item.id)),
       };
     }),
-    ...(siteData.instituteos.communications.records || []).map((item) => ({
+    ...publicationRows().map((item) => ({
       kind: "Publications",
       label: item.title,
       summary: `${title_case_token_js(item.type || "")} / ${(item.date || "").slice(0, 10)}`,

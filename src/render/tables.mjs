@@ -16,6 +16,7 @@ import { sectionHeading } from "./components.mjs";
 import { sourceAnchor } from "./sources.mjs";
 import { listText } from "./text.mjs";
 import { isVerifiedExternalUrl } from "./urls.mjs";
+import { newsletterIssueHref } from "../pages/newsletter.mjs";
 
 // Governance board-status badge — a solid pill tinted by the board-status token
 // through the design-system .ds-status-<slug> utility class. Class-only (no inline
@@ -167,16 +168,20 @@ export function organizationsTable(rows = entityOrgRows()) {
 export function governanceMembersTable(rows = entityPeopleRows()) {
   const columns = [
     { label: "Name", render: (item) => escapeHtml(item.name) },
-    { label: "Title", render: (item) => escapeHtml(item.title || "") },
     { label: "Roles", render: (item) => escapeHtml((item.roles || []).join(" · ")) },
-    { label: "Active", render: (item) => (item.active ? "Yes" : "No") },
   ];
   return dataTable({ caption: "Public governance members in the Active Inference Institute registry.", columns, rows });
 }
 
-export function publicationsTable(rows = communicationRows()) {
+export function publicationsTable(rows = communicationRows(), currentDir = "") {
   const columns = [
-    { label: "Title", render: (item) => escapeHtml(item.title) },
+    {
+      label: "Title",
+      render: (item) => {
+        const title = escapeHtml(item.title);
+        return item.route ? `<a href="${escapeHtml(newsletterIssueHref(item.route, currentDir))}">${title}</a>` : title;
+      },
+    },
     { label: "Type", render: (item) => escapeHtml(title_case_token_js(item.type || "")) },
     { label: "Date", render: (item) => escapeHtml((item.date || "").slice(0, 10)) },
     { label: "Author", render: (item) => escapeHtml(item.author || "") },

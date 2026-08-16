@@ -415,6 +415,21 @@ def record_is_public_safe(record: dict[str, Any]) -> bool:
 def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
     people = []
     organizations = []
+    excluded_people = {"alexander-vyatkin"}
+
+    def public_membership_roles(roles: list[str]) -> list[str]:
+        """Collapse legacy governance labels into public membership names."""
+        normalized = []
+        for role in roles:
+            public_role = public_text(role)
+            if public_role in {"Scientific Advisor", "Scientific Advisory Board"}:
+                public_role = "SAB membership"
+            elif public_role in {"Board Member", "Director", "Board of Directors"}:
+                public_role = "Board of Directors"
+            if public_role and public_role not in normalized:
+                normalized.append(public_role)
+        return normalized
+
     for entity in entities_data.get("entities", []):
         entity_type = entity.get("entity_type")
         # Public-release gate: contacts imported from the private CRM roster
@@ -429,6 +444,8 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
         if entity.get("role_placeholder"):
             continue
         if entity_type == "person":
+            if entity.get("id") in excluded_people:
+                continue
             policy_roles = [
                 {
                     "policyId": link.get("policy_id"),
@@ -440,7 +457,7 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
                 "id": entity.get("id"),
                 "name": public_text(entity.get("name")),
                 "title": public_text(entity.get("title")),
-                "roles": [public_text(role) for role in entity.get("roles", [])],
+                "roles": public_membership_roles(entity.get("roles", [])),
                 "orgId": entity.get("org_id"),
                 "active": entity.get("active"),
                 "tags": [public_text(tag) for tag in entity.get("tags", []) if public_text(tag)],
@@ -456,7 +473,7 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
                 "description": public_text(entity.get("description")),
                 "url": entity.get("url"),
                 "tags": [public_text(tag) for tag in entity.get("tags", []) if public_text(tag)],
-                "memberIds": list(entity.get("people", [])),
+                "memberIds": [member_id for member_id in entity.get("people", []) if member_id not in excluded_people],
                 "parentId": entity.get("parent_id"),
                 "ecosystem": bool(entity.get("ecosystem", False)),
             }
