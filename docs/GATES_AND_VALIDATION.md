@@ -29,6 +29,7 @@ npm run check:sources      # check_live_sources.py -- bounded network probe, sep
 npm run check:sources -- --offline  # manifest-shape validation without network access
 npm run check:projects     # check_project_discoverability.py
 npm run check:catalog      # check_project_catalog_coverage.mjs
+npm run check:i18n         # test_i18n_translate.mjs (node --test)
 ```
 
 ---
@@ -699,6 +700,41 @@ node scripts/check_project_catalog_coverage.mjs
 ```
 
 **To fix a failure:** the reported slugs are missing an `href="<slug>/"` anchor in the built catalog -- restore the project's card/link in whatever renders the `/projects/` catalog section, rebuild, and re-run the gate. This is a companion check to Gate 6 (`check:projects`): Gate 6 verifies a project *has* a page, this gate verifies that page is actually *linked* from the catalog index.
+
+## Gate 8: Translation Pipeline Helpers (`check:i18n`)
+
+**File:** `scripts/test_i18n_translate.mjs` (run with `node --test`, no dependencies)
+
+**What it enforces:**
+- Protected terms (`KEEP_VERBATIM`) round-trip through masking unchanged, and the longest term
+  masks before its own substring, so "Active Inference Institute" cannot decay into
+  "{K0} Institute".
+- The degeneration guard rejects empty output, output more than 3x the source length, and output
+  built from a short repeated substring, while letting ordinary translations (including short
+  labels that legitimately grow) through.
+- `cleanTranslation()` strips prompt echo, wrapping delimiters, and any hallucinated continuation
+  after the first line break.
+
+**Why it exists:** these helpers decide what reaches a public page in ten languages, and each one
+exists because a small local model failed in a specific way — gemma3:4b rendered "Research Fellows"
+as "Forschungsprofessoren", and qwen2.5:3b emitted several hundred characters of a repeated syllable
+for one Japanese string. Both are well-formed text, so nothing downstream would have rejected them,
+and neither is easy to spot in a diff of 3,400 strings. The gate runs no model and touches no
+network: it pins the pure logic only.
+
+**How to run:**
+```bash
+npm run check:i18n
+# or directly:
+node --test scripts/test_i18n_translate.mjs
+```
+
+**To fix a failure:** a change to `KEEP_VERBATIM`, the masking functions, or the degeneration
+thresholds broke one of the pinned behaviours. Re-read the failing assertion before loosening a
+threshold — the bounds exist to keep corrupt output off public pages, not to be tuned until they
+pass.
+
+---
 
 ---
 
