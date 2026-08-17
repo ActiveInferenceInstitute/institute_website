@@ -46,10 +46,15 @@ export function relatedPages(page, currentDir = "") {
   const related = relatedSlugsForPage(page).map((slug) => pageBySlug.get(slug)).filter(Boolean);
   return `<div class="resource-grid compact-grid">${related
     .map(
+      // The card says where the link goes, not everything waiting there. It used
+      // to carry the destination's full audience sentence AND its full lede, so
+      // every project page repeated the same three paragraphs for Projects,
+      // ReInference, and Ecosystem — 16% of a project page's words were these
+      // cards. The subtitle is the one-line description each page already writes
+      // for exactly this purpose.
       (relatedPage) => `<a class="resource-card internal-card" href="${slugToHref(relatedPage.slug, currentDir)}">
-        <span>${escapeHtml(tr(relatedPage.audience || "Related guide"))}</span>
         <strong>${escapeHtml(tr(relatedPage.title))}</strong>
-        <p>${escapeHtml(tr(relatedPage.lede))}</p>
+        <p>${escapeHtml(tr(relatedPage.subtitle || relatedPage.lede))}</p>
       </a>`,
     )
     .join("")}</div>`;
