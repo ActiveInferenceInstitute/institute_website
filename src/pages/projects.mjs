@@ -29,6 +29,16 @@ export function projectStatusForSlug(slug) {
   return projectDataBySlug.get(slug)?.status || null;
 }
 
+// The public lead for a project page, or "" when the registry publishes none.
+// `owner_name` is already gated upstream — the backend export strips it unless the
+// project's affiliation makes the lead a public collaborator — so a name reaching
+// here is one the site is cleared to show. Read from the registry rather than
+// hand-authored per page, so the detail page and the catalog card can never
+// disagree about who leads a project.
+export function projectLeadForSlug(slug) {
+  return sanitizePublicProse(projectDataBySlug.get(slug)?.owner_name || "");
+}
+
 // "Related projects" for a project page: projects sharing category and/or
 // topics, ranked by overlap, restricted to those with a real public page.
 export function relatedProjectsForPage(page) {

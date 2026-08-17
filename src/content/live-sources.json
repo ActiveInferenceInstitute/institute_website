@@ -13,31 +13,41 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
+      "id": "aicacp",
+      "label": "AICACP shortlink",
+      "category": "Projects",
+      "url": "https://aicacp.activeinference.institute",
+      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "aicacp-project-doc",
+      "label": "AICACP project document",
+      "category": "Research",
+      "url": "https://docs.google.com/document/d/1uzJU3g9Lb18mVvj3YK3fdAzSR2ii7YkDJG_p6u_I9_4/edit",
+      "sourceBasis": "Public Google Doc describing the AI Capabilities & Alignment Consensus Project (AICACP).",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "artificial-sentience-blog",
+      "label": "Tonic Dopamine as the Engine of Motivation (project blog)",
+      "category": "Media",
+      "url": "https://artificial-sentience.blogspot.com/2025/12/tonic-dopamine-as-engine-of-motivation.html",
+      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
       "id": "arxiv",
       "label": "arXiv",
       "category": "Research",
       "url": "https://arxiv.org",
       "sourceBasis": "Open-access preprint server homepage verified directly on arxiv.org.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-14T00:00:00Z"
-    },
-    {
-      "id": "zenodo",
-      "label": "Zenodo",
-      "category": "Research",
-      "url": "https://zenodo.org",
-      "sourceBasis": "Open-access CERN/OpenAIRE research repository homepage verified directly on zenodo.org.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-14T00:00:00Z"
-    },
-    {
-      "id": "obsidian",
-      "label": "Obsidian",
-      "category": "Learning",
-      "url": "https://obsidian.md",
-      "sourceBasis": "Markdown knowledge-management platform homepage verified directly on obsidian.md.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-14T00:00:00Z"
@@ -51,6 +61,106 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "bod",
+      "label": "Board of Directors roster",
+      "category": "Institute",
+      "url": "https://bod.activeinference.institute",
+      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "bodform",
+      "label": "Board of Directors application form",
+      "category": "Institute",
+      "url": "https://bodform.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink to the Board of Directors application form.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T05:23:58Z"
+    },
+    {
+      "id": "calendar-embed",
+      "label": "Institute public calendar (Google Calendar view)",
+      "category": "Community",
+      "url": "https://calendar.google.com/calendar/embed?src=c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com&ctz=UTC",
+      "sourceBasis": "Public Google Calendar web view for Institute-scale activities and events.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "calendar-ics",
+      "label": "Institute public calendar (iCal feed)",
+      "category": "Community",
+      "url": "https://calendar.google.com/calendar/ical/c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com/public/basic.ics",
+      "sourceBasis": "Public Google Calendar iCal feed for Institute-scale activities and events.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "cognarr-arxiv",
+      "label": "CogNarr Ecosystem: Facilitating Group Cognition at Scale (arXiv)",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2407.18945",
+      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "cognarr-osf",
+      "label": "CogNarr Ecosystem: Preliminary Thoughts on a Story Graph Meaning Representation (OSF)",
+      "category": "Research",
+      "url": "https://osf.io/preprints/osf/muc29",
+      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "cpomdp-docs",
+      "label": "cpomdp documentation",
+      "category": "Projects",
+      "url": "https://cpomdp.inferogenesis.com/",
+      "sourceBasis": "Public documentation site for the cpomdp library.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-17T19:11:23Z"
+    },
+    {
+      "id": "cpomdp-paper-state-dependent-noise",
+      "label": "State-Dependent Observation Noise Reintroduces Epistemic Value in Linear-Gaussian Active Inference (arXiv:2607.20306)",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2607.20306",
+      "sourceBasis": "Public arXiv preprint underpinning the cpomdp library, verified on arXiv.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-17T19:11:23Z"
+    },
+    {
+      "id": "cpomdp-pypi",
+      "label": "cpomdp on PyPI",
+      "category": "Projects",
+      "url": "https://pypi.org/project/cpomdp/",
+      "sourceBasis": "Public package listing for the cpomdp library on the Python Package Index.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-17T19:11:23Z"
+    },
+    {
+      "id": "cpomdp-repo",
+      "label": "cpomdp repository",
+      "category": "Repository",
+      "url": "https://github.com/inferogenesis/cpomdp",
+      "sourceBasis": "Public source repository for the cpomdp library, verified directly on GitHub.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-17T19:11:23Z"
     },
     {
       "id": "discord",
@@ -93,6 +203,17 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
+      "id": "friston-2010-doi",
+      "label": "The free-energy principle: a unified brain theory? (Friston 2010, DOI)",
+      "category": "Research",
+      "url": "https://doi.org/10.1038/nrn2787",
+      "sourceBasis": "Added 2026-07-14 to give citations.json entry friston-2010-free-energy-principle its own correct source (previously mismatched to the learning-foundations-arxiv entry, which pointed at an unrelated paper). Karl J. Friston (2010), Nature Reviews Neuroscience, has no arXiv preprint; the DOI resolves to the Nature article (verified via direct fetch -- title, journal, and year match). Nature.com occasionally bounces automated requests through a cookie-consent redirect (same class of flakiness as the linkedin entry) -- genuinely reachable, recorded as ok:true.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-14T19:56:47Z",
+      "knownBotBlocked": true
+    },
+    {
       "id": "geo-infer",
       "label": "GEO-INFER repository",
       "category": "Projects",
@@ -123,6 +244,86 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
+      "id": "gueststream-082-1",
+      "label": "GuestStream #082.1 — Bayesian Model-Based Cognition: The Requirement Equation",
+      "category": "Media",
+      "url": "https://www.youtube.com/watch?v=6gw6KEX10vo",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "gueststream-082-2",
+      "label": "GuestStream #082.2 — Three-dimensional Spatial Cognition: Bees and Bats",
+      "category": "Media",
+      "url": "https://www.youtube.com/watch?v=gMPa_xoOctU",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "gueststream-082-3",
+      "label": "GuestStream #082.3 — The Projective Wave Theory of Consciousness",
+      "category": "Media",
+      "url": "https://www.youtube.com/live/IvY4acL8YeA",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "gueststream-082-4",
+      "label": "GuestStream #082.4 — Assessment of the Brain Wave Hypothesis",
+      "category": "Media",
+      "url": "https://www.youtube.com/live/zqOcywx40n8",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "gueststream-082-5",
+      "label": "GuestStream #082.5 — Computers, Meaning and Consciousness",
+      "category": "Media",
+      "url": "https://www.youtube.com/live/p7iq4AAIwjc",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "gueststream-082-6",
+      "label": "GuestStream #082.6 — A Unified Theory of Language",
+      "category": "Media",
+      "url": "https://www.youtube.com/live/vUO6t1pD0Hg",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "gueststream-082-7",
+      "label": "GuestStream #082.7 — Language and Human Nature",
+      "category": "Media",
+      "url": "https://www.youtube.com/live/nFnZSIqoFv4",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "internform",
+      "label": "Internship application form",
+      "category": "Participate",
+      "url": "https://internform.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink to the Internship application form.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:15:00Z"
+    },
+    {
       "id": "journal",
       "label": "Active Inference Journal repository",
       "category": "Research",
@@ -131,6 +332,16 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "lanillos-2021-arxiv",
+      "label": "Active Inference in Robotics and Artificial Agents: Survey and Challenges (arXiv)",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2112.01871",
+      "sourceBasis": "Added 2026-07-14 to give citations.json entry lanillos-2021-active-inference-robotics-survey its own correct source (previously mismatched to the learning-foundations-arxiv entry, which pointed at an unrelated paper). Verified via direct fetch: Lanillos, Meo, Pezzato et al. (2021) \"Active Inference in Robotics and Artificial Agents: Survey and Challenges\" -- matches citations.json DOI 10.48550/arXiv.2112.01871.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-14T19:56:47Z"
     },
     {
       "id": "learning-active-inference-book-mit",
@@ -158,27 +369,6 @@
       "category": "Research",
       "url": "https://arxiv.org/abs/2001.07203",
       "sourceBasis": "Corrected 2026-07-14: previous URL (arxiv.org/abs/2209.09185) resolved to an unrelated paper (Wakayama & Ahmed, \"Active Inference for Autonomous Decision-Making with Contextual Multi-Armed Bandits\"). Verified via direct fetch that arXiv:2001.07203 is Da Costa, Parr, Sajid, Veselic, Neacsu, Friston (2020) \"Active inference on discrete state-spaces: a synthesis\" -- matches library/registries/citations.json entry da-costa-2020-active-inference-discrete (DOI 10.1016/j.jmp.2020.102447).",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-14T19:56:47Z"
-    },
-    {
-      "id": "friston-2010-doi",
-      "label": "The free-energy principle: a unified brain theory? (Friston 2010, DOI)",
-      "category": "Research",
-      "url": "https://doi.org/10.1038/nrn2787",
-      "sourceBasis": "Added 2026-07-14 to give citations.json entry friston-2010-free-energy-principle its own correct source (previously mismatched to the learning-foundations-arxiv entry, which pointed at an unrelated paper). Karl J. Friston (2010), Nature Reviews Neuroscience, has no arXiv preprint; the DOI resolves to the Nature article (verified via direct fetch -- title, journal, and year match). Nature.com occasionally bounces automated requests through a cookie-consent redirect (same class of flakiness as the linkedin entry) -- genuinely reachable, recorded as ok:true.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-14T19:56:47Z",
-      "knownBotBlocked": true
-    },
-    {
-      "id": "lanillos-2021-arxiv",
-      "label": "Active Inference in Robotics and Artificial Agents: Survey and Challenges (arXiv)",
-      "category": "Research",
-      "url": "https://arxiv.org/abs/2112.01871",
-      "sourceBasis": "Added 2026-07-14 to give citations.json entry lanillos-2021-active-inference-robotics-survey its own correct source (previously mismatched to the learning-foundations-arxiv entry, which pointed at an unrelated paper). Verified via direct fetch: Lanillos, Meo, Pezzato et al. (2021) \"Active Inference in Robotics and Artificial Agents: Survey and Challenges\" -- matches citations.json DOI 10.48550/arXiv.2112.01871.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-14T19:56:47Z"
@@ -223,6 +413,48 @@
       "ok": true,
       "checkedAt": "2026-07-07T17:16:51Z",
       "knownBotBlocked": true
+    },
+    {
+      "id": "measureform",
+      "label": "Measurement form",
+      "category": "Participate",
+      "url": "https://measureform.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink forwarding to the short Measurement form.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:20:00Z"
+    },
+    {
+      "id": "mitpress-active-inference-2022",
+      "label": "Active Inference (MIT Press, 2022)",
+      "category": "Learning",
+      "url": "https://mitpress.mit.edu/9780262045353/active-inference/",
+      "sourceBasis": "Publisher page for the 2022 textbook Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, authors Parr/Pezzulo/Friston, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so this cannot be machine-checked going forward — recorded as ok:false/403 to match what automation sees, not because the page is gone.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-07T17:16:51Z",
+      "knownBotBlocked": true
+    },
+    {
+      "id": "mitpress-fundamentals-2026",
+      "label": "Fundamentals of Active Inference (MIT Press, 2026)",
+      "category": "Learning",
+      "url": "https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/",
+      "sourceBasis": "Publisher page for the 2026 textbook Fundamentals of Active Inference (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, author Sanjeev Namjoshi, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so this cannot be machine-checked going forward — recorded as ok:false/403 to match what automation sees, not because the page is gone.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-07T17:16:51Z",
+      "knownBotBlocked": true
+    },
+    {
+      "id": "obsidian",
+      "label": "Obsidian",
+      "category": "Learning",
+      "url": "https://obsidian.md",
+      "sourceBasis": "Markdown knowledge-management platform homepage verified directly on obsidian.md.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-14T00:00:00Z"
     },
     {
       "id": "official-activeinference-org",
@@ -326,221 +558,11 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
-      "id": "symposium-2021-transcript",
-      "label": "1st Symposium (2021) transcript",
-      "category": "Activities",
-      "url": "https://zenodo.org/records/5797072",
-      "sourceBasis": "Public Zenodo record of the 1st Applied Active Inference Symposium proceedings.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2022-transcript",
-      "label": "2nd Symposium (2022) transcript",
-      "category": "Activities",
-      "url": "https://zenodo.org/record/7402485",
-      "sourceBasis": "Public Zenodo record of the 2nd Applied Active Inference Symposium proceedings.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2022-program",
-      "label": "2nd Symposium (2022) program",
-      "category": "Activities",
-      "url": "https://2022symposium.activeinference.institute/",
-      "sourceBasis": "Institute subdomain shortlink forwarding to the public 2nd Symposium program.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:20:00Z"
-    },
-    {
-      "id": "symposium-2023-program",
-      "label": "3rd Symposium (2023) program",
-      "category": "Activities",
-      "url": "https://2023symposium.activeinference.institute/",
-      "sourceBasis": "Institute subdomain shortlink forwarding to the public 3rd Symposium program.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2024-program",
-      "label": "4th Symposium (2024) program",
-      "category": "Activities",
-      "url": "https://2024symposium.activeinference.institute/",
-      "sourceBasis": "Institute subdomain shortlink forwarding to the public 4th Symposium program.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2025-program",
-      "label": "5th Symposium (2025) program",
-      "category": "Activities",
-      "url": "https://2025symposium.activeinference.institute/",
-      "sourceBasis": "Institute subdomain shortlink forwarding to the public 5th Symposium program.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2026-submit",
-      "label": "2026 Symposium presenter application",
-      "category": "Activities",
-      "url": "https://2026present.activeinference.institute/",
-      "sourceBasis": "Institute subdomain shortlink forwarding to the public 2026 Symposium presenter application form.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:15:00Z"
-    },
-    {
-      "id": "symposium-2026-register",
-      "label": "2026 Symposium participant registration",
-      "category": "Activities",
-      "url": "https://registersymposium2026.activeinference.institute/",
-      "sourceBasis": "Public 2026 Symposium participant registration destination supplied by the Institute.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-08-09T00:00:00Z"
-    },
-    {
-      "id": "symposium-2021-video-1",
-      "label": "1st Symposium (2021) recording — part 1",
-      "category": "Activities",
-      "url": "https://www.youtube.com/watch?v=INRaCBikpso",
-      "sourceBasis": "Public Institute YouTube recording of the 1st Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2021-video-2",
-      "label": "1st Symposium (2021) recording — part 2",
-      "category": "Activities",
-      "url": "https://www.youtube.com/watch?v=X2GwqUVLlcs",
-      "sourceBasis": "Public Institute YouTube recording of the 1st Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2022-video-1",
-      "label": "2nd Symposium (2022) recording — interval 1",
-      "category": "Activities",
-      "url": "https://youtu.be/zm2d9o5n0PU",
-      "sourceBasis": "Public Institute YouTube recording of the 2nd Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2022-video-2",
-      "label": "2nd Symposium (2022) recording — interval 2",
-      "category": "Activities",
-      "url": "https://youtu.be/dTVHHenms_Y",
-      "sourceBasis": "Public Institute YouTube recording of the 2nd Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2023-video-1",
-      "label": "3rd Symposium (2023) recording — interval 1",
-      "category": "Activities",
-      "url": "https://www.youtube.com/watch?v=rIemcswLfGg",
-      "sourceBasis": "Public Institute YouTube recording of the 3rd Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2023-video-2",
-      "label": "3rd Symposium (2023) recording — interval 2",
-      "category": "Activities",
-      "url": "https://www.youtube.com/watch?v=PVeyvHSAwmk",
-      "sourceBasis": "Public Institute YouTube recording of the 3rd Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2024-video-1",
-      "label": "4th Symposium (2024) recording — part 1",
-      "category": "Activities",
-      "url": "https://youtu.be/cIBIecj7UZE",
-      "sourceBasis": "Public Institute YouTube recording of the 4th Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2024-video-2",
-      "label": "4th Symposium (2024) recording — part 2",
-      "category": "Activities",
-      "url": "https://www.youtube.com/watch?v=nCZZBuk_wmU",
-      "sourceBasis": "Public Institute YouTube recording of the 4th Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2024-video-3",
-      "label": "4th Symposium (2024) recording — part 3",
-      "category": "Activities",
-      "url": "https://www.youtube.com/watch?v=PnwqqLE10K8",
-      "sourceBasis": "Public Institute YouTube recording of the 4th Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2025-video-1",
-      "label": "5th Symposium (2025) recording — part 1",
-      "category": "Activities",
-      "url": "https://www.youtube.com/live/VTivWre-8Kk",
-      "sourceBasis": "Public Institute YouTube recording of the 5th Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2025-video-2",
-      "label": "5th Symposium (2025) recording — part 2",
-      "category": "Activities",
-      "url": "https://www.youtube.com/watch?v=5uTr029Vzkg",
-      "sourceBasis": "Public Institute YouTube recording of the 5th Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "symposium-2025-video-3",
-      "label": "5th Symposium (2025) recording — part 3",
-      "category": "Activities",
-      "url": "https://www.youtube.com/live/v7aSUMX1nfs",
-      "sourceBasis": "Public Institute YouTube recording of the 5th Symposium.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
       "id": "official-textbook-group-shortlink",
       "label": "Textbook Group shortlink",
       "category": "Learning",
       "url": "https://textbook-group.activeinference.institute/",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "tnb-youtube",
-      "label": "TNB YouTube channel",
-      "category": "Research",
-      "url": "https://www.youtube.com/@theoreticalneurobiology",
-      "sourceBasis": "Public Theoretical Neurobiology Group YouTube channel with recordings of past meetings.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-12T21:00:26Z"
@@ -556,11 +578,151 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
+      "id": "paper-worden-assessing-bwh-2024",
+      "label": "Worden 2024 — Assessing the Brain Wave Hypothesis: Call for Commentary",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2408.04636",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "paper-worden-projective-wave-2024",
+      "label": "Worden 2024 — The Projective Wave Theory of Consciousness",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2405.12071",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "paper-worden-testing-bwh-2024",
+      "label": "Worden 2024 — Testing the Brain Wave Hypothesis",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2408.05368",
+      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "partnership-shortlink",
+      "label": "Partnership pathway",
+      "category": "Programs",
+      "url": "https://partnerships.activeinference.institute/",
+      "sourceBasis": "Institute-subdomain shortlink named in the Partnership wiki canvas, same pattern as the existing Fellows/Volunteer shortlinks.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "person-ana-magdalena",
+      "label": "Ana-Magdalena GitHub profile",
+      "category": "People",
+      "url": "https://github.com/Ana-Magdalena",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "person-bazookamanph",
+      "label": "BazookamanPH GitHub profile",
+      "category": "People",
+      "url": "https://github.com/BazookamanPH",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "person-docxology",
+      "label": "Daniel Ari Friedman GitHub profile",
+      "category": "People",
+      "url": "https://github.com/docxology",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "person-hollygrimm",
+      "label": "Holly Grimm GitHub profile",
+      "category": "People",
+      "url": "https://github.com/hollygrimm",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "person-jeffschulman",
+      "label": "jeffschulman GitHub profile",
+      "category": "People",
+      "url": "https://github.com/jeffschulman",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "person-mlflumic",
+      "label": "mlflumic GitHub profile",
+      "category": "People",
+      "url": "https://github.com/mlflumic",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "person-thebuttskie",
+      "label": "TheButtskie GitHub profile",
+      "category": "People",
+      "url": "https://github.com/TheButtskie",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "person-turfus",
+      "label": "turfus GitHub profile",
+      "category": "People",
+      "url": "https://github.com/turfus",
+      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
       "id": "podbean",
       "label": "Podcast feed",
       "category": "Media",
       "url": "https://activeinference.podbean.com/",
       "sourceBasis": "Public podcast destination verified from the Institute resource inventory.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "prepareform",
+      "label": "Preparation form",
+      "category": "Participate",
+      "url": "https://prepareform.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink forwarding to the short Preparation form.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "quantuminquiry-org",
+      "label": "Quantum Inquiry (Geometric Inquiry Theory project site)",
+      "category": "Projects",
+      "url": "https://quantuminquiry.org/",
+      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-12T21:00:26Z"
@@ -836,6 +998,16 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
+      "id": "repo-karma-system",
+      "label": "karma_system — Symbolic Cognitive Robotics (GitHub)",
+      "category": "Projects",
+      "url": "https://github.com/jfcloutier/karma_system",
+      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
       "id": "repo-knowledge-engineering",
       "label": "Knowledge-Engineering repository",
       "category": "Repository",
@@ -906,6 +1078,16 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
+      "id": "repo-pymdp-upstream",
+      "label": "pymdp (GitHub, infer-actively org)",
+      "category": "Projects",
+      "url": "https://github.com/infer-actively/pymdp",
+      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
       "id": "repo-research-discovery-engine",
       "label": "Research-Discovery-Engine repository",
       "category": "Repository",
@@ -931,6 +1113,16 @@
       "category": "Repository",
       "url": "https://github.com/ActiveInferenceInstitute/Symposium",
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "research-zenodo-13754586",
+      "label": "FarmWorks: Decentralized AI Agents for Personalized Solutions (Zenodo)",
+      "category": "Research",
+      "url": "https://zenodo.org/records/13754586",
+      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-12T21:00:26Z"
@@ -1046,11 +1238,51 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
+      "id": "sab",
+      "label": "Scientific Advisory Board roster",
+      "category": "Institute",
+      "url": "https://sab.activeinference.institute",
+      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "sabform",
+      "label": "Scientific Advisory Board application form",
+      "category": "Institute",
+      "url": "https://sabform.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink to the Scientific Advisory Board application form.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:15:00Z"
+    },
+    {
       "id": "shortlink-2025",
       "label": "2025 planning shortlink",
       "category": "Activities",
       "url": "https://2025.activeinference.institute",
       "sourceBasis": "Public URL verified directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "shortlink-2026",
+      "label": "2026 planning shortlink",
+      "category": "Activities",
+      "url": "https://2026.activeinference.institute",
+      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "shortlink-affordances",
+      "label": "Affordances shortlink",
+      "category": "Research",
+      "url": "https://affordances.activeinference.institute",
+      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-12T21:00:26Z"
@@ -1156,6 +1388,26 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
+      "id": "start-docs-site",
+      "label": "Start documentation",
+      "category": "Learning",
+      "url": "https://activeinferenceinstitute.github.io/Start/",
+      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "start-github",
+      "label": "Start (GitHub)",
+      "category": "Projects",
+      "url": "https://github.com/ActiveInferenceInstitute/Start",
+      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
       "id": "start-pages-unavailable",
       "label": "Legacy Start website path",
       "category": "Deprecated check",
@@ -1171,6 +1423,246 @@
       "category": "Learning",
       "url": "https://github.com/ActiveInferenceInstitute/Start",
       "sourceBasis": "Public learning repository verified directly on GitHub.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "start-youtube-008",
+      "label": "Start walkthrough (ModelStream 008)",
+      "category": "Media",
+      "url": "https://youtube.com/live/h_tO7gZH2Ks",
+      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "start-youtube-015",
+      "label": "Start walkthrough (ModelStream 015)",
+      "category": "Media",
+      "url": "https://www.youtube.com/live/0cOV7-St2Ws",
+      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2021-transcript",
+      "label": "1st Symposium (2021) transcript",
+      "category": "Activities",
+      "url": "https://zenodo.org/records/5797072",
+      "sourceBasis": "Public Zenodo record of the 1st Applied Active Inference Symposium proceedings.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2021-video-1",
+      "label": "1st Symposium (2021) recording — part 1",
+      "category": "Activities",
+      "url": "https://www.youtube.com/watch?v=INRaCBikpso",
+      "sourceBasis": "Public Institute YouTube recording of the 1st Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2021-video-2",
+      "label": "1st Symposium (2021) recording — part 2",
+      "category": "Activities",
+      "url": "https://www.youtube.com/watch?v=X2GwqUVLlcs",
+      "sourceBasis": "Public Institute YouTube recording of the 1st Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2022-program",
+      "label": "2nd Symposium (2022) program",
+      "category": "Activities",
+      "url": "https://2022symposium.activeinference.institute/",
+      "sourceBasis": "Institute subdomain shortlink forwarding to the public 2nd Symposium program.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:20:00Z"
+    },
+    {
+      "id": "symposium-2022-transcript",
+      "label": "2nd Symposium (2022) transcript",
+      "category": "Activities",
+      "url": "https://zenodo.org/record/7402485",
+      "sourceBasis": "Public Zenodo record of the 2nd Applied Active Inference Symposium proceedings.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2022-video-1",
+      "label": "2nd Symposium (2022) recording — interval 1",
+      "category": "Activities",
+      "url": "https://youtu.be/zm2d9o5n0PU",
+      "sourceBasis": "Public Institute YouTube recording of the 2nd Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2022-video-2",
+      "label": "2nd Symposium (2022) recording — interval 2",
+      "category": "Activities",
+      "url": "https://youtu.be/dTVHHenms_Y",
+      "sourceBasis": "Public Institute YouTube recording of the 2nd Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2023-program",
+      "label": "3rd Symposium (2023) program",
+      "category": "Activities",
+      "url": "https://2023symposium.activeinference.institute/",
+      "sourceBasis": "Institute subdomain shortlink forwarding to the public 3rd Symposium program.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2023-video-1",
+      "label": "3rd Symposium (2023) recording — interval 1",
+      "category": "Activities",
+      "url": "https://www.youtube.com/watch?v=rIemcswLfGg",
+      "sourceBasis": "Public Institute YouTube recording of the 3rd Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2023-video-2",
+      "label": "3rd Symposium (2023) recording — interval 2",
+      "category": "Activities",
+      "url": "https://www.youtube.com/watch?v=PVeyvHSAwmk",
+      "sourceBasis": "Public Institute YouTube recording of the 3rd Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2024-program",
+      "label": "4th Symposium (2024) program",
+      "category": "Activities",
+      "url": "https://2024symposium.activeinference.institute/",
+      "sourceBasis": "Institute subdomain shortlink forwarding to the public 4th Symposium program.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2024-video-1",
+      "label": "4th Symposium (2024) recording — part 1",
+      "category": "Activities",
+      "url": "https://youtu.be/cIBIecj7UZE",
+      "sourceBasis": "Public Institute YouTube recording of the 4th Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2024-video-2",
+      "label": "4th Symposium (2024) recording — part 2",
+      "category": "Activities",
+      "url": "https://www.youtube.com/watch?v=nCZZBuk_wmU",
+      "sourceBasis": "Public Institute YouTube recording of the 4th Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2024-video-3",
+      "label": "4th Symposium (2024) recording — part 3",
+      "category": "Activities",
+      "url": "https://www.youtube.com/watch?v=PnwqqLE10K8",
+      "sourceBasis": "Public Institute YouTube recording of the 4th Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2025-program",
+      "label": "5th Symposium (2025) program",
+      "category": "Activities",
+      "url": "https://2025symposium.activeinference.institute/",
+      "sourceBasis": "Institute subdomain shortlink forwarding to the public 5th Symposium program.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2025-video-1",
+      "label": "5th Symposium (2025) recording — part 1",
+      "category": "Activities",
+      "url": "https://www.youtube.com/live/VTivWre-8Kk",
+      "sourceBasis": "Public Institute YouTube recording of the 5th Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2025-video-2",
+      "label": "5th Symposium (2025) recording — part 2",
+      "category": "Activities",
+      "url": "https://www.youtube.com/watch?v=5uTr029Vzkg",
+      "sourceBasis": "Public Institute YouTube recording of the 5th Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2025-video-3",
+      "label": "5th Symposium (2025) recording — part 3",
+      "category": "Activities",
+      "url": "https://www.youtube.com/live/v7aSUMX1nfs",
+      "sourceBasis": "Public Institute YouTube recording of the 5th Symposium.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:00:26Z"
+    },
+    {
+      "id": "symposium-2026-register",
+      "label": "2026 Symposium participant registration",
+      "category": "Activities",
+      "url": "https://registersymposium2026.activeinference.institute/",
+      "sourceBasis": "Public 2026 Symposium participant registration destination supplied by the Institute.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-09T00:00:00Z"
+    },
+    {
+      "id": "symposium-2026-submit",
+      "label": "2026 Symposium presenter application",
+      "category": "Activities",
+      "url": "https://2026present.activeinference.institute/",
+      "sourceBasis": "Institute subdomain shortlink forwarding to the public 2026 Symposium presenter application form.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:15:00Z"
+    },
+    {
+      "id": "textbookregister",
+      "label": "Textbook Group registration form",
+      "category": "Participate",
+      "url": "https://textbookregister.activeinference.institute",
+      "sourceBasis": "Public Institute form shortlink forwarding to the Textbook Group registration form.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-07-12T21:15:00Z"
+    },
+    {
+      "id": "tnb-youtube",
+      "label": "TNB YouTube channel",
+      "category": "Research",
+      "url": "https://www.youtube.com/@theoreticalneurobiology",
+      "sourceBasis": "Public Theoretical Neurobiology Group YouTube channel with recordings of past meetings.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-12T21:00:26Z"
@@ -1216,368 +1708,6 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
-      "id": "youtube-handle",
-      "label": "YouTube handle",
-      "category": "Media",
-      "url": "https://www.youtube.com/@ActiveInference/",
-      "sourceBasis": "Public media handle verified from the Institute resource inventory.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "person-docxology",
-      "label": "Daniel Ari Friedman GitHub profile",
-      "category": "People",
-      "url": "https://github.com/docxology",
-      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "person-bazookamanph",
-      "label": "BazookamanPH GitHub profile",
-      "category": "People",
-      "url": "https://github.com/BazookamanPH",
-      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "person-hollygrimm",
-      "label": "Holly Grimm GitHub profile",
-      "category": "People",
-      "url": "https://github.com/hollygrimm",
-      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "person-ana-magdalena",
-      "label": "Ana-Magdalena GitHub profile",
-      "category": "People",
-      "url": "https://github.com/Ana-Magdalena",
-      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "person-thebuttskie",
-      "label": "TheButtskie GitHub profile",
-      "category": "People",
-      "url": "https://github.com/TheButtskie",
-      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "person-jeffschulman",
-      "label": "jeffschulman GitHub profile",
-      "category": "People",
-      "url": "https://github.com/jeffschulman",
-      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "person-turfus",
-      "label": "turfus GitHub profile",
-      "category": "People",
-      "url": "https://github.com/turfus",
-      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "person-mlflumic",
-      "label": "mlflumic GitHub profile",
-      "category": "People",
-      "url": "https://github.com/mlflumic",
-      "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "calendar-ics",
-      "label": "Institute public calendar (iCal feed)",
-      "category": "Community",
-      "url": "https://calendar.google.com/calendar/ical/c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com/public/basic.ics",
-      "sourceBasis": "Public Google Calendar iCal feed for Institute-scale activities and events.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "calendar-embed",
-      "label": "Institute public calendar (Google Calendar view)",
-      "category": "Community",
-      "url": "https://calendar.google.com/calendar/embed?src=c_886437da03d551ddcb193c96228ea67828ccaa093da5188cbf0a6bdcd3ec783a%40group.calendar.google.com&ctz=UTC",
-      "sourceBasis": "Public Google Calendar web view for Institute-scale activities and events.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "shortlink-affordances",
-      "label": "Affordances shortlink",
-      "category": "Research",
-      "url": "https://affordances.activeinference.institute",
-      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "shortlink-2026",
-      "label": "2026 planning shortlink",
-      "category": "Activities",
-      "url": "https://2026.activeinference.institute",
-      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "aicacp",
-      "label": "AICACP shortlink",
-      "category": "Projects",
-      "url": "https://aicacp.activeinference.institute",
-      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "bod",
-      "label": "Board of Directors roster",
-      "category": "Institute",
-      "url": "https://bod.activeinference.institute",
-      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "sab",
-      "label": "Scientific Advisory Board roster",
-      "category": "Institute",
-      "url": "https://sab.activeinference.institute",
-      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "paper-worden-projective-wave-2024",
-      "label": "Worden 2024 — The Projective Wave Theory of Consciousness",
-      "category": "Research",
-      "url": "https://arxiv.org/abs/2405.12071",
-      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "paper-worden-assessing-bwh-2024",
-      "label": "Worden 2024 — Assessing the Brain Wave Hypothesis: Call for Commentary",
-      "category": "Research",
-      "url": "https://arxiv.org/abs/2408.04636",
-      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "paper-worden-testing-bwh-2024",
-      "label": "Worden 2024 — Testing the Brain Wave Hypothesis",
-      "category": "Research",
-      "url": "https://arxiv.org/abs/2408.05368",
-      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "gueststream-082-1",
-      "label": "GuestStream #082.1 — Bayesian Model-Based Cognition: The Requirement Equation",
-      "category": "Media",
-      "url": "https://www.youtube.com/watch?v=6gw6KEX10vo",
-      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "gueststream-082-2",
-      "label": "GuestStream #082.2 — Three-dimensional Spatial Cognition: Bees and Bats",
-      "category": "Media",
-      "url": "https://www.youtube.com/watch?v=gMPa_xoOctU",
-      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "gueststream-082-3",
-      "label": "GuestStream #082.3 — The Projective Wave Theory of Consciousness",
-      "category": "Media",
-      "url": "https://www.youtube.com/live/IvY4acL8YeA",
-      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "gueststream-082-4",
-      "label": "GuestStream #082.4 — Assessment of the Brain Wave Hypothesis",
-      "category": "Media",
-      "url": "https://www.youtube.com/live/zqOcywx40n8",
-      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "gueststream-082-5",
-      "label": "GuestStream #082.5 — Computers, Meaning and Consciousness",
-      "category": "Media",
-      "url": "https://www.youtube.com/live/p7iq4AAIwjc",
-      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "gueststream-082-6",
-      "label": "GuestStream #082.6 — A Unified Theory of Language",
-      "category": "Media",
-      "url": "https://www.youtube.com/live/vUO6t1pD0Hg",
-      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "gueststream-082-7",
-      "label": "GuestStream #082.7 — Language and Human Nature",
-      "category": "Media",
-      "url": "https://www.youtube.com/live/nFnZSIqoFv4",
-      "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "measureform",
-      "label": "Measurement form",
-      "category": "Participate",
-      "url": "https://measureform.activeinference.institute",
-      "sourceBasis": "Public Institute form shortlink forwarding to the short Measurement form.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:20:00Z"
-    },
-    {
-      "id": "prepareform",
-      "label": "Preparation form",
-      "category": "Participate",
-      "url": "https://prepareform.activeinference.institute",
-      "sourceBasis": "Public Institute form shortlink forwarding to the short Preparation form.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "textbookregister",
-      "label": "Textbook Group registration form",
-      "category": "Participate",
-      "url": "https://textbookregister.activeinference.institute",
-      "sourceBasis": "Public Institute form shortlink forwarding to the Textbook Group registration form.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:15:00Z"
-    },
-    {
-      "id": "mitpress-active-inference-2022",
-      "label": "Active Inference (MIT Press, 2022)",
-      "category": "Learning",
-      "url": "https://mitpress.mit.edu/9780262045353/active-inference/",
-      "sourceBasis": "Publisher page for the 2022 textbook Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, authors Parr/Pezzulo/Friston, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so this cannot be machine-checked going forward — recorded as ok:false/403 to match what automation sees, not because the page is gone.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-07T17:16:51Z",
-      "knownBotBlocked": true
-    },
-    {
-      "id": "mitpress-fundamentals-2026",
-      "label": "Fundamentals of Active Inference (MIT Press, 2026)",
-      "category": "Learning",
-      "url": "https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/",
-      "sourceBasis": "Publisher page for the 2026 textbook Fundamentals of Active Inference (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, author Sanjeev Namjoshi, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so this cannot be machine-checked going forward — recorded as ok:false/403 to match what automation sees, not because the page is gone.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-07T17:16:51Z",
-      "knownBotBlocked": true
-    },
-    {
-      "id": "internform",
-      "label": "Internship application form",
-      "category": "Participate",
-      "url": "https://internform.activeinference.institute",
-      "sourceBasis": "Public Institute form shortlink to the Internship application form.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:15:00Z"
-    },
-    {
-      "id": "bodform",
-      "label": "Board of Directors application form",
-      "category": "Institute",
-      "url": "https://bodform.activeinference.institute",
-      "sourceBasis": "Public Institute form shortlink to the Board of Directors application form.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T05:23:58Z"
-    },
-    {
-      "id": "sabform",
-      "label": "Scientific Advisory Board application form",
-      "category": "Institute",
-      "url": "https://sabform.activeinference.institute",
-      "sourceBasis": "Public Institute form shortlink to the Scientific Advisory Board application form.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:15:00Z"
-    },
-    {
-      "id": "aicacp-project-doc",
-      "label": "AICACP project document",
-      "category": "Research",
-      "url": "https://docs.google.com/document/d/1uzJU3g9Lb18mVvj3YK3fdAzSR2ii7YkDJG_p6u_I9_4/edit",
-      "sourceBasis": "Public Google Doc describing the AI Capabilities & Alignment Consensus Project (AICACP).",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "partnership-shortlink",
-      "label": "Partnership pathway",
-      "category": "Programs",
-      "url": "https://partnerships.activeinference.institute/",
-      "sourceBasis": "Institute-subdomain shortlink named in the Partnership wiki canvas, same pattern as the existing Fellows/Volunteer shortlinks.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
       "id": "youtube-activeblockference-playlist",
       "label": "InferAnt Streams playlist (Active Blockference)",
       "category": "Media",
@@ -1588,114 +1718,24 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
-      "id": "cognarr-arxiv",
-      "label": "CogNarr Ecosystem: Facilitating Group Cognition at Scale (arXiv)",
-      "category": "Research",
-      "url": "https://arxiv.org/abs/2407.18945",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "cognarr-osf",
-      "label": "CogNarr Ecosystem: Preliminary Thoughts on a Story Graph Meaning Representation (OSF)",
-      "category": "Research",
-      "url": "https://osf.io/preprints/osf/muc29",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "artificial-sentience-blog",
-      "label": "Tonic Dopamine as the Engine of Motivation (project blog)",
+      "id": "youtube-handle",
+      "label": "YouTube handle",
       "category": "Media",
-      "url": "https://artificial-sentience.blogspot.com/2025/12/tonic-dopamine-as-engine-of-motivation.html",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "url": "https://www.youtube.com/@ActiveInference/",
+      "sourceBasis": "Public media handle verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
-      "id": "research-zenodo-13754586",
-      "label": "FarmWorks: Decentralized AI Agents for Personalized Solutions (Zenodo)",
+      "id": "zenodo",
+      "label": "Zenodo",
       "category": "Research",
-      "url": "https://zenodo.org/records/13754586",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "url": "https://zenodo.org",
+      "sourceBasis": "Open-access CERN/OpenAIRE research repository homepage verified directly on zenodo.org.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "quantuminquiry-org",
-      "label": "Quantum Inquiry (Geometric Inquiry Theory project site)",
-      "category": "Projects",
-      "url": "https://quantuminquiry.org/",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "repo-karma-system",
-      "label": "karma_system — Symbolic Cognitive Robotics (GitHub)",
-      "category": "Projects",
-      "url": "https://github.com/jfcloutier/karma_system",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "start-github",
-      "label": "Start (GitHub)",
-      "category": "Projects",
-      "url": "https://github.com/ActiveInferenceInstitute/Start",
-      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "start-docs-site",
-      "label": "Start documentation",
-      "category": "Learning",
-      "url": "https://activeinferenceinstitute.github.io/Start/",
-      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "start-youtube-008",
-      "label": "Start walkthrough (ModelStream 008)",
-      "category": "Media",
-      "url": "https://youtube.com/live/h_tO7gZH2Ks",
-      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "start-youtube-015",
-      "label": "Start walkthrough (ModelStream 015)",
-      "category": "Media",
-      "url": "https://www.youtube.com/live/0cOV7-St2Ws",
-      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "repo-pymdp-upstream",
-      "label": "pymdp (GitHub, infer-actively org)",
-      "category": "Projects",
-      "url": "https://github.com/infer-actively/pymdp",
-      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
+      "checkedAt": "2026-07-14T00:00:00Z"
     }
   ]
 }

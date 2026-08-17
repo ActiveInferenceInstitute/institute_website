@@ -24,7 +24,14 @@ import { slugToHref, resolveInternalHref, relPrefix } from "./urls.mjs";
 import { homeInstituteosGate, instituteosFeatureSections } from "./feature-sections.mjs";
 import { autolinkInternal } from "./autolink.mjs";
 import { knowledgePreview } from "./knowledge.mjs";
-import { relatedProjectsSection, projectCatalogSection, syllabusGrid, qaGrid, projectStatusForSlug } from "../pages/projects.mjs";
+import {
+  relatedProjectsSection,
+  projectCatalogSection,
+  syllabusGrid,
+  qaGrid,
+  projectStatusForSlug,
+  projectLeadForSlug,
+} from "../pages/projects.mjs";
 import { programCatalogSection } from "../pages/programs.mjs";
 
 export function relatedSlugsForPage(page) {
@@ -220,12 +227,21 @@ export function publicPage(page) {
   const archivedProjectNotice = isArchivedProject
     ? `\n    <p class="mt-notice status-notice" role="note"><span aria-hidden="true">📦</span> ${escapeHtml(tr("This project is archived. It is no longer active, and any participation prompts below describe how it previously operated."))}</p>`
     : "";
+  // Project lead, from the registry. The catalog card on /projects/ already
+  // showed "Lead: <name>" while the project's own page named nobody; both now
+  // read the same field, so they cannot drift. Built as a standalone string for
+  // the same reason as the notice above — pages without a lead keep byte-identical
+  // hero markup.
+  const projectLead = page.slug.startsWith("project-") ? projectLeadForSlug(page.slug) : "";
+  const projectLeadLine = projectLead
+    ? `\n    <p class="project-lead">${escapeHtml(tr("Lead"))}: ${escapeHtml(projectLead)}</p>`
+    : "";
   const body = `
   <section class="page-hero compact">
     ${breadcrumb(page, currentDir)}
     <p class="eyebrow">${escapeHtml(tr(page.audience || "Public guide"))}</p>
     <h1>${escapeHtml(tr(page.title))}</h1>
-    <p>${escapeHtml(tr(page.subtitle))}</p>${archivedProjectNotice}
+    <p>${escapeHtml(tr(page.subtitle))}</p>${projectLeadLine}${archivedProjectNotice}
     ${actionButtons(page.primaryActions, currentDir)}
   </section>
   ${pageGuide(page, currentDir, surfaceIds)}

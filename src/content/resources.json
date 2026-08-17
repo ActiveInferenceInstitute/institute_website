@@ -754,6 +754,80 @@
       "priority": 60,
       "promoted": false,
       "featured": false
+    },
+    {
+      "sourceId": "cpomdp-repo",
+      "type": "repository",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "cpomdp",
+        "active-inference",
+        "python",
+        "open-source"
+      ],
+      "summary": "Source repository for the cpomdp continuous-state Active Inference library.",
+      "relatedSlugs": [
+        "project-cpomdp"
+      ],
+      "priority": 40,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "cpomdp-docs",
+      "type": "learning",
+      "category": "projects",
+      "audience": "developer",
+      "tags": [
+        "cpomdp",
+        "documentation",
+        "python"
+      ],
+      "summary": "Documentation for the cpomdp library: API reference, tutorials, and worked examples.",
+      "relatedSlugs": [
+        "project-cpomdp"
+      ],
+      "priority": 41,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "cpomdp-pypi",
+      "type": "repository",
+      "category": "tools",
+      "audience": "developer",
+      "tags": [
+        "cpomdp",
+        "python",
+        "package"
+      ],
+      "summary": "Released cpomdp packages on the Python Package Index, installable with pip.",
+      "relatedSlugs": [
+        "project-cpomdp"
+      ],
+      "priority": 42,
+      "promoted": true,
+      "featured": false
+    },
+    {
+      "sourceId": "cpomdp-paper-state-dependent-noise",
+      "type": "research",
+      "category": "research",
+      "audience": "researcher",
+      "tags": [
+        "cpomdp",
+        "active-inference",
+        "epistemic-value",
+        "preprint"
+      ],
+      "summary": "Preprint showing that state-dependent observation noise reintroduces epistemic value in linear-Gaussian Active Inference; the result cpomdp implements.",
+      "relatedSlugs": [
+        "project-cpomdp"
+      ],
+      "priority": 43,
+      "promoted": true,
+      "featured": false
     }
   ],
   "popularTags": [

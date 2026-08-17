@@ -1,6 +1,6 @@
 {
   "slug": "project-cpomdp",
-  "title": "cpomdp \u2014 Continuous Active Inference for Python",
+  "title": "cpomdp — Continuous Active Inference for Python",
   "subtitle": "A tested, documented continuous-state Active Inference library in Python.",
   "audience": "Python developers, researchers, and engineers implementing continuous-state Active Inference models.",
   "lede": "cpomdp is an open-source Python library for continuous-state Active Inference. It provides factor-graph message passing, Kalman and reference filtering, state-dependent observation and process noise, certifiable tolerances, and matched classical control baselines.",
@@ -29,6 +29,24 @@
           "sourceId": "discord"
         }
       ]
+    },
+    {
+      "heading": "Publications and links",
+      "body": "The library is developed in the open: source on GitHub, documentation at cpomdp.inferogenesis.com, and releases published to PyPI as cpomdp. The first associated paper, \"State-Dependent Observation Noise Reintroduces Epistemic Value in Linear-Gaussian Active Inference\" (arXiv:2607.20306, 2026), sets out the result the library's state-dependent noise handling implements.",
+      "links": [
+        {
+          "sourceId": "cpomdp-repo"
+        },
+        {
+          "sourceId": "cpomdp-docs"
+        },
+        {
+          "sourceId": "cpomdp-pypi"
+        },
+        {
+          "sourceId": "cpomdp-paper-state-dependent-noise"
+        }
+      ]
     }
   ],
   "relatedSlugs": [
@@ -38,7 +56,11 @@
   ],
   "externalSourceIds": [
     "ecosystem",
-    "discord"
+    "discord",
+    "cpomdp-repo",
+    "cpomdp-docs",
+    "cpomdp-pypi",
+    "cpomdp-paper-state-dependent-noise"
   ],
   "resourceGroups": [
     "projects",
