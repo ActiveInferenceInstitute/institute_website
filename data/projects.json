@@ -36,8 +36,6 @@
         "official": "https://www.activeinference.institute/active-blockference",
         "active-inferants": "https://github.com/ActiveInferenceInstitute/ActiveInferAnts"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -83,8 +81,6 @@
         "publication": "https://zenodo.org/records/7484994",
         "github": "https://github.com/ActiveInferenceInstitute/AEOS"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -141,8 +137,6 @@
         "github-ants": "https://github.com/ActiveInferenceInstitute/ants",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -198,8 +192,6 @@
         "website": "project-active-inference-journal.html",
         "github": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "alexander-vyatkin",
@@ -258,8 +250,6 @@
         "website": "project-active-inference-ontology.html",
         "ontology": "https://ontology.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -309,8 +299,6 @@
         "github_courses": "https://github.com/ActiveInferenceInstitute/courses",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "avel-guenin-carlut",
@@ -361,13 +349,6 @@
       "summary": "",
       "website_slug": null,
       "links": {},
-      "linked_policies": [
-        "intellectual-property",
-        "accessibility-policy"
-      ],
-      "linked_processes": [
-        "research-project-initiation"
-      ],
       "tasks": [
         {
           "id": "draft-chapters",
@@ -436,8 +417,6 @@
       "links": {
         "Active Inference Institute": "https://www.activeinference.institute/"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "people": []
@@ -477,8 +456,6 @@
         "participation": "https://www.activeinference.institute/participation",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "adam-safron",
@@ -523,8 +500,6 @@
         "discord": "https://discord.activeinference.institute",
         "coda": "https://anima-ai.discourse.group"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "stell",
@@ -558,8 +533,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "cleber-gomes",
@@ -594,8 +567,6 @@
         "livestreams": "https://www.activeinference.institute/livestreams",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -645,8 +616,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "jeremy-cooper",
@@ -688,8 +657,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "tim-huggers",
@@ -724,8 +691,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "franklin-ducatez",
@@ -772,8 +737,6 @@
         "website": "project-cognarn.html",
         "ecosystem": "https://ecosystem.activeinference.institute/"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "john-boik",
@@ -818,8 +781,6 @@
         "github_implementations": "https://github.com/ActiveInferenceInstitute/ActiveInferenceImplementations",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -868,8 +829,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "susan-hasty",
@@ -896,8 +855,6 @@
       "summary": "Courses hosted at the Active Inference Institute",
       "website_slug": null,
       "links": {},
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -945,8 +902,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "hector-manrique",
@@ -1033,8 +988,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "anna-pereira",
@@ -1080,8 +1033,6 @@
         "knowledge_base": "https://obsidian.activeinference.institute",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -1124,8 +1075,6 @@
       "summary": "Engagement pathways and learning initiatives at the Active Inference Institute for global learners at all levels.",
       "website_slug": null,
       "links": {},
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -1173,8 +1122,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "theodoros-aliferis",
@@ -1223,8 +1170,6 @@
         "github": "https://github.com/ActiveInferenceInstitute",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "vladimir-baulin",
@@ -1279,8 +1224,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "joanne-phillips",
@@ -1320,8 +1263,6 @@
         "repository": "https://github.com/ActiveInferenceInstitute/fundamentals",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "daniel-friedman",
@@ -1376,8 +1317,6 @@
         "github": "https://github.com/ActiveInferenceInstitute/GEO-INFER",
         "website": "project-geo-infer.html"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -1426,8 +1365,6 @@
         "discord": "https://discord.activeinference.institute",
         "coda": "https://quantuminquiry.org/"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "bruce-tisler",
@@ -1469,8 +1406,6 @@
         "github_org": "https://github.com/ActiveInferenceInstitute",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -1519,8 +1454,6 @@
         "github": "https://github.com/ActiveInferenceInstitute",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -1568,8 +1501,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "andrew-djuwidja",
@@ -1618,8 +1549,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "shagor-shaggy-rahman",
@@ -1667,8 +1596,6 @@
         "website": "project-knowledge-engineering.html",
         "official_page": "https://www.activeinference.institute/knowledge-engineering"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "bleu-knight",
@@ -1727,8 +1654,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "david-hughes",
@@ -1762,8 +1687,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "shanna-dobson",
@@ -1830,8 +1753,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "robert-worden",
@@ -1874,8 +1795,6 @@
         "frontiers-in-sociology": "https://www.frontiersin.org/articles/10.3389/fsoc.2023.1269621/abstract",
         "substack": "https://shaggy.substack.com/"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "shagor-shaggy-rahman",
@@ -1918,8 +1837,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "jesse-g",
@@ -1961,8 +1878,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "pablofm",
@@ -2007,8 +1922,6 @@
         "aaai-2026-spring-symposium": "https://cimc.ai/events/aaai-symposium?schedule=open",
         "active-inference-institute": "https://activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "people": []
@@ -2040,8 +1953,6 @@
         "courses": "https://www.activeinference.institute/courses",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -2090,8 +2001,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "craig-arnold",
@@ -2131,8 +2040,6 @@
         "github": "https://github.com/ActiveInferenceInstitute/ActInf_RxInfer",
         "activities": "https://activities.activeinference.institute/"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -2182,8 +2089,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "fraser-paterson",
@@ -2232,8 +2137,6 @@
         "newsletter": "https://newsletter.activeinference.institute",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -2283,8 +2186,6 @@
         "youtube_stream_008": "https://youtube.com/live/h_tO7gZH2Ks",
         "youtube_stream_015": "https://www.youtube.com/live/0cOV7-St2Ws"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -2333,8 +2234,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "andrew-djuwidja",
@@ -2368,8 +2267,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "jean-francois-cloutier",
@@ -2420,8 +2317,6 @@
         "symposium_shortlink": "https://symposium.activeinference.institute/",
         "github_repository": "https://github.com/ActiveInferenceInstitute/Symposium"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -2479,8 +2374,6 @@
         "parr_textbook_repository": "https://github.com/ActiveInferenceInstitute/Parr_et_al_2022_ActInf_Textbook",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -2528,8 +2421,6 @@
         "youtube": "https://www.youtube.com/live/aRT9n16N4J8?",
         "talk": "https://www.youtube.com/live/aRT9n16N4J8"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "people": []
@@ -2575,8 +2466,6 @@
         "tnb_page": "https://www.activeinference.institute/tnb",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -2624,8 +2513,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "hector-manrique",
@@ -2681,8 +2568,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "ana-magdalena-hurtado",
@@ -2737,8 +2622,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "michael-carl",
@@ -2771,8 +2654,6 @@
         "ecosystem": "https://ecosystem.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "die-schwarze-katze",
@@ -2807,8 +2688,6 @@
         "videos-shortlink": "https://video.activeinference.institute/",
         "discord": "https://discord.activeinference.institute"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "daniel-friedman",
@@ -2858,8 +2737,6 @@
         "bayes_language_intro": "http://www.bayeslanguage.org/bb/intro.html",
         "bayes_language_commentary": "http://www.bayeslanguage.org/bb/commentary.html"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "institute",
       "owner_entity_id": "robert-worden",
@@ -2899,8 +2776,6 @@
       "links": {
         "github": "https://github.com/infer-actively/pymdp"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "conor-heins",
@@ -2923,8 +2798,6 @@
       "summary": "Monthly sessions cross-referencing biblical verses with a focus on inter-faith and contemporary perspective dialogue, connecting active inference to process theology.",
       "website_slug": "project-tubs",
       "links": {},
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "jesse-g",
@@ -2956,8 +2829,6 @@
       "summary": "Tuesday Discord sessions on digital agents and Active Inference.",
       "website_slug": "project-digital-agents",
       "links": {},
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "pablofm",
@@ -3003,8 +2874,6 @@
       "summary": "Apply Active Inference to designing, managing, and evolving built environments that prioritize the flourishing of all life, via distributed intelligence and digital twins.",
       "website_slug": "project-built-environments",
       "links": {},
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "ivan-metelkin",
@@ -3036,8 +2905,6 @@
       "summary": "An open, locally deployable, empirically evaluated framework for grounded educational agents that operate within explicit knowledge and evidentiary boundaries.",
       "website_slug": "project-ed4all",
       "links": {},
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "matthew-d-murphy",
@@ -3067,8 +2934,6 @@
       "links": {
         "website": "project-cpomdp.html"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "daniel-corva",
@@ -3097,8 +2962,6 @@
       "links": {
         "website": "project-coherence-density.html"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "travis-james",
@@ -3126,8 +2989,6 @@
       "links": {
         "website": "project-cognitive-somatic-regulator.html"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "colleen-pridemore",
@@ -3157,8 +3018,6 @@
       "links": {
         "website": "project-regime-dependent-active-inference.html"
       },
-      "linked_policies": [],
-      "linked_processes": [],
       "tasks": [],
       "affiliation": "ecosystem",
       "owner_entity_id": "dr-martin-bello",
