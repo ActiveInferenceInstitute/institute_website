@@ -798,20 +798,34 @@ def check_curated_pages(root: Path, errors: list[str]) -> None:
         info = parse_html(html_path)
         hrefs = [href for href, _class_name in info.anchors]
 
-        if "On this page" not in html:
-            errors.append(f"{slug}: missing page-local guide label")
-        required_hrefs = {"#next-actions", "#related-pages"}
-        if not required_hrefs.issubset(set(hrefs)):
-            errors.append(f"{slug}: page guide is missing required navigation links")
-        # Bottom surfaces are intentionally data-dependent.  A page only gets
-        # a section and guide link when it has page-specific content for that
-        # surface; this prevents every project/domain page from repeating the
-        # same global resource, official-page, and repository catalogs.
-        for section_id in CURATED_SECTION_IDS - {"next-actions", "related-pages"}:
-            has_id = section_id in info.ids
-            has_link = f"#{section_id}" in hrefs
-            if has_id != has_link:
-                errors.append(f"{slug}: guide/section mismatch for {section_id}")
+        # The page-index band is rendered only for pages long enough that a jump
+        # list helps (see PAGE_GUIDE_MIN_SECTIONS in src/render/components.mjs);
+        # on a two-section page it restated headings already on screen and pushed
+        # the page's own content below the fold. The threshold lives in the
+        # renderer alone — this checks the band's INTERNAL consistency wherever it
+        # appears, rather than re-deriving the policy and drifting from it.
+        has_page_guide = 'class="content-band page-index-band"' in html
+        if has_page_guide:
+            if "On this page" not in html:
+                errors.append(f"{slug}: page-index band is missing its guide label")
+            required_hrefs = {"#next-actions", "#related-pages"}
+            if not required_hrefs.issubset(set(hrefs)):
+                errors.append(f"{slug}: page guide is missing required navigation links")
+            # Bottom surfaces are intentionally data-dependent.  A page only gets
+            # a section and guide link when it has page-specific content for that
+            # surface; this prevents every project/domain page from repeating the
+            # same global resource, official-page, and repository catalogs.
+            for section_id in CURATED_SECTION_IDS - {"next-actions", "related-pages"}:
+                has_id = section_id in info.ids
+                has_link = f"#{section_id}" in hrefs
+                if has_id != has_link:
+                    errors.append(f"{slug}: guide/section mismatch for {section_id}")
+        # Whether or not the page carries a jump list, both destinations must exist
+        # as real sections — the guide links to them, and the reader reaches them by
+        # scrolling when it does not.
+        for section_id in ("next-actions", "related-pages"):
+            if section_id not in info.ids:
+                errors.append(f"{slug}: missing required #{section_id} section")
 
         # Clean-URL hrefs for resources/directory are caller-relative from this page.
         resources_href = href_for_slug("resources", current_dir)

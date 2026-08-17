@@ -102,8 +102,7 @@ export function bestNextActions(page, currentDir = "") {
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">${escapeHtml(tr("Best next actions"))}</p>
-        <h2>${escapeHtml(tr(`${page.title} pathway`))}</h2>
-        <p>${escapeHtml(tr("Start with the highest-signal public links for this page, then continue through the related resource and directory views."))}</p>
+        <h2>${escapeHtml(tr("Where to go next"))}</h2>
       </div>
       ${linkChips(actions, currentDir)}
     </div>
@@ -245,7 +244,6 @@ export function publicPage(page) {
     ${actionButtons(page.primaryActions, currentDir)}
   </section>
   ${pageGuide(page, currentDir, surfaceIds)}
-  ${bestNextActions(page, currentDir)}
   ${page.syllabus ? syllabusGrid(page.syllabus, currentDir) : ""}
   <section class="content-band">
     <p class="lede">${escapeHtml(tr(page.lede))}</p>
@@ -275,6 +273,7 @@ export function publicPage(page) {
         .join("")}
     </div>
   </section>
+  ${bestNextActions(page, currentDir)}
   ${page.slug === "projects" ? projectCatalogSection(currentDir) : ""}
   ${page.slug === "programs" ? programCatalogSection(currentDir) : ""}
   ${instituteosFeatureSections(page, currentDir)}
@@ -286,7 +285,7 @@ export function publicPage(page) {
   ${knowledgePreview(page, currentDir)}
   ${page.qanda ? qaGrid(page.qanda, currentDir) : ""}
   ${curatedEntries.length ? `<section class="content-band" id="resources">
-    ${sectionHeading({ eyebrow: "Related resources", title: "Public links for this page", text: "External links are resolved from the shared registry so visitor-facing destinations stay centralized and checkable." })}
+    ${sectionHeading({ eyebrow: "Related resources", title: "Public links for this page" })}
     ${resourceCards(curatedEntries, { currentDir })}
   </section>` : ""}
   ${officialEntries.length ? `<section class="content-band muted" id="official-pages">

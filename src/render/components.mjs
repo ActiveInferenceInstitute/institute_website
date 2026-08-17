@@ -61,7 +61,17 @@ export function breadcrumb(page, currentDir = "") {
   </nav>`;
 }
 
+// A jump list only earns its place when the page is long enough that the reader
+// cannot see its sections without scrolling. Below this, the band restated two or
+// three headings that were already visible and pushed the page's actual content
+// further down — the reader met the title three times (h1, "<title> guide",
+// "<title> pathway") before reading a sentence about the subject.
+export const PAGE_GUIDE_MIN_SECTIONS = 5;
+
 export function pageGuide(page, currentDir = "", surfaceIds = []) {
+  if ((page.sections || []).length < PAGE_GUIDE_MIN_SECTIONS) {
+    return "";
+  }
   const sectionLinks = page.sections
     .map((section) => `<a href="#${escapeHtml(slugifyAnchor(section.heading))}">${escapeHtml(tr(section.heading))}</a>`)
     .join("");
@@ -69,7 +79,7 @@ export function pageGuide(page, currentDir = "", surfaceIds = []) {
     <div class="page-index">
       <div>
         <p class="eyebrow">${escapeHtml(tr("On this page"))}</p>
-        <h2>${escapeHtml(tr(page.title))} ${escapeHtml(tr("guide"))}</h2>
+        <h2>${escapeHtml(tr("Sections"))}</h2>
       </div>
       <nav aria-label="${escapeHtml(tr(page.title))} ${escapeHtml(tr("page sections"))}">
         ${sectionLinks}

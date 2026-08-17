@@ -214,7 +214,6 @@ export function relatedProjectsSection(page, currentDir = "") {
     ${sectionHeading({
       eyebrow: "Related projects",
       title: "Projects with shared topics",
-      text: "Computed from shared topics and category in the public project data feed.",
     })}
     <div class="resource-grid compact-grid">${cards}</div>
   </section>`;
