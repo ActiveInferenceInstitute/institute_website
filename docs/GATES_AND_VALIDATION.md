@@ -104,7 +104,7 @@ python3 scripts/sync_instituteos_public_data.py --check
 
 **Scope:**
 - Validates 7 required JSON files (`REQUIRED_PUBLIC_JSON_FILES`):
-  - `src/content/instituteos/{people.json, projects.json, ideas.json, ontology.json, entities.json, policies.json, assets.json}`
+  - `src/content/instituteos/{projects.json, ideas.json, ontology.json, entities.json, fellows.json, policies.json, assets.json}`
   - (`processes.json` was removed 2026-07-05 — process/workflow mechanics are backend governance detail; `communications.json` was removed 2026-07-14 — it was a dead duplicate of the producer-2 `communications_public.json`, which is the file `src/data.mjs` actually reads. See GATING.md.)
 - Checks 2 allowed brand assets: `assets/img/instituteos/{ActInferServe.png, Dark_ActInfServe.png}`
 - Verifies exact record counts match expected public-safe subsets
@@ -113,8 +113,9 @@ python3 scripts/sync_instituteos_public_data.py --check
 
 | Failure | Cause | Fix |
 |---------|-------|-----|
-| `stale src/content/instituteos/people.json` | InstituteOS source changed, committed export is outdated | Run `npm run sync:instituteos` if you have the InstituteOS registry source |
-| `missing src/content/instituteos/people.json` | Export file was deleted | Run `npm run sync:instituteos` or restore from git |
+| `stale src/content/instituteos/entities.json` | InstituteOS source changed, committed export is outdated | Run `npm run sync:instituteos` if you have the InstituteOS registry source |
+| `missing src/content/instituteos/entities.json` | Export file was deleted | Run `npm run sync:instituteos` or restore from git |
+| `orphan src/content/instituteos/<file>.json is claimed by neither producer` | A public content file no producer writes — a retired slice left on disk, or a hand-written file posing as generated data | Delete it, or make a producer own it |
 | `contains private field "email"` | Private key accidentally included in sync | Check the sanitize function in `sync_instituteos_public_data.py` and remove the key before re-syncing |
 | `contains blocked public term "coda.io"` | A URL or text still references Coda | Strip Coda URLs and replace with `live-sources.json` references |
 | `contains blocked email address` | Email leaked into a record value | Remove the email pattern and re-sync |
@@ -122,7 +123,7 @@ python3 scripts/sync_instituteos_public_data.py --check
 **Failure messages:**
 ```
 InstituteOS public data sync check failed:
-- stale src/content/instituteos/people.json
+- stale src/content/instituteos/entities.json
 - src/content/instituteos/projects.json failed public-safety validation: contains blocked public term "coda.io"
 - missing src/content/instituteos/calendar.json (optional, ok if not synced)
 ```
@@ -369,7 +370,7 @@ Site contract check failed:
 - data/export-manifest.json missing gate_version
 - instituteos/index.html missing interface ids ['export-snapshot']
 - instituteos/index.html does not surface export gate version
-- instituteos/index.html missing manifest artifact name people.json
+- instituteos/index.html missing manifest artifact name projects.json
 - index.html missing InstituteOS interface homepage snippet 'href="instituteos/#export-snapshot"'
 ```
 

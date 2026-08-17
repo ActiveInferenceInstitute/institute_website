@@ -61,8 +61,8 @@ Reads `siteData.instituteos.*` slices (synced by
   lowercased search blob and `data-knowledge-*` attributes that drive
   client-side filtering on the knowledge tables.
 - Row builders, each `(limit = Infinity)` returning records decorated with a
-  `rowId` (Directory anchor) and `dataAttrs`: `peopleRows`, `projectRows`,
-  `ideaRows`, `ontologyRows`, `researchRows`, `entityOrgRows`,
+  `rowId` (Directory anchor) and `dataAttrs`: `projectRows`,
+  `ideaRows`, `ontologyRows`,
   `entityPeopleRows`, `processRows`, `communicationRows`, `policyRows`.
 
 ### [`resources.mjs`](resources.mjs) — curated resource access

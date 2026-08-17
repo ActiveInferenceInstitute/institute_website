@@ -1,11 +1,8 @@
 import { escapeHtml, sanitizePublicProse, title_case_token_js } from "../lib/text.mjs";
 import {
-  peopleRows,
   projectRows,
   ideaRows,
   ontologyRows,
-  researchRows,
-  entityOrgRows,
   entityPeopleRows,
   communicationRows,
   policyRows,
@@ -75,17 +72,6 @@ export function tableSection({ id, eyebrow, title, text, countLabel, tableHtml }
   </section>`;
 }
 
-export function peopleTable(rows = peopleRows()) {
-  const columns = [
-    { label: "Public person", render: (item) => sourceAnchor(item.sourceId, item.name) },
-    { label: "GitHub", render: (item) => escapeHtml(`@${item.login}`) },
-    { label: "Public basis", render: (item) => escapeHtml(item.publicRole) },
-    { label: "Visible repositories", render: (item) => escapeHtml(listText(item.repositories)) },
-    { label: "Summary", render: (item) => escapeHtml(item.contributionSummary) },
-  ];
-  return dataTable({ caption: "Public GitHub people visible in ActiveInferenceInstitute open-source metadata.", columns, rows });
-}
-
 export function projectsTable(rows = projectRows()) {
   const columns = [
     { label: "Repository", render: (item) => sourceAnchor(item.sourceId, item.title) },
@@ -136,33 +122,6 @@ export function ontologyTermsTable(rows) {
     { label: "Example", render: (item) => escapeHtml(item.examples || "") },
   ];
   return dataTable({ caption: "Active Inference Ontology (v5) terms with tags, definitions, and examples.", columns, rows });
-}
-
-export function researchTable(rows = researchRows()) {
-  const columns = [
-    { label: "Research link", render: (item) => sourceAnchor(item.sourceId, item.label) },
-    { label: "Group", render: (item) => escapeHtml(item.categoryLabel) },
-    { label: "Audience", render: (item) => escapeHtml(item.audienceLabel) },
-    { label: "Summary", render: (item) => escapeHtml(item.summary) },
-    { label: "Tags", render: (item) => escapeHtml(listText(item.tags)) },
-  ];
-  return dataTable({ caption: "Verified public research, paper, and reference links.", columns, rows });
-}
-
-export function organizationsTable(rows = entityOrgRows()) {
-  const columns = [
-    {
-      label: "Organization",
-      render: (item) =>
-        item.url && isVerifiedExternalUrl(item.url)
-          ? `<a href="${escapeHtml(item.url)}" rel="noopener noreferrer" target="_blank">${escapeHtml(item.name)}</a>`
-          : escapeHtml(item.name),
-    },
-    { label: "Type", render: (item) => escapeHtml(title_case_token_js(item.type || "")) },
-    { label: "Description", render: (item) => escapeHtml(sanitizePublicProse(item.description || "").slice(0, 120)) },
-    { label: "Members", render: (item) => String((item.memberIds || []).length) },
-  ];
-  return dataTable({ caption: "Public organizations in the Active Inference Institute governance registry.", columns, rows });
 }
 
 export function governanceMembersTable(rows = entityPeopleRows()) {

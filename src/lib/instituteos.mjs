@@ -9,18 +9,23 @@ export function brandAsset(theme = "dark") {
 
 export function instituteosCounts() {
   return {
-    people: siteData.instituteos.people.records.length,
     projects: siteData.instituteos.projects.records.length,
     ideas: siteData.instituteos.ideas.records.length,
     ontology: siteData.instituteos.ontology.edges.length,
-    research: researchRows().length,
-    organizations: (siteData.instituteos.entities.organizations || []).length,
     members: (siteData.instituteos.entities.people || []).length,
     publications: publicationRows().length,
     policies: (siteData.instituteos.policies.records || []).length,
     programs: (siteData.instituteos.programs.records || []).length,
     citations: (siteData.instituteos.citations.records || []).length,
   };
+}
+
+// Total rows the Open Source Map actually renders. The page's own count and the
+// home-page gate metric both read this, so a table added to or retired from
+// /knowledge/ moves both numbers at once instead of leaving one of them lying.
+export function knowledgeRowTotal() {
+  const counts = instituteosCounts();
+  return Object.values(counts).reduce((total, value) => total + value, 0);
 }
 
 export function knowledgeSearchText(values = []) {
@@ -33,14 +38,6 @@ export function knowledgeSearchText(values = []) {
 
 export function knowledgeDataAttrs(kind, values = []) {
   return ` data-knowledge-row data-knowledge-kind="${escapeHtml(kind)}" data-knowledge-search="${escapeHtml(knowledgeSearchText(values))}"`;
-}
-
-export function peopleRows(limit = Infinity) {
-  return siteData.instituteos.people.records.slice(0, limit).map((person) => ({
-    ...person,
-    rowId: rowAnchor("person", person.id),
-    dataAttrs: knowledgeDataAttrs("people", [person.name, person.login, person.publicRole, person.repositories, person.contributionSummary]),
-  }));
 }
 
 export function projectRows(limit = Infinity) {
@@ -81,31 +78,6 @@ export function ontologyRows(limit = Infinity) {
       edge.sourceMaturity,
       edge.targetMaturity,
     ]),
-  }));
-}
-
-export function researchRows(limit = Infinity) {
-  return normalizedCuratedResources()
-    .filter((resource) => resource.type === "research" || resource.category === "research")
-    .slice(0, limit)
-    .map((resource) => ({
-      ...resource,
-      rowId: rowAnchor("research", resource.sourceId),
-      dataAttrs: knowledgeDataAttrs("research", [
-        resource.label,
-        resource.categoryLabel,
-        resource.audienceLabel,
-        resource.summary,
-        resource.tags,
-      ]),
-    }));
-}
-
-export function entityOrgRows(limit = Infinity) {
-  return (siteData.instituteos.entities.organizations || []).slice(0, limit).map((org) => ({
-    ...org,
-    rowId: rowAnchor("org", org.id),
-    dataAttrs: knowledgeDataAttrs("organizations", [org.name, org.type, org.description, org.tags]),
   }));
 }
 

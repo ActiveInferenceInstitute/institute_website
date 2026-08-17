@@ -32,25 +32,6 @@ Run `npm run sync:instituteos` to regenerate the producer-1 slices. Run
 
 ## File schemas
 
-### `people.json`
-Public GitHub contributor rows derived from repository metadata.
-
-```
-{
-  description: string,
-  source: string,
-  records: [{
-    id: string,
-    name: string,
-    login: string,
-    sourceId: string,
-    publicRole: string,
-    repositories: string[],
-    contributionSummary: string,
-    relatedSlugs: string[]
-  }]
-}
-```
 
 ### `projects.json`
 Public repository rows.
@@ -289,5 +270,7 @@ and images remain intact.
 - `entities.json` uses `people`/`organizations` keys (not `records`) — handle both patterns in consuming code.
 - `ontology.json` uses `trees`/`edges` keys (not `records`).
 - `fellows.json` uses a `fellows` key (not `records`).
+- Every `*.json` here must be claimed by a producer: this sync, or the InstituteOS-side
+  website export (recorded in `data/export-manifest.json`). `--check` names any orphan.
 - All other files use a top-level `records` array.
 - Run `python3 scripts/sync_instituteos_public_data.py --check` to verify files are current.

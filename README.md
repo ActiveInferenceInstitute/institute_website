@@ -147,7 +147,7 @@ Check that injected files are current without rewriting them:
 npm run check:instituteos
 ```
 
-The sync creates `src/content/instituteos/people.json`, `projects.json`, `ideas.json`, `ontology.json`, and `assets.json`, plus brand-only images under `assets/img/instituteos/`. People rows must be externally visible public GitHub profiles. Project rows must come from public repositories. Only `ActInferServe.png` and `Dark_ActInfServe.png` are copied. Do not copy working documents, demos, recordings, nonpublic rosters, or internal UI captures into the public website.
+The sync creates `src/content/instituteos/projects.json`, `ideas.json`, `ontology.json`, `entities.json`, `fellows.json`, `policies.json`, and `assets.json`, plus brand-only images under `assets/img/instituteos/`. Project rows must come from public repositories. Fellows rows carry only what the Institute publishes on its Research Fellows roster. Only `ActInferServe.png` and `Dark_ActInfServe.png` are copied. Do not copy working documents, demos, recordings, nonpublic rosters, or internal UI captures into the public website.
 
 Additional private `library/` exports are owned by the InstituteOS package, not by hand edits in this repo:
 

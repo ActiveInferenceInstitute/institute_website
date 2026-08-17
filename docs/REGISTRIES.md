@@ -119,7 +119,7 @@ npm run build
 
 | File | Schema | Purpose |
 | --- | --- | --- |
-| `people.json` | `{ records: [{ id, name, login, sourceId, publicRole, repositories[], contributionSummary, relatedSlugs[] }] }` | Public GitHub contributors |
+| `fellows.json` | `{ fellows: [{ id, name, position, start, status, orcid, focus, overview }] }` | Public Research Fellows roster |
 | `projects.json` | `{ records: [{ id, title, sourceId, url, category, audience, language, stars, summary, tags[], relatedSlugs[] }] }` | Repository snapshot |
 | `ideas.json` | `{ records: [{ id, label, nodeType, maturity, summary, tags[], trees[], relatedSlugs[] }] }` | Ontology concept nodes |
 | `ontology.json` | `{ trees: [], edges: [] }` | Directed relationships in ontology |

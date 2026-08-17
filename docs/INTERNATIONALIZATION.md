@@ -230,7 +230,25 @@ Both providers use the **same prompt and cleanup strategy**:
    - Removes leaked prefixes like `English:`, `<Language>:`, `Translation:`
    - Preserves internal punctuation and legitimate markup
 
-3. **Brand term preservation**: Terms in `KEEP_VERBATIM` (e.g., "Active Inference", "InstituteOS", "Discord", "GitHub") are never translated.
+3. **Brand and program term preservation**: Terms in `KEEP_VERBATIM` (e.g. "Active Inference",
+   "InstituteOS", "Research Fellows", "Open Source Map", "Discord", "GitHub") survive translation
+   verbatim. They are **masked before the request**, not merely named in the prompt: each occurrence
+   is replaced with a `{K0}`-style placeholder and restored afterwards. Asking a small local model to
+   "keep these exactly" does not hold — gemma3:4b turned "Research Fellows" into "Investigadores de
+   Investigación" and "Forschungsprofessoren", inventing an appointment the Institute does not offer.
+   Placeholders survive reliably; English phrases do not.
+
+4. **Degeneration guard**: a translation is discarded (and the English source kept) when it is
+   empty, more than 3× the source length, or contains a short substring repeated back-to-back —
+   the shape a small local model produces when it falls into a repetition loop. qwen2.5:3b emitted
+   several hundred characters of `…tuuteutuute…` for a one-sentence Japanese string; that output is
+   well-formed text, so nothing downstream would have rejected it before it reached a public page.
+   An English fallback always beats a corrupt page.
+
+**Model choice matters.** `gemma3:4b` is adequate for short UI labels but uneven on multi-sentence
+prose, and `qwen2.5:3b` degenerates on it. Run a larger model (`aya-expanse:8b`, `gemma3:12b`) or a
+hosted API before regenerating catalogs for anything longer than a label, and read a sample of the
+diff before committing — these files ship directly to public pages.
 
 ### Incremental & Resumable
 

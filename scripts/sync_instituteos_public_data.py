@@ -52,7 +52,6 @@ BRAND_ASSETS = {
     },
 }
 REQUIRED_PUBLIC_JSON_FILES = (
-    "people.json",
     "projects.json",
     "ideas.json",
     "ontology.json",
@@ -131,88 +130,6 @@ PROSE_FORBIDDEN_SUBSTRINGS = tuple(
 # positive because their digit groups happen to fall into 3-3-4 shape. A real
 # phone number is never glued directly onto a preceding letter/digit.
 PHONE_RE = re.compile(r"(?<![A-Za-z0-9])(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}")
-PUBLIC_GITHUB_PEOPLE = [
-    {
-        "id": "github-docxology",
-        "name": "Daniel Ari Friedman",
-        "login": "docxology",
-        "sourceId": "person-docxology",
-        "publicRole": "Public GitHub contributor",
-        "repositories": ["CEREBRUM", "GeneralizedNotationNotation", "GEO-INFER", "institute_website"],
-        "contributionSummary": "Public GitHub profile connected to multiple ActiveInferenceInstitute open-source repositories.",
-        "relatedSlugs": ["projects", "learning", "ecosystem"],
-    },
-    {
-        "id": "github-bazookamanph",
-        "name": "BazookamanPH",
-        "login": "BazookamanPH",
-        "sourceId": "person-bazookamanph",
-        "publicRole": "Public GitHub contributor",
-        "repositories": ["ActiveInferenceJournal"],
-        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
-        "relatedSlugs": ["projects", "learning"],
-    },
-    {
-        "id": "github-hollygrimm",
-        "name": "Holly Grimm",
-        "login": "hollygrimm",
-        "sourceId": "person-hollygrimm",
-        "publicRole": "Public GitHub contributor",
-        "repositories": ["ActiveInferenceJournal"],
-        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
-        "relatedSlugs": ["projects", "learning", "ecosystem"],
-    },
-    {
-        "id": "github-ana-magdalena",
-        "name": "Ana-Magdalena",
-        "login": "Ana-Magdalena",
-        "sourceId": "person-ana-magdalena",
-        "publicRole": "Public GitHub contributor",
-        "repositories": ["ActiveInferenceJournal"],
-        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
-        "relatedSlugs": ["projects", "learning"],
-    },
-    {
-        "id": "github-thebuttskie",
-        "name": "TheButtskie",
-        "login": "TheButtskie",
-        "sourceId": "person-thebuttskie",
-        "publicRole": "Public GitHub contributor",
-        "repositories": ["ActiveInferenceJournal"],
-        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
-        "relatedSlugs": ["projects", "learning"],
-    },
-    {
-        "id": "github-jeffschulman",
-        "name": "jeffschulman",
-        "login": "jeffschulman",
-        "sourceId": "person-jeffschulman",
-        "publicRole": "Public GitHub contributor",
-        "repositories": ["ActiveInferenceJournal"],
-        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
-        "relatedSlugs": ["projects", "learning"],
-    },
-    {
-        "id": "github-turfus",
-        "name": "turfus",
-        "login": "turfus",
-        "sourceId": "person-turfus",
-        "publicRole": "Public GitHub contributor",
-        "repositories": ["ActiveInferenceJournal"],
-        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
-        "relatedSlugs": ["projects", "learning"],
-    },
-    {
-        "id": "github-mlflumic",
-        "name": "mlflumic",
-        "login": "mlflumic",
-        "sourceId": "person-mlflumic",
-        "publicRole": "Public GitHub contributor",
-        "repositories": ["ActiveInferenceJournal"],
-        "contributionSummary": "Public GitHub contributor visible on the ActiveInferenceJournal repository.",
-        "relatedSlugs": ["projects", "learning"],
-    },
-]
 
 
 @dataclass(frozen=True)
@@ -260,15 +177,6 @@ def related_slugs_for_node(node_type: str, tags: list[str]) -> list[str]:
     if node_type in {"value", "organization", "person"}:
         return ["about", "ecosystem"]
     return ["active-inference", "learning", "ecosystem"]
-
-
-def sanitize_people() -> dict[str, Any]:
-    people = sorted(PUBLIC_GITHUB_PEOPLE, key=lambda item: item["login"].lower())
-    return {
-        "description": "Public GitHub people visible through public ActiveInferenceInstitute repository metadata.",
-        "source": "public GitHub profiles and repository contributor listings checked 2026-06-09",
-        "records": people,
-    }
 
 
 def live_source_urls() -> dict[str, str]:
@@ -744,7 +652,6 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
     policies_data = load_json(policies_path)
 
     payloads = {
-        "people.json": sanitize_people(),
         "projects.json": sanitize_projects(repositories_data),
         "ideas.json": sanitize_ideas(tech_tree_data),
         "ontology.json": sanitize_ontology(tech_tree_data),
@@ -776,6 +683,30 @@ def write_results(results: list[SyncResult]) -> None:
             result.path.write_text(result.content, encoding="utf-8")  # type: ignore[arg-type]
 
 
+def orphan_public_content_files(results: list[SyncResult]) -> list[str]:
+    """Public content files no producer claims.
+
+    ``src/content/instituteos/`` has two producers: this sync (registry slices)
+    and the InstituteOS-side website export, which records everything it writes in
+    ``data/export-manifest.json``. A file claimed by neither is either a slice
+    retired from a producer but left on disk, or a hand-written file masquerading
+    as generated public data — both ship to the site without ever passing a
+    public-payload gate, so name them rather than letting them ride along.
+    """
+    claimed = {result.path.resolve() for result in results}
+    manifest_path = PROJECT_ROOT / "data" / "export-manifest.json"
+    if manifest_path.exists():
+        for entry in load_json(manifest_path).get("files", []):
+            output_path = entry.get("output_path")
+            if output_path:
+                claimed.add((PROJECT_ROOT / output_path).resolve())
+    return [
+        f"orphan {path.relative_to(PROJECT_ROOT)} is claimed by neither producer"
+        for path in sorted(CONTENT_OUT.glob("*.json"))
+        if path.resolve() not in claimed
+    ]
+
+
 def check_results(results: list[SyncResult]) -> int:
     stale = []
     for result in results:
@@ -785,6 +716,7 @@ def check_results(results: list[SyncResult]) -> int:
         current = result.path.read_bytes() if result.binary else result.path.read_text(encoding="utf-8")
         if current != result.content:
             stale.append(f"stale {result.path.relative_to(PROJECT_ROOT)}")
+    stale.extend(orphan_public_content_files(results))
     if stale:
         print("InstituteOS public data sync check failed:", file=sys.stderr)
         for item in stale:

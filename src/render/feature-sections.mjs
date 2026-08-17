@@ -1,5 +1,6 @@
 import { techTreeExplorerSection, governanceGraphSection, ontologyTermsGraphSection } from "./graphs.mjs";
 import { dataTable, tableSection, ontologyTermsTable } from "./tables.mjs";
+import { knowledgeRowTotal } from "../lib/instituteos.mjs";
 import { narrativeSection } from "./narrative.mjs";
 import { videoTableSection } from "./video-table.mjs";
 import { renderBibliographyList } from "../pages/bibliography.mjs";
@@ -60,18 +61,21 @@ export function fellowsSection(currentDir = "") {
     { label: tr("ORCID"), render: (item) => escapeHtml(item.orcid) || "—" },
     { label: tr("Research"), render: (item) => escapeHtml(sanitizePublicProse(item.overview)) || "—" },
   ];
-  return tableSection({
-    id: "current-fellows",
-    eyebrow: "Current Research Fellows",
-    title: `${fellows.length} current Research Fellows`,
-    text: "Each fellow works on a defined scope of research and reports on it publicly. Rows come from the Institute's Research Fellows roster.",
-    countLabel: `${fellows.length} fellows shown`,
-    tableHtml: dataTable({
+  // Deliberately NOT tableSection(): that helper stamps the Open Source Map's
+  // data-knowledge-count plumbing onto the markup, and /programs/fellowship/ ships
+  // none of the filter JS that reads it — an affordance the page cannot honour.
+  return `<section class="content-band" id="current-fellows">
+    ${sectionHeading({
+      eyebrow: "Current Research Fellows",
+      title: `${fellows.length} current Research Fellows`,
+      text: "Each fellow works on a defined scope of research and reports on it publicly. Rows come from the Institute's Research Fellows roster.",
+    })}
+    ${dataTable({
       caption: "Current Research Fellows at the Active Inference Institute.",
       columns,
       rows: fellows,
-    }),
-  });
+    })}
+  </section>`;
 }
 
 // ── InstituteOS feature sections (graphs, narratives, domains, related projects) ──
@@ -114,15 +118,8 @@ export function homeInstituteosGate(currentDir = "") {
       })}
       ${gateMetric({
         label: "Open Source Map rows",
-        value: formatCount(
-          (siteData.instituteos.people.records || []).length +
-            (siteData.instituteos.projects.records || []).length +
-            (siteData.instituteos.ideas.records || []).length +
-            (siteData.instituteos.ontology.edges || []).length +
-            (siteData.instituteos.programs.records || []).length +
-            (siteData.instituteos.citations.records || []).length,
-        ),
-        text: "Searchable public rows for people, repositories, programs, literature, ideas, and ontology relationships.",
+        value: formatCount(knowledgeRowTotal()),
+        text: "Searchable public rows for repositories, ideas, ontology relationships, governance, publications, policies, programs, and literature.",
         href: hrefForSlug("knowledge", currentDir),
       })}
       ${gateMetric({

@@ -3,6 +3,7 @@ import { escapeHtml, title_case_token_js } from "../lib/text.mjs";
 import { siteData } from "../data.mjs";
 import {
   instituteosCounts,
+  knowledgeRowTotal,
   brandAsset,
   projectRows,
   ideaRows,
@@ -171,7 +172,7 @@ export function knowledgePage() {
           <option value="citations">Literature</option>
         </select>
       </label>
-      <p id="knowledge-count" class="result-count" aria-live="polite">${counts.projects + counts.ideas + counts.ontology + counts.members + counts.publications + counts.policies + counts.programs + counts.citations} rows shown</p>
+      <p id="knowledge-count" class="result-count" aria-live="polite">${knowledgeRowTotal()} rows shown</p>
     </div>
   </section>
   ${tableSection({

@@ -74,7 +74,6 @@ export const siteData = {
   audiencePathways: loadJson("audience-pathways.json"),
   ontologyTerms: loadJson("ontology-terms.json"),
   instituteos: {
-    people: loadJson(path.join("instituteos", "people.json")),
     projects: loadJson(path.join("instituteos", "projects.json")),
     ideas: loadJson(path.join("instituteos", "ideas.json")),
     ontology: loadJson(path.join("instituteos", "ontology.json")),

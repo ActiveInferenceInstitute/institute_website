@@ -505,6 +505,23 @@ def url_variants(url: str) -> set[str]:
     return {url, clean, f"{clean}/"}
 
 
+def publication_row_count(data: dict[str, dict]) -> int:
+    """Mirror publicationRows() in src/lib/instituteos.mjs.
+
+    Publications are non-newsletter communications plus the newsletter issues, so
+    counting communications alone undercounts the rendered table.
+    """
+    communications = [
+        record
+        for record in data.get("communications_public", {}).get("records", [])
+        if record.get("type") != "newsletter"
+    ]
+    newsletters = [
+        record for record in data.get("newsletter", {}).get("records", []) if record.get("type") == "newsletter"
+    ]
+    return len(communications) + len(newsletters)
+
+
 def check_no_obsolete_public_artifacts(root: Path, errors: list[str]) -> None:
     for relative in OBSOLETE_PATHS:
         if (root / relative).exists():
@@ -692,20 +709,31 @@ def check_content_model(root: Path, errors: list[str]) -> None:
         if r.get("promoted") is not False
     )
     expected_lengths = {
-        "people": 8,
         "projects": promoted_repo_count,
-        "ideas": 30,
     }
     for key, expected in expected_lengths.items():
         actual = len(data[key].get("records", []))
         if actual != expected:
             errors.append(f"src/content/instituteos/{key}.json expected {expected} records, found {actual}")
-    if len(data["ontology"].get("trees", [])) != 2:
-        errors.append("src/content/instituteos/ontology.json expected 2 trees")
-    if len(data["ontology"].get("edges", [])) != 33:
-        errors.append(
-            f"src/content/instituteos/ontology.json expected 33 edges, found {len(data['ontology'].get('edges', []))}"
-        )
+    # Ideas and ontology edges are self-consistent with the tree summaries the
+    # same sync writes, so assert the relation rather than pinning a number that
+    # goes stale the moment the backend tech trees grow.
+    trees = data["ontology"].get("trees", [])
+    if not trees:
+        errors.append("src/content/instituteos/ontology.json carries no trees")
+    else:
+        expected_ideas = sum(int(tree.get("nodeCount", 0)) for tree in trees)
+        actual_ideas = len(data["ideas"].get("records", []))
+        if actual_ideas != expected_ideas:
+            errors.append(
+                f"ideas.json has {actual_ideas} records but ontology.json trees declare {expected_ideas} nodes"
+            )
+        expected_edges = sum(int(tree.get("edgeCount", 0)) for tree in trees)
+        actual_edges = len(data["ontology"].get("edges", []))
+        if actual_edges != expected_edges:
+            errors.append(
+                f"ontology.json has {actual_edges} edges but its trees declare {expected_edges}"
+            )
 
     for label, payload in data.items():
         serialized = json.dumps(payload, ensure_ascii=False).lower()
@@ -922,7 +950,7 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
         errors.append("knowledge.html must be visitor-labeled as Open Source Map")
     if html.count("<caption>") < 5:
         errors.append(
-            "knowledge.html must render captions for people, repositories, ideas, ontology, research, program, and literature tables"
+            "knowledge.html must render captions for repositories, ideas, ontology, governance, publication, policy, program, and literature tables"
         )
     if html.count("<thead>") < 5 or html.count('scope="row"') < 5:
         errors.append("knowledge.html tables must include table heads and row headers")
@@ -1317,11 +1345,16 @@ def check_instituteos_interface(root: Path, errors: list[str]) -> None:
 
     index_html = (root / "index.html").read_text(encoding="utf-8")
     data = instituteos_data(root)
+    # Must match knowledgeRowTotal() in src/lib/instituteos.mjs: the home-page
+    # gate metric advertises how many rows /knowledge/ actually renders, so the
+    # two move together when a table is added or retired.
     open_map_rows = (
-        len(data["people"].get("records", []))
-        + len(data["projects"].get("records", []))
+        len(data["projects"].get("records", []))
         + len(data["ideas"].get("records", []))
         + len(data["ontology"].get("edges", []))
+        + len(data["entities"].get("people", []))
+        + publication_row_count(data)
+        + len(data["policies"].get("records", []))
         + len(data["programs"].get("records", []))
         + len(data["citations"].get("records", []))
     )

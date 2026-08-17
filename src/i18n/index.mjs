@@ -90,7 +90,12 @@ export function tr(text) {
   if (typeof text !== "string" || text.trim() === "") {
     return text;
   }
-  if (_extract) {
+  // Record ONLY on the default-locale pass. The build renders every routed page
+  // once per locale, and some tr() arguments are content values rather than
+  // English literals — on a non-default pass those arrive already translated, so
+  // recording them seeded the "source" catalog with Korean, Japanese, and Italian
+  // strings and asked the translator to translate them again.
+  if (_extract && _active === DEFAULT_LOCALE) {
     _extracted.add(text);
   }
   if (_active === DEFAULT_LOCALE) {
