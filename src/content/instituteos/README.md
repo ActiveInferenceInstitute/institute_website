@@ -270,7 +270,13 @@ and images remain intact.
 - `entities.json` uses `people`/`organizations` keys (not `records`) — handle both patterns in consuming code.
 - `ontology.json` uses `trees`/`edges` keys (not `records`).
 - `fellows.json` uses a `fellows` key (not `records`).
-- Every `*.json` here must be claimed by a producer: this sync, or the InstituteOS-side
-  website export (recorded in `data/export-manifest.json`). `--check` names any orphan.
+- Every `*.json` here must be claimed by exactly ONE producer: this sync, or the
+  InstituteOS-side website export (recorded in `data/export-manifest.json`). `--check`
+  names any orphan. Two producers writing the same file is a bug, not redundancy —
+  `calendar.json` was written by both from the same registry, so its bytes depended on
+  which ran last; the InstituteOS exporter owns it.
+- This sync produces: `projects.json`, `ideas.json`, `ontology.json`, `entities.json`,
+  `fellows.json`, `policies.json`, `assets.json` (plus brand images). Everything else in
+  this directory comes from the InstituteOS exporter.
 - All other files use a top-level `records` array.
 - Run `python3 scripts/sync_instituteos_public_data.py --check` to verify files are current.

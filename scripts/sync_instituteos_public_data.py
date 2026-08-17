@@ -60,7 +60,6 @@ REQUIRED_PUBLIC_JSON_FILES = (
     "policies.json",
     "assets.json",
 )
-OPTIONAL_PUBLIC_JSON_FILES = ("calendar.json",)
 PRIVATE_KEYS = {
     "contacts",
     "interactions",
@@ -502,69 +501,14 @@ def sanitize_policies(policies_data: dict[str, Any]) -> dict[str, Any]:
 
 # Event URLs are kept only when their host is on this public allowlist. Anything
 # else (Coda canvases, Drive docs, internal links) is dropped so the public
-# calendar export never leaks a private destination through an event location.
-SAFE_URL_HOST_SUFFIXES = (
-    "youtube.com",
-    "youtu.be",
-    "activeinference.institute",
-    "github.com",
-    "zoom.us",
-    "meet.google.com",
-    "twitch.tv",
-    "odysee.com",
-)
+# NOTE: calendar.json is NOT produced here. It used to be written by BOTH this
+# sync and the InstituteOS-side CalendarExporter, from the same registry, so the
+# file's content depended on which producer ran last — a latent conflict that
+# surfaced as a spurious "stale calendar.json" whenever the two ran out of order.
+# The InstituteOS exporter owns it: that path is manifest-tracked and gated by
+# validate_public_prose_payload. See data/export-manifest.json.
 
 
-def _safe_event_url(value: str | None) -> str:
-    raw = normalize_text(value)
-    if not raw.startswith(("http://", "https://")):
-        return ""
-    host = raw.split("/", 3)[2].split("@")[-1].split(":")[0].lower() if "//" in raw else ""
-    if any(host == suffix or host.endswith(f".{suffix}") for suffix in SAFE_URL_HOST_SUFFIXES):
-        return raw
-    return ""
-
-
-def sanitize_calendar(calendar_data: dict[str, Any]) -> dict[str, Any]:
-    """Public-safe projection of the InstituteOS calendar registry.
-
-    Drops descriptions (the primary leak vector for Coda/Drive/internal links),
-    replaces ``...@google.com`` UIDs with opaque hashes (so no value matches the
-    email gate), and keeps event URLs only when their host is publicly safe.
-    """
-    records = []
-    for event in calendar_data.get("events", []):
-        uid = str(event.get("uid") or "")
-        record = {
-            "id": hashlib.sha1(uid.encode("utf-8")).hexdigest()[:16] if uid else "",
-            "title": public_text(event.get("summary")),
-            "start": event.get("start") or "",
-            "end": event.get("end") or "",
-            "allDay": bool(event.get("allDay")),
-            "status": public_text(event.get("status")) or "CONFIRMED",
-            "timeZone": public_text(event.get("timeZone")),
-            "url": _safe_event_url(event.get("url") or event.get("location")),
-        }
-        if not record["id"] or not record["start"]:
-            continue
-        if not record_is_public_safe(record):
-            # Last-resort guard: drop the URL and re-check before discarding the row.
-            record["url"] = ""
-            if not record_is_public_safe(record):
-                continue
-        records.append(record)
-    records.sort(key=lambda item: (item["start"], item["title"].lower()))
-    # @-encode any literal '@' so calendar URLs never match the email gate.
-    ics_url = str(calendar_data.get("sourceUrl") or "").replace("@", "%40")
-    embed_url = str(calendar_data.get("embedUrl") or "").replace("@", "%40")
-    return {
-        "description": "Public-safe upcoming/past events from the Institute's public Google Calendar.",
-        "source": "instituteos/library/registries/calendar.json",
-        "calendarName": public_text(calendar_data.get("calendarName")),
-        "icsUrl": ics_url,
-        "embedUrl": embed_url,
-        "records": records,
-    }
 
 
 def build_asset_records(instituteos_root: Path) -> tuple[dict[str, Any], list[SyncResult]]:
@@ -659,10 +603,6 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
         "fellows.json": sanitize_fellows(entities_data),
         "policies.json": sanitize_policies(policies_data),
     }
-    # Calendar is optional: only synced when the InstituteOS pull has been run.
-    calendar_path = registries_dir / "calendar.json"
-    if calendar_path.exists():
-        payloads["calendar.json"] = sanitize_calendar(load_json(calendar_path))
     asset_payload, asset_writes = build_asset_records(instituteos_root)
     payloads["assets.json"] = asset_payload
 
