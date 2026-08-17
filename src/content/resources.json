@@ -492,7 +492,7 @@
         "research",
         "fep"
       ],
-      "summary": "External paper repository surfaced from the official research page.",
+      "summary": "Continuously updated bibliography of Free Energy Principle and active inference papers, maintained in the open on GitHub.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
@@ -511,7 +511,7 @@
         "research",
         "active-inference"
       ],
-      "summary": "Reachable arXiv reference surfaced from the official research page.",
+      "summary": "Precis of Bayesian mechanics (Ramstead et al., 2022), summarising the physics-of-beliefs framing behind the Free Energy Principle.",
       "relatedSlugs": [
         "learning",
         "active-inference"
@@ -530,7 +530,7 @@
         "research",
         "foundations"
       ],
-      "summary": "Reachable arXiv reference surfaced from the official research page.",
+      "summary": "Synthesis paper on active inference over discrete state-spaces (Da Costa et al., 2020); a standard reference for the discrete formulation.",
       "relatedSlugs": [
         "learning",
         "active-inference"
@@ -548,7 +548,7 @@
         "zenodo",
         "research"
       ],
-      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "summary": "Preprint (2020) by Vyatkin et al., archived on Zenodo.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
@@ -566,7 +566,7 @@
         "zenodo",
         "research"
       ],
-      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "summary": "Preprint (2021) by Cordes et al., archived on Zenodo.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
@@ -584,7 +584,7 @@
         "zenodo",
         "research"
       ],
-      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "summary": "Preprint (2021) by David et al., archived on Zenodo.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
@@ -602,7 +602,7 @@
         "zenodo",
         "research"
       ],
-      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "summary": "Transcript (2021) by Friston et al., archived on Zenodo.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
@@ -620,7 +620,7 @@
         "zenodo",
         "research"
       ],
-      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "summary": "Journal article (2022) by O'Connor et al., archived on Zenodo.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
@@ -638,7 +638,7 @@
         "zenodo",
         "research"
       ],
-      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "summary": "Companion text (2022) by Smékal et al., archived on Zenodo.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
@@ -656,7 +656,7 @@
         "zenodo",
         "research"
       ],
-      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "summary": "Journal article (2022) by Knight et al., archived on Zenodo.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
@@ -674,7 +674,7 @@
         "zenodo",
         "research"
       ],
-      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "summary": "Journal article (2022) by Friedman et al., archived on Zenodo.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
@@ -692,7 +692,7 @@
         "zenodo",
         "research"
       ],
-      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "summary": "Journal article (2023) by Smékal et al., archived on Zenodo.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
@@ -710,7 +710,7 @@
         "zenodo",
         "research"
       ],
-      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "summary": "Journal article (2023) by Friedman et al., archived on Zenodo.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
@@ -728,7 +728,7 @@
         "zenodo",
         "research"
       ],
-      "summary": "Reachable Zenodo research reference surfaced from the official research page.",
+      "summary": "Report (2023) from the Active Inference Institute, archived on Zenodo.",
       "relatedSlugs": [
         "learning",
         "ecosystem"
