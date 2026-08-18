@@ -87,8 +87,12 @@ const KEEP_VERBATIM = [
   "ORCID",
 ];
 
+// Ollama is a local single-GPU queue, so parallelism there buys nothing; a hosted
+// API is the opposite. Overridable with --concurrency.
+const DEFAULT_CONCURRENCY = PROVIDER === "openai" ? 6 : 1;
+
 function parseArgs(argv) {
-  const args = { locales: [], model: null, limit: Infinity, force: false };
+  const args = { locales: [], model: null, limit: Infinity, force: false, sample: 0, concurrency: DEFAULT_CONCURRENCY };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === "--all") {
@@ -99,6 +103,14 @@ function parseArgs(argv) {
       args.model = argv[++i];
     } else if (arg === "--limit") {
       args.limit = Number(argv[++i]);
+    } else if (arg === "--sample") {
+      // --sample N: translate, print N of the results, write nothing.
+      args.sample = Number(argv[++i]) || 10;
+      if (args.limit === Infinity) {
+        args.limit = args.sample;
+      }
+    } else if (arg === "--concurrency") {
+      args.concurrency = Math.max(1, Number(argv[++i]) || DEFAULT_CONCURRENCY);
     } else if (arg === "--force") {
       args.force = true;
     }
@@ -202,6 +214,34 @@ async function ollamaTranslate(text, languageName, model) {
   return cleanTranslation(data.message?.content ?? "", languageName);
 }
 
+const HTTP_RETRIES = 4;
+const RETRY_BASE_MS = 800;
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// 429 and 5xx are load, not a broken request: worth retrying. A 401/403/404 is a
+// configuration error and must surface immediately rather than after four waits.
+export function isTransientStatus(status) {
+  return status === 408 || status === 409 || status === 429 || (status >= 500 && status < 600);
+}
+
+// Run `worker` over `items` with bounded concurrency, preserving input order in
+// the results. Sequential requests made a full 11-locale run take hours against a
+// hosted API; the cap keeps us inside provider rate limits.
+export async function mapWithConcurrency(items, limit, worker) {
+  const results = new Array(items.length);
+  let cursor = 0;
+  const runners = Array.from({ length: Math.max(1, Math.min(limit, items.length)) }, async () => {
+    while (cursor < items.length) {
+      const index = cursor;
+      cursor += 1;
+      results[index] = await worker(items[index], index);
+    }
+  });
+  await Promise.all(runners);
+  return results;
+}
+
 // Hosted, OpenAI-compatible /chat/completions backend. Works unchanged against
 // OpenAI, OpenRouter, Together, Groq, a local vLLM, etc. — only I18N_API_BASE /
 // I18N_API_KEY / I18N_API_MODEL differ. Same prompt + cleanup as Ollama.
@@ -209,24 +249,41 @@ async function openaiTranslate(text, languageName, model) {
   if (!API_KEY) {
     throw new Error("I18N_API_KEY is not set (required for the openai provider)");
   }
-  const response = await fetch(`${API_BASE.replace(/\/+$/, "")}/chat/completions`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${API_KEY}` },
-    body: JSON.stringify({
-      model,
-      temperature: 0,
-      max_tokens: 512,
-      messages: [
-        { role: "system", content: systemPrompt(languageName) },
-        { role: "user", content: wrapInput(text) },
-      ],
-    }),
+  const body = JSON.stringify({
+    model,
+    temperature: 0,
+    max_tokens: 512,
+    messages: [
+      { role: "system", content: systemPrompt(languageName) },
+      { role: "user", content: wrapInput(text) },
+    ],
   });
-  if (!response.ok) {
-    throw new Error(`API HTTP ${response.status}: ${await response.text()}`);
+  // OpenRouter asks callers to identify themselves; both headers are ignored by
+  // every other OpenAI-compatible backend, so they cost nothing to always send.
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${API_KEY}`,
+    "HTTP-Referer": "https://activeinference.institute/",
+    "X-Title": "Active Inference Institute website i18n",
+  };
+  // A hosted API rate-limits and has bad minutes; a whole locale should not fall
+  // back to English because one request got a 429. Retry transient statuses with
+  // backoff, and fail loudly on anything else (a bad key must not look like load).
+  let lastError = null;
+  for (let attempt = 0; attempt < HTTP_RETRIES; attempt += 1) {
+    const response = await fetch(`${API_BASE.replace(/\/+$/, "")}/chat/completions`, { method: "POST", headers, body });
+    if (response.ok) {
+      const data = await response.json();
+      return cleanTranslation(data.choices?.[0]?.message?.content ?? "", languageName);
+    }
+    const detail = await response.text();
+    lastError = new Error(`API HTTP ${response.status}: ${detail}`);
+    if (!isTransientStatus(response.status)) {
+      throw lastError;
+    }
+    await sleep(RETRY_BASE_MS * 2 ** attempt);
   }
-  const data = await response.json();
-  return cleanTranslation(data.choices?.[0]?.message?.content ?? "", languageName);
+  throw lastError;
 }
 
 // ── Protected-term masking ───────────────────────────────────────────────────
@@ -310,20 +367,34 @@ async function translateLocale(code, sources, opts) {
   const todo = sources.filter((text) => opts.force || !(text in catalog)).slice(0, opts.limit);
   console.log(`\n[${code}] ${meta.name} via ${PROVIDER}:${model} — ${todo.length} to translate (${Object.keys(catalog).length} cached)`);
   let done = 0;
-  for (const text of todo) {
+  const translations = await mapWithConcurrency(todo, opts.concurrency, async (text) => {
     try {
       const translated = await translateString(text, meta.name, model);
-      catalog[text] = translated && translated.trim() ? translated : text;
+      return translated && translated.trim() ? translated : text;
     } catch (error) {
       console.error(`  ! "${text.slice(0, 50)}…" -> ${error.message}`);
-      catalog[text] = text; // graceful: fall back to English for this key
+      return text; // graceful: fall back to English for this key
+    } finally {
+      done += 1;
+      if (done % 25 === 0) {
+        console.log(`  …${done}/${todo.length}`);
+      }
     }
-    done += 1;
-    if (done % 25 === 0) {
-      writeCatalog(code, catalog); // checkpoint so progress survives a crash
-      console.log(`  …${done}/${todo.length}`);
+  });
+  todo.forEach((text, index) => {
+    catalog[text] = translations[index];
+  });
+
+  // Review mode writes nothing: a catalog ships straight to public pages in ten
+  // languages, so there has to be a way to read a sample before committing to it.
+  if (opts.sample) {
+    console.log(`[${code}] SAMPLE ONLY — nothing written. ${todo.length} translations:`);
+    for (const text of todo.slice(0, opts.sample)) {
+      console.log(`    ${JSON.stringify(text.slice(0, 70))}\n      -> ${JSON.stringify(String(catalog[text]).slice(0, 90))}`);
     }
+    return;
   }
+
   writeCatalog(code, catalog);
   console.log(`[${code}] done — catalog now has ${Object.keys(catalog).length} entries`);
 }

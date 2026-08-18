@@ -13,6 +13,8 @@ import assert from "node:assert/strict";
 import {
   cleanTranslation,
   isDegenerate,
+  isTransientStatus,
+  mapWithConcurrency,
   maskProtectedTerms,
   unmaskProtectedTerms,
 } from "./i18n_translate.mjs";
@@ -73,4 +75,41 @@ test("prompt echo and wrapping delimiters are stripped", () => {
   assert.equal(cleanTranslation("Spanish: «Hola»", "Spanish"), "Hola");
   assert.equal(cleanTranslation("**Hola**", "Spanish"), "Hola");
   assert.equal(cleanTranslation("Hola\nand here is why…", "Spanish"), "Hola");
+});
+
+test("only load-shaped HTTP statuses are retried", () => {
+  // Retrying a 401 wastes four backoffs and then reports a bad key as if the
+  // provider were busy; retrying a 429 is the whole point.
+  for (const status of [408, 409, 429, 500, 502, 503, 504]) {
+    assert.equal(isTransientStatus(status), true, `${status} should be retried`);
+  }
+  for (const status of [200, 400, 401, 403, 404, 422]) {
+    assert.equal(isTransientStatus(status), false, `${status} should fail fast`);
+  }
+});
+
+test("bounded concurrency preserves input order", () => {
+  // Results are written back to the catalog positionally, so an out-of-order
+  // result would silently file a Spanish string under a German key.
+  const items = Array.from({ length: 25 }, (_, i) => i);
+  return mapWithConcurrency(items, 6, async (n) => {
+    await new Promise((r) => setTimeout(r, (n % 5) * 2));
+    return n * 2;
+  }).then((out) => assert.deepEqual(out, items.map((n) => n * 2)));
+});
+
+test("concurrency never exceeds its limit", async () => {
+  let active = 0;
+  let peak = 0;
+  await mapWithConcurrency(Array.from({ length: 30 }, (_, i) => i), 4, async () => {
+    active += 1;
+    peak = Math.max(peak, active);
+    await new Promise((r) => setTimeout(r, 1));
+    active -= 1;
+  });
+  assert.ok(peak <= 4, `peak concurrency was ${peak}, limit was 4`);
+});
+
+test("an empty work list is a no-op, not a hang", async () => {
+  assert.deepEqual(await mapWithConcurrency([], 6, async () => "x"), []);
 });

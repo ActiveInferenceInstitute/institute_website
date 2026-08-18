@@ -245,6 +245,34 @@ Both providers use the **same prompt and cleanup strategy**:
    well-formed text, so nothing downstream would have rejected it before it reached a public page.
    An English fallback always beats a corrupt page.
 
+### Running against OpenRouter (recommended)
+
+Local models are adequate for short labels and unreliable on prose. For a catalog
+that ships to public pages in ten languages, use a hosted frontier model:
+
+```bash
+export I18N_PROVIDER=openai
+export I18N_API_BASE=https://openrouter.ai/api/v1
+export I18N_API_KEY=$OPENROUTER_API_KEY          # never commit this
+export I18N_API_MODEL=anthropic/claude-sonnet-4.5 # or another strong multilingual model
+
+npm run i18n:extract                              # refresh the English source set
+node scripts/i18n_translate.mjs --locale es --sample 15   # READ THIS before going further
+node scripts/i18n_translate.mjs --all             # writes every locale catalog
+npm run build && npm run check
+```
+
+`--sample N` translates and prints without writing anything, which is the step to
+actually perform rather than skip: catalogs ship straight to public pages, and a
+plausible-looking mistranslation of a program name is not visible in a diff of
+3,400 strings.
+
+The hosted path sends OpenRouter's requested `HTTP-Referer` / `X-Title`
+attribution headers (ignored by other backends), retries 408/409/429/5xx with
+exponential backoff while failing fast on 401/403/404 so a bad key never looks
+like load, and runs 6 requests in parallel (`--concurrency N`). Ollama defaults to
+1 — a local single-GPU queue gains nothing from parallelism.
+
 **Model choice matters.** `gemma3:4b` is adequate for short UI labels but uneven on multi-sentence
 prose, and `qwen2.5:3b` degenerates on it. Run a larger model (`aya-expanse:8b`, `gemma3:12b`) or a
 hosted API before regenerating catalogs for anything longer than a label, and read a sample of the
