@@ -30,6 +30,7 @@ npm run check:sources -- --offline  # manifest-shape validation without network 
 npm run check:projects     # check_project_discoverability.py
 npm run check:catalog      # check_project_catalog_coverage.mjs
 npm run check:i18n         # test_i18n_translate.mjs (node --test)
+npm run check:standalone   # check_standalone_payloads.py (CI-only sync branch)
 ```
 
 ---
@@ -733,6 +734,37 @@ node --test scripts/test_i18n_translate.mjs
 thresholds broke one of the pinned behaviours. Re-read the failing assertion before loosening a
 threshold — the bounds exist to keep corrupt output off public pages, not to be tuned until they
 pass.
+
+---
+
+## Gate 9: Standalone Payload Check (`check:standalone`)
+
+**File:** `scripts/check_standalone_payloads.py`
+
+**What it enforces:** that the CI-only branch of `sync_instituteos_public_data.py --check`
+actually runs. That checker has two branches: with the private InstituteOS registries present
+(every local checkout) it regenerates each payload and compares bytes; without them — the CI
+situation, where this repo is checked out standalone — it falls back to
+`check_committed_public_payloads()` and validates the committed files in place. This gate copies
+the committed public tree into a temp directory with no InstituteOS root above it and runs the
+checker there.
+
+**Why it exists:** the fallback is unreachable from a normal local run, so a defect inside it
+survives a completely clean `npm run check` and fails only in CI. Retiring the calendar slice from
+the sync left a dangling `OPTIONAL_PUBLIC_JSON_FILES` reference in that branch; local checks were
+green and CI died with a `NameError`. Any code touching the sync's file lists must keep both
+branches consistent, and this gate is what notices when it does not.
+
+**How to run:**
+```bash
+npm run check:standalone
+# or directly:
+python3 scripts/check_standalone_payloads.py
+```
+
+**To fix a failure:** the reported traceback comes from the standalone branch. Do not "fix" it by
+reaching for the registries — the whole point is that they are absent. Make the fallback consistent
+with whatever changed in the sync's payload or required-file lists.
 
 ---
 

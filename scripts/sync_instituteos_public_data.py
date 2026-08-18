@@ -697,9 +697,15 @@ def check_producer2_payloads() -> tuple[list[str], int]:
 
 
 def check_committed_public_payloads() -> int:
+    """Validate the committed public payloads without an InstituteOS checkout.
+
+    This is the CI path: the website repo is checked out standalone, the private
+    registries are absent, so the files cannot be regenerated and compared — they
+    are validated in place instead. It runs ONLY when the InstituteOS root does not
+    resolve, which is why a defect here survives a clean local ``npm run check``.
+    """
     errors = []
     json_files = [CONTENT_OUT / name for name in REQUIRED_PUBLIC_JSON_FILES]
-    json_files.extend(CONTENT_OUT / name for name in OPTIONAL_PUBLIC_JSON_FILES if (CONTENT_OUT / name).exists())
 
     for path in json_files:
         if not path.exists():
