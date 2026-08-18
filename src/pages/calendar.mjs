@@ -167,19 +167,52 @@ export function calendarPage() {
     );
   }
 
-  // One chronological list: upcoming first (ascending), then past (most recent
-  // first). Each row is tagged upcoming/past so the on-page filter can scope by
-  // kind; the search box (site.js) matches across every row regardless of kind.
-  const rowsHtml = [
-    ...upcoming.map((event) => eventCard(event, "upcoming")),
-    ...past.map((event) => eventCard(event, "past")),
-  ].join("");
+  // Two labelled lists rather than one 307-row stream. Upcoming and past were
+  // previously distinguished only by a data attribute and a JS filter, so with
+  // scripting unavailable — or before the script runs — a reader met 281 past
+  // events mixed into 26 upcoming ones with nothing marking which was which.
+  // The rows keep their data-calendar-kind attributes, so the existing filter and
+  // search still work across both lists unchanged.
+  const dateRange = (list) => {
+    if (!list.length) {
+      return "";
+    }
+    const first = formatEventDate(list[0]);
+    const last = formatEventDate(list[list.length - 1]);
+    return first === last ? first : `${first} — ${last}`;
+  };
+  const eventList = (rows, id) => `<ul class="event-list" id="${id}">${rows.join("")}</ul>`;
+  // Wrapped so the kind filter can hide a whole block: selecting "Past" used to
+  // leave the "26 upcoming events" heading standing above an empty list.
+  const upcomingBlock = upcoming.length
+    ? `<div data-calendar-group>${sectionHeading({
+        eyebrow: "Upcoming",
+        title: upcoming.length === 1 ? "1 upcoming event" : `${upcoming.length} upcoming events`,
+        text: dateRange(upcoming),
+      })}
+    ${eventList(upcoming.map((event) => eventCard(event, "upcoming")), "calendar-list")}</div>`
+    : `<p>${escapeHtml(tr("No upcoming events are published right now. Subscribe above to be notified when new ones are added."))}</p>`;
+  const pastBlock = past.length
+    ? `<div data-calendar-group>${sectionHeading({
+        eyebrow: "Archive",
+        title: past.length === 1 ? "1 past event" : `${past.length} past events`,
+        text: dateRange(past),
+      })}
+    ${eventList(past.map((event) => eventCard(event, "past")), "calendar-list-past")}</div>`
+    : "";
   const list = events.length
-    ? `<ul class="event-list" id="calendar-list">${rowsHtml}</ul>`
+    ? `${upcomingBlock}${pastBlock}`
     : `<p>${escapeHtml(tr("No events are currently published. Subscribe above to be notified when new events are added."))}</p>`;
 
   const shownCount =
     upcoming.length === 1 ? tr("{n} event shown") : tr("{n} events shown");
+
+  // The build has no live clock: "upcoming" is computed against the export date,
+  // so a reader deserves to know which date that was rather than trusting a list
+  // that may have aged since publication.
+  const snapshotNote = reference !== "0000-00-00"
+    ? `<p class="result-count">${escapeHtml(tr("Upcoming and past are split at the last calendar refresh, {date}.").replace("{date}", reference))}</p>`
+    : "";
 
   const filterBar = events.length
     ? `<div class="calendar-tools" aria-label="${escapeHtml(tr("Event filters"))}">
@@ -210,6 +243,7 @@ export function calendarPage() {
   <section class="content-band">
     ${sectionHeading({ eyebrow: "Schedule", title: "Find an event", text: "Pulled from the Institute's public Google Calendar and rendered statically — no tracking, no third-party embeds. Type to search across all events." })}
     ${filterBar}
+    ${snapshotNote}
     ${list}
   </section>`;
 

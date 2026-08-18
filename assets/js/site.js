@@ -290,6 +290,13 @@ function updateCalendarFilters() {
     }
   }
 
+  // Hide a whole group (heading + list) once every row inside it is filtered out,
+  // so choosing "Past" cannot leave an "upcoming events" heading over nothing.
+  for (const group of document.querySelectorAll("[data-calendar-group]")) {
+    const rows = [...group.querySelectorAll("[data-calendar-row]")];
+    group.hidden = rows.length > 0 && rows.every((row) => row.hidden);
+  }
+
   if (calendarCount) {
     const scope = query ? "match" : kind === "all" ? "event" : `${kind} event`;
     calendarCount.textContent = `${visible} ${scope}${visible === 1 ? "" : "s"} shown`;
