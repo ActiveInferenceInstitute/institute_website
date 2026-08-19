@@ -860,31 +860,6 @@
       "category": "projects",
       "docsSourceId": "",
       "docsUrl": "",
-      "fullName": "ActiveInferenceInstitute/Garden-of-Iris",
-      "id": "repo-garden-of-iris",
-      "language": "Unspecified",
-      "projectFamily": "Open-source projects",
-      "relatedSlugs": [
-        "projects",
-        "ecosystem"
-      ],
-      "repoType": "Project materials repository",
-      "sourceId": "repo-garden-of-iris",
-      "stars": 0,
-      "summary": "Public Garden-of-Iris repository in the ActiveInferenceInstitute GitHub namespace.",
-      "tags": [
-        "repository",
-        "unclassified"
-      ],
-      "title": "Garden-of-Iris",
-      "updatedAt": "2023-04-15T17:32:18Z",
-      "url": "https://github.com/ActiveInferenceInstitute/Garden-of-Iris"
-    },
-    {
-      "audience": "developer",
-      "category": "projects",
-      "docsSourceId": "",
-      "docsUrl": "",
       "fullName": "ActiveInferenceInstitute/gen25",
       "id": "repo-gen25",
       "language": "Unspecified",
@@ -929,31 +904,6 @@
       "title": "institute_website",
       "updatedAt": "2026-06-09T00:57:24Z",
       "url": "https://github.com/ActiveInferenceInstitute/institute_website"
-    },
-    {
-      "audience": "developer",
-      "category": "projects",
-      "docsSourceId": "",
-      "docsUrl": "",
-      "fullName": "ActiveInferenceInstitute/ISSS",
-      "id": "repo-isss",
-      "language": "Python",
-      "projectFamily": "Open-source projects",
-      "relatedSlugs": [
-        "projects",
-        "ecosystem"
-      ],
-      "repoType": "Code repository",
-      "sourceId": "repo-isss",
-      "stars": 0,
-      "summary": "ISSS",
-      "tags": [
-        "repository",
-        "python"
-      ],
-      "title": "ISSS",
-      "updatedAt": "2024-03-22T16:48:01Z",
-      "url": "https://github.com/ActiveInferenceInstitute/ISSS"
     }
   ],
   "source": "src/content/repositories.json"

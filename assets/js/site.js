@@ -336,42 +336,53 @@ if (activitiesProjectSearch && activitiesProjectRows.length) {
   applyActivitiesProjectFilter();
 }
 
-// Projects page — full catalog search + topic filter, split first by the
-// canonical Institute/Ecosystem affiliation and then by Active/Archived status.
-// Search matches name / topic / lead; the topic <select> narrows to one topic.
-// Each section shows a live count and an empty state.
-const catalogSearch = document.querySelector("#project-catalog-search");
-const catalogTopic = document.querySelector("#project-catalog-topic");
-const catalogRows = [...document.querySelectorAll("[data-catalog-row]")];
-const catalogCount = document.querySelector("#project-catalog-count");
-if (catalogRows.length) {
+// Projects page — the catalog is two totally separate tables, one per
+// canonical affiliation (Institute-hosted, Ecosystem), each split again into
+// Active and Archived & completed. Every section owns its search box, topic
+// filter, per-table counts, empty states, and total; filtering one section never
+// touches the other's rows or numbers.
+const catalogSections = ["catalog-institute", "catalog-ecosystem"]
+  .map((anchor) => ({
+    anchor,
+    search: document.querySelector(`#${anchor}-search`),
+    topic: document.querySelector(`#${anchor}-topic`),
+    total: document.querySelector(`#${anchor}-count`),
+    tables: ["active", "archived"]
+      .map((status) => ({
+        body: document.querySelector(`#${anchor}-${status}-body`),
+        wrap: document.querySelector(`#${anchor}-${status}-table`)?.closest(".table-wrap") || null,
+        count: document.querySelector(`#${anchor}-${status}-count`),
+        empty: document.querySelector(`#${anchor}-${status}-empty`),
+      }))
+      .filter((table) => table.body),
+  }))
+  .filter((section) => section.tables.length);
+for (const section of catalogSections) {
   const pluralize = (n) => `${n} project${n === 1 ? "" : "s"}`;
-  const sections = ["institute", "ecosystem"].flatMap((affiliation) => ["active", "archived"].map((status) => ({
-    grid: document.querySelector(`#${affiliation}-projects-${status}-grid`),
-    count: document.querySelector(`#${affiliation}-projects-${status}-count`),
-    empty: document.querySelector(`#${affiliation}-projects-${status}-empty`),
-  }))).filter((section) => section.grid);
   const applyCatalogFilter = () => {
-    const query = (catalogSearch?.value || "").trim().toLowerCase();
-    const topic = catalogTopic?.value || "";
+    const query = (section.search?.value || "").trim().toLowerCase();
+    const topic = section.topic?.value || "";
     let shown = 0;
-    for (const section of sections) {
-      let sectionShown = 0;
-      for (const row of section.grid.querySelectorAll("[data-catalog-row]")) {
+    for (const table of section.tables) {
+      let tableShown = 0;
+      for (const row of table.body.querySelectorAll("[data-catalog-row]")) {
         const matchesQuery = !query || (row.dataset.search || "").includes(query);
-        const rowTopics = ` ${row.dataset.topics || ""} `;
-        const matchesTopic = !topic || rowTopics.includes(` ${topic} `);
+        const matchesTopic = !topic || ` ${row.dataset.topics || ""} `.includes(` ${topic} `);
         const match = matchesQuery && matchesTopic;
         row.hidden = !match;
-        if (match) sectionShown += 1;
+        if (match) tableShown += 1;
       }
-      shown += sectionShown;
-      if (section.count) section.count.textContent = pluralize(sectionShown);
-      if (section.empty) section.empty.hidden = sectionShown !== 0;
+      shown += tableShown;
+      if (table.count) table.count.textContent = pluralize(tableShown);
+      if (table.empty) table.empty.hidden = tableShown !== 0;
+      if (table.wrap) table.wrap.hidden = tableShown === 0;
     }
-    if (catalogCount) catalogCount.textContent = `${pluralize(shown)} shown`;
+    // Only speak when a filter is actually narrowing something; at rest the
+    // section's own static count already states the total, and repeating it
+    // here just prints the same number twice.
+    if (section.total) section.total.textContent = query || topic ? `${pluralize(shown)} shown` : "";
   };
-  catalogSearch?.addEventListener("input", applyCatalogFilter);
-  catalogTopic?.addEventListener("change", applyCatalogFilter);
+  section.search?.addEventListener("input", applyCatalogFilter);
+  section.topic?.addEventListener("change", applyCatalogFilter);
   applyCatalogFilter();
 }

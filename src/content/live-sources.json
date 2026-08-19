@@ -918,16 +918,6 @@
       "checkedAt": "2026-07-12T21:00:26Z"
     },
     {
-      "id": "repo-garden-of-iris",
-      "label": "Garden-of-Iris repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/Garden-of-Iris",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
       "id": "repo-gen24",
       "label": "GEN24 repository",
       "category": "Repository",
@@ -972,16 +962,6 @@
       "label": "institute_website repository",
       "category": "Repository",
       "url": "https://github.com/ActiveInferenceInstitute/institute_website",
-      "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-07-12T21:00:26Z"
-    },
-    {
-      "id": "repo-isss",
-      "label": "ISSS repository",
-      "category": "Repository",
-      "url": "https://github.com/ActiveInferenceInstitute/ISSS",
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,

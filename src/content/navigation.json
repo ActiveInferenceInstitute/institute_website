@@ -119,12 +119,12 @@
       {
         "label": "Institute Projects",
         "slug": "projects",
-        "anchor": "institute-projects"
+        "anchor": "catalog-institute"
       },
       {
         "label": "Ecosystem Projects",
         "slug": "projects",
-        "anchor": "ecosystem-projects"
+        "anchor": "catalog-ecosystem"
       },
       {
         "label": "Repositories",

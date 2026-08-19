@@ -98,9 +98,12 @@ export function catalogProjects() {
     .sort((a, b) => a.title.localeCompare(b.title));
 }
 
-// Top-N most common topics across the catalog, for the topic <select>. Only
-// topics shared by >1 project are worth a filter option; everything else stays
-// reachable through free-text search.
+// Top-N most common topics inside ONE affiliation's project list, for that
+// section's own topic <select>. Computed per table, never across both, so the
+// Institute-hosted and Ecosystem filters stay independent: an Ecosystem-only
+// topic never appears in the Institute-hosted dropdown and vice versa. Only
+// topics shared by >1 project in that group are worth a filter option;
+// everything else stays reachable through that section's free-text search.
 function topCatalogTopics(projects, limit = 14) {
   const counts = new Map();
   for (const project of projects) {
@@ -116,73 +119,152 @@ function topCatalogTopics(projects, limit = 14) {
     .map(([topic, count]) => ({ topic, count }));
 }
 
-function catalogProjectCard(project, currentDir) {
+// One catalog table row. Row-scoped data attributes carry everything the
+// per-section filter needs, so filtering never has to re-derive project fields
+// from rendered text.
+function catalogProjectRow(project, currentDir) {
   const topics = project.topics
-    .slice(0, 4)
+    .slice(0, 5)
     .map((topic) => escapeHtml(title_case_token_js(topic)))
     .join(", ");
   const topicKeys = escapeHtml(project.topics.map((topic) => String(topic).toLowerCase()).join(" "));
-  const summary = sanitizePublicProse(project.summary).slice(0, 160);
+  const summary = escapeHtml(sanitizePublicProse(project.summary).slice(0, 200));
+  // The registry id and page slug are part of the searchable text: a project is
+  // often known by its short handle ("gnn", "pymdp") rather than by the full
+  // title the table prints, and without these a search for the handle finds
+  // nothing.
   const search = escapeHtml(
-    `${project.title} ${project.summary} ${project.topics.join(" ")} ${project.owner} ${(project.people || []).map((person) => person.name).join(" ")}`.toLowerCase(),
+    `${project.title} ${project.id} ${project.slug} ${project.summary} ${project.topics.join(" ")} ${project.owner} ${(project.people || []).map((person) => person.name).join(" ")}`.toLowerCase(),
   );
-  const statusLabel = project.status === "active" ? "Active" : title_case_token_js(project.status);
-  const lead = project.owner ? `<em class="catalog-lead">Lead: ${escapeHtml(sanitizePublicProse(project.owner))}</em>` : "";
-  const people = (project.people || []).slice(0, 3).map((person) => sanitizePublicProse(person.name || "")).filter(Boolean);
-  const peopleLabel = people.length ? `<em class="catalog-people">People: ${escapeHtml(people.join(", "))}</em>` : "";
-  const affiliationLabel = project.affiliation === "ecosystem" ? "Ecosystem" : "Institute-hosted";
-  return `<a class="resource-card internal-card catalog-project-card" href="${slugToHref(project.slug, currentDir)}" data-catalog-row data-affiliation="${escapeHtml(project.affiliation)}" data-status="${escapeHtml(project.status)}" data-topics="${topicKeys}" data-search="${search}">
-        <span>${escapeHtml(affiliationLabel)} · ${escapeHtml(statusLabel)}</span>
-        <strong>${escapeHtml(sanitizePublicProse(project.title))}</strong>
-        <p>${escapeHtml(summary)}</p>
-        ${topics ? `<em>${topics}</em>` : ""}
-        ${lead}
-        ${peopleLabel}
-      </a>`;
+  const lead = project.owner ? escapeHtml(sanitizePublicProse(project.owner)) : "";
+  // The registry lists the lead again inside `people`; drop that repeat so the
+  // cell reads "lead, then the others" instead of naming the lead twice.
+  const leadName = sanitizePublicProse(project.owner || "");
+  const people = (project.people || [])
+    .map((person) => sanitizePublicProse(person.name || ""))
+    .filter((name) => name && name !== leadName)
+    .slice(0, 3);
+  const peopleCell = [lead ? `<strong>${lead}</strong>` : "", people.length ? escapeHtml(people.join(", ")) : ""]
+    .filter(Boolean)
+    .join("<br>");
+  return `<tr data-catalog-row data-affiliation="${escapeHtml(project.affiliation)}" data-status="${escapeHtml(project.status)}" data-topics="${topicKeys}" data-search="${search}">
+          <th scope="row"><a href="${slugToHref(project.slug, currentDir)}">${escapeHtml(sanitizePublicProse(project.title))}</a></th>
+          <td>${summary}</td>
+          <td>${topics}</td>
+          <td>${peopleCell}</td>
+        </tr>`;
 }
 
+// One affiliation's projects at one status, rendered as its own <table> with its
+// own caption, count, and empty state. Returns "" when the group has no rows at
+// that status, so an affiliation with no archived work shows no empty archive
+// table.
+function catalogStatusTable(projects, { anchor, suffix, caption, heading, emptyText }, currentDir) {
+  if (!projects.length) {
+    return "";
+  }
+  const rows = projects.map((project) => catalogProjectRow(project, currentDir)).join("");
+  return `<div class="catalog-subhead"><h4>${escapeHtml(heading)}</h4><span class="catalog-subcount" id="${anchor}-${suffix}-count">${projects.length} project${projects.length === 1 ? "" : "s"}</span></div>
+      <div class="table-wrap"><table class="directory-table catalog-table" id="${anchor}-${suffix}-table">
+        <caption>${escapeHtml(caption)}</caption>
+        <thead><tr><th scope="col">Project</th><th scope="col">About</th><th scope="col">Topics</th><th scope="col">Lead &amp; people</th></tr></thead>
+        <tbody id="${anchor}-${suffix}-body">${rows}</tbody>
+      </table></div>
+      <p class="catalog-empty" id="${anchor}-${suffix}-empty" hidden>${escapeHtml(emptyText)}</p>`;
+}
+
+// The two catalog groups. Each renders as a fully self-contained <section>:
+// its own heading, its own search box and topic filter, its own counts, and its
+// own tables. Nothing is shared between them, so an Institute-hosted search can
+// never hide or renumber an Ecosystem row.
+const CATALOG_GROUPS = [
+  {
+    key: "institute",
+    anchor: "catalog-institute",
+    eyebrow: "Institute-hosted",
+    title: "Institute-hosted projects",
+    text: "Projects the Active Inference Institute hosts and stewards directly, drawn from the canonical InstituteOS affiliation field. This table is independent of the Ecosystem table below: its search, topic filter, and counts cover Institute-hosted projects only.",
+    activeCaption: "Active Institute-hosted projects, from the public InstituteOS project registry.",
+    archivedCaption: "Archived and completed Institute-hosted projects, from the public InstituteOS project registry.",
+  },
+  {
+    key: "ecosystem",
+    anchor: "catalog-ecosystem",
+    eyebrow: "Ecosystem",
+    title: "Ecosystem projects",
+    text: "Community-driven projects across the wider Active Inference ecosystem, drawn from the same canonical affiliation field. This table is independent of the Institute-hosted table above: its search, topic filter, and counts cover Ecosystem projects only.",
+    activeCaption: "Active Ecosystem projects, from the public InstituteOS project registry.",
+    archivedCaption: "Archived and completed Ecosystem projects, from the public InstituteOS project registry.",
+  },
+];
+
+// Full project catalog, rendered as two totally separate tables — one per
+// affiliation — instead of one mixed grid. Every public project with a website
+// page appears in exactly one of them, generated directly from
+// data/projects.json, so new or removed registry entries appear automatically on
+// the next export + build.
 export function projectCatalogSection(currentDir = "") {
   const projects = catalogProjects();
   if (!projects.length) {
     return "";
   }
-  const topics = topCatalogTopics(projects);
-  const topicOptions = topics
-    .map(({ topic, count }) => `<option value="${escapeHtml(topic)}">${escapeHtml(title_case_token_js(topic))} (${count})</option>`)
-    .join("");
-  const groups = [
-    { key: "institute", title: "Institute-hosted projects", anchor: "institute-projects" },
-    { key: "ecosystem", title: "Ecosystem projects", anchor: "ecosystem-projects" },
-  ];
-  const sections = groups.map(({ key, title, anchor }) => {
-    const group = projects.filter((project) => project.affiliation === key);
-    const active = group.filter((project) => project.status === "active");
-    const archived = group.filter((project) => project.status !== "active");
-    const renderStatus = (items, status, label, suffix) => items.length
-      ? `<div class="catalog-subhead"><h4>${label}</h4><span class="catalog-subcount" id="${anchor}-${suffix}-count">${items.length} project${items.length === 1 ? "" : "s"}</span></div><div class="resource-grid compact-grid" id="${anchor}-${suffix}-grid">${items.map((project) => catalogProjectCard(project, currentDir)).join("")}</div><p class="catalog-empty" id="${anchor}-${suffix}-empty" hidden>No ${status} ${key} projects match your search.</p>`
+  const sections = CATALOG_GROUPS.map((group) => {
+    const groupProjects = projects.filter((project) => project.affiliation === group.key);
+    if (!groupProjects.length) {
+      return "";
+    }
+    const active = groupProjects.filter((project) => project.status === "active");
+    const archived = groupProjects.filter((project) => project.status !== "active");
+    const topicOptions = topCatalogTopics(groupProjects)
+      .map(({ topic, count }) => `<option value="${escapeHtml(topic)}">${escapeHtml(title_case_token_js(topic))} (${count})</option>`)
+      .join("");
+    const label = group.title.toLowerCase();
+    return `<section class="content-band catalog-affiliation" id="${group.anchor}" data-affiliation="${group.key}">
+    ${sectionHeading({
+      eyebrow: group.eyebrow,
+      title: group.title,
+      text: group.text,
+    })}
+    <p class="category-count">${groupProjects.length} project${groupProjects.length === 1 ? "" : "s"}</p>
+    <div class="activities-search">
+      <input id="${group.anchor}-search" type="search" placeholder="Search ${groupProjects.length} ${label} by name, topic, or lead…" autocomplete="off" aria-label="Search ${label}">
+      <select id="${group.anchor}-topic" aria-label="Filter ${label} by topic">
+        <option value="">All topics</option>
+        ${topicOptions}
+      </select>
+      <span id="${group.anchor}-count" aria-live="polite"></span>
+    </div>
+    ${catalogStatusTable(active, {
+      anchor: group.anchor,
+      suffix: "active",
+      caption: group.activeCaption,
+      heading: "Active projects",
+      emptyText: `No active ${label} match your search.`,
+    }, currentDir)}
+    ${catalogStatusTable(archived, {
+      anchor: group.anchor,
+      suffix: "archived",
+      caption: group.archivedCaption,
+      heading: "Archived & completed projects",
+      emptyText: `No archived or completed ${label} match your search.`,
+    }, currentDir)}
+  </section>`;
+  }).join("");
+  const jump = CATALOG_GROUPS.map((group) => {
+    const count = projects.filter((project) => project.affiliation === group.key).length;
+    return count
+      ? `<a href="#${group.anchor}"><span>${escapeHtml(group.title)}</span><em>${count} project${count === 1 ? "" : "s"}</em></a>`
       : "";
-    return `<section class="catalog-affiliation" id="${anchor}" data-affiliation="${key}">
-      <div class="catalog-subhead"><h3>${title}</h3><span class="catalog-subcount">${group.length} project${group.length === 1 ? "" : "s"}</span></div>
-      ${renderStatus(active, "active", "Active projects", "active")}
-      ${renderStatus(archived, "archived or completed", "Archived &amp; completed projects", "archived")}
-    </section>`;
   }).join("");
   return `<section class="content-band" id="project-catalog">
     ${sectionHeading({
       eyebrow: "Full catalog",
-      title: `Browse all ${projects.length} public projects`,
-      text: "Projects are classified by the canonical InstituteOS affiliation field: Institute-hosted or Ecosystem. Active and archived work remain distinct within each section. Search by name, topic, or lead, or narrow by topic.",
+      title: "Browse every public project",
+      text: "Projects are classified by the canonical InstituteOS affiliation field. Institute-hosted and Ecosystem projects are listed in two separate tables below, each with its own search, topic filter, and counts; active and archived work stay distinct within each.",
     })}
-    <div class="activities-search">
-      <input id="project-catalog-search" type="search" placeholder="Search ${projects.length} projects by name, topic, or lead…" autocomplete="off" aria-label="Search all projects">
-      <select id="project-catalog-topic" aria-label="Filter projects by topic">
-        <option value="">All topics</option>
-        ${topicOptions}
-      </select>
-      <span id="project-catalog-count" aria-live="polite"></span>
-    </div>
-    ${sections}
-  </section>`;
+    <p class="category-count">${projects.length} public projects with a page on this site</p>
+    <div class="link-chips">${jump}</div>
+  </section>${sections}`;
 }
 
 export function relatedProjectsSection(page, currentDir = "") {

@@ -5,6 +5,19 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **`/projects/` catalog split into two separate tables.** Institute-hosted and
+  Ecosystem projects are now rendered as fully independent sections — each with
+  its own heading, count, search box, topic filter (options computed only from
+  that group), and its own Active and Archived & completed `<table>` — instead
+  of one mixed card grid driven by a single shared search. Rows carry the
+  project handle and slug in their searchable text, so "gnn" now finds
+  Generalized Notation Notation. Fixed alongside: a duplicate
+  `id="ecosystem-projects"` on the page (the catalog anchors are now
+  `catalog-institute` / `catalog-ecosystem`, and the Projects nav items point at
+  them), and the project lead being printed twice when the registry also lists
+  them under `people`. `src/pages/projects.mjs`, `assets/js/site.js`,
+  `assets/css/styles.css`, `src/content/navigation.json`.
+
 - **Docs mega-deep pass (2026-08-02).** Reviewed and hardened all documentation:
   removed private monorepo path references from public docs (`repos/…`,
   `../../library/design-system` → neutral phrasing + `INSTITUTEOS_DS_ROOT`),

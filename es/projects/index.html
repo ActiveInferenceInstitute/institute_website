@@ -87,7 +87,7 @@
           <span>Proyectos</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-3-projects"><a href="./">Todos los Proyectos</a><a href="./#institute-projects">Proyectos del Instituto</a><a href="./#ecosystem-projects">Proyectos del Ecosistema</a><a href="../directory/#repositories">Repositorios</a></div>
+        <div class="nav-menu" id="nav-menu-3-projects"><a href="./">Todos los Proyectos</a><a href="./#catalog-institute">Proyectos del Instituto</a><a href="./#catalog-ecosystem">Proyectos del Ecosistema</a><a href="../directory/#repositories">Repositorios</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-4-resources" data-nav-toggle>
           <span>Recursos</span>
@@ -167,481 +167,394 @@
   <section class="content-band" id="project-catalog">
     <div class="section-heading">
     <p class="eyebrow">Catálogo completo</p>
-    <h2>Browse all 65 public projects</h2>
-    <p>Projects are classified by the canonical InstituteOS affiliation field: Institute-hosted or Ecosystem. Active and archived work remain distinct within each section. Search by name, topic, or lead, or narrow by topic.</p>
+    <h2>Browse every public project</h2>
+    <p>Projects are classified by the canonical InstituteOS affiliation field. Institute-hosted and Ecosystem projects are listed in two separate tables below, each with its own search, topic filter, and counts; active and archived work stay distinct within each.</p>
   </div>
+    <p class="category-count">65 public projects with a page on this site</p>
+    <div class="link-chips"><a href="#catalog-institute"><span>Institute-hosted projects</span><em>28 projects</em></a><a href="#catalog-ecosystem"><span>Ecosystem projects</span><em>37 projects</em></a></div>
+  </section><section class="content-band catalog-affiliation" id="catalog-institute" data-affiliation="institute">
+    <div class="section-heading">
+    <p class="eyebrow">Institute-hosted</p>
+    <h2>Institute-hosted projects</h2>
+    <p>Projects the Active Inference Institute hosts and stewards directly, drawn from the canonical InstituteOS affiliation field. This table is independent of the Ecosystem table below: its search, topic filter, and counts cover Institute-hosted projects only.</p>
+  </div>
+    <p class="category-count">28 projects</p>
     <div class="activities-search">
-      <input id="project-catalog-search" type="search" placeholder="Search 65 projects by name, topic, or lead…" autocomplete="off" aria-label="Search all projects">
-      <select id="project-catalog-topic" aria-label="Filter projects by topic">
+      <input id="catalog-institute-search" type="search" placeholder="Search 28 institute-hosted projects by name, topic, or lead…" autocomplete="off" aria-label="Search institute-hosted projects">
+      <select id="catalog-institute-topic" aria-label="Filter institute-hosted projects by topic">
         <option value="">All topics</option>
-        <option value="active-inference">Active Inference (57)</option><option value="reinference">Reinference (32)</option><option value="eduactive">Eduactive (22)</option><option value="education">Education (12)</option><option value="free-energy-principle">Free Energy Principle (11)</option><option value="open-source">Open Source (7)</option><option value="cognitive-modeling">Cognitive Modeling (6)</option><option value="generative-models">Generative Models (6)</option><option value="multi-agent-systems">Multi Agent Systems (6)</option><option value="cognitive-science">Cognitive Science (5)</option><option value="knowledge-representation">Knowledge Representation (5)</option><option value="ai-alignment">Ai Alignment (4)</option><option value="neuroscience">Neuroscience (4)</option><option value="robotics">Robotics (4)</option>
+        <option value="active-inference">Active Inference (26)</option><option value="reinference">Reinference (11)</option><option value="eduactive">Eduactive (10)</option><option value="education">Education (8)</option><option value="free-energy-principle">Free Energy Principle (6)</option><option value="multi-agent-systems">Multi Agent Systems (5)</option><option value="open-source">Open Source (5)</option><option value="ai-alignment">Ai Alignment (3)</option><option value="cognitive-modeling">Cognitive Modeling (3)</option><option value="computational-neuroscience">Computational Neuroscience (3)</option><option value="curriculum">Curriculum (3)</option><option value="decentralized-science">Decentralized Science (3)</option><option value="knowledge-engineering">Knowledge Engineering (3)</option><option value="modeling">Modeling (3)</option>
       </select>
-      <span id="project-catalog-count" aria-live="polite"></span>
+      <span id="catalog-institute-count" aria-live="polite"></span>
     </div>
-    <section class="catalog-affiliation" id="institute-projects" data-affiliation="institute">
-      <div class="catalog-subhead"><h3>Institute-hosted projects</h3><span class="catalog-subcount">28 projects</span></div>
-      <div class="catalog-subhead"><h4>Active projects</h4><span class="catalog-subcount" id="institute-projects-active-count">19 projects</span></div><div class="resource-grid compact-grid" id="institute-projects-active-grid"><a class="resource-card internal-card catalog-project-card" href="active-inference-journal/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="academic-publishing active-inference collaborative-editing community decentralized-science eduactive journal knowledge-repository knowledge-sharing open-science open-source publishing research transcription" data-search="active inference journal a community publication and knowledge channel for active inference research and discussion. academic-publishing active-inference collaborative-editing community decentralized-science eduactive journal knowledge-repository knowledge-sharing open-science open-source publishing research transcription alexander vyatkin alexander vyatkin holly grimm">
-        <span>Institute-hosted · Active</span>
-        <strong>Active Inference Journal</strong>
-        <p>A community publication and knowledge channel for Active Inference research and discussion.</p>
-        <em>Academic Publishing, Active Inference, Collaborative Editing, Community</em>
-        <em class="catalog-lead">Lead: Alexander Vyatkin</em>
-        <em class="catalog-people">People: Alexander Vyatkin, Holly Grimm</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="active-inference-ontology/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference decentralized-science eduactive formal-knowledge formal-logic knowledge-engineering knowledge-representation living-document machine-readable ontology rdf-owl terminology translation" data-search="active inference ontology maintains and develops the public ontology for active inference and decentralized science with structured, machine-readable definitions. active-inference decentralized-science eduactive formal-knowledge formal-logic knowledge-engineering knowledge-representation living-document machine-readable ontology rdf-owl terminology translation daniel friedman daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>Active Inference Ontology</strong>
-        <p>Maintains and develops the public ontology for Active Inference and decentralized science with structured, machine-readable definitions.</p>
-        <em>Active Inference, Decentralized Science, Eduactive, Formal Knowledge</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="ai2c/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="ai-alignment active-inference multi-agent-systems governance-frameworks embodied-systems robotics open-science" data-search="ai²c: active inference alignment coalition multi-institution initiative building a research coalition, funding pipeline, and shared infrastructure for ai alignment, governance, and embodied experimentation. ai-alignment active-inference multi-agent-systems governance-frameworks embodied-systems robotics open-science  ">
-        <span>Institute-hosted · Active</span>
-        <strong>AI²C: Active Inference Alignment Coalition</strong>
-        <p>Multi-institution initiative building a research coalition, funding pipeline, and shared infrastructure for AI alignment, governance, and embodied experimentati</p>
-        <em>Ai Alignment, Active Inference, Multi Agent Systems, Governance Frameworks</em>
-
-
-      </a><a class="resource-card internal-card catalog-project-card" href="aicacp/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference agency ai-alignment ai-capabilities ai-regulation beneficial-ai care-practices consensus-building ethics policy reinference workshops world-models" data-search="aicacp a coalition-oriented project at the intersection of ai capabilities and care practices. active-inference agency ai-alignment ai-capabilities ai-regulation beneficial-ai care-practices consensus-building ethics policy reinference workshops world-models adam safron adam safron">
-        <span>Institute-hosted · Active</span>
-        <strong>AICACP</strong>
-        <p>A coalition-oriented project at the intersection of AI capabilities and care practices.</p>
-        <em>Active Inference, Agency, Ai Alignment, Ai Capabilities</em>
-        <em class="catalog-lead">Lead: Adam Safron</em>
-        <em class="catalog-people">People: Adam Safron</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="symposium/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference ai artificial-intelligence collaborative-sessions community-building computational-neuroscience eduactive industry-applications research-conference robotics symposium" data-search="applied active inference symposium the applied active inference symposium is a yearly event that convenes the global active inference community. it has run five times from 2021 through 2025, with the sixth symposium in 2026. the symposium features research presentations, discussions, and collaborative sessions spanning computational neuroscience, ai, ecology, economics, health, and other domains. active-inference ai artificial-intelligence collaborative-sessions community-building computational-neuroscience eduactive industry-applications research-conference robotics symposium daniel friedman daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>Applied Active Inference Symposium</strong>
-        <p>The Applied Active Inference Symposium is a yearly event that convenes the global Active Inference community. It has run five times from 2021 through 2025, with</p>
-        <em>Active Inference, Ai, Artificial Intelligence, Collaborative Sessions</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="audio-visual-production/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="audio-visual-production eduactive educational-content livestreams media-production podcasts video-recording" data-search="audio-visual production audio-visual production is a sustained institute project responsible for planning, recording, and publishing the institute's livestreams, podcasts, video events, and educational recordings. audio-visual-production eduactive educational-content livestreams media-production podcasts video-recording daniel friedman daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>Audio-Visual Production</strong>
-        <p>Audio-Visual Production is a sustained Institute project responsible for planning, recording, and publishing the Institute's livestreams, podcasts, video events</p>
-        <em>Audio Visual Production, Eduactive, Educational Content, Livestreams</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="educational-course-development/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference course-development curriculum eduactive education knowledge-base learning-materials obsidian" data-search="educational course development educational course development is a sustained institute project producing structured courses in active inference and related topics, maintaining an obsidian repository and course catalog for diverse learning backgrounds. active-inference course-development curriculum eduactive education knowledge-base learning-materials obsidian daniel friedman daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>Educational Course Development</strong>
-        <p>Educational Course Development is a sustained Institute project producing structured courses in Active Inference and related topics, maintaining an Obsidian rep</p>
-        <em>Active Inference, Course Development, Curriculum, Eduactive</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="gnn/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference cognitive-modeling formal-modeling generative-models interoperability knowledge-engineering knowledge-representation machine-parsable model-specification notation reinference" data-search="generalized notation notation a text-based notation system for communicating generative models and active inference systems that provides a shared language for describing models in a human-readable and machine-processable way. active-inference cognitive-modeling formal-modeling generative-models interoperability knowledge-engineering knowledge-representation machine-parsable model-specification notation reinference daniel friedman daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>Generalized Notation Notation</strong>
-        <p>A text-based notation system for communicating generative models and Active Inference systems that provides a shared language for describing models in a human-r</p>
-        <em>Active Inference, Cognitive Modeling, Formal Modeling, Generative Models</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="geo-infer/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference agent-systems bayesian-methods bioregional-modeling ecology environmental-science geospatial geospatial-modeling open-source probabilistic-modeling reinference resource-management spatial-analysis spatial-temporal urban-planning" data-search="geo-infer geospatial modeling using active inference and spatial data analysis techniques. active-inference agent-systems bayesian-methods bioregional-modeling ecology environmental-science geospatial geospatial-modeling open-source probabilistic-modeling reinference resource-management spatial-analysis spatial-temporal urban-planning daniel friedman daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>GEO-INFER</strong>
-        <p>Geospatial modeling using Active Inference and spatial data analysis techniques.</p>
-        <em>Active Inference, Agent Systems, Bayesian Methods, Bioregional Modeling</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="knowledge-engineering/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference annotation free-energy-principle information-science knowledge-engineering knowledge-graphs knowledge-infrastructure literature-analysis literature-meta-analysis ontology reinference scientific-publications" data-search="knowledge engineering knowledge engineering develops and maintains the public knowledge infrastructure for the active inference institute, including the public frontend, literature meta-analysis, and organizational knowledge systems. active-inference annotation free-energy-principle information-science knowledge-engineering knowledge-graphs knowledge-infrastructure literature-analysis literature-meta-analysis ontology reinference scientific-publications virginia bleu knight virginia bleu knight daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>Knowledge Engineering</strong>
-        <p>Knowledge Engineering develops and maintains the public knowledge infrastructure for the Active Inference Institute, including the public frontend, literature m</p>
-        <em>Active Inference, Annotation, Free Energy Principle, Information Science</em>
-        <em class="catalog-lead">Lead: Virginia Bleu Knight</em>
-        <em class="catalog-people">People: Virginia Bleu Knight, Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="myth-of-objectivity/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference artificial-intelligence morality symbolic-cognition cultural-evolution multi-agent-systems model-selection" data-search="myth of objectivity hypothesis rigorous exploration of humanity's capacity for symbolic intelligence by modeling norms across social and identity scales to develop culturally-aligned artificial general intelligence. active-inference artificial-intelligence morality symbolic-cognition cultural-evolution multi-agent-systems model-selection shagor (shaggy) rahman shagor (shaggy) rahman">
-        <span>Institute-hosted · Active</span>
-        <strong>Myth of Objectivity Hypothesis</strong>
-        <p>Rigorous exploration of humanity's capacity for symbolic intelligence by modeling norms across social and identity scales to develop culturally-aligned artifici</p>
-        <em>Active Inference, Artificial Intelligence, Morality, Symbolic Cognition</em>
-        <em class="catalog-lead">Lead: Shagor (Shaggy) Rahman</em>
-        <em class="catalog-people">People: Shagor (Shaggy) Rahman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="perspective-architectures/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="ai-alignment agency perspective-taking emergent-coherence multi-agent-systems active-inference generative-architecture social-attunement" data-search="perspective architectures for coherent and attuned artificial agency formalize a minimal computational architecture that models internal coherence dynamics for ai alignment through latent generative perspective structures. ai-alignment agency perspective-taking emergent-coherence multi-agent-systems active-inference generative-architecture social-attunement  ">
-        <span>Institute-hosted · Active</span>
-        <strong>Perspective Architectures for Coherent and Attuned Artificial Agency</strong>
-        <p>Formalize a minimal computational architecture that models internal coherence dynamics for AI alignment through latent generative perspective structures.</p>
-        <em>Ai Alignment, Agency, Perspective Taking, Emergent Coherence</em>
-
-
-      </a><a class="resource-card internal-card catalog-project-card" href="rxinfer/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference bayesian-inference community-driven education julia learning-group machine-learning open-source probabilistic-programming reactive-systems reinference" data-search="rxinfer.jl learning and development group the rxinfer.jl learning and development group supports learning and extending rxinfer.jl, a julia package for reactive bayesian inference. active-inference bayesian-inference community-driven education julia learning-group machine-learning open-source probabilistic-programming reactive-systems reinference daniel friedman daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>RxInfer.jl Learning and Development Group</strong>
-        <p>The RxInfer.jl Learning and Development Group supports learning and extending RxInfer.jl, a Julia package for reactive Bayesian inference.</p>
-        <em>Active Inference, Bayesian Inference, Community Driven, Education</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="seasonal-school/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference cohort-based community community-engagement eduactive education institute intensive-training learning seasonal-programs structured-curriculum" data-search="seasonal school an intensive in-person or online school for deep engagement with active inference theory, modeling, and applications. active-inference cohort-based community community-engagement eduactive education institute intensive-training learning seasonal-programs structured-curriculum daniel friedman daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>Seasonal School</strong>
-        <p>An intensive in-person or online school for deep engagement with Active Inference theory, modeling, and applications.</p>
-        <em>Active Inference, Cohort Based, Community, Community Engagement</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="start/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference education curriculum multilingual learning-paths free-energy-principle content-generation professional-development" data-search="start scalable, tailored active inference research &amp; training — modular pipeline generating multilingual educational materials on active inference and the free energy principle tailored to professional domains and individual learners. active-inference education curriculum multilingual learning-paths free-energy-principle content-generation professional-development daniel friedman daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>Start</strong>
-        <p>Scalable, Tailored Active Inference Research &amp; Training — modular pipeline generating multilingual educational materials on Active Inference and the Free Energy</p>
-        <em>Active Inference, Education, Curriculum, Multilingual</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="textbook-group/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference cohort-learning collaborative-learning eduactive education free-energy-principle learning-community open-science structured-learning textbook-study textbooks" data-search="textbook group structured cohort-based learning through active inference textbooks: 9 completed cohorts on the 2022 textbook since 2022, plus a first cohort now live on the 2026 fundamentals textbook. active-inference cohort-learning collaborative-learning eduactive education free-energy-principle learning-community open-science structured-learning textbook-study textbooks daniel friedman daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>Textbook Group</strong>
-        <p>Structured cohort-based learning through Active Inference textbooks: 9 completed cohorts on the 2022 textbook since 2022, plus a first cohort now live on the 20</p>
-        <em>Active Inference, Cohort Learning, Collaborative Learning, Eduactive</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="foundations-of-ideology/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="political-ideology computational-neuroscience free-energy-principle active-inference prediction-error cognitive-flexibility political-psychology polarization" data-search="the foundations of ideology computational-neuroscience (fep/active inference) framework for how political ideologies form, persist, and evolve. political-ideology computational-neuroscience free-energy-principle active-inference prediction-error cognitive-flexibility political-psychology polarization  ">
-        <span>Institute-hosted · Active</span>
-        <strong>The Foundations of Ideology</strong>
-        <p>Computational-neuroscience (FEP/Active Inference) framework for how political ideologies form, persist, and evolve.</p>
-        <em>Political Ideology, Computational Neuroscience, Free Energy Principle, Active Inference</em>
-
-
-      </a><a class="resource-card internal-card catalog-project-card" href="theoretical-neurobiology/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference cognitive-science computational-modeling consciousness free-energy-principle mathematical-modeling multi-agent-systems neural-systems neurobiology neuroscience predictive-coding predictive-processing reinference theoretical-neurobiology" data-search="theoretical neurobiology group the theoretical neurobiology group (tnb) supports theoretical work connecting active inference to neurobiology with regular meetings and discussions for mathematical and conceptual models of neural systems. active-inference cognitive-science computational-modeling consciousness free-energy-principle mathematical-modeling multi-agent-systems neural-systems neurobiology neuroscience predictive-coding predictive-processing reinference theoretical-neurobiology daniel friedman daniel friedman">
-        <span>Institute-hosted · Active</span>
-        <strong>Theoretical Neurobiology Group</strong>
-        <p>The Theoretical Neurobiology Group (TNB) supports theoretical work connecting Active Inference to neurobiology with regular meetings and discussions for mathema</p>
-        <em>Active Inference, Cognitive Science, Computational Modeling, Consciousness</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="wave-hypothesis/" data-catalog-row data-affiliation="institute" data-status="active" data-topics="brain-waves consciousness wave-hypothesis bayesian-cognition theoretical-neuroscience active-inference language-theory" data-search="wave hypothesis series of livestreams and papers by robert worden on the brain wave hypothesis, projective wave theory of consciousness, and bayesian model-based cognition. brain-waves consciousness wave-hypothesis bayesian-cognition theoretical-neuroscience active-inference language-theory robert worden robert worden">
-        <span>Institute-hosted · Active</span>
-        <strong>Wave Hypothesis</strong>
-        <p>Series of livestreams and papers by Robert Worden on the brain wave hypothesis, projective wave theory of consciousness, and Bayesian model-based cognition.</p>
-        <em>Brain Waves, Consciousness, Wave Hypothesis, Bayesian Cognition</em>
-        <em class="catalog-lead">Lead: Robert Worden</em>
-        <em class="catalog-people">People: Robert Worden</em>
-      </a></div><p class="catalog-empty" id="institute-projects-active-empty" hidden>No active institute projects match your search.</p>
-      <div class="catalog-subhead"><h4>Archived &amp; completed projects</h4><span class="catalog-subcount" id="institute-projects-archived-count">9 projects</span></div><div class="resource-grid compact-grid" id="institute-projects-archived-grid"><a class="resource-card internal-card catalog-project-card" href="active-blockference/" data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference agent-behavior blockchain cadcad cognitive-modeling complex-systems decentralized-systems distributed-systems generative-models jupyter-notebook multi-agent-simulation multiagent-modeling open-source reinference" data-search="active blockference active inference examples and tools for decentralized and blockchain-adjacent systems active-inference agent-behavior blockchain cadcad cognitive-modeling complex-systems decentralized-systems distributed-systems generative-models jupyter-notebook multi-agent-simulation multiagent-modeling open-source reinference daniel friedman daniel friedman">
-        <span>Institute-hosted · Archived</span>
-        <strong>Active Blockference</strong>
-        <p>Active Inference examples and tools for decentralized and blockchain-adjacent systems</p>
-        <em>Active Inference, Agent Behavior, Blockchain, Cadcad</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="aeos/" data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference decentralized-science scientific-ontology scientific-governance epistemic-commons organizational-frameworks" data-search="active entity ontology for science (aeos) framework bridging centralized and decentralized science approaches using active inference principles for scientific organization and governance. active-inference decentralized-science scientific-ontology scientific-governance epistemic-commons organizational-frameworks daniel friedman daniel friedman">
-        <span>Institute-hosted · Archived</span>
-        <strong>Active Entity Ontology for Science (AEOS)</strong>
-        <p>Framework bridging centralized and decentralized science approaches using Active Inference principles for scientific organization and governance.</p>
-        <em>Active Inference, Decentralized Science, Scientific Ontology, Scientific Governance</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="active-inferants/" data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference ant-colonies ant-colony behavioral-simulation collective-behavior computational-biology computational-modeling modeling multi-agent-systems multiagent-systems open-source reinference stigmergy swarm-intelligence" data-search="active inferants multiagent modeling of collective behavior using active inference, with connections to ant colony research. active-inference ant-colonies ant-colony behavioral-simulation collective-behavior computational-biology computational-modeling modeling multi-agent-systems multiagent-systems open-source reinference stigmergy swarm-intelligence daniel friedman daniel friedman">
-        <span>Institute-hosted · Archived</span>
-        <strong>Active InferAnts</strong>
-        <p>Multiagent modeling of collective behavior using Active Inference, with connections to ant colony research.</p>
-        <em>Active Inference, Ant Colonies, Ant Colony, Behavioral Simulation</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="active-inference-social-sciences/" data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference curriculum eduactive education interdisciplinary pedagogy research social-sciences" data-search="active inference for social sciences develops courses, curricula, research, and writing connecting active inference to social sciences disciplines. active-inference curriculum eduactive education interdisciplinary pedagogy research social-sciences avel guénin-carlut avel guénin-carlut daniel friedman">
-        <span>Institute-hosted · Archived</span>
-        <strong>Active Inference for Social Sciences</strong>
-        <p>Develops courses, curricula, research, and writing connecting Active Inference to social sciences disciplines.</p>
-        <em>Active Inference, Curriculum, Eduactive, Education</em>
-        <em class="catalog-lead">Lead: Avel Guénin-Carlut</em>
-        <em class="catalog-people">People: Avel Guénin-Carlut, Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="cognitive-agent-modeling/" data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference agent-modeling cognitive-modeling computational-neuroscience implementation machine-learning probabilistic-inference reinference" data-search="cognitive agent modeling developing minimal cognitive agent models using active inference principles. active-inference agent-modeling cognitive-modeling computational-neuroscience implementation machine-learning probabilistic-inference reinference daniel friedman daniel friedman">
-        <span>Institute-hosted · Archived</span>
-        <strong>Cognitive Agent Modeling</strong>
-        <p>Developing minimal cognitive agent models using Active Inference principles.</p>
-        <em>Active Inference, Agent Modeling, Cognitive Modeling, Computational Neuroscience</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="farmworks/" data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference agents agriculture applied-research decentralized-ai ecological-systems ecology farm-scale-solutions human-ai-interaction modeling personalization reinference soil-biology" data-search="farmworks farmworks develops miniature active inference models and applications for agricultural and ecological contexts. active-inference agents agriculture applied-research decentralized-ai ecological-systems ecology farm-scale-solutions human-ai-interaction modeling personalization reinference soil-biology vladimir baulin vladimir baulin andrew pashea">
-        <span>Institute-hosted · Archived</span>
-        <strong>FarmWorks</strong>
-        <p>FarmWorks develops miniature Active Inference models and applications for agricultural and ecological contexts.</p>
-        <em>Active Inference, Agents, Agriculture, Applied Research</em>
-        <em class="catalog-lead">Lead: Vladimir Baulin</em>
-        <em class="catalog-people">People: Vladimir Baulin, Andrew Pashea</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="graphical-interface/" data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference graphical-interface interactive-tools modeling reinference ui-ux-design user-interfaces visualization" data-search="graphical interface a graphical interface project for active inference modeling and visualization. active-inference graphical-interface interactive-tools modeling reinference ui-ux-design user-interfaces visualization daniel friedman daniel friedman">
-        <span>Institute-hosted · Archived</span>
-        <strong>Graphical Interface</strong>
-        <p>A graphical interface project for Active Inference modeling and visualization.</p>
-        <em>Active Inference, Graphical Interface, Interactive Tools, Modeling</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="physics-course/" data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference eduactive education free-energy-principle information-theory physics statistical-mechanics thermodynamics" data-search="physics course a course connecting physics, thermodynamics, and the theoretical foundations of active inference. active-inference eduactive education free-energy-principle information-theory physics statistical-mechanics thermodynamics daniel friedman daniel friedman">
-        <span>Institute-hosted · Archived</span>
-        <strong>Physics Course</strong>
-        <p>A course connecting physics, thermodynamics, and the theoretical foundations of Active Inference.</p>
-        <em>Active Inference, Eduactive, Education, Free Energy Principle</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="video-improvement/" data-catalog-row data-affiliation="institute" data-status="archived" data-topics="accessibility discoverability eduactive education media-improvement metadata transcription video-production" data-search="video improvement project the video improvement project focuses on enhancing the quality, organization, and accessibility of the institute's extensive video library — covering hundreds of livestreams, educational sessions, and project recordings from 2020 onward. accessibility discoverability eduactive education media-improvement metadata transcription video-production daniel friedman daniel friedman">
-        <span>Institute-hosted · Archived</span>
-        <strong>Video Improvement Project</strong>
-        <p>The Video Improvement Project focuses on enhancing the quality, organization, and accessibility of the Institute's extensive video library — covering hundreds o</p>
-        <em>Accessibility, Discoverability, Eduactive, Education</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a></div><p class="catalog-empty" id="institute-projects-archived-empty" hidden>No archived or completed institute projects match your search.</p>
-    </section><section class="catalog-affiliation" id="ecosystem-projects" data-affiliation="ecosystem">
-      <div class="catalog-subhead"><h3>Ecosystem projects</h3><span class="catalog-subcount">37 projects</span></div>
-      <div class="catalog-subhead"><h4>Active projects</h4><span class="catalog-subcount" id="ecosystem-projects-active-count">17 projects</span></div><div class="resource-grid compact-grid" id="ecosystem-projects-active-grid"><a class="resource-card internal-card catalog-project-card" href="belief-updating-ptsd/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference belief-updating computational-psychiatry free-energy neuroscience predictive-processing ptsd reinference" data-search="active inference account of belief updating in ptsd develops a formal active inference account of belief updating in ptsd using predictive processing and free energy frameworks. active-inference belief-updating computational-psychiatry free-energy neuroscience predictive-processing ptsd reinference jeremy cooper jeremy cooper">
-        <span>Ecosystem · Active</span>
-        <strong>Active Inference Account of Belief Updating in PTSD</strong>
-        <p>Develops a formal Active Inference account of belief updating in PTSD using predictive processing and free energy frameworks.</p>
-        <em>Active Inference, Belief Updating, Computational Psychiatry, Free Energy</em>
-        <em class="catalog-lead">Lead: Jeremy Cooper</em>
-        <em class="catalog-people">People: Jeremy Cooper</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="anima/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference ai-alignment ai-behavior cognitive-science large-language-models policy-based-systems reinference" data-search="anima exploring active inference in the context of current llm-based ai interactions and policy-based behavior. active-inference ai-alignment ai-behavior cognitive-science large-language-models policy-based-systems reinference stell ">
-        <span>Ecosystem · Active</span>
-        <strong>Anima</strong>
-        <p>Exploring Active Inference in the context of current LLM-based AI interactions and policy-based behavior.</p>
-        <em>Active Inference, Ai Alignment, Ai Behavior, Cognitive Science</em>
-        <em class="catalog-lead">Lead: Stell</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="artificial-sentience/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference ai-research artificial-sentience consciousness free-energy-principle phenomenology philosophy-of-mind reinference" data-search="artificial sentience exploring the conditions for and implications of sentience in artificial systems through an active inference lens. active-inference ai-research artificial-sentience consciousness free-energy-principle phenomenology philosophy-of-mind reinference cleber gomes ">
-        <span>Ecosystem · Active</span>
-        <strong>Artificial Sentience</strong>
-        <p>Exploring the conditions for and implications of sentience in artificial systems through an Active Inference lens.</p>
-        <em>Active Inference, Ai Research, Artificial Sentience, Consciousness</em>
-        <em class="catalog-lead">Lead: Cleber Gomes</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="cognarn/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference cognitive-architecture cognitive-scaffolding collaborative-systems collective-intelligence community-coordination computational-models decision-making group-cognition knowledge-representation narrative-infrastructure reinference sense-making story-graphs" data-search="cognarr ecosystem facilitating group cognition at scale through cognitive narrative infrastructure. active-inference cognitive-architecture cognitive-scaffolding collaborative-systems collective-intelligence community-coordination computational-models decision-making group-cognition knowledge-representation narrative-infrastructure reinference sense-making story-graphs john boik john boik">
-        <span>Ecosystem · Active</span>
-        <strong>CogNarr Ecosystem</strong>
-        <p>Facilitating group cognition at scale through cognitive narrative infrastructure.</p>
-        <em>Active Inference, Cognitive Architecture, Cognitive Scaffolding, Collaborative Systems</em>
-        <em class="catalog-lead">Lead: John Boik</em>
-        <em class="catalog-people">People: John Boik</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="cognitive-somatic-regulator/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference somatic-regulation affective-cognition cognitive-modeling" data-search="cognitive somatic regulator active inference modeling applied to somatic regulation, ethical threshold gating, and neuro-somatic dynamics. active-inference somatic-regulation affective-cognition cognitive-modeling colleen pridemore ">
-        <span>Ecosystem · Active</span>
-        <strong>Cognitive Somatic Regulator</strong>
-        <p>Active Inference modeling applied to somatic regulation, ethical threshold gating, and neuro-somatic dynamics.</p>
-        <em>Active Inference, Somatic Regulation, Affective Cognition, Cognitive Modeling</em>
-        <em class="catalog-lead">Lead: Colleen Pridemore</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="coherence-density/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference complex-systems coordination measurement adaptive-systems" data-search="coherence density: measuring coordination in complex adaptive systems a measurement-focused framework evaluating internal coordination and stability in complex adaptive systems. active-inference complex-systems coordination measurement adaptive-systems travis james ">
-        <span>Ecosystem · Active</span>
-        <strong>Coherence Density: Measuring Coordination in Complex Adaptive Systems</strong>
-        <p>A measurement-focused framework evaluating internal coordination and stability in complex adaptive systems.</p>
-        <em>Active Inference, Complex Systems, Coordination, Measurement</em>
-        <em class="catalog-lead">Lead: Travis James</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="cpomdp/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference python continuous-state open-source reinference control-theory" data-search="cpomdp — continuous active inference for python a tested, documented continuous-state active inference python library with certifiable tolerances and reference implementations. active-inference python continuous-state open-source reinference control-theory daniel corva ">
-        <span>Ecosystem · Active</span>
-        <strong>cpomdp — Continuous Active Inference for Python</strong>
-        <p>A tested, documented continuous-state Active Inference Python library with certifiable tolerances and reference implementations.</p>
-        <em>Active Inference, Python, Continuous State, Open Source</em>
-        <em class="catalog-lead">Lead: Daniel Corva</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="ed4all/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="eduactive" data-search="ed4all: active inference for grounded educational knowledge environments an open, locally deployable, empirically evaluated framework for grounded educational agents that operate within explicit knowledge and evidentiary boundaries. eduactive matthew d murphy ">
-        <span>Ecosystem · Active</span>
-        <strong>Ed4All: Active Inference for Grounded Educational Knowledge Environments</strong>
-        <p>An open, locally deployable, empirically evaluated framework for grounded educational agents that operate within explicit knowledge and evidentiary boundaries.</p>
-        <em>Eduactive</em>
-        <em class="catalog-lead">Lead: Matthew D Murphy</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="brain-metabolism/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference brain-metabolism computational-neurobiology energy-dynamics free-energy-principle neuroscience reinference" data-search="energy modeling human brain metabolism applying active inference to model metabolic energy dynamics in the human brain. active-inference brain-metabolism computational-neurobiology energy-dynamics free-energy-principle neuroscience reinference tim huggers ">
-        <span>Ecosystem · Active</span>
-        <strong>Energy Modeling Human Brain Metabolism</strong>
-        <p>Applying Active Inference to model metabolic energy dynamics in the human brain.</p>
-        <em>Active Inference, Brain Metabolism, Computational Neurobiology, Energy Dynamics</em>
-        <em class="catalog-lead">Lead: Tim Huggers</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="geometric-inquiry/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference formal-methods geometric-foundations inquiry-theory mathematics q-state-dynamics reinference" data-search="geometric inquiry theory geometric inquiry theory develops a geometric framework for understanding inquiry as a structured dynamic process through q-state dynamics and the structural basis of inquiry as a coherent mathematical theory. active-inference formal-methods geometric-foundations inquiry-theory mathematics q-state-dynamics reinference bruce tisler ">
-        <span>Ecosystem · Active</span>
-        <strong>Geometric Inquiry Theory</strong>
-        <p>Geometric Inquiry Theory develops a geometric framework for understanding inquiry as a structured dynamic process through Q-State Dynamics and the structural ba</p>
-        <em>Active Inference, Formal Methods, Geometric Foundations, Inquiry Theory</em>
-        <em class="catalog-lead">Lead: Bruce Tisler</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="humanitys-story/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference cognitive-science free-energy human-understanding narrative-theory reinference self-knowledge uncertainty" data-search="humanity's story of an uncertain self ecosystem project developing a broad account of human self-knowledge as an inference problem through active inference and free energy. active-inference cognitive-science free-energy human-understanding narrative-theory reinference self-knowledge uncertainty shagor (shaggy) rahman shagor (shaggy) rahman">
-        <span>Ecosystem · Active</span>
-        <strong>Humanity's Story of an Uncertain Self</strong>
-        <p>Ecosystem project developing a broad account of human self-knowledge as an inference problem through Active Inference and free energy.</p>
-        <em>Active Inference, Cognitive Science, Free Energy, Human Understanding</em>
-        <em class="catalog-lead">Lead: Shagor (Shaggy) Rahman</em>
-        <em class="catalog-people">People: Shagor (Shaggy) Rahman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="rxinfer-visualization/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference bayesian-inference graph-rendering julia probabilistic-models reinference rxinfer visualization" data-search="improving rxinfer.jl model visualization developing visualization capabilities for rxinfer.jl probabilistic models. active-inference bayesian-inference graph-rendering julia probabilistic-models reinference rxinfer visualization fraser paterson fraser paterson">
-        <span>Ecosystem · Active</span>
-        <strong>Improving RxInfer.jl Model Visualization</strong>
-        <p>Developing visualization capabilities for RxInfer.jl probabilistic models.</p>
-        <em>Active Inference, Bayesian Inference, Graph Rendering, Julia</em>
-        <em class="catalog-lead">Lead: Fraser Paterson</em>
-        <em class="catalog-people">People: Fraser Paterson</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="model-centric-cognition/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference cognitive-science knowledge-representation model-centric-cognition reinference theoretical-cognition wave-hypothesis" data-search="model-centric cognition developing the wave hypothesis and model-centric approaches to cognition and knowledge representation. active-inference cognitive-science knowledge-representation model-centric-cognition reinference theoretical-cognition wave-hypothesis robert worden robert worden">
-        <span>Ecosystem · Active</span>
-        <strong>Model-Centric Cognition</strong>
-        <p>Developing the Wave Hypothesis and model-centric approaches to cognition and knowledge representation.</p>
-        <em>Active Inference, Cognitive Science, Knowledge Representation, Model Centric Cognition</em>
-        <em class="catalog-lead">Lead: Robert Worden</em>
-        <em class="catalog-people">People: Robert Worden</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="numinia/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference ai-agents autonomous-agents eduactive educational-game game-development learning-environments" data-search="numinia autonomous ai and educational adventure game grounded in active inference principles, where players and agents co-learn through play. active-inference ai-agents autonomous-agents eduactive educational-game game-development learning-environments pablofm pablofm">
-        <span>Ecosystem · Active</span>
-        <strong>Numinia</strong>
-        <p>Autonomous AI and educational adventure game grounded in Active Inference principles, where players and agents co-learn through play.</p>
-        <em>Active Inference, Ai Agents, Autonomous Agents, Eduactive</em>
-        <em class="catalog-lead">Lead: PabloFM</em>
-        <em class="catalog-people">People: PabloFM</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="pymdp/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference markov-decision-process python generative-models computation ecosystem" data-search="pymdp community python library implementing active inference for pomdps. active-inference markov-decision-process python generative-models computation ecosystem conor heins ">
-        <span>Ecosystem · Active</span>
-        <strong>pymdp</strong>
-        <p>Community Python library implementing Active Inference for POMDPs.</p>
-        <em>Active Inference, Markov Decision Process, Python, Generative Models</em>
-        <em class="catalog-lead">Lead: Conor Heins</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="regime-dependent-active-inference/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference computational-psychiatry addiction generative-models hybrid-systems emotional-regulation" data-search="regime-dependent active inference: addiction &amp; recovery dynamics extending active inference with regime-dependent generative models to represent dynamic progressions in addiction, relapse, and recovery. active-inference computational-psychiatry addiction generative-models hybrid-systems emotional-regulation dr. martin bello ">
-        <span>Ecosystem · Active</span>
-        <strong>Regime-Dependent Active Inference: Addiction &amp; Recovery Dynamics</strong>
-        <p>Extending Active Inference with regime-dependent generative models to represent dynamic progressions in addiction, relapse, and recovery.</p>
-        <em>Active Inference, Computational Psychiatry, Addiction, Generative Models</em>
-        <em class="catalog-lead">Lead: Dr. Martin Bello</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="symbolic-robotics/" data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference bayesian-reasoning cognitive-architecture embodied-cognition reinference robot-platforms robotics symbolic-reasoning" data-search="symbolic cognitive robotics symbolic cognitive robotics is an ecosystem project applying active inference to robotic systems that combine symbolic reasoning with embodied action. active-inference bayesian-reasoning cognitive-architecture embodied-cognition reinference robot-platforms robotics symbolic-reasoning jean-françois cloutier jean-françois cloutier">
-        <span>Ecosystem · Active</span>
-        <strong>Symbolic Cognitive Robotics</strong>
-        <p>Symbolic Cognitive Robotics is an Ecosystem project applying Active Inference to robotic systems that combine symbolic reasoning with embodied action.</p>
-        <em>Active Inference, Bayesian Reasoning, Cognitive Architecture, Embodied Cognition</em>
-        <em class="catalog-lead">Lead: Jean-François Cloutier</em>
-        <em class="catalog-people">People: Jean-François Cloutier</em>
-      </a></div><p class="catalog-empty" id="ecosystem-projects-active-empty" hidden>No active ecosystem projects match your search.</p>
-      <div class="catalog-subhead"><h4>Archived &amp; completed projects</h4><span class="catalog-subcount" id="ecosystem-projects-archived-count">20 projects</span></div><div class="resource-grid compact-grid" id="ecosystem-projects-archived-grid"><a class="resource-card internal-card catalog-project-card" href="collective-foraging/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference behavioral-science collective-behavior eduactive foraging multi-agent-systems negotiation sustainability" data-search="action research on collective foraging action research on collective foraging (negotiation affordances) applies active inference to collective foraging behavior — studying how groups form coalitions, negotiate opportunities, and sustain value exchanges. active-inference behavioral-science collective-behavior eduactive foraging multi-agent-systems negotiation sustainability susan hasty ">
-        <span>Ecosystem · Archived</span>
-        <strong>Action Research on Collective Foraging</strong>
-        <p>Action Research on Collective Foraging (Negotiation Affordances) applies Active Inference to collective foraging behavior — studying how groups form coalitions,</p>
-        <em>Active Inference, Behavioral Science, Collective Behavior, Eduactive</em>
-        <em class="catalog-lead">Lead: Susan Hasty</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="translation-agent/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference agent-architectures cognitive-modeling computational-linguistics free-energy-framework human-translation natural-language-processing reinference" data-search="active inference agent for modeling human translation modeling human translation processes using active inference agent architectures. active-inference agent-architectures cognitive-modeling computational-linguistics free-energy-framework human-translation natural-language-processing reinference michael carl ">
-        <span>Ecosystem · Archived</span>
-        <strong>Active Inference Agent for Modeling Human Translation</strong>
-        <p>Modeling human translation processes using Active Inference agent architectures.</p>
-        <em>Active Inference, Agent Architectures, Cognitive Modeling, Computational Linguistics</em>
-        <em class="catalog-lead">Lead: Michael Carl</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="cycle-book/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference eduactive education personal-development practical-framework reflective-practice self-knowledge wellbeing" data-search="active inference cycle book for self-knowing a reflective book project applying active inference as a framework for self-knowledge and personal development. active-inference eduactive education personal-development practical-framework reflective-practice self-knowledge wellbeing anna pereira anna pereira">
-        <span>Ecosystem · Archived</span>
-        <strong>Active Inference Cycle Book for Self-Knowing</strong>
-        <p>A reflective book project applying Active Inference as a framework for self-knowledge and personal development.</p>
-        <em>Active Inference, Eduactive, Education, Personal Development</em>
-        <em class="catalog-lead">Lead: Anna Pereira</em>
-        <em class="catalog-people">People: Anna Pereira</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="built-environments/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="reinference" data-search="active inference for built environments &amp; cooperactive systems apply active inference to designing, managing, and evolving built environments that prioritize the flourishing of all life, via distributed intelligence and digital twins. reinference ivan metelkin ivan metelkin">
-        <span>Ecosystem · Archived</span>
-        <strong>Active Inference for Built Environments &amp; CooperActive Systems</strong>
-        <p>Apply Active Inference to designing, managing, and evolving built environments that prioritize the flourishing of all life, via distributed intelligence and dig</p>
-        <em>Reinference</em>
-        <em class="catalog-lead">Lead: Ivan Metelkin</em>
-        <em class="catalog-people">People: Ivan Metelkin</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="clinical-waveform/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference bedside-decision-support biomedical-engineering clinical-monitoring free-energy-framework healthcare-ai physiological-signals reinference waveform-analysis" data-search="clinical waveform data based agent active inference systems for bedside clinical waveform monitoring applying the free energy framework to real-time eeg, ecg, and physiological signals. active-inference bedside-decision-support biomedical-engineering clinical-monitoring free-energy-framework healthcare-ai physiological-signals reinference waveform-analysis franklin ducatez ">
-        <span>Ecosystem · Archived</span>
-        <strong>Clinical Waveform Data Based Agent</strong>
-        <p>Active Inference systems for bedside clinical waveform monitoring applying the free energy framework to real-time EEG, ECG, and physiological signals.</p>
-        <em>Active Inference, Bedside Decision Support, Biomedical Engineering, Clinical Monitoring</em>
-        <em class="catalog-lead">Lead: Franklin Ducatez</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="creativity-fep/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference cognitive-science creative-agents creativity eduactive free-energy-principle generative-models" data-search="creativity and creators under the free energy principle this ecosystem project develops accounts of creativity and creative agents under the free energy principle — examining how generative models and free energy minimization explain, predict, and enhance creative behavior. active-inference cognitive-science creative-agents creativity eduactive free-energy-principle generative-models héctor manrique héctor manrique avel guénin-carlut ana magdalena hurtado dean tickles daniel friedman">
-        <span>Ecosystem · Archived</span>
-        <strong>Creativity and Creators Under the Free Energy Principle</strong>
-        <p>This Ecosystem project develops accounts of creativity and creative agents under the Free Energy Principle — examining how generative models and free energy min</p>
-        <em>Active Inference, Cognitive Science, Creative Agents, Creativity</em>
-        <em class="catalog-lead">Lead: Héctor Manrique</em>
-        <em class="catalog-people">People: Héctor Manrique, Avel Guénin-Carlut, Ana Magdalena Hurtado</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="digital-agents/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="reinference" data-search="digital agents tuesday discord sessions on digital agents and active inference. reinference pablofm pablofm daniel friedman">
-        <span>Ecosystem · Archived</span>
-        <strong>Digital Agents</strong>
-        <p>Tuesday Discord sessions on digital agents and Active Inference.</p>
-        <em>Reinference</em>
-        <em class="catalog-lead">Lead: PabloFM</em>
-        <em class="catalog-people">People: PabloFM, Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="froebel/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference cohort-based-learning eduactive education integral-studies kindergarten pedagogy philosophy" data-search="froebel's system studying friedrich froebel's pedagogical system through active inference and integral studies. active-inference cohort-based-learning eduactive education integral-studies kindergarten pedagogy philosophy joanne phillips ">
-        <span>Ecosystem · Archived</span>
-        <strong>Froebel's System</strong>
-        <p>Studying Friedrich Froebel's pedagogical system through Active Inference and integral studies.</p>
-        <em>Active Inference, Cohort Based Learning, Eduactive, Education</em>
-        <em class="catalog-lead">Lead: Joanne Phillips</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="robotic-microscopy/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference ai-agents autonomous-systems instrumentation microscopy reinference robotics soil-biology" data-search="from instrument to intelligent agent: robotic microscopy deploying active inference and ai to automate robotic microscopy and manage soil biology at scale. active-inference ai-agents autonomous-systems instrumentation microscopy reinference robotics soil-biology craig arnold ">
-        <span>Ecosystem · Archived</span>
-        <strong>From Instrument to Intelligent Agent: Robotic Microscopy</strong>
-        <p>Deploying Active Inference and AI to automate robotic microscopy and manage soil biology at scale.</p>
-        <em>Active Inference, Ai Agents, Autonomous Systems, Instrumentation</em>
-        <em class="catalog-lead">Lead: Craig Arnold</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="fundamentals-active-inference/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference eduactive education engineering expectation-maximisation free-energy-principle learning living-systems mathematical-biology textbook" data-search="fundamentals of active inference ecosystem project supporting the development and dissemination of the fundamentals of active inference textbook — a comprehensive introduction to active inference principles, algorithms, and applications for engineers. active-inference eduactive education engineering expectation-maximisation free-energy-principle learning living-systems mathematical-biology textbook daniel friedman daniel friedman">
-        <span>Ecosystem · Archived</span>
-        <strong>Fundamentals of Active Inference</strong>
-        <p>Ecosystem project supporting the development and dissemination of the Fundamentals of Active Inference textbook — a comprehensive introduction to Active Inferen</p>
-        <em>Active Inference, Eduactive, Education, Engineering</em>
-        <em class="catalog-lead">Lead: Daniel Friedman</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="graphspeak/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="generative-models graph-based-communication graph-tools interoperable-notation knowledge-representation open-source reinference" data-search="graphspeak / blorbbe ecosystem project developing open-source tools for graph-based communication and knowledge representation. generative-models graph-based-communication graph-tools interoperable-notation knowledge-representation open-source reinference andrew djuwidja daniel friedman">
-        <span>Ecosystem · Archived</span>
-        <strong>Graphspeak / Blorbbe</strong>
-        <p>Ecosystem project developing open-source tools for graph-based communication and knowledge representation.</p>
-        <em>Generative Models, Graph Based Communication, Graph Tools, Interoperable Notation</em>
-        <em class="catalog-lead">Lead: Andrew Djuwidja</em>
-        <em class="catalog-people">People: Daniel Friedman</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="m-theory-hdpls/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference hyper-dimensional-geometry information-geometry m-theory mathematical-physics physics reinference theoretical-physics" data-search="m-theory as function of hyper dimensional prismatic light scattering (hdpls-tars) hdpls-tars is a speculative ecosystem project testing the limits of m-theory through hyper-dimensional field interconnections and prismatic light scattering dynamics. active-inference hyper-dimensional-geometry information-geometry m-theory mathematical-physics physics reinference theoretical-physics david hughes ">
-        <span>Ecosystem · Archived</span>
-        <strong>M-Theory as Function of Hyper Dimensional Prismatic Light Scattering (HDPLS-TARS)</strong>
-        <p>HDPLS-TARS is a speculative Ecosystem project testing the limits of M-Theory through hyper-dimensional field interconnections and prismatic light scattering dyn</p>
-        <em>Active Inference, Hyper Dimensional Geometry, Information Geometry, M Theory</em>
-        <em class="catalog-lead">Lead: David Hughes</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="mathart/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="art art-science collaborative-dialogue creative-inquiry eduactive interdisciplinary mathematical-aesthetics mathematics" data-search="mathart conversations exploring profound connections between mathematics and the arts through collaborative conversation. art art-science collaborative-dialogue creative-inquiry eduactive interdisciplinary mathematical-aesthetics mathematics shanna dobson héctor manrique daniel friedman dean tickles">
-        <span>Ecosystem · Archived</span>
-        <strong>MathArt Conversations</strong>
-        <p>Exploring profound connections between mathematics and the arts through collaborative conversation.</p>
-        <em>Art, Art Science, Collaborative Dialogue, Creative Inquiry</em>
-        <em class="catalog-lead">Lead: Shanna Dobson</em>
-        <em class="catalog-people">People: Héctor Manrique, Daniel Friedman, Dean Tickles</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="neurodivergent-learning/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="accessibility active-inference community-structures curriculum-development eduactive inclusive-education learning neurodiversity" data-search="neurodivergent learning sessions active inference learning resources and sessions tailored for neurodivergent participants, building curriculum and community structures for autistic, adhd, and other neurodivergent learners. accessibility active-inference community-structures curriculum-development eduactive inclusive-education learning neurodiversity jesse g jesse g">
-        <span>Ecosystem · Archived</span>
-        <strong>Neurodivergent Learning Sessions</strong>
-        <p>Active Inference learning resources and sessions tailored for neurodivergent participants, building curriculum and community structures for autistic, ADHD, and </p>
-        <em>Accessibility, Active Inference, Community Structures, Curriculum Development</em>
-        <em class="catalog-lead">Lead: Jesse G</em>
-        <em class="catalog-people">People: Jesse G</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="tower-of-babel/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference conceptual-frameworks cross-domain-translation eduactive knowledge-communication linguistics philosophy universal-language" data-search="project development for solving the tower of babel problem develops a framework for solving the tower of babel problem through unifysica philo-sophia, a universal conceptual bridge for cross-domain knowledge communication and translation. active-inference conceptual-frameworks cross-domain-translation eduactive knowledge-communication linguistics philosophy universal-language ana magdalena hurtado ana magdalena hurtado dean tickles">
-        <span>Ecosystem · Archived</span>
-        <strong>Project Development for Solving the Tower of Babel Problem</strong>
-        <p>Develops a framework for solving the Tower of Babel Problem through UniFysica Philo-sophia, a universal conceptual bridge for cross-domain knowledge communicati</p>
-        <em>Active Inference, Conceptual Frameworks, Cross Domain Translation, Eduactive</em>
-        <em class="catalog-lead">Lead: Ana Magdalena Hurtado</em>
-        <em class="catalog-people">People: Ana Magdalena Hurtado, Dean Tickles</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="sweet-dogg/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference animal-behavior cognitive-modeling ethology human-animal-alignment human-animal-interaction reinference trust-building" data-search="project sweet (sus) dogg applies active inference principles to understanding and improving human-animal relationships through alignment and trust-building. active-inference animal-behavior cognitive-modeling ethology human-animal-alignment human-animal-interaction reinference trust-building andrew djuwidja ">
-        <span>Ecosystem · Archived</span>
-        <strong>Project Sweet (Sus) Dogg</strong>
-        <p>Applies Active Inference principles to understanding and improving human-animal relationships through alignment and trust-building.</p>
-        <em>Active Inference, Animal Behavior, Cognitive Modeling, Ethology</em>
-        <em class="catalog-lead">Lead: Andrew Djuwidja</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="einstein-model/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference formal-bridges free-energy-principle neuroscience psychoanalysis reinference theoretical-modeling" data-search="the einstein model of a solid as a model of the mental apparatus bridging psychoanalytic theory and active inference through the economic perspective of psychoanalytic theory. active-inference formal-bridges free-energy-principle neuroscience psychoanalysis reinference theoretical-modeling theodoros aliferis theodoros aliferis">
-        <span>Ecosystem · Archived</span>
-        <strong>The Einstein Model of a Solid as a Model of the Mental Apparatus</strong>
-        <p>Bridging psychoanalytic theory and Active Inference through the economic perspective of psychoanalytic theory.</p>
-        <em>Active Inference, Formal Bridges, Free Energy Principle, Neuroscience</em>
-        <em class="catalog-lead">Lead: Theodoros Aliferis</em>
-        <em class="catalog-people">People: Theodoros Aliferis</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="three-mosqueteers/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="accessibility active-inference eduactive education livestream public-engagement science-communication" data-search="the three mosqueteers science communication livestream making scientific information accessible to people without a scientific background. accessibility active-inference eduactive education livestream public-engagement science-communication héctor manrique héctor manrique ana magdalena hurtado">
-        <span>Ecosystem · Archived</span>
-        <strong>The Three Mosqueteers</strong>
-        <p>Science communication livestream making scientific information accessible to people without a scientific background.</p>
-        <em>Accessibility, Active Inference, Eduactive, Education</em>
-        <em class="catalog-lead">Lead: Héctor Manrique</em>
-        <em class="catalog-people">People: Héctor Manrique, Ana Magdalena Hurtado</em>
-      </a><a class="resource-card internal-card catalog-project-card" href="universal-basic-income/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference agent-based-modeling behavioral-modeling economic-policy policy-simulation reinference universal-basic-income" data-search="the universal basic income experiment studies universal basic income through active inference modeling and simulation using token economics, policy simulation, and behavioral modeling. active-inference agent-based-modeling behavioral-modeling economic-policy policy-simulation reinference universal-basic-income die schwarze katze ">
-        <span>Ecosystem · Archived</span>
-        <strong>The Universal Basic Income Experiment</strong>
-        <p>Studies universal basic income through Active Inference modeling and simulation using token economics, policy simulation, and behavioral modeling.</p>
-        <em>Active Inference, Agent Based Modeling, Behavioral Modeling, Economic Policy</em>
-        <em class="catalog-lead">Lead: Die Schwarze Katze</em>
-
-      </a><a class="resource-card internal-card catalog-project-card" href="tubs/" data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="eduactive" data-search="the unordinary bible study (tubs) monthly sessions cross-referencing biblical verses with a focus on inter-faith and contemporary perspective dialogue, connecting active inference to process theology. eduactive jesse g jesse g">
-        <span>Ecosystem · Archived</span>
-        <strong>The Unordinary Bible Study (TUBS)</strong>
-        <p>Monthly sessions cross-referencing biblical verses with a focus on inter-faith and contemporary perspective dialogue, connecting active inference to process the</p>
-        <em>Eduactive</em>
-        <em class="catalog-lead">Lead: Jesse G</em>
-        <em class="catalog-people">People: Jesse G</em>
-      </a></div><p class="catalog-empty" id="ecosystem-projects-archived-empty" hidden>No archived or completed ecosystem projects match your search.</p>
-    </section>
+    <div class="catalog-subhead"><h4>Active projects</h4><span class="catalog-subcount" id="catalog-institute-active-count">19 projects</span></div>
+      <div class="table-wrap"><table class="directory-table catalog-table" id="catalog-institute-active-table">
+        <caption>Active Institute-hosted projects, from the public InstituteOS project registry.</caption>
+        <thead><tr><th scope="col">Project</th><th scope="col">About</th><th scope="col">Topics</th><th scope="col">Lead &amp; people</th></tr></thead>
+        <tbody id="catalog-institute-active-body"><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="academic-publishing active-inference collaborative-editing community decentralized-science eduactive journal knowledge-repository knowledge-sharing open-science open-source publishing research transcription" data-search="active inference journal active-inference-journal project-active-inference-journal a community publication and knowledge channel for active inference research and discussion. academic-publishing active-inference collaborative-editing community decentralized-science eduactive journal knowledge-repository knowledge-sharing open-science open-source publishing research transcription alexander vyatkin alexander vyatkin holly grimm">
+          <th scope="row"><a href="active-inference-journal/">Active Inference Journal</a></th>
+          <td>A community publication and knowledge channel for Active Inference research and discussion.</td>
+          <td>Academic Publishing, Active Inference, Collaborative Editing, Community, Decentralized Science</td>
+          <td><strong>Alexander Vyatkin</strong><br>Holly Grimm</td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference decentralized-science eduactive formal-knowledge formal-logic knowledge-engineering knowledge-representation living-document machine-readable ontology rdf-owl terminology translation" data-search="active inference ontology active-inference-ontology project-active-inference-ontology maintains and develops the public ontology for active inference and decentralized science with structured, machine-readable definitions. active-inference decentralized-science eduactive formal-knowledge formal-logic knowledge-engineering knowledge-representation living-document machine-readable ontology rdf-owl terminology translation daniel friedman daniel friedman">
+          <th scope="row"><a href="active-inference-ontology/">Active Inference Ontology</a></th>
+          <td>Maintains and develops the public ontology for Active Inference and decentralized science with structured, machine-readable definitions.</td>
+          <td>Active Inference, Decentralized Science, Eduactive, Formal Knowledge, Formal Logic</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="ai-alignment active-inference multi-agent-systems governance-frameworks embodied-systems robotics open-science" data-search="ai²c: active inference alignment coalition ai2c-active-inference-alignment-coalition project-ai2c multi-institution initiative building a research coalition, funding pipeline, and shared infrastructure for ai alignment, governance, and embodied experimentation. ai-alignment active-inference multi-agent-systems governance-frameworks embodied-systems robotics open-science  ">
+          <th scope="row"><a href="ai2c/">AI²C: Active Inference Alignment Coalition</a></th>
+          <td>Multi-institution initiative building a research coalition, funding pipeline, and shared infrastructure for AI alignment, governance, and embodied experimentation.</td>
+          <td>Ai Alignment, Active Inference, Multi Agent Systems, Governance Frameworks, Embodied Systems</td>
+          <td></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference agency ai-alignment ai-capabilities ai-regulation beneficial-ai care-practices consensus-building ethics policy reinference workshops world-models" data-search="aicacp aicacp project-aicacp a coalition-oriented project at the intersection of ai capabilities and care practices. active-inference agency ai-alignment ai-capabilities ai-regulation beneficial-ai care-practices consensus-building ethics policy reinference workshops world-models adam safron adam safron">
+          <th scope="row"><a href="aicacp/">AICACP</a></th>
+          <td>A coalition-oriented project at the intersection of AI capabilities and care practices.</td>
+          <td>Active Inference, Agency, Ai Alignment, Ai Capabilities, Ai Regulation</td>
+          <td><strong>Adam Safron</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference ai artificial-intelligence collaborative-sessions community-building computational-neuroscience eduactive industry-applications research-conference robotics symposium" data-search="applied active inference symposium symposium project-symposium the applied active inference symposium is a yearly event that convenes the global active inference community. it has run five times from 2021 through 2025, with the sixth symposium in 2026. the symposium features research presentations, discussions, and collaborative sessions spanning computational neuroscience, ai, ecology, economics, health, and other domains. active-inference ai artificial-intelligence collaborative-sessions community-building computational-neuroscience eduactive industry-applications research-conference robotics symposium daniel friedman daniel friedman">
+          <th scope="row"><a href="symposium/">Applied Active Inference Symposium</a></th>
+          <td>The Applied Active Inference Symposium is a yearly event that convenes the global Active Inference community. It has run five times from 2021 through 2025, with the sixth symposium in 2026. The Sympos</td>
+          <td>Active Inference, Ai, Artificial Intelligence, Collaborative Sessions, Community Building</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="audio-visual-production eduactive educational-content livestreams media-production podcasts video-recording" data-search="audio-visual production audio-visual-production project-audio-visual-production audio-visual production is a sustained institute project responsible for planning, recording, and publishing the institute's livestreams, podcasts, video events, and educational recordings. audio-visual-production eduactive educational-content livestreams media-production podcasts video-recording daniel friedman daniel friedman">
+          <th scope="row"><a href="audio-visual-production/">Audio-Visual Production</a></th>
+          <td>Audio-Visual Production is a sustained Institute project responsible for planning, recording, and publishing the Institute's livestreams, podcasts, video events, and educational recordings.</td>
+          <td>Audio Visual Production, Eduactive, Educational Content, Livestreams, Media Production</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference course-development curriculum eduactive education knowledge-base learning-materials obsidian" data-search="educational course development educational-course-development project-educational-course-development educational course development is a sustained institute project producing structured courses in active inference and related topics, maintaining an obsidian repository and course catalog for diverse learning backgrounds. active-inference course-development curriculum eduactive education knowledge-base learning-materials obsidian daniel friedman daniel friedman">
+          <th scope="row"><a href="educational-course-development/">Educational Course Development</a></th>
+          <td>Educational Course Development is a sustained Institute project producing structured courses in Active Inference and related topics, maintaining an Obsidian repository and course catalog for diverse l</td>
+          <td>Active Inference, Course Development, Curriculum, Eduactive, Education</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference cognitive-modeling formal-modeling generative-models interoperability knowledge-engineering knowledge-representation machine-parsable model-specification notation reinference" data-search="generalized notation notation gnn project-gnn a text-based notation system for communicating generative models and active inference systems that provides a shared language for describing models in a human-readable and machine-processable way. active-inference cognitive-modeling formal-modeling generative-models interoperability knowledge-engineering knowledge-representation machine-parsable model-specification notation reinference daniel friedman daniel friedman">
+          <th scope="row"><a href="gnn/">Generalized Notation Notation</a></th>
+          <td>A text-based notation system for communicating generative models and Active Inference systems that provides a shared language for describing models in a human-readable and machine-processable way.</td>
+          <td>Active Inference, Cognitive Modeling, Formal Modeling, Generative Models, Interoperability</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference agent-systems bayesian-methods bioregional-modeling ecology environmental-science geospatial geospatial-modeling open-source probabilistic-modeling reinference resource-management spatial-analysis spatial-temporal urban-planning" data-search="geo-infer geo-infer project-geo-infer geospatial modeling using active inference and spatial data analysis techniques. active-inference agent-systems bayesian-methods bioregional-modeling ecology environmental-science geospatial geospatial-modeling open-source probabilistic-modeling reinference resource-management spatial-analysis spatial-temporal urban-planning daniel friedman daniel friedman">
+          <th scope="row"><a href="geo-infer/">GEO-INFER</a></th>
+          <td>Geospatial modeling using Active Inference and spatial data analysis techniques.</td>
+          <td>Active Inference, Agent Systems, Bayesian Methods, Bioregional Modeling, Ecology</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference annotation free-energy-principle information-science knowledge-engineering knowledge-graphs knowledge-infrastructure literature-analysis literature-meta-analysis ontology reinference scientific-publications" data-search="knowledge engineering knowledge-engineering project-knowledge-engineering knowledge engineering develops and maintains the public knowledge infrastructure for the active inference institute, including the public frontend, literature meta-analysis, and organizational knowledge systems. active-inference annotation free-energy-principle information-science knowledge-engineering knowledge-graphs knowledge-infrastructure literature-analysis literature-meta-analysis ontology reinference scientific-publications virginia bleu knight virginia bleu knight daniel friedman">
+          <th scope="row"><a href="knowledge-engineering/">Knowledge Engineering</a></th>
+          <td>Knowledge Engineering develops and maintains the public knowledge infrastructure for the Active Inference Institute, including the public frontend, literature meta-analysis, and organizational knowled</td>
+          <td>Active Inference, Annotation, Free Energy Principle, Information Science, Knowledge Engineering</td>
+          <td><strong>Virginia Bleu Knight</strong><br>Daniel Friedman</td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference artificial-intelligence morality symbolic-cognition cultural-evolution multi-agent-systems model-selection" data-search="myth of objectivity hypothesis myth-of-objectivity project-myth-of-objectivity rigorous exploration of humanity's capacity for symbolic intelligence by modeling norms across social and identity scales to develop culturally-aligned artificial general intelligence. active-inference artificial-intelligence morality symbolic-cognition cultural-evolution multi-agent-systems model-selection shagor (shaggy) rahman shagor (shaggy) rahman">
+          <th scope="row"><a href="myth-of-objectivity/">Myth of Objectivity Hypothesis</a></th>
+          <td>Rigorous exploration of humanity's capacity for symbolic intelligence by modeling norms across social and identity scales to develop culturally-aligned artificial general intelligence.</td>
+          <td>Active Inference, Artificial Intelligence, Morality, Symbolic Cognition, Cultural Evolution</td>
+          <td><strong>Shagor (Shaggy) Rahman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="ai-alignment agency perspective-taking emergent-coherence multi-agent-systems active-inference generative-architecture social-attunement" data-search="perspective architectures for coherent and attuned artificial agency perspective-architectures-for-coherent-and-attuned-artificial-agency project-perspective-architectures formalize a minimal computational architecture that models internal coherence dynamics for ai alignment through latent generative perspective structures. ai-alignment agency perspective-taking emergent-coherence multi-agent-systems active-inference generative-architecture social-attunement  ">
+          <th scope="row"><a href="perspective-architectures/">Perspective Architectures for Coherent and Attuned Artificial Agency</a></th>
+          <td>Formalize a minimal computational architecture that models internal coherence dynamics for AI alignment through latent generative perspective structures.</td>
+          <td>Ai Alignment, Agency, Perspective Taking, Emergent Coherence, Multi Agent Systems</td>
+          <td></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference bayesian-inference community-driven education julia learning-group machine-learning open-source probabilistic-programming reactive-systems reinference" data-search="rxinfer.jl learning and development group rxinfer project-rxinfer the rxinfer.jl learning and development group supports learning and extending rxinfer.jl, a julia package for reactive bayesian inference. active-inference bayesian-inference community-driven education julia learning-group machine-learning open-source probabilistic-programming reactive-systems reinference daniel friedman daniel friedman">
+          <th scope="row"><a href="rxinfer/">RxInfer.jl Learning and Development Group</a></th>
+          <td>The RxInfer.jl Learning and Development Group supports learning and extending RxInfer.jl, a Julia package for reactive Bayesian inference.</td>
+          <td>Active Inference, Bayesian Inference, Community Driven, Education, Julia</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference cohort-based community community-engagement eduactive education institute intensive-training learning seasonal-programs structured-curriculum" data-search="seasonal school seasonal-school project-seasonal-school an intensive in-person or online school for deep engagement with active inference theory, modeling, and applications. active-inference cohort-based community community-engagement eduactive education institute intensive-training learning seasonal-programs structured-curriculum daniel friedman daniel friedman">
+          <th scope="row"><a href="seasonal-school/">Seasonal School</a></th>
+          <td>An intensive in-person or online school for deep engagement with Active Inference theory, modeling, and applications.</td>
+          <td>Active Inference, Cohort Based, Community, Community Engagement, Eduactive</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference education curriculum multilingual learning-paths free-energy-principle content-generation professional-development" data-search="start start project-start scalable, tailored active inference research &amp; training — modular pipeline generating multilingual educational materials on active inference and the free energy principle tailored to professional domains and individual learners. active-inference education curriculum multilingual learning-paths free-energy-principle content-generation professional-development daniel friedman daniel friedman">
+          <th scope="row"><a href="start/">Start</a></th>
+          <td>Scalable, Tailored Active Inference Research &amp; Training — modular pipeline generating multilingual educational materials on Active Inference and the Free Energy Principle tailored to professional doma</td>
+          <td>Active Inference, Education, Curriculum, Multilingual, Learning Paths</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference cohort-learning collaborative-learning eduactive education free-energy-principle learning-community open-science structured-learning textbook-study textbooks" data-search="textbook group textbook-group project-textbook-group structured cohort-based learning through active inference textbooks: 9 completed cohorts on the 2022 textbook since 2022, plus a first cohort now live on the 2026 fundamentals textbook. active-inference cohort-learning collaborative-learning eduactive education free-energy-principle learning-community open-science structured-learning textbook-study textbooks daniel friedman daniel friedman">
+          <th scope="row"><a href="textbook-group/">Textbook Group</a></th>
+          <td>Structured cohort-based learning through Active Inference textbooks: 9 completed cohorts on the 2022 textbook since 2022, plus a first cohort now live on the 2026 Fundamentals textbook.</td>
+          <td>Active Inference, Cohort Learning, Collaborative Learning, Eduactive, Education</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="political-ideology computational-neuroscience free-energy-principle active-inference prediction-error cognitive-flexibility political-psychology polarization" data-search="the foundations of ideology the-foundations-of-ideology project-foundations-of-ideology computational-neuroscience (fep/active inference) framework for how political ideologies form, persist, and evolve. political-ideology computational-neuroscience free-energy-principle active-inference prediction-error cognitive-flexibility political-psychology polarization  ">
+          <th scope="row"><a href="foundations-of-ideology/">The Foundations of Ideology</a></th>
+          <td>Computational-neuroscience (FEP/Active Inference) framework for how political ideologies form, persist, and evolve.</td>
+          <td>Political Ideology, Computational Neuroscience, Free Energy Principle, Active Inference, Prediction Error</td>
+          <td></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="active-inference cognitive-science computational-modeling consciousness free-energy-principle mathematical-modeling multi-agent-systems neural-systems neurobiology neuroscience predictive-coding predictive-processing reinference theoretical-neurobiology" data-search="theoretical neurobiology group theoretical-neurobiology project-theoretical-neurobiology the theoretical neurobiology group (tnb) supports theoretical work connecting active inference to neurobiology with regular meetings and discussions for mathematical and conceptual models of neural systems. active-inference cognitive-science computational-modeling consciousness free-energy-principle mathematical-modeling multi-agent-systems neural-systems neurobiology neuroscience predictive-coding predictive-processing reinference theoretical-neurobiology daniel friedman daniel friedman">
+          <th scope="row"><a href="theoretical-neurobiology/">Theoretical Neurobiology Group</a></th>
+          <td>The Theoretical Neurobiology Group (TNB) supports theoretical work connecting Active Inference to neurobiology with regular meetings and discussions for mathematical and conceptual models of neural sy</td>
+          <td>Active Inference, Cognitive Science, Computational Modeling, Consciousness, Free Energy Principle</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="active" data-topics="brain-waves consciousness wave-hypothesis bayesian-cognition theoretical-neuroscience active-inference language-theory" data-search="wave hypothesis wave-hypothesis project-wave-hypothesis series of livestreams and papers by robert worden on the brain wave hypothesis, projective wave theory of consciousness, and bayesian model-based cognition. brain-waves consciousness wave-hypothesis bayesian-cognition theoretical-neuroscience active-inference language-theory robert worden robert worden">
+          <th scope="row"><a href="wave-hypothesis/">Wave Hypothesis</a></th>
+          <td>Series of livestreams and papers by Robert Worden on the brain wave hypothesis, projective wave theory of consciousness, and Bayesian model-based cognition.</td>
+          <td>Brain Waves, Consciousness, Wave Hypothesis, Bayesian Cognition, Theoretical Neuroscience</td>
+          <td><strong>Robert Worden</strong></td>
+        </tr></tbody>
+      </table></div>
+      <p class="catalog-empty" id="catalog-institute-active-empty" hidden>No active institute-hosted projects match your search.</p>
+    <div class="catalog-subhead"><h4>Archived &amp; completed projects</h4><span class="catalog-subcount" id="catalog-institute-archived-count">9 projects</span></div>
+      <div class="table-wrap"><table class="directory-table catalog-table" id="catalog-institute-archived-table">
+        <caption>Archived and completed Institute-hosted projects, from the public InstituteOS project registry.</caption>
+        <thead><tr><th scope="col">Project</th><th scope="col">About</th><th scope="col">Topics</th><th scope="col">Lead &amp; people</th></tr></thead>
+        <tbody id="catalog-institute-archived-body"><tr data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference agent-behavior blockchain cadcad cognitive-modeling complex-systems decentralized-systems distributed-systems generative-models jupyter-notebook multi-agent-simulation multiagent-modeling open-source reinference" data-search="active blockference active-blockference project-active-blockference active inference examples and tools for decentralized and blockchain-adjacent systems active-inference agent-behavior blockchain cadcad cognitive-modeling complex-systems decentralized-systems distributed-systems generative-models jupyter-notebook multi-agent-simulation multiagent-modeling open-source reinference daniel friedman daniel friedman">
+          <th scope="row"><a href="active-blockference/">Active Blockference</a></th>
+          <td>Active Inference examples and tools for decentralized and blockchain-adjacent systems</td>
+          <td>Active Inference, Agent Behavior, Blockchain, Cadcad, Cognitive Modeling</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference decentralized-science scientific-ontology scientific-governance epistemic-commons organizational-frameworks" data-search="active entity ontology for science (aeos) active-entity-ontology-for-science project-aeos framework bridging centralized and decentralized science approaches using active inference principles for scientific organization and governance. active-inference decentralized-science scientific-ontology scientific-governance epistemic-commons organizational-frameworks daniel friedman daniel friedman">
+          <th scope="row"><a href="aeos/">Active Entity Ontology for Science (AEOS)</a></th>
+          <td>Framework bridging centralized and decentralized science approaches using Active Inference principles for scientific organization and governance.</td>
+          <td>Active Inference, Decentralized Science, Scientific Ontology, Scientific Governance, Epistemic Commons</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference ant-colonies ant-colony behavioral-simulation collective-behavior computational-biology computational-modeling modeling multi-agent-systems multiagent-systems open-source reinference stigmergy swarm-intelligence" data-search="active inferants active-inferants project-active-inferants multiagent modeling of collective behavior using active inference, with connections to ant colony research. active-inference ant-colonies ant-colony behavioral-simulation collective-behavior computational-biology computational-modeling modeling multi-agent-systems multiagent-systems open-source reinference stigmergy swarm-intelligence daniel friedman daniel friedman">
+          <th scope="row"><a href="active-inferants/">Active InferAnts</a></th>
+          <td>Multiagent modeling of collective behavior using Active Inference, with connections to ant colony research.</td>
+          <td>Active Inference, Ant Colonies, Ant Colony, Behavioral Simulation, Collective Behavior</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference curriculum eduactive education interdisciplinary pedagogy research social-sciences" data-search="active inference for social sciences active-inference-social-sciences project-active-inference-social-sciences develops courses, curricula, research, and writing connecting active inference to social sciences disciplines. active-inference curriculum eduactive education interdisciplinary pedagogy research social-sciences avel guénin-carlut avel guénin-carlut daniel friedman">
+          <th scope="row"><a href="active-inference-social-sciences/">Active Inference for Social Sciences</a></th>
+          <td>Develops courses, curricula, research, and writing connecting Active Inference to social sciences disciplines.</td>
+          <td>Active Inference, Curriculum, Eduactive, Education, Interdisciplinary</td>
+          <td><strong>Avel Guénin-Carlut</strong><br>Daniel Friedman</td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference agent-modeling cognitive-modeling computational-neuroscience implementation machine-learning probabilistic-inference reinference" data-search="cognitive agent modeling cognitive-agent-modeling project-cognitive-agent-modeling developing minimal cognitive agent models using active inference principles. active-inference agent-modeling cognitive-modeling computational-neuroscience implementation machine-learning probabilistic-inference reinference daniel friedman daniel friedman">
+          <th scope="row"><a href="cognitive-agent-modeling/">Cognitive Agent Modeling</a></th>
+          <td>Developing minimal cognitive agent models using Active Inference principles.</td>
+          <td>Active Inference, Agent Modeling, Cognitive Modeling, Computational Neuroscience, Implementation</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference agents agriculture applied-research decentralized-ai ecological-systems ecology farm-scale-solutions human-ai-interaction modeling personalization reinference soil-biology" data-search="farmworks farmworks project-farmworks farmworks develops miniature active inference models and applications for agricultural and ecological contexts. active-inference agents agriculture applied-research decentralized-ai ecological-systems ecology farm-scale-solutions human-ai-interaction modeling personalization reinference soil-biology vladimir baulin vladimir baulin andrew pashea">
+          <th scope="row"><a href="farmworks/">FarmWorks</a></th>
+          <td>FarmWorks develops miniature Active Inference models and applications for agricultural and ecological contexts.</td>
+          <td>Active Inference, Agents, Agriculture, Applied Research, Decentralized Ai</td>
+          <td><strong>Vladimir Baulin</strong><br>Andrew Pashea</td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference graphical-interface interactive-tools modeling reinference ui-ux-design user-interfaces visualization" data-search="graphical interface graphical-interface project-graphical-interface a graphical interface project for active inference modeling and visualization. active-inference graphical-interface interactive-tools modeling reinference ui-ux-design user-interfaces visualization daniel friedman daniel friedman">
+          <th scope="row"><a href="graphical-interface/">Graphical Interface</a></th>
+          <td>A graphical interface project for Active Inference modeling and visualization.</td>
+          <td>Active Inference, Graphical Interface, Interactive Tools, Modeling, Reinference</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="archived" data-topics="active-inference eduactive education free-energy-principle information-theory physics statistical-mechanics thermodynamics" data-search="physics course physics-course project-physics-course a course connecting physics, thermodynamics, and the theoretical foundations of active inference. active-inference eduactive education free-energy-principle information-theory physics statistical-mechanics thermodynamics daniel friedman daniel friedman">
+          <th scope="row"><a href="physics-course/">Physics Course</a></th>
+          <td>A course connecting physics, thermodynamics, and the theoretical foundations of Active Inference.</td>
+          <td>Active Inference, Eduactive, Education, Free Energy Principle, Information Theory</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="institute" data-status="archived" data-topics="accessibility discoverability eduactive education media-improvement metadata transcription video-production" data-search="video improvement project video-improvement project-video-improvement the video improvement project focuses on enhancing the quality, organization, and accessibility of the institute's extensive video library — covering hundreds of livestreams, educational sessions, and project recordings from 2020 onward. accessibility discoverability eduactive education media-improvement metadata transcription video-production daniel friedman daniel friedman">
+          <th scope="row"><a href="video-improvement/">Video Improvement Project</a></th>
+          <td>The Video Improvement Project focuses on enhancing the quality, organization, and accessibility of the Institute's extensive video library — covering hundreds of livestreams, educational sessions, and</td>
+          <td>Accessibility, Discoverability, Eduactive, Education, Media Improvement</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr></tbody>
+      </table></div>
+      <p class="catalog-empty" id="catalog-institute-archived-empty" hidden>No archived or completed institute-hosted projects match your search.</p>
+  </section><section class="content-band catalog-affiliation" id="catalog-ecosystem" data-affiliation="ecosystem">
+    <div class="section-heading">
+    <p class="eyebrow">Ecosistema</p>
+    <h2>Ecosystem projects</h2>
+    <p>Community-driven projects across the wider Active Inference ecosystem, drawn from the same canonical affiliation field. This table is independent of the Institute-hosted table above: its search, topic filter, and counts cover Ecosystem projects only.</p>
+  </div>
+    <p class="category-count">37 projects</p>
+    <div class="activities-search">
+      <input id="catalog-ecosystem-search" type="search" placeholder="Search 37 ecosystem projects by name, topic, or lead…" autocomplete="off" aria-label="Search ecosystem projects">
+      <select id="catalog-ecosystem-topic" aria-label="Filter ecosystem projects by topic">
+        <option value="">All topics</option>
+        <option value="active-inference">Active Inference (31)</option><option value="reinference">Reinference (21)</option><option value="eduactive">Eduactive (12)</option><option value="free-energy-principle">Free Energy Principle (5)</option><option value="cognitive-science">Cognitive Science (4)</option><option value="education">Education (4)</option><option value="generative-models">Generative Models (4)</option><option value="cognitive-modeling">Cognitive Modeling (3)</option><option value="knowledge-representation">Knowledge Representation (3)</option><option value="neuroscience">Neuroscience (3)</option><option value="accessibility">Accessibility (2)</option><option value="ai-agents">Ai Agents (2)</option><option value="cognitive-architecture">Cognitive Architecture (2)</option><option value="computational-psychiatry">Computational Psychiatry (2)</option>
+      </select>
+      <span id="catalog-ecosystem-count" aria-live="polite"></span>
+    </div>
+    <div class="catalog-subhead"><h4>Active projects</h4><span class="catalog-subcount" id="catalog-ecosystem-active-count">17 projects</span></div>
+      <div class="table-wrap"><table class="directory-table catalog-table" id="catalog-ecosystem-active-table">
+        <caption>Active Ecosystem projects, from the public InstituteOS project registry.</caption>
+        <thead><tr><th scope="col">Project</th><th scope="col">About</th><th scope="col">Topics</th><th scope="col">Lead &amp; people</th></tr></thead>
+        <tbody id="catalog-ecosystem-active-body"><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference belief-updating computational-psychiatry free-energy neuroscience predictive-processing ptsd reinference" data-search="active inference account of belief updating in ptsd belief-updating-ptsd project-belief-updating-ptsd develops a formal active inference account of belief updating in ptsd using predictive processing and free energy frameworks. active-inference belief-updating computational-psychiatry free-energy neuroscience predictive-processing ptsd reinference jeremy cooper jeremy cooper">
+          <th scope="row"><a href="belief-updating-ptsd/">Active Inference Account of Belief Updating in PTSD</a></th>
+          <td>Develops a formal Active Inference account of belief updating in PTSD using predictive processing and free energy frameworks.</td>
+          <td>Active Inference, Belief Updating, Computational Psychiatry, Free Energy, Neuroscience</td>
+          <td><strong>Jeremy Cooper</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference ai-alignment ai-behavior cognitive-science large-language-models policy-based-systems reinference" data-search="anima anima project-anima exploring active inference in the context of current llm-based ai interactions and policy-based behavior. active-inference ai-alignment ai-behavior cognitive-science large-language-models policy-based-systems reinference stell ">
+          <th scope="row"><a href="anima/">Anima</a></th>
+          <td>Exploring Active Inference in the context of current LLM-based AI interactions and policy-based behavior.</td>
+          <td>Active Inference, Ai Alignment, Ai Behavior, Cognitive Science, Large Language Models</td>
+          <td><strong>Stell</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference ai-research artificial-sentience consciousness free-energy-principle phenomenology philosophy-of-mind reinference" data-search="artificial sentience artificial-sentience project-artificial-sentience exploring the conditions for and implications of sentience in artificial systems through an active inference lens. active-inference ai-research artificial-sentience consciousness free-energy-principle phenomenology philosophy-of-mind reinference cleber gomes ">
+          <th scope="row"><a href="artificial-sentience/">Artificial Sentience</a></th>
+          <td>Exploring the conditions for and implications of sentience in artificial systems through an Active Inference lens.</td>
+          <td>Active Inference, Ai Research, Artificial Sentience, Consciousness, Free Energy Principle</td>
+          <td><strong>Cleber Gomes</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference cognitive-architecture cognitive-scaffolding collaborative-systems collective-intelligence community-coordination computational-models decision-making group-cognition knowledge-representation narrative-infrastructure reinference sense-making story-graphs" data-search="cognarr ecosystem cognarn project-cognarn facilitating group cognition at scale through cognitive narrative infrastructure. active-inference cognitive-architecture cognitive-scaffolding collaborative-systems collective-intelligence community-coordination computational-models decision-making group-cognition knowledge-representation narrative-infrastructure reinference sense-making story-graphs john boik john boik">
+          <th scope="row"><a href="cognarn/">CogNarr Ecosystem</a></th>
+          <td>Facilitating group cognition at scale through cognitive narrative infrastructure.</td>
+          <td>Active Inference, Cognitive Architecture, Cognitive Scaffolding, Collaborative Systems, Collective Intelligence</td>
+          <td><strong>John Boik</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference somatic-regulation affective-cognition cognitive-modeling" data-search="cognitive somatic regulator cognitive-somatic-regulator project-cognitive-somatic-regulator active inference modeling applied to somatic regulation, ethical threshold gating, and neuro-somatic dynamics. active-inference somatic-regulation affective-cognition cognitive-modeling colleen pridemore ">
+          <th scope="row"><a href="cognitive-somatic-regulator/">Cognitive Somatic Regulator</a></th>
+          <td>Active Inference modeling applied to somatic regulation, ethical threshold gating, and neuro-somatic dynamics.</td>
+          <td>Active Inference, Somatic Regulation, Affective Cognition, Cognitive Modeling</td>
+          <td><strong>Colleen Pridemore</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference complex-systems coordination measurement adaptive-systems" data-search="coherence density: measuring coordination in complex adaptive systems coherence-density project-coherence-density a measurement-focused framework evaluating internal coordination and stability in complex adaptive systems. active-inference complex-systems coordination measurement adaptive-systems travis james ">
+          <th scope="row"><a href="coherence-density/">Coherence Density: Measuring Coordination in Complex Adaptive Systems</a></th>
+          <td>A measurement-focused framework evaluating internal coordination and stability in complex adaptive systems.</td>
+          <td>Active Inference, Complex Systems, Coordination, Measurement, Adaptive Systems</td>
+          <td><strong>Travis James</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference python continuous-state open-source reinference control-theory" data-search="cpomdp — continuous active inference for python cpomdp project-cpomdp a tested, documented continuous-state active inference python library with certifiable tolerances and reference implementations. active-inference python continuous-state open-source reinference control-theory daniel corva ">
+          <th scope="row"><a href="cpomdp/">cpomdp — Continuous Active Inference for Python</a></th>
+          <td>A tested, documented continuous-state Active Inference Python library with certifiable tolerances and reference implementations.</td>
+          <td>Active Inference, Python, Continuous State, Open Source, Reinference</td>
+          <td><strong>Daniel Corva</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="eduactive" data-search="ed4all: active inference for grounded educational knowledge environments ed4all-active-inference-for-grounded-educational-knowledge-environments project-ed4all an open, locally deployable, empirically evaluated framework for grounded educational agents that operate within explicit knowledge and evidentiary boundaries. eduactive matthew d murphy ">
+          <th scope="row"><a href="ed4all/">Ed4All: Active Inference for Grounded Educational Knowledge Environments</a></th>
+          <td>An open, locally deployable, empirically evaluated framework for grounded educational agents that operate within explicit knowledge and evidentiary boundaries.</td>
+          <td>Eduactive</td>
+          <td><strong>Matthew D Murphy</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference brain-metabolism computational-neurobiology energy-dynamics free-energy-principle neuroscience reinference" data-search="energy modeling human brain metabolism brain-metabolism project-brain-metabolism applying active inference to model metabolic energy dynamics in the human brain. active-inference brain-metabolism computational-neurobiology energy-dynamics free-energy-principle neuroscience reinference tim huggers ">
+          <th scope="row"><a href="brain-metabolism/">Energy Modeling Human Brain Metabolism</a></th>
+          <td>Applying Active Inference to model metabolic energy dynamics in the human brain.</td>
+          <td>Active Inference, Brain Metabolism, Computational Neurobiology, Energy Dynamics, Free Energy Principle</td>
+          <td><strong>Tim Huggers</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference formal-methods geometric-foundations inquiry-theory mathematics q-state-dynamics reinference" data-search="geometric inquiry theory geometric-inquiry project-geometric-inquiry geometric inquiry theory develops a geometric framework for understanding inquiry as a structured dynamic process through q-state dynamics and the structural basis of inquiry as a coherent mathematical theory. active-inference formal-methods geometric-foundations inquiry-theory mathematics q-state-dynamics reinference bruce tisler ">
+          <th scope="row"><a href="geometric-inquiry/">Geometric Inquiry Theory</a></th>
+          <td>Geometric Inquiry Theory develops a geometric framework for understanding inquiry as a structured dynamic process through Q-State Dynamics and the structural basis of inquiry as a coherent mathematica</td>
+          <td>Active Inference, Formal Methods, Geometric Foundations, Inquiry Theory, Mathematics</td>
+          <td><strong>Bruce Tisler</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference cognitive-science free-energy human-understanding narrative-theory reinference self-knowledge uncertainty" data-search="humanity's story of an uncertain self humanitys-story project-humanitys-story ecosystem project developing a broad account of human self-knowledge as an inference problem through active inference and free energy. active-inference cognitive-science free-energy human-understanding narrative-theory reinference self-knowledge uncertainty shagor (shaggy) rahman shagor (shaggy) rahman">
+          <th scope="row"><a href="humanitys-story/">Humanity's Story of an Uncertain Self</a></th>
+          <td>Ecosystem project developing a broad account of human self-knowledge as an inference problem through Active Inference and free energy.</td>
+          <td>Active Inference, Cognitive Science, Free Energy, Human Understanding, Narrative Theory</td>
+          <td><strong>Shagor (Shaggy) Rahman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference bayesian-inference graph-rendering julia probabilistic-models reinference rxinfer visualization" data-search="improving rxinfer.jl model visualization rxinfer-visualization project-rxinfer-visualization developing visualization capabilities for rxinfer.jl probabilistic models. active-inference bayesian-inference graph-rendering julia probabilistic-models reinference rxinfer visualization fraser paterson fraser paterson">
+          <th scope="row"><a href="rxinfer-visualization/">Improving RxInfer.jl Model Visualization</a></th>
+          <td>Developing visualization capabilities for RxInfer.jl probabilistic models.</td>
+          <td>Active Inference, Bayesian Inference, Graph Rendering, Julia, Probabilistic Models</td>
+          <td><strong>Fraser Paterson</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference cognitive-science knowledge-representation model-centric-cognition reinference theoretical-cognition wave-hypothesis" data-search="model-centric cognition model-centric-cognition project-model-centric-cognition developing the wave hypothesis and model-centric approaches to cognition and knowledge representation. active-inference cognitive-science knowledge-representation model-centric-cognition reinference theoretical-cognition wave-hypothesis robert worden robert worden">
+          <th scope="row"><a href="model-centric-cognition/">Model-Centric Cognition</a></th>
+          <td>Developing the Wave Hypothesis and model-centric approaches to cognition and knowledge representation.</td>
+          <td>Active Inference, Cognitive Science, Knowledge Representation, Model Centric Cognition, Reinference</td>
+          <td><strong>Robert Worden</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference ai-agents autonomous-agents eduactive educational-game game-development learning-environments" data-search="numinia numinia project-numinia autonomous ai and educational adventure game grounded in active inference principles, where players and agents co-learn through play. active-inference ai-agents autonomous-agents eduactive educational-game game-development learning-environments pablofm pablofm">
+          <th scope="row"><a href="numinia/">Numinia</a></th>
+          <td>Autonomous AI and educational adventure game grounded in Active Inference principles, where players and agents co-learn through play.</td>
+          <td>Active Inference, Ai Agents, Autonomous Agents, Eduactive, Educational Game</td>
+          <td><strong>PabloFM</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference markov-decision-process python generative-models computation ecosystem" data-search="pymdp pymdp project-pymdp community python library implementing active inference for pomdps. active-inference markov-decision-process python generative-models computation ecosystem conor heins ">
+          <th scope="row"><a href="pymdp/">pymdp</a></th>
+          <td>Community Python library implementing Active Inference for POMDPs.</td>
+          <td>Active Inference, Markov Decision Process, Python, Generative Models, Computation</td>
+          <td><strong>Conor Heins</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference computational-psychiatry addiction generative-models hybrid-systems emotional-regulation" data-search="regime-dependent active inference: addiction &amp; recovery dynamics regime-dependent-active-inference project-regime-dependent-active-inference extending active inference with regime-dependent generative models to represent dynamic progressions in addiction, relapse, and recovery. active-inference computational-psychiatry addiction generative-models hybrid-systems emotional-regulation dr. martin bello ">
+          <th scope="row"><a href="regime-dependent-active-inference/">Regime-Dependent Active Inference: Addiction &amp; Recovery Dynamics</a></th>
+          <td>Extending Active Inference with regime-dependent generative models to represent dynamic progressions in addiction, relapse, and recovery.</td>
+          <td>Active Inference, Computational Psychiatry, Addiction, Generative Models, Hybrid Systems</td>
+          <td><strong>Dr. Martin Bello</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="active" data-topics="active-inference bayesian-reasoning cognitive-architecture embodied-cognition reinference robot-platforms robotics symbolic-reasoning" data-search="symbolic cognitive robotics symbolic-robotics project-symbolic-robotics symbolic cognitive robotics is an ecosystem project applying active inference to robotic systems that combine symbolic reasoning with embodied action. active-inference bayesian-reasoning cognitive-architecture embodied-cognition reinference robot-platforms robotics symbolic-reasoning jean-françois cloutier jean-françois cloutier">
+          <th scope="row"><a href="symbolic-robotics/">Symbolic Cognitive Robotics</a></th>
+          <td>Symbolic Cognitive Robotics is an Ecosystem project applying Active Inference to robotic systems that combine symbolic reasoning with embodied action.</td>
+          <td>Active Inference, Bayesian Reasoning, Cognitive Architecture, Embodied Cognition, Reinference</td>
+          <td><strong>Jean-François Cloutier</strong></td>
+        </tr></tbody>
+      </table></div>
+      <p class="catalog-empty" id="catalog-ecosystem-active-empty" hidden>No active ecosystem projects match your search.</p>
+    <div class="catalog-subhead"><h4>Archived &amp; completed projects</h4><span class="catalog-subcount" id="catalog-ecosystem-archived-count">20 projects</span></div>
+      <div class="table-wrap"><table class="directory-table catalog-table" id="catalog-ecosystem-archived-table">
+        <caption>Archived and completed Ecosystem projects, from the public InstituteOS project registry.</caption>
+        <thead><tr><th scope="col">Project</th><th scope="col">About</th><th scope="col">Topics</th><th scope="col">Lead &amp; people</th></tr></thead>
+        <tbody id="catalog-ecosystem-archived-body"><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference behavioral-science collective-behavior eduactive foraging multi-agent-systems negotiation sustainability" data-search="action research on collective foraging collective-foraging project-collective-foraging action research on collective foraging (negotiation affordances) applies active inference to collective foraging behavior — studying how groups form coalitions, negotiate opportunities, and sustain value exchanges. active-inference behavioral-science collective-behavior eduactive foraging multi-agent-systems negotiation sustainability susan hasty ">
+          <th scope="row"><a href="collective-foraging/">Action Research on Collective Foraging</a></th>
+          <td>Action Research on Collective Foraging (Negotiation Affordances) applies Active Inference to collective foraging behavior — studying how groups form coalitions, negotiate opportunities, and sustain va</td>
+          <td>Active Inference, Behavioral Science, Collective Behavior, Eduactive, Foraging</td>
+          <td><strong>Susan Hasty</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference agent-architectures cognitive-modeling computational-linguistics free-energy-framework human-translation natural-language-processing reinference" data-search="active inference agent for modeling human translation translation-agent project-translation-agent modeling human translation processes using active inference agent architectures. active-inference agent-architectures cognitive-modeling computational-linguistics free-energy-framework human-translation natural-language-processing reinference michael carl ">
+          <th scope="row"><a href="translation-agent/">Active Inference Agent for Modeling Human Translation</a></th>
+          <td>Modeling human translation processes using Active Inference agent architectures.</td>
+          <td>Active Inference, Agent Architectures, Cognitive Modeling, Computational Linguistics, Free Energy Framework</td>
+          <td><strong>Michael Carl</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference eduactive education personal-development practical-framework reflective-practice self-knowledge wellbeing" data-search="active inference cycle book for self-knowing cycle-book project-cycle-book a reflective book project applying active inference as a framework for self-knowledge and personal development. active-inference eduactive education personal-development practical-framework reflective-practice self-knowledge wellbeing anna pereira anna pereira">
+          <th scope="row"><a href="cycle-book/">Active Inference Cycle Book for Self-Knowing</a></th>
+          <td>A reflective book project applying Active Inference as a framework for self-knowledge and personal development.</td>
+          <td>Active Inference, Eduactive, Education, Personal Development, Practical Framework</td>
+          <td><strong>Anna Pereira</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="reinference" data-search="active inference for built environments &amp; cooperactive systems active-inference-for-built-environments-cooperactive-systems project-built-environments apply active inference to designing, managing, and evolving built environments that prioritize the flourishing of all life, via distributed intelligence and digital twins. reinference ivan metelkin ivan metelkin">
+          <th scope="row"><a href="built-environments/">Active Inference for Built Environments &amp; CooperActive Systems</a></th>
+          <td>Apply Active Inference to designing, managing, and evolving built environments that prioritize the flourishing of all life, via distributed intelligence and digital twins.</td>
+          <td>Reinference</td>
+          <td><strong>Ivan Metelkin</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference bedside-decision-support biomedical-engineering clinical-monitoring free-energy-framework healthcare-ai physiological-signals reinference waveform-analysis" data-search="clinical waveform data based agent clinical-waveform project-clinical-waveform active inference systems for bedside clinical waveform monitoring applying the free energy framework to real-time eeg, ecg, and physiological signals. active-inference bedside-decision-support biomedical-engineering clinical-monitoring free-energy-framework healthcare-ai physiological-signals reinference waveform-analysis franklin ducatez ">
+          <th scope="row"><a href="clinical-waveform/">Clinical Waveform Data Based Agent</a></th>
+          <td>Active Inference systems for bedside clinical waveform monitoring applying the free energy framework to real-time EEG, ECG, and physiological signals.</td>
+          <td>Active Inference, Bedside Decision Support, Biomedical Engineering, Clinical Monitoring, Free Energy Framework</td>
+          <td><strong>Franklin Ducatez</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference cognitive-science creative-agents creativity eduactive free-energy-principle generative-models" data-search="creativity and creators under the free energy principle creativity-fep project-creativity-fep this ecosystem project develops accounts of creativity and creative agents under the free energy principle — examining how generative models and free energy minimization explain, predict, and enhance creative behavior. active-inference cognitive-science creative-agents creativity eduactive free-energy-principle generative-models héctor manrique héctor manrique avel guénin-carlut ana magdalena hurtado dean tickles daniel friedman">
+          <th scope="row"><a href="creativity-fep/">Creativity and Creators Under the Free Energy Principle</a></th>
+          <td>This Ecosystem project develops accounts of creativity and creative agents under the Free Energy Principle — examining how generative models and free energy minimization explain, predict, and enhance </td>
+          <td>Active Inference, Cognitive Science, Creative Agents, Creativity, Eduactive</td>
+          <td><strong>Héctor Manrique</strong><br>Avel Guénin-Carlut, Ana Magdalena Hurtado, Dean Tickles</td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="reinference" data-search="digital agents digital-agents project-digital-agents tuesday discord sessions on digital agents and active inference. reinference pablofm pablofm daniel friedman">
+          <th scope="row"><a href="digital-agents/">Digital Agents</a></th>
+          <td>Tuesday Discord sessions on digital agents and Active Inference.</td>
+          <td>Reinference</td>
+          <td><strong>PabloFM</strong><br>Daniel Friedman</td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference cohort-based-learning eduactive education integral-studies kindergarten pedagogy philosophy" data-search="froebel's system froebel project-froebel studying friedrich froebel's pedagogical system through active inference and integral studies. active-inference cohort-based-learning eduactive education integral-studies kindergarten pedagogy philosophy joanne phillips ">
+          <th scope="row"><a href="froebel/">Froebel's System</a></th>
+          <td>Studying Friedrich Froebel's pedagogical system through Active Inference and integral studies.</td>
+          <td>Active Inference, Cohort Based Learning, Eduactive, Education, Integral Studies</td>
+          <td><strong>Joanne Phillips</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference ai-agents autonomous-systems instrumentation microscopy reinference robotics soil-biology" data-search="from instrument to intelligent agent: robotic microscopy robotic-microscopy project-robotic-microscopy deploying active inference and ai to automate robotic microscopy and manage soil biology at scale. active-inference ai-agents autonomous-systems instrumentation microscopy reinference robotics soil-biology craig arnold ">
+          <th scope="row"><a href="robotic-microscopy/">From Instrument to Intelligent Agent: Robotic Microscopy</a></th>
+          <td>Deploying Active Inference and AI to automate robotic microscopy and manage soil biology at scale.</td>
+          <td>Active Inference, Ai Agents, Autonomous Systems, Instrumentation, Microscopy</td>
+          <td><strong>Craig Arnold</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference eduactive education engineering expectation-maximisation free-energy-principle learning living-systems mathematical-biology textbook" data-search="fundamentals of active inference fundamentals-active-inference project-fundamentals-active-inference ecosystem project supporting the development and dissemination of the fundamentals of active inference textbook — a comprehensive introduction to active inference principles, algorithms, and applications for engineers. active-inference eduactive education engineering expectation-maximisation free-energy-principle learning living-systems mathematical-biology textbook daniel friedman daniel friedman">
+          <th scope="row"><a href="fundamentals-active-inference/">Fundamentals of Active Inference</a></th>
+          <td>Ecosystem project supporting the development and dissemination of the Fundamentals of Active Inference textbook — a comprehensive introduction to Active Inference principles, algorithms, and applicati</td>
+          <td>Active Inference, Eduactive, Education, Engineering, Expectation Maximisation</td>
+          <td><strong>Daniel Friedman</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="generative-models graph-based-communication graph-tools interoperable-notation knowledge-representation open-source reinference" data-search="graphspeak / blorbbe graphspeak project-graphspeak ecosystem project developing open-source tools for graph-based communication and knowledge representation. generative-models graph-based-communication graph-tools interoperable-notation knowledge-representation open-source reinference andrew djuwidja daniel friedman">
+          <th scope="row"><a href="graphspeak/">Graphspeak / Blorbbe</a></th>
+          <td>Ecosystem project developing open-source tools for graph-based communication and knowledge representation.</td>
+          <td>Generative Models, Graph Based Communication, Graph Tools, Interoperable Notation, Knowledge Representation</td>
+          <td><strong>Andrew Djuwidja</strong><br>Daniel Friedman</td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference hyper-dimensional-geometry information-geometry m-theory mathematical-physics physics reinference theoretical-physics" data-search="m-theory as function of hyper dimensional prismatic light scattering (hdpls-tars) m-theory-hdpls project-m-theory-hdpls hdpls-tars is a speculative ecosystem project testing the limits of m-theory through hyper-dimensional field interconnections and prismatic light scattering dynamics. active-inference hyper-dimensional-geometry information-geometry m-theory mathematical-physics physics reinference theoretical-physics david hughes ">
+          <th scope="row"><a href="m-theory-hdpls/">M-Theory as Function of Hyper Dimensional Prismatic Light Scattering (HDPLS-TARS)</a></th>
+          <td>HDPLS-TARS is a speculative Ecosystem project testing the limits of M-Theory through hyper-dimensional field interconnections and prismatic light scattering dynamics.</td>
+          <td>Active Inference, Hyper Dimensional Geometry, Information Geometry, M Theory, Mathematical Physics</td>
+          <td><strong>David Hughes</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="art art-science collaborative-dialogue creative-inquiry eduactive interdisciplinary mathematical-aesthetics mathematics" data-search="mathart conversations mathart project-mathart exploring profound connections between mathematics and the arts through collaborative conversation. art art-science collaborative-dialogue creative-inquiry eduactive interdisciplinary mathematical-aesthetics mathematics shanna dobson héctor manrique daniel friedman dean tickles">
+          <th scope="row"><a href="mathart/">MathArt Conversations</a></th>
+          <td>Exploring profound connections between mathematics and the arts through collaborative conversation.</td>
+          <td>Art, Art Science, Collaborative Dialogue, Creative Inquiry, Eduactive</td>
+          <td><strong>Shanna Dobson</strong><br>Héctor Manrique, Daniel Friedman, Dean Tickles</td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="accessibility active-inference community-structures curriculum-development eduactive inclusive-education learning neurodiversity" data-search="neurodivergent learning sessions neurodivergent-learning project-neurodivergent-learning active inference learning resources and sessions tailored for neurodivergent participants, building curriculum and community structures for autistic, adhd, and other neurodivergent learners. accessibility active-inference community-structures curriculum-development eduactive inclusive-education learning neurodiversity jesse g jesse g">
+          <th scope="row"><a href="neurodivergent-learning/">Neurodivergent Learning Sessions</a></th>
+          <td>Active Inference learning resources and sessions tailored for neurodivergent participants, building curriculum and community structures for autistic, ADHD, and other neurodivergent learners.</td>
+          <td>Accessibility, Active Inference, Community Structures, Curriculum Development, Eduactive</td>
+          <td><strong>Jesse G</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference conceptual-frameworks cross-domain-translation eduactive knowledge-communication linguistics philosophy universal-language" data-search="project development for solving the tower of babel problem tower-of-babel project-tower-of-babel develops a framework for solving the tower of babel problem through unifysica philo-sophia, a universal conceptual bridge for cross-domain knowledge communication and translation. active-inference conceptual-frameworks cross-domain-translation eduactive knowledge-communication linguistics philosophy universal-language ana magdalena hurtado ana magdalena hurtado dean tickles">
+          <th scope="row"><a href="tower-of-babel/">Project Development for Solving the Tower of Babel Problem</a></th>
+          <td>Develops a framework for solving the Tower of Babel Problem through UniFysica Philo-sophia, a universal conceptual bridge for cross-domain knowledge communication and translation.</td>
+          <td>Active Inference, Conceptual Frameworks, Cross Domain Translation, Eduactive, Knowledge Communication</td>
+          <td><strong>Ana Magdalena Hurtado</strong><br>Dean Tickles</td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference animal-behavior cognitive-modeling ethology human-animal-alignment human-animal-interaction reinference trust-building" data-search="project sweet (sus) dogg sweet-dogg project-sweet-dogg applies active inference principles to understanding and improving human-animal relationships through alignment and trust-building. active-inference animal-behavior cognitive-modeling ethology human-animal-alignment human-animal-interaction reinference trust-building andrew djuwidja ">
+          <th scope="row"><a href="sweet-dogg/">Project Sweet (Sus) Dogg</a></th>
+          <td>Applies Active Inference principles to understanding and improving human-animal relationships through alignment and trust-building.</td>
+          <td>Active Inference, Animal Behavior, Cognitive Modeling, Ethology, Human Animal Alignment</td>
+          <td><strong>Andrew Djuwidja</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference formal-bridges free-energy-principle neuroscience psychoanalysis reinference theoretical-modeling" data-search="the einstein model of a solid as a model of the mental apparatus einstein-model project-einstein-model bridging psychoanalytic theory and active inference through the economic perspective of psychoanalytic theory. active-inference formal-bridges free-energy-principle neuroscience psychoanalysis reinference theoretical-modeling theodoros aliferis theodoros aliferis">
+          <th scope="row"><a href="einstein-model/">The Einstein Model of a Solid as a Model of the Mental Apparatus</a></th>
+          <td>Bridging psychoanalytic theory and Active Inference through the economic perspective of psychoanalytic theory.</td>
+          <td>Active Inference, Formal Bridges, Free Energy Principle, Neuroscience, Psychoanalysis</td>
+          <td><strong>Theodoros Aliferis</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="accessibility active-inference eduactive education livestream public-engagement science-communication" data-search="the three mosqueteers three-mosqueteers project-three-mosqueteers science communication livestream making scientific information accessible to people without a scientific background. accessibility active-inference eduactive education livestream public-engagement science-communication héctor manrique héctor manrique ana magdalena hurtado">
+          <th scope="row"><a href="three-mosqueteers/">The Three Mosqueteers</a></th>
+          <td>Science communication livestream making scientific information accessible to people without a scientific background.</td>
+          <td>Accessibility, Active Inference, Eduactive, Education, Livestream</td>
+          <td><strong>Héctor Manrique</strong><br>Ana Magdalena Hurtado</td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="active-inference agent-based-modeling behavioral-modeling economic-policy policy-simulation reinference universal-basic-income" data-search="the universal basic income experiment universal-basic-income project-universal-basic-income studies universal basic income through active inference modeling and simulation using token economics, policy simulation, and behavioral modeling. active-inference agent-based-modeling behavioral-modeling economic-policy policy-simulation reinference universal-basic-income die schwarze katze ">
+          <th scope="row"><a href="universal-basic-income/">The Universal Basic Income Experiment</a></th>
+          <td>Studies universal basic income through Active Inference modeling and simulation using token economics, policy simulation, and behavioral modeling.</td>
+          <td>Active Inference, Agent Based Modeling, Behavioral Modeling, Economic Policy, Policy Simulation</td>
+          <td><strong>Die Schwarze Katze</strong></td>
+        </tr><tr data-catalog-row data-affiliation="ecosystem" data-status="archived" data-topics="eduactive" data-search="the unordinary bible study (tubs) the-unordinary-bible-study-tubs project-tubs monthly sessions cross-referencing biblical verses with a focus on inter-faith and contemporary perspective dialogue, connecting active inference to process theology. eduactive jesse g jesse g">
+          <th scope="row"><a href="tubs/">The Unordinary Bible Study (TUBS)</a></th>
+          <td>Monthly sessions cross-referencing biblical verses with a focus on inter-faith and contemporary perspective dialogue, connecting active inference to process theology.</td>
+          <td>Eduactive</td>
+          <td><strong>Jesse G</strong></td>
+        </tr></tbody>
+      </table></div>
+      <p class="catalog-empty" id="catalog-ecosystem-archived-empty" hidden>No archived or completed ecosystem projects match your search.</p>
   </section>
 
 
@@ -917,14 +830,6 @@
         <p class="resource-meta">Python / 18 stars / updated 2026-03-09</p>
         <div class="tag-row"><span>repository</span><span>python</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="./">Projects</a><a href="../ecosystem/">Ecosystem</a></div>
-      </article><article class="resource-card" data-type="repository" data-category="projects" data-audience="developer" data-tags="repository unclassified" data-search="garden-of-iris repository projects developer public garden-of-iris repository in the activeinferenceinstitute github namespace. repository unclassified unspecified">
-        <span class="resource-kicker">Repository / Projects</span>
-        <h3><a href="https://github.com/ActiveInferenceInstitute/Garden-of-Iris" target="_blank" rel="noopener noreferrer">Garden-of-Iris</a></h3>
-        <p class="resource-audience">Audience: Developer</p>
-        <p>Public Garden-of-Iris repository in the ActiveInferenceInstitute GitHub namespace.</p>
-        <p class="resource-meta">Unspecified / 0 stars / updated 2023-04-15</p>
-        <div class="tag-row"><span>repository</span><span>unclassified</span></div>
-        <div class="mini-links" aria-label="Related pages"><a href="./">Projects</a><a href="../ecosystem/">Ecosystem</a></div>
       </article><article class="resource-card" data-type="repository" data-category="projects" data-audience="developer" data-tags="project repository jupyter-notebook" data-search="gen24 repository projects developer gen-24 project repository for active inference and active blockference exploration. project repository jupyter-notebook jupyter notebook">
         <span class="resource-kicker">Repository / Projects</span>
         <h3><a href="https://github.com/ActiveInferenceInstitute/GEN24" target="_blank" rel="noopener noreferrer">GEN24</a></h3>
@@ -956,14 +861,6 @@
         <p>Geospatial Active Inference and ecological/bioregional modeling work.</p>
         <p class="resource-meta">HTML / 11 stars / updated 2026-05-26</p>
         <div class="tag-row"><span>project</span><span>repository</span><span>html</span></div>
-        <div class="mini-links" aria-label="Related pages"><a href="./">Projects</a><a href="../ecosystem/">Ecosystem</a></div>
-      </article><article class="resource-card" data-type="repository" data-category="projects" data-audience="developer" data-tags="repository python" data-search="isss repository projects developer isss repository python python">
-        <span class="resource-kicker">Repository / Projects</span>
-        <h3><a href="https://github.com/ActiveInferenceInstitute/ISSS" target="_blank" rel="noopener noreferrer">ISSS</a></h3>
-        <p class="resource-audience">Audience: Developer</p>
-        <p>ISSS</p>
-        <p class="resource-meta">Python / 0 stars / updated 2024-03-22</p>
-        <div class="tag-row"><span>repository</span><span>python</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="./">Projects</a><a href="../ecosystem/">Ecosystem</a></div>
       </article><article class="resource-card" data-type="repository" data-category="projects" data-audience="developer" data-tags="project repository jupyter-notebook" data-search="knowledge-engineering repository projects developer knowledge engineering notebooks and infrastructure for public institute projects. project repository jupyter-notebook jupyter notebook">
         <span class="resource-kicker">Repository / Projects</span>
@@ -998,7 +895,7 @@
         <div class="tag-row"><span>project</span><span>repository</span><span>python</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="./">Projects</a><a href="../ecosystem/">Ecosystem</a></div>
       </article></div>
-    <p class="section-link"><a href="../directory/#repositories">Ver todos los 37 repositorios públicos</a></p>
+    <p class="section-link"><a href="../directory/#repositories">Ver todos los 35 repositorios públicos</a></p>
   </section>
   <section class="content-band muted" id="related-pages">
     <div class="section-heading">
