@@ -1,0 +1,566 @@
+{
+  "cohorts": [
+    {
+      "members": [
+        {
+          "entityId": "adeel-razi",
+          "name": "Adeel Razi",
+          "url": "http://www.adeelrazi.org/"
+        },
+        {
+          "entityId": "alexander-ororbia",
+          "name": "Alexander Ororbia",
+          "url": "https://www.cs.rit.edu/~ago/"
+        },
+        {
+          "entityId": "ali-rahmjoo",
+          "name": "Ali Rahmjoo",
+          "url": "https://www.activeinference.institute/"
+        },
+        {
+          "entityId": "ana-magdalena-hurtado",
+          "name": "Ana Magdalena Hurtado",
+          "url": "https://www.researchgate.net/profile/Ana-Hurtado-4"
+        },
+        {
+          "entityId": "andrea-hiott",
+          "name": "Andrea Hiott",
+          "url": "https://www.andreahiott.net/"
+        },
+        {
+          "entityId": "andrew-pashea",
+          "name": "Andrew Pashea",
+          "url": "https://github.com/apashea"
+        },
+        {
+          "entityId": "andrew-penland",
+          "name": "Andrew Penland",
+          "url": "https://arxiv.org/search/?query=%22Andrew+Penland%22&searchtype=all&source=header"
+        },
+        {
+          "entityId": "arun-niranjan",
+          "name": "Arun Niranjan",
+          "url": "https://www.linkedin.com/in/arun-niranjan/"
+        },
+        {
+          "entityId": "avel-guenin-carlut",
+          "name": "Avel Guénin-Carlut",
+          "url": "https://avelguenin.github.io/"
+        },
+        {
+          "entityId": "bradly-alicea",
+          "name": "Bradly Alicea",
+          "url": "https://bradly-alicea.weebly.com/"
+        },
+        {
+          "entityId": "candice-pattisapu",
+          "name": "Candice Pattisapu",
+          "url": "https://labs.utdallas.edu/coinslab/current/"
+        },
+        {
+          "entityId": "chokha-palayamkottai",
+          "name": "Chokha Palayamkottai",
+          "url": "https://www.integralops.com"
+        },
+        {
+          "entityId": "chris-fields",
+          "name": "Chris Fields",
+          "url": "https://chrisfieldsresearch.com/"
+        },
+        {
+          "entityId": "cory-slater",
+          "name": "Cory Slater",
+          "url": "https://linkedin.com/in/coryslater"
+        },
+        {
+          "entityId": "elliott-hauser",
+          "name": "Elliott Hauser",
+          "url": "https://elliotthauser.com/"
+        },
+        {
+          "entityId": "george-mobus",
+          "name": "George Mobus",
+          "url": "http://faculty.washington.edu/gmobus/"
+        },
+        {
+          "entityId": "haris-neophytou",
+          "name": "Haris Neophytou",
+          "url": "https://scholar.google.com/citations?user=yc1GJRMAAAAJ"
+        },
+        {
+          "entityId": "holly-grimm",
+          "name": "Holly Grimm",
+          "url": "https://www.linkedin.com/in/hollygrimm/"
+        },
+        {
+          "entityId": "hector-manrique",
+          "name": "Héctor Manrique",
+          "url": "https://psicosocio.unizar.es/personal/hector-marin-manrique"
+        },
+        {
+          "entityId": "ian-tennant",
+          "name": "Ian Tennant",
+          "url": "https://www.linkedin.com/in/ian-tennant-phd/"
+        },
+        {
+          "entityId": "jakub-smekal",
+          "name": "Jakub Smékal",
+          "url": "http://jakubsmekal.com/"
+        },
+        {
+          "entityId": "jeff-emmett",
+          "name": "Jeff Emmett",
+          "url": "https://www.linkedin.com/in/jeff-emmett-05268139/"
+        },
+        {
+          "entityId": "jeffrey-samuel-schulman-jr",
+          "name": "Jeffrey Samuel Schulman Jr",
+          "url": "https://ist.psu.edu/directory/jss6099"
+        },
+        {
+          "entityId": "john-boik",
+          "name": "John Boik",
+          "url": "https://principledsocietiesproject.org/"
+        },
+        {
+          "entityId": "",
+          "name": "John Cook",
+          "url": "https://alignmentlab.ai/"
+        },
+        {
+          "entityId": "karl-john-friston",
+          "name": "Karl John Friston",
+          "url": "https://www.fil.ion.ucl.ac.uk/~karl/"
+        },
+        {
+          "entityId": "magnus-t-koudahl",
+          "name": "Magnus T Koudahl",
+          "url": ""
+        },
+        {
+          "entityId": "mahault-albarracin",
+          "name": "Mahault Albarracin",
+          "url": "https://info.uqam.ca/"
+        },
+        {
+          "entityId": "mark-wilcox",
+          "name": "Mark Wilcox",
+          "url": "https://21e8.nz/"
+        },
+        {
+          "entityId": "matt-brown",
+          "name": "Matt Brown",
+          "url": "https://www.thoughtforge.ai/"
+        },
+        {
+          "entityId": "maxwell-j-d-ramstead",
+          "name": "Maxwell J D Ramstead",
+          "url": "https://scholar.google.co.uk/citations?user=220Ht-cAAAAJ&hl=en"
+        },
+        {
+          "entityId": "michael-lennon",
+          "name": "Michael Lennon",
+          "url": "https://www.linkedin.com/in/mikelennon/"
+        },
+        {
+          "entityId": "michael-zargham",
+          "name": "Michael Zargham",
+          "url": "https://www.linkedin.com/in/mczargham/"
+        },
+        {
+          "entityId": "mick-thacker",
+          "name": "Mick Thacker",
+          "url": "https://www.rcsi.com/people/profile/michaelthacker"
+        },
+        {
+          "entityId": "sandeep-ramesh",
+          "name": "Sandeep Ramesh",
+          "url": "http://sandeepramesh.com/"
+        },
+        {
+          "entityId": "scott-david",
+          "name": "Scott David",
+          "url": "https://www.linkedin.com/in/scott-david-35a5887/"
+        },
+        {
+          "entityId": "sebastian-alvarado",
+          "name": "Sebastian Alvarado",
+          "url": "http://www.alvaradolab.com/"
+        },
+        {
+          "entityId": "shady-el-damaty",
+          "name": "Shady El Damaty",
+          "url": "https://opscientia.com/"
+        },
+        {
+          "entityId": "shanna-dobson",
+          "name": "Shanna Dobson",
+          "url": "https://www.calstatela.edu/faculty/shanna-dobson"
+        },
+        {
+          "entityId": "shingai-thornton",
+          "name": "Shingai Thornton",
+          "url": "https://shingai.xyz/"
+        },
+        {
+          "entityId": "susan-keen",
+          "name": "Susan Keen",
+          "url": "https://biology.ucdavis.edu/people/susan-keen"
+        },
+        {
+          "entityId": "thomas-kehler",
+          "name": "Thomas Kehler",
+          "url": "https://www.linkedin.com/in/tomkehler/"
+        }
+      ],
+      "year": 2025
+    },
+    {
+      "members": [
+        {
+          "entityId": "adeel-razi",
+          "name": "Adeel Razi",
+          "url": "http://www.adeelrazi.org/"
+        },
+        {
+          "entityId": "alexander-ororbia",
+          "name": "Alexander Ororbia",
+          "url": "https://www.cs.rit.edu/~ago/"
+        },
+        {
+          "entityId": "alexandra-mikhailova",
+          "name": "Alexandra Mikhailova",
+          "url": "http://mcallisterlab.com/"
+        },
+        {
+          "entityId": "andrea-hiott",
+          "name": "Andrea Hiott",
+          "url": "https://www.andreahiott.net/"
+        },
+        {
+          "entityId": "avel-guenin-carlut",
+          "name": "Avel Guénin-Carlut",
+          "url": "https://avelguenin.github.io/"
+        },
+        {
+          "entityId": "bradly-alicea",
+          "name": "Bradly Alicea",
+          "url": "https://bradly-alicea.weebly.com/"
+        },
+        {
+          "entityId": "chris-fields",
+          "name": "Chris Fields",
+          "url": "https://chrisfieldsresearch.com/"
+        },
+        {
+          "entityId": "conor-heins",
+          "name": "Conor Heins",
+          "url": "https://www.ab.mpg.de/person/101190/2736"
+        },
+        {
+          "entityId": "haris-neophytou",
+          "name": "Haris Neophytou",
+          "url": "https://scholar.google.com/citations?user=yc1GJRMAAAAJ"
+        },
+        {
+          "entityId": "holly-grimm",
+          "name": "Holly Grimm",
+          "url": "https://www.linkedin.com/in/hollygrimm/"
+        },
+        {
+          "entityId": "hector-manrique",
+          "name": "Héctor Manrique",
+          "url": "https://psicosocio.unizar.es/personal/hector-marin-manrique"
+        },
+        {
+          "entityId": "ian-tennant",
+          "name": "Ian Tennant",
+          "url": "https://www.linkedin.com/in/ian-tennant-phd/"
+        },
+        {
+          "entityId": "jakub-smekal",
+          "name": "Jakub Smékal",
+          "url": "http://jakubsmekal.com/"
+        },
+        {
+          "entityId": "jeff-emmett",
+          "name": "Jeff Emmett",
+          "url": "https://www.linkedin.com/in/jeff-emmett-05268139/"
+        },
+        {
+          "entityId": "john-boik",
+          "name": "John Boik",
+          "url": "https://principledsocietiesproject.org/"
+        },
+        {
+          "entityId": "",
+          "name": "John Cook",
+          "url": "https://alignmentlab.ai/"
+        },
+        {
+          "entityId": "karl-john-friston",
+          "name": "Karl John Friston",
+          "url": "https://www.fil.ion.ucl.ac.uk/~karl/"
+        },
+        {
+          "entityId": "mahault-albarracin",
+          "name": "Mahault Albarracin",
+          "url": "https://info.uqam.ca/"
+        },
+        {
+          "entityId": "manuel-razo-mejia",
+          "name": "Manuel Razo-Mejia",
+          "url": "https://mrazo.notion.site/mrazo/Manuel-Razo-Mejia-6293ffa5e6174b3ab1b181efbd8cbca3"
+        },
+        {
+          "entityId": "mark-wilcox",
+          "name": "Mark Wilcox",
+          "url": "https://21e8.nz/"
+        },
+        {
+          "entityId": "matt-brown",
+          "name": "Matt Brown",
+          "url": "https://www.thoughtforge.ai/"
+        },
+        {
+          "entityId": "maxwell-j-d-ramstead",
+          "name": "Maxwell J D Ramstead",
+          "url": "https://scholar.google.co.uk/citations?user=220Ht-cAAAAJ&hl=en"
+        },
+        {
+          "entityId": "michael-zargham",
+          "name": "Michael Zargham",
+          "url": "https://www.linkedin.com/in/mczargham/"
+        },
+        {
+          "entityId": "mick-thacker",
+          "name": "Mick Thacker",
+          "url": "https://www.rcsi.com/people/profile/michaelthacker"
+        },
+        {
+          "entityId": "renee-davis",
+          "name": "Renée Davis",
+          "url": "https://twitter.com/banklesschick"
+        },
+        {
+          "entityId": "sandeep-ramesh",
+          "name": "Sandeep Ramesh",
+          "url": "http://sandeepramesh.com/"
+        },
+        {
+          "entityId": "sarah-hamburg",
+          "name": "Sarah Hamburg",
+          "url": "https://www.sheffield.ac.uk/sheffieldrobotics"
+        },
+        {
+          "entityId": "scott-david",
+          "name": "Scott David",
+          "url": "https://www.linkedin.com/in/scott-david-35a5887/"
+        },
+        {
+          "entityId": "sebastian-alvarado",
+          "name": "Sebastian Alvarado",
+          "url": "http://www.alvaradolab.com/"
+        },
+        {
+          "entityId": "shady-el-damaty",
+          "name": "Shady El Damaty",
+          "url": "https://opscientia.com/"
+        },
+        {
+          "entityId": "shanna-dobson",
+          "name": "Shanna Dobson",
+          "url": "https://www.calstatela.edu/faculty/shanna-dobson"
+        },
+        {
+          "entityId": "shingai-thornton",
+          "name": "Shingai Thornton",
+          "url": "https://shingai.xyz/"
+        },
+        {
+          "entityId": "susan-hasty",
+          "name": "Susan Hasty",
+          "url": "https://www.linkedin.com/in/susanhasty/"
+        },
+        {
+          "entityId": "susan-keen",
+          "name": "Susan Keen",
+          "url": "https://biology.ucdavis.edu/people/susan-keen"
+        },
+        {
+          "entityId": "thomas-kehler",
+          "name": "Thomas Kehler",
+          "url": "https://www.linkedin.com/in/tomkehler/"
+        }
+      ],
+      "year": 2024
+    },
+    {
+      "members": [
+        {
+          "entityId": "adeel-razi",
+          "name": "Adeel Razi",
+          "url": "http://www.adeelrazi.org/"
+        },
+        {
+          "entityId": "",
+          "name": "Anatoly Levenchuk",
+          "url": "https://www.linkedin.com/in/ailev/"
+        },
+        {
+          "entityId": "bradly-alicea",
+          "name": "Bradly Alicea",
+          "url": "https://bradly-alicea.weebly.com/"
+        },
+        {
+          "entityId": "chris-fields",
+          "name": "Chris Fields",
+          "url": "https://chrisfieldsresearch.com/"
+        },
+        {
+          "entityId": "holly-grimm",
+          "name": "Holly Grimm",
+          "url": "https://www.linkedin.com/in/hollygrimm/"
+        },
+        {
+          "entityId": "jeff-emmett",
+          "name": "Jeff Emmett",
+          "url": "https://www.linkedin.com/in/jeff-emmett-05268139/"
+        },
+        {
+          "entityId": "john-boik",
+          "name": "John Boik",
+          "url": "https://www.linkedin.com/in/john-c-boik-a37a9621/"
+        },
+        {
+          "entityId": "karl-john-friston",
+          "name": "Karl John Friston",
+          "url": "https://www.linkedin.com/in/karl-friston-26812742/"
+        },
+        {
+          "entityId": "matt-brown",
+          "name": "Matt Brown",
+          "url": "https://www.linkedin.com/in/matt-brown-0558201/"
+        },
+        {
+          "entityId": "maxwell-j-d-ramstead",
+          "name": "Maxwell J D Ramstead",
+          "url": "https://scholar.google.co.uk/citations?user=220Ht-cAAAAJ&hl=en"
+        },
+        {
+          "entityId": "michael-zargham",
+          "name": "Michael Zargham",
+          "url": "https://www.linkedin.com/in/mczargham/"
+        },
+        {
+          "entityId": "sarah-hamburg",
+          "name": "Sarah Hamburg",
+          "url": "https://www.sheffield.ac.uk/sheffieldrobotics"
+        },
+        {
+          "entityId": "scott-david",
+          "name": "Scott David",
+          "url": "https://www.linkedin.com/in/scott-david-35a5887/"
+        },
+        {
+          "entityId": "shady-el-damaty",
+          "name": "Shady El Damaty",
+          "url": "https://opscientia.com/"
+        },
+        {
+          "entityId": "",
+          "name": "Victor Kariuki",
+          "url": "https://twitter.com/DesciYouths"
+        }
+      ],
+      "year": 2023
+    },
+    {
+      "members": [
+        {
+          "entityId": "",
+          "name": "Anatoly Levenchuk",
+          "url": "https://www.linkedin.com/in/ailev/"
+        },
+        {
+          "entityId": "bradly-alicea",
+          "name": "Bradly Alicea",
+          "url": "https://www.linkedin.com/in/bradlyalicea/"
+        },
+        {
+          "entityId": "",
+          "name": "Charel van Hoof",
+          "url": "https://www.linkedin.com/in/charel-van-hoof-24590531/"
+        },
+        {
+          "entityId": "chris-fields",
+          "name": "Chris Fields",
+          "url": "https://chrisfieldsresearch.com/"
+        },
+        {
+          "entityId": "",
+          "name": "Elba Serrano",
+          "url": "https://www.linkedin.com/in/eeserrano/"
+        },
+        {
+          "entityId": "jeff-emmett",
+          "name": "Jeff Emmett",
+          "url": "https://www.linkedin.com/in/jeff-emmett-05268139/"
+        },
+        {
+          "entityId": "john-boik",
+          "name": "John Boik",
+          "url": "https://www.linkedin.com/in/john-c-boik-a37a9621/"
+        },
+        {
+          "entityId": "john-clippinger",
+          "name": "John Clippinger",
+          "url": "https://www.linkedin.com/in/john-henry-clippinger-5ab1b/"
+        },
+        {
+          "entityId": "karl-john-friston",
+          "name": "Karl John Friston",
+          "url": "https://www.linkedin.com/in/karl-friston-26812742/"
+        },
+        {
+          "entityId": "matt-brown",
+          "name": "Matt Brown",
+          "url": "https://www.linkedin.com/in/matt-brown-0558201/"
+        },
+        {
+          "entityId": "michael-zargham",
+          "name": "Michael Zargham",
+          "url": "https://www.linkedin.com/in/mczargham/"
+        },
+        {
+          "entityId": "rafael-kaufmann",
+          "name": "Rafael Kaufmann",
+          "url": "https://www.linkedin.com/in/rkauf/"
+        },
+        {
+          "entityId": "rosalyn-j-moran",
+          "name": "Rosalyn J Moran",
+          "url": "https://www.kcl.ac.uk/people/rosalyn-moran"
+        },
+        {
+          "entityId": "scott-david",
+          "name": "Scott David",
+          "url": "https://www.linkedin.com/in/scott-david-35a5887/"
+        },
+        {
+          "entityId": "",
+          "name": "Swan Webb",
+          "url": "https://www.linkedin.com/in/swanwebb/"
+        },
+        {
+          "entityId": "tim-verbelen",
+          "name": "Tim Verbelen",
+          "url": "https://www.linkedin.com/in/timverbelen/"
+        }
+      ],
+      "year": 2022
+    }
+  ],
+  "description": "Public past Scientific Advisory Board cohorts. The current cohort is not listed here -- it is derived from the Scientific Advisory Board institute role on the public entity records.",
+  "source": "instituteos/library/registries/sab_cohorts.json"
+}

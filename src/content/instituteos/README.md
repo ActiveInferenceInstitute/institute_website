@@ -109,6 +109,27 @@ Public governance members and organizations.
 }
 ```
 
+### `sab_cohorts.json`
+Past Scientific Advisory Board cohort rosters, newest year first, transcribed from
+the Institute's public SAB roster. Past cohorts only: who serves on the CURRENT
+board is derived from the `Scientific Advisory Board` institute role on person
+records in `entities.json`, which stays the single source of truth for the live
+roster — listing it in both places would create two records of one fact that can
+disagree. `url` is the member's own public page and is always an absolute
+`http(s)` URL; a contact address is never published as a link. `entityId` is set
+when the member is on record in `entities.json`, so the rendered roster can link
+to their directory entry.
+
+```
+{
+  description: string, source: string,
+  cohorts: [{
+    year: number,
+    members: [{ name: string, url: string, entityId: string }]
+  }]
+}
+```
+
 ### `fellows.json`
 Public Research Fellows roster. Derived from the `fellowship` block on person
 entities, and deliberately separate from `entities.json`: a published fellowship
@@ -270,13 +291,14 @@ and images remain intact.
 - `entities.json` uses `people`/`organizations` keys (not `records`) — handle both patterns in consuming code.
 - `ontology.json` uses `trees`/`edges` keys (not `records`).
 - `fellows.json` uses a `fellows` key (not `records`).
+- `sab_cohorts.json` uses a `cohorts` key (not `records`).
 - Every `*.json` here must be claimed by exactly ONE producer: this sync, or the
   InstituteOS-side website export (recorded in `data/export-manifest.json`). `--check`
   names any orphan. Two producers writing the same file is a bug, not redundancy —
   `calendar.json` was written by both from the same registry, so its bytes depended on
   which ran last; the InstituteOS exporter owns it.
 - This sync produces: `projects.json`, `ideas.json`, `ontology.json`, `entities.json`,
-  `fellows.json`, `policies.json`, `assets.json` (plus brand images). Everything else in
+  `fellows.json`, `sab_cohorts.json`, `policies.json`, `assets.json` (plus brand images). Everything else in
   this directory comes from the InstituteOS exporter.
 - All other files use a top-level `records` array.
 - Run `python3 scripts/sync_instituteos_public_data.py --check` to verify files are current.

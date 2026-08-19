@@ -1865,6 +1865,9 @@ body{transition:background-color 200ms,color 200ms}
 .roster-member a { font-weight: 600; }
 .roster-role { font-size: 0.82rem; color: var(--text-dim, #9aa0a6); }
 .roster-link { font-size: 0.8rem; font-weight: 500; color: var(--text-dim, #9aa0a6); word-break: break-word; }
+.roster-member > span:first-child { font-weight: 600; }
+.cohort-block + .cohort-block { margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid var(--glass-border, rgba(255,255,255,0.1)); }
+.cohort-block h3 { margin: 0; font-size: 1.05rem; letter-spacing: -0.01em; }
 .roster-link:hover { color: inherit; }
 
 /* Transcript excerpt block on per-video detail pages */

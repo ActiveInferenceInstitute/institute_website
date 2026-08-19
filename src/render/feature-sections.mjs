@@ -359,6 +359,54 @@ function governanceRosterSection(slug, currentDir = "") {
   </section>`;
 }
 
+// Past Scientific Advisory Board cohorts. The SAB is re-formed each year, so its
+// history is a set of year-scoped rosters rather than a property of any one
+// person: they come from the sab_cohorts registry, while who serves TODAY stays
+// derived from the entity role above. A past member is never presented as a
+// current one. Members link to their public directory entry when the registry
+// knows them, and out to their own page when that URL is a verified live source.
+function sabCohortHistorySection(slug, currentDir = "") {
+  if (slug !== "scientific-advisory-board") {
+    return "";
+  }
+  const cohorts = (siteData.instituteos.sabCohorts?.cohorts || []).filter((cohort) => cohort.members?.length);
+  if (!cohorts.length) {
+    return "";
+  }
+  const publicPeople = new Set((siteData.instituteos.entities.people || []).map((person) => person.id));
+  const blocks = cohorts
+    .map((cohort) => {
+      const items = cohort.members
+        .map((member) => {
+          const name = escapeHtml(sanitizePublicProse(member.name || ""));
+          const label = member.entityId && publicPeople.has(member.entityId)
+            ? `<a href="${hrefForSlug("knowledge", currentDir, `member-${member.entityId}`)}">${name}</a>`
+            : `<span>${name}</span>`;
+          const site = member.url || "";
+          const link = site && isVerifiedExternalUrl(site)
+            ? `<a class="roster-link" href="${escapeHtml(site)}" target="_blank" rel="noopener noreferrer">${escapeHtml(externalHostLabel(site))}</a>`
+            : "";
+          return `<li class="roster-member">${label}${link}</li>`;
+        })
+        .join("");
+      return `<div class="cohort-block" id="sab-${cohort.year}">
+      <div class="catalog-subhead"><h3>${cohort.year} cohort</h3><span class="catalog-subcount">${cohort.members.length} member${cohort.members.length === 1 ? "" : "s"}</span></div>
+      <ul class="roster-grid">${items}</ul>
+    </div>`;
+    })
+    .join("");
+  const years = cohorts.map((cohort) => cohort.year);
+  const span = years.length > 1 ? `${Math.min(...years)}–${Math.max(...years)}` : String(years[0]);
+  return `<section class="content-band muted" id="past-cohorts">
+    ${sectionHeading({
+      eyebrow: "History",
+      title: "Past cohorts",
+      text: `The Scientific Advisory Board is re-formed each year. These are the ${span} cohorts as the Institute recorded them; members are listed under every year they served, and are not current members by virtue of appearing here.`,
+    })}
+    ${blocks}
+  </section>`;
+}
+
 // Ecosystem organizations: external peer/community organizations flagged
 // `ecosystem: true` in the InstituteOS entity registry — arXiv, Zenodo,
 // Obsidian, Bluesky, an independent community bibliography maintainer, and
@@ -468,7 +516,7 @@ function strategyMapSection() {
 
 export function instituteosFeatureSections(page, currentDir = "") {
   if (GOVERNANCE_ROSTERS[page.slug]) {
-    return governanceRosterSection(page.slug, currentDir);
+    return governanceRosterSection(page.slug, currentDir) + sabCohortHistorySection(page.slug, currentDir);
   }
   switch (page.slug) {
     case "instituteos":

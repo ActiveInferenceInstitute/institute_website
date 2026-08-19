@@ -57,6 +57,7 @@ REQUIRED_PUBLIC_JSON_FILES = (
     "ontology.json",
     "entities.json",
     "fellows.json",
+    "sab_cohorts.json",
     "policies.json",
     "assets.json",
 )
@@ -370,6 +371,50 @@ def sanitize_fellows(entities_data: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def sanitize_sab_cohorts(cohorts_data: dict[str, Any]) -> dict[str, Any]:
+    """Project past Scientific Advisory Board cohorts into the public roster.
+
+    A cohort roster is published material, not a CRM slice: the Institute lists
+    each past cohort, with each member's own public page, on its public SAB
+    roster. Only the published shape crosses -- name, that one public URL, and
+    the entity id when the member is on record, which lets the rendered roster
+    link a past member to their public directory entry. No contact of any other
+    kind, and no membership claim about the CURRENT cohort, which the site reads
+    from the person's institute role instead.
+
+    Cohorts and members arrive already ordered (newest year first, members by
+    name) and that order is preserved so the rendered page is deterministic.
+    """
+    cohorts = []
+    for cohort in cohorts_data.get("cohorts", []):
+        year = cohort.get("year")
+        if not isinstance(year, int):
+            continue
+        members = []
+        for member in cohort.get("members", []):
+            url = public_text(member.get("url"))
+            if not url.startswith(("http://", "https://")):
+                url = ""
+            record = {
+                "name": public_text(member.get("name")),
+                "url": url,
+                "entityId": public_text(member.get("entityId")),
+            }
+            if record["name"] and record_is_public_safe(record):
+                members.append(record)
+        if members:
+            cohorts.append({"year": year, "members": members})
+    return {
+        "description": (
+            "Public past Scientific Advisory Board cohorts. The current cohort is not listed "
+            "here -- it is derived from the Scientific Advisory Board institute role on the "
+            "public entity records."
+        ),
+        "source": "instituteos/library/registries/sab_cohorts.json",
+        "cohorts": cohorts,
+    }
+
+
 def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
     people = []
     organizations = []
@@ -608,12 +653,14 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
     registries_dir = instituteos_root / "library" / "registries"
     entities_path = registries_dir / "entities.json"
     policies_path = registries_dir / "policies.json"
-    for required_path in (entities_path, policies_path):
+    sab_cohorts_path = registries_dir / "sab_cohorts.json"
+    for required_path in (entities_path, policies_path, sab_cohorts_path):
         if not required_path.exists():
             raise SystemExit(f"required InstituteOS registry not found: {required_path}")
 
     entities_data = load_json(entities_path)
     policies_data = load_json(policies_path)
+    sab_cohorts_data = load_json(sab_cohorts_path)
 
     payloads = {
         "projects.json": sanitize_projects(repositories_data),
@@ -621,6 +668,7 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
         "ontology.json": sanitize_ontology(tech_tree_data),
         "entities.json": sanitize_entities(entities_data),
         "fellows.json": sanitize_fellows(entities_data),
+        "sab_cohorts.json": sanitize_sab_cohorts(sab_cohorts_data),
         "policies.json": sanitize_policies(policies_data),
     }
     asset_payload, asset_writes = build_asset_records(instituteos_root)

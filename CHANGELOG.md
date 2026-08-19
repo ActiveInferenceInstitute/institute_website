@@ -5,6 +5,17 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **Scientific Advisory Board cohort history.** `/structure/scientific-advisory-board/`
+  now carries a Past cohorts section listing the 2022-2025 boards, 108 member
+  entries across four years, each linked to their public directory entry where
+  the registry knows them and out to their own page where that URL verifies as
+  live. Backed by a new InstituteOS registry (`sab_cohorts.json`) with typed
+  models, a loader, and tests; the current cohort is deliberately NOT duplicated
+  there, it stays derived from the entity role. Ten links are withheld with a
+  recorded reason (dead profile, dead site, or liveness unconfirmable) rather
+  than shipped broken. `src/render/feature-sections.mjs`, `src/data.mjs`,
+  `scripts/sync_instituteos_public_data.py`, `src/content/live-sources.json`.
+
 - **Scientific Advisory Board roster is published.** `/structure/scientific-advisory-board/`
   listed no members at all: the export collapses the registry's "Scientific
   Advisor" / "Scientific Advisory Board" roles into the public label

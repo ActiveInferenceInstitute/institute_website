@@ -1,5 +1,5 @@
 {
-  "lastCheckedAt": "2026-08-19T19:54:36Z",
+  "lastCheckedAt": "2026-08-19T20:59:38Z",
   "policy": "Public resource hub: visitor-facing summaries are maintained in the content registries, and volatile public links are checked through this manifest before publication. Only reachable public resources are promoted in rendered pages.",
   "sources": [
     {
@@ -10,7 +10,7 @@
       "sourceBasis": "Public project repository verified directly on GitHub.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "aicacp",
@@ -20,7 +20,7 @@
       "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "aicacp-project-doc",
@@ -30,7 +30,7 @@
       "sourceBasis": "Public Google Doc describing the AI Capabilities & Alignment Consensus Project (AICACP).",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "artificial-sentience-blog",
@@ -40,7 +40,7 @@
       "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "arxiv",
@@ -50,7 +50,7 @@
       "sourceBasis": "Open-access preprint server homepage verified directly on arxiv.org.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "bluesky",
@@ -60,7 +60,7 @@
       "sourceBasis": "Public social profile verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "bod",
@@ -70,7 +70,7 @@
       "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "bodform",
@@ -80,7 +80,7 @@
       "sourceBasis": "Public Institute form shortlink to the Board of Directors application form.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "calendar-embed",
@@ -90,7 +90,7 @@
       "sourceBasis": "Public Google Calendar web view for Institute-scale activities and events.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "calendar-ics",
@@ -100,7 +100,7 @@
       "sourceBasis": "Public Google Calendar iCal feed for Institute-scale activities and events.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "cognarr-arxiv",
@@ -110,7 +110,7 @@
       "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "cognarr-osf",
@@ -120,7 +120,7 @@
       "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "cpomdp-docs",
@@ -130,7 +130,7 @@
       "sourceBasis": "Public documentation site for the cpomdp library.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "cpomdp-paper-state-dependent-noise",
@@ -140,7 +140,7 @@
       "sourceBasis": "Public arXiv preprint underpinning the cpomdp library, verified on arXiv.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "cpomdp-pypi",
@@ -150,7 +150,7 @@
       "sourceBasis": "Public package listing for the cpomdp library on the Python Package Index.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "cpomdp-repo",
@@ -160,7 +160,7 @@
       "sourceBasis": "Public source repository for the cpomdp library, verified directly on GitHub.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "discord",
@@ -170,7 +170,7 @@
       "sourceBasis": "Public community channel verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "donate",
@@ -180,7 +180,7 @@
       "sourceBasis": "Public support destination verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "ecosystem",
@@ -190,7 +190,7 @@
       "sourceBasis": "Public ecosystem reference destination verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "facebook",
@@ -200,7 +200,7 @@
       "sourceBasis": "Public social profile verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "friston-2010-doi",
@@ -221,7 +221,7 @@
       "sourceBasis": "Public project repository verified directly on GitHub.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "github-org",
@@ -231,7 +231,7 @@
       "sourceBasis": "Public open-source organization verified directly on GitHub.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "gnn",
@@ -241,7 +241,7 @@
       "sourceBasis": "Public project repository verified directly on GitHub.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "gueststream-082-1",
@@ -251,7 +251,7 @@
       "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "gueststream-082-2",
@@ -261,7 +261,7 @@
       "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "gueststream-082-3",
@@ -271,7 +271,7 @@
       "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "gueststream-082-4",
@@ -281,7 +281,7 @@
       "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "gueststream-082-5",
@@ -291,7 +291,7 @@
       "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "gueststream-082-6",
@@ -301,7 +301,7 @@
       "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "gueststream-082-7",
@@ -311,7 +311,7 @@
       "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "internform",
@@ -321,7 +321,7 @@
       "sourceBasis": "Public Institute form shortlink to the Internship application form.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "journal",
@@ -331,7 +331,7 @@
       "sourceBasis": "Public research repository verified directly on GitHub.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "lanillos-2021-arxiv",
@@ -341,7 +341,7 @@
       "sourceBasis": "Added 2026-07-14 to give citations.json entry lanillos-2021-active-inference-robotics-survey its own correct source (previously mismatched to the learning-foundations-arxiv entry, which pointed at an unrelated paper). Verified via direct fetch: Lanillos, Meo, Pezzato et al. (2021) \"Active Inference in Robotics and Artificial Agents: Survey and Challenges\" -- matches citations.json DOI 10.48550/arXiv.2112.01871.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "learning-active-inference-book-mit",
@@ -351,7 +351,7 @@
       "sourceBasis": "Recorded but not promoted because current automated verification is not reachable with a successful status.",
       "statusCode": 403,
       "ok": false,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "learning-beren-papers",
@@ -361,7 +361,7 @@
       "sourceBasis": "Reachable learning or research reference surfaced from the official Institute site.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "learning-foundations-arxiv",
@@ -371,7 +371,7 @@
       "sourceBasis": "Corrected 2026-07-14: previous URL (arxiv.org/abs/2209.09185) resolved to an unrelated paper (Wakayama & Ahmed, \"Active Inference for Autonomous Decision-Making with Contextual Multi-Armed Bandits\"). Verified via direct fetch that arXiv:2001.07203 is Da Costa, Parr, Sajid, Veselic, Neacsu, Friston (2020) \"Active inference on discrete state-spaces: a synthesis\" -- matches library/registries/citations.json entry da-costa-2020-active-inference-discrete (DOI 10.1016/j.jmp.2020.102447).",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "learning-live-intro",
@@ -381,7 +381,7 @@
       "sourceBasis": "Reachable learning or research reference surfaced from the official Institute site.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "learning-ramstead-precis",
@@ -391,7 +391,7 @@
       "sourceBasis": "Corrected 2026-07-14: previous URL (arxiv.org/abs/2310.11524) resolved to an unrelated paper (Levenchuk, \"Toward an Ontology for Third Generation Systems Thinking\"). Verified via direct fetch that arXiv:2205.11543 is Ramstead, Sakthivadivel, Heins, Koudahl, Millidge, Da Costa, Klein, Friston, \"On Bayesian Mechanics: A Physics of and by Beliefs\" -- matches library/registries/citations.json entry ramstead-2023-active-inference-precis.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "learning-tumiel-spinning-up",
@@ -401,7 +401,7 @@
       "sourceBasis": "Cited by name in library/sources/superhuman_docs/Welcome__canvas-50NRgeiRE2.md as \"Spinning Up in Active Inference and the Free Energy Principle\" by Jared Tumiel; URL verified reachable via curl.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "linkedin",
@@ -422,7 +422,7 @@
       "sourceBasis": "Public Institute form shortlink forwarding to the short Measurement form.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "mitpress-active-inference-2022",
@@ -454,7 +454,7 @@
       "sourceBasis": "Markdown knowledge-management platform homepage verified directly on obsidian.md.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "official-activeinference-org",
@@ -464,7 +464,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "official-activities-shortlink",
@@ -474,7 +474,7 @@
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "official-get-involved",
@@ -484,7 +484,7 @@
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "official-history",
@@ -494,7 +494,7 @@
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "official-home",
@@ -504,7 +504,7 @@
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "official-intern",
@@ -514,7 +514,7 @@
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "official-measure",
@@ -524,7 +524,7 @@
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "official-newsletter",
@@ -545,7 +545,7 @@
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "official-symposium-shortlink",
@@ -555,7 +555,7 @@
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "official-textbook-group-shortlink",
@@ -565,7 +565,7 @@
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "official-volunteer",
@@ -575,7 +575,7 @@
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "paper-worden-assessing-bwh-2024",
@@ -585,7 +585,7 @@
       "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "paper-worden-projective-wave-2024",
@@ -595,7 +595,7 @@
       "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "paper-worden-testing-bwh-2024",
@@ -605,7 +605,7 @@
       "sourceBasis": "Public research paper or recorded Institute livestream, verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "partnership-shortlink",
@@ -615,7 +615,7 @@
       "sourceBasis": "Institute-subdomain shortlink named in the Partnership wiki canvas, same pattern as the existing Fellows/Volunteer shortlinks.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-adam-safron",
@@ -625,7 +625,7 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-adeel-razi",
@@ -635,7 +635,7 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-alexander-ororbia",
@@ -645,7 +645,17 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-alexandra-mikhailova",
+      "label": "Alexandra Mikhailova public page",
+      "category": "People",
+      "url": "http://mcallisterlab.com/",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-ana-magdalena",
@@ -655,7 +665,38 @@
       "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-ana-magdalena-hurtado",
+      "label": "Ana Magdalena Hurtado public page",
+      "category": "People",
+      "url": "https://www.researchgate.net/profile/Ana-Hurtado-4",
+      "sourceBasis": "ResearchGate profile recorded for this member in the 2025 cohort. ResearchGate refuses automated requests and served an access-restricted page in a real browser too, so liveness could not be confirmed and the link is withheld.",
+      "statusCode": 403,
+      "ok": false,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-anatoly-levenchuk",
+      "label": "Anatoly Levenchuk public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/ailev/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 999,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
+    },
+    {
+      "id": "person-andrea-hiott",
+      "label": "Andrea Hiott public page",
+      "category": "People",
+      "url": "https://www.andreahiott.net/",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-andrew-pashea",
@@ -665,7 +706,17 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-andrew-penland",
+      "label": "Andrew Penland public page",
+      "category": "People",
+      "url": "https://arxiv.org/search/?query=%22Andrew+Penland%22&searchtype=all&source=header",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-antonio-lucas-alba",
@@ -675,7 +726,7 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-arun-niranjan",
@@ -696,7 +747,7 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-bazookamanph",
@@ -706,7 +757,7 @@
       "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-bradly-alicea",
@@ -716,7 +767,18 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-bradly-alicea-2",
+      "label": "Bradly Alicea public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/bradlyalicea/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 999,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
     },
     {
       "id": "person-candice-pattisapu",
@@ -726,7 +788,28 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-charel-van-hoof",
+      "label": "Charel van Hoof public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/charel-van-hoof-24590531/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 999,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
+    },
+    {
+      "id": "person-chokha-palayamkottai",
+      "label": "Chokha Palayamkottai public page",
+      "category": "People",
+      "url": "https://www.integralops.com",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-chris-fields",
@@ -736,7 +819,7 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-christo-kurisummoottil-thomas",
@@ -746,7 +829,17 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-conor-heins",
+      "label": "Conor Heins public page",
+      "category": "People",
+      "url": "https://www.ab.mpg.de/person/101190/2736",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-cory-slater",
@@ -767,7 +860,18 @@
       "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-elba-serrano",
+      "label": "Elba Serrano public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/eeserrano/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 999,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
     },
     {
       "id": "person-elliott-hauser",
@@ -777,7 +881,17 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-george-mobus",
+      "label": "George Mobus public page",
+      "category": "People",
+      "url": "http://faculty.washington.edu/gmobus/",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-haris-neophytou",
@@ -787,7 +901,7 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-hector-manrique",
@@ -819,7 +933,7 @@
       "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-ian-tennant",
@@ -833,6 +947,16 @@
       "knownBotBlocked": true
     },
     {
+      "id": "person-jakub-smekal",
+      "label": "Jakub Smékal public page",
+      "category": "People",
+      "url": "http://jakubsmekal.com/",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
       "id": "person-jana-lumi",
       "label": "Jana Lumi public page",
       "category": "People",
@@ -840,7 +964,28 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-jeff-emmett",
+      "label": "Jeff Emmett public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/jeff-emmett-05268139/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 999,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
+    },
+    {
+      "id": "person-jeffrey-samuel-schulman-jr",
+      "label": "Jeffrey Samuel Schulman Jr public page",
+      "category": "People",
+      "url": "https://ist.psu.edu/directory/jss6099",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-jeffschulman",
@@ -850,7 +995,7 @@
       "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-joel-dietz",
@@ -860,7 +1005,28 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-john-boik",
+      "label": "John Boik public page",
+      "category": "People",
+      "url": "https://principledsocietiesproject.org/",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-john-boik-2",
+      "label": "John Boik public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/john-c-boik-a37a9621/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 999,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
     },
     {
       "id": "person-john-clippinger",
@@ -872,6 +1038,16 @@
       "ok": true,
       "checkedAt": "2026-08-19T19:51:41Z",
       "knownBotBlocked": true
+    },
+    {
+      "id": "person-john-cook",
+      "label": "John Cook public page",
+      "category": "People",
+      "url": "https://alignmentlab.ai/",
+      "sourceBasis": "Site recorded for this member in the 2024 and 2025 cohorts; it now returns 404 (verified in a real browser 2026-08-19), so the link is withheld.",
+      "statusCode": 404,
+      "ok": false,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-joshua-shane",
@@ -896,6 +1072,16 @@
       "knownBotBlocked": true
     },
     {
+      "id": "person-karl-john-friston-2",
+      "label": "Karl John Friston public page",
+      "category": "People",
+      "url": "https://www.fil.ion.ucl.ac.uk/~karl/",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
       "id": "person-luca-possati",
       "label": "Luca Possati public page",
       "category": "People",
@@ -903,7 +1089,37 @@
       "sourceBasis": "Personal academic page for this Scientific Advisory Board member; the page itself states his Institute SAB membership. Replaces the roster's misspelled 'lupossati.com', which does not resolve.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-mahault-albarracin",
+      "label": "Mahault Albarracin public page",
+      "category": "People",
+      "url": "https://info.uqam.ca/",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-manuel-razo-mejia",
+      "label": "Manuel Razo-Mejia public page",
+      "category": "People",
+      "url": "https://mrazo.notion.site/mrazo/Manuel-Razo-Mejia-6293ffa5e6174b3ab1b181efbd8cbca3",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-mark-wilcox",
+      "label": "Mark Wilcox public page",
+      "category": "People",
+      "url": "https://21e8.nz/",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-matt-brown",
@@ -913,7 +1129,17 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-matt-brown-2",
+      "label": "Matt Brown public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/matt-brown-0558201/",
+      "sourceBasis": "LinkedIn profile recorded for this member in the 2022 and 2023 cohorts; the profile no longer exists (verified in a real browser 2026-08-19), so the link is withheld. His later cohorts link to thoughtforge.ai, which is live.",
+      "statusCode": 999,
+      "ok": false,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-maxwell-j-d-ramstead",
@@ -923,7 +1149,7 @@
       "sourceBasis": "Google Scholar profile listed for this member on the Institute's SAB roster. The profile ID returns HTTP 404 in a real browser on both scholar.google.com and .co.uk, so the link is withheld from the rendered roster until a working URL is on record.",
       "statusCode": 404,
       "ok": false,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-michael-lennon",
@@ -937,6 +1163,27 @@
       "knownBotBlocked": true
     },
     {
+      "id": "person-michael-zargham",
+      "label": "Michael Zargham public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/mczargham/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 999,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
+    },
+    {
+      "id": "person-mick-thacker",
+      "label": "Mick Thacker public page",
+      "category": "People",
+      "url": "https://www.rcsi.com/people/profile/michaelthacker",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
       "id": "person-mike-smith",
       "label": "Mike Smith public page",
       "category": "People",
@@ -944,7 +1191,7 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-mlflumic",
@@ -954,7 +1201,58 @@
       "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-rafael-kaufmann",
+      "label": "Rafael Kaufmann public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/rkauf/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 429,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
+    },
+    {
+      "id": "person-renee-davis",
+      "label": "Renée Davis public page",
+      "category": "People",
+      "url": "https://twitter.com/banklesschick",
+      "sourceBasis": "Twitter/X profile recorded for this member in the 2024 cohort; the account no longer exists (verified in a real browser 2026-08-19), so the link is withheld.",
+      "statusCode": 404,
+      "ok": false,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-rosalyn-j-moran",
+      "label": "Rosalyn J Moran public page",
+      "category": "People",
+      "url": "https://www.kcl.ac.uk/people/rosalyn-moran",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-sandeep-ramesh",
+      "label": "Sandeep Ramesh public page",
+      "category": "People",
+      "url": "http://sandeepramesh.com/",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-sarah-hamburg",
+      "label": "Sarah Hamburg public page",
+      "category": "People",
+      "url": "https://www.sheffield.ac.uk/sheffieldrobotics",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-scott-david",
@@ -975,7 +1273,17 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-sebastian-alvarado-2",
+      "label": "Sebastian Alvarado public page",
+      "category": "People",
+      "url": "http://www.alvaradolab.com/",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-shady-el-damaty",
@@ -985,7 +1293,60 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-shanna-dobson",
+      "label": "Shanna Dobson public page",
+      "category": "People",
+      "url": "https://www.calstatela.edu/faculty/shanna-dobson",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-shingai-thornton",
+      "label": "Shingai Thornton public page",
+      "category": "People",
+      "url": "https://shingai.xyz/",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-susan-hasty",
+      "label": "Susan Hasty public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/susanhasty/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 429,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
+    },
+    {
+      "id": "person-susan-keen",
+      "label": "Susan Keen public page",
+      "category": "People",
+      "url": "https://biology.ucdavis.edu/people/susan-keen",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 403,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
+    },
+    {
+      "id": "person-swan-webb",
+      "label": "Swan Webb public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/swanwebb/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 429,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
     },
     {
       "id": "person-thebuttskie",
@@ -995,7 +1356,7 @@
       "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "person-thomas-kehler",
@@ -1005,7 +1366,29 @@
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-thomas-kehler-2",
+      "label": "Thomas Kehler public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/tomkehler/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 429,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
+    },
+    {
+      "id": "person-tim-verbelen",
+      "label": "Tim Verbelen public page",
+      "category": "People",
+      "url": "https://www.linkedin.com/in/timverbelen/",
+      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
+      "statusCode": 429,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z",
+      "knownBotBlocked": true
     },
     {
       "id": "person-turfus",
@@ -1015,7 +1398,17 @@
       "sourceBasis": "Public GitHub profile verified through GitHub public metadata.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "person-victor-kariuki",
+      "label": "Victor Kariuki public page",
+      "category": "People",
+      "url": "https://twitter.com/DesciYouths",
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "podbean",
@@ -1025,7 +1418,7 @@
       "sourceBasis": "Public podcast destination verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "prepareform",
@@ -1035,7 +1428,7 @@
       "sourceBasis": "Public Institute form shortlink forwarding to the short Preparation form.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "quantuminquiry-org",
@@ -1045,7 +1438,7 @@
       "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-act-inf-metaanalysis",
@@ -1055,7 +1448,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-actinf-rxinfer",
@@ -1065,7 +1458,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-active-inference-ontology",
@@ -1075,7 +1468,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-activeblockference",
@@ -1085,7 +1478,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-activeinferants",
@@ -1095,7 +1488,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-activeinferencecategorytheory",
@@ -1105,7 +1498,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-activeinferenceimplementations",
@@ -1115,7 +1508,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-activeinferencejournal",
@@ -1125,7 +1518,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-aeos",
@@ -1135,7 +1528,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-aii-org",
@@ -1145,7 +1538,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-ants",
@@ -1155,7 +1548,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-atlas",
@@ -1165,7 +1558,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-biofirm",
@@ -1175,7 +1568,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-cerebrum",
@@ -1185,7 +1578,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-cogant",
@@ -1195,7 +1588,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-cognitive",
@@ -1205,7 +1598,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-courses",
@@ -1215,7 +1608,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-fep-lean",
@@ -1225,7 +1618,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-fundamentals",
@@ -1235,7 +1628,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-gen24",
@@ -1245,7 +1638,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-gen25",
@@ -1255,7 +1648,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-generalizednotationnotation",
@@ -1265,7 +1658,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-geo-infer",
@@ -1275,7 +1668,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-institute-website",
@@ -1285,7 +1678,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-journal-utilities",
@@ -1295,7 +1688,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-karma-system",
@@ -1305,7 +1698,7 @@
       "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-knowledge-engineering",
@@ -1315,7 +1708,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-noorg",
@@ -1325,7 +1718,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-on-policy-distillation",
@@ -1335,7 +1728,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-parr-et-al-2022-actinf-textbook",
@@ -1345,7 +1738,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-policy-entanglement",
@@ -1355,7 +1748,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-pymcp",
@@ -1365,7 +1758,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-pymdp",
@@ -1375,7 +1768,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-pymdp-upstream",
@@ -1385,7 +1778,7 @@
       "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-research-discovery-engine",
@@ -1395,7 +1788,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-start",
@@ -1405,7 +1798,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "repo-symposium",
@@ -1415,7 +1808,7 @@
       "sourceBasis": "Public repository verified from the ActiveInferenceInstitute GitHub namespace.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-13754586",
@@ -1425,7 +1818,7 @@
       "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-4021163",
@@ -1435,7 +1828,7 @@
       "sourceBasis": "Public Zenodo record; title and date read from the Zenodo REST API.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-5573287",
@@ -1445,7 +1838,7 @@
       "sourceBasis": "Public Zenodo record; title and date read from the Zenodo REST API.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-5759807",
@@ -1455,7 +1848,7 @@
       "sourceBasis": "Public Zenodo record; title and date read from the Zenodo REST API.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-5797041",
@@ -1465,7 +1858,7 @@
       "sourceBasis": "Public Zenodo record; title and date read from the Zenodo REST API.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-7377256",
@@ -1475,7 +1868,7 @@
       "sourceBasis": "Public Zenodo record; title and date read from the Zenodo REST API.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-7443848",
@@ -1485,7 +1878,7 @@
       "sourceBasis": "Public Zenodo record; title and date read from the Zenodo REST API.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-7449368",
@@ -1495,7 +1888,7 @@
       "sourceBasis": "Public Zenodo record; title and date read from the Zenodo REST API.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-7484994",
@@ -1505,7 +1898,7 @@
       "sourceBasis": "Public Zenodo record; title and date read from the Zenodo REST API.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-7803328",
@@ -1515,7 +1908,7 @@
       "sourceBasis": "Public Zenodo record; title and date read from the Zenodo REST API.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-8164667",
@@ -1525,7 +1918,7 @@
       "sourceBasis": "Public Zenodo record; title and date read from the Zenodo REST API.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "research-zenodo-8266281",
@@ -1535,7 +1928,7 @@
       "sourceBasis": "Public Zenodo record; title and date read from the Zenodo REST API.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "sab",
@@ -1545,7 +1938,7 @@
       "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "sabform",
@@ -1555,7 +1948,7 @@
       "sourceBasis": "Public Institute form shortlink to the Scientific Advisory Board application form.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-2025",
@@ -1565,7 +1958,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-2026",
@@ -1575,7 +1968,7 @@
       "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-affordances",
@@ -1585,7 +1978,7 @@
       "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-fellows",
@@ -1595,7 +1988,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-mentorship",
@@ -1605,7 +1998,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-obsidian",
@@ -1615,7 +2008,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-ontology",
@@ -1625,7 +2018,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-prepare",
@@ -1635,7 +2028,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-rxinfer",
@@ -1645,7 +2038,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-strategy",
@@ -1655,7 +2048,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-wave-hypothesis",
@@ -1665,7 +2058,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "shortlink-welcome",
@@ -1675,7 +2068,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "start-docs",
@@ -1685,7 +2078,7 @@
       "sourceBasis": "Public URL verified directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "start-docs-site",
@@ -1695,7 +2088,7 @@
       "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "start-github",
@@ -1705,7 +2098,7 @@
       "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "start-pages-unavailable",
@@ -1715,7 +2108,7 @@
       "sourceBasis": "Checked because the older public path may circulate; not promoted because the current public response is unavailable.",
       "statusCode": 404,
       "ok": false,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "start-repo",
@@ -1725,7 +2118,7 @@
       "sourceBasis": "Public learning repository verified directly on GitHub.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "start-youtube-008",
@@ -1735,7 +2128,7 @@
       "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "start-youtube-015",
@@ -1745,7 +2138,7 @@
       "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2021-transcript",
@@ -1755,7 +2148,7 @@
       "sourceBasis": "Public Zenodo record of the 1st Applied Active Inference Symposium proceedings.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2021-video-1",
@@ -1765,7 +2158,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 1st Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2021-video-2",
@@ -1775,7 +2168,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 1st Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2022-program",
@@ -1785,7 +2178,7 @@
       "sourceBasis": "Institute subdomain shortlink forwarding to the public 2nd Symposium program.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2022-transcript",
@@ -1795,7 +2188,7 @@
       "sourceBasis": "Public Zenodo record of the 2nd Applied Active Inference Symposium proceedings.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2022-video-1",
@@ -1805,7 +2198,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 2nd Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2022-video-2",
@@ -1815,7 +2208,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 2nd Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2023-program",
@@ -1825,7 +2218,7 @@
       "sourceBasis": "Institute subdomain shortlink forwarding to the public 3rd Symposium program.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2023-video-1",
@@ -1835,7 +2228,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 3rd Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2023-video-2",
@@ -1845,7 +2238,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 3rd Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2024-program",
@@ -1855,7 +2248,7 @@
       "sourceBasis": "Institute subdomain shortlink forwarding to the public 4th Symposium program.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2024-video-1",
@@ -1865,7 +2258,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 4th Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2024-video-2",
@@ -1875,7 +2268,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 4th Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2024-video-3",
@@ -1885,7 +2278,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 4th Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2025-program",
@@ -1895,7 +2288,7 @@
       "sourceBasis": "Institute subdomain shortlink forwarding to the public 5th Symposium program.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2025-video-1",
@@ -1905,7 +2298,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 5th Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2025-video-2",
@@ -1915,7 +2308,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 5th Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2025-video-3",
@@ -1925,7 +2318,7 @@
       "sourceBasis": "Public Institute YouTube recording of the 5th Symposium.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2026-register",
@@ -1935,7 +2328,7 @@
       "sourceBasis": "Public 2026 Symposium participant registration destination supplied by the Institute.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "symposium-2026-submit",
@@ -1945,7 +2338,7 @@
       "sourceBasis": "Institute subdomain shortlink forwarding to the public 2026 Symposium presenter application form.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "textbookregister",
@@ -1955,7 +2348,7 @@
       "sourceBasis": "Public Institute form shortlink forwarding to the Textbook Group registration form.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "tnb-youtube",
@@ -1965,7 +2358,7 @@
       "sourceBasis": "Public Theoretical Neurobiology Group YouTube channel with recordings of past meetings.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "video",
@@ -1975,7 +2368,7 @@
       "sourceBasis": "Public media index verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "weekly",
@@ -1985,7 +2378,7 @@
       "sourceBasis": "Public recurring update destination verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "x",
@@ -1995,7 +2388,7 @@
       "sourceBasis": "Public social profile verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "youtube",
@@ -2005,7 +2398,7 @@
       "sourceBasis": "Public media channel verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "youtube-activeblockference-playlist",
@@ -2015,7 +2408,7 @@
       "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "youtube-handle",
@@ -2025,7 +2418,7 @@
       "sourceBasis": "Public media handle verified from the Institute resource inventory.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
       "id": "zenodo",
@@ -2035,7 +2428,7 @@
       "sourceBasis": "Open-access CERN/OpenAIRE research repository homepage verified directly on zenodo.org.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:54:36Z"
+      "checkedAt": "2026-08-19T20:59:38Z"
     }
   ]
 }
