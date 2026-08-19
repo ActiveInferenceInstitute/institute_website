@@ -5,6 +5,19 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **Scientific Advisory Board roster is published.** `/structure/scientific-advisory-board/`
+  listed no members at all: the export collapses the registry's "Scientific
+  Advisor" / "Scientific Advisory Board" roles into the public label
+  "SAB membership", which the governance-roster renderer did not recognise, so
+  the section rendered empty. The renderer now accepts the published vocabulary
+  and the page carries all 32 current members. Each member also links to their
+  own public page, carried through a new public `website` field on the exported
+  person record (sourced from the registry's WEBSITE-typed contact; emails and
+  every other contact stay private) and registered in `live-sources.json`, so a
+  member link is rendered only when the URL is a verified, reachable source.
+  `src/render/feature-sections.mjs`, `scripts/sync_instituteos_public_data.py`,
+  `src/content/live-sources.json`, `assets/css/styles.css`.
+
 - **`/projects/` catalog split into two separate tables.** Institute-hosted and
   Ecosystem projects are now rendered as fully independent sections — each with
   its own heading, count, search box, topic filter (options computed only from

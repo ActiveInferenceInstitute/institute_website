@@ -416,7 +416,8 @@
         "Unit Member"
       ],
       "tags": [],
-      "title": "Primary point of contact / IE project facilitator for AICACP"
+      "title": "Primary point of contact / IE project facilitator for AICACP",
+      "website": "https://www.adamsafron.com/"
     },
     {
       "active": true,
@@ -428,7 +429,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "http://www.adeelrazi.org/"
     },
     {
       "active": true,
@@ -440,7 +442,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.cs.rit.edu/~ago/"
     },
     {
       "active": null,
@@ -452,7 +455,8 @@
         "Board of Directors"
       ],
       "tags": [],
-      "title": "Board Member"
+      "title": "Board Member",
+      "website": "https://www.linkedin.com/in/alexander-sabine-7230a837/"
     },
     {
       "active": null,
@@ -467,7 +471,8 @@
         "Board of Directors"
       ],
       "tags": [],
-      "title": "Vice President & Secretary"
+      "title": "Vice President & Secretary",
+      "website": ""
     },
     {
       "active": true,
@@ -479,7 +484,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.activeinference.institute/"
     },
     {
       "active": null,
@@ -491,7 +497,8 @@
         "Board of Directors"
       ],
       "tags": [],
-      "title": "Board Member"
+      "title": "Board Member",
+      "website": ""
     },
     {
       "active": null,
@@ -504,7 +511,8 @@
         "Unit Member"
       ],
       "tags": [],
-      "title": "Board Member"
+      "title": "Board Member",
+      "website": "https://scholar.google.com/citations?user=fOQ5_FMAAAAJ&hl=en"
     },
     {
       "active": true,
@@ -516,7 +524,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://github.com/apashea"
     },
     {
       "active": null,
@@ -528,7 +537,8 @@
         "Board of Directors"
       ],
       "tags": [],
-      "title": "Board Member"
+      "title": "Board Member",
+      "website": "https://www.linkedin.com/in/ann-stapleton-4473717/"
     },
     {
       "active": true,
@@ -541,7 +551,8 @@
         "Fellow"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": ""
     },
     {
       "active": true,
@@ -553,7 +564,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.unizar.es/"
     },
     {
       "active": true,
@@ -565,7 +577,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.linkedin.com/in/arun-niranjan/"
     },
     {
       "active": null,
@@ -577,7 +590,8 @@
         "Board of Directors"
       ],
       "tags": [],
-      "title": "Board Member"
+      "title": "Board Member",
+      "website": ""
     },
     {
       "active": true,
@@ -589,7 +603,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://avelguenin.github.io/"
     },
     {
       "active": true,
@@ -601,7 +616,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://bradly-alicea.weebly.com/"
     },
     {
       "active": true,
@@ -613,7 +629,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://labs.utdallas.edu/coinslab/current/"
     },
     {
       "active": true,
@@ -625,7 +642,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://chrisfieldsresearch.com/"
     },
     {
       "active": true,
@@ -637,7 +655,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://users.wpi.edu/~cthomas2"
     },
     {
       "active": true,
@@ -649,7 +668,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://linkedin.com/in/coryslater"
     },
     {
       "active": true,
@@ -764,7 +784,8 @@
         "board",
         "finance"
       ],
-      "title": "President & Treasurer"
+      "title": "President & Treasurer",
+      "website": "https://cognitivesecurity.us/"
     },
     {
       "active": false,
@@ -776,7 +797,8 @@
         "Board of Directors"
       ],
       "tags": [],
-      "title": "Board Member (2022-2024)"
+      "title": "Board Member (2022-2024)",
+      "website": ""
     },
     {
       "active": null,
@@ -788,7 +810,8 @@
         "Board of Directors"
       ],
       "tags": [],
-      "title": "Board Member"
+      "title": "Board Member",
+      "website": ""
     },
     {
       "active": true,
@@ -800,7 +823,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://elliotthauser.com/"
     },
     {
       "active": null,
@@ -812,7 +836,8 @@
         "Board of Directors"
       ],
       "tags": [],
-      "title": "Board Member"
+      "title": "Board Member",
+      "website": "https://linkedin.com/ellynne"
     },
     {
       "active": true,
@@ -824,7 +849,8 @@
         "Unit Member"
       ],
       "tags": [],
-      "title": "Primary point of contact / IE project facilitator for Improving RxInfer.jl's Model Visualization Capabilities"
+      "title": "Primary point of contact / IE project facilitator for Improving RxInfer.jl's Model Visualization Capabilities",
+      "website": ""
     },
     {
       "active": true,
@@ -836,7 +862,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://scholar.google.com/citations?user=yc1GJRMAAAAJ"
     },
     {
       "active": true,
@@ -848,7 +875,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.linkedin.com/in/hollygrimm/"
     },
     {
       "active": true,
@@ -861,7 +889,8 @@
         "Unit Member"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://psicosocio.unizar.es/personal/hector-marin-manrique"
     },
     {
       "active": true,
@@ -873,7 +902,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.linkedin.com/in/ian-tennant-phd/"
     },
     {
       "active": true,
@@ -885,7 +915,8 @@
         "Unit Member"
       ],
       "tags": [],
-      "title": "Primary point of contact / IE project facilitator for Active Inference for Built Environments & CooperActive Systems"
+      "title": "Primary point of contact / IE project facilitator for Active Inference for Built Environments & CooperActive Systems",
+      "website": ""
     },
     {
       "active": true,
@@ -897,7 +928,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://janalumi.substack.com/"
     },
     {
       "active": true,
@@ -910,7 +942,8 @@
         "Fellow"
       ],
       "tags": [],
-      "title": "Primary point of contact / IE project facilitator for Symbolic cognitive robotics"
+      "title": "Primary point of contact / IE project facilitator for Symbolic cognitive robotics",
+      "website": ""
     },
     {
       "active": true,
@@ -922,7 +955,8 @@
         "Unit Member"
       ],
       "tags": [],
-      "title": "Primary point of contact / IE project facilitator for Active Inference Account of Belief Updating in PTSD"
+      "title": "Primary point of contact / IE project facilitator for Active Inference Account of Belief Updating in PTSD",
+      "website": ""
     },
     {
       "active": true,
@@ -934,7 +968,8 @@
         "Unit Member"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": ""
     },
     {
       "active": true,
@@ -946,7 +981,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://collaborativefutures.org/"
     },
     {
       "active": true,
@@ -959,7 +995,8 @@
         "Fellow"
       ],
       "tags": [],
-      "title": "Primary point of contact / IE project facilitator for CogNarr Ecosystem: Facilitating Group Cognition at Scale"
+      "title": "Primary point of contact / IE project facilitator for CogNarr Ecosystem: Facilitating Group Cognition at Scale",
+      "website": "https://principledsocietiesproject.org/"
     },
     {
       "active": true,
@@ -971,7 +1008,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": "Scientific Advisory Board; Board Member (2022-2025)"
+      "title": "Scientific Advisory Board; Board Member (2022-2025)",
+      "website": "https://www.linkedin.com/in/john-henry-clippinger-5ab1b/"
     },
     {
       "active": true,
@@ -983,7 +1021,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.linkedin.com/in/joshua-shane/"
     },
     {
       "active": true,
@@ -996,7 +1035,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.linkedin.com/in/karl-friston-26812742/"
     },
     {
       "active": true,
@@ -1008,7 +1048,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://lucapossati.com"
     },
     {
       "active": true,
@@ -1020,7 +1061,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.thoughtforge.ai/"
     },
     {
       "active": true,
@@ -1032,7 +1074,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://scholar.google.co.uk/citations?user=220Ht-cAAAAJ&hl=en"
     },
     {
       "active": true,
@@ -1044,7 +1087,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.linkedin.com/in/mikelennon/"
     },
     {
       "active": true,
@@ -1056,7 +1100,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": "Scientific Advisory Board; Board Member (2022-2025)"
+      "title": "Scientific Advisory Board; Board Member (2022-2025)",
+      "website": "https://altana.ai/"
     },
     {
       "active": true,
@@ -1068,7 +1113,8 @@
         "Unit Member"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": ""
     },
     {
       "active": false,
@@ -1080,7 +1126,8 @@
         "Board of Directors"
       ],
       "tags": [],
-      "title": "Board Member (2022-2024)"
+      "title": "Board Member (2022-2024)",
+      "website": ""
     },
     {
       "active": true,
@@ -1093,7 +1140,8 @@
         "Fellow"
       ],
       "tags": [],
-      "title": "Primary point of contact / IE project facilitator for Model-Centric cognition"
+      "title": "Primary point of contact / IE project facilitator for Model-Centric cognition",
+      "website": ""
     },
     {
       "active": true,
@@ -1105,7 +1153,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.linkedin.com/in/scott-david-35a5887/"
     },
     {
       "active": true,
@@ -1117,7 +1166,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://www.alvaradolab.com"
     },
     {
       "active": true,
@@ -1129,7 +1179,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "https://opscientia.com"
     },
     {
       "active": true,
@@ -1141,7 +1192,8 @@
         "Unit Member"
       ],
       "tags": [],
-      "title": "Primary point of contact / IE project facilitator for Humanity's Story of an Uncertain Self"
+      "title": "Primary point of contact / IE project facilitator for Humanity's Story of an Uncertain Self",
+      "website": ""
     },
     {
       "active": true,
@@ -1153,7 +1205,8 @@
         "Unit Member"
       ],
       "tags": [],
-      "title": "Primary point of contact / IE project facilitator for The Einstein Model of a Solid as a Model of the Mental Apparatus from the Economic Perspective of Psychoanalytic Theory"
+      "title": "Primary point of contact / IE project facilitator for The Einstein Model of a Solid as a Model of the Mental Apparatus from the Economic Perspective of Psychoanalytic Theory",
+      "website": ""
     },
     {
       "active": true,
@@ -1165,7 +1218,8 @@
         "SAB membership"
       ],
       "tags": [],
-      "title": ""
+      "title": "",
+      "website": "http://crowdsmart.ai"
     },
     {
       "active": true,
@@ -1178,7 +1232,8 @@
         "Member"
       ],
       "tags": [],
-      "title": "Board Member"
+      "title": "Board Member",
+      "website": "https://www.linkedin.com/in/bleuknight/"
     },
     {
       "active": null,
@@ -1191,7 +1246,8 @@
         "Unit Member"
       ],
       "tags": [],
-      "title": "Board Member"
+      "title": "Board Member",
+      "website": "https://vbaulin.softmat.net/"
     }
   ],
   "source": "instituteos/library/registries/entities.json"

@@ -9,7 +9,7 @@ import { EXPORT_PROVENANCE, siteData, loadProjectsData } from "../data.mjs";
 import { escapeHtml, sanitizePublicProse } from "../lib/text.mjs";
 import { hrefForSlug } from "../url-taxonomy.mjs";
 import { sectionHeading } from "./components.mjs";
-import { relPrefix } from "./urls.mjs";
+import { relPrefix, isVerifiedExternalUrl } from "./urls.mjs";
 import { sourceAnchor } from "./sources.mjs";
 import { tr } from "../i18n/index.mjs";
 
@@ -291,8 +291,12 @@ function activitiesFeatureSection(currentDir = "") {
 const GOVERNANCE_ROSTERS = {
   "board-of-directors": { roles: ["Board of Directors", "Director"], title: "Current Board of Directors" },
   officers: { roles: ["Officer", "President", "Vice President", "Secretary", "Treasurer"], title: "Current Officers" },
+  // "SAB membership" is the label the public export actually emits: the sync
+  // script collapses the registry's "Scientific Advisor" / "Scientific Advisory
+  // Board" roles into that one public membership name. The legacy labels stay
+  // listed so the roster keeps rendering if the export vocabulary changes back.
   "scientific-advisory-board": {
-    roles: ["Scientific Advisory Board", "Scientific Advisor"],
+    roles: ["SAB membership", "Scientific Advisory Board", "Scientific Advisor"],
     title: "Current Scientific Advisory Board",
   },
 };
@@ -306,6 +310,16 @@ function isRoleSlotPlaceholder(name) {
     .split(/\s+/)
     .filter(Boolean);
   return words.length > 0 && words.every((word) => ROLE_WORDS.has(word));
+}
+// "https://www.adamsafron.com/" -> "adamsafron.com". The bare host is a better
+// link label than the full URL: it fits a roster cell, and it still tells the
+// visitor exactly which site they are about to open.
+function externalHostLabel(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
 }
 function governanceRosterSection(slug, currentDir = "") {
   const config = GOVERNANCE_ROSTERS[slug];
@@ -323,11 +337,24 @@ function governanceRosterSection(slug, currentDir = "") {
     .map((person) => {
       const href = hrefForSlug("knowledge", currentDir, `member-${person.id}`);
       const role = person.title ? `<span class="roster-role">${escapeHtml(person.title)}</span>` : "";
-      return `<li class="roster-member"><a href="${href}">${escapeHtml(person.name)}</a>${role}</li>`;
+      // The member's own public page, carried through the registry's website
+      // contact. Rendered only when the URL is a registered, reachable live
+      // source, so a dead or unvetted link can never reach a visitor; the host
+      // is shown as the label so the destination is visible before the click.
+      const site = person.website || "";
+      const link = site && isVerifiedExternalUrl(site)
+        ? `<a class="roster-link" href="${escapeHtml(site)}" target="_blank" rel="noopener noreferrer">${escapeHtml(externalHostLabel(site))}</a>`
+        : "";
+      return `<li class="roster-member"><a href="${href}">${escapeHtml(person.name)}</a>${role}${link}</li>`;
     })
     .join("");
+  // The blurb counts the members who also carry a public page of their own, so
+  // the sentence stays true as the registry gains or loses website contacts
+  // instead of promising a link next to every name.
+  const linked = members.filter((person) => person.website && isVerifiedExternalUrl(person.website)).length;
+  const linkNote = linked ? ` ${linked} link to their own public page.` : "";
   return `<section class="content-band" id="current-members">
-    ${sectionHeading({ eyebrow: "Members", title: config.title, text: `${members.length} current ${members.length === 1 ? "member" : "members"}, linked to the public directory.` })}
+    ${sectionHeading({ eyebrow: "Members", title: config.title, text: `${members.length} current ${members.length === 1 ? "member" : "members"}, each linked to the public directory.${linkNote}` })}
     <ul class="roster-grid">${cards}</ul>
   </section>`;
 }

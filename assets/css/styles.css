@@ -1864,6 +1864,8 @@ body{transition:background-color 200ms,color 200ms}
 .roster-member { padding: 0.5rem 0; border-bottom: 1px solid var(--glass-border, rgba(255,255,255,0.1)); display: flex; flex-direction: column; gap: 0.1rem; }
 .roster-member a { font-weight: 600; }
 .roster-role { font-size: 0.82rem; color: var(--text-dim, #9aa0a6); }
+.roster-link { font-size: 0.8rem; font-weight: 500; color: var(--text-dim, #9aa0a6); word-break: break-word; }
+.roster-link:hover { color: inherit; }
 
 /* Transcript excerpt block on per-video detail pages */
 .transcript-block {

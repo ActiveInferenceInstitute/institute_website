@@ -375,6 +375,25 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
     organizations = []
     excluded_people = {"alexander-vyatkin"}
 
+    def public_website(entity: dict[str, Any]) -> str:
+        """Return the person's own public web presence, or "".
+
+        Contacts are private as a class -- emails and phone numbers must never
+        cross into the public tree -- but a WEBSITE-typed contact is a different
+        kind of value: it is the professional page the person publishes about
+        themselves, and the Institute already lists these next to member names
+        on its public Scientific Advisory Board doc. Only absolute http(s) URLs
+        are published, so a bare host ("example.com") that would render as a
+        broken relative link is dropped rather than emitted.
+        """
+        for contact in entity.get("contacts", []) or []:
+            if contact.get("method") != "website":
+                continue
+            value = public_text(contact.get("value"))
+            if value.startswith("http://") or value.startswith("https://"):
+                return value
+        return ""
+
     def public_membership_roles(roles: list[str]) -> list[str]:
         """Collapse legacy governance labels into public membership names."""
         normalized = []
@@ -416,6 +435,7 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
                 "name": public_text(entity.get("name")),
                 "title": public_text(entity.get("title")),
                 "roles": public_membership_roles(entity.get("roles", [])),
+                "website": public_website(entity),
                 "orgId": entity.get("org_id"),
                 "active": entity.get("active"),
                 "tags": [public_text(tag) for tag in entity.get("tags", []) if public_text(tag)],
