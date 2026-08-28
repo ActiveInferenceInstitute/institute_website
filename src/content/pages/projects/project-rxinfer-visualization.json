@@ -17,7 +17,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "Good visualization tools make probabilistic models more interpretable and accessible. This project develops visualization infrastructure for RxInfer.jl, contributing to a growing ecosystem of tooling around the system. Work includes graph rendering, inference visualization, and interactive exploration interfaces. The project is led by Fraser Paterson, developed in partnership with BIASlab, the university research lab where RxInfer.jl originated.",
+      "body": "Good visualization tools make probabilistic models more interpretable and accessible. This project develops visualization infrastructure for RxInfer.jl, contributing to a growing ecosystem of tooling around the system.\n\nWork includes graph rendering, inference visualization, and interactive exploration interfaces. The project is led by Fraser Paterson, developed in partnership with BIASlab, the university research lab where RxInfer.jl originated.",
       "links": [
         {
           "sourceId": "github-org"

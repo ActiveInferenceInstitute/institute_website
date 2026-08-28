@@ -23,7 +23,7 @@
   "sections": [
     {
       "heading": "Volunteer",
-      "body": "Volunteering is the broadest on-ramp for participation. Volunteers contribute to learning groups, projects, operations, writing, analysis, media production, and community support according to available time, background, and skills. No prior expertise in Active Inference is required — many volunteers begin by attending meetings, watching recordings, and contributing in whatever way fits their current capacity.",
+      "body": "Volunteering is the broadest on-ramp for participation. Volunteers contribute to learning groups, projects, operations, writing, analysis, media production, and community support according to available time, background, and skills.\n\nNo prior expertise in Active Inference is required — many volunteers begin by attending meetings, watching recordings, and contributing in whatever way fits their current capacity.",
       "links": [
         {
           "sourceId": "discord"
@@ -36,7 +36,7 @@
     },
     {
       "heading": "Internship",
-      "body": "Internships provide structured engagement for participants who want to contribute more deeply to specific projects or functions. Interns work on defined deliverables — documentation, analysis, code, educational materials, or operational support — and develop skills through project practice and community engagement. Learning is built into the process regardless of prior experience.",
+      "body": "Internships provide structured engagement for participants who want to contribute more deeply to specific projects or functions. Interns work on defined deliverables — documentation, analysis, code, educational materials, or operational support — and develop skills through project practice and community engagement.\n\nLearning is built into the process regardless of prior experience.",
       "links": [
         {
           "label": "Internship page",
@@ -46,7 +46,7 @@
     },
     {
       "heading": "Mentorship",
-      "body": "Mentorship connects experienced participants with people earlier in their engagement with Active Inference or the Institute. Mentors support the development of mentees through guidance, feedback, shared project work, and professional connection. Mentorship can be formal — with defined goals and regular check-ins — or informal, emerging naturally from community participation.",
+      "body": "Mentorship connects experienced participants with people earlier in their engagement with Active Inference or the Institute. Mentors support the development of mentees through guidance, feedback, shared project work, and professional connection.\n\nMentorship can be formal — with defined goals and regular check-ins — or informal, emerging naturally from community participation.",
       "links": [
         {
           "sourceId": "shortlink-mentorship"
@@ -72,7 +72,7 @@
     },
     {
       "heading": "Grants",
-      "body": "The Institute supports grant proposals and funding efforts aligned with Active Inference research, education, and application. Participants and projects can seek Institute support for grant preparation, institutional affiliation, and collaborative funding proposals. The Institute tracks funding opportunities and shares them through its regular communications.",
+      "body": "The Institute supports grant proposals and funding efforts aligned with Active Inference research, education, and application. Participants and projects can seek Institute support for grant preparation, institutional affiliation, and collaborative funding proposals.\n\nThe Institute tracks funding opportunities and shares them through its regular communications.",
       "links": [
         {
           "sourceId": "weekly"
@@ -85,7 +85,7 @@
     },
     {
       "heading": "Partnership",
-      "body": "Partnerships align organizations, research groups, funders, and collaborators around concrete shared work. Partner organizations may co-host events, co-author publications, share resources, provide infrastructure, or collaborate on research and education projects. Partnership is a practical exchange of time, attention, expertise, funding, and institutional support.",
+      "body": "Partnerships align organizations, research groups, funders, and collaborators around concrete shared work. Partner organizations may co-host events, co-author publications, share resources, provide infrastructure, or collaborate on research and education projects.\n\nPartnership is a practical exchange of time, attention, expertise, funding, and institutional support.",
       "links": [
         {
           "label": "Partnership page",

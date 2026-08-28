@@ -30,7 +30,7 @@
     },
     {
       "heading": "Publications and Past Work",
-      "body": "The project produced a 2024 publication, \"FarmWorks: Decentralized AI Agents for Personalized Solutions,\" describing a platform for human-AI interaction in agriculture that enables personalized, farm-scale solutions and resists the power concentration associated with centralized AI systems. A related grant proposal was submitted in September 2024. The project maintains a FarmWorks overview page describing the theoretical grounding and practical applications, and work includes model prototypes and documentation for soil and agricultural Active Inference.",
+      "body": "The project produced a 2024 publication, \"FarmWorks: Decentralized AI Agents for Personalized Solutions,\" describing a platform for human-AI interaction in agriculture that enables personalized, farm-scale solutions and resists the power concentration associated with centralized AI systems. A related grant proposal was submitted in September 2024.\n\nThe project maintains a FarmWorks overview page describing the theoretical grounding and practical applications, and work includes model prototypes and documentation for soil and agricultural Active Inference.",
       "links": [
         {
           "sourceId": "github-org"

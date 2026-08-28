@@ -17,7 +17,7 @@
   "sections": [
     {
       "heading": "Objective",
-      "body": "The TNB Group has been fostering interdisciplinary research and collaboration for decades. Its mission is to advance the understanding and application of active inference, the theoretical framework developed by Prof. Karl Friston. This is achieved through regular online meetings featuring presentations and discussions, which may include empirical data and its analysis, simulations, and mathematical development. The group welcomes contributions and perspectives from diverse fields, including neuroscience, mathematics, machine learning, psychology, philosophy, medicine, and biology.",
+      "body": "The TNB Group has been fostering interdisciplinary research and collaboration for decades. Its mission is to advance the understanding and application of active inference, the theoretical framework developed by Prof.\n\nKarl Friston. This is achieved through regular online meetings featuring presentations and discussions, which may include empirical data and its analysis, simulations, and mathematical development.\n\nThe group welcomes contributions and perspectives from diverse fields, including neuroscience, mathematics, machine learning, psychology, philosophy, medicine, and biology.",
       "links": []
     },
     {
@@ -31,7 +31,7 @@
     },
     {
       "heading": "Meeting Details",
-      "body": "Meetings run on Mondays and Tuesdays at 2:30 pm UK time, lasting about two hours: roughly a 40-minute presentation, 40 minutes of Q&A, and 40 minutes of discussion and feedback with Prof. Friston. They are held weekly on Zoom, and the meeting link is sent via the mailing list — email theoreticalneurobiology@gmail.com to join.",
+      "body": "Meetings run on Mondays and Tuesdays at 2:30 pm UK time, lasting about two hours: roughly a 40-minute presentation, 40 minutes of Q&A, and 40 minutes of discussion and feedback with Prof. Friston.\n\nThey are held weekly on Zoom, and the meeting link is sent via the mailing list — email theoreticalneurobiology@gmail.com to join.",
       "links": [
         {
           "label": "Email the TNB Group",
@@ -41,7 +41,7 @@
     },
     {
       "heading": "How to Participate",
-      "body": "Meetings are open to researchers, students, and professionals worldwide. With no membership fees, the group provides a relaxed, no-pressure environment for engagement — whether through active participation or as an observer — and you are welcome to join any session that interests you. To join the mailing list for updates on upcoming presentations, active inference events, or job opportunities, or to request to present your work, email theoreticalneurobiology@gmail.com. Please note that presentation slots typically book two to three months in advance.",
+      "body": "Meetings are open to researchers, students, and professionals worldwide. With no membership fees, the group provides a relaxed, no-pressure environment for engagement — whether through active participation or as an observer — and you are welcome to join any session that interests you.\n\nTo join the mailing list for updates on upcoming presentations, active inference events, or job opportunities, or to request to present your work, email theoreticalneurobiology@gmail.com. Please note that presentation slots typically book two to three months in advance.",
       "links": [
         {
           "label": "Email the TNB Group",
@@ -51,7 +51,7 @@
     },
     {
       "heading": "Chair — Riddhi J. Pitliya, PhD",
-      "body": "Riddhi's research focuses on active inference, human cognition, and multi-agent systems. She completed her PhD at the University of Oxford, where she investigated how individuals infer causal structure and agency in multi-agent environments, particularly across the depression spectrum — finding that depressive symptoms are linked to reduced sensitivity to inhibitory causal relations, reduced perceptions of agency, and a tendency to engage in frequent but less goal-directed actions when learning about causal structures. She now works at VERSES in the Intelligent Systems Lab, developing computational models of theory of mind that leverage active inference to facilitate collaboration and competition among multiple agents.",
+      "body": "Riddhi's research focuses on active inference, human cognition, and multi-agent systems. She completed her PhD at the University of Oxford, where she investigated how individuals infer causal structure and agency in multi-agent environments, particularly across the depression spectrum — finding that depressive symptoms are linked to reduced sensitivity to inhibitory causal relations, reduced perceptions of agency, and a tendency to engage in frequent but less goal-directed actions when learning about causal structures.\n\nShe now works at VERSES in the Intelligent Systems Lab, developing computational models of theory of mind that leverage active inference to facilitate collaboration and competition among multiple agents.",
       "image": {
         "src": "assets/img/tnb/riddhi-pitliya.jpg",
         "alt": "Riddhi J. Pitliya",
@@ -62,7 +62,7 @@
     },
     {
       "heading": "Chair — Peter Thestrup Waade",
-      "body": "Peter's research focuses on computational cognitive modelling of multi-scale social interaction, particularly from the perspective of active inference and predictive processing. He did his PhD with Chris Mathys at the Interacting Minds Centre at Aarhus University and is starting a postdoc at the Translational Neuromodeling Unit at ETH Zürich with Klaas Stephan. He develops Julia software for cognitive modelling in general, the Hierarchical Gaussian Filter, and active inference with POMDPs, and also works in consciousness research, on joint action in partner dancing, and on Chinese philosophy and predictive processing.",
+      "body": "Peter's research focuses on computational cognitive modelling of multi-scale social interaction, particularly from the perspective of active inference and predictive processing. He did his PhD with Chris Mathys at the Interacting Minds Centre at Aarhus University and is starting a postdoc at the Translational Neuromodeling Unit at ETH Zürich with Klaas Stephan.\n\nHe develops Julia software for cognitive modelling in general, the Hierarchical Gaussian Filter, and active inference with POMDPs, and also works in consciousness research, on joint action in partner dancing, and on Chinese philosophy and predictive processing.",
       "image": {
         "src": "assets/img/tnb/peter-thestrup-waade.jpg",
         "alt": "Peter Thestrup Waade",
@@ -73,7 +73,7 @@
     },
     {
       "heading": "Chair — Robert Chis-Ciure, PhD",
-      "body": "Robert is an ERC postdoctoral research fellow in Anil Seth's lab at the University of Sussex and the Sussex Centre for Consciousness Science. His research focuses on formalised notions of emergence and computational neurophenomenology, using hybrid predictive coding and active inference formalisms to model phenomenal properties of experience and validate them experimentally — building toward a new methodological paradigm, Phenomenomics, to characterise the inner worlds of human and eventually all other observers, including by leveraging AI/ML on large-scale datasets. Before Sussex he was a Fulbright postdoc at NYU under David Chalmers, a Tatiana Foundation postdoc in Georg Northoff's lab, and worked in Giulio Tononi's lab on consciousness at the intersection of philosophy, neuroscience, and computational modelling. He is also an affiliated researcher at the Wolfram Institute.",
+      "body": "Robert is an ERC postdoctoral research fellow in Anil Seth's lab at the University of Sussex and the Sussex Centre for Consciousness Science. His research focuses on formalised notions of emergence and computational neurophenomenology, using hybrid predictive coding and active inference formalisms to model phenomenal properties of experience and validate them experimentally — building toward a new methodological paradigm, Phenomenomics, to characterise the inner worlds of human and eventually all other observers, including by leveraging AI/ML on large-scale datasets.\n\nBefore Sussex he was a Fulbright postdoc at NYU under David Chalmers, a Tatiana Foundation postdoc in Georg Northoff's lab, and worked in Giulio Tononi's lab on consciousness at the intersection of philosophy, neuroscience, and computational modelling. He is also an affiliated researcher at the Wolfram Institute.",
       "image": {
         "src": "assets/img/tnb/robert-chis-ciure.jpg",
         "alt": "Robert Chis-Ciure",
@@ -84,7 +84,7 @@
     },
     {
       "heading": "Chair — Will Yun-Farmbrough",
-      "body": "Will is a PhD student at the Sussex Centre for Consciousness Science, supervised by Anil Seth and Chris Buckley. His research investigates how perceptual phenomenology in human subjects can constrain and inform predictive coding models of cortical processing — the algorithmic underpinnings for how our world appears to us. He is also interested in predictive processing approaches to the meta-problem of consciousness, seeking to understand how intuitions of conscious experience and qualia might arise naturally in certain generative model hierarchies. He enjoys surfing, houseplants, and zen.",
+      "body": "Will is a PhD student at the Sussex Centre for Consciousness Science, supervised by Anil Seth and Chris Buckley. His research investigates how perceptual phenomenology in human subjects can constrain and inform predictive coding models of cortical processing — the algorithmic underpinnings for how our world appears to us.\n\nHe is also interested in predictive processing approaches to the meta-problem of consciousness, seeking to understand how intuitions of conscious experience and qualia might arise naturally in certain generative model hierarchies. He enjoys surfing, houseplants, and zen.",
       "image": {
         "src": "assets/img/tnb/will-yun-farmbrough.jpg",
         "alt": "Will Yun-Farmbrough",
@@ -95,7 +95,7 @@
     },
     {
       "heading": "Chair — Jonathan Ehrenreich Laursen",
-      "body": "Jonathan is a Master's student in Neural Systems and Computation at ETH Zürich and the University of Zürich, where he works on developing cognitive modelling software in Julia. He is interested in using computational tools to understand psychiatric disorders and how they might become relevant for clinical practice. Beyond his studies, he is an avid reader of history and philosophy and enjoys spending time outdoors.",
+      "body": "Jonathan is a Master's student in Neural Systems and Computation at ETH Zürich and the University of Zürich, where he works on developing cognitive modelling software in Julia. He is interested in using computational tools to understand psychiatric disorders and how they might become relevant for clinical practice.\n\nBeyond his studies, he is an avid reader of history and philosophy and enjoys spending time outdoors.",
       "image": {
         "src": "assets/img/tnb/jonathan-ehrenreich-laursen.jpg",
         "alt": "Jonathan Ehrenreich Laursen",
@@ -106,7 +106,7 @@
     },
     {
       "heading": "Chair — Samuel William Nehrer",
-      "body": "Samuel is a Master's student at the Institute of Neuroinformatics, a joint institute of ETH Zürich and the University of Zürich. He completed his undergraduate studies in Cognitive Science at Aarhus University, where he began developing Julia implementations of active inference models for cognitive modelling. He is interested in combining computational modelling of human behaviour with brain imaging to address how psychedelics modulate hierarchical inference, cognitive flexibility, and belief updating at the algorithmic level, and how the ensuing computations are implemented in brain networks. He is also an aviation enthusiast and enjoys thinking about fundamental questions in physics and the philosophy of mind, as well as exploring the Swiss mountains on foot or by bike.",
+      "body": "Samuel is a Master's student at the Institute of Neuroinformatics, a joint institute of ETH Zürich and the University of Zürich. He completed his undergraduate studies in Cognitive Science at Aarhus University, where he began developing Julia implementations of active inference models for cognitive modelling.\n\nHe is interested in combining computational modelling of human behaviour with brain imaging to address how psychedelics modulate hierarchical inference, cognitive flexibility, and belief updating at the algorithmic level, and how the ensuing computations are implemented in brain networks. He is also an aviation enthusiast and enjoys thinking about fundamental questions in physics and the philosophy of mind, as well as exploring the Swiss mountains on foot or by bike.",
       "image": {
         "src": "assets/img/tnb/samuel-nehrer.jpg",
         "alt": "Samuel William Nehrer",

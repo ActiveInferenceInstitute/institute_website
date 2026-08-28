@@ -31,17 +31,17 @@
     },
     {
       "heading": "Approach",
-      "body": "Most alignment work focuses on single agents evaluated against static benchmarks. AI²C instead studies intrinsic motivation (curiosity, prosociality), extrinsic motivation (rulebooks, norms, safety constraints), and embodied systems (robotics, multi-agent coordination), treating alignment as something that emerges in real systems rather than a property of one agent alone. The coalition's planned outputs include governance frameworks such as rulebooks and override systems, reusable funding-proposal modules, alignment benchmarks grounded in Active Inference, embodied multi-agent experiments, and open-source tools and documentation — with the goal of making alignment research replicable, fundable, and scalable.",
+      "body": "Most alignment work focuses on single agents evaluated against static benchmarks. AI²C instead studies intrinsic motivation (curiosity, prosociality), extrinsic motivation (rulebooks, norms, safety constraints), and embodied systems (robotics, multi-agent coordination), treating alignment as something that emerges in real systems rather than a property of one agent alone.\n\nThe coalition's planned outputs include governance frameworks such as rulebooks and override systems, reusable funding-proposal modules, alignment benchmarks grounded in Active Inference, embodied multi-agent experiments, and open-source tools and documentation — with the goal of making alignment research replicable, fundable, and scalable.",
       "links": []
     },
     {
       "heading": "Roadmap",
-      "body": "AI²C describes its work in three phases. Phase 1 covers coalition setup — partners, governance, and infrastructure. Phase 2 covers research and proposals — building the funding pipeline and shared proposal modules. Phase 3 covers experiments and outputs — embodied systems, publications, and tools.",
+      "body": "AI²C describes its work in three phases. Phase 1 covers coalition setup — partners, governance, and infrastructure.\n\nPhase 2 covers research and proposals — building the funding pipeline and shared proposal modules. Phase 3 covers experiments and outputs — embodied systems, publications, and tools.",
       "links": []
     },
     {
       "heading": "Funding strategy",
-      "body": "AI²C's proposal-development work targets large, multi-institution funding vehicles for AI alignment research, including U.S. National AI Research Institutes, NSF Science and Technology Centers, and Horizon Europe's multi-partner Pillar II actions. The project is currently raising support for coalition coordination, proposal development, workshops and events, open infrastructure, and embodied experiments — funding at this stage is intended to seed a longer-term research ecosystem rather than a single deliverable.",
+      "body": "AI²C's proposal-development work targets large, multi-institution funding vehicles for AI alignment research, including U.S. National AI Research Institutes, NSF Science and Technology Centers, and Horizon Europe's multi-partner Pillar II actions.\n\nThe project is currently raising support for coalition coordination, proposal development, workshops and events, open infrastructure, and embodied experiments — funding at this stage is intended to seed a longer-term research ecosystem rather than a single deliverable.",
       "links": []
     },
     {

@@ -13,7 +13,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "The project establishes geometric and algebraic foundations for inquiry — treating the act of asking questions as a structured, consequence-laden process with formal properties. Q-State Dynamics provides the theoretical core, with protocols documenting the empirical and epistemological basis of the work. It asks why exactly six interrogative operators — who, what, where, when, how, and why — recur across natural languages and cognitive systems, and whether this is a structural necessity rather than a linguistic accident, with relevance to how constraint structures emerge, persist, and fail in multi-agent AI alignment settings.",
+      "body": "The project establishes geometric and algebraic foundations for inquiry — treating the act of asking questions as a structured, consequence-laden process with formal properties. Q-State Dynamics provides the theoretical core, with protocols documenting the empirical and epistemological basis of the work.\n\nIt asks why exactly six interrogative operators — who, what, where, when, how, and why — recur across natural languages and cognitive systems, and whether this is a structural necessity rather than a linguistic accident, with relevance to how constraint structures emerge, persist, and fail in multi-agent AI alignment settings.",
       "links": [
         {
           "sourceId": "ecosystem"

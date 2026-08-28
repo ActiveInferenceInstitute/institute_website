@@ -21,7 +21,7 @@
   "sections": [
     {
       "heading": "Governance Overview",
-      "body": "The Institute is a registered 501(c)(3) nonprofit organization incorporated in Delaware, USA. Governance is exercised through a Board of Directors supported by Officers for operations and a Scientific Advisory Board for scholarly guidance. This structure ensures that the Institute's direction reflects both sound governance and scientific integrity. Core governance documents, such as the Bylaws, are publicly available; the Institute also maintains a broader internal policy and process library that supports day-to-day operations.",
+      "body": "The Institute is a registered 501(c)(3) nonprofit organization incorporated in Delaware, USA. Governance is exercised through a Board of Directors supported by Officers for operations and a Scientific Advisory Board for scholarly guidance.\n\nThis structure ensures that the Institute's direction reflects both sound governance and scientific integrity. Core governance documents, such as the Bylaws, are publicly available; the Institute also maintains a broader internal policy and process library that supports day-to-day operations.",
       "links": [
         {
           "sourceId": "ecosystem"
@@ -30,11 +30,11 @@
     },
     {
       "heading": "Members",
-      "body": "The Institute is a Delaware nonprofit corporation, and Delaware nonprofit corporations have formal corporate Members — a governance layer distinct from the Board of Directors. Members hold the voting rights reserved to them under the Institute's bylaws, including approving Board of Directors elections and approving amendments to the bylaws. There are three Members: Virginia Bleu Knight, Daniel Friedman, and Karl J. Friston."
+      "body": "The Institute is a Delaware nonprofit corporation, and Delaware nonprofit corporations have formal corporate Members — a governance layer distinct from the Board of Directors. Members hold the voting rights reserved to them under the Institute's bylaws, including approving Board of Directors elections and approving amendments to the bylaws.\n\nThere are three Members: Virginia Bleu Knight, Daniel Friedman, and Karl J. Friston."
     },
     {
       "heading": "Board of Directors",
-      "body": "The Board of Directors is the primary governing body of the Active Inference Institute. The Board provides strategic direction, fiduciary oversight, and institutional accountability. Board members are responsible for the long-term health and mission alignment of the Institute. The Board meets regularly; its governing documents, such as the Bylaws, are publicly available. The Board comprises ten directors of equal standing: Alexander Sabine, Alianna J. Maren, Ana Magdalena Hurtado, Ann Stapleton, Austin Cook, Daniel Friedman, Edward Ober, Ellynne Dec, V. Bleu Knight, and Vladimir Baulin.",
+      "body": "The Board of Directors is the primary governing body of the Active Inference Institute. The Board provides strategic direction, fiduciary oversight, and institutional accountability.\n\nBoard members are responsible for the long-term health and mission alignment of the Institute. The Board meets regularly; its governing documents, such as the Bylaws, are publicly available.\n\nThe Board comprises ten directors of equal standing: Alexander Sabine, Alianna J. Maren, Ana Magdalena Hurtado, Ann Stapleton, Austin Cook, Daniel Friedman, Edward Ober, Ellynne Dec, V.\n\nBleu Knight, and Vladimir Baulin.",
       "links": [
         {
           "sourceId": "bod"
@@ -43,11 +43,11 @@
     },
     {
       "heading": "Officers",
-      "body": "Officers are responsible for the day-to-day operations of the Institute. Officer roles include President, Treasurer, and Secretary, among others. Officers implement Board decisions, manage organizational processes, maintain financial records, coordinate communications, and oversee Institute Programs. Officers work closely with the organizational units and report to the Board of Directors. Current officers: Daniel Friedman (President and Treasurer) and Alexandra Mikhailova (Vice-President and Secretary)."
+      "body": "Officers are responsible for the day-to-day operations of the Institute. Officer roles include President, Treasurer, and Secretary, among others.\n\nOfficers implement Board decisions, manage organizational processes, maintain financial records, coordinate communications, and oversee Institute Programs. Officers work closely with the organizational units and report to the Board of Directors.\n\nCurrent officers: Daniel Friedman (President and Treasurer) and Alexandra Mikhailova (Vice-President and Secretary)."
     },
     {
       "heading": "Scientific Advisory Board",
-      "body": "The Scientific Advisory Board (SAB) provides scientific and scholarly guidance to the Institute. SAB members are experts in Active Inference, computational neuroscience, cognitive science, and related fields. The SAB advises on research directions, educational content, project selection, and the scientific quality of Institute outputs. SAB members may serve as Facilitators for research projects and learning groups. Current members of the Scientific Advisory Board: Adam Safron, Adeel Razi, Alexander Ororbia, Ali Rahmjoo, Andrew Pashea, Antonio Lucas-Alba, Arun Niranjan, Avel Guénin-Carlut, Bradly Alicea, Candice Pattisapu, Chris Fields, Christo Kurisummoottil Thomas, Cory Slater, Elliott Hauser, Haris Neophytou, Héctor Manrique, Holly Grimm, Ian Tennant, Jana Lumi, Joel Dietz, John Clippinger, Joshua Shane, Karl J. Friston, Luca Possati, Matt Brown, Maxwell J. D. Ramstead, Michael Lennon, Mike Smith, Scott David, Sebastian Alvarado, Shady El Damaty, and Thomas Kehler.",
+      "body": "The Scientific Advisory Board (SAB) provides scientific and scholarly guidance to the Institute. SAB members are experts in Active Inference, computational neuroscience, cognitive science, and related fields.\n\nThe SAB advises on research directions, educational content, project selection, and the scientific quality of Institute outputs. SAB members may serve as Facilitators for research projects and learning groups.\n\nCurrent members of the Scientific Advisory Board: Adam Safron, Adeel Razi, Alexander Ororbia, Ali Rahmjoo, Andrew Pashea, Antonio Lucas-Alba, Arun Niranjan, Avel Guénin-Carlut, Bradly Alicea, Candice Pattisapu, Chris Fields, Christo Kurisummoottil Thomas, Cory Slater, Elliott Hauser, Haris Neophytou, Héctor Manrique, Holly Grimm, Ian Tennant, Jana Lumi, Joel Dietz, John Clippinger, Joshua Shane, Karl J. Friston, Luca Possati, Matt Brown, Maxwell J.\n\nD. Ramstead, Michael Lennon, Mike Smith, Scott David, Sebastian Alvarado, Shady El Damaty, and Thomas Kehler.",
       "links": [
         {
           "sourceId": "sab"
@@ -56,7 +56,7 @@
     },
     {
       "heading": "Organizational Units",
-      "body": "Two organizational units carry out the Institute's programs. The EduActive Unit focuses on education: it supports learning groups, courses, textbook cohorts, seasonal schools, educational course development, and audio-visual production. The ReInference Unit focuses on research: it supports research projects, the Active Inference Journal, the Active Inference Ontology, knowledge engineering, and the Applied Active Inference Symposium. Both units are led by Facilitators who coordinate project groups, learning activities, and community engagement.",
+      "body": "Two organizational units carry out the Institute's programs. The EduActive Unit focuses on education: it supports learning groups, courses, textbook cohorts, seasonal schools, educational course development, and audio-visual production.\n\nThe ReInference Unit focuses on research: it supports research projects, the Active Inference Journal, the Active Inference Ontology, knowledge engineering, and the Applied Active Inference Symposium. Both units are led by Facilitators who coordinate project groups, learning activities, and community engagement.",
       "links": [
         {
           "label": "EduActive Unit",
@@ -74,7 +74,7 @@
     },
     {
       "heading": "Volunteers, Learners, and Interns",
-      "body": "Volunteers, Learners, and Interns are the active participants who power the Institute's day-to-day work. Volunteers contribute across all functions — learning groups, project support, operations, writing, analysis, and media. Learners engage with educational programs at their own pace. Interns participate in structured pathways that develop skills through project contribution and community engagement. All of these roles connect outward to the broader Active Inference Ecosystem.",
+      "body": "Volunteers, Learners, and Interns are the active participants who power the Institute's day-to-day work. Volunteers contribute across all functions — learning groups, project support, operations, writing, analysis, and media.\n\nLearners engage with educational programs at their own pace. Interns participate in structured pathways that develop skills through project contribution and community engagement.\n\nAll of these roles connect outward to the broader Active Inference Ecosystem.",
       "links": [
         {
           "label": "Volunteer",
@@ -84,7 +84,7 @@
     },
     {
       "heading": "Ecosystem Relationship",
-      "body": "The Institute sits inside the broader Active Inference Ecosystem — a global network of researchers, practitioners, learners, universities, companies, and collaborators who work with and around Active Inference. The Institute provides Ecosystem Support through communications, education, project facilitation, computational and storage resources, publishing and licensing support, funding discovery, and partnerships. The Ecosystem in turn contributes members, projects, ideas, and feedback that shape the Institute's directions.",
+      "body": "The Institute sits inside the broader Active Inference Ecosystem — a global network of researchers, practitioners, learners, universities, companies, and collaborators who work with and around Active Inference. The Institute provides Ecosystem Support through communications, education, project facilitation, computational and storage resources, publishing and licensing support, funding discovery, and partnerships.\n\nThe Ecosystem in turn contributes members, projects, ideas, and feedback that shape the Institute's directions.",
       "links": [
         {
           "sourceId": "ecosystem"

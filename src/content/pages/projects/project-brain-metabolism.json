@@ -13,7 +13,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "The brain is the body's most metabolically expensive organ. This project models how it manages energy — framing metabolic regulation as an active inference process where the brain predicts and minimizes surprises about its own metabolic state. The work connects neuroscience, physiology, and the Free Energy Principle. The project's roadmap includes publishing a literature review, building a first model, and running a large population study over the coming years.",
+      "body": "The brain is the body's most metabolically expensive organ. This project models how it manages energy — framing metabolic regulation as an active inference process where the brain predicts and minimizes surprises about its own metabolic state.\n\nThe work connects neuroscience, physiology, and the Free Energy Principle. The project's roadmap includes publishing a literature review, building a first model, and running a large population study over the coming years.",
       "links": [
         {
           "sourceId": "ecosystem"

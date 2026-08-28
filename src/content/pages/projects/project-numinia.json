@@ -13,7 +13,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "Numinia builds an educational game environment where Active Inference principles shape agent behavior and player interaction. The first mission centers on the Numinia AI embodying Active Inference values — learning, adapting, and acting in a game world that reflects the free energy principle. The project is developed by Numen Games, a game studio that began the Numinia effort in 2020, with an early proof-of-concept experience, The Adventure of Curiosity, released as a first step toward the fuller game.",
+      "body": "Numinia builds an educational game environment where Active Inference principles shape agent behavior and player interaction. The first mission centers on the Numinia AI embodying Active Inference values — learning, adapting, and acting in a game world that reflects the free energy principle.\n\nThe project is developed by Numen Games, a game studio that began the Numinia effort in 2020, with an early proof-of-concept experience, The Adventure of Curiosity, released as a first step toward the fuller game.",
       "links": [
         {
           "sourceId": "ecosystem"

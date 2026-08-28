@@ -26,11 +26,11 @@
     },
     {
       "heading": "Alignment with Institute Goals",
-      "body": "Grant support is available for work that advances Active Inference research, education, or application in ways consistent with the Institute's mission. Priority areas include: foundational Active Inference research and modeling; educational tools, curricula, and courses; open-source software and tooling; interdisciplinary applications in health, ecology, economics, cognition, and social systems; and infrastructure for the broader Active Inference Ecosystem. Proposals that produce publicly accessible outputs are particularly well-suited to Institute support."
+      "body": "Grant support is available for work that advances Active Inference research, education, or application in ways consistent with the Institute's mission. Priority areas include: foundational Active Inference research and modeling; educational tools, curricula, and courses; open-source software and tooling; interdisciplinary applications in health, ecology, economics, cognition, and social systems; and infrastructure for the broader Active Inference Ecosystem.\n\nProposals that produce publicly accessible outputs are particularly well-suited to Institute support."
     },
     {
       "heading": "Funding Track Record",
-      "body": "In June 2025, the Survival and Flourishing Fund awarded the Institute a $270,000 grant supporting the AI Capabilities & Alignment Consensus Project (AICACP), a multi-year initiative on AI capabilities, alignment, and regulation. The Institute has also submitted grant applications that were not funded: a 2022 application for \"Systems Modeling and Cognitive Audits for Hypercert Ecosystems,\" published on Zenodo; a 2023 application to the National Science Foundation's Pathways to Enable Open-Source Ecosystems (POSE) program; a 2024 application to the Future of Life Institute for \"FarmWorks: Decentralized AI Agents for Personalized Solutions\"; a 2024 application to the Foresight Institute for \"VILLAGE (Validating Inference for Large-scale Agent Governance Ecosystems)\"; a 2025 application to the Dana Foundation's Dana Frontiers program for \"Increasing the Accessibility and Applicability of Active Inference: Generative Playbooks and Open-Source Summer School Curriculum Development\"; and a 2025 application to the Google.org Accelerator: Generative AI. None of these six were funded.",
+      "body": "In June 2025, the Survival and Flourishing Fund awarded the Institute a $270,000 grant supporting the AI Capabilities & Alignment Consensus Project (AICACP), a multi-year initiative on AI capabilities, alignment, and regulation. The Institute has also submitted grant applications that were not funded: a 2022 application for \"Systems Modeling and Cognitive Audits for Hypercert Ecosystems,\" published on Zenodo; a 2023 application to the National Science Foundation's Pathways to Enable Open-Source Ecosystems (POSE) program; a 2024 application to the Future of Life Institute for \"FarmWorks: Decentralized AI Agents for Personalized Solutions\"; a 2024 application to the Foresight Institute for \"VILLAGE (Validating Inference for Large-scale Agent Governance Ecosystems)\"; a 2025 application to the Dana Foundation's Dana Frontiers program for \"Increasing the Accessibility and Applicability of Active Inference: Generative Playbooks and Open-Source Summer School Curriculum Development\"; and a 2025 application to the Google.org Accelerator: Generative AI.\n\nNone of these six were funded.",
       "links": [
         {
           "label": "AICACP project page",
@@ -44,7 +44,7 @@
     },
     {
       "heading": "Funding Opportunities",
-      "body": "The Institute tracks funding opportunities relevant to the Active Inference community and shares them through weekly updates, with past editions archived in the newsletter. Opportunities come from government agencies, private foundations, academic institutions, and other sources. If you are aware of an opportunity that could benefit the community and are interested in collaborating on a proposal, reach out to the Institute.",
+      "body": "The Institute tracks funding opportunities relevant to the Active Inference community and shares them through weekly updates, with past editions archived in the newsletter. Opportunities come from government agencies, private foundations, academic institutions, and other sources.\n\nIf you are aware of an opportunity that could benefit the community and are interested in collaborating on a proposal, reach out to the Institute.",
       "links": [
         {
           "sourceId": "weekly"
@@ -56,7 +56,7 @@
     },
     {
       "heading": "How to Engage",
-      "body": "If you are interested in pursuing a grant with Institute support, the best first step is to describe your proposed work and why it aligns with Active Inference and the Institute's mission. Email blanket@activeinference.institute with a brief description of the funding opportunity and your proposed role. The Institute will respond with information about how support might be structured.",
+      "body": "If you are interested in pursuing a grant with Institute support, the best first step is to describe your proposed work and why it aligns with Active Inference and the Institute's mission. Email blanket@activeinference.institute with a brief description of the funding opportunity and your proposed role.\n\nThe Institute will respond with information about how support might be structured.",
       "links": [
         {
           "label": "Partnership",
@@ -70,7 +70,7 @@
     },
     {
       "heading": "Related Programs",
-      "body": "Grant-funded work often runs in parallel with fellowship or partnership. Fellows may use grants to support their sustained work. Partners may pursue grants collaboratively with the Institute. Philanthropy is a complementary pathway for project support that does not require a formal grant process.",
+      "body": "Grant-funded work often runs in parallel with fellowship or partnership. Fellows may use grants to support their sustained work.\n\nPartners may pursue grants collaboratively with the Institute. Philanthropy is a complementary pathway for project support that does not require a formal grant process.",
       "links": [
         {
           "label": "Partnership",

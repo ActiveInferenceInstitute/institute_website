@@ -42,7 +42,7 @@
   "sections": [
     {
       "heading": "Source Ownership",
-      "body": "Private InstituteOS docs hold operating guidance, implementation notes, and verification records. The library tree holds registries for projects, policies, processes, communications, narratives, strategies, and graphs. The public website does not mirror those sources directly; it receives only authored public pages and exporter-produced public slices.",
+      "body": "Private InstituteOS docs hold operating guidance, implementation notes, and verification records. The library tree holds registries for projects, policies, processes, communications, narratives, strategies, and graphs.\n\nThe public website does not mirror those sources directly; it receives only authored public pages and exporter-produced public slices.",
       "links": [
         {
           "label": "Open public map",

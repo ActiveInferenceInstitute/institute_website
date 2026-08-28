@@ -29,7 +29,7 @@
     },
     {
       "heading": "How to Get Started",
-      "body": "The best way to start volunteering is to join the Discord community, attend an open activity, and let the organizers know you are interested in contributing. The newsletter archive covers recent activities and projects. The Institute uses a volunteer registration form to collect interest and match volunteers with projects — the Volunteer pathway page and the organizers in Discord have the current link. No prior experience is required to introduce yourself and find where you can help.",
+      "body": "The best way to start volunteering is to join the Discord community, attend an open activity, and let the organizers know you are interested in contributing. The newsletter archive covers recent activities and projects.\n\nThe Institute uses a volunteer registration form to collect interest and match volunteers with projects — the Volunteer pathway page and the organizers in Discord have the current link. No prior experience is required to introduce yourself and find where you can help.",
       "links": [
         {
           "sourceId": "official-volunteer"
@@ -44,7 +44,7 @@
     },
     {
       "heading": "What You Will Gain",
-      "body": "Volunteers learn Active Inference by working alongside researchers and educators at the frontier of the field. Contributing to real projects — even through small tasks — builds familiarity with the concepts, the community, and the tools in ways that passive reading cannot. Many volunteers have moved into internship, mentorship, and fellowship roles through participation that began as informal contribution.",
+      "body": "Volunteers learn Active Inference by working alongside researchers and educators at the frontier of the field. Contributing to real projects — even through small tasks — builds familiarity with the concepts, the community, and the tools in ways that passive reading cannot.\n\nMany volunteers have moved into internship, mentorship, and fellowship roles through participation that began as informal contribution.",
       "links": [
         {
           "label": "Internship",
@@ -58,11 +58,11 @@
     },
     {
       "heading": "Time and Commitment",
-      "body": "Volunteering is flexible by design. There is no minimum time commitment. You can contribute when you have capacity and step back when you do not. The Institute's global community spans many time zones, so most activities are recorded and many contributions are asynchronous. Sustained engagement over time is valuable, but irregular participation is also welcome."
+      "body": "Volunteering is flexible by design. There is no minimum time commitment.\n\nYou can contribute when you have capacity and step back when you do not. The Institute's global community spans many time zones, so most activities are recorded and many contributions are asynchronous.\n\nSustained engagement over time is valuable, but irregular participation is also welcome."
     },
     {
       "heading": "Related Programs",
-      "body": "Volunteering is the entry point to the full set of Institute Programs. After gaining experience as a volunteer, many people move to more structured engagement through internship, mentorship, or fellowship. There are also open-source contribution opportunities for those who prefer to contribute code, data, or tooling to public repositories.",
+      "body": "Volunteering is the entry point to the full set of Institute Programs. After gaining experience as a volunteer, many people move to more structured engagement through internship, mentorship, or fellowship.\n\nThere are also open-source contribution opportunities for those who prefer to contribute code, data, or tooling to public repositories.",
       "links": [
         {
           "label": "All programs",

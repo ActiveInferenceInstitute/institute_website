@@ -8,7 +8,7 @@
   "sections": [
     {
       "heading": "About this bibliography",
-      "body": "This page presents the complete structured outputs of the Active Inference Meta-Analysis project. The bibliography includes 71 curated references drawn from the manuscript source, plus the full corpus analysis: field growth metrics, hypothesis evidence scores from LLM-extracted assertions, citation network analysis, NMF topic modeling, subfield classification, corpus coverage statistics, and project quality & reproducibility data. The full BibTeX source, all output data files, and the compiled manuscript are available on GitHub.",
+      "body": "This page presents the complete structured outputs of the Active Inference Meta-Analysis project. The bibliography includes 71 curated references drawn from the manuscript source, plus the full corpus analysis: field growth metrics, hypothesis evidence scores from LLM-extracted assertions, citation network analysis, NMF topic modeling, subfield classification, corpus coverage statistics, and project quality & reproducibility data.\n\nThe full BibTeX source, all output data files, and the compiled manuscript are available on GitHub.",
       "links": [
         {
           "label": "View BibTeX source on GitHub",
@@ -75,5 +75,7 @@
     "learning",
     "research"
   ],
-  "externalSourceIds": ["repo-act-inf-metaanalysis"]
+  "externalSourceIds": [
+    "repo-act-inf-metaanalysis"
+  ]
 }

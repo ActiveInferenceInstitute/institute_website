@@ -13,7 +13,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "Friedrich Froebel developed a systematic approach to early childhood education centered on play, creativity, and self-directed exploration. This project applies Active Inference as a theoretical framework for analyzing and extending Froebel's system, capturing his pedagogical principles and testing their alignment with current educational models. It works from the premise that Froebel's Gifts and Occupations encode a system of process philosophy that can speak to the challenges raised in Zachary Stein's \"Education in a Time Between Worlds\" and Lene Rachel Andersen and Tomas Björkman's \"The Nordic Secret,\" using Active Inference and Spatial Web concepts to work toward a Bildung-oriented educational approach.",
+      "body": "Friedrich Froebel developed a systematic approach to early childhood education centered on play, creativity, and self-directed exploration. This project applies Active Inference as a theoretical framework for analyzing and extending Froebel's system, capturing his pedagogical principles and testing their alignment with current educational models.\n\nIt works from the premise that Froebel's Gifts and Occupations encode a system of process philosophy that can speak to the challenges raised in Zachary Stein's \"Education in a Time Between Worlds\" and Lene Rachel Andersen and Tomas Björkman's \"The Nordic Secret,\" using Active Inference and Spatial Web concepts to work toward a Bildung-oriented educational approach.",
       "links": [
         {
           "sourceId": "ecosystem"

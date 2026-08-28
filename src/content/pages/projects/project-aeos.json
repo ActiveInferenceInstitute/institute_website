@@ -17,7 +17,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "AEOS uses Active Inference to model scientific activity as a collective cognitive process situated within a niche. It maps relationships between scientific entities and processes through Active Inference entity partitioning, and applies to both institutional science and decentralized science. The framework aims to support the emergence of epistemic communities, transparent resource allocation and knowledge sharing, and tools for decentralized scientific governance.",
+      "body": "AEOS uses Active Inference to model scientific activity as a collective cognitive process situated within a niche. It maps relationships between scientific entities and processes through Active Inference entity partitioning, and applies to both institutional science and decentralized science.\n\nThe framework aims to support the emergence of epistemic communities, transparent resource allocation and knowledge sharing, and tools for decentralized scientific governance.",
       "links": [
         {
           "sourceId": "repo-aeos"

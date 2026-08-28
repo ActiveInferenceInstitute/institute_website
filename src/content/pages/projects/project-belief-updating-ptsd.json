@@ -17,7 +17,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "The project writes theory and develops models showing how Active Inference principles illuminate the belief updating processes disrupted in PTSD. This computational psychiatry approach connects formal neuroscience with clinical relevance. It draws on a qualitative dissertation study of how individuals maintain versus change their beliefs under the impact of PTSD, and is led by Jeremy Cooper.",
+      "body": "The project writes theory and develops models showing how Active Inference principles illuminate the belief updating processes disrupted in PTSD. This computational psychiatry approach connects formal neuroscience with clinical relevance.\n\nIt draws on a qualitative dissertation study of how individuals maintain versus change their beliefs under the impact of PTSD, and is led by Jeremy Cooper.",
       "links": [
         {
           "sourceId": "ecosystem"

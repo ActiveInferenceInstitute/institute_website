@@ -13,7 +13,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "The project develops Active Inference agent architectures for processing and interpreting clinical waveform data in real time. The goal is to create principled, uncertainty-aware models that can assist clinicians at the bedside by continuously updating belief states from physiological sensor streams. It is a pilot study in a pediatric intensive care setting, working toward a proof of concept before pursuing a clinical trial.",
+      "body": "The project develops Active Inference agent architectures for processing and interpreting clinical waveform data in real time. The goal is to create principled, uncertainty-aware models that can assist clinicians at the bedside by continuously updating belief states from physiological sensor streams.\n\nIt is a pilot study in a pediatric intensive care setting, working toward a proof of concept before pursuing a clinical trial.",
       "links": [
         {
           "sourceId": "ecosystem"

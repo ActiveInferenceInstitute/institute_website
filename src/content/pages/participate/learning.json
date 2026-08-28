@@ -44,7 +44,7 @@
     },
     {
       "heading": "Core Readings",
-      "body": "Learning pathways include the 2022 textbook by Thomas Parr, Giovanni Pezzulo, and Karl J. Friston; the 2026 textbook Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers by Sanjeev V. Namjoshi, now the focus of the Textbook Group's first 2026 cohort; Maxwell Ramstead's 2023 precis; Jared Tumiel's Spinning Up in Active Inference; Beren Millidge's paper repository; and work on Active Inference ontology and teams.",
+      "body": "Learning pathways include the 2022 textbook by Thomas Parr, Giovanni Pezzulo, and Karl J. Friston; the 2026 textbook Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers by Sanjeev V.\n\nNamjoshi, now the focus of the Textbook Group's first 2026 cohort; Maxwell Ramstead's 2023 precis; Jared Tumiel's Spinning Up in Active Inference; Beren Millidge's paper repository; and work on Active Inference ontology and teams.",
       "links": [
         {
           "sourceId": "start-repo"

@@ -13,7 +13,7 @@
   "sections": [
     {
       "heading": "What Fellows Do",
-      "body": "Fellows work on a defined project or area of focus — research, software, educational materials, ontology, applications, or ecosystem support — and report on their progress at regular intervals. Reporting is public: fellows share updates through the community newsletter, project meetings, or public posts. These outputs accumulate into a body of work that is available to the entire Active Inference community and beyond.",
+      "body": "Fellows work on a defined project or area of focus — research, software, educational materials, ontology, applications, or ecosystem support — and report on their progress at regular intervals. Reporting is public: fellows share updates through the community newsletter, project meetings, or public posts.\n\nThese outputs accumulate into a body of work that is available to the entire Active Inference community and beyond.",
       "links": [
         {
           "sourceId": "shortlink-fellows"
@@ -25,7 +25,7 @@
     },
     {
       "heading": "What a Fellowship Requires",
-      "body": "Fellowship requires a meaningful time commitment and a clear scope. Fellows are expected to make progress on their defined work, communicate regularly about that progress, and deliver results that are useful to others. The specific requirements — reporting cadence, deliverables — are established between the fellow and the Institute at the start of the fellowship. The Research Fellow role is an unpaid, non-employee position with a default term of two years, possibly renewable."
+      "body": "Fellowship requires a meaningful time commitment and a clear scope. Fellows are expected to make progress on their defined work, communicate regularly about that progress, and deliver results that are useful to others.\n\nThe specific requirements — reporting cadence, deliverables — are established between the fellow and the Institute at the start of the fellowship. The Research Fellow role is an unpaid, non-employee position with a default term of two years, possibly renewable."
     },
     {
       "heading": "Current Research Fellows",
@@ -33,7 +33,7 @@
     },
     {
       "heading": "Who Should Apply",
-      "body": "Fellowship is suited for people who have already engaged with the Institute through volunteering, internship, or independent research and are ready to take on a larger, more sustained commitment. Prior experience with Active Inference is expected — fellows are contributors who can work with significant autonomy on a defined problem. If you are new to the Institute, starting through volunteering or internship is the recommended path to fellowship.",
+      "body": "Fellowship is suited for people who have already engaged with the Institute through volunteering, internship, or independent research and are ready to take on a larger, more sustained commitment. Prior experience with Active Inference is expected — fellows are contributors who can work with significant autonomy on a defined problem.\n\nIf you are new to the Institute, starting through volunteering or internship is the recommended path to fellowship.",
       "links": [
         {
           "label": "Volunteer first",
@@ -51,7 +51,7 @@
     },
     {
       "heading": "Outputs and Public Record",
-      "body": "Fellowship outputs are intended to be publicly useful. Papers, software repositories, educational course materials, ontology contributions, datasets, and project documentation all count as fellowship outputs. The Institute supports fellows in making their work findable, citable, and reusable by the broader community. Published outputs are part of the permanent public record of the Institute's research and educational work.",
+      "body": "Fellowship outputs are intended to be publicly useful. Papers, software repositories, educational course materials, ontology contributions, datasets, and project documentation all count as fellowship outputs.\n\nThe Institute supports fellows in making their work findable, citable, and reusable by the broader community. Published outputs are part of the permanent public record of the Institute's research and educational work.",
       "links": [
         {
           "sourceId": "github-org"
@@ -60,7 +60,7 @@
     },
     {
       "heading": "How to Become a Fellow",
-      "body": "Fellowship begins with a conversation about your proposed work and how it aligns with Institute and Ecosystem goals. The fellows pathway page describes the current process for expressing interest and proposing a fellowship scope. Most fellowships develop from existing participation — active contributors who want to formalize and deepen their engagement.",
+      "body": "Fellowship begins with a conversation about your proposed work and how it aligns with Institute and Ecosystem goals. The fellows pathway page describes the current process for expressing interest and proposing a fellowship scope.\n\nMost fellowships develop from existing participation — active contributors who want to formalize and deepen their engagement.",
       "links": [
         {
           "sourceId": "shortlink-fellows"
@@ -69,7 +69,7 @@
     },
     {
       "heading": "Fellowship Terms",
-      "body": "The Research Fellow role is unpaid and non-employee, governed by a signed offer letter and a set of program terms. Fellows provide regular (e.g. quarterly) progress reports describing their research activities, achievements, and challenges, and participate in an annual evaluation. The Institute does not claim any access to a Fellow's private work, and a Fellow's participation in Institute programs does not affect the Fellow's or the Institute's IP rights. Fellows are encouraged, though not required, to list \"Research Fellow, Active Inference Institute\" as a professional affiliation on related outputs."
+      "body": "The Research Fellow role is unpaid and non-employee, governed by a signed offer letter and a set of program terms. Fellows provide regular (e.g. quarterly) progress reports describing their research activities, achievements, and challenges, and participate in an annual evaluation.\n\nThe Institute does not claim any access to a Fellow's private work, and a Fellow's participation in Institute programs does not affect the Fellow's or the Institute's IP rights. Fellows are encouraged, though not required, to list \"Research Fellow, Active Inference Institute\" as a professional affiliation on related outputs."
     }
   ],
   "cards": [

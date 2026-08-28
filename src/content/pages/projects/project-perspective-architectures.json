@@ -17,7 +17,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "The project's central hypothesis is that an agent's perspective, its characteristic way of interpreting its environment, can be modeled as a latent generative structure within its internal dynamics, rather than adjusted through parameter tuning or externally specified objectives. Working from this hypothesis, the roadmap runs across three six-month phases: a single-agent orientation layer, followed by affective and integrative dynamics, followed by multi-agent social attunement. The project's full research roadmap and technical documentation are hosted through CEAR Lab (hjpae.github.io/cear/).",
+      "body": "The project's central hypothesis is that an agent's perspective, its characteristic way of interpreting its environment, can be modeled as a latent generative structure within its internal dynamics, rather than adjusted through parameter tuning or externally specified objectives. Working from this hypothesis, the roadmap runs across three six-month phases: a single-agent orientation layer, followed by affective and integrative dynamics, followed by multi-agent social attunement.\n\nThe project's full research roadmap and technical documentation are hosted through CEAR Lab (hjpae.github.io/cear/).",
       "links": []
     },
     {

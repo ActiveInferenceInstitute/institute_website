@@ -41,7 +41,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "The Textbook Group brings participants together in structured cohorts to work through Active Inference textbooks with guidance and peer support. Each cohort runs regular sessions with discussion, exercises, and collaborative work through key texts. The project is coordinated by Daniel Friedman.",
+      "body": "The Textbook Group brings participants together in structured cohorts to work through Active Inference textbooks with guidance and peer support. Each cohort runs regular sessions with discussion, exercises, and collaborative work through key texts.\n\nThe project is coordinated by Daniel Friedman.",
       "links": [
         {
           "sourceId": "official-textbook-group-shortlink"
@@ -50,7 +50,7 @@
     },
     {
       "heading": "Current and Past Cohorts",
-      "body": "Since 2022 the Textbook Group has completed 9 cohorts on the 2022 textbook 'Active Inference: The Free Energy Principle in Mind, Brain, and Behavior' (Parr, Pezzulo & Friston). As of mid-2026 it is live in its first cohort on the 2026 textbook 'Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers' (Namjoshi). Recordings and materials from prior cohorts are accessible through the repository and course pages.",
+      "body": "Since 2022 the Textbook Group has completed 9 cohorts on the 2022 textbook 'Active Inference: The Free Energy Principle in Mind, Brain, and Behavior' (Parr, Pezzulo & Friston). As of mid-2026 it is live in its first cohort on the 2026 textbook 'Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers' (Namjoshi).\n\nRecordings and materials from prior cohorts are accessible through the repository and course pages.",
       "links": [
         {
           "sourceId": "repo-parr-et-al-2022-actinf-textbook"

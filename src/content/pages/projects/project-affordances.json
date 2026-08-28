@@ -8,7 +8,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "Affordances examines how an environment presents action possibilities to an agent, and how those possibilities are perceived and acted upon. Drawing together Active Inference and ecological psychology, the thread treats perception and action as tightly coupled and reads affordances as relationships between agent and environment rather than properties of either alone. A surface affords walking, a handle affords grasping, a gap affords passage — but only relative to the capacities of a particular agent. This relational perspective offers a common vocabulary for describing how agents engage with the worlds they inhabit, and a bridge between ecological and computational accounts of behavior.",
+      "body": "Affordances examines how an environment presents action possibilities to an agent, and how those possibilities are perceived and acted upon. Drawing together Active Inference and ecological psychology, the thread treats perception and action as tightly coupled and reads affordances as relationships between agent and environment rather than properties of either alone.\n\nA surface affords walking, a handle affords grasping, a gap affords passage — but only relative to the capacities of a particular agent. This relational perspective offers a common vocabulary for describing how agents engage with the worlds they inhabit, and a bridge between ecological and computational accounts of behavior.",
       "links": [
         {
           "label": "ReInference Unit",
@@ -18,7 +18,7 @@
     },
     {
       "heading": "Ecological Roots",
-      "body": "The notion of affordances comes from James J. Gibson and the tradition of ecological psychology, which holds that the structure of the environment is perceived directly in terms of what it offers for action. On this view, an animal does not first build an internal model and then decide what to do; it picks up information that specifies opportunities for behavior. Perception and action are inseparable, and meaning lives in the agent-environment relationship rather than being constructed after the fact. This thread takes that ecological commitment seriously while asking how it can be made precise within a formal account of adaptive behavior.",
+      "body": "The notion of affordances comes from James J. Gibson and the tradition of ecological psychology, which holds that the structure of the environment is perceived directly in terms of what it offers for action.\n\nOn this view, an animal does not first build an internal model and then decide what to do; it picks up information that specifies opportunities for behavior. Perception and action are inseparable, and meaning lives in the agent-environment relationship rather than being constructed after the fact.\n\nThis thread takes that ecological commitment seriously while asking how it can be made precise within a formal account of adaptive behavior.",
       "links": [
         {
           "label": "Active Inference",
@@ -28,7 +28,7 @@
     },
     {
       "heading": "Affordances as Relations",
-      "body": "A central claim is that affordances are relational: they are defined jointly by the agent and the environment, not by either in isolation. The same staircase affords climbing to one agent and an obstacle to another, depending on body, history, skill, and goals. Because they sit between agent and world, affordances connect perception and action directly — to perceive an affordance is already to perceive a possibility for behavior. This framing dissolves the gap between sensing and doing that more representational accounts tend to introduce, and it sets up the question this thread pursues: how does an inference-driven agent select among the possibilities its world makes available?",
+      "body": "A central claim is that affordances are relational: they are defined jointly by the agent and the environment, not by either in isolation. The same staircase affords climbing to one agent and an obstacle to another, depending on body, history, skill, and goals.\n\nBecause they sit between agent and world, affordances connect perception and action directly — to perceive an affordance is already to perceive a possibility for behavior. This framing dissolves the gap between sensing and doing that more representational accounts tend to introduce, and it sets up the question this thread pursues: how does an inference-driven agent select among the possibilities its world makes available?",
       "links": [
         {
           "label": "All projects",
@@ -38,7 +38,7 @@
     },
     {
       "heading": "An Active Inference Reading",
-      "body": "Under Active Inference and the Free Energy Principle, an agent selects policies — sequences of actions — by minimizing expected free energy, balancing the drive to reach preferred outcomes against the drive to resolve uncertainty about the world. Read through this lens, affordances become the space of available policies an agent can evaluate, and acting on an affordance is choosing a course of action that is expected to keep the agent in viable, predictable states. This connects the ecological idea that the world presents action possibilities to the formal idea that an agent infers which of those possibilities to pursue. The thread looks for genuine points of contact between these traditions rather than collapsing one into the other.",
+      "body": "Under Active Inference and the Free Energy Principle, an agent selects policies — sequences of actions — by minimizing expected free energy, balancing the drive to reach preferred outcomes against the drive to resolve uncertainty about the world. Read through this lens, affordances become the space of available policies an agent can evaluate, and acting on an affordance is choosing a course of action that is expected to keep the agent in viable, predictable states.\n\nThis connects the ecological idea that the world presents action possibilities to the formal idea that an agent infers which of those possibilities to pursue. The thread looks for genuine points of contact between these traditions rather than collapsing one into the other.",
       "links": [
         {
           "label": "Active Inference",
@@ -48,7 +48,7 @@
     },
     {
       "heading": "Embodied, Situated, Enactive Cognition",
-      "body": "Reading affordances through Active Inference links the thread to broader currents in cognitive science that treat cognition as embodied, situated, and enactive — grounded in a body, embedded in an environment, and enacted through ongoing interaction rather than detached computation. Affordances are a natural meeting point for these views because they refuse to locate meaning solely in the head or solely in the world. By developing this connection, the thread contributes to the Institute's wider research program and to the surrounding ecosystem of work on perception, action, and adaptive agency.",
+      "body": "Reading affordances through Active Inference links the thread to broader currents in cognitive science that treat cognition as embodied, situated, and enactive — grounded in a body, embedded in an environment, and enacted through ongoing interaction rather than detached computation. Affordances are a natural meeting point for these views because they refuse to locate meaning solely in the head or solely in the world.\n\nBy developing this connection, the thread contributes to the Institute's wider research program and to the surrounding ecosystem of work on perception, action, and adaptive agency.",
       "links": [
         {
           "label": "Ecosystem",

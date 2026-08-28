@@ -13,7 +13,7 @@
   "sections": [
     {
       "heading": "Overview",
-      "body": "The Educational Course Development project designs and produces courses for Active Inference learners. This includes introductory and advanced courses, domain-specific curricula, and modular educational components that can be used across the Institute's learning programs. The project is coordinated by Daniel Friedman.",
+      "body": "The Educational Course Development project designs and produces courses for Active Inference learners. This includes introductory and advanced courses, domain-specific curricula, and modular educational components that can be used across the Institute's learning programs.\n\nThe project is coordinated by Daniel Friedman.",
       "links": [
         {
           "sourceId": "repo-courses"

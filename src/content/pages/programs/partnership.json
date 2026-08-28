@@ -21,7 +21,7 @@
   "sections": [
     {
       "heading": "What Partnership Means",
-      "body": "Partnership is a practical relationship built around shared work. Partner organizations contribute time, attention, expertise, funding, infrastructure, or institutional capacity in exchange for collaboration with the Institute and its community. Partnership is not a sponsorship or a passive affiliation — it is an active, bilateral exchange with concrete outcomes that benefit both parties and the broader Active Inference Ecosystem.",
+      "body": "Partnership is a practical relationship built around shared work. Partner organizations contribute time, attention, expertise, funding, infrastructure, or institutional capacity in exchange for collaboration with the Institute and its community.\n\nPartnership is not a sponsorship or a passive affiliation — it is an active, bilateral exchange with concrete outcomes that benefit both parties and the broader Active Inference Ecosystem.",
       "links": []
     },
     {
@@ -36,7 +36,7 @@
     },
     {
       "heading": "Who Partners with the Institute",
-      "body": "Current Institute partners are First Principles First, a research collaborative working toward a science of mindful agents, societies, and observer languages, and Numen Games, which is building a gamified organizational framework and open-metaverse RPG. Lazy Dynamics, which led development of RxInfer-PRO and co-supervised the RxInfer/ReactiveBayes open-source community, partnered with the Institute from 2025 through 2026. Partners work across computational neuroscience, cognitive science, ecology, economics, engineering, health, and other domains where Active Inference is being applied. The Applied Active Inference Symposium has been a central gathering point for partners and collaborators each year.",
+      "body": "Current Institute partners are First Principles First, a research collaborative working toward a science of mindful agents, societies, and observer languages, and Numen Games, which is building a gamified organizational framework and open-metaverse RPG. Lazy Dynamics, which led development of RxInfer-PRO and co-supervised the RxInfer/ReactiveBayes open-source community, partnered with the Institute from 2025 through 2026.\n\nPartners work across computational neuroscience, cognitive science, ecology, economics, engineering, health, and other domains where Active Inference is being applied. The Applied Active Inference Symposium has been a central gathering point for partners and collaborators each year.",
       "links": [
         {
           "sourceId": "official-symposium-shortlink"
@@ -45,7 +45,7 @@
     },
     {
       "heading": "How to Become a Partner",
-      "body": "Partnership follows a six-stage process. Stage 0 (Initial Engagement) is an exploratory conversation to determine whether philanthropy, direct project participation, or a formal partnership best fits an organization's goals and capacity. Stage 1 (Submit Application) asks the organization to complete a Partnership Application covering five areas: organization information; alignment with the Institute's mission; the proposed partnership's scope, duration, and support; partnership expectations and commitments; and additional supporting information such as references. Stage 2 (Review & Selection) is the Institute's internal evaluation of fit and impact; Stage 3 (Formal Agreement) establishes a written partnership agreement covering contributions, roles, and points of contact; Stage 4 (Planning Session) sets shared objectives and a 6-to-12-month action plan; and Stage 5 (Ongoing Collaboration) is the sustained, evolving relationship, with regular updates and feedback. Questions, pre-submission inquiries, and completed applications go to blanket@activeinference.institute with [PARTNERS] in the subject line.",
+      "body": "Partnership follows a six-stage process. Stage 0 (Initial Engagement) is an exploratory conversation to determine whether philanthropy, direct project participation, or a formal partnership best fits an organization's goals and capacity.\n\nStage 1 (Submit Application) asks the organization to complete a Partnership Application covering five areas: organization information; alignment with the Institute's mission; the proposed partnership's scope, duration, and support; partnership expectations and commitments; and additional supporting information such as references. Stage 2 (Review & Selection) is the Institute's internal evaluation of fit and impact; Stage 3 (Formal Agreement) establishes a written partnership agreement covering contributions, roles, and points of contact; Stage 4 (Planning Session) sets shared objectives and a 6-to-12-month action plan; and Stage 5 (Ongoing Collaboration) is the sustained, evolving relationship, with regular updates and feedback.\n\nQuestions, pre-submission inquiries, and completed applications go to blanket@activeinference.institute with [PARTNERS] in the subject line.",
       "links": [
         {
           "sourceId": "partnership-shortlink"
@@ -54,7 +54,7 @@
     },
     {
       "heading": "Related Programs",
-      "body": "Partnership often connects with grant support and philanthropy. Partners may pursue grants collaboratively with the Institute. Organizations that want to support the Institute's work without a formal collaboration can contribute through the philanthropy pathway.",
+      "body": "Partnership often connects with grant support and philanthropy. Partners may pursue grants collaboratively with the Institute.\n\nOrganizations that want to support the Institute's work without a formal collaboration can contribute through the philanthropy pathway.",
       "links": [
         {
           "label": "Grants",

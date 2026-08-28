@@ -17,7 +17,7 @@
   "sections": [
     {
       "heading": "What ReInference Does",
-      "body": "ReInference develops and maintains research infrastructure, software tools, and scientific knowledge for Active Inference. Its institute projects have active development pipelines, open repositories, and regular community touchpoints. ReInference connects theoretical advances in Active Inference with concrete implementations, datasets, and application domains.",
+      "body": "ReInference develops and maintains research infrastructure, software tools, and scientific knowledge for Active Inference. Its institute projects have active development pipelines, open repositories, and regular community touchpoints.\n\nReInference connects theoretical advances in Active Inference with concrete implementations, datasets, and application domains.",
       "links": [
         {
           "sourceId": "github-org"
@@ -26,7 +26,7 @@
     },
     {
       "heading": "Institute Projects",
-      "body": "ReInference hosts 12 Institute-operated projects. Seven are active: AICACP, the Applied Active Inference Symposium, Generalized Notation Notation (GNN), GEO-INFER, Knowledge Engineering, the RxInfer.jl learning group, and the Theoretical Neurobiology Group. Five are archived past initiatives: Active Blockference, Cognitive Agent Modeling, FarmWorks, a Graphical Interface project, and Multiagent Modeling (Active InferAnts).",
+      "body": "ReInference hosts 12 Institute-operated projects. Seven are active: AICACP, the Applied Active Inference Symposium, Generalized Notation Notation (GNN), GEO-INFER, Knowledge Engineering, the RxInfer.jl learning group, and the Theoretical Neurobiology Group.\n\nFive are archived past initiatives: Active Blockference, Cognitive Agent Modeling, FarmWorks, a Graphical Interface project, and Multiagent Modeling (Active InferAnts).",
       "links": [
         {
           "label": "Active InferAnts",
@@ -73,7 +73,7 @@
     },
     {
       "heading": "Participate in ReInference",
-      "body": "ReInference projects welcome researchers, engineers, students, and domain experts. Contributing can mean writing code, modeling, running experiments, producing documentation, or engaging in research discussions. Most projects are open to new participants.",
+      "body": "ReInference projects welcome researchers, engineers, students, and domain experts. Contributing can mean writing code, modeling, running experiments, producing documentation, or engaging in research discussions.\n\nMost projects are open to new participants.",
       "links": [
         {
           "sourceId": "github-org"

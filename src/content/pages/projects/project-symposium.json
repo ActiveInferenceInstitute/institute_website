@@ -25,7 +25,7 @@
   "sections": [
     {
       "heading": "About the Symposium",
-      "body": "The Applied Active Inference Symposium is the Institute's flagship annual event. It brings together researchers, educators, practitioners, and community members who are applying Active Inference across scientific and practical domains. Every edition features talks, panels, workshops, and community sessions, and the keynote address and panel have featured Karl Friston since the inaugural gathering. The Symposium is online with no financial barrier to participation, and full recordings are made publicly available on the Institute YouTube channel after each edition.",
+      "body": "The Applied Active Inference Symposium is the Institute's flagship annual event. It brings together researchers, educators, practitioners, and community members who are applying Active Inference across scientific and practical domains.\n\nEvery edition features talks, panels, workshops, and community sessions, and the keynote address and panel have featured Karl Friston since the inaugural gathering. The Symposium is online with no financial barrier to participation, and full recordings are made publicly available on the Institute YouTube channel after each edition.",
       "links": [
         {
           "sourceId": "official-symposium-shortlink"
@@ -133,7 +133,7 @@
     },
     {
       "heading": "6th Symposium (2026)",
-      "body": "We are now preparing the 6th Applied Active Inference Symposium, to be held online on 12-14 November 2026. As with previous editions, the keynote address and panel will feature Karl Friston, and the program explores the applications and frontiers of Active Inference. The Symposium is online with no financial barrier to participation, and abstracts of presentations are published in collaboration with the Active Inference Journal. All current information is gathered on the Symposium hub.",
+      "body": "We are now preparing the 6th Applied Active Inference Symposium, to be held online on 12-14 November 2026. As with previous editions, the keynote address and panel will feature Karl Friston, and the program explores the applications and frontiers of Active Inference.\n\nThe Symposium is online with no financial barrier to participation, and abstracts of presentations are published in collaboration with the Active Inference Journal. All current information is gathered on the Symposium hub.",
       "links": [
         {
           "sourceId": "official-symposium-shortlink"
@@ -149,7 +149,7 @@
     },
     {
       "heading": "Call for Presentations and Workshops",
-      "body": "We invite researchers and practitioners to submit presentations and workshops for the 6th Symposium, aligned with four themes: mission-critical applications of Active Inference across domains; open science and tool development; learning and education; and Active Inference at Play — hands-on, multimodal, and exploratory formats beyond text. Submissions may be pre-recorded video presentations, livestream panel or discussion slots, or workshops, tutorials, and hackathons with open-source materials. The presenter submission deadline is 31 October 2026, ahead of the 12-14 November Symposium dates. Please share the invitation widely.",
+      "body": "We invite researchers and practitioners to submit presentations and workshops for the 6th Symposium, aligned with four themes: mission-critical applications of Active Inference across domains; open science and tool development; learning and education; and Active Inference at Play — hands-on, multimodal, and exploratory formats beyond text. Submissions may be pre-recorded video presentations, livestream panel or discussion slots, or workshops, tutorials, and hackathons with open-source materials.\n\nThe presenter submission deadline is 31 October 2026, ahead of the 12-14 November Symposium dates. Please share the invitation widely.",
       "links": [
         {
           "sourceId": "symposium-2026-submit"
@@ -165,7 +165,7 @@
     },
     {
       "heading": "Sponsorship",
-      "body": "Sponsoring the Applied Active Inference Symposium supports open-source scientific innovation, global open-science collaboration through a 501(c)(3) non-profit, broad interdisciplinary impact, and visibility to talent and partners at the frontier of AI and cognitive science. Sponsorship is offered across three escalating levels: Level 1 lists sponsors in the program and materials and acknowledges them in livestreams; Level 2 adds a logo in the Adventure space, a short pre-recorded video on the livestream, and introductions to presenters, co-organizers, fellows, officers, and advisors; Level 3 adds consideration of a session, speaker, or theme in the program, an arranged private session, and an optional custom hand-drawn Active Inference artwork. Organizations can contribute financially, offer in-kind support, or provide additional resources such as presenters and materials. Email blanket@activeinference.institute with any inquiries; more sponsorship detail for 2026 is coming soon.",
+      "body": "Sponsoring the Applied Active Inference Symposium supports open-source scientific innovation, global open-science collaboration through a 501(c)(3) non-profit, broad interdisciplinary impact, and visibility to talent and partners at the frontier of AI and cognitive science. Sponsorship is offered across three escalating levels: Level 1 lists sponsors in the program and materials and acknowledges them in livestreams; Level 2 adds a logo in the Adventure space, a short pre-recorded video on the livestream, and introductions to presenters, co-organizers, fellows, officers, and advisors; Level 3 adds consideration of a session, speaker, or theme in the program, an arranged private session, and an optional custom hand-drawn Active Inference artwork.\n\nOrganizations can contribute financially, offer in-kind support, or provide additional resources such as presenters and materials. Email blanket@activeinference.institute with any inquiries; more sponsorship detail for 2026 is coming soon.",
       "links": [
         {
           "href": "mailto:blanket@activeinference.institute",
@@ -178,7 +178,7 @@
     },
     {
       "heading": "Participate",
-      "body": "The Symposium is open to researchers, practitioners, students, and curious community members, with pathways for deeper involvement in ongoing research and projects across the ecosystem. The 2026 organizing team includes Alexandra Mikhailova, Andrew Pashea, Antonio Lucas-Alba, Bradly Alicea, Daniel Friedman, Hector Manrique, Ian Tennant, Jana Lumi, Janaki Nagesh, Justin Mo, Nina Edgley, and PabloFM. Materials are translated into other languages where possible, and content remains posted on YouTube for asynchronous viewing. Presenters, session organizers, sponsors, and volunteers are all welcome — reach out through the Symposium hub or contact blanket@activeinference.institute.",
+      "body": "The Symposium is open to researchers, practitioners, students, and curious community members, with pathways for deeper involvement in ongoing research and projects across the ecosystem. The 2026 organizing team includes Alexandra Mikhailova, Andrew Pashea, Antonio Lucas-Alba, Bradly Alicea, Daniel Friedman, Hector Manrique, Ian Tennant, Jana Lumi, Janaki Nagesh, Justin Mo, Nina Edgley, and PabloFM.\n\nMaterials are translated into other languages where possible, and content remains posted on YouTube for asynchronous viewing. Presenters, session organizers, sponsors, and volunteers are all welcome — reach out through the Symposium hub or contact blanket@activeinference.institute.",
       "links": [
         {
           "sourceId": "official-symposium-shortlink"

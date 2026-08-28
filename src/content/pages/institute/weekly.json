@@ -19,7 +19,7 @@
   "sections": [
     {
       "heading": "This week on the calendar",
-      "body": "The public Calendar is the single source for what is happening this week. Upcoming events are listed soonest-first, so the sessions running this week sit at the top of the list, and you can use the calendar's on-page search and the upcoming/past filter to narrow to a particular session or kind of event. Because the calendar is generated from the Institute's live event feed, it stays current as sessions are added or change.",
+      "body": "The public Calendar is the single source for what is happening this week. Upcoming events are listed soonest-first, so the sessions running this week sit at the top of the list, and you can use the calendar's on-page search and the upcoming/past filter to narrow to a particular session or kind of event.\n\nBecause the calendar is generated from the Institute's live event feed, it stays current as sessions are added or change.",
       "links": [
         {
           "label": "Open the calendar",
@@ -39,7 +39,7 @@
     },
     {
       "heading": "Join a session",
-      "body": "Most sessions are open, and joining one is the easiest first step into the Institute's work. Find a session on the calendar, then use the Get Involved page to learn how to take part and connect with the community. New to Active Inference? The learning resources are a good place to get context before joining.",
+      "body": "Most sessions are open, and joining one is the easiest first step into the Institute's work. Find a session on the calendar, then use the Get Involved page to learn how to take part and connect with the community.\n\nNew to Active Inference? The learning resources are a good place to get context before joining.",
       "links": [
         {
           "label": "Get involved",
