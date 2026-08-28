@@ -16,6 +16,7 @@ import {
 import { resolveLinks } from "./links.mjs";
 import { actionButtons, linkChips, linkList } from "./page-sections.mjs";
 import { sectionHeading, cardGrid, breadcrumb, pageGuide } from "./components.mjs";
+import { renderNarrativeBody } from "./narrative.mjs";
 import { publicPagePager } from "./pager.mjs";
 import { resourceCards } from "./resources.mjs";
 import { layout } from "./layout.mjs";
@@ -258,7 +259,7 @@ export function publicPage(page) {
           const links = linkChips(section.links, currentDir);
           const chips = links ? `\n            ${links}` : "";
           const heading = `<h2>${escapeHtml(tr(section.heading))}</h2>`;
-          const para = `<p>${autolinkInternal(escapeHtml(tr(section.body)), currentDir)}</p>`;
+          const para = autolinkInternal(renderNarrativeBody(tr(section.body)), currentDir);
           // The DOM id stays English-stable (anchors must match across locales);
           // only the visible heading and body are translated.
           if (section.image && section.image.src) {

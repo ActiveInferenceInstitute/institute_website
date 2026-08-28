@@ -43,7 +43,7 @@ function renderNarrativeTable(rows) {
 // ordered/unordered lists, bold/italic, paragraphs) into safe, structured HTML.
 // Replaces the previous behaviour of dumping each markdown line into an escaped
 // <p>.
-function renderNarrativeBody(rawBody) {
+export function renderNarrativeBody(rawBody) {
   const clean = sanitizePublicProse(String(rawBody || ""))
     // Put a heading marker that runs on mid-line onto its own line so it parses
     // as a heading instead of leaking "## Title" into a paragraph. Requires a
