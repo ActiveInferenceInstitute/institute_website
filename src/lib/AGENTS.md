@@ -39,7 +39,6 @@ Dependency-free, data-free string helpers. Safe to unit-test in isolation.
   registries/narratives: strips markdown link syntax to its label, removes raw
   URLs, drops redacted-email placeholders, and neutralizes private-channel
   tokens. Output is **plain text** — still pass it through `escapeHtml`.
-- `proseParagraphs(value)` — sanitize, then split into renderable paragraph
   strings (markdown list markers and blank lines become breaks; empties
   dropped).
 - `slugifyAnchor(value)` — lowercase hyphen-separated anchor token.

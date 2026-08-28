@@ -1,5 +1,7 @@
 import { loadProjectsData, siteData } from "../data.mjs";
 import { escapeHtml, sanitizePublicProse, slugifyAnchor, title_case_token_js } from "../lib/text.mjs";
+import { renderNarrativeBody } from "../render/narrative.mjs";
+import { autolinkInternal } from "../render/autolink.mjs";
 import { slugToHref } from "../render/urls.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { linkChips } from "../render/page-sections.mjs";
@@ -316,7 +318,7 @@ export function syllabusGrid(entry, currentDir = "") {
       return `<article class="resource-card" id="${escapeHtml(slugifyAnchor(item.title))}">
         ${meta}
         <h3>${escapeHtml(tr(item.title))}</h3>
-        <p>${escapeHtml(tr(item.body))}</p>
+        ${autolinkInternal(renderNarrativeBody(tr(item.body)), currentDir)}
         ${links}
       </article>`;
     })
@@ -341,7 +343,7 @@ export function qaGrid(entry, currentDir = "") {
       return `<article class="resource-card">
         <details>
           <summary>${escapeHtml(tr(item.title))}</summary>
-          <p>${escapeHtml(tr(item.body))}</p>
+          ${autolinkInternal(renderNarrativeBody(tr(item.body)), currentDir)}
           ${links}
         </details>
       </article>`;

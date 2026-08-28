@@ -58,23 +58,6 @@ export function sanitizePublicProse(value = "") {
   return text;
 }
 
-// Split a sanitized narrative body into renderable paragraphs. Markdown list
-// markers and blank lines become paragraph breaks; empty fragments are dropped.
-export function proseParagraphs(value = "") {
-  const cleaned = sanitizePublicProse(value);
-  return cleaned
-    .split(/\n{2,}|\n(?=\s*[-*]\s)/)
-    .map((chunk) =>
-      chunk
-        .split("\n")
-        .map((line) => line.replace(/^\s*[-*]\s+/, "").trim())
-        .filter(Boolean)
-        .join(" "),
-    )
-    .map((chunk) => chunk.trim())
-    .filter((chunk) => chunk.length > 0);
-}
-
 // Slugify a value into an anchor-safe token (lowercase, hyphen-separated).
 export const slugifyAnchor = (value = "") =>
   String(value)

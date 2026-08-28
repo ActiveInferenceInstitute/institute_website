@@ -186,14 +186,14 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="${escapeHtml(tr("Listen to this page"))}" title="${escapeHtml(tr("Listen to this page"))}"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="${escapeHtml(tr("Choose highlight color"))}" title="${escapeHtml(tr("Choose highlight color"))}"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="${escapeHtml(tr("Highlight color"))}" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="${escapeHtml(tr("Red highlight (default)"))}" title="${escapeHtml(tr("Red"))}"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="${escapeHtml(tr("Amber highlight"))}" title="${escapeHtml(tr("Amber"))}"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="${escapeHtml(tr("Green highlight"))}" title="${escapeHtml(tr("Green"))}"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="${escapeHtml(tr("Teal highlight"))}" title="${escapeHtml(tr("Teal"))}"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="${escapeHtml(tr("Blue highlight"))}" title="${escapeHtml(tr("Blue"))}"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="${escapeHtml(tr("Violet highlight"))}" title="${escapeHtml(tr("Violet"))}"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="${escapeHtml(tr("Magenta highlight"))}" title="${escapeHtml(tr("Magenta"))}"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="${escapeHtml(tr("Switch theme"))}" aria-pressed="false" title="${escapeHtml(tr("Toggle light/dark theme"))}"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
