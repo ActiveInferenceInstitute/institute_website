@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="このページをご覧ください。" title="このページをご覧ください。"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="ハイライト色を選択" title="ハイライト色を選択"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="ハイライトカラー" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="赤ハイライト（デフォルト）" title="赤"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="アメーバハイライト" title="アメイズング・グッバイ"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="グリーンハイライト" title="緑"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal ホイッスル" title="teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="青ハイライト" title="青"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="violet のハイライト" title="violet"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="メガネ色ハイライト" title="マゼンタ"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="テーマを切り替える" aria-pressed="false" title="ライト/ダークテーマの切り替え"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -138,13 +138,11 @@
     <div class="article-stack">
       <article class="article-block" id="what-reinference-does">
             <h2>ReInferenceとは何ですか？</h2>
-            <p><a href="./">ReInference</a> develops and maintains research infrastructure, software tools, and scientific knowledge for Active Inference. Its institute projects have active development pipelines, open repositories, and regular community touchpoints.</p>
-<p>ReInference connects theoretical advances in Active Inference with concrete implementations, datasets, and application domains.</p>
+            <p><a href="./">ReInference</a>はActive Inferenceの理論的進展と実装、データセット、および適用分野との間でつながりを促進し、研究インフラストラクチャ、ソフトウェアツール、科学的知識を開発・維持します。また、その研究所のプロジェクトにはアクティブな開発パイプライン、オープンなリポジトリ、および定期的なコミュニティの接点があります。</p>
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a></div>
           </article><article class="article-block" id="institute-projects">
             <h2>インスティテュート・プロジェクト</h2>
             <p><a href="./">ReInference</a> hosts 12 Institute-operated projects. Seven are active: AICACP, the <a href="../projects/symposium/">Applied Active Inference Symposium</a>, <a href="../projects/gnn/">Generalized Notation Notation</a> (GNN), GEO-INFER, <a href="../projects/knowledge-engineering/">Knowledge Engineering</a>, the RxInfer.jl learning group, and the <a href="../projects/theoretical-neurobiology/">Theoretical Neurobiology Group</a>.</p>
-<p>Five are archived past initiatives: <a href="../projects/active-blockference/">Active Blockference</a>, <a href="../projects/cognitive-agent-modeling/">Cognitive Agent Modeling</a>, FarmWorks, a <a href="../projects/graphical-interface/">Graphical Interface</a> project, and Multiagent Modeling (<a href="../projects/active-inferants/">Active InferAnts</a>).</p>
             <div class="link-chips"><a href="../projects/active-inferants/"><span>Active InferAnts</span></a><a href="../projects/geo-infer/"><span>GEO-INFER</span></a><a href="../projects/gnn/"><span>GNN</span></a><a href="../projects/rxinfer/"><span>RxInfer.jl</span></a><a href="../projects/knowledge-engineering/"><span>Knowledge Engineering</span></a><a href="../projects/active-blockference/"><span>Active Blockference</span></a></div>
           </article><article class="article-block" id="ecosystem-projects">
             <h2>エコシステム・プロジェクト</h2>
@@ -152,8 +150,7 @@
             <div class="link-chips"><a href="../projects/cognarn/"><span>CogNarr</span></a><a href="../projects/geometric-inquiry/"><span>Geometric Inquiry Theory</span></a><a href="https://ecosystem.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Ecosystem shortlink</span><em>Research</em></a></div>
           </article><article class="article-block" id="participate-in-reinference">
             <h2>ReInferenceに参加する</h2>
-            <p><a href="./">ReInference</a> projects welcome researchers, engineers, students, and domain experts. Contributing can mean writing code, modeling, running experiments, producing documentation, or engaging in research discussions.</p>
-<p>Most projects are open to new participants.</p>
+            <p><a href="./">ReInference</a>プロジェクトは研究者、エンジニア、学生、および専門家を歓迎します。これはコードの作成、モデルの作成、実験の実行、ドキュメンテーションの作成、または研究ディスカッションへの参加を含めることができます。大多数のプロジェクトは新しい参加者を受け入れています。</p>
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a><a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Discord invite</span><em>Community</em></a><a href="../programs/"><span>Programs</span></a></div>
           </article>
     </div>
@@ -162,7 +159,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">次の最適な行動</p>
-        <h2>Where to go next</h2>
+        <h2>何に行きましょう</h2>
       </div>
       <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub</span><em>Projects</em></a><a href="../projects/"><span>All Projects</span></a><a href="../resources/#projects"><span>フィルタリングされたリソース</span></a><a href="../directory/"><span>グローバルディレクトリ</span></a><a href="../eduactive/"><span>EduActiveユニット</span></a><a href="../projects/"><span>プロジェクト</span></a></div>
     </div>

@@ -107,13 +107,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="이 페이지 듣기" title="이 페이지 듣기"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="하이라이트 색상 선택" title="하이라이트 색상 선택"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="색상 강조 색상" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="빨강 고조표시" title="빨강"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="아메르브 화이트아이 히터" title="아메르프"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="그린 히들링(highlight)" title="그린"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal 레이블" title="teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="블루 히들링" title="블루"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="보라 강조" title="보라"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
       </div>
     </div>
@@ -155,18 +155,15 @@
     <div class="article-stack">
       <article class="article-block" id="volunteer">
             <h2>자원봉사자</h2>
-            <p>Volunteering is the broadest on-ramp for participation. Volunteers contribute to learning groups, projects, operations, writing, analysis, media production, and community support according to available time, background, and skills.</p>
-<p>No prior expertise in Active Inference is required — many volunteers begin by attending meetings, watching recordings, and contributing in whatever way fits their current capacity.</p>
+            <p>志愿服务是参与的最宽泛入口。志愿者根据可用时间、背景和技能参与学习小组、项目、运营、写作、分析、媒体制作和社区支持。</p>
             <div class="link-chips"><a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Discord invite</span><em>Community</em></a><a href="../volunteer/"><span>Volunteer page</span></a></div>
           </article><article class="article-block" id="internship">
             <h2>인턴십</h2>
-            <p>Internships provide structured engagement for participants who want to contribute more deeply to specific projects or functions. Interns work on defined deliverables — documentation, analysis, code, educational materials, or operational support — and develop skills through project practice and community engagement.</p>
-<p>Learning is built into the process regardless of prior experience.</p>
+            <p>인턴십은 참여자가 특정 프로젝트 또는 기능에서 더 깊이 기여하고 싶은 사람들을 위한 구조화된 참여를 제공합니다. 인턴들은 정의된 결과물 — 문서화, 분석, 코드, 교육 자료, 운영 지원 등 —을 처리하고, 프로젝트 경험과 커뮤니티 참여를 통해 기술을 개발합니다.</p>
             <div class="link-chips"><a href="internship/"><span>Internship page</span></a></div>
           </article><article class="article-block" id="mentorship">
             <h2>멘토링</h2>
-            <p><a href="mentorship/">Mentorship</a> connects experienced participants with people earlier in their engagement with Active Inference or the Institute. Mentors support the development of mentees through guidance, feedback, shared project work, and professional connection.</p>
-<p>Mentorship can be formal — with defined goals and regular check-ins — or informal, emerging naturally from community participation.</p>
+            <p>Active Inference 연결된 경험이 있는 참가자와 Active Inference에 대한 참여 초기에 참여하는 사람들을 연결하는 맡기입니다. 지도, 피드백, 공유 프로젝트 작업, 전문적 연결을 통해 멘티의 발전을 지원합니다.</p>
             <div class="link-chips"><a href="https://mentorship.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Mentorship pathway</span><em>Participate</em></a><a href="mentorship/"><span>Mentorship page</span></a></div>
           </article><article class="article-block" id="fellowship">
             <h2>동료십</h2>
@@ -174,13 +171,11 @@
             <div class="link-chips"><a href="https://fellows.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Fellows pathway</span><em>Participate</em></a><a href="fellowship/"><span>Fellowship page</span></a></div>
           </article><article class="article-block" id="grants">
             <h2>장학금</h2>
-            <p>The Institute supports grant proposals and funding efforts aligned with Active Inference research, education, and application. Participants and projects can seek Institute support for grant preparation, institutional affiliation, and collaborative funding proposals.</p>
-<p>The Institute tracks funding opportunities and shares them through its regular communications.</p>
+            <p>Active Inference 연구, 교육, 및 응용 분야를 지원하는 연구자와 프로젝트가 제안서 준비, 기관 연계 및 협력적인 제안서 제출에 Institute의 지원을 요청할 수 있습니다. Institute는 정기적인 소식을 통해 기금 지원 기회를 추적하고 이를 공유합니다.</p>
             <div class="link-chips"><a href="https://weekly.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Weekly updates</span><em>Community</em></a><a href="../grants/"><span>Grants page</span></a></div>
           </article><article class="article-block" id="partnership">
             <h2>파트너십</h2>
-            <p><a href="partnership/">Partnerships</a> align organizations, research groups, funders, and collaborators around concrete shared work. Partner organizations may co-host events, co-author publications, share resources, provide infrastructure, or collaborate on research and education projects.</p>
-<p>Partnership is a practical exchange of time, attention, expertise, funding, and institutional support.</p>
+            <p>파트너십은 조직, 연구 그룹, 투 Funders와 협력자들 사이에서 구체적인 공유 작업을 주도하는 조직, 연구 그룹, 투 Funders와 협력자들 사이에서 구체적인 공유 작업을 주도합니다. 파트너 조직은 공동으로 이벤트를 개최하고 공동으로 저서를 출판하고 자원을 공유하고 기반 시설을 공유하며 연구와 교육 프로젝트를 협력할 수 있습니다.</p>
             <div class="link-chips"><a href="partnership/"><span>Partnership page</span></a></div>
           </article><article class="article-block" id="philanthropy">
             <h2>자선활동</h2>
@@ -197,7 +192,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">최선의 다음 행동</p>
-        <h2>Where to go next</h2>
+        <h2>다음으로 가야 할 곳은何处去</h2>
       </div>
       <div class="link-chips"><a href="https://fellows.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Fellowship</span><em>Participate</em></a><a href="https://mentorship.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Mentorship</span><em>Participate</em></a><a href="../resources/#community"><span>필터링된 자원</span></a><a href="../directory/"><span>글로벌 디렉토리</span></a><a href="../get-involved/"><span>참여하기</span></a><a href="../structure/"><span>연구소 구조</span></a></div>
     </div>

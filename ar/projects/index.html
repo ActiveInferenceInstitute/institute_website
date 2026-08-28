@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="استمع إلى هذه الصفحة" title="استمع إلى هذه الصفحة"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="اختر لون التحديد" title="اختر لون التحديد"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="لون التمييز" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="تنسيق أحمر (افتراضي)" title="أحمر"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="تأكيد برتقالي" title="أمشطار"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="تأكيد أخضر" title="أخضر"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="تظليل سماوي" title="تركوازي"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="تأكيد أزرق" title="أزرق"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="تنسيق أرجواني" title="أرجواني"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="تأكيد باللون البنفسجي" title="Magenta"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="تغيير الموضوع" aria-pressed="false" title="تغيير نمط الإضاءة/الظلام"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -159,7 +159,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">أفضل الإجراءات التالية</p>
-        <h2>Where to go next</h2>
+        <h2>أين تذهب بعد ذلك</h2>
       </div>
       <div class="link-chips"><a href="https://prepare.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Prepare a project</span><em>Projects</em></a><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>Browse repositories</span><em>Projects</em></a><a href="../resources/#projects"><span>الموارد المصفاة</span></a><a href="../directory/"><span>الدليل العالمي</span></a><a href="../eduactive/"><span>وحدة EduActive</span></a><a href="../reinference/"><span>وحدة إعادة الاستدلال</span></a></div>
     </div>
@@ -167,16 +167,16 @@
   <section class="content-band" id="project-catalog">
     <div class="section-heading">
     <p class="eyebrow">الكتالوج الكامل</p>
-    <h2>Browse every public project</h2>
-    <p>Projects are classified by the canonical InstituteOS affiliation field. Institute-hosted and Ecosystem projects are listed in two separate tables below, each with its own search, topic filter, and counts; active and archived work stay distinct within each.</p>
+    <h2>تصفح جميع المشاريع العامة</h2>
+    <p>تُصنَّف المشاريع حسب حقل الارتباط الأساسي InstituteOS المرمَّز. تظهر المشاريع المضيفة للمؤسسة والمشاريع ضمن النظام البيئي في جدولين منفصلين أدناه، ولكل منهما بحث وتصفية حسب الموضوع وعدد؛ وتُحافظ على التمييز بين العمل النشط والمهمل في كل جدول.</p>
   </div>
     <p class="category-count">65 public projects with a page on this site</p>
     <div class="link-chips"><a href="#catalog-institute"><span>Institute-hosted projects</span><em>28 projects</em></a><a href="#catalog-ecosystem"><span>Ecosystem projects</span><em>37 projects</em></a></div>
   </section><section class="content-band catalog-affiliation" id="catalog-institute" data-affiliation="institute">
     <div class="section-heading">
-    <p class="eyebrow">Institute-hosted</p>
-    <h2>Institute-hosted projects</h2>
-    <p>Projects the Active Inference Institute hosts and stewards directly, drawn from the canonical InstituteOS affiliation field. This table is independent of the Ecosystem table below: its search, topic filter, and counts cover Institute-hosted projects only.</p>
+    <p class="eyebrow">مُسْتَشَفَةٌ مُسْتَمَرَّةٌ</p>
+    <h2>مشاريع تستضيفها المؤسسة</h2>
+    <p>يُظهر Active Inference Institute المضيفين والمدراء المباشرين، المستمدين من حقل الارتباط المؤسسي القياسي InstituteOS. هذه القائمة مستقلة من الجدول البيئي أدناه: يغطي بحثها وتصفية الموضوع والعدود للمشاريع المضيفة للمؤسسة فقط.</p>
   </div>
     <p class="category-count">28 projects</p>
     <div class="activities-search">
@@ -344,8 +344,8 @@
   </section><section class="content-band catalog-affiliation" id="catalog-ecosystem" data-affiliation="ecosystem">
     <div class="section-heading">
     <p class="eyebrow">النظام البيئي</p>
-    <h2>Ecosystem projects</h2>
-    <p>Community-driven projects across the wider Active Inference ecosystem, drawn from the same canonical affiliation field. This table is independent of the Institute-hosted table above: its search, topic filter, and counts cover Ecosystem projects only.</p>
+    <h2>مشاريع النظام البيئي</h2>
+    <p>مشاريع مدعومة من المجتمع عبر نظام Active Inference البيئي، المستمدة من نفس حقل الارتباط الأساسي. هذه الجداول مستقلة من الجدول المضيف للمعهد أعلاه: يغطي بحثه وفلتره ومعدلاته فقط المشاريع البيئية.</p>
   </div>
     <p class="category-count">37 projects</p>
     <div class="activities-search">

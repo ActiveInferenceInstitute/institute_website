@@ -107,13 +107,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="이 페이지 듣기" title="이 페이지 듣기"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="하이라이트 색상 선택" title="하이라이트 색상 선택"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="색상 강조 색상" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="빨강 고조표시" title="빨강"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="아메르브 화이트아이 히터" title="아메르프"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="그린 히들링(highlight)" title="그린"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal 레이블" title="teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="블루 히들링" title="블루"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="보라 강조" title="보라"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
       </div>
     </div>
@@ -130,7 +130,7 @@
   </nav>
     <p class="eyebrow">perception, action, 생태심리학, 그리고 자유 에너지 원칙에 관심 있는 연구자와 실용家</p>
     <h1>가능성</h1>
-    <p>{institute} 연구 스레드 - {active inference}와 생태심리학을 통해 가능한 행동 유형 분석</p>
+    <p>institute 연구 스레드 - active inference와 생태심리학을 통해 가능한 행동 유형 분석</p>
     <div class="hero-actions"><a class="button primary" href="https://affordances.activeinference.institute" target="_blank" rel="noopener noreferrer">Affordances shortlink</a><a class="button secondary" href="../">All projects</a><a class="button secondary" href="../../reinference/">ReInference Unit</a></div>
   </section>
   <section class="content-band page-index-band">
@@ -140,7 +140,7 @@
         <h2>섹션</h2>
       </div>
       <nav aria-label="가능성 페이지 섹션">
-        <a href="#overview">개요</a><a href="#ecological-roots">환경학적 근간</a><a href="#affordances-as-relations">상호작용 관계로서의 가능성</a><a href="#an-active-inference-reading">{An Active Inference Reading}</a><a href="#embodied-situated-enactive-cognition">에mbodied, 시tuated, enactive 인지학</a><a href="#full-materials">전체 자료</a>
+        <a href="#overview">개요</a><a href="#ecological-roots">환경학적 근간</a><a href="#affordances-as-relations">상호작용 관계로서의 가능성</a><a href="#an-active-inference-reading">An Active Inference Reading</a><a href="#embodied-situated-enactive-cognition">에mbodied, 시tuated, enactive 인지학</a><a href="#full-materials">전체 자료</a>
         <a href="#next-actions">최선의 다음 행동</a>
         <a href="#key-surfaces">주요 표면</a>
         <a href="../../knowledge/">오픈 소스 맵</a>
@@ -157,29 +157,23 @@
     <div class="article-stack">
       <article class="article-block" id="overview">
             <h2>개요</h2>
-            <p>Affordances examines how an environment presents action possibilities to an agent, and how those possibilities are perceived and acted upon. Drawing together Active Inference and ecological psychology, the thread treats perception and action as tightly coupled and reads affordances as relationships between agent and environment rather than properties of either alone.</p>
-<p>A surface affords walking, a handle affords grasping, a gap affords passage — but only relative to the capacities of a particular agent. This relational perspective offers a common vocabulary for describing how agents engage with the worlds they inhabit, and a bridge between ecological and computational accounts of behavior.</p>
+            <p>Active Inference은 생태심리학과 결합하여, 인체가 환경에 대해 가능한 행동을 제공하고, 이러한 가능성은 인체가 인식하고 행동에 참여하는 방식을 연구합니다. 이 관점에서는 인식과 행동이紧紧耦合되어, 가능한 행동을 인체와 환경 간의 관계로 읽습니다. 대상과 환경이 아닌 각각의 홀로만 존재하는 것이 아니라. 이 상호 관계적인 관점을 통해 인체가 사는 세계와의 상호작용을 설명하는 공통 언어를 제공하고, 생태학적과 계산적 행동의 설명 간의 연결을 제공합니다.</p>
             <div class="link-chips"><a href="../../reinference/"><span>ReInference Unit</span></a></div>
           </article><article class="article-block" id="ecological-roots">
             <h2>환경학적 근간</h2>
-            <p>The notion of affordances comes from James J. Gibson and the tradition of ecological psychology, which holds that the structure of the environment is perceived directly in terms of what it offers for action.</p>
-<p>On this view, an animal does not first build an internal model and then decide what to do; it picks up information that specifies opportunities for behavior. Perception and action are inseparable, and meaning lives in the agent-environment relationship rather than being constructed after the fact.</p>
-<p>This thread takes that ecological commitment seriously while asking how it can be made precise within a formal account of adaptive behavior.</p>
+            <p>이 관념은 제임스 J. gibson과 생태학적_psychology의 전통에来源于되며, 환경의 구조는 직접 행동을 위한 기회를 기반으로 인식되는 것으로 주장합니다.</p>
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="affordances-as-relations">
             <h2>상호작용 관계로서의 가능성</h2>
-            <p>A central claim is that affordances are relational: they are defined jointly by the agent and the environment, not by either in isolation. The same staircase affords climbing to one agent and an obstacle to another, depending on body, history, skill, and goals.</p>
-<p>Because they sit between agent and world, affordances connect perception and action directly — to perceive an affordance is already to perceive a possibility for behavior. This framing dissolves the gap between sensing and doing that more representational accounts tend to introduce, and it sets up the question this thread pursues: how does an inference-driven agent select among the possibilities its world makes available?</p>
+            <p>중앙 청구는 상호적임을 주장한다: 상호적은 either가 agent와 환경이 공동으로 정의한다, 각각 따로따로. 같은 계단은 한 agent에게는 오르는 도구이고 다른 agent에게는 장애물이다. 이는 각각의 몸, 역사, 기술, 목표에 따라 달라진다.</p>
             <div class="link-chips"><a href="../"><span>All projects</span></a></div>
           </article><article class="article-block" id="an-active-inference-reading">
-            <h2>{An Active Inference Reading}</h2>
-            <p>Under Active Inference and the Free Energy Principle, an agent selects policies — sequences of actions — by minimizing expected free energy, balancing the drive to reach preferred outcomes against the drive to resolve uncertainty about the world. Read through this lens, affordances become the space of available policies an agent can evaluate, and acting on an affordance is choosing a course of action that is expected to keep the agent in viable, predictable states.</p>
-<p>This connects the ecological idea that the world presents action possibilities to the formal idea that an agent infers which of those possibilities to pursue. The thread looks for genuine points of contact between these traditions rather than collapsing one into the other.</p>
+            <h2>An Active Inference Reading</h2>
+            <p>Active Inference과 Free Energy Principle 아래,_agent는 상호작용 가능한 행동序列을 선택하기 위해 기대_free_에너지(minimizing)를 최소화합니다. 이로 인해, 세계는 가능한 행동의 공간을 제공하고, agent는 이 중에서 어떤 행동을 추론하여 선택하게 됩니다. 이는 생태학적 아이디어와 형식적 아이디어 사이의 진정한 접점을 찾아, 하나의 아이디어가 다른 것으로 축소되지 않도록 합니다.</p>
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="embodied-situated-enactive-cognition">
             <h2>에mbodied, 시tuated, enactive 인지학</h2>
-            <p>Reading affordances through Active Inference links the thread to broader currents in cognitive science that treat cognition as embodied, situated, and enactive — grounded in a body, embedded in an environment, and enacted through ongoing interaction rather than detached computation. Affordances are a natural meeting point for these views because they refuse to locate meaning solely in the head or solely in the world.</p>
-<p>By developing this connection, the thread contributes to the Institute's wider research program and to the surrounding ecosystem of work on perception, action, and adaptive agency.</p>
+            <p>Active Inference 링크를 통해 Active Inference는 인지 과학에서 총체적으로 본질을 탑재된, 위치된, 그리고 상호작용을 통해 생성되는 인지가 체 몸, 환경에 고정되어 있는 것이 아니라 현재 상황에서 진행되는 상호작용을 통해 의미가 생성되는 것이라는 관점을 흡수합니다. 이 관점은 의미가 머리에만, 혹은 외부에만 고정되어 있는 것이 아니라, 체와 환경, 그리고 상호작용을 통해 생성되는 것을 반영합니다. 이러한 관점은 인체에 대한 접근성을 자연스럽게 만듭니다. 이러한 접근성은 머리에만, 혹은 외부에만 고정되어 있는 것이 아니라, 체와 환경, 그리고 상호작용을 통해 생성되는 것을 반영합니다. 이러한 접근성은 체와 환경, 그리고 상호작용을 통해 생성되는 것을 반영합니다. 이러한 접근성은 체와 환경, 그리고 상호작용을 통해 생성되는 것을 반영합니다. 이러한 접근성은 체와 환경, 그리고 상호작용을 통해 생성되는 것을 반영합니다.</p>
             <div class="link-chips"><a href="../../ecosystem/"><span>Ecosystem</span></a></div>
           </article><article class="article-block" id="full-materials">
             <h2>전체 자료</h2>
@@ -192,7 +186,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">최선의 다음 행동</p>
-        <h2>Where to go next</h2>
+        <h2>다음으로 가야 할 곳은何处去</h2>
       </div>
       <div class="link-chips"><a href="https://affordances.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Affordances shortlink</span><em>Research</em></a><a href="../"><span>All projects</span></a><a href="../../reinference/"><span>ReInference Unit</span></a><a href="../../resources/#projects"><span>필터링된 자원</span></a><a href="../../directory/"><span>글로벌 디렉토리</span></a><a href="../"><span>프로젝트</span></a><a href="../../active-inference/"><span>활성 추론</span></a></div>
     </div>
@@ -215,10 +209,10 @@
         <div class="link-chips"><a href="../../reinference/"><span>ReInference Unit</span></a></div>
       </article><article class="info-card">
         <h3>정책들 위에 가능성이란之上</h3>
-        <p>{Active Infer. Serve.}는 가능한 affordances 중에서 에pxected free energy를 최소화하여 선택하는 행동 시퀀스를 선택합니다.</p>
+        <p>Active Infer. Serve.는 가능한 affordances 중에서 에pxected free energy를 최소화하여 선택하는 행동 시퀀스를 선택합니다.</p>
         <div class="link-chips"><a href="https://affordances.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Affordances shortlink</span><em>Research</em></a></div>
       </article><article class="info-card">
-        <h3>{Embodied và enactive}</h3>
+        <h3>Embodied và enactive</h3>
         <p>리스와 상응 가능성을 연결하는 보다 넓은 연구 생태계에서 동체적, 배경에 대한 및 활동적 인지가 어떻게 서로 연관되는지</p>
         <div class="link-chips"><a href="../../ecosystem/"><span>Ecosystem</span></a></div>
       </article></div>

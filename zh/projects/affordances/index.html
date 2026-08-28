@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="听这个页面" title="听这个页面"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="选择高亮颜色" title="选择高亮颜色"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="高亮颜色" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="红色高亮（默认）" title="红色"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber高亮" title="阿玛贝"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="绿色高亮" title="绿色"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal 高亮" title="青色"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="蓝高亮" title="蓝"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="violet 高亮" title="紫"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="紫」高亮" title="马格enta"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="切换主题" aria-pressed="false" title="切换深浅主题"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -130,7 +130,7 @@
   </nav>
     <p class="eyebrow">对感知、行动、生态心理学和自由能原则感兴趣的学者和从业者。</p>
     <h1>可利用性</h1>
-    <p>{Institute}研究的{Active Inference}和生態心理學中的可利用性主题线。</p>
+    <p>Institute研究的Active Inference和生態心理學中的可利用性主题线。</p>
     <div class="hero-actions"><a class="button primary" href="https://affordances.activeinference.institute" target="_blank" rel="noopener noreferrer">Affordances shortlink</a><a class="button secondary" href="../">All projects</a><a class="button secondary" href="../../reinference/">ReInference Unit</a></div>
   </section>
   <section class="content-band page-index-band">
@@ -140,7 +140,7 @@
         <h2>部分</h2>
       </div>
       <nav aria-label="可利用性 页面部分">
-        <a href="#overview">概述</a><a href="#ecological-roots">生态根源</a><a href="#affordances-as-relations">效用作为关系</a><a href="#an-active-inference-reading">{An Active Inference 阅读}</a><a href="#embodied-situated-enactive-cognition">embodied ， 坐标化 ， 活动性 认知</a><a href="#full-materials">全材料</a>
+        <a href="#overview">概述</a><a href="#ecological-roots">生态根源</a><a href="#affordances-as-relations">效用作为关系</a><a href="#an-active-inference-reading">An Active Inference 阅读</a><a href="#embodied-situated-enactive-cognition">embodied ， 坐标化 ， 活动性 认知</a><a href="#full-materials">全材料</a>
         <a href="#next-actions">最佳下一步行动</a>
         <a href="#key-surfaces">关键表面</a>
         <a href="../../knowledge/">开源地图</a>
@@ -157,29 +157,23 @@
     <div class="article-stack">
       <article class="article-block" id="overview">
             <h2>概述</h2>
-            <p>Affordances examines how an environment presents action possibilities to an agent, and how those possibilities are perceived and acted upon. Drawing together Active Inference and ecological psychology, the thread treats perception and action as tightly coupled and reads affordances as relationships between agent and environment rather than properties of either alone.</p>
-<p>A surface affords walking, a handle affords grasping, a gap affords passage — but only relative to the capacities of a particular agent. This relational perspective offers a common vocabulary for describing how agents engage with the worlds they inhabit, and a bridge between ecological and computational accounts of behavior.</p>
+            <p>动效探讨了环境如何向代理呈现行动可能性，以及这些可能性是如何被感知和执行的。结合 Active Inference 和生态心理学，这一主题将感知和行动视为紧密耦合，并将动效视为代理与环境之间的关系，而非任何一方单独的属性。这种关系取向提供了一种描述代理与其所居世界互动的共同词汇，并将生态学和计算行为学的账户连接起来。</p>
             <div class="link-chips"><a href="../../reinference/"><span>ReInference Unit</span></a></div>
           </article><article class="article-block" id="ecological-roots">
             <h2>生态根源</h2>
-            <p>The notion of affordances comes from James J. Gibson and the tradition of ecological psychology, which holds that the structure of the environment is perceived directly in terms of what it offers for action.</p>
-<p>On this view, an animal does not first build an internal model and then decide what to do; it picks up information that specifies opportunities for behavior. Perception and action are inseparable, and meaning lives in the agent-environment relationship rather than being constructed after the fact.</p>
-<p>This thread takes that ecological commitment seriously while asking how it can be made precise within a formal account of adaptive behavior.</p>
+            <p>affordances 一词来自詹姆斯·J·吉布斯，生态心理学的传统认为环境的结构是直接以它对行动的提供来被感知的。</p>
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="affordances-as-relations">
             <h2>效用作为关系</h2>
-            <p>A central claim is that affordances are relational: they are defined jointly by the agent and the environment, not by either in isolation. The same staircase affords climbing to one agent and an obstacle to another, depending on body, history, skill, and goals.</p>
-<p>Because they sit between agent and world, affordances connect perception and action directly — to perceive an affordance is already to perceive a possibility for behavior. This framing dissolves the gap between sensing and doing that more representational accounts tend to introduce, and it sets up the question this thread pursues: how does an inference-driven agent select among the possibilities its world makes available?</p>
+            <p>因为它们位于代理和世界之间， affordances 直接连接感知和行动 —— perceive an affordance 就是 perceive 一种行为的可能性。 这种框架消解了更多表征主义账户倾向于引入的感知与行动之间的差距， 并为这一主题设置问题： 一个基于推理的代理是如何选择其世界所提供的可能性的？</p>
             <div class="link-chips"><a href="../"><span>All projects</span></a></div>
           </article><article class="article-block" id="an-active-inference-reading">
-            <h2>{An Active Inference 阅读}</h2>
-            <p>Under Active Inference and the Free Energy Principle, an agent selects policies — sequences of actions — by minimizing expected free energy, balancing the drive to reach preferred outcomes against the drive to resolve uncertainty about the world. Read through this lens, affordances become the space of available policies an agent can evaluate, and acting on an affordance is choosing a course of action that is expected to keep the agent in viable, predictable states.</p>
-<p>This connects the ecological idea that the world presents action possibilities to the formal idea that an agent infers which of those possibilities to pursue. The thread looks for genuine points of contact between these traditions rather than collapsing one into the other.</p>
+            <h2>An Active Inference 阅读</h2>
+            <p>在 Active Inference 和 Free Energy Principle 的视角下，一个代理通过最小化期望自由能来选择策略——即一系列行动——平衡到达偏好结果的驱动力与对世界中不确定性的解决驱动力。从这个角度来看，机会就成了代理可以评估的可用策略空间，而选择一个机会就是选择一条预期能将代理保持在可行且可预测状态的行动路线。这将生态学的观点，即世界呈现行动可能性，与形式化的观点，即代理推断应追求其中的哪些可能性联系起来。该线寻找这两种传统之间的真正契合点，而不是将一种传统消解到另一种传统中。</p>
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="embodied-situated-enactive-cognition">
             <h2>embodied ， 坐标化 ， 活动性 认知</h2>
-            <p>Reading affordances through Active Inference links the thread to broader currents in cognitive science that treat cognition as embodied, situated, and enactive — grounded in a body, embedded in an environment, and enacted through ongoing interaction rather than detached computation. Affordances are a natural meeting point for these views because they refuse to locate meaning solely in the head or solely in the world.</p>
-<p>By developing this connection, the thread contributes to the Institute's wider research program and to the surrounding ecosystem of work on perception, action, and adaptive agency.</p>
+            <p>Active Inference链接通过阅读临界性，使线程与认知科学中的广泛观点汇合，这些观点将认知视为是 embodied、situated 和 enactive 的——根植于身体，嵌入环境中，通过持续的互动进行实现，而不是通过脱离的计算。临界性作为这些观点的自然交汇点，因为它拒绝将意义仅局限于头部或仅存在于世界中。通过发展这种联系，线程为研究所的整体研究计划做出了贡献，并为感知、行动和适应性代理的工作生态系统做出了贡献。</p>
             <div class="link-chips"><a href="../../ecosystem/"><span>Ecosystem</span></a></div>
           </article><article class="article-block" id="full-materials">
             <h2>全材料</h2>
@@ -192,7 +186,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">最佳下一步行动</p>
-        <h2>Where to go next</h2>
+        <h2>下一步去哪里</h2>
       </div>
       <div class="link-chips"><a href="https://affordances.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Affordances shortlink</span><em>Research</em></a><a href="../"><span>All projects</span></a><a href="../../reinference/"><span>ReInference Unit</span></a><a href="../../resources/#projects"><span>过滤资源</span></a><a href="../../directory/"><span>全球目录</span></a><a href="../"><span>项目</span></a><a href="../../active-inference/"><span>主动推断</span></a></div>
     </div>
@@ -206,7 +200,7 @@
     <h2>动效概览</h2>
   </div>
     <div class="card-grid"><article class="info-card">
-        <h3>{Relational by nature}</h3>
+        <h3>Relational by nature</h3>
         <p>行动的可能性是由代理和环境共同定义的，而不仅仅是任一方的固定属性。</p>
         <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
       </article><article class="info-card">
@@ -215,7 +209,7 @@
         <div class="link-chips"><a href="../../reinference/"><span>ReInference Unit</span></a></div>
       </article><article class="info-card">
         <h3>可能性に対する政策</h3>
-        <p>{Active Inference}「选择行动序列以最小化预期自由能，通过可用的可能行为来使{Active Inference}代理</p>
+        <p>Active Inference「选择行动序列以最小化预期自由能，通过可用的可能行为来使Active Inference代理</p>
         <div class="link-chips"><a href="https://affordances.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Affordances shortlink</span><em>Research</em></a></div>
       </article><article class="info-card">
         <h3>embodied 和 enactive</h3>

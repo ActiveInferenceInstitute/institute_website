@@ -107,13 +107,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="이 페이지 듣기" title="이 페이지 듣기"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="하이라이트 색상 선택" title="하이라이트 색상 선택"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="색상 강조 색상" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="빨강 고조표시" title="빨강"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="아메르브 화이트아이 히터" title="아메르프"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="그린 히들링(highlight)" title="그린"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal 레이블" title="teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="블루 히들링" title="블루"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="보라 강조" title="보라"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
       </div>
     </div>
@@ -157,14 +157,13 @@
     <div class="article-stack">
       <article class="article-block" id="overview">
             <h2>개요</h2>
-            <p>The project's central hypothesis is that an agent's perspective, its characteristic way of interpreting its environment, can be modeled as a latent generative structure within its internal dynamics, rather than adjusted through parameter tuning or externally specified objectives. Working from this hypothesis, the roadmap runs across three six-month phases: a single-agent orientation layer, followed by affective and integrative dynamics, followed by multi-agent social attunement.</p>
-<p>The project's full research roadmap and technical documentation are hosted through CEAR Lab (hjpae.github.io/cear/).</p>
+            <p>프로젝트의 중앙 가설은 동물의 환경을 해석하는 특이한 방식이 동물 내부 동적인 내재적인 구조로 모델링될 수 있으며, 파라미터 페인팅 또는 외부 지정된 목표를 통해 조정되는 대신입니다. 이 가설을 기반으로 프로젝트의 전체 연구 레이아웃과 기술 문서는 CEAR Lab (hjpae.github.io/cear/)에서 공유됩니다.</p>
           </article><article class="article-block" id="phase-1-perspective-architecture-months-1-6">
             <h2>기본 시각화 구조 (월 1-6)</h2>
             <p>파일 1은 잠재적 방향 manifold을 구현합니다. 이것은 주의력 균형, 감정 기조, 해석 모드 및 불확실성 해결 스타일이라는 주의를 집중시키는 변수들의 작은 집합으로, 이들이 인공_agent가 무의식적으로 인지, 추론하고 행동하는 방향을 결정합니다. 이러한 연구의 결과는 '미니멀한 계산적 조건에서 인공_agents의 주관적인 시각에 대한 주제'라는 제목의 논문에서 보고되었습니다. 이 논문은 AAAI 2026 봄 심포지엄: 머신-consciousness에 제출되었으며, 4월 8일에 발표되었습니다. (arXiv:2602.02902)</p>
           </article><article class="article-block" id="phase-2-affective-coherence-and-integrative-capacity-months-7-12">
             <h2>파지 2: 감정적 일치와 통합 능력 (월 7-12)</h2>
-            <p>{Phase 2는 어떻게 상호 배타적인 해석을 유지하거나 조정하면서 내부 조직을 지속적으로 유지하는 감정적 일관성과 통합 능력이, Phase 1 아키텍처의 동역학적 결과로 발생하는지에 대해 연구합니다. 이 단계에서 수행된 작업은 2026 Artificial Life Conference 및 Simulation of Adaptive Behavior 2026에서 제출할 예정인 논문을 목표로 합니다.}</p>
+            <p>Phase 2는 어떻게 상호 배타적인 해석을 유지하거나 조정하면서 내부 조직을 지속적으로 유지하는 감정적 일관성과 통합 능력이, Phase 1 아키텍처의 동역학적 결과로 발생하는지에 대해 연구합니다. 이 단계에서 수행된 작업은 2026 Artificial Life Conference 및 Simulation of Adaptive Behavior 2026에서 제출할 예정인 논문을 목표로 합니다.</p>
           </article><article class="article-block" id="phase-3-social-resonance-months-13-18">
             <h2>사회적 동의 (월 13-18)</h2>
             <p>3차 시 Phase는 다중-agents 환경에 대한 아키텍처를 확장하고 있으며, agents가 서로 해석 가능해지는 순간과 방법을 연구합니다. 이와 관련된 미리 게시물 'Active Inference Agent의 Perspective-Taking 및 조화로움 모델링 (arXiv:2602.20936)'은 홍주 파와 마하울트 알바라친, 안나 미케다, 아레가일레 잉제르돈, 산제브 남지오시, 다틀론 사크티발, 하르실</p>
@@ -182,7 +181,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">최선의 다음 행동</p>
-        <h2>Where to go next</h2>
+        <h2>다음으로 가야 할 곳은何处去</h2>
       </div>
       <div class="link-chips"><a href="https://fellows.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Fellows pathway</span><em>Participate</em></a><a href="mailto:blanket@activeinference.institute"><span>Email the project</span></a><a href="../../resources/#projects"><span>필터링된 자원</span></a><a href="../../directory/"><span>글로벌 디렉토리</span></a><a href="../../reinference/"><span>재추론 단위</span></a><a href="../"><span>프로젝트</span></a></div>
     </div>

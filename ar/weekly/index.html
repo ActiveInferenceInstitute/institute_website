@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="استمع إلى هذه الصفحة" title="استمع إلى هذه الصفحة"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="اختر لون التحديد" title="اختر لون التحديد"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="لون التمييز" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="تنسيق أحمر (افتراضي)" title="أحمر"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="تأكيد برتقالي" title="أمشطار"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="تأكيد أخضر" title="أخضر"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="تظليل سماوي" title="تركوازي"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="تأكيد أزرق" title="أزرق"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="تنسيق أرجواني" title="أرجواني"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="تأكيد باللون البنفسجي" title="Magenta"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="تغيير الموضوع" aria-pressed="false" title="تغيير نمط الإضاءة/الظلام"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -138,8 +138,7 @@
     <div class="article-stack">
       <article class="article-block" id="this-week-on-the-calendar">
             <h2>هذا الأسبوع في التقويم</h2>
-            <p>The public Calendar is the single source for what is happening this week. Upcoming events are listed soonest-first, so the sessions running this week sit at the top of the list, and you can use the calendar's on-page search and the upcoming/past filter to narrow to a particular session or kind of event.</p>
-<p>Because the calendar is generated from the Institute's live event feed, it stays current as sessions are added or change.</p>
+            <p>التقويم العام هو المصدر الوحيد لما يجري هذا الأسبوع. يتم سرد الأحداث القادمة بترتيبها الأقرب، لذا فإن الجلسات الجارية هذا الأسبوع تقع في أعلى القائمة، ويمكنك استخدام البحث في الصفحة والفلتر المخصص للأحداث القادمة أو المنتهية لتضييق نطاق البحث إلى جلسة معينة أو نوع من الأحداث.</p>
             <div class="link-chips"><a href="../calendar/"><span>Open the calendar</span></a></div>
           </article><article class="article-block" id="the-institute-s-weekly-rhythm">
             <h2>إيقاع أسبوعي للمعهد</h2>
@@ -147,8 +146,7 @@
             <div class="link-chips"><a href="../activities/"><span>Activities</span></a></div>
           </article><article class="article-block" id="join-a-session">
             <h2>انضم إلى جلسة</h2>
-            <p>Most sessions are open, and joining one is the easiest first step into the Institute's work. Find a session on the calendar, then use the Get Involved page to learn how to take part and connect with the community.</p>
-<p>New to Active Inference? The learning resources are a good place to get context before joining.</p>
+            <p>أغلب الجلسات مفتوحة، والانضمام إليها هو أبسط خطوة للتعرف على عمل المعهد. ابحث عن جلسة في التقويم، ثم استخدم صفحة &quot;شارك والمساهمة&quot; لمعرفة كيفية المشاركة والتواصل مع المجتمع.</p>
             <div class="link-chips"><a href="../get-involved/"><span>Get involved</span></a><a href="../learning/"><span>Learning</span></a></div>
           </article><article class="article-block" id="full-materials">
             <h2>المواد الكاملة</h2>
@@ -161,7 +159,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">أفضل الإجراءات التالية</p>
-        <h2>Where to go next</h2>
+        <h2>أين تذهب بعد ذلك</h2>
       </div>
       <div class="link-chips"><a href="../calendar/"><span>Open the calendar</span></a><a href="https://weekly.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Weekly updates</span><em>Community</em></a><a href="../resources/#institute"><span>الموارد المصفاة</span></a><a href="../directory/"><span>الدليل العالمي</span></a><a href="../activities/"><span>الأنشطة</span></a><a href="../get-involved/"><span>انضم إلينا</span></a></div>
     </div>

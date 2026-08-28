@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="استمع إلى هذه الصفحة" title="استمع إلى هذه الصفحة"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="اختر لون التحديد" title="اختر لون التحديد"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="لون التمييز" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="تنسيق أحمر (افتراضي)" title="أحمر"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="تأكيد برتقالي" title="أمشطار"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="تأكيد أخضر" title="أخضر"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="تظليل سماوي" title="تركوازي"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="تأكيد أزرق" title="أزرق"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="تنسيق أرجواني" title="أرجواني"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="تأكيد باللون البنفسجي" title="Magenta"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="تغيير الموضوع" aria-pressed="false" title="تغيير نمط الإضاءة/الظلام"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -157,8 +157,7 @@
     <div class="article-stack">
       <article class="article-block" id="why-donate">
             <h2>لماذا تتبرع؟</h2>
-            <p>The <a href="../../about/">Active Inference Institute</a> operates as an open-science nonprofit. All of our educational materials, research outputs, software, and community resources are freely available to the public.</p>
-<p>This work requires infrastructure, coordination, and sustained effort that philanthropic support makes possible. Donations help ensure that Active Inference education and research remains accessible to anyone, regardless of institutional affiliation or geographic location.</p>
+            <p>تُشغّل هذه الوظيفة كمنظمة غير ربحية تهدف إلى العلوم المفتوحة. جميع موادنا التعليمية ومخرجات البحث والبرامج والموارد المجتمعية متاحة للجمهور مجانًا.</p>
             <div class="link-chips"><a href="https://donate.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Donation page</span><em>Support</em></a></div>
           </article><article class="article-block" id="what-your-donation-supports">
             <h2>ما تدعمه تبرعتك</h2>
@@ -166,8 +165,7 @@
             <div class="link-chips"><a href="https://symposium.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Applied Active Inference Symposium</span><em>Activities</em></a><a href="https://textbook-group.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Textbook Group shortlink</span><em>Learning</em></a></div>
           </article><article class="article-block" id="tax-deductibility">
             <h2>قابلية الخصم الضريبي</h2>
-            <p>The <a href="../../about/">Active Inference Institute</a> is incorporated in Delaware, USA as a 501(c)(3) educational nonprofit organization. Donations from US taxpayers are tax-deductible to the extent permitted by law.</p>
-<p>Donors receive a receipt acknowledging their contribution. Please consult your tax advisor for guidance on deductibility in your specific situation.</p>
+            <p>الشركة مُسجَّلة في ديلاوير، الولايات المتحدة الأمريكية كمنظمة غير ربحية تعليمية وفقًا للفقرة 501(ج)(3). تكتسب التبرعات من دافعي الضرائب الأمريكيين الخصم الضريبي إلى الحد المسموح به بموجب القانون.</p>
           </article><article class="article-block" id="organizational-giving">
             <h2>التبرع التنظيمي</h2>
             <p>يمكن للمنظمات التي ترغب في تقديم هبات أكبر أو دعم مستمر أن تفعل ذلك من خلال مزيج من العطاء الخيري والشراكة الرسمية. إذا كانت منظمتك مهتمة بتقديم دعم خيري كبير، فتواصل معنا لمناقشة كيفية خدمة مساهمتك لأفضل ما في مهمة المعهد وأهداف منظمتك.</p>
@@ -183,7 +181,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">أفضل الإجراءات التالية</p>
-        <h2>Where to go next</h2>
+        <h2>أين تذهب بعد ذلك</h2>
       </div>
       <div class="link-chips"><a href="https://donate.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Donate</span><em>Support</em></a><a href="../../about/"><span>Learn about the Institute</span></a><a href="../../resources/#support"><span>الموارد المصفاة</span></a><a href="../../directory/"><span>الدليل العالمي</span></a><a href="../"><span>برامج</span></a><a href="../partnership/"><span>شراكة</span></a></div>
     </div>

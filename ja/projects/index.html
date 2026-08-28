@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="このページをご覧ください。" title="このページをご覧ください。"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="ハイライト色を選択" title="ハイライト色を選択"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="ハイライトカラー" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="赤ハイライト（デフォルト）" title="赤"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="アメーバハイライト" title="アメイズング・グッバイ"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="グリーンハイライト" title="緑"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal ホイッスル" title="teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="青ハイライト" title="青"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="violet のハイライト" title="violet"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="メガネ色ハイライト" title="マゼンタ"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="テーマを切り替える" aria-pressed="false" title="ライト/ダークテーマの切り替え"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -159,7 +159,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">次の最適な行動</p>
-        <h2>Where to go next</h2>
+        <h2>何に行きましょう</h2>
       </div>
       <div class="link-chips"><a href="https://prepare.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Prepare a project</span><em>Projects</em></a><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>Browse repositories</span><em>Projects</em></a><a href="../resources/#projects"><span>フィルタリングされたリソース</span></a><a href="../directory/"><span>グローバルディレクトリ</span></a><a href="../eduactive/"><span>EduActiveユニット</span></a><a href="../reinference/"><span>再推論ユニット</span></a></div>
     </div>
@@ -167,16 +167,16 @@
   <section class="content-band" id="project-catalog">
     <div class="section-heading">
     <p class="eyebrow">フルカタログ</p>
-    <h2>Browse every public project</h2>
-    <p>Projects are classified by the canonical InstituteOS affiliation field. Institute-hosted and Ecosystem projects are listed in two separate tables below, each with its own search, topic filter, and counts; active and archived work stay distinct within each.</p>
+    <h2>すべての公開プロジェクトを閲覧</h2>
+    <p>プロジェクトはcanonical InstituteOS affiliationフィールドによって分類されます。 Institute-hostedとEcosystemプロジェクトは下に2つのテーブルでそれぞれリストされ、それぞれが独自の検索、トピックフィルターとカウントを持っています。アクティブとアーカイブの作業はそれぞれで区別されています。</p>
   </div>
     <p class="category-count">65 public projects with a page on this site</p>
     <div class="link-chips"><a href="#catalog-institute"><span>Institute-hosted projects</span><em>28 projects</em></a><a href="#catalog-ecosystem"><span>Ecosystem projects</span><em>37 projects</em></a></div>
   </section><section class="content-band catalog-affiliation" id="catalog-institute" data-affiliation="institute">
     <div class="section-heading">
-    <p class="eyebrow">Institute-hosted</p>
-    <h2>Institute-hosted projects</h2>
-    <p>Projects the Active Inference Institute hosts and stewards directly, drawn from the canonical InstituteOS affiliation field. This table is independent of the Ecosystem table below: its search, topic filter, and counts cover Institute-hosted projects only.</p>
+    <p class="eyebrow">インストитутホストド</p>
+    <h2>インストライトホストプロジェクト</h2>
+    <p>Active Inference Instituteのhostsと stewards が直接プロジェクトを投影し、canonical InstituteOS affiliation 関連のフィールドから抽出されています。このテーブルは、下のエコシステムテーブルとは独立しています：その検索、トピックフィルター、およびカウントは、インスツイトがホストするプロジェクトだけをカバーします。</p>
   </div>
     <p class="category-count">28 projects</p>
     <div class="activities-search">
@@ -344,8 +344,8 @@
   </section><section class="content-band catalog-affiliation" id="catalog-ecosystem" data-affiliation="ecosystem">
     <div class="section-heading">
     <p class="eyebrow">エコシステム</p>
-    <h2>Ecosystem projects</h2>
-    <p>Community-driven projects across the wider Active Inference ecosystem, drawn from the same canonical affiliation field. This table is independent of the Institute-hosted table above: its search, topic filter, and counts cover Ecosystem projects only.</p>
+    <h2>エコシステムプロジェクト</h2>
+    <p>Active Inference生態系全体のコミュニティによるプロジェクトを含む、同じ元の affiliation フィールドから抽出。このテーブルは、上記のインスティ tutory-hosted テーブルとは独立しています：その検索、トピックフィルター、およびカウントは、Ecosystem プロジェクトのみをカバーします。</p>
   </div>
     <p class="category-count">37 projects</p>
     <div class="activities-search">
@@ -616,7 +616,7 @@
         <h3>理論神経生物学</h3>
         <p>理論神経生物学の会話とモデル開発のサポート。</p>
       </article><article class="info-card">
-        <h3>{AI²C}</h3>
+        <h3>AI²C</h3>
         <p>Active Inference Alliance コミュニティ — AI アライメント作業のためのAI対話プロジェクト、資金パイプライン、および共有インフラストラクチャを含むコングロマリズム。AICACPとは別プロジェクトです。</p>
       </article><article class="info-card">
         <h3>パーステイショナリティ アーキテクチャ</h3>
@@ -625,11 +625,11 @@
         <h3>アイデオロギーの基礎</h3>
         <p>政治的アイデオールジの形成、認知的な硬直、およびカテゴリー混同に対するフリーエネルギー原理に基づく説明</p>
       </article><article class="info-card">
-        <h3>{Myth of Objectivity Hypothesis}</h3>
+        <h3>Myth of Objectivity Hypothesis</h3>
         <p>倫理と符号的思考の共進化を超越的なモデル選択を通じて説明するモデル。</p>
       </article><article class="info-card">
         <h3>科学のためのActive Entity Ontology (Act. Infer. Serve.)</h3>
-        <p>{An active-inference ontology bridging institutional and decentralized science, from situated sensemaking to the epistemic commons.} を日本語に翻訳します。</p>
+        <p>An active-inference ontology bridging institutional and decentralized science, from situated sensemaking to the epistemic commons. を日本語に翻訳します。</p>
         <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/AEOS" target="_blank" rel="noopener noreferrer"><span>AEOS repository</span><em>Repository</em></a></div>
       </article><article class="info-card">
         <h3>スタート</h3>
@@ -637,7 +637,7 @@
         <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/Start" target="_blank" rel="noopener noreferrer"><span>Start (GitHub)</span><em>Projects</em></a></div>
       </article><article class="info-card">
         <h3>pymdp</h3>
-        <p>{open-soure}Python{package}「離散状態」ActiveInference{wide}研究コミュニティで広く使用されているオープンソースの{python}パッケージです。</p>
+        <p>open-sourePythonpackage「離散状態」ActiveInferencewide研究コミュニティで広く使用されているオープンソースのpythonパッケージです。</p>
       </article><article class="info-card">
         <h3>Ed4All</h3>
         <p>オープンでローカルにデプロイ可能な知識の範囲内で具体的な知識を制限する教育的な代理人が動作するフレームワーク。</p>
@@ -895,7 +895,7 @@
         <div class="tag-row"><span>project</span><span>repository</span><span>python</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="./">Projects</a><a href="../ecosystem/">Ecosystem</a></div>
       </article></div>
-    <p class="section-link"><a href="../directory/#repositories">すべての公開リポジトリを表示する</a></p>
+    <p class="section-link"><a href="../directory/#repositories">View all 35 public repositories</a></p>
   </section>
   <section class="content-band muted" id="related-pages">
     <div class="section-heading">

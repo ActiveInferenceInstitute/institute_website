@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="このページをご覧ください。" title="このページをご覧ください。"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="ハイライト色を選択" title="ハイライト色を選択"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="ハイライトカラー" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="赤ハイライト（デフォルト）" title="赤"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="アメーバハイライト" title="アメイズング・グッバイ"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="グリーンハイライト" title="緑"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal ホイッスル" title="teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="青ハイライト" title="青"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="violet のハイライト" title="violet"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="メガネ色ハイライト" title="マゼンタ"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="テーマを切り替える" aria-pressed="false" title="ライト/ダークテーマの切り替え"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -142,12 +142,10 @@
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a></div>
           </article><article class="article-block" id="what-the-license-requires">
             <h2>ライセンスが要求する</h2>
-            <p>Attribution (BY): credit must be given to the creator(s) of the work and, where known, the Institute as the hosting or publishing entity. NonCommercial (NC): only noncommercial use is permitted — use not primarily intended for or directed toward commercial advantage or monetary compensation.</p>
-<p>ShareAlike (SA): adaptations must be shared under the same license terms, unless otherwise specified and agreed upon by the creators.</p>
+            <p>著作権表示 (BY): 制作者の責任を果たし、可能な限り<a href="../about/">Active Inference Institute</a>がホスティングまたは発行のエンティティであることを認証する必要があります。非商用 (NC): 商業的利益や経済的利益を主導的または直接的に目的とする使用は許可されません。共有似せ (SA): 適応は同じライセンス条項で共有する必要があります、ただし、著作者が同意しない限り、特定のものと合意します。</p>
           </article><article class="article-block" id="open-source-repositories">
-            <h2>{Open Source Repositories}</h2>
-            <p>The Institute publishes software across repositories hosted in the <a href="../about/">Active Inference Institute</a> GitHub organization. These include Biofirm (Active Inference PyMDP agents for bioregional modeling), GEN24 (generative AI experiments under <a href="../projects/active-blockference/">Active Blockference</a>), ActiveInferAnts (Active Inference ant simulations), Journal-Utilities and ActiveInferenceJournal (supporting the <a href="../projects/active-inference-journal/">Active Inference Journal</a>), ActiveInferenceCategoryTheory (category theory curriculum), ActiveBlockference (integrating Active Inference with cadCAD), Active_Inference_Ontology and AEOS (ontology snapshots), GeneralizedNotationNotation, the Parr et al. 2022 Active Inference Textbook repository, Symposium (methods for the <a href="../projects/symposium/">Applied Active Inference Symposium</a>), and CEREBRUM.</p>
-<p>Each repository sets its own license, and most differ from the Institute's CC BY-NC-SA 4.0 default: GeneralizedNotationNotation carries the default CC BY-NC-SA 4.0 terms; Biofirm, GEN24, ActiveBlockference, and Symposium are MIT licensed; ActiveInferAnts and CEREBRUM are CC BY-NC-ND 4.0, which does not permit derivatives or adaptations; ActiveInferenceJournal, Active_Inference_Ontology, and the Parr et al. 2022 Active Inference Textbook repository are CC BY 4.0, with no NonCommercial or ShareAlike restriction; and Journal-Utilities, ActiveInferenceCategoryTheory, and AEOS are dedicated to the public domain under CC0 1.0. Always check a repository's own LICENSE file before reuse.</p>
+            <h2>Open Source Repositories</h2>
+            <p><a href="../about/">Active Inference Institute</a> GitHub オrganization には Active Inference PyMDP アgents による 生存地域モデリング の Active Inference GEN24 (生成 AI エxperiments は Active Inference <a href="../projects/active-blockference/">Active Blockference</a> に統合された Active Inference エンジン)，ActiveInferAnts (Active Inference エントリズムシミュレーション)，Journal-Utilities および ActiveInferenceJournal (<a href="../projects/active-inference-journal/">Active Inference Journal</a> の支援)，ActiveInferenceCategoryTheory (カテゴリ論理学のカリキュラム)，ActiveBlockference (Active Inference と cadCAD の統合)，Active_Inference_Ontology および AEOS (オントロジーのスナップショット)，GeneralizedNotationNotation，Parr et al. 2022 Active Inference 書籍のリポジトリ，Symposium ( <a href="../projects/symposium/">Applied Active Inference Symposium</a> の方法)，および CEREBRUM のリポジトリが含まれます。各リポジトリは自社のライセンスを設定し、インスティテュートの CC BY-NC-SA 4.0 デフォルトとは異なるものも含まれます。GeneralizedNotationNotation はデフォルトの CC BY-NC-SA 4.0 条件を維持し、Biofirm，GEN24，ActiveBlockference，および Symposium は MIT ライセンスを適用します。ActiveInferAnts および CEREBRUM は CC BY-NC-ND 4.0 ライセンスを適用し、その結果、派生または変更はできません。ActiveInferenceJournal，Active_Inference_Ontology，および Parr et al. 2022 Active Inference 書籍のリポジトリは CC BY 4.0 ライセンスを適用し、その結果、非商用または共有不能の制限はありません。Journal-Utilities，ActiveInferenceCategoryTheory，および AEOS は CC0 1.0 データの公開を適用します。再利用の前にリポジトリの LICENSE ファイルを確認してください。</p>
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/Biofirm" target="_blank" rel="noopener noreferrer"><span>Biofirm repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveInferAnts" target="_blank" rel="noopener noreferrer"><span>ActiveInferAnts repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/GEN24" target="_blank" rel="noopener noreferrer"><span>GEN24 repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Journal-Utilities" target="_blank" rel="noopener noreferrer"><span>Journal-Utilities repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal" target="_blank" rel="noopener noreferrer"><span>ActiveInferenceJournal repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceCategoryTheory" target="_blank" rel="noopener noreferrer"><span>ActiveInferenceCategoryTheory repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveBlockference" target="_blank" rel="noopener noreferrer"><span>ActiveBlockference repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Active_Inference_Ontology" target="_blank" rel="noopener noreferrer"><span>Active_Inference_Ontology repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/AEOS" target="_blank" rel="noopener noreferrer"><span>AEOS repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation" target="_blank" rel="noopener noreferrer"><span>GeneralizedNotationNotation repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Parr_et_al_2022_ActInf_Textbook" target="_blank" rel="noopener noreferrer"><span>Parr_et_al_2022_ActInf_Textbook repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Symposium" target="_blank" rel="noopener noreferrer"><span>Symposium repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/CEREBRUM" target="_blank" rel="noopener noreferrer"><span>CEREBRUM repository</span><em>Repository</em></a></div>
           </article><article class="article-block" id="contributing">
             <h2>寄与</h2>
@@ -160,7 +158,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">次の最適な行動</p>
-        <h2>Where to go next</h2>
+        <h2>何に行きましょう</h2>
       </div>
       <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a><a href="../programs/"><span>All programs</span></a><a href="../resources/#projects"><span>フィルタリングされたリソース</span></a><a href="../directory/"><span>グローバルディレクトリ</span></a><a href="../programs/"><span>プログラム</span></a><a href="../reinference/"><span>再推論ユニット</span></a></div>
     </div>
@@ -296,7 +294,7 @@
         <div class="tag-row"><span>research</span><span>knowledge</span><span>python</span></div>
         <div class="mini-links" aria-label="Related pages"><a href="../learning/">Learning and Research</a><a href="../ecosystem/">Ecosystem</a></div>
       </article></div>
-    <p class="section-link"><a href="../directory/#repositories">すべての公開リポジトリを表示する</a></p>
+    <p class="section-link"><a href="../directory/#repositories">View all 35 public repositories</a></p>
   </section>
   <section class="content-band muted" id="related-pages">
     <div class="section-heading">

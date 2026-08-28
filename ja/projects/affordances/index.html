@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="このページをご覧ください。" title="このページをご覧ください。"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="ハイライト色を選択" title="ハイライト色を選択"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="ハイライトカラー" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="赤ハイライト（デフォルト）" title="赤"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="アメーバハイライト" title="アメイズング・グッバイ"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="グリーンハイライト" title="緑"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal ホイッスル" title="teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="青ハイライト" title="青"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="violet のハイライト" title="violet"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="メガネ色ハイライト" title="マゼンタ"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="テーマを切り替える" aria-pressed="false" title="ライト/ダークテーマの切り替え"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -157,29 +157,23 @@
     <div class="article-stack">
       <article class="article-block" id="overview">
             <h2>概要</h2>
-            <p>Affordances examines how an environment presents action possibilities to an agent, and how those possibilities are perceived and acted upon. Drawing together Active Inference and ecological psychology, the thread treats perception and action as tightly coupled and reads affordances as relationships between agent and environment rather than properties of either alone.</p>
-<p>A surface affords walking, a handle affords grasping, a gap affords passage — but only relative to the capacities of a particular agent. This relational perspective offers a common vocabulary for describing how agents engage with the worlds they inhabit, and a bridge between ecological and computational accounts of behavior.</p>
+            <p>Active Inferenceは生態心理学と組み合わせて、行動の可能性が代理人に提示される方法と、その可能性が認識され、行動される方法を検討します。この線は、認識と行動が密接に関連しており、アジェンダと環境間の関係を関係として読み取り、どちらの一方だけではなく両方の間の関係をアフォーダンスと解釈します。</p>
             <div class="link-chips"><a href="../../reinference/"><span>ReInference Unit</span></a></div>
           </article><article class="article-block" id="ecological-roots">
             <h2>生態的起源</h2>
-            <p>The notion of affordances comes from James J. Gibson and the tradition of ecological psychology, which holds that the structure of the environment is perceived directly in terms of what it offers for action.</p>
-<p>On this view, an animal does not first build an internal model and then decide what to do; it picks up information that specifies opportunities for behavior. Perception and action are inseparable, and meaning lives in the agent-environment relationship rather than being constructed after the fact.</p>
-<p>This thread takes that ecological commitment seriously while asking how it can be made precise within a formal account of adaptive behavior.</p>
+            <p>アソルフェンスの概念は、ジェームズ・J・ギブソンと生態心理学の伝統から来ています。これは、環境の構造が行動を促す可能性を直接認識するというものです。</p>
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="affordances-as-relations">
             <h2>対象関係としての適応可能性</h2>
-            <p>A central claim is that affordances are relational: they are defined jointly by the agent and the environment, not by either in isolation. The same staircase affords climbing to one agent and an obstacle to another, depending on body, history, skill, and goals.</p>
-<p>Because they sit between agent and world, affordances connect perception and action directly — to perceive an affordance is already to perceive a possibility for behavior. This framing dissolves the gap between sensing and doing that more representational accounts tend to introduce, and it sets up the question this thread pursues: how does an inference-driven agent select among the possibilities its world makes available?</p>
+            <p>中央の主張は、 affordances は、どちらか一方だけではなく、_agent_ と _環境_ によって共に定義されるべきであるということです。同じ階段は、ある_agent_にとっては上るための手段であり、別の_agent_にとっては障害となります。これは、感知と行動の間のギャップを解消し、このトreads が追求する問いを設定します：_インフェリエンスに基づく_agent_ は、世界が提供する可能性の中から選択する際の仕方とは？</p>
             <div class="link-chips"><a href="../"><span>All projects</span></a></div>
           </article><article class="article-block" id="an-active-inference-reading">
             <h2>Active Inference Reader</h2>
-            <p>Under Active Inference and the Free Energy Principle, an agent selects policies — sequences of actions — by minimizing expected free energy, balancing the drive to reach preferred outcomes against the drive to resolve uncertainty about the world. Read through this lens, affordances become the space of available policies an agent can evaluate, and acting on an affordance is choosing a course of action that is expected to keep the agent in viable, predictable states.</p>
-<p>This connects the ecological idea that the world presents action possibilities to the formal idea that an agent infers which of those possibilities to pursue. The thread looks for genuine points of contact between these traditions rather than collapsing one into the other.</p>
+            <p>Active InferenceとFree Energy Principleの下で、_agent_は、世界の Preferred outcomes への到達と、世界の状態を予測可能な状態に保つための不確実性を解消する_ドライブ_をバランスを取るための行動の政策を選択します。_この_視点を通じて、_アフェアランス_は、_agent_が評価できる行動の範囲を表し、_アフェアランス_への行動は、_agent_を_予測可能な状態_に保つための行動を選択することになります。</p>
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="embodied-situated-enactive-cognition">
             <h2>embodied 、 サイテスチュエイト 、 エナクティブ コgnosis</h2>
-            <p>Reading affordances through Active Inference links the thread to broader currents in cognitive science that treat cognition as embodied, situated, and enactive — grounded in a body, embedded in an environment, and enacted through ongoing interaction rather than detached computation. Affordances are a natural meeting point for these views because they refuse to locate meaning solely in the head or solely in the world.</p>
-<p>By developing this connection, the thread contributes to the Institute's wider research program and to the surrounding ecosystem of work on perception, action, and adaptive agency.</p>
+            <p>Active Inferenceのリンクを通じて、読者をActive Inferenceの流れに導くことで、認知科学の視点が認知を身体的、場所的、そして活性化されたものとして捉えるように誘導し、認知を頭だけで、または世界だけで意味を置くのを拒否します。Active Inferenceは、この視点が意味を頭や世界だけで置くのを拒否するための自然な交点です。</p>
             <div class="link-chips"><a href="../../ecosystem/"><span>Ecosystem</span></a></div>
           </article><article class="article-block" id="full-materials">
             <h2>全材料</h2>
@@ -192,7 +186,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">次の最適な行動</p>
-        <h2>Where to go next</h2>
+        <h2>何に行きましょう</h2>
       </div>
       <div class="link-chips"><a href="https://affordances.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Affordances shortlink</span><em>Research</em></a><a href="../"><span>All projects</span></a><a href="../../reinference/"><span>ReInference Unit</span></a><a href="../../resources/#projects"><span>フィルタリングされたリソース</span></a><a href="../../directory/"><span>グローバルディレクトリ</span></a><a href="../"><span>プロジェクト</span></a><a href="../../active-inference/"><span>アクティブインファレンス</span></a></div>
     </div>

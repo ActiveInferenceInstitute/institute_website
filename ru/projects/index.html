@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Послушайте эту страницу" title="Послушайте эту страницу"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Выберите цвет выделения" title="Выберите цвет выделения"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Выделение цвета" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Красный акцент (по умолчанию)" title="Красный"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Оранжевый оттенок" title="Омбір"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Зеленый акцент" title="Зелёный"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Бирюзовая выделка" title="Теал"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Синий акцент" title="Синий"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Фиолетовый акцент" title="Фиолетовый"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Розовый акцент" title="Magenta"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="false" title="Переключение тем свет/темная тема"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -159,7 +159,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">Лучшие следующие шаги</p>
-        <h2>Where to go next</h2>
+        <h2>Куда дальше идти</h2>
       </div>
       <div class="link-chips"><a href="https://prepare.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Prepare a project</span><em>Projects</em></a><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>Browse repositories</span><em>Projects</em></a><a href="../resources/#projects"><span>Фильтрованные ресурсы</span></a><a href="../directory/"><span>Глобальный каталог</span></a><a href="../eduactive/"><span>Образовательный активный модуль</span></a><a href="../reinference/"><span>Единица «Реинференс</span></a></div>
     </div>
@@ -167,16 +167,16 @@
   <section class="content-band" id="project-catalog">
     <div class="section-heading">
     <p class="eyebrow">Полный каталог</p>
-    <h2>Browse every public project</h2>
-    <p>Projects are classified by the canonical InstituteOS affiliation field. Institute-hosted and Ecosystem projects are listed in two separate tables below, each with its own search, topic filter, and counts; active and archived work stay distinct within each.</p>
+    <h2>Просмотрите все публичные проекты</h2>
+    <p>Проекты классифицируются по полю «канонической» привязки InstituteOS. Проекты, размещенные в Институте, и проекты Экосистемы перечислены в двух отдельных таблицах ниже, каждая со своим поиском, фильтром темы и количеством; активная и архивная работа остаются отдельными в каждой.</p>
   </div>
     <p class="category-count">65 public projects with a page on this site</p>
     <div class="link-chips"><a href="#catalog-institute"><span>Institute-hosted projects</span><em>28 projects</em></a><a href="#catalog-ecosystem"><span>Ecosystem projects</span><em>37 projects</em></a></div>
   </section><section class="content-band catalog-affiliation" id="catalog-institute" data-affiliation="institute">
     <div class="section-heading">
-    <p class="eyebrow">Institute-hosted</p>
-    <h2>Institute-hosted projects</h2>
-    <p>Projects the Active Inference Institute hosts and stewards directly, drawn from the canonical InstituteOS affiliation field. This table is independent of the Ecosystem table below: its search, topic filter, and counts cover Institute-hosted projects only.</p>
+    <p class="eyebrow">Организованное институтом</p>
+    <h2>Проекты, организованные институтом</h2>
+    <p>Проецирует Active Inference Institute хостов и стейкхолдеров напрямую, полученных из справочной InstituteOS области принадлежности. Эта таблица независима от таблицы Экосистемы ниже: ее поиск, фильтр тем и подсчеты охватывают проекты, размещенные в Институте, только.</p>
   </div>
     <p class="category-count">28 projects</p>
     <div class="activities-search">
@@ -344,8 +344,8 @@
   </section><section class="content-band catalog-affiliation" id="catalog-ecosystem" data-affiliation="ecosystem">
     <div class="section-heading">
     <p class="eyebrow">Экосистема</p>
-    <h2>Ecosystem projects</h2>
-    <p>Community-driven projects across the wider Active Inference ecosystem, drawn from the same canonical affiliation field. This table is independent of the Institute-hosted table above: its search, topic filter, and counts cover Ecosystem projects only.</p>
+    <h2>Экосистемные проекты</h2>
+    <p>Сообщественные проекты в более широкой экосистеме Active Inference с использованием того же канонического поля принадлежности. Эта таблица независима от вышеуказанной таблицы, размещенной институтом: ее поиск, фильтр тем и подсчеты охватывают только проекты экосистемы.</p>
   </div>
     <p class="category-count">37 projects</p>
     <div class="activities-search">

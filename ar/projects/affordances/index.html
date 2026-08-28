@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="استمع إلى هذه الصفحة" title="استمع إلى هذه الصفحة"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="اختر لون التحديد" title="اختر لون التحديد"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="لون التمييز" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="تنسيق أحمر (افتراضي)" title="أحمر"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="تأكيد برتقالي" title="أمشطار"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="تأكيد أخضر" title="أخضر"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="تظليل سماوي" title="تركوازي"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="تأكيد أزرق" title="أزرق"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="تنسيق أرجواني" title="أرجواني"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="تأكيد باللون البنفسجي" title="Magenta"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="تغيير الموضوع" aria-pressed="false" title="تغيير نمط الإضاءة/الظلام"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -157,29 +157,23 @@
     <div class="article-stack">
       <article class="article-block" id="overview">
             <h2>نظرة عامة</h2>
-            <p>Affordances examines how an environment presents action possibilities to an agent, and how those possibilities are perceived and acted upon. Drawing together Active Inference and ecological psychology, the thread treats perception and action as tightly coupled and reads affordances as relationships between agent and environment rather than properties of either alone.</p>
-<p>A surface affords walking, a handle affords grasping, a gap affords passage — but only relative to the capacities of a particular agent. This relational perspective offers a common vocabulary for describing how agents engage with the worlds they inhabit, and a bridge between ecological and computational accounts of behavior.</p>
+            <p>يستكشف التوفرات كيف يقدّم البيئة إمكانيات للعمل لعميل، وكيف يتم إدراك هذه الإمكانيات والتصرف فيها. من خلال الجمع بين Active Inference وعلم النفس البيئي، تعالج النسبة هذه الإدراك والعمل كأشياء مترابطة وتقرأ التوفرات على أنها علاقات بين العميل والبيئة بدلاً من خصائص لأحدهما وحده.</p>
             <div class="link-chips"><a href="../../reinference/"><span>ReInference Unit</span></a></div>
           </article><article class="article-block" id="ecological-roots">
             <h2>الجذور البيئية</h2>
-            <p>The notion of affordances comes from James J. Gibson and the tradition of ecological psychology, which holds that the structure of the environment is perceived directly in terms of what it offers for action.</p>
-<p>On this view, an animal does not first build an internal model and then decide what to do; it picks up information that specifies opportunities for behavior. Perception and action are inseparable, and meaning lives in the agent-environment relationship rather than being constructed after the fact.</p>
-<p>This thread takes that ecological commitment seriously while asking how it can be made precise within a formal account of adaptive behavior.</p>
+            <p>الفكرة المتعلقة بالفرص المتاحة تأتي من جيمس ج. جيبسون وتقاليد علم النفس البيئي، والتي ترى أن هيكل البيئة يُدرك مباشرة فيما يقدمه من فرص للعمل.</p>
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="affordances-as-relations">
             <h2>إيحاءات كعلاقات</h2>
-            <p>A central claim is that affordances are relational: they are defined jointly by the agent and the environment, not by either in isolation. The same staircase affords climbing to one agent and an obstacle to another, depending on body, history, skill, and goals.</p>
-<p>Because they sit between agent and world, affordances connect perception and action directly — to perceive an affordance is already to perceive a possibility for behavior. This framing dissolves the gap between sensing and doing that more representational accounts tend to introduce, and it sets up the question this thread pursues: how does an inference-driven agent select among the possibilities its world makes available?</p>
+            <p>الادعاء المركزي هو أن الميزات هي علاقاتية: يتم تحديدها بشكل مشترك من قبل الوكيل والبيئة، وليس من قبل أي منهما بمفرده. نفس الدرج يوفر التسلق لوكيل واحد وعائقًا لآخر، اعتمادًا على الجسم والتاريخ والمهارة والأهداف.</p>
             <div class="link-chips"><a href="../"><span>All projects</span></a></div>
           </article><article class="article-block" id="an-active-inference-reading">
             <h2>قراءة حول الاستدلال النشط</h2>
-            <p>Under Active Inference and the Free Energy Principle, an agent selects policies — sequences of actions — by minimizing expected free energy, balancing the drive to reach preferred outcomes against the drive to resolve uncertainty about the world. Read through this lens, affordances become the space of available policies an agent can evaluate, and acting on an affordance is choosing a course of action that is expected to keep the agent in viable, predictable states.</p>
-<p>This connects the ecological idea that the world presents action possibilities to the formal idea that an agent infers which of those possibilities to pursue. The thread looks for genuine points of contact between these traditions rather than collapsing one into the other.</p>
+            <p>تحت Active Inference والـ Free Energy Principle، يختار الوكيل سياسات - سلسلة من الإجراءات - من أجل تقليل الطاقة الحرة المتوقعة، مع الموازنة بين الدافع للوصول إلى النتائج المفضلة مقابل الدافع لحل عدم اليقين في العالم. اقرأ من خلال هذا المنظور، يصبح الميزات المتاحة مساحة السياسات التي يمكن للوكيل تقييمها، وتنفيذ إجراء على ميزة يعني اختيار مسار للعمل من المتوقع أن يبقي الوكيل في حالات قابلة للحياة والمتوقعة.</p>
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="embodied-situated-enactive-cognition">
             <h2>الإدراك الجسدي والموقع والنشط</h2>
-            <p>Reading affordances through Active Inference links the thread to broader currents in cognitive science that treat cognition as embodied, situated, and enactive — grounded in a body, embedded in an environment, and enacted through ongoing interaction rather than detached computation. Affordances are a natural meeting point for these views because they refuse to locate meaning solely in the head or solely in the world.</p>
-<p>By developing this connection, the thread contributes to the Institute's wider research program and to the surrounding ecosystem of work on perception, action, and adaptive agency.</p>
+            <p>ربط إمكانيات القراءة من خلال الروابط Active Inference بالتيارات الأوسع في علم النفس المعرفي الذي يعامل الإدراك بأنه جسدي وموقع ومفعِّل - متجذر في جسد، مندمج في بيئة، ومنفذ من خلال التفاعل المستمر بدلاً من الحساب المنفصل. إن الإمكانيات هي نقطة التقاء طبيعية لهذه الآراء لأنها ترفض وضع المعنى حصريًا في الدماغ أو حصريًا في العالم.</p>
             <div class="link-chips"><a href="../../ecosystem/"><span>Ecosystem</span></a></div>
           </article><article class="article-block" id="full-materials">
             <h2>المواد الكاملة</h2>
@@ -192,7 +186,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">أفضل الإجراءات التالية</p>
-        <h2>Where to go next</h2>
+        <h2>أين تذهب بعد ذلك</h2>
       </div>
       <div class="link-chips"><a href="https://affordances.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Affordances shortlink</span><em>Research</em></a><a href="../"><span>All projects</span></a><a href="../../reinference/"><span>ReInference Unit</span></a><a href="../../resources/#projects"><span>الموارد المصفاة</span></a><a href="../../directory/"><span>الدليل العالمي</span></a><a href="../"><span>المشاريع</span></a><a href="../../active-inference/"><span>استدلال نشط</span></a></div>
     </div>

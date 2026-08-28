@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="इस पृष्ठ को सुनें" title="इस पृष्ठ को सुनें"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="चुनें हाइलाइट रंग" title="चुनें हाइलाइट रंग"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="रंग को हाइलाइट करें" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="लाल हाइलाइट (डिफ़ॉल्ट)" title="लाल"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="नारंगी हाइलाइट" title="एम्बर"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="हरा हाइलाइट" title="हरा"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="टील हाइलाइट" title="टील"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="नीला हाइलाइट" title="नीला"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="बैज नीला हाइलाइट" title="बैजनी"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="मैजेंटा हाइलाइट" title="मैजेंटा"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="थीम बदलें" aria-pressed="false" title="रोशनी/अंधकार थीम को स्विच करें"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -138,8 +138,7 @@
     <div class="article-stack">
       <article class="article-block" id="about-this-bibliography">
             <h2>इस ग्रंथसूची के बारे में</h2>
-            <p>This page presents the complete structured outputs of the Active Inference Meta-Analysis project. The bibliography includes 71 curated references drawn from the manuscript source, plus the full corpus analysis: field growth metrics, hypothesis evidence scores from LLM-extracted assertions, citation network analysis, NMF topic modeling, subfield classification, corpus coverage statistics, and project quality &amp; reproducibility data.</p>
-<p>The full BibTeX source, all output data files, and the compiled manuscript are available on GitHub.</p>
+            <p>यह पृष्ठ Active Inference मेटा-विश्लेषण परियोजना के पूर्ण संरचित आउटपुट प्रस्तुत करता है। ग्रंथ सूची में 71 क्यूरेटेड संदर्भ शामिल हैं जो पांडुलिपि स्रोत से लिए गए हैं, साथ ही पूर्ण कॉर्पस विश्लेषण भी: क्षेत्र विकास मीट्रिक, LLM-निकालित दावों से परिकल्पना साक्ष्य स्कोर, उद्धरण नेटवर्क विश्लेषण, NMF विषय मॉडलिंग, उप-क्षेत्र वर्गीकरण, कॉर्पस कवरेज आँकड़े और परियोजना गुणवत्ता और पुनरुत्पादकता डेटा।</p>
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/manuscript/references.bib" target="_blank" rel="noopener noreferrer"><span>View BibTeX source on GitHub</span></a><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis" target="_blank" rel="noopener noreferrer"><span>Meta-analysis repository</span></a><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/output/pdf/act_inf_metaanalysis_combined.pdf" target="_blank" rel="noopener noreferrer"><span>Meta-analysis document</span></a></div>
           </article><article class="article-block" id="scope-and-coverage">
             <h2>दायरा और कवरेज</h2>
@@ -151,7 +150,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">सर्वश्रेष्ठ अगले कदम</p>
-        <h2>Where to go next</h2>
+        <h2>अगला कहाँ जाना है</h2>
       </div>
       <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/manuscript/references.bib" target="_blank" rel="noopener noreferrer"><span>View BibTeX source</span></a><a href="../resources/#learning"><span>फ़िल्टर किए गए संसाधन</span></a><a href="../directory/"><span>वैश्विक निर्देशिका</span></a><a href="../learning/"><span>सीखना और अनुसंधान</span></a><a href="../active-inference/"><span>एक्टिव इन्फ़रेंस</span></a></div>
     </div>

@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="इस पृष्ठ को सुनें" title="इस पृष्ठ को सुनें"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="चुनें हाइलाइट रंग" title="चुनें हाइलाइट रंग"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="रंग को हाइलाइट करें" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="लाल हाइलाइट (डिफ़ॉल्ट)" title="लाल"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="नारंगी हाइलाइट" title="एम्बर"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="हरा हाइलाइट" title="हरा"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="टील हाइलाइट" title="टील"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="नीला हाइलाइट" title="नीला"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="बैज नीला हाइलाइट" title="बैजनी"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="मैजेंटा हाइलाइट" title="मैजेंटा"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="थीम बदलें" aria-pressed="false" title="रोशनी/अंधकार थीम को स्विच करें"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -161,16 +161,13 @@
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="approach">
             <h2>दृष्टिकोण</h2>
-            <p>Most alignment work focuses on single agents evaluated against static benchmarks. AI²C instead studies intrinsic motivation (curiosity, prosociality), extrinsic motivation (rulebooks, norms, safety constraints), and embodied systems (robotics, multi-agent coordination), treating alignment as something that emerges in real systems rather than a property of one agent alone.</p>
-<p>The coalition's planned outputs include governance frameworks such as rulebooks and override systems, reusable funding-proposal modules, alignment benchmarks grounded in Active Inference, embodied multi-agent experiments, and open-source tools and documentation — with the goal of making alignment research replicable, fundable, and scalable.</p>
+            <p>सबसे अधिक संरेखण कार्य एकल एजेंटों पर केंद्रित है जो स्थिर बेंचमार्क के विरुद्ध मूल्यांकन किए जाते हैं। AI²C इसके बजाय आंतरिक प्रेरणा (जिज्ञासा, परोपकारिता), बाहरी प्रेरणा (नियम पुस्तिकाएं, मानदंड, सुरक्षा बाधाएं) और मूर्त प्रणालियों (रोबोटिक्स, बहु-एजेंट समन्वय) का अध्ययन करता है, संरेखण को एक एजेंट के अकेले गुण के बजाय वास्तविक प्रणालियों में उभरने के रूप में देखता है।</p>
           </article><article class="article-block" id="roadmap">
             <h2>रणनीति</h2>
-            <p>AI²C describes its work in three phases. Phase 1 covers coalition setup — partners, governance, and infrastructure.</p>
-<p>Phase 2 covers research and proposals — building the funding pipeline and shared proposal modules. Phase 3 covers experiments and outputs — embodied systems, publications, and tools.</p>
+            <p>AI²C अपने काम को तीन चरणों में वर्णित करता है। चरण 1 गठबंधन की स्थापना को कवर करता है - भागीदारों, शासन और बुनियादी ढांचे।</p>
           </article><article class="article-block" id="funding-strategy">
             <h2>फंडिंग रणनीति</h2>
-            <p>AI²C's proposal-development work targets large, multi-institution funding vehicles for AI alignment research, including U.S. National AI Research Institutes, NSF Science and Technology Centers, and Horizon Europe's multi-partner Pillar II actions.</p>
-<p>The project is currently raising support for coalition coordination, proposal development, workshops and events, open infrastructure, and embodied experiments — funding at this stage is intended to seed a longer-term research ecosystem rather than a single deliverable.</p>
+            <p>एआई²सी का प्रस्ताव-विकास कार्य बड़े, बहु-संस्थागत वित्तपोषण वाहनों के लिए एआई संरेखण अनुसंधान को लक्षित करता है, जिसमें यूएस राष्ट्रीय एआई अनुसंधान संस्थान, एनएफएस साइंस एंड टेक्नोलॉजी सेंटर और होराइजन यूरोप के बहु-भागीदार पिलर II कार्रवाई शामिल हैं।</p>
           </article><article class="article-block" id="project-lead">
             <h2>प्रोजेक्ट लीड</h2>
             <p>महाऑल्ट अलबार्रासिन, एक्टिव इंफरेंस इंस्टीट्यूट में एक रिसर्च फेलो हैं, जो AI²C के निर्माता और प्रमुख हैं।</p>
@@ -190,7 +187,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">सर्वश्रेष्ठ अगले कदम</p>
-        <h2>Where to go next</h2>
+        <h2>अगला कहाँ जाना है</h2>
       </div>
       <div class="link-chips"><a href="../../programs/fellowship/"><span>Research Fellows</span></a><a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Join the discussion</span><em>Community</em></a><a href="mailto:blanket@activeinference.institute"><span>Email the project</span></a><a href="../../resources/#projects"><span>फ़िल्टर किए गए संसाधन</span></a><a href="../../directory/"><span>वैश्विक निर्देशिका</span></a><a href="../"><span>प्रोजेक्ट्स</span></a><a href="../../active-inference/"><span>एक्टिव इन्फ़रेंस</span></a></div>
     </div>

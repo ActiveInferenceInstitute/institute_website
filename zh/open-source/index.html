@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="听这个页面" title="听这个页面"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="选择高亮颜色" title="选择高亮颜色"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="高亮颜色" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="红色高亮（默认）" title="红色"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber高亮" title="阿玛贝"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="绿色高亮" title="绿色"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal 高亮" title="青色"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="蓝高亮" title="蓝"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="violet 高亮" title="紫"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="紫」高亮" title="马格enta"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="切换主题" aria-pressed="false" title="切换深浅主题"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -128,7 +128,7 @@
   </nav>
     <p class="eyebrow">使用或贡献 Institute 软件和公共材料的开发者、研究人员和合作者。</p>
     <h1>开源</h1>
-    <p>{InstituteOS}的默认许可，以及每个开源存储库实际上使用的许可。</p>
+    <p>InstituteOS的默认许可，以及每个开源存储库实际上使用的许可。</p>
     <div class="hero-actions"><a class="button primary" href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer">GitHub organization</a><a class="button secondary" href="../programs/">All programs</a></div>
   </section>
 
@@ -142,16 +142,14 @@
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a></div>
           </article><article class="article-block" id="what-the-license-requires">
             <h2>许可所需</h2>
-            <p>Attribution (BY): credit must be given to the creator(s) of the work and, where known, the Institute as the hosting or publishing entity. NonCommercial (NC): only noncommercial use is permitted — use not primarily intended for or directed toward commercial advantage or monetary compensation.</p>
-<p>ShareAlike (SA): adaptations must be shared under the same license terms, unless otherwise specified and agreed upon by the creators.</p>
+            <p>Attribution (BY): 必须给予作品创作者及其所创作内容的信用，以及如果知道的话，研究院作为托管或发布实体的信用。非商业 (NC): 只允许非商业用途 —— 不以营利为主要目的或意图使用。</p>
           </article><article class="article-block" id="open-source-repositories">
             <h2>开源仓库</h2>
-            <p>The Institute publishes software across repositories hosted in the <a href="../about/">Active Inference Institute</a> GitHub organization. These include Biofirm (Active Inference PyMDP agents for bioregional modeling), GEN24 (generative AI experiments under <a href="../projects/active-blockference/">Active Blockference</a>), ActiveInferAnts (Active Inference ant simulations), Journal-Utilities and ActiveInferenceJournal (supporting the <a href="../projects/active-inference-journal/">Active Inference Journal</a>), ActiveInferenceCategoryTheory (category theory curriculum), ActiveBlockference (integrating Active Inference with cadCAD), Active_Inference_Ontology and AEOS (ontology snapshots), GeneralizedNotationNotation, the Parr et al. 2022 Active Inference Textbook repository, Symposium (methods for the <a href="../projects/symposium/">Applied Active Inference Symposium</a>), and CEREBRUM.</p>
-<p>Each repository sets its own license, and most differ from the Institute's CC BY-NC-SA 4.0 default: GeneralizedNotationNotation carries the default CC BY-NC-SA 4.0 terms; Biofirm, GEN24, ActiveBlockference, and Symposium are MIT licensed; ActiveInferAnts and CEREBRUM are CC BY-NC-ND 4.0, which does not permit derivatives or adaptations; ActiveInferenceJournal, Active_Inference_Ontology, and the Parr et al. 2022 Active Inference Textbook repository are CC BY 4.0, with no NonCommercial or ShareAlike restriction; and Journal-Utilities, ActiveInferenceCategoryTheory, and AEOS are dedicated to the public domain under CC0 1.0. Always check a repository's own LICENSE file before reuse.</p>
+            <p><a href="../about/">Active Inference Institute</a> GitHub 组织托管了这些存储库，包括 Biofirm (Active Inference PyMDP 用于生物区域建模的代理)，GEN24 (基于 <a href="../projects/active-blockference/">Active Blockference</a> 的生成 AI 实验)，ActiveInferAnts (Active Inference 蚂蚁模拟)，Journal-Utilities 和 ActiveInferenceJournal (支持 <a href="../projects/active-inference-journal/">Active Inference Journal</a>)，ActiveInferenceCategoryTheory (范畴论课程)，ActiveBlockference (将 Active Inference 与 cadCAD 集成)，Active_Inference_Ontology 和 AEOS (语义快照)，GeneralizedNotationNotation，Parr et al. 2022 Active Inference 书籍存储库，Symposium (处理 <a href="../projects/symposium/">Applied Active Inference Symposium</a>) 方法，以及 CEREBRUM。</p>
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/Biofirm" target="_blank" rel="noopener noreferrer"><span>Biofirm repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveInferAnts" target="_blank" rel="noopener noreferrer"><span>ActiveInferAnts repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/GEN24" target="_blank" rel="noopener noreferrer"><span>GEN24 repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Journal-Utilities" target="_blank" rel="noopener noreferrer"><span>Journal-Utilities repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal" target="_blank" rel="noopener noreferrer"><span>ActiveInferenceJournal repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceCategoryTheory" target="_blank" rel="noopener noreferrer"><span>ActiveInferenceCategoryTheory repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveBlockference" target="_blank" rel="noopener noreferrer"><span>ActiveBlockference repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Active_Inference_Ontology" target="_blank" rel="noopener noreferrer"><span>Active_Inference_Ontology repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/AEOS" target="_blank" rel="noopener noreferrer"><span>AEOS repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation" target="_blank" rel="noopener noreferrer"><span>GeneralizedNotationNotation repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Parr_et_al_2022_ActInf_Textbook" target="_blank" rel="noopener noreferrer"><span>Parr_et_al_2022_ActInf_Textbook repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Symposium" target="_blank" rel="noopener noreferrer"><span>Symposium repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/CEREBRUM" target="_blank" rel="noopener noreferrer"><span>CEREBRUM repository</span><em>Repository</em></a></div>
           </article><article class="article-block" id="contributing">
             <h2>贡献者</h2>
-            <p>{contributions} {到} 这些 {仓库} 来自 院 的 参与 路径 —— 志愿， 实习 和 奖学金 都 包括 开源 项目 上 的 软件 和 文档 工作。 社区 的 {贡献} 在 大部分 {仓库} 中 是 欢迎的； 查看 每个 {仓库} 的 自己 的 {贡献} 规则。</p>
+            <p>contributions 到 这些 仓库 来自 院 的 参与 路径 —— 志愿， 实习 和 奖学金 都 包括 开源 项目 上 的 软件 和 文档 工作。 社区 的 贡献 在 大部分 仓库 中 是 欢迎的； 查看 每个 仓库 的 自己 的 贡献 规则。</p>
             <div class="link-chips"><a href="../programs/fellowship/"><span>Fellowship</span></a><a href="../reinference/"><span>ReInference Unit</span></a><a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Discord invite</span><em>Community</em></a></div>
           </article>
     </div>
@@ -160,7 +158,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">最佳下一步行动</p>
-        <h2>Where to go next</h2>
+        <h2>下一步去哪里</h2>
       </div>
       <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a><a href="../programs/"><span>All programs</span></a><a href="../resources/#projects"><span>过滤资源</span></a><a href="../directory/"><span>全球目录</span></a><a href="../programs/"><span>程序</span></a><a href="../reinference/"><span>反推单元</span></a></div>
     </div>
@@ -171,7 +169,7 @@
   <section class="content-band muted" id="key-surfaces">
     <div class="section-heading">
     <p class="eyebrow">关键表面</p>
-    <h2>{Open Source} {一览}</h2>
+    <h2>Open Source 一览</h2>
   </div>
     <div class="card-grid"><article class="info-card">
         <h3>模型和模拟</h3>
@@ -187,7 +185,7 @@
         <div class="link-chips"><a href="../projects/active-inference-ontology/"><span>Active Inference Ontology</span></a></div>
       </article><article class="info-card">
         <h3>教育</h3>
-        <p>{ActiveInference}Category理论和Parr等2022年教科书仓库支持课程和教科书小组材料。</p>
+        <p>ActiveInferenceCategory理论和Parr等2022年教科书仓库支持课程和教科书小组材料。</p>
         <div class="link-chips"><a href="../projects/textbook-group/"><span>Textbook Group</span></a></div>
       </article><article class="info-card">
         <h3>事件和建模框架</h3>

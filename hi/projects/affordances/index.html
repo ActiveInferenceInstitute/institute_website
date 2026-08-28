@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="इस पृष्ठ को सुनें" title="इस पृष्ठ को सुनें"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="चुनें हाइलाइट रंग" title="चुनें हाइलाइट रंग"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="रंग को हाइलाइट करें" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="लाल हाइलाइट (डिफ़ॉल्ट)" title="लाल"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="नारंगी हाइलाइट" title="एम्बर"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="हरा हाइलाइट" title="हरा"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="टील हाइलाइट" title="टील"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="नीला हाइलाइट" title="नीला"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="बैज नीला हाइलाइट" title="बैजनी"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="मैजेंटा हाइलाइट" title="मैजेंटा"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="थीम बदलें" aria-pressed="false" title="रोशनी/अंधकार थीम को स्विच करें"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -158,28 +158,22 @@
       <article class="article-block" id="overview">
             <h2>ओवरव्यू</h2>
             <p>Affordances examines how an environment presents action possibilities to an agent, and how those possibilities are perceived and acted upon. Drawing together Active Inference and ecological psychology, the thread treats perception and action as tightly coupled and reads affordances as relationships between agent and environment rather than properties of either alone.</p>
-<p>A surface affords walking, a handle affords grasping, a gap affords passage — but only relative to the capacities of a particular agent. This relational perspective offers a common vocabulary for describing how agents engage with the worlds they inhabit, and a bridge between ecological and computational accounts of behavior.</p>
             <div class="link-chips"><a href="../../reinference/"><span>ReInference Unit</span></a></div>
           </article><article class="article-block" id="ecological-roots">
             <h2>पारिस्थितिक जड़ें</h2>
-            <p>The notion of affordances comes from James J. Gibson and the tradition of ecological psychology, which holds that the structure of the environment is perceived directly in terms of what it offers for action.</p>
-<p>On this view, an animal does not first build an internal model and then decide what to do; it picks up information that specifies opportunities for behavior. Perception and action are inseparable, and meaning lives in the agent-environment relationship rather than being constructed after the fact.</p>
-<p>This thread takes that ecological commitment seriously while asking how it can be made precise within a formal account of adaptive behavior.</p>
+            <p>इस अवधारणा का विचार जेम्स जे. गिब्सन और पारिस्थितिक मनोविज्ञान की परंपरा से आता है, जो यह मानता है कि पर्यावरण की संरचना को क्रिया के लिए क्या पेशकश करता है उसके संदर्भ में सीधे तौर पर अनुभव किया जाता है।</p>
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="affordances-as-relations">
             <h2>संसाधन संबंधों के रूप में</h2>
-            <p>A central claim is that affordances are relational: they are defined jointly by the agent and the environment, not by either in isolation. The same staircase affords climbing to one agent and an obstacle to another, depending on body, history, skill, and goals.</p>
-<p>Because they sit between agent and world, affordances connect perception and action directly — to perceive an affordance is already to perceive a possibility for behavior. This framing dissolves the gap between sensing and doing that more representational accounts tend to introduce, and it sets up the question this thread pursues: how does an inference-driven agent select among the possibilities its world makes available?</p>
+            <p>यह एक केंद्रीय दावा है कि अवसर (affordances) संबंधपरक होते हैं: वे एजेंट और पर्यावरण द्वारा दोनों में से किसी एक द्वारा परिभाषित नहीं होते हैं, बल्कि दोनों के संयुक्त रूप से परिभाषित होते हैं। एक ही सीढ़ी एक एजेंट के लिए चढ़ने का अवसर प्रस्तुत करती है और दूसरे एजेंट के लिए बाधा, जो शरीर, इतिहास, कौशल और लक्ष्यों पर निर्भर करता है।</p>
             <div class="link-chips"><a href="../"><span>All projects</span></a></div>
           </article><article class="article-block" id="an-active-inference-reading">
             <h2>एक एक्टिव इंफरेंस पठन</h2>
-            <p>Under Active Inference and the Free Energy Principle, an agent selects policies — sequences of actions — by minimizing expected free energy, balancing the drive to reach preferred outcomes against the drive to resolve uncertainty about the world. Read through this lens, affordances become the space of available policies an agent can evaluate, and acting on an affordance is choosing a course of action that is expected to keep the agent in viable, predictable states.</p>
-<p>This connects the ecological idea that the world presents action possibilities to the formal idea that an agent infers which of those possibilities to pursue. The thread looks for genuine points of contact between these traditions rather than collapsing one into the other.</p>
+            <p>Active Inference और Free Energy Principle के तहत, एक एजेंट अपेक्षित मुक्त ऊर्जा को कम करके नीतियों—कार्यों के अनुक्रमों—को चुनता है, जो पसंदीदा परिणामों तक पहुंचने की प्रवृत्ति और दुनिया के बारे में अनिश्चितता को हल करने की प्रवृत्ति को संतुलित करता है। इस लेंस के माध्यम से, अवसरों को एजेंट द्वारा मूल्यांकन किए जा सकने वाले नीतियों के उपलब्ध स्थान के रूप में देखा जाता है, और किसी अवसर पर कार्य करना एक ऐसी कार्रवाई का चयन करना है जिसकी अपेक्षा है कि यह एजेंट को व्यवहार्य, अनुमानित राज्यों में बनाए रखे।</p>
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="embodied-situated-enactive-cognition">
             <h2>शरीर-केंद्रित, स्थित और सक्रिय अनुभूति</h2>
-            <p>Reading affordances through Active Inference links the thread to broader currents in cognitive science that treat cognition as embodied, situated, and enactive — grounded in a body, embedded in an environment, and enacted through ongoing interaction rather than detached computation. Affordances are a natural meeting point for these views because they refuse to locate meaning solely in the head or solely in the world.</p>
-<p>By developing this connection, the thread contributes to the Institute's wider research program and to the surrounding ecosystem of work on perception, action, and adaptive agency.</p>
+            <p>पढ़ने के अवसर शरीर, परिवेश और सक्रियता के सिद्धांतों के व्यापक धाराओं से जुड़े होते हैं - जो शरीर, परिवेश में निहित और निरंतर बातचीत के माध्यम से क्रियान्वित होने वाले संज्ञानात्मकता को देखते हैं, न कि अलग गणना को। अवसर इन दृष्टिकोणों के लिए एक प्राकृतिक मिलन बिंदु हैं क्योंकि वे अर्थ को केवल सिर में या केवल दुनिया में रखने से इनकार करते हैं।</p>
             <div class="link-chips"><a href="../../ecosystem/"><span>Ecosystem</span></a></div>
           </article><article class="article-block" id="full-materials">
             <h2>पूर्ण सामग्री</h2>
@@ -192,7 +186,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">सर्वश्रेष्ठ अगले कदम</p>
-        <h2>Where to go next</h2>
+        <h2>अगला कहाँ जाना है</h2>
       </div>
       <div class="link-chips"><a href="https://affordances.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Affordances shortlink</span><em>Research</em></a><a href="../"><span>All projects</span></a><a href="../../reinference/"><span>ReInference Unit</span></a><a href="../../resources/#projects"><span>फ़िल्टर किए गए संसाधन</span></a><a href="../../directory/"><span>वैश्विक निर्देशिका</span></a><a href="../"><span>प्रोजेक्ट्स</span></a><a href="../../active-inference/"><span>एक्टिव इन्फ़रेंस</span></a></div>
     </div>

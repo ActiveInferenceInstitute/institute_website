@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="استمع إلى هذه الصفحة" title="استمع إلى هذه الصفحة"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="اختر لون التحديد" title="اختر لون التحديد"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="لون التمييز" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="تنسيق أحمر (افتراضي)" title="أحمر"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="تأكيد برتقالي" title="أمشطار"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="تأكيد أخضر" title="أخضر"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="تظليل سماوي" title="تركوازي"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="تأكيد أزرق" title="أزرق"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="تنسيق أرجواني" title="أرجواني"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="تأكيد باللون البنفسجي" title="Magenta"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="تغيير الموضوع" aria-pressed="false" title="تغيير نمط الإضاءة/الظلام"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -159,27 +159,22 @@
             <div class="link-chips"><a href="https://weekly.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Weekly updates</span><em>Community</em></a></div>
           </article><article class="article-block" id="alignment-with-institute-goals">
             <h2>المواءمة مع أهداف المعهد</h2>
-            <p>Grant support is available for work that advances Active Inference research, education, or application in ways consistent with the Institute's mission. Priority areas include: foundational Active Inference research and modeling; educational tools, curricula, and courses; open-source software and tooling; interdisciplinary applications in health, ecology, economics, cognition, and social systems; and infrastructure for the broader Active Inference Ecosystem.</p>
-<p>Proposals that produce publicly accessible outputs are particularly well-suited to Institute support.</p>
+            <p>تتوفر الدعم المالي للعمل الذي يطور Active Inference البحث أو التعليم أو التطبيقات بما يتفق مع مهمة المعهد. تشمل المجالات ذات الأولوية: Active Inference البحث الأساسي ونمذجة، والأدوات والمنهجيات التعليمية والدورات التدريبية، والبرامج مفتوحة المصدر والأدوات، والتطبيقات متعددة التخصصات في مجالات الصحة والبيئة والاقتصاد والمعرفة والأنظمة الاجتماعية، والبنية التحتية للنظام البيئي الأوسع لـ Active Inference.</p>
           </article><article class="article-block" id="funding-track-record">
             <h2>سجل التمويل</h2>
-            <p>In June 2025, the Survival and Flourishing Fund awarded the Institute a $270,000 grant supporting the AI Capabilities &amp; Alignment Consensus Project (AICACP), a multi-year initiative on AI capabilities, alignment, and regulation. The Institute has also submitted grant applications that were not funded: a 2022 application for &quot;Systems Modeling and Cognitive Audits for Hypercert Ecosystems,&quot; published on Zenodo; a 2023 application to the National Science Foundation's Pathways to Enable Open-Source Ecosystems (POSE) program; a 2024 application to the Future of Life Institute for &quot;FarmWorks: Decentralized AI Agents for Personalized Solutions&quot;; a 2024 application to the Foresight Institute for &quot;VILLAGE (Validating Inference for Large-scale Agent Governance Ecosystems)&quot;; a 2025 application to the Dana Foundation's Dana Frontiers program for &quot;Increasing the Accessibility and Applicability of Active Inference: Generative Playbooks and Open-Source Summer School Curriculum Development&quot;; and a 2025 application to the Google.org Accelerator: Generative AI.</p>
-<p>None of these six were funded.</p>
+            <p>في يونيو 2025، حصلت المؤسسة على منحة بقيمة 270 ألف دولار أمريكي من صندوق البقاء والازدهار لدعم مشروع &quot;قدرات الذكاء الاصطناعي واتفاقية المحاذاة&quot; (AICACP)، وهو مبادرة متعددة السنوات حول قدرات الذكاء الاصطناعي والمحاذاة والتنظيم. كما قدمت المؤسسة طلبات منح لم يتم تمويلها: طلب عام 2022 لـ &quot;نمذجة الأنظمة والفحوصات المعرفية للنظام البيئي Hypercert&quot;، والذي تم نشره على Zenodo؛ وطلب عام 2023 إلى برنامج &quot;مسارات لتمكين النظم البيئية مفتوحة المصدر&quot; (POSE) التابع لـ National Science Foundation؛ وطلب عام 2024 إلى Future of Life Institute لـ &quot;FarmWorks: وكلاء ذكاء اصطناعي لامركزيين للحلول المخصصة&quot;؛ وطلب عام 2024 إلى Foresight Institute لـ &quot;VILLAGE (التحقق من الاستدلال لبيئة إدارة وكلاء واسعة النطاق)&quot;؛ وطلب عام 2025 إلى برنامج Dana Frontiers التابع لـ Dana Foundation لـ &quot;زيادة إمكانية الوصول والتطبيق لـ Active Inference: دفاتر لعب توليدية وتطوير المنهج الدراسي الصيفي مفتوح المصدر&quot;؛ وطلب عام 2025 إلى Google.org Accelerator: الذكاء الاصطناعي التوليدي.</p>
             <div class="link-chips"><a href="../projects/aicacp/"><span>AICACP project page</span></a><a href="../projects/farmworks/"><span>FarmWorks project page</span></a></div>
           </article><article class="article-block" id="funding-opportunities">
             <h2>فرص التمويل</h2>
-            <p>The Institute tracks funding opportunities relevant to the Active Inference community and shares them through weekly updates, with past editions archived in the newsletter. Opportunities come from government agencies, private foundations, academic institutions, and other sources.</p>
-<p>If you are aware of an opportunity that could benefit the community and are interested in collaborating on a proposal, reach out to the Institute.</p>
+            <p>تتبع المؤسسة فرص التمويل ذات الصلة بمجتمع Active Inference وتشاركها من خلال تحديثات أسبوعية، مع حفظ الإصدارات السابقة في النشرة الإخبارية. تأتي الفرص من الوكالات الحكومية، والمنظمات الأساسية، والمؤسسات الأكاديمية، وغيرها من المصادر.</p>
             <div class="link-chips"><a href="https://weekly.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Weekly updates</span><em>Community</em></a><a href="http://newsletter.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Newsletter</span><em>Updates</em></a></div>
           </article><article class="article-block" id="how-to-engage">
             <h2>كيفية المشاركة</h2>
-            <p>If you are interested in pursuing a grant with Institute support, the best first step is to describe your proposed work and why it aligns with Active Inference and the Institute's mission. Email blanket@activeinference.institute with a brief description of the funding opportunity and your proposed role.</p>
-<p>The Institute will respond with information about how support might be structured.</p>
+            <p>إذا كنت مهتمًا بتقديم طلب للحصول على منحة مع دعم المعهد، فإن أفضل خطوة أولى هي وصف عملك المقترح ولماذا يتماشى مع Active Inference ورسالة المعهد. أرسل بريدًا إلكترونيًا إلى blanket@activeinference.institute مع وصف موجز للفرصة التمويلية ودورك المقترح.</p>
             <div class="link-chips"><a href="../programs/partnership/"><span>Partnership</span></a><a href="../programs/fellowship/"><span>Fellowship</span></a></div>
           </article><article class="article-block" id="related-programs">
             <h2>البرامج ذات الصلة</h2>
-            <p>Grant-funded work often runs in parallel with fellowship or partnership. Fellows may use grants to support their sustained work.</p>
-<p>Partners may pursue grants collaboratively with the Institute. <a href="../programs/philanthropy/">Philanthropy</a> is a complementary pathway for project support that does not require a formal grant process.</p>
+            <p>العمل الممول بالمنح غالبًا ما يُجرى بالتوازي مع العمل أو الشراكة المكتملة. قد يستخدم الزملاء المنح لدعم عملهم المستمر.</p>
             <div class="link-chips"><a href="../programs/partnership/"><span>Partnership</span></a><a href="../programs/philanthropy/"><span>Philanthropy</span></a><a href="../programs/"><span>All programs</span></a></div>
           </article>
     </div>
@@ -188,7 +183,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">أفضل الإجراءات التالية</p>
-        <h2>Where to go next</h2>
+        <h2>أين تذهب بعد ذلك</h2>
       </div>
       <div class="link-chips"><a href="https://weekly.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Weekly updates</span><em>Community</em></a><a href="../get-involved/"><span>Contact us</span></a><a href="../resources/#support"><span>الموارد المصفاة</span></a><a href="../directory/"><span>الدليل العالمي</span></a><a href="../programs/"><span>برامج</span></a><a href="../programs/fellowship/"><span>زمالة</span></a></div>
     </div>
@@ -210,7 +205,7 @@
         <div class="link-chips"><a href="https://weekly.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Weekly updates</span><em>Community</em></a><a href="http://newsletter.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Newsletter</span><em>Updates</em></a></div>
       </article><article class="info-card">
         <h3>المقترحات التعاونية</h3>
-        <p>التحقيق المشترك أو تخصيص المنح مع باحثين ومعلمين في معهد {AII}.</p>
+        <p>التحقيق المشترك أو تخصيص المنح مع باحثين ومعلمين في معهد AII.</p>
       </article><article class="info-card">
         <h3>المخرجات المفتوحة</h3>
         <p>العمل المدعوم بالمنح الذي ينتج نتائج متاحة للجمهور هو أولوية في شراكة المعهد.</p>

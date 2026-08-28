@@ -107,13 +107,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="이 페이지 듣기" title="이 페이지 듣기"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="하이라이트 색상 선택" title="하이라이트 색상 선택"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="색상 강조 색상" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="빨강 고조표시" title="빨강"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="아메르브 화이트아이 히터" title="아메르프"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="그린 히들링(highlight)" title="그린"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal 레이블" title="teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="블루 히들링" title="블루"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="보라 강조" title="보라"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
       </div>
     </div>
@@ -140,7 +140,7 @@
         <h2>섹션</h2>
       </div>
       <nav aria-label="2025 페이지 섹션">
-        <a href="#a-year-in-review">{AYearInReview}</a><a href="#january">1월</a><a href="#february">febuary</a><a href="#march">마리치</a><a href="#june">6월</a><a href="#july">july</a><a href="#september">구수월</a><a href="#november">나비월</a><a href="#december">12월</a><a href="#full-materials">전체 자료</a>
+        <a href="#a-year-in-review">AYearInReview</a><a href="#january">1월</a><a href="#february">febuary</a><a href="#march">마리치</a><a href="#june">6월</a><a href="#july">july</a><a href="#september">구수월</a><a href="#november">나비월</a><a href="#december">12월</a><a href="#full-materials">전체 자료</a>
         <a href="#next-actions">최선의 다음 행동</a>
         <a href="#key-surfaces">주요 표면</a>
         <a href="../../knowledge/">오픈 소스 맵</a>
@@ -156,13 +156,12 @@
     <p class="lede">2025은 Active Inference Institute의 다섯 번째 전 full 년: 네 Quarterly Roundtables, 5회 Applied Active Inference Symposium (11월 12일부터 14일까지), 이론적 뉴런 과학 그룹이 Institute에 합류, 새로운 RxInfer.jl 파트너십, Project ~ Measurement 시스템 완료, 그리고 2026 Board의 선출 — 한 달 단위로 조직된 완료 년 보고서를 계속 기록하고 있습니다. 자세한 기록은 2025 허브에서 유지됩니다.</p>
     <div class="article-stack">
       <article class="article-block" id="a-year-in-review">
-            <h2>{AYearInReview}</h2>
-            <p>2025 closed with the Institute's fifth <a href="../../projects/symposium/">Applied Active Inference Symposium</a> and a completed governance cycle. This retrospective maps the year month by month: new groups hosted (Theoretical Neurobiology), a new partnership (RxInfer.jl Learning Group), four Quarterly Roundtables, the Project ~ Measurement system, and the selection of 2026 leadership.</p>
-<p>For the Institute's longer arc, see the History page; for the year that followed, see 2026.</p>
+            <h2>AYearInReview</h2>
+            <p>2025은 institute의 다섯 번째 <a href="../../projects/symposium/">Applied Active Inference Symposium</a>를 마치고, 규제 쌍 Cycle를 완료했습니다. 이 retrospective는 월별로 년을 맵니다: 새로운 그룹을 호스트 (기계 심리학), 새로운 파트너십 (RxInfer.jl 학습 그룹), 네 번의 Quarterly Roundtables, 프로젝트 ~ 측정 시스템, 그리고 2026 리더십을 선정하는 것.</p>
             <div class="link-chips"><a href="../../history/"><span>History</span></a><a href="../2026/"><span>2026</span></a></div>
           </article><article class="article-block" id="january">
             <h2>1월</h2>
-            <p>{title}은년이 시작되었습니다.{TNB} 그룹은 현재 {title}에hosts됩니다.</p>
+            <p>title은년이 시작되었습니다.TNB 그룹은 현재 title에hosts됩니다.</p>
             <div class="link-chips"><a href="../../projects/theoretical-neurobiology/"><span>Theoretical Neurobiology Group</span></a></div>
           </article><article class="article-block" id="february">
             <h2>febuary</h2>
@@ -183,17 +182,15 @@
             <p>9월 26일 — 2025년 연례 회의 #3</p>
           </article><article class="article-block" id="november">
             <h2>나비월</h2>
-            <p>November 12–14 — 5th <a href="../../projects/symposium/">Applied Active Inference Symposium</a>. Recruitment opens for the next year's <a href="../../structure/board-of-directors/">Board of Directors</a> and <a href="../../structure/scientific-advisory-board/">Scientific Advisory Board</a>.</p>
-<p>Projects mostly finish up after the Symposium.</p>
+            <p><a href="../../projects/symposium/">Applied Active Inference Symposium</a>월 12일부터 14일까지 — 다음 해의 블록체인 및 과학적 조언자단 모집이 시작됩니다. 세미나 후 대부분의 프로젝트가 종료됩니다.</p>
             <div class="link-chips"><a href="../../projects/symposium/"><span>Applied Active Inference Symposium</span></a><a href="../../structure/"><span>Institute structure</span></a></div>
           </article><article class="article-block" id="december">
             <h2>12월</h2>
-            <p>December 19 — 2025 Quarterly Roundtable #4. The Institute continues to review Strategy, Mission, Vision, Values, and Principles, along with Ecosystem Support, <a href="../../programs/philanthropy/">Philanthropy</a>, Grants, and more.</p>
-<p>The <a href="../../structure/board-of-directors/">Board of Directors</a> for 2026 is selected, and applications open for the <a href="../../structure/scientific-advisory-board/">Scientific Advisory Board</a> for 2026.</p>
+            <p>2025년 12월 19일 Quarterly Roundtable #4. 연구소는 전략, 미션, 비전, 가치, 원칙, 그리고 생태계 지원, 펀드라이ving,-grants 등에 대한 검토를 계속하고 있습니다.</p>
             <div class="link-chips"><a href="../../strategy/"><span>Strategy</span></a><a href="../2026/"><span>2026</span></a></div>
           </article><article class="article-block" id="full-materials">
             <h2>전체 자료</h2>
-            <p>{n}의 완전한 보관 기록 — 그들이 년 동안 추적되었던 목표, 성과물 및 이벤트 —은 {n} 허브에서 유지되고 여기에 이동 중입니다.</p>
+            <p>n의 완전한 보관 기록 — 그들이 년 동안 추적되었던 목표, 성과물 및 이벤트 —은 n 허브에서 유지되고 여기에 이동 중입니다.</p>
             <div class="link-chips"><a href="https://2025.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>2025 planning shortlink</span><em>Activities</em></a></div>
           </article>
     </div>
@@ -202,7 +199,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">최선의 다음 행동</p>
-        <h2>Where to go next</h2>
+        <h2>다음으로 가야 할 곳은何处去</h2>
       </div>
       <div class="link-chips"><a href="../../history/"><span>History</span></a><a href="https://2025.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>2025 planning shortlink</span><em>Activities</em></a><a href="../../resources/#institute"><span>필터링된 자원</span></a><a href="../../directory/"><span>글로벌 디렉토리</span></a><a href="../../history/"><span>역사</span></a><a href="../2026/"><span>2026</span></a></div>
     </div>
@@ -213,7 +210,7 @@
   <section class="content-band muted" id="key-surfaces">
     <div class="section-heading">
     <p class="eyebrow">주요 표면</p>
-    <h2>{2025} {a} {glance}</h2>
+    <h2>2025 a glance</h2>
   </div>
     <div class="card-grid"><article class="info-card">
         <h3>quarterlies 토론</h3>
@@ -225,7 +222,7 @@
         <div class="link-chips"><a href="../../projects/symposium/"><span>Symposium</span></a></div>
       </article><article class="info-card">
         <h3>2026년 지배구조</h3>
-        <p>{2026} { board } { Directors } { 선정 } 완료되었고, { 과학적 } { 조언자 } { 블록 } 신청이 개시되었습니다.</p>
+        <p>2026  board   Directors   선정  완료되었고,  과학적   조언자   블록  신청이 개시되었습니다.</p>
         <div class="link-chips"><a href="../../structure/"><span>Institute structure</span></a></div>
       </article><article class="info-card">
         <h3>뉴스레터</h3>
@@ -274,10 +271,10 @@
   </div>
     <div class="resource-grid compact-grid"><a class="resource-card internal-card" href="../../history/">
         <strong>역사</strong>
-        <p>{From} {a} {2020} {팀} {회의} {을} {Active} {Inference} {Institute} {까지}.</p>
+        <p>From a 2020 팀 회의 을 Active Inference Institute 까지.</p>
       </a><a class="resource-card internal-card" href="../2026/">
         <strong>2026</strong>
-        <p>월별로 Active Inference Institute의 현재 연도를 overview하는 월간 보고서 {title}. 2026년</p>
+        <p>월별로 Active Inference Institute의 현재 연도를 overview하는 월간 보고서 title. 2026년</p>
       </a><a class="resource-card internal-card" href="../../activities/">
         <strong>활동</strong>
         <p>정기적인 공개 회의, 프로젝트 세션, 학습 그룹, 스트리밍 및 커뮤니티 행사.</p>

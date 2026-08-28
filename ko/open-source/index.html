@@ -107,13 +107,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="이 페이지 듣기" title="이 페이지 듣기"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="하이라이트 색상 선택" title="하이라이트 색상 선택"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="색상 강조 색상" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="빨강 고조표시" title="빨강"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="아메르브 화이트아이 히터" title="아메르프"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="그린 히들링(highlight)" title="그린"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal 레이블" title="teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="블루 히들링" title="블루"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="보라 강조" title="보라"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
       </div>
     </div>
@@ -128,7 +128,7 @@
   </nav>
     <p class="eyebrow">인stitute 소프트웨어 및 공공 자료 사용하거나 기여하는 개발자, 연구자 및 협력자</p>
     <h1>오픈 소스</h1>
-    <p>{InstituteOS}의 공용 자료에 대한 기본 라이선스 및 각 오픈소스 리포지토리가 실제로 사용하는 라이선스</p>
+    <p>InstituteOS의 공용 자료에 대한 기본 라이선스 및 각 오픈소스 리포지토리가 실제로 사용하는 라이선스</p>
     <div class="hero-actions"><a class="button primary" href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer">GitHub organization</a><a class="button secondary" href="../programs/">All programs</a></div>
   </section>
 
@@ -141,13 +141,11 @@
             <p>CC BY-NC-SA 4.0는 institute 자료의 기본 라이선스입니다. 이를 통해 다른 사람들은 중소비영리 목적에서 재배포, 수정, 변형하고 새로운 형태나 형식으로 만들어도 됩니다. 다만 저작권자와 같은 조건으로 공유해야 합니다.</p>
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a></div>
           </article><article class="article-block" id="what-the-license-requires">
-            <h2>{What the License Requires} 요구하는 것들</h2>
-            <p>Attribution (BY): credit must be given to the creator(s) of the work and, where known, the Institute as the hosting or publishing entity. NonCommercial (NC): only noncommercial use is permitted — use not primarily intended for or directed toward commercial advantage or monetary compensation.</p>
-<p>ShareAlike (SA): adaptations must be shared under the same license terms, unless otherwise specified and agreed upon by the creators.</p>
+            <h2>What the License Requires 요구하는 것들</h2>
+            <p>공여 (BY): 작품의 저작권자와, 가능한 경우 인스티튜트가 게시물의 소유자로 인식되는 것을 포함하여 저작권자의 충성도가 필요합니다. 비영리 (NC): 비영리 사용만 허용 — 주로 또는 방향으로 상업적 이익이나 재정적 보상이 아닌 사용을 목표로 한 것입니다.</p>
           </article><article class="article-block" id="open-source-repositories">
-            <h2>{Open Source Repositories}</h2>
-            <p>The Institute publishes software across repositories hosted in the <a href="../about/">Active Inference Institute</a> GitHub organization. These include Biofirm (Active Inference PyMDP agents for bioregional modeling), GEN24 (generative AI experiments under <a href="../projects/active-blockference/">Active Blockference</a>), ActiveInferAnts (Active Inference ant simulations), Journal-Utilities and ActiveInferenceJournal (supporting the <a href="../projects/active-inference-journal/">Active Inference Journal</a>), ActiveInferenceCategoryTheory (category theory curriculum), ActiveBlockference (integrating Active Inference with cadCAD), Active_Inference_Ontology and AEOS (ontology snapshots), GeneralizedNotationNotation, the Parr et al. 2022 Active Inference Textbook repository, Symposium (methods for the <a href="../projects/symposium/">Applied Active Inference Symposium</a>), and CEREBRUM.</p>
-<p>Each repository sets its own license, and most differ from the Institute's CC BY-NC-SA 4.0 default: GeneralizedNotationNotation carries the default CC BY-NC-SA 4.0 terms; Biofirm, GEN24, ActiveBlockference, and Symposium are MIT licensed; ActiveInferAnts and CEREBRUM are CC BY-NC-ND 4.0, which does not permit derivatives or adaptations; ActiveInferenceJournal, Active_Inference_Ontology, and the Parr et al. 2022 Active Inference Textbook repository are CC BY 4.0, with no NonCommercial or ShareAlike restriction; and Journal-Utilities, ActiveInferenceCategoryTheory, and AEOS are dedicated to the public domain under CC0 1.0. Always check a repository's own LICENSE file before reuse.</p>
+            <h2>Open Source Repositories</h2>
+            <p><a href="../about/">Active Inference Institute</a> GitHub 조직에서 호스팅되는 리포지토리에 소프트웨어를 게시합니다. 이들에는 Biofirm (Active Inference PyMDP 모델링을 위한 생태계 모델링용 PyMDP AGENTS), GEN24 (생성형 AI 실험 아래 <a href="../projects/active-blockference/">Active Blockference</a>에서), ActiveInferAnts (Active Inference ant 시뮬레이션), Journal-Utilities 및 ActiveInferenceJournal (지원을 위한 <a href="../projects/active-inference-journal/">Active Inference Journal</a>), ActiveInferenceCategoryTheory (카테고리 이론 교육 프로그램), ActiveBlockference (Active Blockference와 cadCAD를 통합), Active_Inference_Ontology 및 AEOS (ontology 시napshot), GenereizedNotationNotation, 파라 등 2022 논문의 Active Inference 교재 리포지토리, Symposium (방법을 위한 <a href="../projects/symposium/">Applied Active Inference Symposium</a>), 그리고 CEREBRUM.</p>
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/Biofirm" target="_blank" rel="noopener noreferrer"><span>Biofirm repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveInferAnts" target="_blank" rel="noopener noreferrer"><span>ActiveInferAnts repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/GEN24" target="_blank" rel="noopener noreferrer"><span>GEN24 repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Journal-Utilities" target="_blank" rel="noopener noreferrer"><span>Journal-Utilities repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal" target="_blank" rel="noopener noreferrer"><span>ActiveInferenceJournal repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceCategoryTheory" target="_blank" rel="noopener noreferrer"><span>ActiveInferenceCategoryTheory repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveBlockference" target="_blank" rel="noopener noreferrer"><span>ActiveBlockference repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Active_Inference_Ontology" target="_blank" rel="noopener noreferrer"><span>Active_Inference_Ontology repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/AEOS" target="_blank" rel="noopener noreferrer"><span>AEOS repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation" target="_blank" rel="noopener noreferrer"><span>GeneralizedNotationNotation repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Parr_et_al_2022_ActInf_Textbook" target="_blank" rel="noopener noreferrer"><span>Parr_et_al_2022_ActInf_Textbook repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Symposium" target="_blank" rel="noopener noreferrer"><span>Symposium repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/CEREBRUM" target="_blank" rel="noopener noreferrer"><span>CEREBRUM repository</span><em>Repository</em></a></div>
           </article><article class="article-block" id="contributing">
             <h2>contribution</h2>
@@ -160,7 +158,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">최선의 다음 행동</p>
-        <h2>Where to go next</h2>
+        <h2>다음으로 가야 할 곳은何处去</h2>
       </div>
       <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a><a href="../programs/"><span>All programs</span></a><a href="../resources/#projects"><span>필터링된 자원</span></a><a href="../directory/"><span>글로벌 디렉토리</span></a><a href="../programs/"><span>프로그램</span></a><a href="../reinference/"><span>재추론 단위</span></a></div>
     </div>
@@ -187,15 +185,15 @@
         <div class="link-chips"><a href="../projects/active-inference-ontology/"><span>Active Inference Ontology</span></a></div>
       </article><article class="info-card">
         <h3>교육</h3>
-        <p>{ActiveInference}카테고리론과 파 Ralph et al. 2022 교재 저장소가 과정 및 교재 그룹 자료를 지원합니다.</p>
+        <p>ActiveInference카테고리론과 파 Ralph et al. 2022 교재 저장소가 과정 및 교재 그룹 자료를 지원합니다.</p>
         <div class="link-chips"><a href="../projects/textbook-group/"><span>Textbook Group</span></a></div>
       </article><article class="info-card">
         <h3>이벤트와 모델링 프레임워크</h3>
-        <p>SYMPOSIUM 및 Act. Infer. Serve.이 {Applied Active Inference SYMPOSIUM}과 cadCAD 통합 작업을 지원합니다.</p>
+        <p>SYMPOSIUM 및 Act. Infer. Serve.이 Applied Active Inference SYMPOSIUM과 cadCAD 통합 작업을 지원합니다.</p>
         <div class="link-chips"><a href="../projects/symposium/"><span>Applied Active Inference Symposium</span></a></div>
       </article><article class="info-card">
         <h3>CEREBRUM</h3>
-        <p>{case}-기능을 가진 백베이esian 모델링을 통합화하는 인지 엔진 {로지}</p>
+        <p>case-기능을 가진 백베이esian 모델링을 통합화하는 인지 엔진 로지</p>
         <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/CEREBRUM" target="_blank" rel="noopener noreferrer"><span>CEREBRUM repository</span><em>Repository</em></a></div>
       </article></div>
   </section>

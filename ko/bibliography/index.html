@@ -107,13 +107,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="이 페이지 듣기" title="이 페이지 듣기"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="하이라이트 색상 선택" title="하이라이트 색상 선택"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="색상 강조 색상" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="빨강 고조표시" title="빨강"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="아메르브 화이트아이 히터" title="아메르프"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="그린 히들링(highlight)" title="그린"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal 레이블" title="teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="블루 히들링" title="블루"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="보라 강조" title="보라"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
       </div>
     </div>
@@ -137,13 +137,12 @@
     <p class="lede">이 페이지는 Active Inference 메타 분석 프로젝트의 완전 구조화된 출력을 보여줍니다 — 2005년부터 2026년까지의 Active Inference 및 자유 에너지 원칙 문헌 간에 817편의 논문을 대상으로 한 기계학습 기반 메타 분석 (2005–2026). 프로젝트는 arXiv, Semantic Scholar, 그리고 OpenAlex에서 다중 출처를 수집하고; LLM 기반의 명언 추출을 Nanopublications으로 변환합니다; 인용 가중치된 가정 점수; NMF 주제 모델링; 그리고 하위 분야 분류를 사용합니다. 모든 71개의 정리된 참조는 완전한 참고문 정보와 DOI 링크가 포함된 전체적인 참고 문헌 목록을 보여줍니다.</p>
     <div class="article-stack">
       <article class="article-block" id="about-this-bibliography">
-            <h2>{About this bibliography}</h2>
-            <p>This page presents the complete structured outputs of the Active Inference Meta-Analysis project. The bibliography includes 71 curated references drawn from the manuscript source, plus the full corpus analysis: field growth metrics, hypothesis evidence scores from LLM-extracted assertions, citation network analysis, NMF topic modeling, subfield classification, corpus coverage statistics, and project quality &amp; reproducibility data.</p>
-<p>The full BibTeX source, all output data files, and the compiled manuscript are available on GitHub.</p>
+            <h2>About this bibliography</h2>
+            <p>Active Inference Meta-Analysis 프로젝트의 완전 구조화된 출력이 이 페이지에 제시됩니다. 참고문헌에는 쓰고자료에서 추출된 71개의 정리된 참조가 포함되어 있으며, 전체 코퍼스 분석도 포함됩니다: 분야 성장 지표, LLM에서 추출된 주장으로부터의 가설 증거 점수, 인용망 분석, NMF 주제 모델링, 분야 분류, 코퍼스 커버리지 통계, 그리고 프로젝트의 질과 재현성 데이터.</p>
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/manuscript/references.bib" target="_blank" rel="noopener noreferrer"><span>View BibTeX source on GitHub</span></a><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis" target="_blank" rel="noopener noreferrer"><span>Meta-analysis repository</span></a><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/output/pdf/act_inf_metaanalysis_combined.pdf" target="_blank" rel="noopener noreferrer"><span>Meta-analysis document</span></a></div>
           </article><article class="article-block" id="scope-and-coverage">
             <h2>범위와 커버리지</h2>
-            <p>{n}의 저서는 Free Energy Principle (Friston 2006, 2010)의 기초적인 연구를 포함하고 있으며, {title} 교재 (Parr, Pezzulo &amp; Friston 2022), 상태공간 형식화에서의 이론적 진보, 깊은 활동 인ference, 로봇과 언어에 대한 활동 인ference, 그리고 Markov blankets와 Free Energy Principle의 과학적 지위에 대한 논쟁을 포함합니다. 또한 기계 학습 모델 기반의 과학 정보 추출 및 소 nanopublications, 지식 그래프, Semantic Scholar 및 OpenAlex 플랫폼 등 인공지능 기반의 과학 정보 참조도 포함됩니다. {count}</p>
+            <p>n의 저서는 Free Energy Principle (Friston 2006, 2010)의 기초적인 연구를 포함하고 있으며, title 교재 (Parr, Pezzulo &amp; Friston 2022), 상태공간 형식화에서의 이론적 진보, 깊은 활동 인ference, 로봇과 언어에 대한 활동 인ference, 그리고 Markov blankets와 Free Energy Principle의 과학적 지위에 대한 논쟁을 포함합니다. 또한 기계 학습 모델 기반의 과학 정보 추출 및 소 nanopublications, 지식 그래프, Semantic Scholar 및 OpenAlex 플랫폼 등 인공지능 기반의 과학 정보 참조도 포함됩니다. count</p>
           </article>
     </div>
   </section>
@@ -151,7 +150,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">최선의 다음 행동</p>
-        <h2>Where to go next</h2>
+        <h2>다음으로 가야 할 곳은何处去</h2>
       </div>
       <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/manuscript/references.bib" target="_blank" rel="noopener noreferrer"><span>View BibTeX source</span></a><a href="../resources/#learning"><span>필터링된 자원</span></a><a href="../directory/"><span>글로벌 디렉토리</span></a><a href="../learning/"><span>학습 및 연구</span></a><a href="../active-inference/"><span>활성 추론</span></a></div>
     </div>
@@ -162,8 +161,8 @@
   <section class="content-band" id="field-overview">
     <div class="section-heading">
     <p class="eyebrow">장소 개요</p>
-    <h2>{Active Inference} 문헌: 817 논문 (2005–2026)</h2>
-    <p>{corpus}는 두 개의 활동 인퍼런스 및 자유 에너지 원칙 연구 기간 동안 arXiv, Semantic Scholar 및 OpenAlex에서 수집된 것입니다.</p>
+    <h2>Active Inference 문헌: 817 논문 (2005–2026)</h2>
+    <p>corpus는 두 개의 활동 인퍼런스 및 자유 에너지 원칙 연구 기간 동안 arXiv, Semantic Scholar 및 OpenAlex에서 수집된 것입니다.</p>
   </div>
     <div class="resource-grid compact-grid">
       <article class="info-card">
@@ -271,7 +270,7 @@
   <section class="content-band muted" id="corpus-assessment">
     <div class="section-heading">
     <p class="eyebrow">Corpus 평가</p>
-    <h2>{819} 논문이 검색 및 평가되었습니다</h2>
+    <h2>819 논문이 검색 및 평가되었습니다</h2>
     <p>전체 문헌_corpus의 커버리지 및 이용가능성 통계</p>
   </div>
     <div class="resource-grid compact-grid">
@@ -295,7 +294,7 @@
     <div class="section-heading">
     <p class="eyebrow">가설 증거</p>
     <h2>literature에서 8개의 코어 가설을 평가</h2>
-    <p>각 가설은 LLM으로 추출된 주장에 대한 인용치 기반의 증거로 점수를 매겼다 ({N} nanopublication). 점수가 총 문헌에서 찾은 유효성 지지를 반영한다.)</p>
+    <p>각 가설은 LLM으로 추출된 주장에 대한 인용치 기반의 증거로 점수를 매겼다 (N nanopublication). 점수가 총 문헌에서 찾은 유효성 지지를 반영한다.)</p>
   </div>
     <div class="card-grid"><article class="info-card">
         <h3>Morphogenesis</h3>
@@ -1263,7 +1262,7 @@
   <section class="content-band muted" id="key-surfaces">
     <div class="section-heading">
     <p class="eyebrow">주요 표면</p>
-    <h2>{bibliography}을 한눈에 보기</h2>
+    <h2>bibliography을 한눈에 보기</h2>
   </div>
     <div class="card-grid"><article class="info-card">
         <h3>메타분석 프로젝트</h3>
@@ -1271,7 +1270,7 @@
         <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis" target="_blank" rel="noopener noreferrer"><span>Repository</span></a></div>
       </article><article class="info-card">
         <h3>bibTEX 소스</h3>
-        <p>{canonical_references.bib 파일이 이 페이지를 동기화하는 데 사용되는 공통적인 참조입니다}.</p>
+        <p>canonical_references.bib 파일이 이 페이지를 동기화하는 데 사용되는 공통적인 참조입니다.</p>
         <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/manuscript/references.bib" target="_blank" rel="noopener noreferrer"><span>references.bib</span></a></div>
       </article><article class="info-card">
         <h3>발행된 저널 논문</h3>

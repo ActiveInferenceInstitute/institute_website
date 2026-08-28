@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="このページをご覧ください。" title="このページをご覧ください。"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="ハイライト色を選択" title="ハイライト色を選択"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="ハイライトカラー" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="赤ハイライト（デフォルト）" title="赤"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="アメーバハイライト" title="アメイズング・グッバイ"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="グリーンハイライト" title="緑"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="teal ホイッスル" title="teal"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="青ハイライト" title="青"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="violet のハイライト" title="violet"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="メガネ色ハイライト" title="マゼンタ"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="テーマを切り替える" aria-pressed="false" title="ライト/ダークテーマの切り替え"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -623,8 +623,8 @@
   </section>
   <section class="content-band muted" id="ecosystem-topics">
     <div class="section-heading">
-    <p class="eyebrow">Ecosystem topics</p>
-    <h2>22 ecosystem topic pages</h2>
+    <p class="eyebrow">エコシステムトピックス</p>
+    <h2>22 エコシステムトピックページ</h2>
   </div>
     <div class="table-wrap"><table class="directory-table">
     <caption>Every ecosystem topic page, with the public projects mapped to it.</caption>
@@ -662,7 +662,7 @@
         <p>公開リポジトリ、プロジェクトページ、測定値、および応用作業</p>
         <div class="link-chips"><a href="../resources/#projects"><span>Open group</span></a></div>
       </article><article class="info-card">
-        <h3>Research (30)</h3>
+        <h3>研究 (30)</h3>
         <p>研究ページ、参考文献、リポジトリ、論文</p>
         <div class="link-chips"><a href="../resources/#research"><span>Open group</span></a></div>
       </article><article class="info-card">
@@ -670,11 +670,11 @@
         <p>パブリックソーシャルチャンネル</p>
         <div class="link-chips"><a href="../resources/#social"><span>Open group</span></a></div>
       </article><article class="info-card">
-        <h3>サポート ({n})</h3>
+        <h3>サポート (n)</h3>
         <p>寄付、パートナーシップ、サポートの方法。</p>
         <div class="link-chips"><a href="../resources/#support"><span>Open group</span></a></div>
       </article><article class="info-card">
-        <h3>Tools (4)</h3>
+        <h3>ツール (4)</h3>
         <p>実装ツール、ソフトウェアインターフェース、技術学習リソース</p>
         <div class="link-chips"><a href="../resources/#tools"><span>Open group</span></a></div>
       </article></div>
@@ -682,7 +682,7 @@
   <section class="content-band" id="official-pages">
     <div class="section-heading">
     <p class="eyebrow">公式ページ</p>
-    <h2>24 official Institute surfaces</h2>
+    <h2>24 官方 Institute 表面</h2>
   </div>
     <div class="table-wrap"><table class="directory-table">
     <caption>Official Institute pages and public destinations.</caption>
@@ -704,7 +704,7 @@
   <section class="content-band" id="repositories">
     <div class="section-heading">
     <p class="eyebrow">リポジトリ</p>
-    <h2>35 public repositories</h2>
+    <h2>35 レポジトリ</h2>
   </div>
     <div class="table-wrap"><table class="directory-table">
     <caption>Public ActiveInferenceInstitute repositories.</caption>
@@ -726,11 +726,11 @@
   <section class="content-band" id="open-source-map">
     <div class="section-heading">
     <p class="eyebrow">オープンソースマップ</p>
-    <h2>231 structured public rows</h2>
-    <p>Public-safe table rows for repositories, ideas, ontology relationships, governance, publications, policies, programs, and literature.</p>
+    <h2>231 スタックされた公開行</h2>
+    <p>リポジトリ、アイデア、オントロジーの関係、ガバナンス、出版、政策、プログラム、および文献に対する安全なテーブル行。</p>
   </div>
     <div class="card-grid"><article class="info-card">
-        <h3>Repositories (35)</h3>
+        <h3>リポジトories (35)</h3>
         <p>アクティブインファレンスインスティテュート（Active Inference Institute）のGitHub名前空間から派生したパブリックリポジトリの行。</p>
         <div class="link-chips"><a href="../knowledge/#projects-table"><span>Open repository table</span></a></div>
       </article><article class="info-card">
@@ -742,11 +742,11 @@
         <p>概念グラフからの有向関係行</p>
         <div class="link-chips"><a href="../knowledge/#ontology-table"><span>Open ontology table</span></a></div>
       </article><article class="info-card">
-        <h3>Governance Members (56)</h3>
+        <h3>ガバナンスメンバー (56)</h3>
         <p>理事会、役員、および登録組織役を含む公的ガバナンスのメンバー。</p>
         <div class="link-chips"><a href="../knowledge/#members-table"><span>Open governance table</span></a></div>
       </article><article class="info-card">
-        <h3>Publications (50)</h3>
+        <h3>出版物 (50)</h3>
         <p>承認された公的コミュニケーション、レポート、発表、ニュースレターなど。</p>
         <div class="link-chips"><a href="../knowledge/#publications-table"><span>Open publications table</span></a></div>
       </article><article class="info-card">

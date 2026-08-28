@@ -107,14 +107,14 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="استمع إلى هذه الصفحة" title="استمع إلى هذه الصفحة"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="اختر لون التحديد" title="اختر لون التحديد"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Highlight color" hidden>
-        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Red highlight (default)" title="Red"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amber highlight" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Green highlight" title="Green"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Blue highlight" title="Blue"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
-        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Magenta highlight" title="Magenta"></button>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="لون التمييز" hidden>
+        <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="تنسيق أحمر (افتراضي)" title="أحمر"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="تأكيد برتقالي" title="أمشطار"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="تأكيد أخضر" title="أخضر"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="تظليل سماوي" title="تركوازي"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="تأكيد أزرق" title="أزرق"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="تنسيق أرجواني" title="أرجواني"></button>
+        <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="تأكيد باللون البنفسجي" title="Magenta"></button>
       </div>
     </div>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-label="تغيير الموضوع" aria-pressed="false" title="تغيير نمط الإضاءة/الظلام"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
@@ -161,16 +161,13 @@
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="approach">
             <h2>المنهجية</h2>
-            <p>Most alignment work focuses on single agents evaluated against static benchmarks. AI²C instead studies intrinsic motivation (curiosity, prosociality), extrinsic motivation (rulebooks, norms, safety constraints), and embodied systems (robotics, multi-agent coordination), treating alignment as something that emerges in real systems rather than a property of one agent alone.</p>
-<p>The coalition's planned outputs include governance frameworks such as rulebooks and override systems, reusable funding-proposal modules, alignment benchmarks grounded in Active Inference, embodied multi-agent experiments, and open-source tools and documentation — with the goal of making alignment research replicable, fundable, and scalable.</p>
+            <p>يركز معظم العمل المتعلّق بالتوافق على وكلاء واحدين يتم تقييمهم مقابل معايير ثابتة. بدلاً من ذلك، يدرس AI²C الدافعية الداخلية (الفضول، اللطف)، والدافعية الخارجية (القواعد، المعايير، القيود المتعلقة بالسلامة)، والأنظمة الجسدية (الروبوتات، التنسيق بين الوكلاء المتعددين)، ويعتبر التوافق شيئًا ينشأ في الأنظمة الحقيقية بدلاً من كونه خاصية لوكيل واحد فقط.</p>
           </article><article class="article-block" id="roadmap">
             <h2>خارطة طريق</h2>
-            <p>AI²C describes its work in three phases. Phase 1 covers coalition setup — partners, governance, and infrastructure.</p>
-<p>Phase 2 covers research and proposals — building the funding pipeline and shared proposal modules. Phase 3 covers experiments and outputs — embodied systems, publications, and tools.</p>
+            <p>AI²C تصف عملها بثلاث مراحل. المرحلة الأولى تغطي إعداد التحالف - الشركاء، والحوكمة، والبنية التحتية.</p>
           </article><article class="article-block" id="funding-strategy">
             <h2>استراتيجية التمويل</h2>
-            <p>AI²C's proposal-development work targets large, multi-institution funding vehicles for AI alignment research, including U.S. National AI Research Institutes, NSF Science and Technology Centers, and Horizon Europe's multi-partner Pillar II actions.</p>
-<p>The project is currently raising support for coalition coordination, proposal development, workshops and events, open infrastructure, and embodied experiments — funding at this stage is intended to seed a longer-term research ecosystem rather than a single deliverable.</p>
+            <p>تستهدف أعمال تطوير المقترحات الخاصة بـ &quot;AI²C&quot; آليات تمويل كبيرة متعددة المؤسسات للبحث في محاذاة الذكاء الاصطناعي، بما في ذلك معاهد الذكاء الاصطناعي الوطنية في الولايات المتحدة والمراكز العلمية والتكنولوجية التابعة لـ NSF ومبادرات &quot;Horizon Europe&quot; متعددة الشركاء في المرحلة الثانية، بالإضافة إلى دعم التنسيق بين التحالفات وتطوير المقترحات وورش العمل والأحداث والبنية التحتية المفتوحة والتجارب الجسدية - يهدف هذا التمويل في هذه المرحلة إلى إطلاق نظام بيئي أطول الأمد للبحث بدلاً من منتج واحد.</p>
           </article><article class="article-block" id="project-lead">
             <h2>رئيس المشروع</h2>
             <p>ماهيلت الألباراكين، باحثة زمالة في معهد الاستدلال النشط، هي المبدعة والمسؤولة عن AI²C.</p>
@@ -190,7 +187,7 @@
     <div class="next-action-panel">
       <div>
         <p class="eyebrow">أفضل الإجراءات التالية</p>
-        <h2>Where to go next</h2>
+        <h2>أين تذهب بعد ذلك</h2>
       </div>
       <div class="link-chips"><a href="../../programs/fellowship/"><span>Research Fellows</span></a><a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Join the discussion</span><em>Community</em></a><a href="mailto:blanket@activeinference.institute"><span>Email the project</span></a><a href="../../resources/#projects"><span>الموارد المصفاة</span></a><a href="../../directory/"><span>الدليل العالمي</span></a><a href="../"><span>المشاريع</span></a><a href="../../active-inference/"><span>استدلال نشط</span></a></div>
     </div>
