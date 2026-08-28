@@ -19,7 +19,7 @@ file in this directory is served directly.
    work with no effect on the rendered site.)
 2. The graph/narrative slices (`governance_graph`, `ontology_graph`,
    `tech_tree_graph`, `domain_projects`, `narratives_public`,
-   `communications_public`, `strategies_public`, `newsletter`) arrive **pre-sanitized from a
+   `communications_public`, `newsletter`) arrive **pre-sanitized from a
    separate private InstituteOS export**, and are **also re-validated in-repo** by
    `validate_public_prose_payload` (a prose-tuned gate in
    `check_committed_public_payloads`, run by `npm run check:instituteos`) — see
@@ -243,27 +243,13 @@ Node-link graphs rendered by `assets/js/graphs.js`. Same shape:
 }
 ```
 
-### `strategies_public.json`
-Strategic revenue-stream / department map.
+### `strategies_public.json` — RETIRED 2026-08-28
 
-```
-{
-  description: string,
-  departments: [{ id, label, nodeCount }],
-  revenueStreams: [{ id, label, from }]
-}
-```
-
-> **Render status (2026-08-28): not rendered.** The departments-and-revenue-streams
-> section (`strategyMapSection()`, `#strategy-map`) was removed from
-> [`src/render/feature-sections.mjs`](../../render/feature-sections.mjs) in commit
-> `e53b9c97f1` (strategy sections moved to structured narrative formatting). The
-> slice is still exported by InstituteOS and still claimed by producer-2 in
-> [`scripts/sync_instituteos_public_data.py`](../../scripts/sync_instituteos_public_data.py),
-> but `src/data.mjs` still loads it with no renderer reading
-> `siteData.instituteos.strategies`. Either retire the export (data.mjs loader,
-> producer-2 claim, backend `StrategiesExporter`) or restore a renderer; until
-> then this file ships but nothing on the site displays it.
+Removed: exported by InstituteOS (`StrategiesExporter`) and gated as producer-2,
+but rendered by nothing on the site — `strategyMapSection()` was removed in commit
+`e53b9c97f1` and never replaced. Full retirement: backend exporter deleted,
+producer-2 claim removed here, content file deleted. The underlying strategy map
+data stays in the private registry (`instituteos.governance.strategies`).
 
 ### `newsletter.json`
 

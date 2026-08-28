@@ -105,7 +105,6 @@ PRODUCER2_PUBLIC_JSON_FILES = (
     "domain_projects.json",
     "narratives_public.json",
     "communications_public.json",
-    "strategies_public.json",
     "newsletter.json",
 )
 # Private structural keys that are unambiguously private even in prose payloads.
