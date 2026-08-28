@@ -281,13 +281,6 @@
       "target": "data"
     },
     {
-      "name": "strategies_public.json",
-      "output_path": "src/content/instituteos/strategies_public.json",
-      "record_count": 16,
-      "sha256": "aa8b911a4836f7edbda68482713abb2c26a7ee660a26e67898cd97fc7ab4d100",
-      "target": "content"
-    },
-    {
       "name": "tech_tree_graph.json",
       "output_path": "src/content/instituteos/tech_tree_graph.json",
       "record_count": 30,
@@ -303,6 +296,6 @@
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-08-18T00:14:32.532237+00:00",
-  "source_fingerprint": "8eee54978f02"
+  "generated_at": "2026-08-28T20:22:04.355712+00:00",
+  "source_fingerprint": "02ce2b0e0074"
 }
