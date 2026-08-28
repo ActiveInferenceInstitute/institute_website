@@ -254,12 +254,16 @@ Strategic revenue-stream / department map.
 }
 ```
 
-> Consumed by `strategyMapSection()` in
-> [`src/render/feature-sections.mjs`](../../render/feature-sections.mjs), which
-> renders the departments-and-revenue-streams section (`#strategy-map`) on the
-> `/strategy/` page. Revenue streams are grouped onto department cards by the
-> prefix of their `from` node id (`ctd_`/`csd_`/`pda_`/`mbr_`); an unmapped
-> prefix surfaces in a visible "Other revenue streams" card.
+> **Render status (2026-08-28): not rendered.** The departments-and-revenue-streams
+> section (`strategyMapSection()`, `#strategy-map`) was removed from
+> [`src/render/feature-sections.mjs`](../../render/feature-sections.mjs) in commit
+> `e53b9c97f1` (strategy sections moved to structured narrative formatting). The
+> slice is still exported by InstituteOS and still claimed by producer-2 in
+> [`scripts/sync_instituteos_public_data.py`](../../scripts/sync_instituteos_public_data.py),
+> but `src/data.mjs` still loads it with no renderer reading
+> `siteData.instituteos.strategies`. Either retire the export (data.mjs loader,
+> producer-2 claim, backend `StrategiesExporter`) or restore a renderer; until
+> then this file ships but nothing on the site displays it.
 
 ### `newsletter.json`
 
