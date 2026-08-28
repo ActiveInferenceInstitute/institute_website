@@ -90,7 +90,6 @@ export const siteData = {
     governanceGraph: loadJson(path.join("instituteos", "governance_graph.json")),
     domainProjects: loadJson(path.join("instituteos", "domain_projects.json")),
     narratives: loadJson(path.join("instituteos", "narratives_public.json")),
-    strategies: loadJson(path.join("instituteos", "strategies_public.json")),
     calendar: loadJson(path.join("instituteos", "calendar.json")),
     videos: loadJson(path.join("instituteos", "videos.json")),
     newsletter: loadJson(path.join("instituteos", "newsletter.json")),
