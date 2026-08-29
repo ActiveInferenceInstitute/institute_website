@@ -114,29 +114,87 @@ function parseArgs(argv) {
     } else if (arg === "--force") {
       args.force = true;
     } else if (arg === "--prune") {
-      // --prune: drop catalog entries whose key is no longer a current English
-      // source string (the extractor rewrote or removed the page). Stale keys
-      // are dead weight in diffs and can mask a real missing-translation gap.
+      // --prune: drop only PROVABLY dead catalog entries — those with an empty
+      // or whitespace-only value (the build renders those as the English
+      // fallback, so they carry no information). Keys absent from the current
+      // extract are NOT dropped: legacy extras (~514 per catalog, incl. the
+      // runtime-lookup mt-notice keys) are legitimate state and a prior prune
+      // that deleted them wiped live translations from all 11 locales
+      // (reverted 2026-08-28).
       args.prune = true;
     }
   }
   return args;
 }
 
-// Remove catalog entries whose key is not in the current English source set.
-// Returns [pruned, count] — pruned only when something actually changed.
+// ── Runtime-lookup extras ────────────────────────────────────────────────────
+// Some catalog keys are looked up via tr() only on NON-default-locale render
+// passes, so the extractor (which records on the default pass only — see
+// src/i18n/index.mjs) never sees them: the machine-translation notice keys in
+// src/render/layout.mjs are the canonical example. Those strings are legitimate
+// catalog entries with no _strings.json counterpart, so prune must NEVER treat
+// them as stale. Rather than a hand-maintained whitelist, derive the preserve
+// set from the tr("...") / tr(`...`) literal call sites under src/ — any future
+// runtime-lookup literal added to a renderer is picked up automatically.
+export function collectTrLiterals(srcDir) {
+  const literals = new Set();
+  let files;
+  try {
+    files = fs.readdirSync(srcDir, { recursive: true, withFileTypes: true });
+  } catch {
+    return literals;
+  }
+  for (const entry of files) {
+    if (!entry.isFile() || !entry.name.endsWith(".mjs")) {
+      continue;
+    }
+    const file = path.join(entry.parentPath ?? entry.path ?? "", entry.name);
+    const text = fs.readFileSync(file, "utf8");
+    // Double-quoted and template-literal arguments only. Single-quoted tr('…')
+    // call sites are not used in this codebase; a dynamically-built argument
+    // cannot be derived statically and must not be guessed here.
+    for (const match of text.matchAll(/\btr\(\s*(?:"((?:[^"\\]|\\.)*)"|`([^`]*)`)/g)) {
+      const raw = match[1] ?? match[2];
+      // Skip template literals with ${…} interpolation: they are not static
+      // strings and their catalog keys cannot be derived statically.
+      if (!raw || raw.includes("${")) {
+        continue;
+      }
+      // Unescape the JSON/JS escapes so the literal matches its catalog key.
+      literals.add(JSON.parse(`"${match[1] !== undefined ? raw : raw.replace(/\\/g, "\\\\")}"`));
+    }
+  }
+  return literals;
+}
+
+// Remove only PROVABLY dead catalog entries: those whose value is empty or
+// whitespace-only. The build renders such values as the English fallback, so
+// they carry no translation and are safe to drop.
+//
+// Everything else survives prune BY DESIGN, including legacy extras (keys
+// outside _strings.json and outside the tr()-literal set — ~514 per catalog,
+// e.g. pre-extractor entries and content-value lookups). An earlier version
+// dropped every key not in the extract and deleted live translations from all
+// 11 locales (the mt-notice regressed to English on ~899 pages/locale);
+// reverted 2026-08-28. `sourceSet` (extracted strings ∪ collectTrLiterals())
+// is retained for callers/tests; membership in it is neither necessary nor
+// sufficient for removal. Returns [pruned, count] — pruned only when
+// something actually changed.
 export function pruneCatalog(catalog, sourceSet) {
-  const stale = Object.keys(catalog).filter((key) => !sourceSet.has(key));
-  if (!stale.length) {
+  const dead = Object.keys(catalog).filter((key) => {
+    const value = catalog[key];
+    return typeof value !== "string" || value.trim() === "";
+  });
+  if (!dead.length) {
     return [catalog, 0];
   }
   const kept = {};
   for (const key of Object.keys(catalog)) {
-    if (sourceSet.has(key)) {
+    if (typeof catalog[key] === "string" && catalog[key].trim() !== "") {
       kept[key] = catalog[key];
     }
   }
-  return [kept, stale.length];
+  return [kept, dead.length];
 }
 
 function modelFor(code, override) {
@@ -431,7 +489,7 @@ async function main() {
     process.exit(1);
   }
   const sources = JSON.parse(fs.readFileSync(STRINGS_FILE, "utf8"));
-  const sourceSet = new Set(sources);
+  const sourceSet = new Set([...sources, ...collectTrLiterals(path.join(ROOT, "src"))]);
   console.log(`Loaded ${sources.length} source strings; target locales: ${opts.locales.join(", ")}`);
   for (const code of opts.locales) {
     if (opts.prune) {

@@ -12,6 +12,7 @@ import assert from "node:assert/strict";
 
 import {
   cleanTranslation,
+  collectTrLiterals,
   isDegenerate,
   isTransientStatus,
   mapWithConcurrency,
@@ -115,19 +116,37 @@ test("an empty work list is a no-op, not a hang", async () => {
   assert.deepEqual(await mapWithConcurrency([], 6, async () => "x"), []);
 });
 
-test("pruneCatalog drops only keys absent from the current source set", () => {
+test("pruneCatalog keeps legacy extras (keys outside the source set) — regression pin", () => {
+  // The original prune dropped every key absent from _strings.json and deleted
+  // live translations (incl. the runtime-lookup mt-notice keys) from all 11
+  // locales. Legacy extras survive prune BY DESIGN.
   const sources = new Set(["Browse by topic", "Fellow since"]);
   const catalog = {
     "Browse by topic": "Tema navegación",
     "Fellow since": "Investigador desde",
+    "This page was machine-translated from English.": "Diese Seite wurde maschinell aus dem Englischen übersetzt.",
+    "View the English original.": "Englisches Original ansehen",
     "{n} strategy nodes in the public strategy map": "{n} nodos de estrategia",
   };
   const [kept, n] = pruneCatalog(catalog, sources);
-  assert.equal(n, 1);
-  assert.deepEqual(kept, { "Browse by topic": "Tema navegación", "Fellow since": "Investigador desde" });
+  assert.equal(n, 0);
+  assert.deepEqual(kept, catalog);
 });
 
-test("pruneCatalog is a no-op (returns the same catalog) when nothing is stale", () => {
+test("pruneCatalog drops only empty/whitespace-valued (provably dead) entries", () => {
+  const sources = new Set(["Browse by topic"]);
+  const catalog = {
+    "Browse by topic": "Tema navegación",
+    "Legacy extra": "Legado",
+    "Empty value": "",
+    "Whitespace value": "   ",
+  };
+  const [kept, n] = pruneCatalog(catalog, sources);
+  assert.equal(n, 2);
+  assert.deepEqual(kept, { "Browse by topic": "Tema navegación", "Legacy extra": "Legado" });
+});
+
+test("pruneCatalog is a no-op (returns the same catalog) when nothing is dead", () => {
   const sources = new Set(["Browse by topic"]);
   const catalog = { "Browse by topic": "Tema navegación" };
   const [kept, n] = pruneCatalog(catalog, sources);
@@ -135,13 +154,13 @@ test("pruneCatalog is a no-op (returns the same catalog) when nothing is stale",
   assert.deepEqual(kept, catalog);
 });
 
-test("pruneCatalog keeps current keys that merely LOOK stale (exact-match contract)", () => {
-  // Keys are matched against the source set exactly; a key differing only by
-  // punctuation IS stale (the extractor produced a new string), but a key that
-  // contains a source string as a substring is NOT (it is a different entry).
-  const sources = new Set(["Browse"]);
-  const catalog = { "Browse": "Navegar", "Browse by topic": "Tema navegación" };
-  const [kept, n] = pruneCatalog(catalog, sources);
-  assert.equal(n, 1);
-  assert.deepEqual(kept, { "Browse": "Navegar" });
+test("collectTrLiterals derives the runtime-lookup extras from tr() call sites", () => {
+  // Verified against the real tree: the mt-notice keys are looked up ONLY on
+  // non-default-locale passes, so the extractor never records them — but the
+  // literal scan of src/ must still find them, or prune could not reason about
+  // them at all.
+  const lits = collectTrLiterals(new URL("../src/", import.meta.url).pathname);
+  assert.ok(lits.has("This page was machine-translated from English."));
+  assert.ok(lits.has("View the English original."));
+  assert.ok(lits.size > 100, `expected the full renderer literal set, got ${lits.size}`);
 });
