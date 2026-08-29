@@ -16,6 +16,7 @@ import {
   isTransientStatus,
   mapWithConcurrency,
   maskProtectedTerms,
+  pruneCatalog,
   unmaskProtectedTerms,
 } from "./i18n_translate.mjs";
 
@@ -112,4 +113,35 @@ test("concurrency never exceeds its limit", async () => {
 
 test("an empty work list is a no-op, not a hang", async () => {
   assert.deepEqual(await mapWithConcurrency([], 6, async () => "x"), []);
+});
+
+test("pruneCatalog drops only keys absent from the current source set", () => {
+  const sources = new Set(["Browse by topic", "Fellow since"]);
+  const catalog = {
+    "Browse by topic": "Tema navegación",
+    "Fellow since": "Investigador desde",
+    "{n} strategy nodes in the public strategy map": "{n} nodos de estrategia",
+  };
+  const [kept, n] = pruneCatalog(catalog, sources);
+  assert.equal(n, 1);
+  assert.deepEqual(kept, { "Browse by topic": "Tema navegación", "Fellow since": "Investigador desde" });
+});
+
+test("pruneCatalog is a no-op (returns the same catalog) when nothing is stale", () => {
+  const sources = new Set(["Browse by topic"]);
+  const catalog = { "Browse by topic": "Tema navegación" };
+  const [kept, n] = pruneCatalog(catalog, sources);
+  assert.equal(n, 0);
+  assert.deepEqual(kept, catalog);
+});
+
+test("pruneCatalog keeps current keys that merely LOOK stale (exact-match contract)", () => {
+  // Keys are matched against the source set exactly; a key differing only by
+  // punctuation IS stale (the extractor produced a new string), but a key that
+  // contains a source string as a substring is NOT (it is a different entry).
+  const sources = new Set(["Browse"]);
+  const catalog = { "Browse": "Navegar", "Browse by topic": "Tema navegación" };
+  const [kept, n] = pruneCatalog(catalog, sources);
+  assert.equal(n, 1);
+  assert.deepEqual(kept, { "Browse": "Navegar" });
 });

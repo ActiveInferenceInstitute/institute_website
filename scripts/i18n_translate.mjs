@@ -92,7 +92,7 @@ const KEEP_VERBATIM = [
 const DEFAULT_CONCURRENCY = PROVIDER === "openai" ? 6 : 1;
 
 function parseArgs(argv) {
-  const args = { locales: [], model: null, limit: Infinity, force: false, sample: 0, concurrency: DEFAULT_CONCURRENCY };
+  const args = { locales: [], model: null, limit: Infinity, force: false, sample: 0, concurrency: DEFAULT_CONCURRENCY, prune: false };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === "--all") {
@@ -113,9 +113,30 @@ function parseArgs(argv) {
       args.concurrency = Math.max(1, Number(argv[++i]) || DEFAULT_CONCURRENCY);
     } else if (arg === "--force") {
       args.force = true;
+    } else if (arg === "--prune") {
+      // --prune: drop catalog entries whose key is no longer a current English
+      // source string (the extractor rewrote or removed the page). Stale keys
+      // are dead weight in diffs and can mask a real missing-translation gap.
+      args.prune = true;
     }
   }
   return args;
+}
+
+// Remove catalog entries whose key is not in the current English source set.
+// Returns [pruned, count] — pruned only when something actually changed.
+export function pruneCatalog(catalog, sourceSet) {
+  const stale = Object.keys(catalog).filter((key) => !sourceSet.has(key));
+  if (!stale.length) {
+    return [catalog, 0];
+  }
+  const kept = {};
+  for (const key of Object.keys(catalog)) {
+    if (sourceSet.has(key)) {
+      kept[key] = catalog[key];
+    }
+  }
+  return [kept, stale.length];
 }
 
 function modelFor(code, override) {
@@ -410,8 +431,19 @@ async function main() {
     process.exit(1);
   }
   const sources = JSON.parse(fs.readFileSync(STRINGS_FILE, "utf8"));
+  const sourceSet = new Set(sources);
   console.log(`Loaded ${sources.length} source strings; target locales: ${opts.locales.join(", ")}`);
   for (const code of opts.locales) {
+    if (opts.prune) {
+      const [kept, n] = pruneCatalog(readCatalog(code), sourceSet);
+      if (n) {
+        writeCatalog(code, kept);
+        console.log(`[${code}] pruned ${n} stale entries (catalog now ${Object.keys(kept).length})`);
+      } else {
+        console.log(`[${code}] nothing to prune`);
+      }
+      continue;
+    }
     await translateLocale(code, sources, opts);
   }
   console.log("\nDone. Rebuild with `npm run build` to render the translated pages.");
