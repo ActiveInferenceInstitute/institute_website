@@ -1441,6 +1441,16 @@
       "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
+      "id": "regime-dependent-active-inference-repo",
+      "label": "Regime-Dependent Active Inference project repository",
+      "category": "Projects",
+      "url": "https://github.com/manjushribuddha/regime-dependent-active-inference",
+      "sourceBasis": "Public project repository provided by the project owner; host (github.com) is on the vetted anchor list.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-08-30T00:00:00Z"
+    },
+    {
       "id": "repo-act-inf-metaanalysis",
       "label": "act_inf_metaanalysis repository",
       "category": "Repository",

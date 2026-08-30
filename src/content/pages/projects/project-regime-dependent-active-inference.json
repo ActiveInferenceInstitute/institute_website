@@ -18,6 +18,9 @@
       "links": [
         {
           "sourceId": "ecosystem"
+        },
+        {
+          "sourceId": "regime-dependent-active-inference-repo"
         }
       ]
     },
@@ -38,7 +41,8 @@
   ],
   "externalSourceIds": [
     "ecosystem",
-    "discord"
+    "discord",
+    "regime-dependent-active-inference-repo"
   ],
   "resourceGroups": [
     "projects",
