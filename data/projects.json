@@ -194,18 +194,7 @@
       },
       "tasks": [],
       "affiliation": "institute",
-      "owner_entity_id": "alexander-vyatkin",
-      "owner_name": "Alexander Vyatkin",
       "people": [
-        {
-          "id": "alexander-vyatkin",
-          "name": "Alexander Vyatkin",
-          "institute_roles": [
-            "Board Member",
-            "Officer"
-          ],
-          "active": false
-        },
         {
           "id": "holly-grimm",
           "name": "Holly Grimm",

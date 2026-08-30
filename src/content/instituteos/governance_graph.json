@@ -348,18 +348,6 @@
       "href": "knowledge.html#member-alexandra-mikhailova"
     },
     {
-      "id": "entity:alexander-vyatkin",
-      "label": "Alexander Vyatkin",
-      "type": "entity",
-      "meta": {
-        "entity_type": "",
-        "roles": [
-          "Board Member",
-          "Officer"
-        ]
-      }
-    },
-    {
       "id": "entity:dean-tickles",
       "label": "Dean Tickles",
       "type": "entity",
