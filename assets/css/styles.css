@@ -151,7 +151,7 @@ select:focus-visible {
   border: 1px solid var(--red);
   border-radius: var(--radius);
   background: var(--surface-strong);
-  color: var(--red);
+  color: var(--accent-text);
   font-weight: 800;
   font-size: 1.6rem;
   line-height: 1;
@@ -208,7 +208,7 @@ select:focus-visible {
 }
 
 .nav-menu-button span:last-child {
-  color: var(--red);
+  color: var(--accent-text);
 }
 
 .nav-menu {
@@ -242,7 +242,8 @@ select:focus-visible {
 .nav-menu a:focus-visible {
   background: var(--red-deep);
   color: var(--ds-on-accent, #ffffff);
-  outline: none;
+  outline: 1px solid var(--ds-on-accent, #ffffff);
+  outline-offset: -2px;
 }
 
 .hero {
@@ -318,7 +319,7 @@ select:focus-visible {
 }
 
 .button.primary {
-  border-color: var(--red);
+  border-color: var(--accent-text);
   background: var(--red);
   color: var(--ds-on-accent, #ffffff);
 }
@@ -432,7 +433,7 @@ select:focus-visible {
 .mini-links a:hover,
 .resource-card:hover,
 .pager a:hover {
-  border-color: var(--red);
+  border-color: var(--accent-text);
   color: var(--ink);
 }
 
@@ -517,7 +518,7 @@ select:focus-visible {
 }
 
 .action-panel a:hover {
-  border-color: var(--red);
+  border-color: var(--accent-text);
 }
 
 .action-panel span {
@@ -541,7 +542,7 @@ select:focus-visible {
 
 .pathway-card > span,
 .resource-kicker {
-  color: var(--red);
+  color: var(--accent-text);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0;
@@ -586,7 +587,7 @@ select:focus-visible {
 }
 
 .gate-metric:hover {
-  border-color: var(--red);
+  border-color: var(--accent-text);
 }
 
 .gate-metric strong {
@@ -796,7 +797,7 @@ select:focus-visible {
 
 .info-card:hover .card-icon-badge {
   background: rgba(220, 38, 38, 0.2);
-  border-color: var(--red);
+  border-color: var(--accent-text);
 }
 
 .card-icon {
@@ -820,7 +821,7 @@ select:focus-visible {
 }
 
 .resource-card h3 a:hover {
-  color: var(--red);
+  color: var(--accent-text);
   text-decoration-color: currentColor;
 }
 
@@ -1039,7 +1040,7 @@ select:focus-visible {
 
 .tag-filter-chips button:hover,
 .tag-filter-chips button[aria-pressed="true"] {
-  border-color: var(--red);
+  border-color: var(--accent-text);
   color: var(--ds-on-accent, #ffffff);
   background: var(--red-deep);
 }
@@ -1198,7 +1199,7 @@ select:focus-visible {
 }
 
 .directory-table th button.th-sort:hover {
-  color: var(--red);
+  color: var(--accent-text);
 }
 
 .directory-table th button.th-sort:focus-visible {
@@ -1272,7 +1273,7 @@ select:focus-visible {
 
 .footer-links a,
 .social-links a {
-  color: var(--red);
+  color: var(--accent-text);
 }
 
 @media (max-width: 960px) {
@@ -1370,6 +1371,8 @@ select:focus-visible {
 .site-search-kind{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-text);flex:0 0 5rem}
 .site-search-title{font-size:.9rem}
 .site-search-empty{padding:.75rem .85rem;margin:0;opacity:.6;font-size:.85rem}
+.site-search-extra{position:absolute;top:calc(100% + .35rem);right:0;width:min(24rem,82vw);background:var(--surface);border:1px solid var(--line);border-radius:10px;border-top:0;box-shadow:0 14px 44px rgba(0,0,0,.55);z-index:60}
+.site-search-extra:empty{display:none}
 .site-search-all{display:block;padding:.55rem .85rem;text-decoration:none;color:var(--accent-text);font-size:.82rem;font-weight:600;border-top:1px solid rgba(255,255,255,.12);background:rgba(239,68,68,.06)}
 .site-search-all:hover,.site-search-all:focus-visible{background:rgba(239,68,68,.18);outline:2px solid var(--ds-red-light,#ef4444);outline-offset:-2px}
 @media (max-width:720px){.site-search{max-width:100%;flex-basis:100%;order:3;margin-left:0}.site-search-results{width:100%}}
@@ -1399,7 +1402,7 @@ select:focus-visible {
    and is revealed by tts.js only when the Web Speech API is available. */
 .tts-toggle{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:var(--radius);cursor:pointer;padding:.45rem .6rem;font-size:1rem;line-height:1;transition:background-color 200ms,color 200ms,border-color 200ms}
 .tts-toggle:hover{background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)}
-.tts-toggle.is-speaking{background:rgba(239,68,68,.18);border-color:rgba(239,68,68,.6);color:var(--red)}
+.tts-toggle.is-speaking{background:rgba(239,68,68,.18);border-color:rgba(239,68,68,.6);color: var(--accent-text)}
 .tts-toggle-icon{display:inline-block}
 /* Highlight-color picker — mirrors the toggle buttons. Swatch + dot background
    colors are painted by accent.js via the CSSOM (the strict style-src CSP blocks
@@ -1412,7 +1415,7 @@ select:focus-visible {
 .accent-menu[hidden]{display:none}
 .accent-swatch{width:1.4rem;height:1.4rem;padding:0;border-radius:50%;border:1px solid var(--line);cursor:pointer;transition:transform 120ms}
 .accent-swatch:hover{transform:scale(1.12)}
-.accent-swatch[aria-checked="true"]{outline:2px solid var(--ink);outline-offset:2px}
+.accent-swatch[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:2px}
 /* Soften the theme switch (and the FOUC from external defer scripts). */
 body{transition:background-color 200ms,color 200ms}
 
@@ -1427,11 +1430,11 @@ body{transition:background-color 200ms,color 200ms}
 .lang-menu{position:absolute;top:calc(100% + .4rem);right:0;z-index:50;display:flex;flex-direction:column;min-width:9rem;gap:.1rem;padding:.4rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
 .lang-menu a{display:block;padding:.4rem .55rem;border-radius:calc(var(--radius) - 2px);color:var(--ink);text-decoration:none;font-size:.9rem;white-space:nowrap}
 .lang-menu a:hover{background:rgba(239,68,68,.14)}
-.lang-menu a[aria-current="true"]{font-weight:700;color:var(--red)}
+.lang-menu a[aria-current="true"]{font-weight:700;color: var(--accent-text)}
 
 /* Machine-translation provenance note shown atop non-English pages. */
 .mt-notice{margin:0 0 1rem;padding:.55rem .8rem;font-size:.85rem;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-inline-start:3px solid var(--red);border-radius:var(--radius)}
-.mt-notice a{color:var(--red)}
+.mt-notice a{color: var(--accent-text)}
 
 @media (max-width:720px){.theme-toggle{order:5}.accent-control{order:4}.lang-switcher{order:6}.tts-toggle{order:3}}
 
@@ -1579,7 +1582,7 @@ body{transition:background-color 200ms,color 200ms}
 }
 .to-top:hover {
   background: var(--red);
-  border-color: var(--red);
+  border-color: var(--accent-text);
   color: var(--ds-on-accent, #ffffff);
 }
 
@@ -1613,7 +1616,7 @@ body{transition:background-color 200ms,color 200ms}
    hover reads as a tactile surface, not just a color shift. */
 .info-card:hover,
 .resource-card:hover {
-  border-color: var(--red);
+  border-color: var(--accent-text);
   transform: translateY(-2px);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
 }
@@ -1708,7 +1711,7 @@ body{transition:background-color 200ms,color 200ms}
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--red);
+  color: var(--accent-text);
   border: 1px solid var(--red);
   border-radius: 999px;
   padding: 0.1rem 0.5rem;
@@ -1727,7 +1730,7 @@ body{transition:background-color 200ms,color 200ms}
 }
 
 .event-link a {
-  color: var(--red);
+  color: var(--accent-text);
   font-weight: 600;
   text-decoration: none;
 }

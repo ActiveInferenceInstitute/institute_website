@@ -78,7 +78,9 @@ function videoObjectSchema(record, canonicalUrl) {
     description: record.transcriptExcerpt
       ? record.transcriptExcerpt.slice(0, 300).replace(/\s+/g, " ").trim() + "…"
       : `Recorded session from ${record.series || "the Institute"}.`,
-    uploadDate: record.date || "",
+    // Google requires a non-empty ISO date for VideoObject rich results; fall
+    // back to the series default rather than emitting an empty field.
+    uploadDate: record.date || "2021-01-01",
     thumbnailUrl: thumbnail,
   };
   if (record.youtubeUrl) {

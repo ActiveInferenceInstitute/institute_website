@@ -11,6 +11,11 @@
   if (!input || !results) {
     return;
   }
+  // Sibling container for non-option content ("See all" link, empty notice) so
+  // the role="listbox" element itself only ever holds role="option" children.
+  var extra = document.createElement("div");
+  extra.className = "site-search-extra";
+  results.insertAdjacentElement("afterend", extra);
   // search-data.js path is passed on this script's data-search-data attribute
   // (locale-relative, from layout.mjs). On the /search/ page the index is already
   // present, so this is a no-op there.
@@ -136,14 +141,30 @@
     return out;
   }
 
+  function syncActive() {
+    var list = items();
+    if (!list.length) {
+      input.removeAttribute("aria-activedescendant");
+      return;
+    }
+    var current = list.indexOf(document.activeElement);
+    list.forEach(function (item, i) {
+      item.setAttribute("aria-selected", i === current ? "true" : "false");
+    });
+    input.setAttribute("aria-activedescendant", list[current >= 0 ? current : 0].id);
+  }
+
   function open() {
     results.hidden = false;
     input.setAttribute("aria-expanded", "true");
+    syncActive();
   }
 
   function close() {
     results.hidden = true;
+    extra.innerHTML = "";
     input.setAttribute("aria-expanded", "false");
+    input.removeAttribute("aria-activedescendant");
   }
 
   // Tiered score for a single term against one entry. Returns 0 when the term
@@ -206,19 +227,26 @@
     if (query.length < 2) {
       close();
       results.innerHTML = "";
+      extra.innerHTML = "";
       if (status) status.textContent = "";
       return;
     }
     var terms = query.split(/\s+/).filter(Boolean);
     var matches = rank(query);
+    // Non-option content (empty notice, "See all") lives OUTSIDE the listbox:
+    // a role="listbox" accepts only option/group children.
     if (!matches.length) {
-      results.innerHTML = '<p class="site-search-empty">No matches found.</p>';
+      results.innerHTML = "";
+      extra.innerHTML = '<p class="site-search-empty">No matches found.</p>';
+      input.removeAttribute("aria-activedescendant");
       if (status) status.textContent = "No matches found.";
     } else {
       var list = matches
-        .map(function (match) {
+        .map(function (match, i) {
           return (
-            '<a class="site-search-result" role="option" href="' +
+            '<a class="site-search-result" role="option" id="site-search-option-' +
+            i +
+            '" aria-selected="false" href="' +
             encodeURI(match.entry.u) +
             '"><span class="site-search-kind">' +
             escapeHtml(match.entry.c) +
@@ -228,6 +256,7 @@
           );
         })
         .join("");
+      results.innerHTML = list;
       // Offer a "See all results" link into the dedicated /search/ page (which
       // renders the FULL grouped result set), prefilled with the current query.
       var seeAll = searchPageUrl
@@ -239,7 +268,8 @@
           escapeHtml(query) +
           "&rdquo;</a>"
         : "";
-      results.innerHTML = list + seeAll;
+      extra.innerHTML = seeAll;
+      input.setAttribute("aria-activedescendant", "site-search-option-0");
       if (status) {
         status.textContent =
           matches.length === 1 ? "1 result found." : matches.length + " results found.";
@@ -273,6 +303,7 @@
       if (first) {
         event.preventDefault();
         first.focus();
+        syncActive();
       }
     } else if (event.key === "Enter") {
       var query = input.value.trim();
@@ -289,6 +320,7 @@
     if (event.key === "ArrowDown") {
       event.preventDefault();
       (list[current + 1] || list[0]).focus();
+      syncActive();
     } else if (event.key === "ArrowUp") {
       event.preventDefault();
       if (current <= 0) {
@@ -296,11 +328,13 @@
       } else {
         list[current - 1].focus();
       }
+      syncActive();
     } else if (event.key === "Escape") {
       close();
       input.focus();
     }
   });
+  results.addEventListener("focusin", syncActive);
   document.addEventListener("click", function (event) {
     if (!event.target.closest(".site-search")) {
       close();

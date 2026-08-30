@@ -189,7 +189,8 @@ git diff --check
 
 `npm run check` is the deterministic offline gate and already chains `check:links`, `check:md-links`,
 `check:instituteos`, `check:design-system`, `check:site`, `check:security`,
-`check:redirects`, `check:projects`, and `check:catalog`; the individual
+`check:redirects`, `check:projects`, `check:catalog`, `check:i18n`, and
+`check:standalone`; the individual
 commands above are listed for targeted runs. `check:sources` is intentionally
 separate because it probes the network; use `check_live_sources.py --offline`
 when only manifest integrity can be verified.

@@ -106,6 +106,12 @@ PRODUCER2_PUBLIC_JSON_FILES = (
     "narratives_public.json",
     "communications_public.json",
     "newsletter.json",
+    # Also consumed by the build (src/data.mjs) and emitted by the private
+    # website_export exporters — validated with the same producer-2 gate.
+    "programs.json",
+    "citations.json",
+    "calendar.json",
+    "videos.json",
 )
 # Private structural keys that are unambiguously private even in prose payloads.
 # Drops slack/discord/linkedin (valid public node labels); email/phone are caught

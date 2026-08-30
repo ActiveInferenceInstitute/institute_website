@@ -35,6 +35,22 @@ import {
 } from "../pages/projects.mjs";
 import { programCatalogSection } from "../pages/programs.mjs";
 
+// Homepage stat cards. Two of the five metrics are derivable from the live
+// content catalogs; computing them here keeps the homepage in sync with the
+// Directory (which computes the same counts), instead of drifting from the
+// static values in src/content/metrics.json. Community/recording counts are
+// not derivable from any catalog and stay static.
+function homeMetrics() {
+  const derived = {
+    "verified public links": String(allResourceEntries().length),
+    "public repositories indexed": String(normalizedRepositories().length),
+  };
+  return siteData.metrics.map((metric) => ({
+    value: derived[metric.label] || metric.value,
+    label: metric.label,
+  }));
+}
+
 export function relatedSlugsForPage(page) {
   if (Array.isArray(page.relatedSlugs) && page.relatedSlugs.length) {
     return page.relatedSlugs;
@@ -138,7 +154,7 @@ export function homePage() {
   </section>
 
   <section class="metrics-band" aria-label="${escapeHtml(tr("Institute summary"))}">
-    ${siteData.metrics
+    ${homeMetrics()
       .map((metric) => `<div><strong>${escapeHtml(metric.value)}</strong><span>${escapeHtml(tr(metric.label))}</span></div>`)
       .join("")}
   </section>

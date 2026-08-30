@@ -10,7 +10,14 @@ function communicationsRecords() {
     return [];
   }
   const records = data.records || data.communications || [];
-  return records.slice().sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+  // Newsletter-type communications have no rendered anchor on /knowledge/
+  // (publications there use the substack-newsletter-<n> ids from
+  // newsletter.json), so a `#publication-<id>` fragment for them is dead. The
+  // actual newsletter issues enter the feed through newsletter.json rows if
+  // ever added; here we keep the feed anchored only to items that exist.
+  return records
+    .filter((record) => record.type !== "newsletter")
+    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
 }
 
 // Each communication's rendered anchor lives on the Open Source Map

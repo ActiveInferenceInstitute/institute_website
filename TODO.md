@@ -19,9 +19,11 @@ strict Content Security Policy, gated by `npm run check`.
 
 ### From the 2026-06 deep review (see [`INDEX.md`](INDEX.md), [`GATING.md`](GATING.md))
 
-- [x] **Gating coverage (P0) — DONE, and now unconditional (2026-07-05).** The 7
+- [x] **Gating coverage (P0) — DONE, and now unconditional (2026-07-05).** The
       producer-2 slices (`*_graph`, `domain_projects`, `narratives_public`,
-      `communications_public`, `strategies_public`) are run through
+      `communications_public`, `newsletter`, plus `programs`, `citations`,
+      `calendar`, `videos`; `strategies_public` retired 2026-08, unrendered
+      since the strategy-map removal) are run through
       `validate_public_prose_payload` in `check_committed_public_payloads`
       (enforced by `check:instituteos`) — a prose-tuned gate (blocks real emails,
       `coda.io`, `/users/`, phones, and unambiguous private keys; tolerates
@@ -54,6 +56,9 @@ strict Content Security Policy, gated by `npm run check`.
       **Done 2026-07-20:** wired as the `#strategy-map` section on `/strategy/`
       (`strategyMapSection()` in `src/render/feature-sections.mjs`) — department
       cards with grouped revenue streams, loaded via `siteData.instituteos.strategies`.
+      **Later retired 2026-08:** the strategy-map section was removed
+      (e53b9c97f1) and `strategies_public.json` deleted (6b9fb01802) — it is no
+      longer part of the export set.
 - [x] `src/content/live-sources.json` commits resolved `coda.io` `finalUrl`
       values (verification metadata, not rendered). **Done 2026-07-20:** `finalUrl`
       dropped from the committed file; `check_live_sources.py` resolves redirects at
@@ -192,9 +197,10 @@ strict Content Security Policy, gated by `npm run check`.
 Second wave of verified findings from the two completed audit subagents
 (implemented 2026-08-02, commits 93d3289ba + b14832dbc):
 
-- [x] **RunGates.md: "52 repositories" → 37** (the gate enforces 37 per
+- [x] **RunGates.md: "52 repositories" → 35** (the gate enforces 35 per
       `check_site_contract.py`); add the missing `check:redirects` /
-      `check:projects` / `check:catalog` rows to the gate table. ✓ (93d3289ba)
+      `check:projects` / `check:catalog` rows to the gate table. ✓ (93d3289ba;
+      count updated again 2026-08-30 when the roster moved to 35)
 - [x] **EditRedirects.md: document `PREFIX_REDIRECTS`/`SET_REDIRECTS`** — "all
       redirects live in the MAP object" was outdated. ✓ (93d3289ba)
 - [x] **ci.yml: "no lockfile is committed" comment was false** (package-lock.json

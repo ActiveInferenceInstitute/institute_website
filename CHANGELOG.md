@@ -5,6 +5,35 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+## Unreleased
+
+- **Deep-review fix pass (2026-08-30).** Verified findings from a full site,
+  SEO, accessibility, and export-pipeline review:
+  - Homepage stat cards now compute the two derivable metrics (verified public
+    links, public repositories indexed) from the live content catalogs instead
+    of drifting static values in `metrics.json` (was "52" repos vs 35 indexed).
+  - `repositories.json` declared `count` corrected 37 -> 35 (actual array
+    length; no consumer reads the field, but it invited drift).
+  - Feed items no longer link `#publication-<id>` anchors that never render:
+    newsletter-type communications are excluded from `feed.xml`/`feed.json`
+    (their content lives under the `substack-newsletter-*` rows).
+  - Producer-2 gate coverage widened to the four build-consumed slices
+    (`programs.json`, `citations.json`, `calendar.json`, `videos.json`) in
+    `sync_instituteos_public_data.py` `PRODUCER2_PUBLIC_JSON_FILES`.
+  - Accessibility: all `color: var(--red)` text rules routed through the
+    theme-aware `--accent-text` token (dark-theme #dc2626 failed WCAG AA at
+    4.10:1); accent-swatch selected-state selector fixed (`aria-checked` ->
+    `aria-pressed`); site-search combobox now manages `aria-selected` +
+    `aria-activedescendant` and keeps non-option content out of the listbox;
+    nav focus outline restored; PWA manifest gains `id` + maskable icons.
+  - SEO: `minimalSeo` no longer strips JSON-LD for non-noindex robots
+    directives; `twitter:image:alt` added; sitemap hreflang cluster excludes
+    noindexed localized sitemap variants; VideoObject `uploadDate` guard.
+  - Docs: GATING/TODO/README/INDEX/GATES_AND_VALIDATION counts and lists
+    reconciled with `package.json` and checker constants (35 repos, 8 registry
+    slices, `check:i18n`/`check:standalone` rows, `strategies_public` retirement,
+    GATING list renumbered 1-8).
+
 - **Scientific Advisory Board cohort history.** `/structure/scientific-advisory-board/`
   now carries a Past cohorts section listing the 2022-2025 boards, 108 member
   entries across four years, each linked to their public directory entry where

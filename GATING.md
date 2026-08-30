@@ -59,7 +59,9 @@ new content-level finding is open, and known residual gaps remain:
 1. **Producer 2 slices — re-validated in-repo, unconditionally (closed
    2026-07-05).** The committed graph/narrative files from the private export
    (`*_graph.json`, `narratives_public.json`, `domain_projects.json`,
-   `communications_public.json`, `strategies_public.json`) are run through an
+   `communications_public.json`, plus `newsletter.json` and the four
+   build-consumed slices `programs.json`, `citations.json`, `calendar.json`,
+   `videos.json`) are run through an
    in-repo gate, `validate_public_prose_payload` (via the new
    `check_producer2_payloads`, `scripts/sync_instituteos_public_data.py`,
    executed by `npm run check:instituteos`). This previously only ran when the
@@ -74,10 +76,11 @@ new content-level finding is open, and known residual gaps remain:
    test in the private repo (`tests/orchestrator/website_export/test_gate_sync.py`).
    The upstream private exporter remains the first line of defense; this is
    defense-in-depth.
-2. **Content-safety scan widened to all 17 committed files (closed 2026-07-05).**
-   `check:site`'s `instituteos_data()` previously scanned a hardcoded 5-of-17
-   file subset (`people`, `projects`, `ideas`, `ontology`, `assets`); it now
-   dynamically globs every `*.json` under `src/content/instituteos/`.
+2. **Content-safety scan widened to every committed slice (closed 2026-07-05).**
+   `check:site`'s `instituteos_data()` previously scanned a hardcoded 5-file
+   subset (`people`, `projects`, `ideas`, `ontology`, `assets`); it now
+   dynamically globs every `*.json` under `src/content/instituteos/` (19 files
+   at the time of writing), so the scan cannot fall behind the file set.
 3. **RESOLVED — governance-surface content found by the widened scan (2026-07-05).**
    Once every file was actually scanned, `check:site` started reporting real,
    pre-existing internal-governance-surface language across `entities.json`,
@@ -106,6 +109,21 @@ new content-level finding is open, and known residual gaps remain:
    only as exactly-quoted JSON keys and `FORBIDDEN_SUBSTRINGS` as substrings, so
    the per-field whitelist sanitizers — not the denylist — are the primary
    control. The denylist is defense-in-depth.
+6. **Governance glossary intentionally not exported (open, 2026-07-14).**
+   `library/resources/definitions/glossary.json` (79 terms, private repo) is
+   never projected onto this site. Only 7 of 79 terms are `core_concept`
+   (Active Inference, Bayesian Inference, Free Energy Principle, Generative
+   Model, Markov Blanket, Variational Free Energy, ReInference); the remaining
+   72 are `governance`/`legal_compliance`/`it_security`/`organisation`/
+   `policy_framework`/`financial`/`values` — the exact content class removed
+   from this site on 2026-07-05 (see item 3 above). A comprehensive audit
+   flagged this as a finding and deliberately did **not** build an export for
+   it, since doing so risks silently reversing that removal. **Unblocking
+   requires a human editorial call** on whether any subset (most plausibly
+   just the 7 `core_concept` terms) is public-appropriate, before any exporter
+   or page work is done. Until that decision is made, do not add a glossary
+   export.
+
 7. **Dead producer-1 `communications.json` output (closed 2026-07-14).**
    `sanitize_communications()` read `library/registries/communications.json`
    and wrote `src/content/instituteos/communications.json`, but `src/data.mjs`
@@ -126,21 +144,6 @@ new content-level finding is open, and known residual gaps remain:
    process/policy links, entity links, and raw source URLs. Citations retain
    bibliographic fields and verified `sourceIds`. Both slices are rendered in
    the Open Source Map and covered by the static-site contract.
-6. **Governance glossary intentionally not exported (open, 2026-07-14).**
-   `library/resources/definitions/glossary.json` (79 terms, private repo) is
-   never projected onto this site. Only 7 of 79 terms are `core_concept`
-   (Active Inference, Bayesian Inference, Free Energy Principle, Generative
-   Model, Markov Blanket, Variational Free Energy, ReInference); the remaining
-   72 are `governance`/`legal_compliance`/`it_security`/`organisation`/
-   `policy_framework`/`financial`/`values` — the exact content class removed
-   from this site on 2026-07-05 (see item 3 above). A comprehensive audit
-   flagged this as a finding and deliberately did **not** build an export for
-   it, since doing so risks silently reversing that removal. **Unblocking
-   requires a human editorial call** on whether any subset (most plausibly
-   just the 7 `core_concept` terms) is public-appropriate, before any exporter
-   or page work is done. Until that decision is made, do not add a glossary
-   export.
-
 ## The rule for contributors
 
 Public structured content must be injected only through the sanitizing pipelines

@@ -158,9 +158,10 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(pageDescription)}">
   <meta name="twitter:image" content="${escapeHtml(ogImage)}">
+  <meta name="twitter:image:alt" content="${escapeHtml(tr("Active Inference Institute social card"))}">
   <meta name="generator" content="institute_website v${SITE_VERSION}">
   <link rel="stylesheet" href="${prefix}assets/css/instituteos-ds.css">
-  <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}${structuredData(localizedTitle, currentDir, canonicalUrl, slug, pageDescription, !!robots, lang)}
+  <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}${structuredData(localizedTitle, currentDir, canonicalUrl, slug, pageDescription, /noindex/.test(robots || ""), lang)}
 </head>
 <body class="${bodyClass}">
   <a class="skip-link" href="#main">${escapeHtml(tr("Skip to content"))}</a>

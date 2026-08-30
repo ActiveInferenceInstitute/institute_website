@@ -116,8 +116,18 @@ function build() {
   // path is the <loc>; the alternate for locale code C is the same path under
   // the C-prefixed subtree (default-locale paths already carry no prefix, so we
   // only prepend for non-default locales). x-default mirrors the English root.
+  // Utility pages whose non-default-locale variants are deliberately noindexed
+  // (e.g. the human sitemap: src/pages/sitemap.mjs) must NOT advertise those
+  // noindex targets in the hreflang cluster — hreflang pointing at a noindex
+  // page is a conflicting signal (see src/render/layout.mjs head comments).
+  const HREFLANG_EXCLUDED_SLUG_PATHS = new Set(["sitemap/index.html"]);
   const localeAlternatesFor = (defaultPath) => {
-    const alternates = LOCALES.map(
+    const eligible = LOCALES.filter(
+      (locale) =>
+        locale.code === DEFAULT_LOCALE ||
+        !HREFLANG_EXCLUDED_SLUG_PATHS.has(defaultPath),
+    );
+    const alternates = eligible.map(
       (locale) =>
         `  <xhtml:link rel="alternate" hreflang="${locale.code}" href="${absoluteUrl(
           locale.code === DEFAULT_LOCALE ? defaultPath : `${locale.code}/${defaultPath}`,

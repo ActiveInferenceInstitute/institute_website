@@ -238,7 +238,7 @@ This is the **largest and most complex gate**. It validates the entire content m
 - `resources.json`, `official-pages.json`, `repositories.json` have valid record shapes:
   - Required fields: `sourceId`, `type`, `category`, `audience`, `tags`, `summary`, `relatedSlugs`, `priority`, `promoted`
   - No `governance` category or audience exposed
-- Exactly N repositories in `repositories.json`, where N is the live count asserted in `check_site_contract.py` (currently 37 -- this drifts with `.gitmodules`, so treat the script as the source of truth rather than this doc)
+- Exactly N repositories in `repositories.json`, where N is the live count asserted in `check_site_contract.py` (currently 35 -- this drifts with `.gitmodules`, so treat the script as the source of truth rather than this doc)
 - At least 10 promoted official shortlinks in `official-pages.json`
 - `audience-pathways.json` defines exactly 6 required pathways: `newcomer`, `learner`, `researcher`, `developer`, `contributor`, `partner-supporter`
   - Each pathway has non-empty `primaryHref` and `links`
