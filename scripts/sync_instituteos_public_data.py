@@ -12,7 +12,7 @@ import shutil
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Iterator, Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -623,6 +623,17 @@ def validate_public_payload(data: Any, path: str) -> None:
         raise ValueError(f"{path} contains blocked email address(es) {found_emails!r}")
 
 
+def _iter_json_keys(data: Any) -> "Iterator[str]":
+    """Yield every object key in a nested JSON structure (values excluded)."""
+    if isinstance(data, dict):
+        for key, value in data.items():
+            yield key
+            yield from _iter_json_keys(value)
+    elif isinstance(data, list):
+        for item in data:
+            yield from _iter_json_keys(item)
+
+
 def validate_public_prose_payload(data: Any, path: str) -> None:
     """Prose-tuned public-safety gate for producer-2 graph/narrative slices.
 
@@ -630,10 +641,17 @@ def validate_public_prose_payload(data: Any, path: str) -> None:
     (resolved Coda destinations, absolute local paths, internal artifacts,
     emails, phone numbers) but tolerates structured-registry tokens that appear
     legitimately in public prose and graph node labels.
+
+    Private-key matching runs over actual JSON object KEYS (via
+    ``_iter_json_keys``), not the serialized document: a serialized substring
+    scan cannot distinguish a private key from a public VALUE that merely
+    quotes the same word (observed: a YouTube chapter legitimately titled
+    "Notes" inside ``videos.json`` tripped the old substring check).
     """
     serialized = json.dumps(data, ensure_ascii=False).lower()
+    lowered_keys = {key.lower() for key in _iter_json_keys(data)}
     for blocked in PROSE_PRIVATE_KEYS:
-        if f'"{blocked}"' in serialized:
+        if blocked in lowered_keys:
             raise ValueError(f"{path} contains blocked private key {blocked!r}")
     for blocked in PROSE_FORBIDDEN_SUBSTRINGS:
         if path == "newsletter.json" and blocked == "/users/":
