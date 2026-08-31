@@ -1,14 +1,14 @@
 {
   "slug": "2026",
   "title": "2026",
-  "subtitle": "Month-by-month overview of the Active Inference Institute's ongoing year, 2026.",
+  "subtitle": "Month-by-month overview of the Active Inference Institute's ongoing year, 2026, with hyperlinks to newsletters, projects, programs, and events through August.",
   "audience": "Members, participants, collaborators, and the public who want a consolidated, month-by-month view of the Institute's ongoing year in 2026.",
-  "lede": "2026 is the Active Inference Institute's ongoing year — a consolidated, month-by-month entry point to the activities, programs, and events that are running across the organization under the motto Act. Infer. Serve., in the same format as the 2025 annual overview. The Activities page and Calendar remain the most reliable way to see what's happening week to week. The detailed record continues to be maintained on the 2026 hub.",
+  "lede": "2026 is the Active Inference Institute's ongoing year — a consolidated, month-by-month entry point to the activities, programs, events, and newsletters that ran across the organization through August, under the motto Act. Infer. Serve. Every month links to its archived newsletter, and project, program, and governance entries link to their own pages. The Activities page and Calendar remain the most reliable way to see what is happening week to week. The detailed record continues to be maintained on the 2026 hub.",
   "order": 88,
   "sections": [
     {
       "heading": "The Year So Far",
-      "body": "2026 is in progress: two of four Quarterly Roundtables have livestreamed (March 27 and June 26), the call for presenters is open for the 6th Applied Active Inference Symposium (November 12–14, 2026), and the year opened with Institute Structure clarification alongside the new Board of Directors and Scientific Advisory Board. This page grows month by month as the year unfolds — the Activities page and Calendar are the most current view.\n\nFor the completed prior year, see the 2025 annual overview.",
+      "body": "Through August 2026: two of four Quarterly Roundtables have livestreamed (March 27 and June 26), seven monthly newsletters have been published (January through July, plus the August issue in preparation), the call for presenters is open for the 6th Applied Active Inference Symposium (November 12–14, 2026), and the year opened with Institute Structure clarification alongside the new Board of Directors and Scientific Advisory Board. InstituteOS — the Institute's open operating system — continues to grow across its registries and public repositories.\n\nThis page grows month by month as the year unfolds; each month links to its archived newsletter and to the projects and programs it touches. For the completed prior year, see the 2025 annual overview.",
       "links": [
         {
           "label": "Activities",
@@ -19,6 +19,10 @@
           "href": "/calendar/"
         },
         {
+          "label": "Open Source Map",
+          "href": "/open-source/"
+        },
+        {
           "label": "2025",
           "href": "/2025/"
         }
@@ -26,7 +30,7 @@
     },
     {
       "heading": "January",
-      "body": "Institute Programs and Activities begin for the year, and Institute Structure is clarified. Work continues with the Board of Directors and the Scientific Advisory Board, connected to Strategy and Ecosystem Development.\n\nThe January newsletter is published.",
+      "body": "Institute Programs and Activities begin for the year, and Institute Structure is clarified. Work continues with the Board of Directors and the Scientific Advisory Board, connected to Strategy and Ecosystem Development. The January newsletter is published.",
       "links": [
         {
           "label": "Institute structure",
@@ -39,29 +43,128 @@
         {
           "label": "Scientific Advisory Board",
           "href": "/scientific-advisory-board/"
+        },
+        {
+          "label": "January newsletter",
+          "href": "/newsletter/2026-january/"
         }
       ]
     },
     {
       "heading": "February",
-      "body": "The February newsletter is published, covering the month's Institute and Ecosystem activity.",
+      "body": "The February newsletter is published, covering the month's Institute and Ecosystem activity, with weekly updates continuing through the month.",
       "links": [
         {
-          "sourceId": "official-newsletter"
+          "label": "February newsletter",
+          "href": "/newsletter/2026-february/"
+        },
+        {
+          "label": "This Week",
+          "href": "/weekly/"
         }
       ]
     },
     {
       "heading": "March",
-      "body": "March 27 — 2026 Quarterly Roundtable #1. The March newsletter is also published."
+      "body": "March 27 — 2026 Quarterly Roundtable #1, livestreamed with quarterly expectations and results. The March newsletter is also published, and the Weekly Update program issues public announcements.",
+      "links": [
+        {
+          "label": "March newsletter",
+          "href": "/newsletter/2026-march/"
+        },
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
     },
     {
       "heading": "April",
-      "body": "The April newsletter is published."
+      "body": "The April newsletter is published, and project sessions continue across the research, learning, and open-source catalogs.",
+      "links": [
+        {
+          "label": "April newsletter",
+          "href": "/newsletter/2026-april/"
+        },
+        {
+          "label": "Projects",
+          "href": "/projects/"
+        }
+      ]
+    },
+    {
+      "heading": "May",
+      "body": "The May newsletter is published. Learning sessions and open participation meetings continue on their weekly rhythm.",
+      "links": [
+        {
+          "label": "May newsletter",
+          "href": "/newsletter/2026-may/"
+        },
+        {
+          "label": "Learning",
+          "href": "/learning/"
+        }
+      ]
     },
     {
       "heading": "June",
-      "body": "June 26 — 2026 Quarterly Roundtable #2."
+      "body": "June 26 — 2026 Quarterly Roundtable #2, livestreamed with quarterly expectations and results. The June newsletter is also published.",
+      "links": [
+        {
+          "label": "June newsletter",
+          "href": "/newsletter/2026-june/"
+        },
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "heading": "July",
+      "body": "The July newsletter is published. The Applied Active Inference Symposium page carries the year's flagship event planning; the call for presenters opens for November.",
+      "links": [
+        {
+          "label": "July newsletter",
+          "href": "/newsletter/2026-july/"
+        },
+        {
+          "label": "6th Applied Active Inference Symposium",
+          "href": "/projects/symposium/"
+        }
+      ]
+    },
+    {
+      "heading": "August",
+      "body": "Summer period: open participation meetings and learning groups continue, project work proceeds toward the Symposium cycle, and the August newsletter is in preparation. The Institute's open-source catalog — including InstituteOS itself — is updated continuously.",
+      "links": [
+        {
+          "label": "Newsletter archive",
+          "href": "/newsletter/"
+        },
+        {
+          "label": "Open Source Map",
+          "href": "/open-source/"
+        },
+        {
+          "label": "InstituteOS",
+          "href": "/instituteos/"
+        }
+      ]
+    },
+    {
+      "heading": "Coming up",
+      "body": "September onward: the third and fourth Quarterly Roundtables, and the 6th Applied Active Inference Symposium on November 12–14, 2026. Entries land on this page as months complete.",
+      "links": [
+        {
+          "label": "6th Applied Active Inference Symposium",
+          "href": "/projects/symposium/"
+        },
+        {
+          "label": "Activities",
+          "href": "/activities/"
+        }
+      ]
     },
     {
       "heading": "Full materials",
@@ -75,22 +178,22 @@
   ],
   "cards": [
     {
-      "title": "Governance for 2026",
-      "text": "January brings Institute Structure clarification and continued work with the Board of Directors and Scientific Advisory Board.",
-      "links": [
-        {
-          "label": "Institute structure",
-          "href": "/structure/"
-        }
-      ]
-    },
-    {
       "title": "Quarterly Roundtables",
       "text": "Two of the year's four 2026 Quarterly Roundtables have livestreamed so far — March 27 (#1) and June 26 (#2).",
       "links": [
         {
           "label": "Activities",
           "href": "/activities/"
+        }
+      ]
+    },
+    {
+      "title": "Newsletters",
+      "text": "Seven monthly newsletters published through July, archived on this site with full content.",
+      "links": [
+        {
+          "label": "Newsletter archive",
+          "href": "/newsletter/"
         }
       ]
     },
@@ -105,11 +208,12 @@
       ]
     },
     {
-      "title": "Newsletter",
-      "text": "Monthly newsletters cover Institute and Ecosystem activity as the year unfolds.",
+      "title": "Governance for 2026",
+      "text": "January brought Institute Structure clarification and continued work with the Board of Directors and Scientific Advisory Board.",
       "links": [
         {
-          "sourceId": "official-newsletter"
+          "label": "Institute structure",
+          "href": "/structure/"
         }
       ]
     }
