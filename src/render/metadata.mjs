@@ -13,9 +13,12 @@ export function buildManifest() {
         display: "standalone",
         background_color: "#050505",
         theme_color: "#050505",
+        id: "./",
         icons: [
-          { src: "assets/img/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
-          { src: "assets/img/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+          // PNG art has generous safe-zone padding (verified visually), so the
+          // same assets double as maskable icons for Android adaptive launchers.
+          { src: "assets/img/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any maskable" },
+          { src: "assets/img/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any maskable" },
           { src: "assets/img/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
         ],
       },
