@@ -5,7 +5,16 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
-## Unreleased
+- **Agent-ergonomics docs pass (2026-08-31).** Docs-only; no rendered-output
+  change. Root `AGENTS.md` gained a 30-second orientation ladder: repo/deploy
+  model, canonical `package.json` command cheat sheet, and an offline gate
+  table with observed runtimes and known-noise flags. Verified drift fixed:
+  `scripts/AGENTS.md` npm table now includes `check:i18n`/`check:standalone`
+  and matches the `check` chain; `docs/GATES_AND_VALIDATION.md` corrected
+  (11 sub-checks, 8 required JSON files, 35 repositories, derived record
+  counts, complete gate-chain diagram). The completed 2026-08-02 review log
+  moved to `docs/archive/REVIEW_LOG_2026-08-02.md` (pointer stub at root).
+  Duplicate `## Unreleased` header removed from this file.
 
 - **Deep-review fix pass (2026-08-30).** Verified findings from a full site,
   SEO, accessibility, and export-pipeline review:

@@ -6,6 +6,59 @@ Canonical domain (post-cutover): **[https://activeinference.institute/](https://
 site served at `activeinferenceinstitute.github.io/institute_website/`).
 See [SWITCHOVER.md](SWITCHOVER.md).
 
+## 30-second orientation
+
+**What this repo is:** a static, zero-runtime-dependency website for the
+Active Inference Institute, rendered by `node src/build.mjs` from JSON content
+under `src/content/` into clean-URL HTML that is **committed at the repo root**
+and served by GitHub Pages from `main`. Generated `*/index.html` must never be
+hand-edited — edit `src/`, rebuild. The repo is a gated public projection of
+private InstituteOS sources (see [GATING.md](GATING.md)).
+
+**Read order:** this section → [INDEX.md](INDEX.md) (full repo map) → the
+[`.claude/skills/institute-website/SKILL.md`](.claude/skills/institute-website/SKILL.md)
+skill (task workflows) → the doc-map table below. Concepts live in
+[docs/README.md](docs/README.md).
+
+**The loop for any change:** edit `src/` (or docs) → `node src/build.mjs` →
+`npm run check` → commit source **and** regenerated HTML together → push.
+Never commit private paths or internal tool names — every commit is public.
+
+**Canonical commands (verbatim from `package.json`):**
+
+| Command | What it does |
+| --- | --- |
+| `npm run build` | `node src/build.mjs` — render all public HTML + crawler files |
+| `npm run check` | `node --check src/build.mjs` + `py_compile` of all checkers + the 11 `check:*` sub-gates below |
+| `npm run i18n:extract` | `I18N_EXTRACT=1 node src/build.mjs` — extract translatable strings |
+| `npm run i18n:translate` | `node scripts/i18n_translate.mjs` — offline translation (Ollama/hosted API) |
+| `npm run check:sources` | `python3 scripts/check_live_sources.py src/content/live-sources.json` — **networked**, outside the offline `check` chain |
+| `npm run sync:instituteos` / `check:instituteos` | write / `--check` sanitized public data (`scripts/sync_instituteos_public_data.py`) |
+| `npm run sync:transcripts` / `check:transcripts` | write / `--check` video transcript excerpts (`scripts/sync_video_transcripts.py`) |
+
+**Offline gate table** (each `npm run check:<g>` sub-gate; runtimes below are
+cold-start wall-clock on an external-drive checkout, as observed 2026-08-31 —
+treat as order-of-magnitude):
+
+| Gate | Script | Checks | Observed runtime | Known noise |
+| --- | --- | --- | --- | --- |
+| `check:links` | `check_internal_links.py` | href/src/poster + `#fragment` anchors in every generated HTML | heavy-ish (parses all built HTML) | — |
+| `check:md-links` | `check_markdown_links.py` | relative links in tracked `*.md` | ~8 s | — |
+| `check:instituteos` | `sync_instituteos_public_data.py --check` | committed public-data parity/safety | medium | historical: `videos.json` "Notes" tripped a substring scan; key matching is now key-level only (`validate_public_prose_payload`), so it should not recur |
+| `check:design-system` | `check_design_system_export.mjs` | CSS token fallbacks + `instituteos-ds.css`/font byte-parity | medium | fails when the private design-system checkout is absent and the export is stale |
+| `check:site` | `check_site_contract.py` | the big content/structure contract (canonical URLs, registries, exact counts) | heavy | the one hardcoded count is 35 repositories; everything else is derived from content |
+| `check:security` | `check_static_security.py` | CSP, no inline/external scripts, external anchors backed by `live-sources.json` or vetted hosts, PII scan | heavy | — |
+| `check:redirects` | `check_redirects.py` | redirect map vs `src/url-taxonomy.json` + build output | ~1 s | — |
+| `check:projects` | `check_project_discoverability.py` | every `website_slug` project has a page | <1 s | — |
+| `check:catalog` | `check_project_catalog_coverage.mjs` | every project page linked from built `/projects/` | fast | — |
+| `check:i18n` | `node --test scripts/test_i18n_translate.mjs` | translation-helper logic (masking, degeneration guard) | ~7 s | — |
+| `check:standalone` | `check_standalone_payloads.py` | the CI-only (no-InstituteOS-root) sync branch | ~37 s | — |
+
+Full gate reference with failure messages and fixes:
+[docs/GATES_AND_VALIDATION.md](docs/GATES_AND_VALIDATION.md). Gating contract
+for public data: [GATING.md](GATING.md). Deep docs are pointed at below and are
+not duplicated here.
+
 ## Documentation map
 
 Start here, then open the most specific doc for your task:

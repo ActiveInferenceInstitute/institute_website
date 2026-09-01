@@ -263,6 +263,27 @@ Second wave of verified findings from the two completed audit subagents
       i18n backlog above; not part of this docs pass.
 - [ ] **Per-page `lastmod` in sitemap.xml** — existing deferred item; unchanged.
 
+## Agent-ergonomics documentation pass — 2026-08-31
+
+- [x] **Root AGENTS.md orientation ladder** — added a 30-second orientation
+      (repo model, deploy = Pages from `main`, generated HTML committed), a
+      verbatim `package.json` command cheat sheet, and an offline gate table
+      with observed cold-start runtimes and known-noise flags.
+- [x] **Verified doc drift fixed** — `scripts/AGENTS.md` npm table gained the
+      missing `check:i18n`/`check:standalone` rows and the `npm run check`
+      chain listing matches `package.json`; `docs/GATES_AND_VALIDATION.md`:
+      9 → 11 sub-checks, 7 → 8 required JSON files (matches
+      `REQUIRED_PUBLIC_JSON_FILES`), "currently 37" → 35 repositories (matches
+      `check_site_contract.py`), example failure message corrected, gate chain
+      diagram extended with `check:i18n`/`check:standalone`, record-counts
+      section rewritten (counts are derived; only the 35-repository count is
+      hardcoded).
+- [x] **REVIEW_LOG_2026-08-02.md archived** to
+      [docs/archive/REVIEW_LOG_2026-08-02.md](docs/archive/REVIEW_LOG_2026-08-02.md)
+      with a pointer stub at the root — the pass is complete and its findings
+      live in the CHANGELOG entry and this file's 2026-08-02 section.
+- [x] **CHANGELOG.md duplicate `## Unreleased` header** removed.
+
 ## Conventions
 
 - Edit `src/content/*` and `src/build.mjs`; never hand-edit generated `*.html`.

@@ -13,7 +13,7 @@ sync, and translate that source. Run gates with no network access.
 | Command | Runs |
 | --- | --- |
 | `npm run build` | `node src/build.mjs` — render HTML + crawler files |
-| `npm run check` | `node --check` the build, `py_compile` every checker, then `check:links` → `check:md-links` → `check:instituteos` → `check:design-system` → `check:site` → `check:security` → `check:redirects` → `check:projects` → `check:catalog` |
+| `npm run check` | `node --check` the build, `py_compile` every checker, then `check:links` → `check:md-links` → `check:instituteos` → `check:design-system` → `check:site` → `check:security` → `check:redirects` → `check:projects` → `check:catalog` → `check:i18n` → `check:standalone` |
 | `npm run check:links` | [`check_internal_links.py`](check_internal_links.py) |
 | `npm run check:md-links` | [`check_markdown_links.py`](check_markdown_links.py) |
 | `npm run check:instituteos` | [`sync_instituteos_public_data.py`](sync_instituteos_public_data.py) `--check` |
@@ -29,6 +29,8 @@ sync, and translate that source. Run gates with no network access.
 | `npm run i18n:translate` | [`i18n_translate.mjs`](i18n_translate.mjs) |
 | `npm run sync:transcripts` | [`sync_video_transcripts.py`](sync_video_transcripts.py) — syncs video transcript excerpts from ActiveInferenceJournal |
 | `npm run check:transcripts` | `sync_video_transcripts.py --check` — validates transcript records |
+| `npm run check:i18n` | `node --test scripts/test_i18n_translate.mjs` — translation-helper logic (masking, degeneration guard) |
+| `npm run check:standalone` | [`check_standalone_payloads.py`](check_standalone_payloads.py) — exercises the CI-only (no-InstituteOS-root) fallback branch of the sync `--check` |
 
 `npm run check` is the offline gate (Python + Node, no network). Run it before
 committing any content or build change.
