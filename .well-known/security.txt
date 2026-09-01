@@ -1,4 +1,4 @@
 Contact: mailto:blanket@activeinference.institute
-Expires: 2027-08-28T20:22:04.355Z
+Expires: 2027-09-01T02:13:17.479Z
 Preferred-Languages: en
 Canonical: https://activeinference.institute/.well-known/security.txt
