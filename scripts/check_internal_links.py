@@ -17,7 +17,24 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 # of the first-party generated site, so it is excluded from link checking.
 SKIP_DIRS = {".git", ".cache", "node_modules", "scripts", "src", "simulations"}
 LOCAL_ATTRS = {"href", "src", "poster"}
-EXTERNAL_SCHEMES = {"http", "https", "mailto", "tel", "sms", "data", "javascript"}
+EXTERNAL_SCHEMES = {"http", "https", "mailto", "tel", "sms", "data"}
+
+
+def srcset_candidates(value: str) -> list[str]:
+    """First URL of each comma-separated srcset candidate.
+
+    A srcset value is a comma-separated list of "<url> [descriptor]" pairs, so
+    splitting on commas and taking each candidate's first whitespace token
+    yields the URL list. Data URLs legitimately contain commas, but a data:
+    srcset candidate is never a local file reference, so it is dropped rather
+    than mis-split.
+    """
+    urls: list[str] = []
+    for candidate in value.split(","):
+        url = candidate.strip().split(" ", 1)[0] if candidate.strip() else ""
+        if url and not url.startswith("data:"):
+            urls.append(url)
+    return urls
 
 
 class LinkParser(HTMLParser):
@@ -32,6 +49,9 @@ class LinkParser(HTMLParser):
         for name, value in attrs:
             if name in LOCAL_ATTRS and value:
                 self.links.append((tag, value))
+            if name == "srcset" and value:
+                for url in srcset_candidates(value):
+                    self.links.append((tag, url))
             if name in ("id", "name") and value:
                 self.fragments.add(value)
 
@@ -125,6 +145,11 @@ def check_links(root: Path) -> int:
         parser.feed(html_file.read_text(encoding="utf-8"))
         fragment_cache[html_file] = parser.fragments
         for tag, raw_url in parser.links:
+            if urlparse(raw_url).scheme == "javascript":
+                # javascript: URLs must never render in generated output; they
+                # are a CSP violation and silently break under the strict policy.
+                errors.append(f"{html_file.relative_to(root)} {tag} javascript: URL must never render: {raw_url}")
+                continue
             try:
                 target, fragment = resolve_local_reference(html_file, raw_url, root, base_prefix)
             except ValueError as exc:

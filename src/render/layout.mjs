@@ -15,7 +15,7 @@ import { tr, activeLocale, localeMeta, isDefaultLocale, LOCALES, DEFAULT_LOCALE 
 function languageSwitcher(slug, currentDir, lang) {
   const items = LOCALES.map((locale) => {
     const href = crossLocaleHref(slug || "index", currentDir, locale.code);
-    const current = locale.code === lang ? ' aria-current="true"' : "";
+    const current = locale.code === lang ? ' aria-current="page"' : "";
     return `<a hreflang="${locale.code}" lang="${locale.code}" href="${escapeHtml(href)}"${current}>${escapeHtml(locale.nativeName)}</a>`;
   }).join("");
   return `<details class="lang-switcher">
@@ -63,8 +63,12 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   // A noindexed page must not advertise itself as part of an hreflang cluster,
   // and pages whose locale variants are noindexed (hreflang: false) advertise
   // none at all — Google treats hreflang links to noindexed URLs as conflicting
-  // signals and picks its own canonical.
-  const hreflangLinks = hreflang && !robots.includes("noindex") ? localeAlternateLinks(slug) : "";
+  // signals and picks its own canonical. The same suppression applies to
+  // og:locale:alternate: a noindexed page (or one whose non-default-locale
+  // variants are noindexed, e.g. the sitemap/search utility pages) must not
+  // advertise translations either.
+  const hreflangEligible = hreflang && !robots.includes("noindex");
+  const hreflangLinks = hreflangEligible ? localeAlternateLinks(slug) : "";
   // Machine-translated locales carry a visible, honest provenance note linking
   // back to the authoritative English original.
   const mtNotice =
@@ -146,12 +150,12 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   <meta property="og:site_name" content="${escapeHtml(siteData.site.name)}">
   <meta property="og:title" content="${escapeHtml(pageTitle)}">
   <meta property="og:description" content="${escapeHtml(pageDescription)}">
-  <meta property="og:locale" content="${escapeHtml(ogLocaleFor(lang))}">${ogLocaleAlternatesFor(lang)}
+  <meta property="og:locale" content="${escapeHtml(ogLocaleFor(lang))}">${hreflangEligible ? ogLocaleAlternatesFor(lang) : ""}
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}">
   <meta property="og:image" content="${escapeHtml(ogImage)}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="${escapeHtml(`${siteData.site.name} — ${pageTitle}`)}">
+  <meta property="og:image:alt" content="${escapeHtml(pageTitle === siteData.site.name ? pageTitle : `${siteData.site.name} — ${pageTitle}`)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@InferenceActive">
   <meta name="twitter:creator" content="@InferenceActive">

@@ -150,7 +150,8 @@
     for (var j = 0; j < PREFIX_REDIRECTS.length; j++) {
       var rule = PREFIX_REDIRECTS[j];
       if (rest.indexOf(rule.from) === 0) {
-        dest = localePrefix + rule.to + rest.slice(rule.from.length) + "/";
+        var tail = rest.slice(rule.from.length);
+        dest = localePrefix + rule.to + (tail ? tail + "/" : "");
         break;
       }
     }

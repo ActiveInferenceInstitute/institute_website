@@ -1,6 +1,6 @@
 import { urlDirForSlug, hrefForSlug } from "../url-taxonomy.mjs";
 import { escapeHtml } from "../lib/text.mjs";
-import { activeLocale, isDefaultLocale } from "../i18n/index.mjs";
+import { tr, activeLocale, isDefaultLocale } from "../i18n/index.mjs";
 import { siteData, ALL_ROUTED_SLUGS } from "../data.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
@@ -35,7 +35,7 @@ export function sitemapPage() {
   // sitemap (ALL_ROUTED_SLUGS minus the curated siteData.pages slugs).
   const curatedSlugs = new Set(siteData.pages.map((page) => page.slug));
   const sectionRows = ALL_ROUTED_SLUGS.filter((slug) => !curatedSlugs.has(slug)).map((slug) => ({
-    label: SITEMAP_SECTION_LABELS[slug] || slug,
+    label: SITEMAP_SECTION_LABELS[slug] ? tr(SITEMAP_SECTION_LABELS[slug]) : slug,
     summary: "",
     href: hrefForSlug(slug, currentDir),
   }));
@@ -45,34 +45,36 @@ export function sitemapPage() {
   const topicRows = ecosystemTopics().map((topic) => ({
     label: topic.label ?? topic.title,
     summary: topic.projects.length
-      ? `${topic.projects.length} public project${topic.projects.length === 1 ? "" : "s"} mapped to this topic.`
-      : "Public Institute narrative for this area of the Active Inference ecosystem.",
+      ? topic.projects.length === 1
+        ? tr("1 public project mapped to this topic.")
+        : tr("{n} public projects mapped to this topic.").replace("{n}", topic.projects.length)
+      : tr("Public Institute narrative for this area of the Active Inference ecosystem."),
     href: hrefForSlug(`ecosystem/${topic.slug}`, currentDir),
   }));
-  const linkColumn = { label: "Page", render: (item) => `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>` };
-  const summaryColumn = { label: "Summary", render: (item) => escapeHtml(item.summary) };
+  const linkColumn = { label: tr("Page"), render: (item) => `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>` };
+  const summaryColumn = { label: tr("Summary"), render: (item) => escapeHtml(item.summary) };
   const body = `
   <section class="page-hero compact">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><span>Sitemap</span></nav>
-    <p class="eyebrow">Site index</p>
-    <h1>Sitemap</h1>
-    <p>A human-readable index of every public Active Inference Institute page. The same set of pages is published in the <a href="${hrefForSlug("directory", currentDir)}">directory</a> and as a machine-readable XML sitemap for crawlers.</p>
+    <nav class="breadcrumb" aria-label="${escapeHtml(tr("Breadcrumb"))}"><a href="${hrefForSlug("index", currentDir)}">${escapeHtml(tr("Home"))}</a><span aria-hidden="true">/</span><span>${escapeHtml(tr("Sitemap"))}</span></nav>
+    <p class="eyebrow">${escapeHtml(tr("Site index"))}</p>
+    <h1>${escapeHtml(tr("Sitemap"))}</h1>
+    <p>${escapeHtml(tr("A human-readable index of every public Active Inference Institute page. The same set of pages is published in the"))} <a href="${hrefForSlug("directory", currentDir)}">${escapeHtml(tr("directory"))}</a> ${escapeHtml(tr("and as a machine-readable XML sitemap for crawlers."))}</p>
   </section>
   <section class="content-band" id="sitemap-sections">
     ${sectionHeading({ eyebrow: "Sections", title: "Sections and tools" })}
-    ${dataTable({ caption: "Top-level sections and site tools.", columns: [linkColumn], rows: sectionRows })}
+    ${dataTable({ caption: tr("Top-level sections and site tools."), columns: [linkColumn], rows: sectionRows })}
   </section>
   <section class="content-band muted" id="sitemap-pages">
-    ${sectionHeading({ eyebrow: "Pages", title: `${curatedRows.length} curated public pages` })}
-    ${dataTable({ caption: "Every curated public page.", columns: [linkColumn, summaryColumn], rows: curatedRows })}
+    ${sectionHeading({ eyebrow: "Pages", title: tr("{n} curated public pages").replace("{n}", curatedRows.length) })}
+    ${dataTable({ caption: tr("Every curated public page."), columns: [linkColumn, summaryColumn], rows: curatedRows })}
   </section>
   <section class="content-band" id="sitemap-topics">
-    ${sectionHeading({ eyebrow: "Topics", title: `${topicRows.length} ecosystem topic pages` })}
-    ${dataTable({ caption: "Every ecosystem topic page.", columns: [linkColumn, summaryColumn], rows: topicRows })}
+    ${sectionHeading({ eyebrow: "Topics", title: tr("{n} ecosystem topic pages").replace("{n}", topicRows.length) })}
+    ${dataTable({ caption: tr("Every ecosystem topic page."), columns: [linkColumn, summaryColumn], rows: topicRows })}
   </section>`;
   return layout({
-    title: "Sitemap",
-    description: "Human-readable index of every public Active Inference Institute page.",
+    title: tr("Sitemap"),
+    description: tr("Human-readable index of every public Active Inference Institute page."),
     currentDir,
     body,
     slug: "sitemap",

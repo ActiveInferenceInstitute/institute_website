@@ -118,8 +118,9 @@ Projects public-safe slices of the InstituteOS registries into
 guard: it serializes each payload and raises on any blocked private key
 (`email`, `phone`, `contacts`, `slack`, …), forbidden substring (`coda.io`,
 `/users/`, `workspace`, `aii.pdf`, …), or email-pattern match. `public_text`
-scrubs sensitive wording, and per-record `record_is_public_safe` drops a single
-colliding row so the surviving payload passes untouched.
+scrubs sensitive wording, and per-record `record_public_unsafe_reason` drops a single
+colliding row (printing the record id and reason to stderr) so the surviving
+payload passes untouched.
 
 ## [`check_live_sources.py`](check_live_sources.py) (`check:sources`)
 

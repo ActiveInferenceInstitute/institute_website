@@ -2,11 +2,13 @@ import { siteData } from "../data.mjs";
 import { outputPathForSlug } from "../url-taxonomy.mjs";
 import { absoluteUrl } from "./urls.mjs";
 import { newsletterIssueOutputPath, newsletterRecords } from "../pages/newsletter.mjs";
+import { rowAnchor } from "./text.mjs";
 import { ecosystemTopics } from "../pages/ecosystem.mjs";
 
 export function buildSearchIndex() {
   // Embedded, self-hosted client-side search index (no fetch — CSP-safe). Curated
-  // pages carry unique destinations; Open Source Map records resolve to /knowledge/.
+  // pages carry unique destinations; Open Source Map records deep-link to their
+  // own table row on /knowledge/ (same rowAnchor ids the knowledge renderer emits).
   const knowledgeUrl = absoluteUrl(outputPathForSlug("knowledge"));
   const osm = siteData.instituteos;
   const entries = [];
@@ -19,22 +21,22 @@ export function buildSearchIndex() {
     });
   }
   for (const record of osm.projects.records || []) {
-    entries.push({ t: record.title, u: knowledgeUrl, k: `${record.summary || ""} ${(record.tags || []).join(" ")}`.slice(0, 180), c: "Repository" });
+    entries.push({ t: record.title, u: `${knowledgeUrl}#${rowAnchor("project", record.id)}`, k: `${record.summary || ""} ${(record.tags || []).join(" ")}`.slice(0, 180), c: "Repository" });
   }
   for (const record of osm.ideas.records || []) {
-    entries.push({ t: record.label, u: knowledgeUrl, k: String(record.summary || "").slice(0, 180), c: "Concept" });
+    entries.push({ t: record.label, u: `${knowledgeUrl}#${rowAnchor("idea", record.id)}`, k: String(record.summary || "").slice(0, 180), c: "Concept" });
   }
   for (const record of osm.policies.records || []) {
-    entries.push({ t: record.title, u: knowledgeUrl, k: String(record.category || ""), c: "Policy" });
+    entries.push({ t: record.title, u: `${knowledgeUrl}#${rowAnchor("policy", record.id)}`, k: String(record.category || ""), c: "Policy" });
   }
   for (const record of osm.programs.records || []) {
-    entries.push({ t: record.name, u: knowledgeUrl, k: `${record.category || ""} ${(record.topics || []).join(" ")} ${record.summary || ""}`.slice(0, 180), c: "Program" });
+    entries.push({ t: record.name, u: `${knowledgeUrl}#${rowAnchor("program", record.id)}`, k: `${record.category || ""} ${(record.topics || []).join(" ")} ${record.summary || ""}`.slice(0, 180), c: "Program" });
   }
   for (const record of osm.citations.records || []) {
-    entries.push({ t: record.title, u: knowledgeUrl, k: `${(record.authors || []).join(" ")} ${record.venue || ""} ${record.year || ""} ${(record.tags || []).join(" ")}`.slice(0, 180), c: "Literature" });
+    entries.push({ t: record.title, u: `${knowledgeUrl}#${rowAnchor("citation", record.id)}`, k: `${(record.authors || []).join(" ")} ${record.venue || ""} ${record.year || ""} ${(record.tags || []).join(" ")}`.slice(0, 180), c: "Literature" });
   }
   for (const record of osm.entities.people || []) {
-    entries.push({ t: record.name, u: knowledgeUrl, k: (record.roles || []).join(" "), c: "Person" });
+    entries.push({ t: record.name, u: `${knowledgeUrl}#${rowAnchor("member", record.id)}`, k: (record.roles || []).join(" "), c: "Person" });
   }
   // Canonical /search/ URL so the header quick-search can offer a "See all
   // results" link (CSP-safe: a self-origin internal href, no fetch).

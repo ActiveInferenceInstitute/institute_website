@@ -738,10 +738,6 @@
           "role": "accountable"
         },
         {
-          "policyId": "active-inference-policy-development-standard",
-          "role": "accountable"
-        },
-        {
           "policyId": "ai-instructions",
           "role": "accountable"
         },

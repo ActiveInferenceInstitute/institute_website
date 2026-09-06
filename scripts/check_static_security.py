@@ -54,6 +54,29 @@ ALLOWED_INSTITUTEOS_ASSETS = {"ActInferServe.png", "Dark_ActInfServe.png"}
 # their digit groups happen to fall into 3-3-4 shape. A real phone number is
 # never glued directly onto a preceding letter/digit.
 EMAIL_RE = re.compile(r"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}", re.IGNORECASE)
+# HTML attribute names scanned for PII in addition to rendered visible text:
+# exact names, plus any attribute starting with PII_ATTRS_PREFIXES (data-*).
+PII_ATTRS = {"title", "alt", "aria-label", "content"}
+
+PII_ATTRS_PREFIXES = ("data-",)
+
+def jsonld_bodies(path: Path) -> list[str]:
+    """Raw text of every JSON-LD script body in an HTML file."""
+    raw = path.read_text(encoding="utf-8", errors="replace")
+    return re.findall(
+        r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',
+        raw,
+        re.IGNORECASE | re.DOTALL,
+    )
+
+
+def pii_data_files() -> list[Path]:
+    """Root-level JSON data files whose committed values are PII-scanned."""
+    paths = [PROJECT_ROOT / "feed.json"]
+    paths.extend(sorted((PROJECT_ROOT / "data").glob("*.json")))
+    return [path for path in paths if path.is_file()]
+
+
 PHONE_RE = re.compile(r"(?<![A-Za-z0-9])(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}")
 # Genuine public-by-design contact addresses, vetted by hand against their
 # source content (never a raw leak): the Institute's general-inquiries address
@@ -155,6 +178,42 @@ def generated_html_files() -> list[Path]:
     )
 
 
+def shipped_svg_files() -> list[Path]:
+    """Shipped SVG assets (not generated pages, which the HTML loop covers)."""
+    assets = PROJECT_ROOT / "assets" / "img"
+    return sorted(assets.glob("*.svg"))
+
+
+def check_svg(path: Path) -> list[str]:
+    """Deterministic text-level scan of an SVG for script injection vectors.
+
+    SVG is XML served from the origin, so the same contract as HTML applies:
+    no <script> elements, no on* event handler attributes, and no
+    <foreignObject> (which would embed raw HTML/foreign markup the XML
+    otherwise never executes). Deliberately simple: parse as XML, plus a raw
+    case-insensitive substring sweep, so nothing slips through entity or
+    namespace games.
+    """
+    errors: list[str] = []
+    raw = path.read_text(encoding="utf-8", errors="replace")
+    lower = raw.lower()
+    if "<script" in lower:
+        errors.append(f"{path.relative_to(PROJECT_ROOT)}: shipped SVG contains <script>")
+    if "foreignobject" in lower:
+        errors.append(f"{path.relative_to(PROJECT_ROOT)}: shipped SVG contains <foreignObject>")
+    for match in re.finditer(r"\bon[a-z]+\s*=", raw, re.IGNORECASE):
+        errors.append(f"{path.relative_to(PROJECT_ROOT)}: shipped SVG event handler attribute {match.group(0)!r}")
+    # XML well-formedness: a malformed SVG must not ship (it would fail to
+    # render and could hide content from scanners that parse leniently).
+    try:
+        import xml.etree.ElementTree as ET
+
+        ET.parse(path)
+    except ET.ParseError as exc:
+        errors.append(f"{path.relative_to(PROJECT_ROOT)}: shipped SVG is not valid XML: {exc}")
+    return errors
+
+
 def external_url(value: str) -> bool:
     return urlparse(value).scheme in {"http", "https"}
 
@@ -241,6 +300,9 @@ def check_security() -> int:
     if not html_files:
         errors.append("no generated HTML files found")
 
+    for svg_path in shipped_svg_files():
+        errors.extend(check_svg(svg_path))
+
     for html_path in html_files:
         relative = html_path.relative_to(PROJECT_ROOT)
         parser = parse_html(html_path)
@@ -317,14 +379,24 @@ def check_security() -> int:
             if not {"noopener", "noreferrer"}.issubset(rel_tokens):
                 errors.append(f"{relative}: external anchor missing noopener noreferrer: {href}")
 
-        # PII scan: rendered visible text (prose, not script/style bodies) plus
-        # mailto: anchor targets, which can carry an address never printed in
-        # the page's own text (e.g. a "Join the mailing list" link). Matches
-        # against VETTED_PUBLIC_EMAILS are intentional public contacts and are
-        # not reported; everything else is a contract violation. The matched
-        # value itself is never printed — only a redacted fingerprint — so a
-        # real finding cannot leak PII into CI logs via this checker.
+        # PII scan: rendered visible text (prose, not script/style bodies),
+        # mailto: anchor targets (which can carry an address never printed in
+        # the page's own text, e.g. a "Join the mailing list" link), HTML
+        # attribute values (title/alt/aria-label/data-*/content) and JSON-LD
+        # script bodies. Matches against VETTED_PUBLIC_EMAILS are intentional
+        # public contacts and are not reported; everything else is a contract
+        # violation. The matched value itself is never printed — only a
+        # redacted fingerprint — so a real finding cannot leak PII into CI
+        # logs via this checker.
         page_text = " ".join(parser.text_chunks)
+        for tag, attrs in parser.tags:
+            for name, value in attrs.items():
+                if value and (name in PII_ATTRS or name.startswith(PII_ATTRS_PREFIXES)):
+                    page_text += " " + value
+        # JSON-LD script bodies: the parser records attrs only, so capture the
+        # structured-data text separately from the raw source.
+        for body in jsonld_bodies(html_path):
+            page_text += " " + body
         pii_findings = set(find_pii(page_text))
         vetted_lower = {allowed.lower() for allowed in VETTED_PUBLIC_EMAILS}
         for anchor in parser.anchors:
@@ -336,6 +408,15 @@ def check_security() -> int:
         for kind, value in sorted(pii_findings):
             errors.append(
                 f"{relative}: possible {kind} address found in rendered output {_redact(value)} — "
+                "vet the source content; if this is a genuine, intentional public contact point, "
+                "add it to VETTED_PUBLIC_EMAILS, otherwise remove it"
+            )
+
+    for data_path in pii_data_files():
+        findings = find_pii(data_path.read_text(encoding="utf-8", errors="replace"))
+        for kind, value in sorted(set(findings)):
+            errors.append(
+                f"{data_path.relative_to(PROJECT_ROOT)}: possible {kind} address found in committed data {_redact(value)} — "
                 "vet the source content; if this is a genuine, intentional public contact point, "
                 "add it to VETTED_PUBLIC_EMAILS, otherwise remove it"
             )

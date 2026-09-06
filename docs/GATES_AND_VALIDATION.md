@@ -230,8 +230,8 @@ This is the **largest and most complex gate**. It validates the entire content m
 - `navigation.json` must define grouped dropdown navigation with `items` in each group
 - Required navigation destination slugs exist: `directory`, `resources`, `projects`, `get-involved`, `instituteos`
 - `live-sources.json` has no duplicate IDs
-- All 22 required source IDs are present and marked `ok: true`:
-  - `official-activeinference-org`, `start-docs`, `ecosystem`, `official-activities-shortlink`, `official-intern`, `official-measure`, `official-projects-shortlink`, `official-symposium-shortlink`, `official-textbook-group-shortlink`, `official-volunteer`, `shortlink-2025`, `shortlink-fellows`, `shortlink-mentorship`, `shortlink-obsidian`, `shortlink-ontology`, `shortlink-prepare`, `shortlink-rxinfer`, `shortlink-strategy`, `shortlink-wave-hypothesis`, `shortlink-welcome`, `video`, `weekly`
+- All 23 required source IDs are present and marked `ok: true`:
+  - `ecosystem`, `official-activeinference-org`, `official-activities-shortlink`, `official-intern`, `official-measure`, `official-projects-shortlink`, `official-symposium-shortlink`, `official-textbook-group-shortlink`, `official-volunteer`, `shortlink-2025`, `shortlink-fellows`, `shortlink-mentorship`, `shortlink-obsidian`, `shortlink-ontology`, `shortlink-prepare`, `shortlink-rxinfer`, `shortlink-strategy`, `shortlink-wave-hypothesis`, `shortlink-welcome`, `start-docs`, `symposium-2026-register`, `video`, `weekly`
 - No blocked governance source IDs: `official-board`, `official-officers`, `official-scientific-advisory-board`, `shortlink-bod`, `shortlink-sab`
 - No `"category": "Governance"` in `live-sources.json`
 - No direct `coda.io` URLs in `live-sources.json` public `url` field
@@ -281,7 +281,7 @@ Site contract check failed:
 - `official-pages` and `repositories` sections render resource cards
 - Every external anchor on a page is either:
   - In `live-sources.json` with `ok: true`, or
-  - On a vetted host: `youtube.com`, `youtu.be`, `activeinference.institute`, `github.com`, `zoom.us`, `meet.google.com`, `twitch.tv`, `odysee.com`
+  - On a vetted host: `youtube.com`, `youtu.be`, `activeinference.institute`, `github.com`, `zoom.us`, `meet.google.com`, `twitch.tv`, `odysee.com`, `substack.com`, `doi.org`, `zenodo.org`, `arxiv.org`, `mdpi.com`, `readthedocs.io`, `ollama.com`, `future.com`, `beren.io`
 
 **Failure messages:**
 ```
@@ -314,7 +314,7 @@ Site contract check failed:
   - All categories as anchors (for deep links)
   - All promoted official pages and repositories as links
 - `knowledge/index.html` renders:
-  - 5 table section IDs: `people-table`, `projects-table`, `ideas-table`, `ontology-table`, `research-table`
+  - 5 table section IDs: `projects-table`, `ideas-table`, `ontology-table`, `programs-table`, `citations-table`
   - Filter IDs: `knowledge-search`, `knowledge-kind`, `knowledge-count`
   - Proper table structure: `<caption>`, `<thead>`, `scope="row"`
   - Data attributes: `data-knowledge-row`, `data-knowledge-kind`, `data-knowledge-search`
@@ -578,13 +578,7 @@ The strict **Content Security Policy (CSP)** and static-asset safety contract. A
 - Every external HTTP(S) link must be **backed**:
   - Exact match (or `/`-trimmed/suffixed variants) in `live-sources.json` with `ok: true`, OR
   - Host on the public vetted allowlist:
-    - `youtube.com`, `youtu.be`
-    - `activeinference.institute`
-    - `github.com`
-    - `zoom.us`
-    - `meet.google.com`
-    - `twitch.tv`
-    - `odysee.com`
+    - `youtube.com`, `youtu.be`, `activeinference.institute`, `github.com`, `zoom.us`, `meet.google.com`, `twitch.tv`, `odysee.com`, `substack.com`, `doi.org`, `zenodo.org`, `arxiv.org`, `mdpi.com`, `readthedocs.io`, `ollama.com`, `future.com`, `beren.io`
 - No direct `coda.io` links (banned outright)
 - Every external anchor must have `target="_blank"` (open in new tab)
 - Every external anchor must have `rel="noopener noreferrer"` (prevent tab hijacking)

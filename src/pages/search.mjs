@@ -37,5 +37,11 @@ export function searchPage() {
     currentDir,
     body,
     slug: "search",
+    // JS-only client shell with no crawlable content of its own (the noscript
+    // fallback links to the directory/knowledge pages instead). Mirror the
+    // sitemap page's robots handling so crawlers skip the shell but keep
+    // following its links. build.mjs excludes search/index.html from the XML
+    // sitemap and hreflang clusters to match.
+    robots: "noindex,follow",
   });
 }

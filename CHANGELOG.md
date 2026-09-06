@@ -5,6 +5,41 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **Cross-repo deep review pass (2026-09-04).** Findings from an adversarially
+  verified review of the site, its gates, and the private export pipeline that
+  feeds it; all gates re-run green after the changes.
+  - Gates: shipped SVGs are scanned (script/handler/foreignObject); the export
+    manifest is verified per entry against disk (existence, sha256,
+    `record_count`) instead of only string-printed in HTML; PII scanning now
+    covers HTML attribute values, JSON-LD bodies, `feed.json`, and `data/*.json`;
+    canonical URLs are checked for exact per-page equality and the sitemap is
+    set-equality-checked against the generated clean-URL page set;
+    `check_internal_links` parses `srcset` and rejects `javascript:` hrefs;
+    `GATES_AND_VALIDATION.md` lists regenerated from the script constants
+    (23 required source IDs, 17 vetted hosts, current knowledge-table ids).
+  - Private-infrastructure leaks removed from committed public data:
+    `live-sources.json` `sourceBasis` strings no longer reference internal
+    tool paths or the private wiki ("library/..." paths, "private wiki
+    export"); a LinkedIn entry recorded as HTTP 404 is now `ok: false`.
+  - Producer-1 gate hardening: the strict registry gate gained the phone-value
+    scan; defense-in-depth validation now also covers `data/projects.json` and
+    `src/content/pages/domains/*.json`; person/SAB URLs are no longer passed
+    through the prose word-replacer (URLs were silently corrupted); records
+    dropped by the public-safety filter now warn with the record id.
+  - Presentation: `/search/` is `noindex,follow` and excluded from
+    `sitemap.xml`/hreflang (JS-only shell was fully indexable across 12
+    locales); feeds merge the newsletter archive (59 items, newest first) with
+    `<lastBuildDate>` added and invalid-date items skipped; programmatic pages
+    (newsletter archive, sitemap, simulations, video detail) wrap visible
+    English strings in `tr()`; video records load in sorted (deterministic)
+    order; `og:image:alt` no longer stutters on the homepage; PWA icons split
+    `any`/`maskable`; `security.txt` omits `Expires` rather than falling back
+    to a stale hardcoded date; duplicate nav entries ("START Docs",
+    "Global Index") removed from `navigation.json`; site.js repo sorting is
+    null-safe and redirects.js no longer double-slashes empty prefix
+    destinations; `version.json` `pages` now counts sitemap-routed pages so it
+    matches the strengthened sitemap check.
+
 - **Agent-ergonomics docs pass (2026-08-31).** Docs-only; no rendered-output
   change. Root `AGENTS.md` gained a 30-second orientation ladder: repo/deploy
   model, canonical `package.json` command cheat sheet, and an offline gate

@@ -6,6 +6,7 @@ import { escapeHtml } from "../lib/text.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
 import { absoluteUrl } from "../render/urls.mjs";
+import { tr } from "../i18n/index.mjs";
 
 const _dir = path.dirname(fileURLToPath(import.meta.url));
 const transcriptDir = path.join(_dir, "..", "content", "video-transcripts");
@@ -14,8 +15,8 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 
 function formatDate(iso) {
   const s = String(iso || "");
-  if (s.length < 10) return s || "Undated";
-  const month = MONTHS[Number(s.slice(5, 7)) - 1] || "";
+  if (s.length < 10) return s || tr("Undated");
+  const month = tr(MONTHS[Number(s.slice(5, 7)) - 1]) || "";
   const day = String(Number(s.slice(8, 10)) || "");
   const year = s.slice(0, 4);
   return `${month} ${day}, ${year}`;
@@ -25,7 +26,7 @@ function formatDate(iso) {
 export function loadVideoRecords() {
   const records = [];
   if (!fs.existsSync(transcriptDir)) return records;
-  for (const entry of fs.readdirSync(transcriptDir)) {
+  for (const entry of fs.readdirSync(transcriptDir).sort()) {
     if (!entry.endsWith(".json")) continue;
     const full = path.join(transcriptDir, entry);
     try {
@@ -74,10 +75,8 @@ function videoObjectSchema(record, canonicalUrl) {
     "@context": "https://schema.org",
     "@type": "VideoObject",
     "@id": `${canonicalUrl}#video`,
-    name: record.title || "Video session",
-    description: record.transcriptExcerpt
-      ? record.transcriptExcerpt.slice(0, 300).replace(/\s+/g, " ").trim() + "…"
-      : `Recorded session from ${record.series || "the Institute"}.`,
+    name: record.title || tr("Video session"),
+    description: buildDescription(record),
     // Google requires a non-empty ISO date for VideoObject rich results; fall
     // back to the series default rather than emitting an empty field.
     uploadDate: record.date || "2021-01-01",
@@ -91,28 +90,26 @@ function videoObjectSchema(record, canonicalUrl) {
 }
 
 /**
- * Build a rich meta description from the video record.
- * Uses transcript excerpt when available, falls back to metadata.
+ * Build a deterministic meta description from the record's structured fields.
+ * The raw ASR transcript opening previously fed the <meta>/OG description and
+ * truncated mid-sentence; the description is now a title/series/date summary so
+ * every video page advertises a clean, complete sentence. layout() runs the
+ * result through metaDescription() + escapeHtml(), so no extra escaping here.
  */
 function buildDescription(record) {
-  const title = record.title || "Video session";
+  const title = record.title || tr("Untitled session");
   const seriesLabel = [record.series, record.number].filter(Boolean).join(" ");
-  const guestNames = (record.guests || []).filter(Boolean);
-  const guestList = guestNames.length ? guestNames.join(", ") : "";
+  const guestList = (record.guests || []).filter(Boolean).join(", ");
+  const dateStr = formatDate(record.date);
 
-  // Use transcript excerpt first ~155 chars as description for SEO
-  if (record.transcriptExcerpt) {
-    const clean = record.transcriptExcerpt.replace(/\s+/g, " ").trim();
-    if (clean.length > 160) return clean.slice(0, 157).replace(/\s+\S*$/, "") + "…";
-    return clean;
+  const parts = [seriesLabel ? `${seriesLabel} ${tr("session")}` : tr("Recorded session")];
+  if (dateStr && dateStr !== tr("Undated")) {
+    parts.push(`${tr("recorded")} ${dateStr}`);
   }
-
-  // Fallback: metadata-based description
-  const parts = [title];
-  if (seriesLabel) parts.push(`from ${seriesLabel}`);
-  if (guestList) parts.push(`with ${guestList}`);
-  if (record.date) parts.push(`(${record.date})`);
-  return parts.join(" ") + ".";
+  if (guestList) {
+    parts.push(`${tr("with")} ${guestList}`);
+  }
+  return `${title} — ${parts.join(", ")}.`;
 }
 
 /**
@@ -134,7 +131,7 @@ export function videoDetailPage(record) {
 
   // YouTube link
   const youtubeLink = record.youtubeUrl
-    ? `<a class="button primary" href="${escapeHtml(record.youtubeUrl)}" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a>`
+    ? `<a class="button primary" href="${escapeHtml(record.youtubeUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(tr("▶ Watch on YouTube ↗"))}</a>`
     : "";
 
   // Transcript section
@@ -152,7 +149,7 @@ export function videoDetailPage(record) {
     </div>
     ${
       record.transcriptSource
-        ? `<p class="section-link"><a href="${escapeHtml(record.transcriptSource)}" target="_blank" rel="noopener noreferrer">View full transcript on GitHub ↗</a></p>`
+        ? `<p class="section-link"><a href="${escapeHtml(record.transcriptSource)}" target="_blank" rel="noopener noreferrer">${escapeHtml(tr("View full transcript on GitHub ↗"))}</a></p>`
         : ""
     }
   </section>`;
@@ -166,7 +163,7 @@ export function videoDetailPage(record) {
     })}
     ${
       record.transcriptSource
-        ? `<p class="section-link"><a href="${escapeHtml(record.transcriptSource)}" target="_blank" rel="noopener noreferrer">View transcript on GitHub ↗</a></p>`
+        ? `<p class="section-link"><a href="${escapeHtml(record.transcriptSource)}" target="_blank" rel="noopener noreferrer">${escapeHtml(tr("View transcript on GitHub ↗"))}</a></p>`
         : ""
     }
   </section>`;
@@ -183,33 +180,33 @@ export function videoDetailPage(record) {
 
   const body = `
   <section class="page-hero compact">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="${hrefForSlug("index", currentDir)}">Home</a>
+    <nav class="breadcrumb" aria-label="${escapeHtml(tr("Breadcrumb"))}">
+      <a href="${hrefForSlug("index", currentDir)}">${escapeHtml(tr("Home"))}</a>
       <span aria-hidden="true">/</span>
-      <a href="${hrefForSlug("video", currentDir)}">Videos and Podcasts</a>
+      <a href="${hrefForSlug("video", currentDir)}">${escapeHtml(tr("Videos and Podcasts"))}</a>
       <span aria-hidden="true">/</span>
-      <span aria-current="page">${escapeHtml(record.title || "Untitled")}</span>
+      <span aria-current="page">${escapeHtml(record.title || tr("Untitled"))}</span>
     </nav>
-    <p class="eyebrow">${escapeHtml(seriesLabel || "Video session")}</p>
-    <h1>${escapeHtml(record.title || "Untitled")}</h1>
-    <p>${escapeHtml(dateStr)}${guestList ? ` · with ${guestList}` : ""}</p>
+    <p class="eyebrow">${escapeHtml(seriesLabel || tr("Video session"))}</p>
+    <h1>${escapeHtml(record.title || tr("Untitled"))}</h1>
+    <p>${escapeHtml(dateStr)}${guestList ? ` · ${tr("with")} ${guestList}` : ""}</p>
     ${youtubeLink}
   </section>
 
   <section class="content-band muted">
     <div class="resource-grid compact-grid">
       <article class="info-card">
-        <h3>Session details</h3>
-        <p><strong>Date:</strong> ${escapeHtml(dateStr)}</p>
-        ${seriesLabel ? `<p><strong>Series:</strong> ${escapeHtml(seriesLabel)}</p>` : ""}
-        ${guestList ? `<p><strong>Guests:</strong> ${escapeHtml(guestList)}</p>` : ""}
-        ${record.paperTitle ? `<p><strong>Paper:</strong> ${escapeHtml(record.paperTitle)}</p>` : ""}
+        <h3>${escapeHtml(tr("Session details"))}</h3>
+        <p><strong>${escapeHtml(tr("Date"))}:</strong> ${escapeHtml(dateStr)}</p>
+        ${seriesLabel ? `<p><strong>${escapeHtml(tr("Series"))}:</strong> ${escapeHtml(seriesLabel)}</p>` : ""}
+        ${guestList ? `<p><strong>${escapeHtml(tr("Guests"))}:</strong> ${escapeHtml(guestList)}</p>` : ""}
+        ${record.paperTitle ? `<p><strong>${escapeHtml(tr("Paper"))}:</strong> ${escapeHtml(record.paperTitle)}</p>` : ""}
       </article>
       <article class="info-card">
-        <h3>Watch and follow up</h3>
-        ${record.youtubeUrl ? `<p><a href="${escapeHtml(record.youtubeUrl)}" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube ↗</a></p>` : ""}
-        ${record.githubUrl ? `<p><a href="${escapeHtml(record.githubUrl)}" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a></p>` : ""}
-        <p><a href="${hrefForSlug("video", currentDir)}">← Back to video library</a></p>
+        <h3>${escapeHtml(tr("Watch and follow up"))}</h3>
+        ${record.youtubeUrl ? `<p><a href="${escapeHtml(record.youtubeUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(tr("▶ Watch on YouTube ↗"))}</a></p>` : ""}
+        ${record.githubUrl ? `<p><a href="${escapeHtml(record.githubUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(tr("View on GitHub ↗"))}</a></p>` : ""}
+        <p><a href="${hrefForSlug("video", currentDir)}">${escapeHtml(tr("← Back to video library"))}</a></p>
       </article>
     </div>
     ${topicSection}
@@ -225,14 +222,14 @@ export function videoDetailPage(record) {
       text: "Browse the complete library or find more sessions in this series.",
     })}
     <div class="link-chips">
-      <a href="${hrefForSlug("video", currentDir)}"><span>All videos</span></a>
-      <a href="${hrefForSlug("activities", currentDir)}"><span>Activities</span></a>
-      <a href="${hrefForSlug("learning", currentDir)}"><span>Learning</span></a>
+      <a href="${hrefForSlug("video", currentDir)}"><span>${escapeHtml(tr("All videos"))}</span></a>
+      <a href="${hrefForSlug("activities", currentDir)}"><span>${escapeHtml(tr("Activities"))}</span></a>
+      <a href="${hrefForSlug("learning", currentDir)}"><span>${escapeHtml(tr("Learning"))}</span></a>
     </div>
   </section>`;
 
   return layout({
-    title: record.title || "Video session",
+    title: record.title || tr("Video session"),
     description: buildDescription(record),
     currentDir,
     body,

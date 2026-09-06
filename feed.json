@@ -7,7 +7,67 @@
   "language": "en",
   "items": [
     {
-      "id": "https://activeinference.institute/knowledge/#publication-weekly-announcement-2026-w10",
+      "id": "https://activeinference.institute/newsletter/2026-august/",
+      "title": "August 2026 Newsletter 🎡🎞🐅 Active Inference Institute",
+      "content_text": "newsletter: August 2026 Newsletter 🎡🎞🐅 Active Inference Institute",
+      "date_published": "2026-08-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2026-august/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2026-july/",
+      "title": "July 2026 Newsletter ☀️🏖️🐝 Active Inference Institute",
+      "content_text": "newsletter: July 2026 Newsletter ☀️🏖️🐝 Active Inference Institute",
+      "date_published": "2026-07-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2026-july/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2026-june/",
+      "title": "June 2026 Newsletter 🌙🌵🕶️ Active Inference Institute",
+      "content_text": "newsletter: June 2026 Newsletter 🌙🌵🕶️ Active Inference Institute",
+      "date_published": "2026-06-30T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2026-june/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2026-may/",
+      "title": "May 2026 Newsletter 📡 🐟 🐌 Active Inference Institute",
+      "content_text": "newsletter: May 2026 Newsletter 📡 🐟 🐌 Active Inference Institute",
+      "date_published": "2026-05-29T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2026-may/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2026-april/",
+      "title": "April 2026 Newsletter 🌿 🧅 🛠️ Active Inference Institute",
+      "content_text": "newsletter: April 2026 Newsletter 🌿 🧅 🛠️ Active Inference Institute",
+      "date_published": "2026-04-30T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2026-april/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2026-march/",
+      "title": "March 2026 Newsletter 🐐 📰 🏵️ Active Inference Institute",
+      "content_text": "newsletter: March 2026 Newsletter 🐐 📰 🏵️ Active Inference Institute",
+      "date_published": "2026-03-27T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2026-march/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/#weekly-announcement-2026-w10",
       "title": "Active Inference Institute — Weekly Update #10",
       "content_text": "announcement: Active Inference Institute — Weekly Update #10",
       "date_published": "2026-03-04T00:00:00.000Z",
@@ -17,7 +77,27 @@
       ]
     },
     {
-      "id": "https://activeinference.institute/knowledge/#publication-annual-review-2025",
+      "id": "https://activeinference.institute/newsletter/2026-february/",
+      "title": "February 2026 Newsletter 🕸️💓🚋 Active Inference Institute",
+      "content_text": "newsletter: February 2026 Newsletter 🕸️💓🚋 Active Inference Institute",
+      "date_published": "2026-02-27T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2026-february/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2026-january/",
+      "title": "January 2026 Newsletter 🥧 🌤️ 🖌️ Active Inference Institute",
+      "content_text": "newsletter: January 2026 Newsletter 🥧 🌤️ 🖌️ Active Inference Institute",
+      "date_published": "2026-01-30T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2026-january/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/#annual-review-2025",
       "title": "Active Inference Institute — 2025 Annual Review",
       "content_text": "report: Active Inference Institute — 2025 Annual Review",
       "date_published": "2026-01-15T00:00:00.000Z",
@@ -27,13 +107,493 @@
       ]
     },
     {
-      "id": "https://activeinference.institute/knowledge/#publication-annual-preview-2026",
+      "id": "https://activeinference.institute/#annual-preview-2026",
       "title": "Active Inference Institute — 2026 Annual Preview & Strategic Plan",
       "content_text": "report: Active Inference Institute — 2026 Annual Preview & Strategic Plan",
       "date_published": "2026-01-01T00:00:00.000Z",
       "url": "https://activeinference.institute/knowledge/#publication-annual-preview-2026",
       "tags": [
         "report"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-december/",
+      "title": "December 2025 Newsletter 🗝️🎲🐧 Active Inference Institute",
+      "content_text": "newsletter: December 2025 Newsletter 🗝️🎲🐧 Active Inference Institute",
+      "date_published": "2025-12-26T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-december/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-november/",
+      "title": "November 2025 Newsletter 🌙🍄🌲 Active Inference Institute",
+      "content_text": "newsletter: November 2025 Newsletter 🌙🍄🌲 Active Inference Institute",
+      "date_published": "2025-11-30T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-november/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-october/",
+      "title": "October 2025 Newsletter 🍃🚌🍎 Active Inference Institute",
+      "content_text": "newsletter: October 2025 Newsletter 🍃🚌🍎 Active Inference Institute",
+      "date_published": "2025-10-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-october/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-september/",
+      "title": "September 2025 Newsletter 🦔🛠️🐚 Active Inference Institute",
+      "content_text": "newsletter: September 2025 Newsletter 🦔🛠️🐚 Active Inference Institute",
+      "date_published": "2025-09-25T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-september/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-august/",
+      "title": "August 2025 Newsletter ♣️🔗🐞 Active Inference Institute",
+      "content_text": "newsletter: August 2025 Newsletter ♣️🔗🐞 Active Inference Institute",
+      "date_published": "2025-08-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-august/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-july/",
+      "title": "July 2025 Newsletter 🌊🐋🎢 Active Inference Institute",
+      "content_text": "newsletter: July 2025 Newsletter 🌊🐋🎢 Active Inference Institute",
+      "date_published": "2025-07-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-july/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-june/",
+      "title": "June 2025 Newsletter 🎁🏄🐛 Active Inference Institute",
+      "content_text": "newsletter: June 2025 Newsletter 🎁🏄🐛 Active Inference Institute",
+      "date_published": "2025-06-27T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-june/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-may/",
+      "title": "May 2025 Newsletter 🌛🌷📜 Active Inference Institute",
+      "content_text": "newsletter: May 2025 Newsletter 🌛🌷📜 Active Inference Institute",
+      "date_published": "2025-05-30T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-may/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-april/",
+      "title": "April 2025 Newsletter 🐧📒🐢 Active Inference Institute",
+      "content_text": "newsletter: April 2025 Newsletter 🐧📒🐢 Active Inference Institute",
+      "date_published": "2025-04-30T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-april/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-march/",
+      "title": "March 2025 Newsletter ❇️🐞🌗 Active Inference Institute",
+      "content_text": "newsletter: March 2025 Newsletter ❇️🐞🌗 Active Inference Institute",
+      "date_published": "2025-03-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-march/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-february/",
+      "title": "February 2025 Newsletter ⌚️🌷👂 Active Inference Institute",
+      "content_text": "newsletter: February 2025 Newsletter ⌚️🌷👂 Active Inference Institute",
+      "date_published": "2025-02-28T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-february/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2025-january/",
+      "title": "January 2025 Newsletter 💫🎱🌳 Active Inference Institute",
+      "content_text": "newsletter: January 2025 Newsletter 💫🎱🌳 Active Inference Institute",
+      "date_published": "2025-01-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2025-january/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-december/",
+      "title": "December 2024 Newsletter 🎹🎡💾 Active Inference Institute",
+      "content_text": "newsletter: December 2024 Newsletter 🎹🎡💾 Active Inference Institute",
+      "date_published": "2024-12-27T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-december/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-november/",
+      "title": "November 2024 Newsletter 🔰🔌🏐 Active Inference Institute",
+      "content_text": "newsletter: November 2024 Newsletter 🔰🔌🏐 Active Inference Institute",
+      "date_published": "2024-12-01T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-november/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-october/",
+      "title": "October 2024 Newsletter 🔭🌲🍲 Active Inference Institute",
+      "content_text": "newsletter: October 2024 Newsletter 🔭🌲🍲 Active Inference Institute",
+      "date_published": "2024-10-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-october/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-october-participant-registration-open-4th/",
+      "title": "Participant Registration Open: 4th Applied Active Inference Symposium on November 13-15, 2024",
+      "content_text": "announcement: Participant Registration Open: 4th Applied Active Inference Symposium on November 13-15, 2024",
+      "date_published": "2024-10-16T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-october-participant-registration-open-4th/",
+      "tags": [
+        "announcement"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-september/",
+      "title": "September 2024 Newsletter 🎑🏔🎃 Active Inference Institute",
+      "content_text": "newsletter: September 2024 Newsletter 🎑🏔🎃 Active Inference Institute",
+      "date_published": "2024-10-01T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-september/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-august/",
+      "title": "August 2024 Newsletter 🦋♻️🐧 Active Inference Institute",
+      "content_text": "newsletter: August 2024 Newsletter 🦋♻️🐧 Active Inference Institute",
+      "date_published": "2024-08-30T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-august/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-july/",
+      "title": "July 2024 Newsletter 🎮👽🌀 Active Inference Institute",
+      "content_text": "newsletter: July 2024 Newsletter 🎮👽🌀 Active Inference Institute",
+      "date_published": "2024-08-01T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-july/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-june/",
+      "title": "June 2024 Newsletter 📖✍🌐 Active Inference Institute",
+      "content_text": "newsletter: June 2024 Newsletter 📖✍🌐 Active Inference Institute",
+      "date_published": "2024-06-28T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-june/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-may/",
+      "title": "May 2024 Newsletter 📤⛎🎹 Active Inference Institute",
+      "content_text": "newsletter: May 2024 Newsletter 📤⛎🎹 Active Inference Institute",
+      "date_published": "2024-05-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-may/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-may-the-institute-is-now-501c3/",
+      "title": "The Institute is now 501(c)(3)!",
+      "content_text": "announcement: The Institute is now 501(c)(3)!",
+      "date_published": "2024-05-14T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-may-the-institute-is-now-501c3/",
+      "tags": [
+        "announcement"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-april/",
+      "title": "April 2024 Newsletter ➰❓🐞 Active Inference Institute",
+      "content_text": "newsletter: April 2024 Newsletter ➰❓🐞 Active Inference Institute",
+      "date_published": "2024-04-30T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-april/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-april-announcing-two-new-programs-research/",
+      "title": "Announcing two new programs: Research Fellows & Partnerships",
+      "content_text": "announcement: Announcing two new programs: Research Fellows & Partnerships",
+      "date_published": "2024-04-29T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-april-announcing-two-new-programs-research/",
+      "tags": [
+        "announcement"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-march/",
+      "title": "March 2024 Newsletter 🌹🎪🎺 Active Inference Institute",
+      "content_text": "newsletter: March 2024 Newsletter 🌹🎪🎺 Active Inference Institute",
+      "date_published": "2024-03-29T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-march/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-february/",
+      "title": "February 2024 Newsletter 🌼🐞🕯️ Active Inference Institute",
+      "content_text": "newsletter: February 2024 Newsletter 🌼🐞🕯️ Active Inference Institute",
+      "date_published": "2024-02-29T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-february/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2024-january/",
+      "title": "January 2024 Newsletter 🪁🛠️🌐 Active Inference Institute",
+      "content_text": "newsletter: January 2024 Newsletter 🪁🛠️🌐 Active Inference Institute",
+      "date_published": "2024-01-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2024-january/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-december/",
+      "title": "December 2023 Newsletter 🥂🕛🧑‍🎤 Active Inference Institute",
+      "content_text": "newsletter: December 2023 Newsletter 🥂🕛🧑‍🎤 Active Inference Institute",
+      "date_published": "2023-12-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-december/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-november/",
+      "title": "November 2023 Newsletter ☃️👽🖽 Active Inference Institute",
+      "content_text": "newsletter: November 2023 Newsletter ☃️👽🖽 Active Inference Institute",
+      "date_published": "2023-11-30T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-november/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-november-scientific-advisory-board-applications/",
+      "title": "Scientific Advisory Board ~ Applications Open for 2024",
+      "content_text": "announcement: Scientific Advisory Board ~ Applications Open for 2024",
+      "date_published": "2023-11-20T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-november-scientific-advisory-board-applications/",
+      "tags": [
+        "announcement"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-october/",
+      "title": "October 2023 Newsletter 🚀🎨🌟 Active Inference Institute",
+      "content_text": "newsletter: October 2023 Newsletter 🚀🎨🌟 Active Inference Institute",
+      "date_published": "2023-10-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-october/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-september/",
+      "title": "September 2023 Newsletter 🎃🐧🥼Active Inference Institute",
+      "content_text": "newsletter: September 2023 Newsletter 🎃🐧🥼Active Inference Institute",
+      "date_published": "2023-09-29T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-september/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-august/",
+      "title": "August 2023 Newsletter 🧟🌪️🥑Active Inference Institute",
+      "content_text": "newsletter: August 2023 Newsletter 🧟🌪️🥑Active Inference Institute",
+      "date_published": "2023-08-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-august/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-july/",
+      "title": "July 2023 Newsletter 🧠➿🦾 Active Inference Institute",
+      "content_text": "newsletter: July 2023 Newsletter 🧠➿🦾 Active Inference Institute",
+      "date_published": "2023-07-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-july/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-june/",
+      "title": "June 2023 Newsletter ✂️🎨🧭 Active Inference Institute",
+      "content_text": "newsletter: June 2023 Newsletter ✂️🎨🧭 Active Inference Institute",
+      "date_published": "2023-06-29T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-june/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-june-2023-course-constructing-cultural/",
+      "title": "2023 Course: \"Constructing Cultural Landscapes: Active Inference for the Social Sciences\"",
+      "content_text": "announcement: 2023 Course: \"Constructing Cultural Landscapes: Active Inference for the Social Sciences\"",
+      "date_published": "2023-06-26T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-june-2023-course-constructing-cultural/",
+      "tags": [
+        "announcement"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-may/",
+      "title": "May 2023 Newsletter 🌊📢🦌 Active Inference Institute",
+      "content_text": "newsletter: May 2023 Newsletter 🌊📢🦌 Active Inference Institute",
+      "date_published": "2023-05-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-may/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-april/",
+      "title": "April 2023 Newsletter ☂️🧷🎵 Active Inference Institute",
+      "content_text": "newsletter: April 2023 Newsletter ☂️🧷🎵 Active Inference Institute",
+      "date_published": "2023-04-28T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-april/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-march/",
+      "title": "March 2023 Newsletter 🎢 🫠💮 Active Inference Institute",
+      "content_text": "newsletter: March 2023 Newsletter 🎢 🫠💮 Active Inference Institute",
+      "date_published": "2023-03-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-march/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-march-physics-as-information-processing/",
+      "title": "\"Physics as information processing\"",
+      "content_text": "announcement: \"Physics as information processing\"",
+      "date_published": "2023-03-20T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-march-physics-as-information-processing/",
+      "tags": [
+        "announcement"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-february/",
+      "title": "February 2023 Newsletter 🐃🎨🧭 Active Inference Institute",
+      "content_text": "newsletter: February 2023 Newsletter 🐃🎨🧭 Active Inference Institute",
+      "date_published": "2023-02-28T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-february/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-january/",
+      "title": "January 2023 Newsletter 🚗💭🌠 Active Inference Institute",
+      "content_text": "newsletter: January 2023 Newsletter 🚗💭🌠 Active Inference Institute",
+      "date_published": "2023-01-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-january/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2023-january-invitation-fundamentals-of-active/",
+      "title": "Invitation ~ Fundamentals of Active Inference 2023",
+      "content_text": "announcement: Invitation ~ Fundamentals of Active Inference 2023",
+      "date_published": "2023-01-09T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2023-january-invitation-fundamentals-of-active/",
+      "tags": [
+        "announcement"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2022-december/",
+      "title": "December 2022 Newsletter 🐜🐝🏠 Active Inference Institute",
+      "content_text": "newsletter: December 2022 Newsletter 🐜🐝🏠 Active Inference Institute",
+      "date_published": "2022-12-30T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2022-december/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2022-november/",
+      "title": "November 2022 Newsletter 🎉🎱🏗️ Active Inference Institute",
+      "content_text": "newsletter: November 2022 Newsletter 🎉🎱🏗️ Active Inference Institute",
+      "date_published": "2022-11-30T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2022-november/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2022-october/",
+      "title": "Active Inference Institute ~ October 2022 Newsletter",
+      "content_text": "newsletter: Active Inference Institute ~ October 2022 Newsletter",
+      "date_published": "2022-10-31T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2022-october/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2022-june/",
+      "title": "ActInfLab ~ June 2022 Newsletter with Special Announcement ~ 🅰️👀",
+      "content_text": "newsletter: ActInfLab ~ June 2022 Newsletter with Special Announcement ~ 🅰️👀",
+      "date_published": "2022-07-04T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2022-june/",
+      "tags": [
+        "newsletter"
+      ]
+    },
+    {
+      "id": "https://activeinference.institute/newsletter/2021-november-coming-soon/",
+      "title": "Coming soon",
+      "content_text": "announcement: Coming soon",
+      "date_published": "2021-11-10T00:00:00.000Z",
+      "url": "https://activeinference.institute/newsletter/2021-november-coming-soon/",
+      "tags": [
+        "announcement"
       ]
     }
   ]

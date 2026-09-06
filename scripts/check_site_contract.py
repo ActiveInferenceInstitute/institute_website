@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -441,6 +442,23 @@ def generated_html_files(root: Path) -> list[Path]:
         path
         for path in root.rglob("*.html")
         if not any(part in SCAN_EXCLUDES or part in {"src"} for part in path.relative_to(root).parts)
+    )
+
+
+def routed_html_files(root: Path) -> list[Path]:
+    """The build's own generated clean-URL pages: every ``index.html``.
+
+    Distinct from :func:`generated_html_files`, which also excludes the whole
+    ``simulations/`` subtree from content scans (the hand-authored
+    ``<name>.html`` simulation artifacts live there). The build's generated
+    ``simulations/index.html`` landing page IS a routed page the sitemap
+    advertises, so the sitemap set-equality check must count it; hand-authored
+    sims are never ``index.html`` and are naturally excluded here.
+    """
+    return sorted(
+        path
+        for path in root.rglob("index.html")
+        if not any(part in {".git", ".cache", "node_modules", "__pycache__", "scripts", "src"} for part in path.relative_to(root).parts)
     )
 
 
@@ -1154,14 +1172,15 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
         errors.append("robots.txt does not point at the canonical sitemap URL")
 
     sitemap = (root / "sitemap.xml").read_text(encoding="utf-8")
+    sitemap_locs = re.findall(r"<loc>([^<]+)</loc>", sitemap)
     if f"<loc>{CANONICAL_BASE}</loc>" not in sitemap:
         errors.append("sitemap.xml does not include the canonical root URL")
     if f"<loc>{CANONICAL_BASE}directory/</loc>" not in sitemap:
         errors.append("sitemap.xml does not include the directory clean URL")
     if f"<loc>{CANONICAL_BASE}knowledge/</loc>" not in sitemap:
         errors.append("sitemap.xml does not include the knowledge clean URL")
-    if f"<loc>{CANONICAL_BASE}search/</loc>" not in sitemap:
-        errors.append("sitemap.xml does not include the search clean URL")
+    if f"<loc>{CANONICAL_BASE}projects/</loc>" not in sitemap:
+        errors.append("sitemap.xml does not include the projects clean URL")
     if f"<loc>{CANONICAL_BASE}sitemap/</loc>" not in sitemap:
         errors.append("sitemap.xml does not include the sitemap clean URL")
     if "<changefreq>" not in sitemap:
@@ -1170,11 +1189,50 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
         if obsolete in sitemap:
             errors.append(f"sitemap.xml contains obsolete entry {obsolete}")
 
+    # The XML sitemap must advertise exactly the generated clean-URL page set:
+    # one <loc> per routed page (404 and noindex pages excluded, mirroring the
+    # build), so a page added without sitemap entry — or removed while its
+    # sitemap entry lingers — fails here instead of drifting silently.
+    expected_loc_urls: set[str] = set()
+    for html_path in routed_html_files(root):
+        relative = html_path.relative_to(root).as_posix()
+        if relative == "404.html":
+            continue
+        page_dir = dir_for_html_path(root, html_path)
+        info = parse_html(html_path)
+        if any("noindex" in attrs.get("content", "").lower() for attrs in info.metas if attrs.get("name", "").lower() == "robots"):
+            continue
+        # Non-default locale subtrees are excluded from the sitemap by the
+        # build; hreflang alternates advertise them instead.
+        if locale_of_dir(page_dir):
+            continue
+        expected_loc_urls.add(f"{CANONICAL_BASE}{page_dir}/" if page_dir else CANONICAL_BASE)
+    actual_loc_urls = {f"{loc.rstrip('/')}/" for loc in sitemap_locs if loc.startswith(CANONICAL_BASE)}
+    missing_from_sitemap = expected_loc_urls - actual_loc_urls
+    extra_in_sitemap = actual_loc_urls - expected_loc_urls
+    if missing_from_sitemap:
+        errors.append(f"sitemap.xml is missing <loc> entries for generated pages: {sorted(missing_from_sitemap)[:10]}")
+    if extra_in_sitemap:
+        errors.append(f"sitemap.xml advertises <loc> URLs with no generated page: {sorted(extra_in_sitemap)[:10]}")
+
     for html_path in generated_html_files(root):
         info = parse_html(html_path)
+        relative = html_path.relative_to(root).as_posix()
+        # Canonical URL must be exactly base + this page's clean dir + trailing
+        # slash. The flat 404 file keeps its flat canonical (an existing
+        # exception: it is not a clean-URL directory page).
+        page_dir = dir_for_html_path(root, html_path)
+        expected_canonical = f"{CANONICAL_BASE}404.html" if relative == "404.html" else (
+            f"{CANONICAL_BASE}{page_dir}/" if page_dir else CANONICAL_BASE
+        )
         canonical = [attrs.get("href", "") for rel, attrs in info.links if rel.lower() == "canonical"]
         if not canonical or not canonical[0].startswith(CANONICAL_BASE):
             errors.append(f"{html_path.relative_to(root)} has invalid canonical URL {canonical[:1]}")
+        elif canonical[0] != expected_canonical:
+            errors.append(
+                f"{html_path.relative_to(root)} canonical URL {canonical[0]} does not equal "
+                f"the exact clean URL {expected_canonical}"
+            )
         og_urls = [attrs.get("content", "") for attrs in info.metas if attrs.get("property") == "og:url"]
         if not og_urls or not og_urls[0].startswith(CANONICAL_BASE):
             errors.append(f"{html_path.relative_to(root)} has invalid og:url {og_urls[:1]}")
@@ -1341,6 +1399,12 @@ def check_instituteos_interface(root: Path, errors: list[str]) -> None:
     if f"source fingerprint {manifest.get('source_fingerprint')}" not in html:
         errors.append("instituteos/index.html does not surface the export source fingerprint")
 
+    # Beyond checking the page surfaces each artifact, verify the manifest
+    # describes the bytes actually committed: every entry targeting the
+    # content/data trees must exist on disk with a matching SHA-256 and (for
+    # JSON payloads carrying a top-level "records" array) a matching
+    # record_count. Newsletter image assets under assets/ are verified by
+    # existence alone — the sync gate owns their byte-level contract.
     for file in files:
         name = str(file.get("name", ""))
         output_path = str(file.get("output_path", ""))
@@ -1356,6 +1420,30 @@ def check_instituteos_interface(root: Path, errors: list[str]) -> None:
             errors.append(f"data/export-manifest.json missing SHA-256 for {name}")
         elif sha256[:12] not in html:
             errors.append(f"instituteos/index.html missing artifact SHA-256 prefix for {name}")
+        if not (output_path.startswith("src/content/") or output_path.startswith("data/")):
+            continue
+        target = root / output_path
+        if not target.is_file():
+            errors.append(f"export manifest entry {name} points at missing output {output_path}")
+            continue
+        actual_sha = hashlib.sha256(target.read_bytes()).hexdigest()
+        if actual_sha != sha256:
+            errors.append(
+                f"export manifest entry {name} sha256 mismatch for {output_path}: "
+                f"manifest {sha256[:12]}, actual {actual_sha[:12]} — re-run the export"
+            )
+        if output_path.endswith(".json"):
+            try:
+                payload = load_json(target)
+            except json.JSONDecodeError as exc:
+                errors.append(f"export manifest entry {name} points at invalid JSON {output_path}: {exc}")
+                continue
+            if isinstance(payload, dict) and isinstance(payload.get("records"), list):
+                if len(payload["records"]) != record_count:
+                    errors.append(
+                        f"export manifest entry {name} record_count {record_count} does not match "
+                        f"{len(payload['records'])} records in {output_path}"
+                    )
 
     index_html = (root / "index.html").read_text(encoding="utf-8")
     data = instituteos_data(root)

@@ -196,15 +196,15 @@ function sortRepositories() {
   const mode = repoSort.value;
   cards.sort((a, b) => {
     if (mode === "stars") {
-      return Number(b.dataset.repoStars || 0) - Number(a.dataset.repoStars || 0) || a.dataset.repoLabel.localeCompare(b.dataset.repoLabel);
+      return Number(b.dataset.repoStars || 0) - Number(a.dataset.repoStars || 0) || (a.dataset.repoLabel || "").localeCompare(b.dataset.repoLabel || "");
     }
     if (mode === "language") {
-      return (a.dataset.repoLanguage || "").localeCompare(b.dataset.repoLanguage || "") || a.dataset.repoLabel.localeCompare(b.dataset.repoLabel);
+      return (a.dataset.repoLanguage || "").localeCompare(b.dataset.repoLanguage || "") || (a.dataset.repoLabel || "").localeCompare(b.dataset.repoLabel || "");
     }
     if (mode === "category") {
-      return (a.dataset.repoCategory || "").localeCompare(b.dataset.repoCategory || "") || a.dataset.repoLabel.localeCompare(b.dataset.repoLabel);
+      return (a.dataset.repoCategory || "").localeCompare(b.dataset.repoCategory || "") || (a.dataset.repoLabel || "").localeCompare(b.dataset.repoLabel || "");
     }
-    return (b.dataset.repoUpdated || "").localeCompare(a.dataset.repoUpdated || "") || a.dataset.repoLabel.localeCompare(b.dataset.repoLabel);
+    return (b.dataset.repoUpdated || "").localeCompare(a.dataset.repoUpdated || "") || (a.dataset.repoLabel || "").localeCompare(b.dataset.repoLabel || "");
   });
   for (const card of cards) {
     repositoryList.append(card);

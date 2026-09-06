@@ -306,24 +306,26 @@ def sanitize_ontology(tech_tree_data: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def record_is_public_safe(record: dict[str, Any]) -> bool:
-    """Return False if a single record would trip validate_public_payload.
+def record_public_unsafe_reason(record: dict[str, Any]) -> str | None:
+    """Return why a record would trip validate_public_payload, or None if safe.
 
     Mirrors validate_public_payload's checks without raising. Used to drop the
     rare entity whose own public identity collides with a private-channel token —
     e.g. a technology-provider organization literally named "Discord" — so the
-    surviving payload passes the shared public-safety gate untouched.
+    surviving payload passes the shared public-safety gate untouched. The
+    returned reason is printed to stderr at each drop site so dropped records
+    are visible in the write/check path instead of silently vanishing.
     """
     serialized = json.dumps(record, ensure_ascii=False).lower()
     for blocked in PRIVATE_KEYS:
         if f'"{blocked}"' in serialized:
-            return False
+            return f"blocked private key {blocked!r}"
     for blocked in FORBIDDEN_SUBSTRINGS:
         if blocked in serialized:
-            return False
+            return f"blocked public term {blocked!r}"
     if EMAIL_RE.search(serialized):
-        return False
-    return True
+        return "blocked email address"
+    return None
 
 
 def sanitize_fellows(entities_data: dict[str, Any]) -> dict[str, Any]:
@@ -358,8 +360,14 @@ def sanitize_fellows(entities_data: dict[str, Any]) -> dict[str, Any]:
             "focus": public_text(fellowship.get("focus")),
             "overview": public_text(fellowship.get("overview")),
         }
-        if record_is_public_safe(record):
+        if (reason := record_public_unsafe_reason(record)) is None:
             fellows.append(record)
+        else:
+            print(
+                f"warning: dropped fellow record {record.get('id')!r} "
+                f"({record.get('name')!r}): {reason}",
+                file=sys.stderr,
+            )
 
     def start_key(item: dict[str, Any]) -> tuple[int, int]:
         month, _, year = (item.get("start") or "").partition("/")
@@ -397,7 +405,11 @@ def sanitize_sab_cohorts(cohorts_data: dict[str, Any]) -> dict[str, Any]:
             continue
         members = []
         for member in cohort.get("members", []):
-            url = public_text(member.get("url"))
+            # URL values bypass public_text(): that helper rewrites benign
+            # substrings such as "workspace"/"PDF" inside legitimate URLs and
+            # would launder a private URL before the public-safety gate sees
+            # it. Only the http(s) scheme is checked here instead.
+            url = member.get("url") or ""
             if not url.startswith(("http://", "https://")):
                 url = ""
             record = {
@@ -405,8 +417,17 @@ def sanitize_sab_cohorts(cohorts_data: dict[str, Any]) -> dict[str, Any]:
                 "url": url,
                 "entityId": public_text(member.get("entityId")),
             }
-            if record["name"] and record_is_public_safe(record):
-                members.append(record)
+            if not record["name"]:
+                continue
+            reason = record_public_unsafe_reason(record)
+            if reason is not None:
+                print(
+                    f"warning: dropped SAB cohort member {record['name']!r} "
+                    f"(entity {record['entityId']!r}): {reason}",
+                    file=sys.stderr,
+                )
+                continue
+            members.append(record)
         if members:
             cohorts.append({"year": year, "members": members})
     return {
@@ -439,7 +460,11 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
         for contact in entity.get("contacts", []) or []:
             if contact.get("method") != "website":
                 continue
-            value = public_text(contact.get("value"))
+            # URL values bypass public_text(): that helper rewrites benign
+            # substrings such as "workspace"/"PDF" inside legitimate URLs and
+            # would launder a private URL before the public-safety gate sees
+            # it. Only the http(s) scheme is checked here instead.
+            value = contact.get("value") or ""
             if value.startswith("http://") or value.startswith("https://"):
                 return value
         return ""
@@ -491,8 +516,14 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
                 "tags": [public_text(tag) for tag in entity.get("tags", []) if public_text(tag)],
                 "policyRoles": policy_roles,
             }
-            if record_is_public_safe(record):
+            if (reason := record_public_unsafe_reason(record)) is None:
                 people.append(record)
+            else:
+                print(
+                    f"warning: dropped person record {record.get('id')!r} "
+                    f"({record.get('name')!r}): {reason}",
+                    file=sys.stderr,
+                )
         elif entity_type == "organization":
             record = {
                 "id": entity.get("id"),
@@ -505,8 +536,14 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
                 "parentId": entity.get("parent_id"),
                 "ecosystem": bool(entity.get("ecosystem", False)),
             }
-            if record_is_public_safe(record):
+            if (reason := record_public_unsafe_reason(record)) is None:
                 organizations.append(record)
+            else:
+                print(
+                    f"warning: dropped organization record {record.get('id')!r} "
+                    f"({record.get('name')!r}): {reason}",
+                    file=sys.stderr,
+                )
     people.sort(key=lambda item: item["name"].lower())
     organizations.sort(key=lambda item: item["name"].lower())
     return {
@@ -621,6 +658,9 @@ def validate_public_payload(data: Any, path: str) -> None:
     found_emails = sorted(set(EMAIL_RE.findall(serialized)))
     if found_emails:
         raise ValueError(f"{path} contains blocked email address(es) {found_emails!r}")
+    found_phones = sorted(set(PHONE_RE.findall(serialized)))
+    if found_phones:
+        raise ValueError(f"{path} contains blocked phone-like number(s) {found_phones!r}")
 
 
 def _iter_json_keys(data: Any) -> "Iterator[str]":
@@ -810,6 +850,24 @@ def check_committed_public_payloads() -> int:
     producer2_errors, producer2_checked = check_producer2_payloads()
     errors.extend(producer2_errors)
 
+    # Defense-in-depth for committed producer-2 outputs outside CONTENT_OUT:
+    # data/projects.json and the rendered domain pages. The canonical gate for
+    # these remains the backend PublicGate; here they get the prose-tuned gate
+    # (structured-registry tokens such as a "discord" link key are legitimate
+    # public content, so the strict registry gate would false-positive).
+    domain_dir = PROJECT_ROOT / "src" / "content" / "pages" / "domains"
+    extra_payloads = [PROJECT_ROOT / "data" / "projects.json", *sorted(domain_dir.glob("*.json"))]
+    extra_checked = 0
+    for path in extra_payloads:
+        if not path.exists():
+            errors.append(f"missing {path.relative_to(PROJECT_ROOT)}")
+            continue
+        extra_checked += 1
+        try:
+            validate_public_prose_payload(load_json(path), path.name)
+        except (OSError, json.JSONDecodeError, ValueError) as exc:
+            errors.append(f"{path.relative_to(PROJECT_ROOT)} failed public-safety validation: {exc}")
+
     for filename in BRAND_ASSETS:
         path = ASSET_OUT / filename
         if not path.exists() or path.stat().st_size == 0:
@@ -824,7 +882,8 @@ def check_committed_public_payloads() -> int:
     print(
         "InstituteOS registry source not available; validated committed public "
         f"payloads ({len(json_files)} registry + {producer2_checked} producer-2 "
-        f"JSON files, {len(BRAND_ASSETS)} brand assets)."
+        f"+ {extra_checked} domain/projects JSON files, "
+        f"{len(BRAND_ASSETS)} brand assets)."
     )
     return 0
 

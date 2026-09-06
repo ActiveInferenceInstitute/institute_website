@@ -120,7 +120,7 @@ function build() {
   // (e.g. the human sitemap: src/pages/sitemap.mjs) must NOT advertise those
   // noindex targets in the hreflang cluster — hreflang pointing at a noindex
   // page is a conflicting signal (see src/render/layout.mjs head comments).
-  const HREFLANG_EXCLUDED_SLUG_PATHS = new Set(["sitemap/index.html"]);
+  const HREFLANG_EXCLUDED_SLUG_PATHS = new Set(["sitemap/index.html", "search/index.html"]);
   const localeAlternatesFor = (defaultPath) => {
     const eligible = LOCALES.filter(
       (locale) =>
@@ -135,9 +135,14 @@ function build() {
     ).join("\n");
     return `${alternates}\n  <xhtml:link rel="alternate" hreflang="x-default" href="${absoluteUrl(defaultPath)}"/>`;
   };
+  // Noindex utility pages (see HREFLANG_EXCLUDED_SLUG_PATHS above) are also
+  // dropped from the XML sitemap's <url> list entirely: a sitemap entry
+  // advertising a noindex page is a conflicting signal.
+  const SITEMAP_EXCLUDED_SLUG_PATHS = new Set(["search/index.html"]);
+  const sitemapUrls = urls.filter((url) => !SITEMAP_EXCLUDED_SLUG_PATHS.has(url));
   writeFile(
     "sitemap.xml",
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapUrls
       .map(
         (url) =>
           `  <url><loc>${absoluteUrl(url)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}<changefreq>${sitemapChangefreq(url)}</changefreq><priority>${sitemapPriority(url)}</priority>\n${localeAlternatesFor(url)}  </url>`,
@@ -154,7 +159,7 @@ function build() {
         built_at: EXPORTED_AT || null,
         exported_at: EXPORTED_AT || null,
         source_fingerprint: SOURCE_FINGERPRINT || null,
-        pages: urls.length,
+        pages: sitemapUrls.length,
         commit: null,
       },
       null,

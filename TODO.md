@@ -284,6 +284,48 @@ Second wave of verified findings from the two completed audit subagents
       live in the CHANGELOG entry and this file's 2026-08-02 section.
 - [x] **CHANGELOG.md duplicate `## Unreleased` header** removed.
 
+## Cross-repo deep review pass — 2026-09-04
+
+Adversarially verified review of the site, its gates, and the private export
+pipeline. Fixed the same day (see the matching `CHANGELOG.md` Unreleased
+entry): gate strengthening (SVG scans, manifest sha/record_count verification,
+canonical + sitemap set-equality, PII scope, srcset links), private-infra
+leak removal in `live-sources.json`, producer-1 gate hardening (phone scan,
+producer-2 payload coverage, URL-safe sanitization, visible drop warnings),
+`/search/` noindex, newsletter-inclusive feeds with `lastBuildDate`, `tr()`
+coverage on the four programmatic pages, deterministic video ordering,
+nav-dedupe, null-safe site.js/redirects.js, icon purpose split, security.txt
+fallback. Open items below are verified but deliberately deferred.
+
+- [ ] **search-data.js knowledge entries lack row anchors** — repository/
+      concept/policy/program/member entries all share the bare `/knowledge/`
+      URL while the page renders per-row anchors; search results cannot jump
+      to the row. Needs the per-section id-prefix map verified against
+      `src/render/knowledge.mjs` before wiring fragments (medium, UX).
+- [ ] **New `tr()` strings need a translation sweep** — the 2026-09-04
+      wrappers (newsletter/sitemap/simulations/video pages) fall back to
+      English until the next `npm run i18n:extract` + offline translate pass;
+      fold into the terminology-QA sweep already noted above (includes the
+      German catalog fixes: unclosed `«` in the search placeholder, footer
+      `aria-label` "Fußnote" → "Fußzeile", "teilnehmen" casing, number
+      formatting, accent-swatch aria labels, gate-metric card copy).
+- [ ] **Video page meta descriptions are raw ASR transcript openings** —
+      derive from title/series/date instead (minor, SEO quality).
+- [ ] **`aria-current="page"` in the language switcher** (currently
+      `aria-current="true"`; minor, a11y semantics).
+- [ ] **`og:locale:alternate` still advertises noindex locale variants**
+      (e.g. the human-sitemap pattern); mirrors the hreflang rule already
+      enforced for the XML sitemap (minor).
+- [ ] **Newsletter archive dead "here" call-to-action** in two archived
+      issues (2025-august, 2025-november) — the sentence survives without its
+      Substack inline link; fix belongs in the private archive snapshot, then
+      re-export (content decision).
+- [ ] **Feed freshness** now partly fixed (newsletters included), but the
+      communications registry itself has no approved records after 2026-03-04;
+      registering/approving the missing quarterly reports and weekly
+      announcements is an Institute content decision, not a code change.
+
+
 ## Conventions
 
 - Edit `src/content/*` and `src/build.mjs`; never hand-edit generated `*.html`.

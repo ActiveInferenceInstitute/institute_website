@@ -37,7 +37,7 @@
       "label": "Tonic Dopamine as the Engine of Motivation (project blog)",
       "category": "Media",
       "url": "https://artificial-sentience.blogspot.com/2025/12/tonic-dopamine-as-engine-of-motivation.html",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "sourceBasis": "Verified against the maintainers' public source records and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -107,7 +107,7 @@
       "label": "CogNarr Ecosystem: Facilitating Group Cognition at Scale (arXiv)",
       "category": "Research",
       "url": "https://arxiv.org/abs/2407.18945",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "sourceBasis": "Verified against the maintainers' public source records and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -117,7 +117,7 @@
       "label": "CogNarr Ecosystem: Preliminary Thoughts on a Story Graph Meaning Representation (OSF)",
       "category": "Research",
       "url": "https://osf.io/preprints/osf/muc29",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "sourceBasis": "Verified against the maintainers' public source records and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -368,7 +368,7 @@
       "label": "Active inference on discrete state-spaces: A synthesis (Da Costa et al., arXiv)",
       "category": "Research",
       "url": "https://arxiv.org/abs/2001.07203",
-      "sourceBasis": "Corrected 2026-07-14: previous URL (arxiv.org/abs/2209.09185) resolved to an unrelated paper (Wakayama & Ahmed, \"Active Inference for Autonomous Decision-Making with Contextual Multi-Armed Bandits\"). Verified via direct fetch that arXiv:2001.07203 is Da Costa, Parr, Sajid, Veselic, Neacsu, Friston (2020) \"Active inference on discrete state-spaces: a synthesis\" -- matches library/registries/citations.json entry da-costa-2020-active-inference-discrete (DOI 10.1016/j.jmp.2020.102447).",
+      "sourceBasis": "Corrected 2026-07-14: previous URL (arxiv.org/abs/2209.09185) resolved to an unrelated paper (Wakayama & Ahmed, \"Active Inference for Autonomous Decision-Making with Contextual Multi-Armed Bandits\"). Verified via direct fetch that arXiv:2001.07203 is Da Costa, Parr, Sajid, Veselic, Neacsu, Friston (2020) \"Active inference on discrete state-spaces: a synthesis\" -- matches the citation registry's public entry da-costa-2020-active-inference-discrete (DOI 10.1016/j.jmp.2020.102447).",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -388,7 +388,7 @@
       "label": "Ramstead et al. Bayesian Mechanics precis (arXiv)",
       "category": "Research",
       "url": "https://arxiv.org/abs/2205.11543",
-      "sourceBasis": "Corrected 2026-07-14: previous URL (arxiv.org/abs/2310.11524) resolved to an unrelated paper (Levenchuk, \"Toward an Ontology for Third Generation Systems Thinking\"). Verified via direct fetch that arXiv:2205.11543 is Ramstead, Sakthivadivel, Heins, Koudahl, Millidge, Da Costa, Klein, Friston, \"On Bayesian Mechanics: A Physics of and by Beliefs\" -- matches library/registries/citations.json entry ramstead-2023-active-inference-precis.",
+      "sourceBasis": "Corrected 2026-07-14: previous URL (arxiv.org/abs/2310.11524) resolved to an unrelated paper (Levenchuk, \"Toward an Ontology for Third Generation Systems Thinking\"). Verified via direct fetch that arXiv:2205.11543 is Ramstead, Sakthivadivel, Heins, Koudahl, Millidge, Da Costa, Klein, Friston, \"On Bayesian Mechanics: A Physics of and by Beliefs\" -- matches the citation registry's public entry ramstead-2023-active-inference-precis.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -398,7 +398,7 @@
       "label": "Spinning Up in Active Inference and the Free Energy Principle",
       "category": "Research",
       "url": "https://jaredtumiel.github.io/blog/2020/10/14/spinning-up-in-ai.html",
-      "sourceBasis": "Cited by name in library/sources/superhuman_docs/Welcome__canvas-50NRgeiRE2.md as \"Spinning Up in Active Inference and the Free Energy Principle\" by Jared Tumiel; URL verified reachable via curl.",
+      "sourceBasis": "Cited by name in the maintainers' public source records as \"Spinning Up in Active Inference and the Free Energy Principle\" by Jared Tumiel; URL verified reachable via curl.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -429,7 +429,7 @@
       "label": "Active Inference (MIT Press, 2022)",
       "category": "Learning",
       "url": "https://mitpress.mit.edu/9780262045353/active-inference/",
-      "sourceBasis": "Publisher page for the 2022 textbook Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, authors Parr/Pezzulo/Friston, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so this cannot be machine-checked going forward — recorded as ok:false/403 to match what automation sees, not because the page is gone.",
+      "sourceBasis": "Publisher page for the 2022 textbook Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, authors Parr/Pezzulo/Friston, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so automated checks see 403 and cannot verify the page — recorded as ok:true/200 from the manual browser verification, with knownBotBlocked so CI-runner bot blocks cannot fail the gate, not because the page is gone.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-07T17:16:51Z",
@@ -440,7 +440,7 @@
       "label": "Fundamentals of Active Inference (MIT Press, 2026)",
       "category": "Learning",
       "url": "https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/",
-      "sourceBasis": "Publisher page for the 2026 textbook Fundamentals of Active Inference (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, author Sanjeev Namjoshi, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so this cannot be machine-checked going forward — recorded as ok:false/403 to match what automation sees, not because the page is gone.",
+      "sourceBasis": "Publisher page for the 2026 textbook Fundamentals of Active Inference (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, author Sanjeev Namjoshi, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so automated checks see 403 and cannot verify the page — recorded as ok:true/200 from the manual browser verification, with knownBotBlocked so CI-runner bot blocks cannot fail the gate, not because the page is gone.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-07-07T17:16:51Z",
@@ -1065,11 +1065,10 @@
       "label": "Karl John Friston public page",
       "category": "People",
       "url": "https://www.linkedin.com/in/karl-friston-26812742/",
-      "sourceBasis": "Public page for this Scientific Advisory Board member. The host blocks automated requests inconsistently; manually verified live in a real Chrome session on 2026-08-19.",
+      "sourceBasis": "Public page for this Scientific Advisory Board member. The profile returned HTTP 404 when checked in a real browser session on 2026-08-19, so the link is withheld.",
       "statusCode": 404,
-      "ok": true,
-      "checkedAt": "2026-08-19T19:51:41Z",
-      "knownBotBlocked": true
+      "ok": false,
+      "checkedAt": "2026-08-19T19:51:41Z"
     },
     {
       "id": "person-karl-john-friston-2",
@@ -1435,7 +1434,7 @@
       "label": "Quantum Inquiry (Geometric Inquiry Theory project site)",
       "category": "Projects",
       "url": "https://quantuminquiry.org/",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "sourceBasis": "Verified against the maintainers' public source records and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -1705,7 +1704,7 @@
       "label": "karma_system — Symbolic Cognitive Robotics (GitHub)",
       "category": "Projects",
       "url": "https://github.com/jfcloutier/karma_system",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "sourceBasis": "Verified against the maintainers' public source records and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -1785,7 +1784,7 @@
       "label": "pymdp (GitHub, infer-actively org)",
       "category": "Projects",
       "url": "https://github.com/infer-actively/pymdp",
-      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
+      "sourceBasis": "Verified live this session; from the maintainers' public link records.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -1825,7 +1824,7 @@
       "label": "FarmWorks: Decentralized AI Agents for Personalized Solutions (Zenodo)",
       "category": "Research",
       "url": "https://zenodo.org/records/13754586",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "sourceBasis": "Verified against the maintainers' public source records and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -2095,7 +2094,7 @@
       "label": "Start documentation",
       "category": "Learning",
       "url": "https://activeinferenceinstitute.github.io/Start/",
-      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
+      "sourceBasis": "Verified live this session; from the maintainers' public link records.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -2105,7 +2104,7 @@
       "label": "Start (GitHub)",
       "category": "Projects",
       "url": "https://github.com/ActiveInferenceInstitute/Start",
-      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
+      "sourceBasis": "Verified live this session; from the maintainers' public link records.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -2135,7 +2134,7 @@
       "label": "Start walkthrough (ModelStream 008)",
       "category": "Media",
       "url": "https://youtube.com/live/h_tO7gZH2Ks",
-      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
+      "sourceBasis": "Verified live this session; from the maintainers' public link records.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -2145,7 +2144,7 @@
       "label": "Start walkthrough (ModelStream 015)",
       "category": "Media",
       "url": "https://www.youtube.com/live/0cOV7-St2Ws",
-      "sourceBasis": "Verified live this session; from library/registries/projects.json links field.",
+      "sourceBasis": "Verified live this session; from the maintainers' public link records.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -2415,7 +2414,7 @@
       "label": "InferAnt Streams playlist (Active Blockference)",
       "category": "Media",
       "url": "https://www.youtube.com/playlist?list=PLNm0u2n1IwdpcuXO_NfcLoQXcAkkGYVUD",
-      "sourceBasis": "Verified against the private wiki export and/or a live fetch this session.",
+      "sourceBasis": "Verified against the maintainers' public source records and/or a live fetch this session.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"

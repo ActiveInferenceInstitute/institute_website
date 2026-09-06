@@ -2,6 +2,7 @@ import { urlDirForSlug, hrefForSlug } from "../url-taxonomy.mjs";
 import { escapeHtml } from "../lib/text.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
+import { tr } from "../i18n/index.mjs";
 
 // Interactive simulations index (/simulations/). Emitted programmatically like
 // the search/directory/sitemap pages (NOT a curated src/content/pages JSON), so
@@ -97,16 +98,16 @@ const TIERS = [
 
 function simCard(sim) {
   return `<article class="info-card">
-        <h3>${escapeHtml(sim.title)}</h3>
-        <p>${escapeHtml(sim.text)}</p>
-        <div class="link-chips"><a href="${escapeHtml(sim.file)}"><span>Open simulation</span></a></div>
+        <h3>${escapeHtml(tr(sim.title))}</h3>
+        <p>${escapeHtml(tr(sim.text))}</p>
+        <div class="link-chips"><a href="${escapeHtml(sim.file)}"><span>${escapeHtml(tr("Open simulation"))}</span></a></div>
       </article>`;
 }
 
 function tierSection(tier) {
   const cards = tier.sims.map(simCard).join("");
   return `<section class="content-band" id="${escapeHtml(tier.id)}">
-    ${sectionHeading({ eyebrow: `${tier.label} level`, title: tier.label, text: tier.blurb })}
+    ${sectionHeading({ eyebrow: tr("{label} level").replace("{label}", tier.label), title: tier.label, text: tier.blurb })}
     <div class="card-grid">${cards}</div>
   </section>`;
 }
@@ -114,23 +115,23 @@ function tierSection(tier) {
 export function simulationsPage() {
   const currentDir = urlDirForSlug("simulations");
   const total = TIERS.reduce((sum, tier) => sum + tier.sims.length, 0);
-  const tierNav = TIERS.map((tier) => `<a href="#${escapeHtml(tier.id)}">${escapeHtml(tier.label)} (${tier.sims.length})</a>`).join("");
+  const tierNav = TIERS.map((tier) => `<a href="#${escapeHtml(tier.id)}">${escapeHtml(tr(tier.label))} (${tier.sims.length})</a>`).join("");
   const body = `
   <section class="page-hero compact">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><span>Simulations</span></nav>
-    <p class="eyebrow">Interactive learning</p>
-    <h1>Simulations</h1>
-    <p>${total} interactive, browser-based simulations of Active Inference and the Free Energy Principle — from particles self-organising into life to agents navigating a T-maze. Each one runs entirely in your browser. Explore them by difficulty, or dive straight in.</p>
+    <nav class="breadcrumb" aria-label="${escapeHtml(tr("Breadcrumb"))}"><a href="${hrefForSlug("index", currentDir)}">${escapeHtml(tr("Home"))}</a><span aria-hidden="true">/</span><span>${escapeHtml(tr("Simulations"))}</span></nav>
+    <p class="eyebrow">${escapeHtml(tr("Interactive learning"))}</p>
+    <h1>${escapeHtml(tr("Simulations"))}</h1>
+    <p>${tr("{n} interactive, browser-based simulations of Active Inference and the Free Energy Principle — from particles self-organising into life to agents navigating a T-maze. Each one runs entirely in your browser. Explore them by difficulty, or dive straight in.").replace("{n}", total)}</p>
     <div class="mini-links">${tierNav}</div>
   </section>
   ${TIERS.map(tierSection).join("\n  ")}
   <section class="content-band muted" id="about-simulations">
     ${sectionHeading({ eyebrow: "About these simulations", title: "Learn by doing" })}
-    <p>These demonstrations make abstract Active Inference concepts tangible. They are also published on the Institute's main site at <a href="https://activeinference.org/pages/simulations.html" target="_blank" rel="noopener noreferrer">activeinference.org/pages/simulations.html</a>. To learn the theory behind them, see <a href="${hrefForSlug("active-inference", currentDir)}">Active Inference</a> and the <a href="${hrefForSlug("learning", currentDir)}">Learning and Research</a> resources.</p>
+    <p>${escapeHtml(tr("These demonstrations make abstract Active Inference concepts tangible. They are also published on the Institute's main site at"))} <a href="https://activeinference.org/pages/simulations.html" target="_blank" rel="noopener noreferrer">activeinference.org/pages/simulations.html</a>. ${escapeHtml(tr("To learn the theory behind them, see"))} <a href="${hrefForSlug("active-inference", currentDir)}">${escapeHtml(tr("Active Inference"))}</a> ${escapeHtml(tr("and"))} <a href="${hrefForSlug("learning", currentDir)}">${escapeHtml(tr("Learning and Research"))}</a> ${escapeHtml(tr("resources."))}</p>
   </section>`;
   return layout({
-    title: "Simulations",
-    description: `${total} interactive browser-based Active Inference and Free Energy Principle simulations, organized by difficulty.`,
+    title: tr("Simulations"),
+    description: tr("{n} interactive browser-based Active Inference and Free Energy Principle simulations, organized by difficulty.").replace("{n}", total),
     currentDir,
     body,
     slug: "simulations",

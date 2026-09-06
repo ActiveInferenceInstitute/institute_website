@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Construyendo un dron con RxInfer.jl | Active Inference Institute</title>
-  <meta name="description" content="Hola y bienvenido. Este es el Flujo de Modelo de Inferencia Activa número 10.1 del 4 de abril de 2024, 4-4-24. Y estamos muy emocionados hoy de estar con…">
+  <meta name="description" content="Building a Drone with RxInfer.jl — ModelStream #010.1 session, recorded Apr 4, 2024, with Bart van Erp, Albert Podusenko.">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <link rel="icon" type="image/svg+xml" href="../../../assets/img/icon.svg">
@@ -32,7 +32,7 @@
   <meta property="og:type" content="video.other">
   <meta property="og:site_name" content="Active Inference Institute">
   <meta property="og:title" content="Construyendo un dron con RxInfer.jl | Active Inference Institute">
-  <meta property="og:description" content="Hola y bienvenido. Este es el Flujo de Modelo de Inferencia Activa número 10.1 del 4 de abril de 2024, 4-4-24. Y estamos muy emocionados hoy de estar con…">
+  <meta property="og:description" content="Building a Drone with RxInfer.jl — ModelStream #010.1 session, recorded Apr 4, 2024, with Bart van Erp, Albert Podusenko.">
   <meta property="og:locale" content="es_ES"><meta property="og:locale:alternate" content="en_US"> <meta property="og:locale:alternate" content="fr_FR"> <meta property="og:locale:alternate" content="de_DE"> <meta property="og:locale:alternate" content="pt_PT"> <meta property="og:locale:alternate" content="it_IT"> <meta property="og:locale:alternate" content="ru_RU"> <meta property="og:locale:alternate" content="zh_CN"> <meta property="og:locale:alternate" content="ja_JP"> <meta property="og:locale:alternate" content="ko_KR"> <meta property="og:locale:alternate" content="hi_IN"> <meta property="og:locale:alternate" content="ar_SA">
   <meta property="og:url" content="https://activeinference.institute/es/video/modelstream-010-1/">
   <meta property="og:image" content="https://activeinference.institute/assets/img/social-card.png">
@@ -43,7 +43,7 @@
   <meta name="twitter:site" content="@InferenceActive">
   <meta name="twitter:creator" content="@InferenceActive">
   <meta name="twitter:title" content="Construyendo un dron con RxInfer.jl | Active Inference Institute">
-  <meta name="twitter:description" content="Hola y bienvenido. Este es el Flujo de Modelo de Inferencia Activa número 10.1 del 4 de abril de 2024, 4-4-24. Y estamos muy emocionados hoy de estar con…">
+  <meta name="twitter:description" content="Building a Drone with RxInfer.jl — ModelStream #010.1 session, recorded Apr 4, 2024, with Bart van Erp, Albert Podusenko.">
   <meta name="twitter:image" content="https://activeinference.institute/assets/img/social-card.png">
   <meta name="twitter:image:alt" content="Active Inference Institute social card">
   <meta name="generator" content="institute_website v4.0.0">
@@ -76,7 +76,7 @@
           <span>Aprender</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-1-learn"><a href="../../active-inference/">Inferencia Activa</a><a href="../../learning/">Aprendizaje e Investigación</a><a href="../../activities/">Actividades</a><a href="../../calendar/">Calendario</a><a href="../../simulations/">Simulaciones</a><a href="../../resources/#learning">Recursos de Aprendizaje</a><a href="../../resources/#learning">Documentos de inicio</a></div>
+        <div class="nav-menu" id="nav-menu-1-learn"><a href="../../active-inference/">Inferencia Activa</a><a href="../../learning/">Aprendizaje e Investigación</a><a href="../../activities/">Actividades</a><a href="../../calendar/">Calendario</a><a href="../../simulations/">Simulaciones</a><a href="../../resources/#learning">Recursos de Aprendizaje</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-2-participate" data-nav-toggle>
           <span>Participar</span>
@@ -103,7 +103,7 @@
     </div>
     <details class="lang-switcher">
       <summary aria-label="Elegir idioma" title="Elegir idioma"><span class="lang-globe" aria-hidden="true">🌐</span><span class="lang-current">ES</span></summary>
-      <nav class="lang-menu" aria-label="Idioma"><a hreflang="en" lang="en" href="../../../video/modelstream-010-1/">English</a><a hreflang="es" lang="es" href="./" aria-current="true">Español</a><a hreflang="fr" lang="fr" href="../../../fr/video/modelstream-010-1/">Français</a><a hreflang="de" lang="de" href="../../../de/video/modelstream-010-1/">Deutsch</a><a hreflang="pt" lang="pt" href="../../../pt/video/modelstream-010-1/">Português</a><a hreflang="it" lang="it" href="../../../it/video/modelstream-010-1/">Italiano</a><a hreflang="ru" lang="ru" href="../../../ru/video/modelstream-010-1/">Русский</a><a hreflang="zh" lang="zh" href="../../../zh/video/modelstream-010-1/">中文</a><a hreflang="ja" lang="ja" href="../../../ja/video/modelstream-010-1/">日本語</a><a hreflang="ko" lang="ko" href="../../../ko/video/modelstream-010-1/">한국어</a><a hreflang="hi" lang="hi" href="../../../hi/video/modelstream-010-1/">हिन्दी</a><a hreflang="ar" lang="ar" href="../../../ar/video/modelstream-010-1/">العربية</a></nav>
+      <nav class="lang-menu" aria-label="Idioma"><a hreflang="en" lang="en" href="../../../video/modelstream-010-1/">English</a><a hreflang="es" lang="es" href="./" aria-current="page">Español</a><a hreflang="fr" lang="fr" href="../../../fr/video/modelstream-010-1/">Français</a><a hreflang="de" lang="de" href="../../../de/video/modelstream-010-1/">Deutsch</a><a hreflang="pt" lang="pt" href="../../../pt/video/modelstream-010-1/">Português</a><a hreflang="it" lang="it" href="../../../it/video/modelstream-010-1/">Italiano</a><a hreflang="ru" lang="ru" href="../../../ru/video/modelstream-010-1/">Русский</a><a hreflang="zh" lang="zh" href="../../../zh/video/modelstream-010-1/">中文</a><a hreflang="ja" lang="ja" href="../../../ja/video/modelstream-010-1/">日本語</a><a hreflang="ko" lang="ko" href="../../../ko/video/modelstream-010-1/">한국어</a><a hreflang="hi" lang="hi" href="../../../hi/video/modelstream-010-1/">हिन्दी</a><a hreflang="ar" lang="ar" href="../../../ar/video/modelstream-010-1/">العربية</a></nav>
     </details>
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Escucha esta página" title="Escucha esta página"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
@@ -122,10 +122,10 @@
   </header>
   <main id="main">
     <p class="mt-notice" role="note"><span aria-hidden="true">🌐</span> Esta página fue traducida automáticamente desde el inglés. <a href="../../../video/modelstream-010-1/" hreflang="en" lang="en">Ver el original en inglés.</a></p><section class="page-hero compact">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../../">Home</a>
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="../../">Inicio</a>
       <span aria-hidden="true">/</span>
-      <a href="../">Videos and Podcasts</a>
+      <a href="../">Vídeos y podcasts</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">Building a Drone with RxInfer.jl</span>
     </nav>
@@ -166,7 +166,7 @@
     </div>
     <p class="section-link"><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/data/video/activeinferenceinstitute/ModelStream/ModelStream_010/transcript.txt" target="_blank" rel="noopener noreferrer">View full transcript on GitHub ↗</a></p>
   </section>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","@id":"https://activeinference.institute/es/video/modelstream-010-1/#video","name":"Building a Drone with RxInfer.jl","description":"Hello and welcome. This is Active Inference Model Stream number 10.1 on April 4th, 2024, 4-4-24. And we're really excited today to be with Bart Van Earp and Albert Potosenko talking about building a drone with RxInfer. We have an ongoing RxInfer learning group at the Institute and a lot of participa…","uploadDate":"2024-04-04","thumbnailUrl":"https://img.youtube.com/vi/TZNXs5jP9hE/sddefault.jpg","embedUrl":"https://www.youtube.com/embed/TZNXs5jP9hE","url":"https://www.youtube.com/watch?v=TZNXs5jP9hE"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","@id":"https://activeinference.institute/es/video/modelstream-010-1/#video","name":"Building a Drone with RxInfer.jl","description":"Building a Drone with RxInfer.jl — ModelStream #010.1 session, recorded Apr 4, 2024, with Bart van Erp, Albert Podusenko.","uploadDate":"2024-04-04","thumbnailUrl":"https://img.youtube.com/vi/TZNXs5jP9hE/sddefault.jpg","embedUrl":"https://www.youtube.com/embed/TZNXs5jP9hE","url":"https://www.youtube.com/watch?v=TZNXs5jP9hE"}</script>
 
   <section class="content-band" id="related">
     <div class="section-heading">
@@ -176,8 +176,8 @@
   </div>
     <div class="link-chips">
       <a href="../"><span>All videos</span></a>
-      <a href="../../activities/"><span>Activities</span></a>
-      <a href="../../learning/"><span>Learning</span></a>
+      <a href="../../activities/"><span>Actividades</span></a>
+      <a href="../../learning/"><span>Aprendizaje</span></a>
     </div>
   </section>
   </main>
@@ -201,7 +201,7 @@
     <div class="social-links" aria-label="Enlaces públicos verificados">
       <a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://www.youtube.com/@ActiveInference/" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://x.com/InferenceActive" target="_blank" rel="noopener noreferrer">X</a><a href="https://bsky.app/profile/activeinference.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a><a href="https://activeinference.podbean.com/" target="_blank" rel="noopener noreferrer">Podbean</a><a href="https://www.facebook.com/ActiveInference" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/active-inference/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-    <p class="build-stamp">v4.0.0 · build 0088021dc700</p>
+    <p class="build-stamp">v4.0.0 · build df537d1eb072</p>
   </footer>
   <script src="../../../assets/js/theme.js" defer></script>
   <script src="../../../assets/js/accent.js" defer></script>
