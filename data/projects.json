@@ -34,7 +34,7 @@
         "cadcad": "https://cadcad.org/",
         "website": "project-active-blockference.html",
         "official": "https://www.activeinference.institute/active-blockference",
-        "active-inferants": "https://github.com/ActiveInferenceInstitute/ActiveInferAnts"
+        "active-inferants": "https://github.com/ActiveInferenceInstitute/Active_InferAnts"
       },
       "tasks": [],
       "affiliation": "institute",
@@ -131,7 +131,7 @@
       "summary": "Multiagent modeling of collective behavior using Active Inference, with connections to ant colony research.",
       "website_slug": "project-active-inferants",
       "links": {
-        "github": "https://github.com/ActiveInferenceInstitute/ActiveInferAnts",
+        "github": "https://github.com/ActiveInferenceInstitute/Active_InferAnts",
         "p3if": "https://p3if.com/",
         "website": "project-active-inferants.html",
         "github-ants": "https://github.com/ActiveInferenceInstitute/ants",
@@ -188,7 +188,7 @@
       "website_slug": "project-active-inference-journal",
       "links": {
         "github_main": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal",
-        "github_utilities": "https://github.com/ActiveInferenceInstitute/Journal-Utilities",
+        "github_utilities": "https://github.com/ActiveInferenceInstitute/Journal_Utilities",
         "website": "project-active-inference-journal.html",
         "github": "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal"
       },
@@ -1303,7 +1303,7 @@
       "summary": "Geospatial modeling using Active Inference and spatial data analysis techniques.",
       "website_slug": "project-geo-infer",
       "links": {
-        "github": "https://github.com/ActiveInferenceInstitute/GEO-INFER",
+        "github": "https://github.com/ActiveInferenceInstitute/GEO_INFER",
         "website": "project-geo-infer.html"
       },
       "tasks": [],
@@ -1386,11 +1386,11 @@
       "summary": "A text-based notation system for communicating generative models and Active Inference systems that provides a shared language for describing models in a human-readable and machine-processable way.",
       "website_slug": "project-gnn",
       "links": {
-        "github": "https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation",
+        "github": "https://github.com/ActiveInferenceInstitute/Generalized_Notation_Notation",
         "publication": "https://doi.org/10.5281/zenodo.7803328",
         "institute": "https://activeinference.org/",
         "website": "project-gnn.html",
-        "github_main": "https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation",
+        "github_main": "https://github.com/ActiveInferenceInstitute/Generalized_Notation_Notation",
         "github_repo": "https://github.com/ActiveInferenceInstitute/gnn",
         "github_org": "https://github.com/ActiveInferenceInstitute",
         "discord": "https://discord.activeinference.institute"

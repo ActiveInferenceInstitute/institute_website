@@ -58,7 +58,7 @@
       "category": "projects",
       "docsSourceId": "",
       "docsUrl": "",
-      "fullName": "ActiveInferenceInstitute/ActiveInferAnts",
+      "fullName": "ActiveInferenceInstitute/Active_InferAnts",
       "id": "repo-activeinferants",
       "language": "Python",
       "projectFamily": "Open-source projects",
@@ -77,14 +77,14 @@
       ],
       "title": "ActiveInferAnts",
       "updatedAt": "2026-05-18T14:26:07Z",
-      "url": "https://github.com/ActiveInferenceInstitute/ActiveInferAnts"
+      "url": "https://github.com/ActiveInferenceInstitute/Active_InferAnts"
     },
     {
       "audience": "developer",
       "category": "projects",
       "docsSourceId": "",
       "docsUrl": "",
-      "fullName": "ActiveInferenceInstitute/GeneralizedNotationNotation",
+      "fullName": "ActiveInferenceInstitute/Generalized_Notation_Notation",
       "id": "repo-generalizednotationnotation",
       "language": "Pkl",
       "projectFamily": "Open-source projects",
@@ -103,7 +103,7 @@
       ],
       "title": "GeneralizedNotationNotation",
       "updatedAt": "2026-05-25T17:03:46Z",
-      "url": "https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation"
+      "url": "https://github.com/ActiveInferenceInstitute/Generalized_Notation_Notation"
     },
     {
       "audience": "learner",
@@ -239,7 +239,7 @@
       "category": "projects",
       "docsSourceId": "",
       "docsUrl": "",
-      "fullName": "ActiveInferenceInstitute/GEO-INFER",
+      "fullName": "ActiveInferenceInstitute/GEO_INFER",
       "id": "repo-geo-infer",
       "language": "HTML",
       "projectFamily": "Open-source projects",
@@ -258,14 +258,14 @@
       ],
       "title": "GEO-INFER",
       "updatedAt": "2026-05-26T10:54:42Z",
-      "url": "https://github.com/ActiveInferenceInstitute/GEO-INFER"
+      "url": "https://github.com/ActiveInferenceInstitute/GEO_INFER"
     },
     {
       "audience": "researcher",
       "category": "research",
       "docsSourceId": "",
       "docsUrl": "",
-      "fullName": "ActiveInferenceInstitute/Journal-Utilities",
+      "fullName": "ActiveInferenceInstitute/Journal_Utilities",
       "id": "repo-journal-utilities",
       "language": "HTML",
       "projectFamily": "Research and publications",
@@ -284,7 +284,7 @@
       ],
       "title": "Journal-Utilities",
       "updatedAt": "2026-02-21T11:19:16Z",
-      "url": "https://github.com/ActiveInferenceInstitute/Journal-Utilities"
+      "url": "https://github.com/ActiveInferenceInstitute/Journal_Utilities"
     },
     {
       "audience": "researcher",
@@ -525,7 +525,7 @@
       "category": "research",
       "docsSourceId": "",
       "docsUrl": "",
-      "fullName": "ActiveInferenceInstitute/fep_lean",
+      "fullName": "ActiveInferenceInstitute/fep_formal",
       "id": "repo-fep-lean",
       "language": "Python",
       "projectFamily": "Research and publications",
@@ -544,7 +544,7 @@
       ],
       "title": "fep_lean",
       "updatedAt": "2026-04-27T04:46:06Z",
-      "url": "https://github.com/ActiveInferenceInstitute/fep_lean"
+      "url": "https://github.com/ActiveInferenceInstitute/fep_formal"
     },
     {
       "audience": "learner",
