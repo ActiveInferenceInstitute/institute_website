@@ -118,7 +118,7 @@
     {
       "sourceId": "repo-activeinferants",
       "name": "ActiveInferAnts",
-      "fullName": "ActiveInferenceInstitute/ActiveInferAnts",
+      "fullName": "ActiveInferenceInstitute/Active_InferAnts",
       "type": "repository",
       "category": "projects",
       "audience": "developer",
@@ -479,7 +479,7 @@
     {
       "sourceId": "repo-fep-lean",
       "name": "fep_lean",
-      "fullName": "ActiveInferenceInstitute/fep_lean",
+      "fullName": "ActiveInferenceInstitute/fep_formal",
       "type": "repository",
       "category": "research",
       "audience": "researcher",
@@ -590,7 +590,7 @@
     {
       "sourceId": "repo-generalizednotationnotation",
       "name": "GeneralizedNotationNotation",
-      "fullName": "ActiveInferenceInstitute/GeneralizedNotationNotation",
+      "fullName": "ActiveInferenceInstitute/Generalized_Notation_Notation",
       "type": "repository",
       "category": "projects",
       "audience": "developer",
@@ -618,7 +618,7 @@
     {
       "sourceId": "repo-geo-infer",
       "name": "GEO-INFER",
-      "fullName": "ActiveInferenceInstitute/GEO-INFER",
+      "fullName": "ActiveInferenceInstitute/GEO_INFER",
       "type": "repository",
       "category": "projects",
       "audience": "developer",
@@ -673,7 +673,7 @@
     {
       "sourceId": "repo-journal-utilities",
       "name": "Journal-Utilities",
-      "fullName": "ActiveInferenceInstitute/Journal-Utilities",
+      "fullName": "ActiveInferenceInstitute/Journal_Utilities",
       "type": "repository",
       "category": "research",
       "audience": "researcher",
