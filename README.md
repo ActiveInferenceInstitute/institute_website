@@ -84,6 +84,7 @@ InstituteOS-adjacent data may be injected only through the public sync script or
 │   ├── check_project_discoverability.py # Project-page coverage gate
 │   ├── check_project_catalog_coverage.mjs # data/projects.json vs pages gate
 │   ├── i18n_translate.mjs        # Offline translation (Ollama/hosted API)
+│   ├── i18n_check_terminology.mjs # Terminology QA sweep over the translation catalogs
 │   ├── sync_video_transcripts.py # Video transcript excerpts from the Journal
 │   ├── generate_bibliography.py  # Bibliography/citations from act_inf_metaanalysis
 │   └── …
@@ -216,6 +217,7 @@ catalogs; the build itself never calls a model.
 ```bash
 npm run i18n:extract                 # collect translatable strings after content changes
 npm run i18n:translate -- --all      # fill every locale via local Ollama
+npm run i18n:check-terms             # terminology QA report over the catalogs
 npm run build                        # render all locale subtrees
 ```
 

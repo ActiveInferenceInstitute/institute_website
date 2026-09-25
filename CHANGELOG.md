@@ -5,6 +5,24 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **i18n terminology QA sweep (2026-09-24).** New
+  `scripts/i18n_check_terminology.mjs` (`npm run i18n:check-terms`; unit tests
+  wired into `check:i18n`) sweeps all 11 translation catalogs against the
+  protected-term glossary (`KEEP_VERBATIM` + "Markov Blanket", with
+  established per-locale renderings recognized for the three concept terms).
+  First-run report across 11 catalogs (4,694–4,695 entries each): against the
+  committed HEAD catalogs, 4,959 findings (2,242 **omitted** — concept term
+  lost or garbled in translation, e.g. es "razonamiento activo" for "active
+  inference", ja garble "アクティブインフェリエンス" — and 2,717
+  **verbatim-missing**: brand/program terms rendered natively, e.g.
+  "Instituto de Inferencia Activa"). Against the uncommitted 2026-09-07
+  re-translate catalog state sitting in the worktree (not committed with this
+  change): 5,624 findings across 4,871 entries — that re-translate made term
+  fidelity worse, and its disposition is a separate decision. `--fix`
+  re-translates flagged entries through the existing masked offline pipeline,
+  replacing a value only when the candidate passes the same glossary check;
+  the run itself is blocked this sweep on Ollama capacity (server up but
+  starved by concurrent GPU jobs) and remains incremental/resumable.
 - **Cross-repo deep review pass (2026-09-04).** Findings from an adversarially
   verified review of the site, its gates, and the private export pipeline that
   feeds it; all gates re-run green after the changes.

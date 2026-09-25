@@ -27,9 +27,10 @@ sync, and translate that source. Run gates with no network access.
 | `npm run sync:instituteos` | `sync_instituteos_public_data.py` (writes) |
 | `npm run i18n:extract` | `I18N_EXTRACT=1 node src/build.mjs` → `src/content/i18n/_strings.json` |
 | `npm run i18n:translate` | [`i18n_translate.mjs`](i18n_translate.mjs) |
+| `npm run i18n:check-terms` | [`i18n_check_terminology.mjs`](i18n_check_terminology.mjs) — terminology QA report over the committed catalogs (`--fix` re-translates findings offline) |
 | `npm run sync:transcripts` | [`sync_video_transcripts.py`](sync_video_transcripts.py) — syncs video transcript excerpts from ActiveInferenceJournal |
 | `npm run check:transcripts` | `sync_video_transcripts.py --check` — validates transcript records |
-| `npm run check:i18n` | `node --test scripts/test_i18n_translate.mjs` — translation-helper logic (masking, degeneration guard) |
+| `npm run check:i18n` | `node --test scripts/test_i18n_translate.mjs scripts/test_i18n_terminology.mjs` — translation-helper logic (masking, degeneration guard) + terminology-QA classification rules |
 | `npm run check:standalone` | [`check_standalone_payloads.py`](check_standalone_payloads.py) — exercises the CI-only (no-InstituteOS-root) fallback branch of the sync `--check` |
 
 `npm run check` is the offline gate (Python + Node, no network). Run it before

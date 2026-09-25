@@ -287,6 +287,48 @@ npm run i18n:translate -- --all    # translates only missing keys
 npm run i18n:translate -- --all --force  # re-translate everything
 ```
 
+## Terminology QA
+
+Machine-translated catalogs are swept for glossary violations with
+`scripts/i18n_check_terminology.mjs` (report by default; `--fix` re-translates
+flagged entries through the same offline pipeline):
+
+```bash
+npm run i18n:check-terms                  # per-locale violation report, all locales
+npm run i18n:check-terms -- --locale ja   # one locale
+npm run i18n:check-terms -- --fix         # re-translate flagged entries (Ollama default)
+npm run i18n:check-terms -- --json        # machine-readable report
+```
+
+The glossary derives from `KEEP_VERBATIM` in `scripts/i18n_translate.mjs`
+(brand and program names that must survive translation verbatim) plus
+"Markov Blanket". "Markov Blanket" is QA-only: every locale's scientific
+literature renders it with the proper name retained ("manto de Markov",
+"马尔可夫毯"), so it is deliberately **not** masked during translation — the QA
+check instead requires the Markov root to survive. Entries whose value equals
+their English key are skipped: that is the documented missing-key fallback,
+not a mistranslation.
+
+Findings come in two classes:
+
+- **omitted** — a concept term ("Active Inference", "Free Energy Principle",
+  "Markov Blanket") whose translated value contains neither the English term
+  nor an established per-locale rendering (the renderings live in the
+  script's `RECOGNIZED` table, derived from the catalogs themselves). These
+  are real losses or garbles — e.g. a locale rendering "active inference" as
+  "active reasoning" — and `--fix` re-translates them with protected-term
+  masking, replacing a value only when the candidate passes the same check.
+- **verbatim-missing** — a brand/program term rendered natively (e.g.
+  "Instituto de Inferencia Activa" for "Active Inference Institute").
+  Reported for policy review; new translations mask these terms, so catalogs
+  converge on the verbatim form as keys are re-translated.
+
+The scan is a sweep tool, not a gate: it is not part of `npm run check` (a red
+gate on translation data would block unrelated content work), but it exits 1
+while findings remain, so a completed sweep can be promoted to a gate by
+adding it to the check chain. Unit tests for the classification rules run
+under `check:i18n`.
+
 ## How Localized Pages Are Generated
 
 ### Routing Architecture: One Central Point
@@ -559,4 +601,5 @@ A locale with `"dir": "rtl"` (currently only Arabic) renders `<html lang="ar" di
 | [`src/build.mjs`](../src/build.mjs) | Build loop: renders every routed page once per locale |
 | [`src/render/layout.mjs`](../src/render/layout.mjs) | Page chrome: `<html lang dir>`, `hreflang` alternates, language switcher, MT notice |
 | [`scripts/i18n_translate.mjs`](../scripts/i18n_translate.mjs) | Offline translator (Ollama or hosted API) |
+| [`scripts/i18n_check_terminology.mjs`](../scripts/i18n_check_terminology.mjs) | Terminology QA sweep over the catalogs (`i18n:check-terms`) |
 | [`scripts/check_site_contract.py`](../scripts/check_site_contract.py) | Locale-aware contract checker (reads `locales.json`) |

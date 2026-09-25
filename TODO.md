@@ -13,9 +13,26 @@ strict Content Security Policy, gated by `npm run check`.
       `npm run i18n:translate` pass (local Ollama; incremental/resumable) filled
       **100%** of every locale — all 11 catalogs sit at 3,534 entries
       (es/fr/de/pt/it/ru/hi/ar via gemma3:4b, zh/ja/ko via qwen2.5:3b). See the
-      CHANGELOG "Unreleased" translation entry. A TERMINOLOGY QA pass is noted
-      in scope for a future sweep (established terms like "Active Inference";
-      residual derived entries from earlier base-key fixes).
+      CHANGELOG "Unreleased" translation entry. The TERMINOLOGY QA pass —
+      **DONE 2026-09-24**: `scripts/i18n_check_terminology.mjs`
+      (`npm run i18n:check-terms`, classification tests under `check:i18n`)
+      sweeps all 11 catalogs against the `KEEP_VERBATIM` glossary plus
+      "Markov Blanket", with established per-locale renderings recognized for
+      the three concept terms. First-run report (against the uncommitted
+      2026-09-07 re-translate
+      catalog state sitting in the worktree): 5,624 findings across 4,871
+      entries — 2,711 omitted (concept term lost or garbled, e.g. ko "인퍼
+      encing", ja "アクティブインフェリエンス", es "razonamiento activo" for
+      "active inference") and 2,913 verbatim-missing (brand/program terms
+      rendered natively, e.g. "Instituto de Inferencia Activa"). Against the
+      committed HEAD catalogs the same sweep reports 4,959 findings (2,242
+      omitted / 2,717 verbatim-missing) — the uncommitted re-translate made
+      term fidelity worse; decide its fate before acting on either number.
+      `--fix` re-translates flagged entries through the masked pipeline and is
+      incremental/resumable; the run was blocked this sweep because the local
+      Ollama server, though up, was starved by concurrent GPU jobs (a single
+      short string produced no response in 300s), so the findings stand as the
+      report for the next offline window.
 
 ### From the 2026-06 deep review (see [`INDEX.md`](INDEX.md), [`GATING.md`](GATING.md))
 
@@ -259,8 +276,10 @@ Second wave of verified findings from the two completed audit subagents
 - [ ] **docs/ folder audit subagent was interrupted** (provider billing error) —
       its coverage was completed first-hand this pass; the docs/ set is now
       verified against the repo.
-- [ ] **Terminology QA on machine-translated catalogs** — noted in the existing
-      i18n backlog above; not part of this docs pass.
+- [x] **Terminology QA on machine-translated catalogs** — shipped as
+      `scripts/i18n_check_terminology.mjs` (see the i18n backlog item above for
+      the first-run counts). The deferred remainder is the `--fix`
+      re-translation run, blocked on Ollama capacity this sweep.
 - [ ] **Per-page `lastmod` in sitemap.xml** — existing deferred item; unchanged.
 
 ## Agent-ergonomics documentation pass — 2026-08-31

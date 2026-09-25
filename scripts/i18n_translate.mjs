@@ -61,7 +61,7 @@ const DEFAULT_MODEL_BY_LOCALE = {
 };
 
 // Proper nouns / brand terms that must survive translation verbatim.
-const KEEP_VERBATIM = [
+export const KEEP_VERBATIM = [
   "Active Inference Institute",
   "Active Inference",
   "Act. Infer. Serve.",
@@ -197,7 +197,7 @@ export function pruneCatalog(catalog, sourceSet) {
   return [kept, dead.length];
 }
 
-function modelFor(code, override) {
+export function modelFor(code, override) {
   if (override) {
     return override;
   }

@@ -32,6 +32,7 @@ Never commit private paths or internal tool names — every commit is public.
 | `npm run check` | `node --check src/build.mjs` + `py_compile` of all checkers + the 11 `check:*` sub-gates below |
 | `npm run i18n:extract` | `I18N_EXTRACT=1 node src/build.mjs` — extract translatable strings |
 | `npm run i18n:translate` | `node scripts/i18n_translate.mjs` — offline translation (Ollama/hosted API) |
+| `npm run i18n:check-terms` | `node scripts/i18n_check_terminology.mjs` — terminology QA report over the committed catalogs (`--fix` re-translates findings offline) |
 | `npm run check:sources` | `python3 scripts/check_live_sources.py src/content/live-sources.json` — **networked**, outside the offline `check` chain |
 | `npm run sync:instituteos` / `check:instituteos` | write / `--check` sanitized public data (`scripts/sync_instituteos_public_data.py`) |
 | `npm run sync:transcripts` / `check:transcripts` | write / `--check` video transcript excerpts (`scripts/sync_video_transcripts.py`) |
@@ -51,7 +52,7 @@ treat as order-of-magnitude):
 | `check:redirects` | `check_redirects.py` | redirect map vs `src/url-taxonomy.json` + build output | ~1 s | — |
 | `check:projects` | `check_project_discoverability.py` | every `website_slug` project has a page | <1 s | — |
 | `check:catalog` | `check_project_catalog_coverage.mjs` | every project page linked from built `/projects/` | fast | — |
-| `check:i18n` | `node --test scripts/test_i18n_translate.mjs` | translation-helper logic (masking, degeneration guard) | ~7 s | — |
+| `check:i18n` | `node --test scripts/test_i18n_translate.mjs scripts/test_i18n_terminology.mjs` | translation-helper logic (masking, degeneration guard) + terminology-QA classification rules | ~7 s | — |
 | `check:standalone` | `check_standalone_payloads.py` | the CI-only (no-InstituteOS-root) sync branch | ~37 s | — |
 
 Full gate reference with failure messages and fixes:

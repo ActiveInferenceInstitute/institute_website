@@ -29,7 +29,7 @@ npm run check:sources      # check_live_sources.py -- bounded network probe, sep
 npm run check:sources -- --offline  # manifest-shape validation without network access
 npm run check:projects     # check_project_discoverability.py
 npm run check:catalog      # check_project_catalog_coverage.mjs
-npm run check:i18n         # test_i18n_translate.mjs (node --test)
+npm run check:i18n         # test_i18n_translate.mjs + test_i18n_terminology.mjs (node --test)
 npm run check:standalone   # check_standalone_payloads.py (CI-only sync branch)
 ```
 
@@ -698,7 +698,7 @@ node scripts/check_project_catalog_coverage.mjs
 
 ## Gate 8: Translation Pipeline Helpers (`check:i18n`)
 
-**File:** `scripts/test_i18n_translate.mjs` (run with `node --test`, no dependencies)
+**File:** `scripts/test_i18n_translate.mjs` + `scripts/test_i18n_terminology.mjs` (run with `node --test`, no dependencies)
 
 **What it enforces:**
 - Protected terms (`KEEP_VERBATIM`) round-trip through masking unchanged, and the longest term
@@ -709,6 +709,9 @@ node scripts/check_project_catalog_coverage.mjs
   labels that legitimately grow) through.
 - `cleanTranslation()` strips prompt echo, wrapping delimiters, and any hallucinated continuation
   after the first line break.
+- The terminology-QA classification rules (`scripts/i18n_check_terminology.mjs`): recognized
+  per-locale renderings pass, lost/garbled concept terms flag as `omitted`, English fallbacks
+  (value equals key) and brand-term renderings classify per the `KEEP_VERBATIM`-derived glossary.
 
 **Why it exists:** these helpers decide what reaches a public page in ten languages, and each one
 exists because a small local model failed in a specific way — gemma3:4b rendered "Research Fellows"
@@ -721,7 +724,7 @@ network: it pins the pure logic only.
 ```bash
 npm run check:i18n
 # or directly:
-node --test scripts/test_i18n_translate.mjs
+node --test scripts/test_i18n_translate.mjs scripts/test_i18n_terminology.mjs
 ```
 
 **To fix a failure:** a change to `KEEP_VERBATIM`, the masking functions, or the degeneration
