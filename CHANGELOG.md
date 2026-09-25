@@ -5,6 +5,14 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- **i18n terminology repair passes (2026-09-25).** The `--fix` sweep ran against the
+  committed catalogs via OpenRouter (2 passes `google/gemini-2.5-flash`, 1 pass
+  `~z-ai/glm-flash-latest`), reducing findings 4,959 → 573 (85%). Only gate-passing
+  candidates (`entryPasses`: protected-term verbatim + degeneration guard) are written, and
+  every reduction is re-measured by the sweep's own post-write classification. The residual
+  573 `omitted`/`verbatim-missing` entries failed the gate across all three passes and are
+  accepted as the documented threshold (see `docs/GATES_AND_VALIDATION.md` Gate 8); fixes
+  land opportunistically in future catalog passes. Catalog commits: `fe8ba82011`, `74d7af7603`.
 - **i18n terminology QA sweep (2026-09-24).** New
   `scripts/i18n_check_terminology.mjs` (`npm run i18n:check-terms`; unit tests
   wired into `check:i18n`) sweeps all 11 translation catalogs against the

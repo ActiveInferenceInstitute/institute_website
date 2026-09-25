@@ -732,6 +732,13 @@ thresholds broke one of the pinned behaviours. Re-read the failing assertion bef
 threshold — the bounds exist to keep corrupt output off public pages, not to be tuned until they
 pass.
 
+**Accepted residual threshold (owner decision, 2026-09-25):** the sweep reports 573 residual
+`omitted`/`verbatim-missing` findings across the 11 committed catalogs, down from 4,959. Three
+model passes (OpenRouter `google/gemini-2.5-flash` x2, `~z-ai/glm-flash-latest`) reached a
+plateau: each remaining entry's re-translated candidates failed the `entryPasses` glossary/degeneracy
+gate twice per model. The threshold is accepted — `check:i18n` does not run the sweep, so CI stays
+green; future catalog passes should fix these opportunistically rather than force re-translation.
+
 ---
 
 ## Gate 9: Standalone Payload Check (`check:standalone`)
