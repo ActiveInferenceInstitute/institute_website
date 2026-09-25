@@ -2438,6 +2438,16 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
+    },
+    {
+      "id": "working-groups-repo",
+      "label": "Working Groups repository",
+      "category": "Projects",
+      "url": "https://github.com/ActiveInferenceInstitute/Working_Groups",
+      "sourceBasis": "Private project repository; recorded now so the public Working Groups page can promote the verified link the moment the repository is made public. Verify with check:sources and set ok=true on the flip.",
+      "statusCode": 404,
+      "ok": false,
+      "checkedAt": "2026-09-25T09:20:00Z"
     }
   ]
 }

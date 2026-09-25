@@ -70,13 +70,13 @@
           <span>研究所</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">关于</a><a href="../../structure/">结构与治理</a><a href="../../structure/board-of-directors/">董事会</a><a href="../../structure/officers/">官员</a><a href="../../structure/scientific-advisory-board/">科学顾问委员会</a><a href="../../ecosystem/">生态系统</a><a href="../../communications/">通信</a><a href="../../newsletter/">新闻简报</a><a href="../../instituteos/">Active推理研究所界面</a><a href="../../directory/">全球目录</a><a href="../../resources/#official-shortlinks">官方简链接</a></div>
+        <div class="nav-menu" id="nav-menu-0-institute"><a href="../../about/">关于</a><a href="../../structure/">结构与治理</a><a href="../../structure/board-of-directors/">董事会</a><a href="../../structure/officers/">官员</a><a href="../../structure/scientific-advisory-board/">科学顾问委员会</a><a href="../../ecosystem/">生态系统</a><a href="../../communications/">通信</a><a href="../../newsletter/">新闻简报</a><a href="../../instituteos/">InstituteOS 界面</a><a href="../../directory/">全球目录</a><a href="../../resources/#official-shortlinks">官方简链接</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-1-learn" data-nav-toggle>
           <span>学习</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-1-learn"><a href="../">主动推断</a><a href="../../learning/">学习与研究</a><a href="../../activities/">活动</a><a href="../../calendar/">日历</a><a href="../../simulations/">模拟</a><a href="../../resources/#learning">学习资源</a></div>
+        <div class="nav-menu" id="nav-menu-1-learn"><a href="../">主动推断</a><a href="../../learning/">学习与研究</a><a href="../../activities/">活动</a><a href="../../working-groups/">Working Groups</a><a href="../../calendar/">日历</a><a href="../../simulations/">模拟</a><a href="../../resources/#learning">学习资源</a></div>
       </div><div class="nav-group">
         <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-menu-2-participate" data-nav-toggle>
           <span>参与</span>
@@ -164,7 +164,7 @@
             <p>PyMDP 是一个用于在离散状态马尔可夫决策过程环境中的主动推理代理进行模拟的 Python 包，为建模者提供了一种 POMDP 式的生成模型、隐状态的变分推理以及基于期望自由能的策略选择，在广泛重用的基础实现中。BIASlab 在埃因霍温开发的 RxInfer.jl 采取了不同的路线：它在 Forney 贝叶斯图上执行反应消息传递，而不是直接与贝叶斯图或显式 POMDPs 工作，因此推理是事件驱动的而非固定时钟上的运行，据报道对于流数据和模型中参数数量庞大的情况有好处。由 Karl Friston 在 MRC Cyclotron 单元在 1980 年代后期创建的统计参数映射（Statistical Parametric Mapping），它预于主动推理本身——它的一般线性模型和高斯场理论机器与自由能形式化一起进化，至今仍在使用作为历史基石和工作分析工具。Jean-Francois Cloutier 的 karma_system 项目围绕着构建的符号认知机器人结合了主动推理和符号推理，使得生成模型、信念和目标可以表示为符号结构而非纯粹数值结构，同时仍然通过期望自由能最小化选择动作。</p>
           </article><article class="article-block" id="institute-affiliated-development-and-learning">
             <h2>院属开发与学习</h2>
-            <p>RxInfer.jl 学习小组是与 RxInfer.jl 开发者直接合作的 Institute 项目，包括在代码编辑器中可视化底层因子图的技术；该小组定期举行同步会议，并吸引了来自不同 Julia 和贝叶斯建模背景的贡献者参与实际项目。<a href="../../projects/symbolic-robotics/">Symbolic Cognitive Robotics</a> 是 Jean-Francois Cloutier 的工作，他是 Institute 的研究 fellow，在机器人规划和符号问题解决设置中展示了 karma_system 方法； Institute 的第二次应用主动推理研讨会也将机器人技术作为重点。PyMDP 虽然由 Institute 之外的团队维护，但在 Institute 自己的 ModelStream 学习活动中被提及，反映了它在更广泛社区中的共享参考实现角色，而不是单一实验室工具的角色。</p>
+            <p>RxInfer.jl 学习小组是一个活跃的研究所项目，它与 RxInfer.jl 的开发者直接合作进行开源开发，包括代码编辑器中底层因子图的可视化技术；该小组定期举办同步会议，并吸引了具有 Julia 和贝叶斯建模背景的贡献者参与应用项目。符号认知机器人学是 Jean-Francois Cloutier 的工作，他是与研究所相关的 Research Fellow，他展示了 karma_system 方法在机器人规划和符号问题解决环境中的应用；机器人学也是研究所第二次 <a href="../../projects/symposium/">Applied Active Inference Symposium</a> 的重点关注领域。PyMDP 虽然在研究所之外维护，但已在研究所自己的 ModelStream 学习会议中亮相，这反映了它作为更广泛社区共享参考实现而非单一实验室工具的作用。</p>
           </article><article class="article-block" id="open-problems">
             <h2>未解之题</h2>
             <p>这些工具链在生成模型格式、推理算法或数值后端方面没有共享，因此在一个构建的模型无法移植到另一个系统中而需要进行大量重写。目前还没有标准化的基准测试套件来比较它们在准确度、速度或扩展性行为方面的表现。离散/连续/符号的分离意味着从业者必须早期承诺一种范式——POMDP风格的离散状态、连续的消息传递，或者符号表示——并且缺乏将它们整合到一个模型中的工具。文档和打包成熟程度差异很大：一些工具有教程和结构化的学习小组，而另一些则仍然更接近研究代码而不是分布式软件。与主动推理在其他应用领域所做的类似，采用和性能优势的声明更多基于已证明的概念验证和活跃社区的发展，而非对现有替代方案进行系统、独立比较的系统性证据。</p>
@@ -199,7 +199,7 @@
         <p>SPM始于20世纪80年代末作为脑成像分析的统计技术，远早于主动推理被正式化——它的一般线性模型和高斯场理论工作与其自身一同演变，并塑造了自由能原则。</p>
       </article><article class="info-card">
         <h3>Institute-run 开发，不仅仅是 Institute 边缘工具</h3>
-        <p>RxInfer.jl 学习小组直接与框架的开发者合作进行开源贡献，而符号认知机器人则由研究所的研究员构建并展示，这意味着在这一领域，研究所不仅是应用者，还是工具链的贡献者。</p>
+        <p>RxInfer.jl 学习小组与框架开发者直接合作进行开源贡献，符号认知机器人由研究所 Research Fellow 构建和演示，这使得该领域成为研究所的工具链贡献者，而不仅仅是应用者。</p>
       </article></div>
   </section>
 
@@ -283,7 +283,7 @@
   <footer class="site-footer">
     <div>
       <strong>Active Inference Institute</strong>
-      <p>一个支持教育、研究、培训和与主动推断相关应用的参与性开放科学研究所。</p>
+      <p>一个支持与Active Inference相关的教育、研究、培训和应用的参与式开放科学机构。</p>
     </div>
     <nav class="footer-links" aria-label="底部">
       <a href="../../about/">关于</a>

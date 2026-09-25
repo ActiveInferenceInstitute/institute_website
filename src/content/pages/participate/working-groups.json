@@ -1,0 +1,104 @@
+{
+  "slug": "working-groups",
+  "title": "Working Groups",
+  "subtitle": "Open, participatory community groups pairing Active Inference with a domain of science, practice, or application.",
+  "audience": "Anyone who wants to join, follow, or propose an Institute Working Group — learners, researchers, and practitioners alike.",
+  "lede": "Working Groups are the Institute's community research groups: open teams that meet in public sessions to turn the Active Inference framework into domain-relevant questions, literature, models, and projects. Everyone is welcome to attend, contribute, and eventually convene.",
+  "primaryActions": [
+    {
+      "label": "Active Inference Institute on GitHub",
+      "sourceId": "github-org"
+    },
+    {
+      "label": "Public calendar",
+      "href": "/calendar/"
+    },
+    {
+      "label": "Get involved",
+      "href": "/get-involved/"
+    }
+  ],
+  "resourceGroups": [
+    "institute",
+    "community"
+  ],
+  "externalSourceIds": [
+    "working-groups-repo",
+    "github-org"
+  ],
+  "sections": [
+    {
+      "heading": "What a Working Group is",
+      "body": "Each group works at the intersection of Active Inference and one domain — for example neuroscience, economics, or healthcare — turning the general framework into domain-relevant questions, literature, models, and projects.\n\nGroups meet in public sessions that anyone may join, with no application or affiliation required. Sessions are recorded where possible, and each group's sustained output lands in the Institute's public repositories and on the website's domain pages."
+    },
+    {
+      "heading": "Current Working Groups",
+      "body": "Each Working Group has a domain page on this site that surveys what the literature shows, the modeling patterns and tools researchers use, and the open questions for that domain.",
+      "links": [
+        { "label": "Agriculture", "href": "/active-inference/agriculture/" },
+        { "label": "Climate Science", "href": "/active-inference/climate/" },
+        { "label": "Computational Tools", "href": "/active-inference/computational/" },
+        { "label": "Cybersecurity", "href": "/active-inference/cybersecurity/" },
+        { "label": "Ecology", "href": "/active-inference/ecology/" },
+        { "label": "Economics", "href": "/active-inference/economics/" },
+        { "label": "Education", "href": "/active-inference/education/" },
+        { "label": "Entomology", "href": "/active-inference/entomology/" },
+        { "label": "Healthcare", "href": "/active-inference/healthcare/" },
+        { "label": "Law and Policy", "href": "/active-inference/law/" },
+        { "label": "Linguistics", "href": "/active-inference/linguistics/" },
+        { "label": "Medicine", "href": "/active-inference/medicine/" },
+        { "label": "Music and Sound", "href": "/active-inference/music/" },
+        { "label": "Neuroscience", "href": "/active-inference/neuroscience/" },
+        { "label": "Psychology", "href": "/active-inference/psychology/" },
+        { "label": "Robotics", "href": "/active-inference/robotics/" },
+        { "label": "The Scientific Method", "href": "/active-inference/scientific-method/" },
+        { "label": "Social", "href": "/active-inference/social/" },
+        { "label": "Urban Planning", "href": "/active-inference/urban-planning/" }
+      ]
+    },
+    {
+      "heading": "Joining a group",
+      "body": "Find the group's next public session on the public calendar, then attend — sessions are open to everyone, from first-time learners to domain experts.\n\nKeep coming back and pick up work: reviewing literature, building models, writing notes, and improving materials. Sustained contributors become candidates to convene or co-convene a group."
+    },
+    {
+      "heading": "Proposing a new group",
+      "body": "A new Working Group starts as a proposal, not an application.\n\n1. Propose the group to the Institute coordinators — through the Get involved channels — describing the domain, the questions the group would pursue, and why now. Proposals are also tracked as issues in the Institute's GitHub organization.\n2. Gather at least one other committed participant.\n3. Coordinators review proposals, schedule a first public session on the calendar, and add the group to the public roster on this page.",
+      "links": [
+        { "label": "Working Groups repository", "sourceId": "working-groups-repo" },
+        { "label": "Active Inference Institute on GitHub", "sourceId": "github-org" }
+      ]
+    },
+    {
+      "heading": "Where things live",
+      "body": "The Working Groups repository holds the roster, proposals (issues), and per-group notes. This website carries the public overview: the Working Groups page, the public calendar, the domain pages, and the repository directory. Long-lived artifacts a group produces get their own repository in the ActiveInferenceInstitute organization.",
+      "links": [
+        { "label": "Active Inference Institute on GitHub", "sourceId": "github-org" },
+        { "label": "Working Groups repository", "sourceId": "working-groups-repo" },
+        { "label": "Repository directory", "href": "/directory/#repositories" }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "Open participation",
+      "text": "Public sessions anyone can join — no application, affiliation, or prior background required."
+    },
+    {
+      "title": "19 domain groups",
+      "text": "Domain Working Groups span agriculture to urban planning, each paired with a public domain page on this site."
+    },
+    {
+      "title": "Propose a group",
+      "text": "New groups start as a proposal to the Institute coordinators, plus at least one other committed participant."
+    }
+  ],
+  "order": 12,
+  "relatedSlugs": [
+    "active-inference",
+    "activities",
+    "weekly",
+    "get-involved",
+    "ecosystem",
+    "structure"
+  ]
+}

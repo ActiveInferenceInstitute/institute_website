@@ -65,6 +65,10 @@
         "slug": "activities"
       },
       {
+        "label": "Working Groups",
+        "slug": "working-groups"
+      },
+      {
         "label": "Calendar",
         "slug": "calendar"
       },
