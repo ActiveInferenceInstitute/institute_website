@@ -153,7 +153,7 @@ function instituteosInterfaceSection(currentDir = "") {
       title: "The private-to-public boundary is explicit",
       text: "Private InstituteOS sources are projected into public artifacts only after the exporter, privacy gate, website checks, and browser inspection agree that the output is public-safe.",
     })}
-    <div class="gate-ladder" aria-label="Private to public export steps">
+    <div class="gate-ladder" aria-label="${escapeHtml(tr("Private to public export steps"))}">
       <article>
         <span>01</span>
         <h3>Author privately</h3>
@@ -186,7 +186,7 @@ function instituteosInterfaceSection(currentDir = "") {
           <a href="${hrefForSlug("sitemap", currentDir)}">Sitemap</a>
         </div>
       </div>
-      <div class="export-artifacts" aria-label="Export manifest artifacts">
+      <div class="export-artifacts" aria-label="${escapeHtml(tr("Export manifest artifacts"))}">
         ${artifactRows}
       </div>
     </div>
@@ -273,8 +273,8 @@ function activitiesFeatureSection(currentDir = "") {
   const projectsBlock = `<section class="content-band" id="active-projects">
     ${sectionHeading({ eyebrow: "Get involved", title: "Active projects", text: "Active Institute and Ecosystem projects open to participation. Search to find one that fits, then open its page to see how to join." })}
     <div class="activities-search">
-      <input id="activities-project-search" type="search" placeholder="Search ${projects.length} active projects by name or topic…" autocomplete="off" aria-label="Search active projects">
-      <span id="activities-project-count" aria-live="polite"></span>
+      <input id="activities-project-search" type="search" placeholder="${escapeHtml(tr("Search {n} active projects by name or topic…").replace("{n}", String(projects.length)))}" autocomplete="off" aria-label="${escapeHtml(tr("Search active projects"))}">
+      <span id="activities-project-count" aria-live="polite" data-msg-count-projects-shown="${escapeHtml(tr("{n} projects shown"))}"></span>
     </div>
     <div class="table-wrap"><table class="activities-table"><thead><tr><th scope="col">Project</th><th scope="col">About</th></tr></thead><tbody>${projRows}</tbody></table></div>
     <p class="section-link"><a href="${hrefForSlug("projects", currentDir)}">Browse all projects</a></p>

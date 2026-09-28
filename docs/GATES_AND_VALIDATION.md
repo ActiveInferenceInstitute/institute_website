@@ -14,7 +14,7 @@ This document is a complete reference for all gates and guards enforcing the sta
 # Build first (always) — gates read generated HTML
 node src/build.mjs
 
-# Run the deterministic offline gate suite (11 sub-checks, chained in package.json's "check" script)
+# Run the deterministic offline gate suite (12 sub-checks, chained in package.json's "check" script)
 npm run check
 
 # Explicitly run a single gate
@@ -23,6 +23,7 @@ npm run check:md-links     # check_markdown_links.py -- relative links in tracke
 npm run check:instituteos  # sync_instituteos_public_data.py --check
 npm run check:design-system  # check_design_system_export.mjs
 npm run check:site         # check_site_contract.py
+npm run check:feeds        # check_feeds.py -- feed.xml/feed.json structure + sitemap target existence
 npm run check:security     # check_static_security.py
 npm run check:redirects    # check_redirects.py
 npm run check:sources      # check_live_sources.py -- bounded network probe, separate from npm run check
@@ -212,11 +213,14 @@ This is the **largest and most complex gate**. It validates the entire content m
 **Enforces:**
 - `version.json` `site_version` equals `package.json` `version`
 - `version.json` `pages` count matches the number of `<loc>` entries in `sitemap.xml`
+- `version.json` `source_fingerprint` matches `data/export-manifest.json` `source_fingerprint`
+  (only compared when both fields exist) — a committed source edit without a rebuild is a stale build
 
 **Failure messages:**
 ```
 - version.json site_version "2.5.0" does not match package.json version "2.6.0"
 - version.json pages "42" does not match sitemap route count "43"
+- version.json source_fingerprint 'df537d1eb072' does not match data/export-manifest.json source_fingerprint 'aabbccddeeff' — stale build: re-run node src/build.mjs after the export changed
 ```
 
 **Fix:**
@@ -404,6 +408,8 @@ Site contract check failed:
   - Core pages: `directory/`, `knowledge/`, `search/`, `sitemap/`
   - No obsolete entries: `source.html`, `assets/source`, `atlas`
 - `sitemap.xml` includes `<changefreq>` hints
+- Every routed page exists in every non-default locale subtree (`/<locale>/…`,
+  locales from `src/i18n/locales.json`) — a stale partial locale tree fails
 
 **Failure messages:**
 ```
@@ -415,6 +421,7 @@ Site contract check failed:
 - robots.txt does not point at the canonical sitemap URL
 - sitemap.xml does not include the canonical root URL
 - sitemap.xml contains obsolete entry source.html
+- locale subtrees are missing generated pages: ['es/about/index.html', 'ru/projects/learning/index.html']
 ```
 
 **Fix:**
@@ -474,6 +481,27 @@ Site contract check failed:
 
 **Fix:**
 - Rebuild with `node src/build.mjs` (navigation is rendered)
+
+### 4i. i18n Catalog Integrity
+
+**Enforces:**
+- Every non-default locale catalog `src/content/i18n/<code>.json` (codes from
+  `src/i18n/locales.json`, currently 11) parses as valid JSON and carries at
+  least one entry
+- The build's `catalogFor()` deliberately swallows a corrupted catalog
+  (`catch { catalog = {} }`) so the build keeps rendering instead of throwing —
+  the cost is that a corrupted locale silently renders English. The build cannot
+  be the detection point, so this arm is.
+
+**Failure messages:**
+```
+- src/content/i18n/de.json is not valid JSON: Expecting value: line 1 column 1 (char 0)
+- src/content/i18n/ru.json has no translation entries
+```
+
+**Fix:**
+- Restore the catalog from git (`git checkout -- src/content/i18n/<code>.json`)
+  or re-translate it with `npm run i18n:translate -- --locale <code>`
 
 ---
 
@@ -774,6 +802,69 @@ with whatever changed in the sync's payload or required-file lists.
 
 ---
 
+## Gate 10: Feeds & Output Targets (`check:feeds`)
+
+**File:** `scripts/check_feeds.py`
+
+**What it enforces:** the machine-readable outputs that no other gate fully
+gates:
+
+- `feed.xml` (RSS 2.0) is XML-parsed (`xml.etree`) and must carry the structure
+  the writer in `src/feeds.mjs` emits: channel `title`/`link`/`description`/`language`,
+  and per-item `title`/`link`/`guid`/`pubDate`. `pubDate` values must match the
+  RFC-822 shape the build emits (`Date.prototype.toUTCString()`, e.g.
+  `Mon, 31 Aug 2026 00:00:00 GMT`) and parse as dates.
+- `feed.json` (JSON Feed 1.1) is `json.loads`-ed and must carry the emitted
+  fields: `version`/`title`/`home_page_url`/`feed_url`/`description`/`language`
+  at the top level and `id`/`title`/`content_text`/`date_published`/`url`/`tags`
+  per item. `date_published` must match the ISO-8601 shape the build emits
+  (`Date.prototype.toISOString()`, e.g. `2026-08-31T00:00:00.000Z`) and parse.
+- RSS guids and JSON Feed ids must be unique across their items.
+- Every `<link>`/`url` target in both feeds must resolve to an existing
+  generated file **and** to a real `id`/`name` anchor when it carries a
+  `#fragment` — this covers the knowledge-page
+  `/knowledge/#publication-<id>` entries and the `/newsletter/<route>/` issue
+  pages. Resolution mirrors `check_internal_links.py` (canonical base from
+  `site.json`, trailing slash → `index.html`).
+- `sitemap.xml` target existence: the `<loc>` set-equality against the routed
+  page set stays in `check_site_contract.py` (Gate 4f); this gate adds the
+  other half — every `<loc>` and every `<xhtml:link rel="alternate">`
+  hreflang href must resolve to an existing generated file.
+
+**Why it exists:** `feed.xml`/`feed.json` previously had zero format gating — a
+malformed item, a non-`toUTCString()` date, a duplicated guid, or a feed link
+pointing at a page/anchor that no longer exists all shipped silently. The
+knowledge-page anchors and per-locale newsletter pages are exactly the targets
+that drift when content moves.
+
+**How to run:**
+```bash
+npm run check:feeds
+# or directly:
+python3 scripts/check_feeds.py
+```
+
+**Failure messages:**
+```
+- feed.xml item #7 is missing required <guid>
+- feed.xml item #3 repeats guid 'https://activeinference.institute/newsletter/2026-june/'
+- feed.json item #12 date_published '31/08/2026' is not the ISO-8601 shape the build emits (e.g. '2026-08-31T00:00:00.000Z')
+- feed.json item #5 link 'https://activeinference.institute/knowledge/#publication-missing' references missing anchor knowledge/index.html#publication-missing
+- sitemap.xml <loc> 'https://activeinference.institute/removed-page/' references missing output removed-page/index.html
+- sitemap.xml hreflang 'es' href '.../es/removed-page/' references missing output es/removed-page/index.html
+```
+
+**Fix:**
+- Fix the source data (`src/content/instituteos/communications_public.json`,
+  `newsletter.json`) or the writer (`src/feeds.mjs`), then rebuild
+- If a feed link's target page/anchor legitimately moved, rebuild — the feeds
+  are regenerated from the routed page set, so a stale feed is a build staleness
+  signal, never something to hand-edit
+
+---
+
+---
+
 ## Gate Chaining: What Gates Depend on Each Other
 
 The gate order matters because earlier gates set state for later ones. This mirrors the `check` script order in `package.json`:
@@ -790,6 +881,8 @@ check:instituteos (validates public data sync)
 check:design-system (validates CSS exports)
   ↓
 check:site (validates content model, external links, structure)
+  ↓
+check:feeds (validates feed.xml/feed.json structure + feed/sitemap target existence)
   ↓
 check:security (validates CSP, no disallowed tags, external anchors backed)
   ↓

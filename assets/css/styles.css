@@ -1367,7 +1367,7 @@ select:focus-visible {
 .site-search-results{position:absolute;top:calc(100% + .35rem);right:0;width:min(24rem,82vw);max-height:60vh;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 44px rgba(0,0,0,.55);z-index:60}
 .site-search-result{display:flex;gap:.7rem;align-items:baseline;padding:.55rem .85rem;text-decoration:none;color:inherit;border-bottom:1px solid rgba(255,255,255,.06)}
 .site-search-result:last-child{border-bottom:0}
-.site-search-result:hover,.site-search-result:focus-visible{background:rgba(239,68,68,.16);outline:2px solid var(--ds-red-light,#ef4444);outline-offset:-2px}
+.site-search-result:hover,.site-search-result:focus-visible,.site-search-result.is-selected{background:rgba(239,68,68,.16);outline:2px solid var(--ds-red-light,#ef4444);outline-offset:-2px}
 .site-search-kind{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-text);flex:0 0 5rem}
 .site-search-title{font-size:.9rem}
 .site-search-empty{padding:.75rem .85rem;margin:0;opacity:.6;font-size:.85rem}
@@ -1799,7 +1799,7 @@ body{transition:background-color 200ms,color 200ms}
 /* Project catalog — two separate affiliation tables (Institute-hosted, Ecosystem),
    each split into Active + Archived, with per-table counts and empty states */
 .catalog-subhead { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; margin: 1.4rem 0 0.75rem; }
-.catalog-subhead h4 { margin: 0; font-size: 1.05rem; letter-spacing: -0.01em; }
+.catalog-subhead h3 { margin: 0; font-size: 1.05rem; letter-spacing: -0.01em; }
 .catalog-subcount { font-size: 0.82rem; color: var(--text-dim, #9aa0a6); font-variant-numeric: tabular-nums; }
 .catalog-empty { font-size: 0.9rem; color: var(--text-dim, #9aa0a6); margin: 0.5rem 0 0; }
 .catalog-affiliation + .catalog-affiliation { border-top: 1px solid var(--line); }
@@ -1933,6 +1933,30 @@ body{transition:background-color 200ms,color 200ms}
   display: block; height: 100%; background: var(--ds-accent, var(--ds-red));
   border-radius: 4px; transition: width 0.3s;
 }
+/* CSP-safe bar widths: the site CSP is style-src 'self', so bar fills cannot
+   carry an inline style="width:N%" attribute. bibliography.mjs quantizes each
+   bar to the nearest 5%-point bucket and emits a matching w-* class here; the
+   exact percentage is kept in a data-width attribute for semantics. */
+.w-5 { width: 5%; }
+.w-10 { width: 10%; }
+.w-15 { width: 15%; }
+.w-20 { width: 20%; }
+.w-25 { width: 25%; }
+.w-30 { width: 30%; }
+.w-35 { width: 35%; }
+.w-40 { width: 40%; }
+.w-45 { width: 45%; }
+.w-50 { width: 50%; }
+.w-55 { width: 55%; }
+.w-60 { width: 60%; }
+.w-65 { width: 65%; }
+.w-70 { width: 70%; }
+.w-75 { width: 75%; }
+.w-80 { width: 80%; }
+.w-85 { width: 85%; }
+.w-90 { width: 90%; }
+.w-95 { width: 95%; }
+.w-100 { width: 100%; }
 .topic-bar-value, .score-bar-value {
   min-width: 36px; text-align: right; color: var(--ink);
   font-variant-numeric: tabular-nums;

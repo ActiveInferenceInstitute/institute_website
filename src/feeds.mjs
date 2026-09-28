@@ -80,12 +80,15 @@ export function buildRssFeed() {
   const lastBuildDate = items.length
     ? `    <lastBuildDate>${items[0].date.toUTCString()}</lastBuildDate>\n`
     : "";
+  // guid doubles as <link> for newsletter issues (a real permalink →
+  // isPermaLink defaults to true); fragment-style communication guids are
+  // flagged false explicitly.
   const itemXml = items
     .map(
       (item) => `    <item>
       <title>${escapeHtml(item.title)}</title>
       <link>${escapeHtml(item.link)}</link>
-      <guid isPermaLink="false">${escapeHtml(item.guid)}</guid>
+      <guid${item.guid === item.link ? "" : ' isPermaLink="false"'}>${escapeHtml(item.guid)}</guid>
       <pubDate>${item.date.toUTCString()}</pubDate>
       <category>${escapeHtml(item.type)}</category>
       <description>${escapeHtml(`${item.type}: ${item.title}`)}</description>

@@ -30,6 +30,23 @@ export function renderBibliographyList() {
   ${renderQuality(bib)}`;
 }
 
+
+/**
+ * CSP-safe width for the mini bar charts. The site CSP is style-src 'self',
+ * so an inline style="width:N%" attribute is stripped and bars would render
+ * full-width. Instead the percentage is quantized to the nearest 5%-point
+ * bucket and emitted as a width utility class defined in styles.css; the
+ * exact percentage rides along in a data-width attribute for semantics.
+ * Returns "" at 0% so an empty bar gets no width class at all.
+ */
+function barWidthClass(pct) {
+  const bucket = Math.min(100, Math.max(0, Math.round((Number(pct) || 0) / 5) * 5));
+  return bucket === 0 ? "" : ` w-${bucket}`;
+}
+
+function barWidthAttrs(pct) {
+  return `class="topic-bar-fill${barWidthClass(pct)}" data-width="${Math.round(pct)}%"`;
+}
 function renderFieldOverview(bib) {
   const fo = bib.field_overview || {};
   if (!fo.total_papers) return "";
@@ -44,7 +61,7 @@ function renderFieldOverview(bib) {
       const pct = Math.round((count / maxCount) * 100);
       return `<div class="topic-bar-row">
         <span class="topic-bar-label">${escapeHtml(y)}</span>
-        <span class="topic-bar"><span class="topic-bar-fill" style="width:${pct}%"></span></span>
+        <span class="topic-bar"><span ${barWidthAttrs(pct)}></span></span>
         <span class="topic-bar-value">${count}</span>
       </div>`;
     })
@@ -120,7 +137,7 @@ function renderHypotheses(bib) {
         <h3>${escapeHtml(h.name)}</h3>
         <div class="score-bar-row">
           <span class="score-bar-label">Evidence score</span>
-          <span class="score-bar"><span class="score-bar-fill" style="width:${barPct}%"></span></span>
+          <span class="score-bar"><span ${barWidthAttrs(barPct)}></span></span>
           <span class="score-bar-value">${barPct}%</span>
         </div>
         <p class="score-detail">
@@ -133,7 +150,7 @@ function renderHypotheses(bib) {
   return `<section class="content-band" id="hypotheses">
     ${sectionHeading({
       eyebrow: "Hypothesis evidence",
-      title: "8 core hypotheses evaluated across the literature",
+      title: `${hypotheses.length} core hypotheses evaluated across the literature`,
       text: "Each hypothesis was scored using citation-weighted evidence from LLM-extracted assertions (Nanopublications). Scores reflect the aggregate evidential support found in the corpus.",
     })}
     <div class="card-grid">${cards}</div>
@@ -151,7 +168,7 @@ function renderSubfields(bib) {
       const pct = Math.round((s.count / maxCount) * 100);
       return `<div class="topic-bar-row">
         <span class="topic-bar-label">${escapeHtml(s.name)}</span>
-        <span class="topic-bar"><span class="topic-bar-fill" style="width:${pct}%"></span></span>
+        <span class="topic-bar"><span ${barWidthAttrs(pct)}></span></span>
         <span class="topic-bar-value">${s.count}</span>
       </div>`;
     })
@@ -188,7 +205,7 @@ function renderTopics(bib) {
     ${sectionHeading({
       eyebrow: "Topic landscape",
       title: `${topics.length} topics extracted via NMF`,
-      text: "Non-negative Matrix Factorization (NMF) was applied to TF-IDF vectors of paper titles and abstracts, revealing five thematic clusters in the literature.",
+      text: `Non-negative Matrix Factorization (NMF) was applied to TF-IDF vectors of paper titles and abstracts, revealing ${topics.length} thematic clusters in the literature.`,
     })}
     <div class="card-grid">${cards}</div>
   </section>`;

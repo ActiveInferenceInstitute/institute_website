@@ -83,7 +83,13 @@ function videoObjectSchema(record, canonicalUrl) {
     thumbnailUrl: thumbnail,
   };
   if (record.youtubeUrl) {
-    obj.embedUrl = record.youtubeUrl.replace("/live/", "/embed/").replace("watch?v=", "embed/");
+    const yt = record.youtubeUrl;
+    const youtuBe = yt.match(/youtu\.be\/([^?&#]+)/);
+    if (youtuBe) {
+      obj.embedUrl = `https://www.youtube.com/embed/${youtuBe[1]}`;
+    } else {
+      obj.embedUrl = yt.replace("/live/", "/embed/").replace("watch?v=", "embed/");
+    }
     obj.url = record.youtubeUrl;
   }
   return `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, "\\u003c")}</script>`;
@@ -196,14 +202,14 @@ export function videoDetailPage(record) {
   <section class="content-band muted">
     <div class="resource-grid compact-grid">
       <article class="info-card">
-        <h3>${escapeHtml(tr("Session details"))}</h3>
+        <h2>${escapeHtml(tr("Session details"))}</h2>
         <p><strong>${escapeHtml(tr("Date"))}:</strong> ${escapeHtml(dateStr)}</p>
         ${seriesLabel ? `<p><strong>${escapeHtml(tr("Series"))}:</strong> ${escapeHtml(seriesLabel)}</p>` : ""}
         ${guestList ? `<p><strong>${escapeHtml(tr("Guests"))}:</strong> ${escapeHtml(guestList)}</p>` : ""}
         ${record.paperTitle ? `<p><strong>${escapeHtml(tr("Paper"))}:</strong> ${escapeHtml(record.paperTitle)}</p>` : ""}
       </article>
       <article class="info-card">
-        <h3>${escapeHtml(tr("Watch and follow up"))}</h3>
+        <h2>${escapeHtml(tr("Watch and follow up"))}</h2>
         ${record.youtubeUrl ? `<p><a href="${escapeHtml(record.youtubeUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(tr("▶ Watch on YouTube ↗"))}</a></p>` : ""}
         ${record.githubUrl ? `<p><a href="${escapeHtml(record.githubUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(tr("View on GitHub ↗"))}</a></p>` : ""}
         <p><a href="${hrefForSlug("video", currentDir)}">${escapeHtml(tr("← Back to video library"))}</a></p>

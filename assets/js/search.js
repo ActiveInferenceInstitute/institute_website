@@ -11,6 +11,20 @@
   if (!input || !results) {
     return;
   }
+  // Localized UI strings are passed from layout.mjs via data-* attributes on
+  // the .site-search region (build-time tr()); fall back to the literals.
+  var region = input.closest(".site-search");
+  function msg(name, fallback) {
+    var value = region ? region.getAttribute(name) : null;
+    return value || fallback;
+  }
+  var MSG_NO_MATCHES = msg("data-msg-no-matches", "No matches found.");
+  var MSG_SEE_ALL = msg("data-msg-see-all", "See all results for \u201c{q}\u201d");
+  var MSG_ONE_RESULT = msg("data-msg-one-result", "1 result found.");
+  var MSG_N_RESULTS = msg("data-msg-n-results", "{n} results found.");
+  // Index of the aria-activedescendant option during keyboard navigation —
+  // DOM focus stays pinned to the input (APG combobox pattern).
+  var selected = -1;
   // Sibling container for non-option content ("See all" link, empty notice) so
   // the role="listbox" element itself only ever holds role="option" children.
   var extra = document.createElement("div");
@@ -141,17 +155,27 @@
     return out;
   }
 
+  // Selection lives on the tracked index (aria-activedescendant + aria-selected
+  // + the .is-selected class); DOM focus never moves off the input.
   function syncActive() {
     var list = items();
     if (!list.length) {
+      selected = -1;
       input.removeAttribute("aria-activedescendant");
       return;
     }
-    var current = list.indexOf(document.activeElement);
+    if (selected >= list.length) {
+      selected = list.length - 1;
+    }
     list.forEach(function (item, i) {
-      item.setAttribute("aria-selected", i === current ? "true" : "false");
+      item.setAttribute("aria-selected", i === selected ? "true" : "false");
+      item.classList.toggle("is-selected", i === selected);
     });
-    input.setAttribute("aria-activedescendant", list[current >= 0 ? current : 0].id);
+    if (selected >= 0) {
+      input.setAttribute("aria-activedescendant", list[selected].id);
+    } else {
+      input.removeAttribute("aria-activedescendant");
+    }
   }
 
   function open() {
@@ -165,6 +189,7 @@
     extra.innerHTML = "";
     input.setAttribute("aria-expanded", "false");
     input.removeAttribute("aria-activedescendant");
+    selected = -1;
   }
 
   // Tiered score for a single term against one entry. Returns 0 when the term
@@ -237,16 +262,17 @@
     // a role="listbox" accepts only option/group children.
     if (!matches.length) {
       results.innerHTML = "";
-      extra.innerHTML = '<p class="site-search-empty">No matches found.</p>';
+      extra.innerHTML = '<p class="site-search-empty">' + escapeHtml(MSG_NO_MATCHES) + "</p>";
+      selected = -1;
       input.removeAttribute("aria-activedescendant");
-      if (status) status.textContent = "No matches found.";
+      if (status) status.textContent = MSG_NO_MATCHES;
     } else {
       var list = matches
         .map(function (match, i) {
           return (
             '<a class="site-search-result" role="option" id="site-search-option-' +
             i +
-            '" aria-selected="false" href="' +
+            '" aria-selected="false" tabindex="-1" href="' +
             encodeURI(match.entry.u) +
             '"><span class="site-search-kind">' +
             escapeHtml(match.entry.c) +
@@ -264,15 +290,16 @@
           searchPageUrl +
           "?q=" +
           encodeURIComponent(query) +
-          '">See all results for &ldquo;' +
-          escapeHtml(query) +
-          "&rdquo;</a>"
+          '">' +
+          escapeHtml(MSG_SEE_ALL.replace("{q}", query)) +
+          "</a>"
         : "";
       extra.innerHTML = seeAll;
-      input.setAttribute("aria-activedescendant", "site-search-option-0");
+      selected = 0;
+      syncActive();
       if (status) {
         status.textContent =
-          matches.length === 1 ? "1 result found." : matches.length + " results found.";
+          matches.length === 1 ? MSG_ONE_RESULT : MSG_N_RESULTS.replace("{n}", matches.length);
       }
     }
     open();
@@ -294,47 +321,45 @@
       });
     }
   });
+  // APG combobox (aria-activedescendant pattern): DOM focus stays pinned to the
+  // textbox — ArrowUp/ArrowDown/Home/End only move the selection, and Escape
+  // closes the popup while focus remains in the input.
   input.addEventListener("keydown", function (event) {
+    var list = items();
+    var popupOpen = !results.hidden && list.length > 0;
     if (event.key === "Escape") {
       close();
-      input.blur();
     } else if (event.key === "ArrowDown") {
-      var first = items()[0];
-      if (first) {
-        event.preventDefault();
-        first.focus();
+      event.preventDefault();
+      if (!popupOpen) {
+        ensureIndex(function () {
+          render(input.value);
+        });
+      } else {
+        selected = selected < 0 ? 0 : (selected + 1) % list.length;
         syncActive();
       }
+    } else if (event.key === "ArrowUp" && popupOpen) {
+      event.preventDefault();
+      selected = selected > 0 ? selected - 1 : 0;
+      syncActive();
+    } else if ((event.key === "Home" || event.key === "End") && popupOpen) {
+      event.preventDefault();
+      selected = event.key === "Home" ? 0 : list.length - 1;
+      syncActive();
     } else if (event.key === "Enter") {
       var query = input.value.trim();
       if (query.length) {
         event.preventDefault();
-        var base = window.__SEARCH_PAGE_URL__ || "/search/";
-        window.location.href = base + (base.indexOf("?") === -1 ? "?q=" : "&q=") + encodeURIComponent(query);
+        if (popupOpen && selected >= 0 && list[selected]) {
+          window.location.href = list[selected].href;
+        } else {
+          var base = window.__SEARCH_PAGE_URL__ || "/search/";
+          window.location.href = base + (base.indexOf("?") === -1 ? "?q=" : "&q=") + encodeURIComponent(query);
+        }
       }
     }
   });
-  results.addEventListener("keydown", function (event) {
-    var list = items();
-    var current = list.indexOf(document.activeElement);
-    if (event.key === "ArrowDown") {
-      event.preventDefault();
-      (list[current + 1] || list[0]).focus();
-      syncActive();
-    } else if (event.key === "ArrowUp") {
-      event.preventDefault();
-      if (current <= 0) {
-        input.focus();
-      } else {
-        list[current - 1].focus();
-      }
-      syncActive();
-    } else if (event.key === "Escape") {
-      close();
-      input.focus();
-    }
-  });
-  results.addEventListener("focusin", syncActive);
   document.addEventListener("click", function (event) {
     if (!event.target.closest(".site-search")) {
       close();

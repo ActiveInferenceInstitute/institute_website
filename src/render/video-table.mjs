@@ -1,4 +1,5 @@
 import { escapeHtml } from "../lib/text.mjs";
+import { tr } from "../i18n/index.mjs";
 import { tableRows } from "./tables.mjs";
 import { sectionHeading } from "./components.mjs";
 import { listText } from "./text.mjs";
@@ -21,9 +22,9 @@ const YOUTUBE_HOST_SUFFIXES = ["youtube.com", "youtu.be"];
 function formatVideoDate(iso) {
   const s = String(iso || "");
   if (s.length < 10) {
-    return s || "Undated";
+    return s || tr("Undated");
   }
-  const month = MONTHS[Number(s.slice(5, 7)) - 1] || "";
+  const month = tr(MONTHS[Number(s.slice(5, 7)) - 1] || "");
   const day = String(Number(s.slice(8, 10)) || "");
   const year = s.slice(0, 4);
   return `${month} ${day}, ${year}`;
@@ -47,17 +48,17 @@ function videoLinkCell(url) {
     return "";
   }
   return isYoutubeHost(url)
-    ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">▶ Watch ↗</a>`
+    ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(tr("▶ Watch ↗"))}</a>`
     : `<span class="event-url">${escapeHtml(url)}</span>`;
 }
 
 function videoColumns(currentDir) {
   return [
-    { label: "Date", sortKey: "date", render: (v) => escapeHtml(formatVideoDate(v.date)) },
-    { label: "Series", sortKey: "series", render: (v) => escapeHtml([v.series, v.number].filter(Boolean).join(" ")) },
-    { label: "Title", sortKey: "title", render: (v) => `<a href="${escapeHtml(hrefForSlug(`video-${v.id}`, currentDir))}">${escapeHtml(v.title || "Untitled")}</a>` },
-    { label: "Guests", sortKey: "guests", render: (v) => escapeHtml(listText((v.guests || []).map((g) => g.name), "")) },
-    { label: "Video", render: (v) => videoLinkCell(v.youtubeUrl) },
+    { label: tr("Date"), sortKey: "date", render: (v) => escapeHtml(formatVideoDate(v.date)) },
+    { label: tr("Series"), sortKey: "series", render: (v) => escapeHtml([v.series, v.number].filter(Boolean).join(" ")) },
+    { label: tr("Title"), sortKey: "title", render: (v) => `<a href="${escapeHtml(hrefForSlug(`video-${v.id}`, currentDir))}">${escapeHtml(v.title || tr("Untitled"))}</a>` },
+    { label: tr("Guests"), sortKey: "guests", render: (v) => escapeHtml(listText((v.guests || []).map((g) => g.name), "")) },
+    { label: tr("Video"), render: (v) => videoLinkCell(v.youtubeUrl) },
   ];
 }
 
@@ -158,37 +159,37 @@ export function videoTableSection(videos, currentDir = "") {
   const topicField = topics.length
     ? `
       <div class="table-filter-field">
-        <label class="table-filter-label" for="video-table-topic">Topic</label>
+        <label class="table-filter-label" for="video-table-topic">${escapeHtml(tr("Topic"))}</label>
         <select id="video-table-topic" class="table-filter-select">
-          <option value="">All topics</option>
+          <option value="">${escapeHtml(tr("All topics"))}</option>
           ${topicOptions}
         </select>
       </div>`
     : "";
   const filterBar = `
-    <div class="table-filter" role="search">
+    <div class="table-filter" role="search" aria-label="${escapeHtml(tr("Video filters"))}">
       <div class="table-filter-field">
-        <label class="table-filter-label" for="video-table-filter">Filter videos</label>
-        <input type="search" id="video-table-filter" class="table-filter-input" placeholder="Filter by title, series, guest, topic, date…" autocomplete="off" spellcheck="false">
+        <label class="table-filter-label" for="video-table-filter">${escapeHtml(tr("Filter videos"))}</label>
+        <input type="search" id="video-table-filter" class="table-filter-input" placeholder="${escapeHtml(tr("Filter by title, series, guest, topic, date…"))}" autocomplete="off" spellcheck="false">
       </div>
       <div class="table-filter-field">
-        <label class="table-filter-label" for="video-table-type">Type</label>
+        <label class="table-filter-label" for="video-table-type">${escapeHtml(tr("Type"))}</label>
         <select id="video-table-type" class="table-filter-select">
-          <option value="">All types</option>
+          <option value="">${escapeHtml(tr("All types"))}</option>
           ${typeOptions}
         </select>
       </div>${topicField}
-      <p id="video-table-filter-status" class="table-filter-status" role="status" aria-live="polite">${rows.length} videos</p>
+      <p id="video-table-filter-status" class="table-filter-status" role="status" aria-live="polite">${rows.length} ${escapeHtml(tr("videos"))}</p>
     </div>`;
   return `<section class="content-band" id="video-library">
     ${sectionHeading({
-      eyebrow: "Video & podcast library",
-      title: `All ${rows.length} recorded sessions`,
-      text: "Every recorded livestream, learning-group session, interview, and presentation the Institute has published, in one searchable, sortable table. Select ▶ Watch to open a session on YouTube.",
+      eyebrow: tr("Video & podcast library"),
+      title: tr("All {n} recorded sessions").replace("{n}", String(rows.length)),
+      text: tr("Every recorded livestream, learning-group session, interview, and presentation the Institute has published, in one searchable, sortable table. Select ▶ Watch to open a session on YouTube."),
     })}
     <div id="video-table-mount">
       ${filterBar}
-      ${videoDataTable({ caption: "Active Inference Institute video and podcast library.", columns: videoColumns(currentDir), rows, className: "directory-table video-table" })}
+      ${videoDataTable({ caption: tr("Active Inference Institute video and podcast library."), columns: videoColumns(currentDir), rows, className: "directory-table video-table" })}
     </div>
   </section>`;
 }

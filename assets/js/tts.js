@@ -22,11 +22,18 @@
   var index = 0;
   var speaking = false;
 
+  // Localized labels are passed from layout.mjs via data-* attributes
+  // (build-time tr()); fall back to the English literals when absent.
+  var LABEL_ACTIVE = button.getAttribute("data-tts-label-active") || "Stop reading this page";
+  var LABEL_IDLE = button.getAttribute("data-tts-label-idle") || "Listen to this page";
+  var TITLE_ACTIVE = button.getAttribute("data-tts-title-active") || "Stop reading";
+  var TITLE_IDLE = button.getAttribute("data-tts-title-idle") || "Listen to this page";
+
   function setState(active) {
     speaking = active;
     button.setAttribute("aria-pressed", active ? "true" : "false");
-    button.setAttribute("aria-label", active ? "Stop reading this page" : "Listen to this page");
-    button.setAttribute("title", active ? "Stop reading" : "Listen to this page");
+    button.setAttribute("aria-label", active ? LABEL_ACTIVE : LABEL_IDLE);
+    button.setAttribute("title", active ? TITLE_ACTIVE : TITLE_IDLE);
     button.classList.toggle("is-speaking", active);
     if (icon) {
       icon.textContent = active ? ICON_STOP : ICON_PLAY;
@@ -43,7 +50,7 @@
       return "";
     }
     var clone = root.cloneNode(true);
-    var drop = clone.querySelectorAll("script, style, noscript, [aria-hidden='true'], .site-search-results, #tts-toggle, .tts-fab");
+    var drop = clone.querySelectorAll("script, style, noscript, [hidden], [aria-hidden], .graph-data, .sr-only, .site-search-results, #tts-toggle, .tts-fab");
     for (var i = 0; i < drop.length; i += 1) {
       drop[i].parentNode.removeChild(drop[i]);
     }

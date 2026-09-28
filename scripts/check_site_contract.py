@@ -1194,17 +1194,25 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
     # build), so a page added without sitemap entry — or removed while its
     # sitemap entry lingers — fails here instead of drifting silently.
     expected_loc_urls: set[str] = set()
+    # Every routed page (404 excluded) is rendered once per locale — including
+    # noindex utility pages like /sitemap/, which the noindex filter below
+    # drops from the sitemap <loc> set. Record each default-locale page dir
+    # here so the locale-subtree completeness check below can catch a stale
+    # partial /<locale>/ tree that the <loc> set comparison cannot see (locale
+    # subtrees are excluded from the sitemap by the build).
+    locale_targets: set[str] = set()
     for html_path in routed_html_files(root):
         relative = html_path.relative_to(root).as_posix()
         if relative == "404.html":
             continue
         page_dir = dir_for_html_path(root, html_path)
-        info = parse_html(html_path)
-        if any("noindex" in attrs.get("content", "").lower() for attrs in info.metas if attrs.get("name", "").lower() == "robots"):
-            continue
         # Non-default locale subtrees are excluded from the sitemap by the
         # build; hreflang alternates advertise them instead.
         if locale_of_dir(page_dir):
+            continue
+        locale_targets.add(page_dir)
+        info = parse_html(html_path)
+        if any("noindex" in attrs.get("content", "").lower() for attrs in info.metas if attrs.get("name", "").lower() == "robots"):
             continue
         expected_loc_urls.add(f"{CANONICAL_BASE}{page_dir}/" if page_dir else CANONICAL_BASE)
     actual_loc_urls = {f"{loc.rstrip('/')}/" for loc in sitemap_locs if loc.startswith(CANONICAL_BASE)}
@@ -1215,6 +1223,14 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
     if extra_in_sitemap:
         errors.append(f"sitemap.xml advertises <loc> URLs with no generated page: {sorted(extra_in_sitemap)[:10]}")
 
+    missing_locale_pages: list[str] = []
+    for locale in sorted(LOCALE_CODES):
+        for page_dir in sorted(locale_targets):
+            target = root / locale / ("index.html" if not page_dir else f"{page_dir}/index.html")
+            if not target.exists():
+                missing_locale_pages.append(target.relative_to(root).as_posix())
+    if missing_locale_pages:
+        errors.append(f"locale subtrees are missing generated pages: {missing_locale_pages[:10]}")
     for html_path in generated_html_files(root):
         info = parse_html(html_path)
         relative = html_path.relative_to(root).as_posix()
@@ -1341,6 +1357,48 @@ def check_version(root: Path, errors: list[str]) -> None:
             f"version.json pages {version.get('pages')!r} does not match sitemap route count "
             f"{sitemap_route_count}"
         )
+    # A committed source edit without a rebuild leaves version.json's
+    # provenance pointing at the old export. version.json and
+    # data/export-manifest.json are written from the same SOURCE_FINGERPRINT
+    # by the build, so they must agree (only compared when both fields exist —
+    # an export without a fingerprint is not detectably stale).
+    fingerprint = version.get("source_fingerprint")
+    manifest_path = root / "data" / "export-manifest.json"
+    if fingerprint and manifest_path.exists():
+        try:
+            manifest_fingerprint = json.loads(manifest_path.read_text(encoding="utf-8")).get("source_fingerprint")
+        except json.JSONDecodeError as exc:
+            errors.append(f"data/export-manifest.json is not valid JSON: {exc}")
+        else:
+            if manifest_fingerprint and manifest_fingerprint != fingerprint:
+                errors.append(
+                    f"version.json source_fingerprint {fingerprint!r} does not match "
+                    f"data/export-manifest.json source_fingerprint {manifest_fingerprint!r} — "
+                    "stale build: re-run node src/build.mjs after the export changed"
+                )
+
+def check_i18n_catalogs(root: Path, errors: list[str]) -> None:
+    """Every locale catalog must parse and carry at least one entry.
+
+    The build's catalogFor() (src/i18n/index.mjs) deliberately swallows a
+    corrupted catalog (`catch { catalog = {} }`) so the build keeps rendering
+    instead of throwing — the cost is that a corrupted locale silently renders
+    English. The build cannot be the detection point, so this arm is.
+    """
+    for locale in sorted(LOCALE_CODES):
+        catalog_path = CONTENT_DIR / "i18n" / f"{locale}.json"
+        if not catalog_path.exists():
+            errors.append(
+                f"src/content/i18n/{locale}.json is missing (locale {locale!r} is registered in src/i18n/locales.json)"
+            )
+            continue
+        try:
+            catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            errors.append(f"src/content/i18n/{locale}.json is not valid JSON: {exc}")
+            continue
+        if not isinstance(catalog, dict) or len(catalog) < 1:
+            errors.append(f"src/content/i18n/{locale}.json has no translation entries")
 
 
 def check_instituteos_interface(root: Path, errors: list[str]) -> None:
@@ -1555,6 +1613,7 @@ def check_fellowship_page(root: Path, errors: list[str]) -> None:
 def check_site_contract(root: Path) -> int:
     errors: list[str] = []
     check_version(root, errors)
+    check_i18n_catalogs(root, errors)
     check_no_obsolete_public_artifacts(root, errors)
     check_content_model(root, errors)
     check_curated_pages(root, errors)

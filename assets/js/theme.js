@@ -45,11 +45,21 @@
     }
   }
 
+  // Localized labels are passed from layout.mjs via data-* attributes
+  // (build-time tr()); fall back to the English literals when absent.
+  var LABEL_DARK = "Switch to dark theme";
+  var LABEL_LIGHT = "Switch to light theme";
+
   function syncButton(button, mode) {
     var light = effectiveLight(mode);
     button.setAttribute("aria-pressed", light ? "true" : "false");
     button.setAttribute("data-theme-mode", mode);
-    button.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
+    button.setAttribute(
+      "aria-label",
+      light
+        ? button.getAttribute("data-theme-label-dark") || LABEL_DARK
+        : button.getAttribute("data-theme-label-light") || LABEL_LIGHT
+    );
   }
 
   var current = stored() || "system";

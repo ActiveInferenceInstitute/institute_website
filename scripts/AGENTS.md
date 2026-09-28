@@ -13,12 +13,13 @@ sync, and translate that source. Run gates with no network access.
 | Command | Runs |
 | --- | --- |
 | `npm run build` | `node src/build.mjs` — render HTML + crawler files |
-| `npm run check` | `node --check` the build, `py_compile` every checker, then `check:links` → `check:md-links` → `check:instituteos` → `check:design-system` → `check:site` → `check:security` → `check:redirects` → `check:projects` → `check:catalog` → `check:i18n` → `check:standalone` |
+| `npm run check` | `node --check` the build, `py_compile` every checker, then `check:links` → `check:md-links` → `check:instituteos` → `check:design-system` → `check:site` → `check:feeds` → `check:security` → `check:redirects` → `check:projects` → `check:catalog` → `check:i18n` → `check:standalone` |
 | `npm run check:links` | [`check_internal_links.py`](check_internal_links.py) |
 | `npm run check:md-links` | [`check_markdown_links.py`](check_markdown_links.py) |
 | `npm run check:instituteos` | [`sync_instituteos_public_data.py`](sync_instituteos_public_data.py) `--check` |
 | `npm run check:design-system` | [`check_design_system_export.mjs`](check_design_system_export.mjs) |
 | `npm run check:site` | [`check_site_contract.py`](check_site_contract.py) |
+| `npm run check:feeds` | [`check_feeds.py`](check_feeds.py) — `feed.xml`/`feed.json` structure + dates + guid uniqueness, and `feed`/`sitemap.xml` link targets |
 | `npm run check:security` | [`check_static_security.py`](check_static_security.py) |
 | `npm run check:redirects` | [`check_redirects.py`](check_redirects.py) |
 | `npm run check:sources` | [`check_live_sources.py`](check_live_sources.py) — **network; NOT part of `check`** |
@@ -60,11 +61,17 @@ The large content/structure gate. Reads the canonical origin from
 hardcoded). Mirrors the clean-URL taxonomy from
 [`../src/url-taxonomy.json`](../src/url-taxonomy.json) and i18n locales from
 `../src/i18n/locales.json`. Enforces, among much else:
-- `version.json` matches `package.json` version and the sitemap route count.
+- `version.json` matches `package.json` version and the sitemap route count, and its
+  `source_fingerprint` matches `data/export-manifest.json`'s (a committed source edit
+  without a rebuild fails as a stale build).
 - Content model: `navigation.json` dropdowns, required `live-sources.json` ids,
   no Coda/Governance sources, registry field shapes, audience pathways, exact
   record counts in the synced `instituteos/*.json`, and the curated/resource/
   knowledge/directory page contracts.
+- Locale completeness: every routed page must exist in every non-default locale
+  subtree (`/<locale>/…` from `src/i18n/locales.json`) — a stale partial locale tree fails.
+- `src/content/i18n/<code>.json` catalogs parse and carry at least one entry (the build
+  deliberately swallows a corrupted catalog, so this arm is the detection point).
 - Canonical/`og:url` URLs, required `instituteos-ds.css` → `styles.css` link
   order, and that every external anchor on a content page is backed by
   `live-sources.json` (or a vetted host).
@@ -81,6 +88,20 @@ without `alt`, direct Coda anchors, and external anchors missing
 `live-sources.json` / a vetted host (`youtube.com`, `zoom.us`, `github.com`, …).
 Page-specific JS must be an external `assets/js/*.js` file referenced from
 `src/render/layout.mjs`.
+
+### [`check_feeds.py`](check_feeds.py) (`check:feeds`)
+The machine-readable-output gate for `feed.xml`, `feed.json`, and `sitemap.xml`
+targets. `feed.xml` is XML-parsed (`xml.etree`) and `feed.json` is
+`json.loads`-ed; each item must carry the fields the writer in
+[`../src/feeds.mjs`](../src/feeds.mjs) emits (RSS `<item>` title/link/guid/pubDate;
+JSON Feed `id`/`title`/`content_text`/`date_published`/`url`/`tags`), dates must
+match the emitted shapes (RFC-822 `toUTCString()` / ISO-8601 `toISOString()`),
+guids/ids must be unique, and every `<link>`/`url` target must resolve to an
+existing generated file **and** a real anchor when it carries `#fragment`
+(covers the `/knowledge/#publication-<id>` and `/newsletter/<route>/` entries).
+For `sitemap.xml` this gate resolves every `<loc>` and every
+`<xhtml:link rel="alternate">` hreflang href to an existing generated file; the
+`<loc>` set-equality against the routed page set stays in `check_site_contract.py`.
 
 ### [`check_redirects.py`](check_redirects.py) (`check:redirects`)
 Validates `assets/js/redirects.js` (loaded only by `404.html`). `MAP` entries

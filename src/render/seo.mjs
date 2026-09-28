@@ -189,40 +189,52 @@ export function structuredData(rawTitle, currentDir, canonicalUrl, slug = "", de
     },
     ...(sameAs.length ? { sameAs } : {}),
   };
-  if (!currentDir) {
+  // The Home crumb points to the CURRENT locale's home, and section structure is
+  // read from the locale-agnostic base dir so a locale prefix is not mistaken for
+  // a section. Section crumb URLs are resolved through the locale-aware taxonomy.
+  const localeHome = absoluteUrl(localeOutputPathForSlug("index"));
+  // A locale home (/es/, /fr/, …) is the same page as the root home, only
+  // localized: emit the same org/WebSite/SearchAction graph with locale-correct
+  // URLs and NO BreadcrumbList — a 2-item list whose items share one URL is
+  // degenerate. In the default locale canonicalUrl === localeHome too, so this
+  // single branch covers both homes.
+  if (!currentDir || canonicalUrl === localeHome) {
+    const websiteUrl = canonicalUrl === localeHome ? localeHome : base;
     return jsonLdScript({
       "@context": "https://schema.org",
       "@graph": [
         orgNode,
         {
           "@type": "WebSite",
-          "@id": `${base}#website`,
-          url: base,
+          "@id": `${websiteUrl}#website`,
+          url: websiteUrl,
           name: siteData.site.name,
           publisher: { "@id": `${base}#org` },
           potentialAction: {
             "@type": "SearchAction",
-            target: { "@type": "EntryPoint", urlTemplate: `${absoluteUrl("search/index.html")}?q={search_term_string}` },
+            target: { "@type": "EntryPoint", urlTemplate: `${absoluteUrl(localeOutputPathForSlug("search"))}?q={search_term_string}` },
             "query-input": "required name=search_term_string",
           },
         },
       ],
     });
   }
-  // The Home crumb points to the CURRENT locale's home, and section structure is
-  // read from the locale-agnostic base dir so a locale prefix is not mistaken for
-  // a section. Section crumb URLs are resolved through the locale-aware taxonomy.
-  const localeHome = absoluteUrl(localeOutputPathForSlug("index"));
-  const items = [{ "@type": "ListItem", position: 1, name: "Home", item: localeHome }];
+  const items = [{ "@type": "ListItem", position: 1, name: tr("Home"), item: localeHome }];
   const parts = stripLocalePrefix(currentDir).split("/").filter(Boolean);
   let position = 2;
   if (parts.length === 2) {
     const section = parts[0];
-    const sectionLabel = section.charAt(0).toUpperCase() + section.slice(1);
+    // Use the localized VISIBLE section name (e.g. "Videos and Podcasts" for the
+    // video hub) rather than a capitalized dir segment; unknown dirs fall back
+    // to the capitalized segment.
+    const sectionPage = pageBySlug.get(section);
+    const sectionLabel = sectionPage
+      ? tr(sectionPage.title)
+      : section.charAt(0).toUpperCase() + section.slice(1);
     items.push({
       "@type": "ListItem",
       position: position++,
-      name: tr(sectionLabel),
+      name: sectionLabel,
       item: absoluteUrl(localeOutputPathForSlug(section)),
     });
   }

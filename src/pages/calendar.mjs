@@ -50,8 +50,10 @@ function icalText(value) {
 }
 
 // Format a sanitized ISO start/end to an iCal stamp. All-day → YYYYMMDD (DATE);
-// timed → YYYYMMDDTHHMMSS, with a trailing Z only when the source is UTC. No
-// Date()/locale, timezone-stable to match formatEventDate.
+// timed → YYYYMMDDTHHMMSS. The source offset is preserved: UTC ("Z" or
+// "+00:00") gets a trailing Z, other offsets get a numeric suffix (+0400), and
+// a floating time stays floating rather than being silently re-labelled as UTC.
+// No Date()/locale, timezone-stable to match formatEventDate.
 function icalStamp(iso, allDay) {
   const s = String(iso || "");
   const date = s.slice(0, 10).replace(/-/g, "");
@@ -59,8 +61,13 @@ function icalStamp(iso, allDay) {
   if (allDay || s.length <= 10) return date;
   const time = s.slice(11, 19).replace(/:/g, "");
   if (!/^\d{6}$/.test(time)) return `${date}T000000`;
-  const utc = s.endsWith("Z") || s.includes("+00:00");
-  return `${date}T${time}${utc ? "Z" : ""}`;
+  const rest = s.slice(19);
+  if (rest === "Z" || rest === "z" || rest === "+00:00" || rest === "+0000") {
+    return `${date}T${time}Z`;
+  }
+  const offset = rest.match(/^[+-]\d{2}:?\d{2}$/);
+  if (offset) return `${date}T${time}${offset[0].replace(":", "")}`;
+  return `${date}T${time}`;
 }
 
 function safeToken(value) {
@@ -228,7 +235,7 @@ export function calendarPage() {
             <option value="all">${escapeHtml(tr("All events ({n})").replace("{n}", events.length))}</option>
           </select>
         </label>
-        <p id="calendar-count" class="result-count" aria-live="polite">${escapeHtml(shownCount.replace("{n}", upcoming.length))}</p>
+        <p id="calendar-count" class="result-count" aria-live="polite" data-msg-count-events="${escapeHtml(tr("{n} upcoming events shown"))}">${escapeHtml(shownCount.replace("{n}", upcoming.length))}</p>
       </div>`
     : "";
 

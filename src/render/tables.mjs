@@ -64,10 +64,13 @@ export function dataTable({ caption, columns, rows, className = "directory-table
   </table></div>`;
 }
 
-export function tableSection({ id, eyebrow, title, text, countLabel, tableHtml }) {
+// countPattern is the build-time tr()-translated FULL "{n}" pattern (noun
+// pre-inserted) that client-side filtering stamps onto this count; omitted when
+// a section's static label carries no runtime count at all.
+export function tableSection({ id, eyebrow, title, text, countLabel, countPattern, tableHtml }) {
   return `<section class="content-band" id="${escapeHtml(id)}">
     ${sectionHeading({ eyebrow, title, text })}
-    <p class="category-count" data-knowledge-count="${escapeHtml(id)}">${escapeHtml(countLabel)}</p>
+    <p class="category-count" data-knowledge-count="${escapeHtml(id)}"${countPattern ? ` data-msg-count-rows-labeled="${escapeHtml(countPattern)}"` : ""}>${escapeHtml(countLabel)}</p>
     ${tableHtml}
   </section>`;
 }

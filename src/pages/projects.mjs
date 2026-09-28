@@ -166,7 +166,7 @@ function catalogStatusTable(projects, { anchor, suffix, caption, heading, emptyT
     return "";
   }
   const rows = projects.map((project) => catalogProjectRow(project, currentDir)).join("");
-  return `<div class="catalog-subhead"><h4>${escapeHtml(heading)}</h4><span class="catalog-subcount" id="${anchor}-${suffix}-count">${projects.length} project${projects.length === 1 ? "" : "s"}</span></div>
+  return `<div class="catalog-subhead"><h3>${escapeHtml(heading)}</h3><span class="catalog-subcount" id="${anchor}-${suffix}-count" data-msg-count-projects="${escapeHtml(tr("{n} projects"))}">${projects.length} project${projects.length === 1 ? "" : "s"}</span></div>
       <div class="table-wrap"><table class="directory-table catalog-table" id="${anchor}-${suffix}-table">
         <caption>${escapeHtml(caption)}</caption>
         <thead><tr><th scope="col">Project</th><th scope="col">About</th><th scope="col">Topics</th><th scope="col">Lead &amp; people</th></tr></thead>
@@ -234,7 +234,7 @@ export function projectCatalogSection(currentDir = "") {
         <option value="">All topics</option>
         ${topicOptions}
       </select>
-      <span id="${group.anchor}-count" aria-live="polite"></span>
+      <span id="${group.anchor}-count" aria-live="polite" data-msg-count-projects="${escapeHtml(tr("{n} projects"))}" data-msg-count-projects-shown="${escapeHtml(tr("{n} projects shown"))}"></span>
     </div>
     ${catalogStatusTable(active, {
       anchor: group.anchor,

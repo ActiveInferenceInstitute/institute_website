@@ -16,6 +16,7 @@ import { optionList } from "../render/forms.mjs";
 import { layout } from "../render/layout.mjs";
 import { domainsSection } from "../render/domains.mjs";
 import { resourceCards } from "../render/resources.mjs";
+import { tr } from "../i18n/index.mjs";
 
 export function resourcesPage() {
   const currentDir = urlDirForSlug("resources");
@@ -50,7 +51,7 @@ export function resourcesPage() {
       const groupResources = resources.filter((resource) => resource.category === category.id);
       return `<section class="resource-category" id="${escapeHtml(category.id)}">
         ${sectionHeading({ eyebrow: "Resource group", title: category.label, text: category.description })}
-        <p class="category-count" data-category-count="${escapeHtml(category.id)}">${groupResources.length} resources in this group</p>
+        <p class="category-count" data-category-count="${escapeHtml(category.id)}" data-msg-count-resources-group="${escapeHtml(tr("{n} resources shown in this group"))}">${groupResources.length} resources in this group</p>
         ${resourceCards(groupResources, { currentDir })}
       </section>`;
     })
@@ -146,7 +147,7 @@ export function resourcesPage() {
           ${tagOptions}
         </select>
       </label>
-      <p id="resource-count" class="result-count" aria-live="polite">${resources.length} resources shown</p>
+      <p id="resource-count" class="result-count" aria-live="polite" data-msg-count-resources="${escapeHtml(tr("{n} resources shown"))}">${escapeHtml(tr("{n} resources shown").replace("{n}", String(resources.length)))}</p>
     </div>
     <div class="tag-filter-chips" aria-label="Popular tag filters">
       <button type="button" data-tag-filter="" aria-pressed="true">All tags</button>

@@ -89,6 +89,9 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   const localizedTitle = tr(title);
   const pageTitle =
     localizedTitle === siteData.site.name ? localizedTitle : `${localizedTitle} | ${siteData.site.name}`;
+  // Social-card alt text (og:image:alt / twitter:image:alt): the bare page
+  // title WITHOUT the "| <site>" suffix — the site name itself on home.
+  const socialImageAlt = localizedTitle;
   const pageDescription = metaDescription(tr(description || siteData.site.description));
   // Content/detail pages are articles; section hubs and the root are websites.
   const resolvedOgType = ogType || (slug.startsWith("project-") ? "article" : "website");
@@ -155,22 +158,22 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   <meta property="og:image" content="${escapeHtml(ogImage)}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="${escapeHtml(pageTitle === siteData.site.name ? pageTitle : `${siteData.site.name} — ${pageTitle}`)}">
+  <meta property="og:image:alt" content="${escapeHtml(socialImageAlt)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@InferenceActive">
   <meta name="twitter:creator" content="@InferenceActive">
   <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(pageDescription)}">
   <meta name="twitter:image" content="${escapeHtml(ogImage)}">
-  <meta name="twitter:image:alt" content="${escapeHtml(tr("Active Inference Institute social card"))}">
+  <meta name="twitter:image:alt" content="${escapeHtml(socialImageAlt)}">
   <meta name="generator" content="institute_website v${SITE_VERSION}">
   <link rel="stylesheet" href="${prefix}assets/css/instituteos-ds.css">
   <link rel="stylesheet" href="${prefix}assets/css/styles.css">${graphStyle}${structuredData(localizedTitle, currentDir, canonicalUrl, slug, pageDescription, /noindex/.test(robots || ""), lang)}
 </head>
-<body class="${bodyClass}">
+<body class="${bodyClass}" data-backtotop-label="${escapeHtml(tr("Back to top"))}">
   <a class="skip-link" href="#main">${escapeHtml(tr("Skip to content"))}</a>
   <header class="site-header">
-    <a class="brand" href="${homeHref}" aria-label="${escapeHtml(siteData.site.name)} home">
+    <a class="brand" href="${homeHref}" aria-label="${escapeHtml(tr("{name} home").replace("{name}", siteData.site.name))}">
       <span class="brand-mark" aria-hidden="true">π</span>
       <span>
         <strong>${escapeHtml(siteData.site.name)}</strong>
@@ -182,13 +185,13 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
          button stays hidden and the nav renders expanded (styles.css). -->
     <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true">☰</span><span class="nav-toggle-label">${escapeHtml(tr("Menu"))}</span></button>
     ${nav(currentDir)}
-    <div class="site-search" role="search">
+    <div class="site-search" role="search" aria-label="${escapeHtml(tr("Site search"))}" data-msg-no-matches="${escapeHtml(tr("No matches found."))}" data-msg-see-all="${escapeHtml(tr("See all results for “{q}”"))}" data-msg-one-result="${escapeHtml(tr("1 result found."))}" data-msg-n-results="${escapeHtml(tr("{n} results found."))}">
       <input type="search" id="site-search-input" placeholder="${escapeHtml(tr("Search the Institute…"))}" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="${escapeHtml(tr("Search the site"))}" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="${escapeHtml(tr("Search results"))}" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
     </div>
     ${languageSwitcher(slug, currentDir, lang)}
-    <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="${escapeHtml(tr("Listen to this page"))}" title="${escapeHtml(tr("Listen to this page"))}"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
+    <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="${escapeHtml(tr("Listen to this page"))}" title="${escapeHtml(tr("Listen to this page"))}" data-tts-label-idle="${escapeHtml(tr("Listen to this page"))}" data-tts-label-active="${escapeHtml(tr("Stop reading this page"))}" data-tts-title-idle="${escapeHtml(tr("Listen to this page"))}" data-tts-title-active="${escapeHtml(tr("Stop reading"))}"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="${escapeHtml(tr("Choose highlight color"))}" title="${escapeHtml(tr("Choose highlight color"))}"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
       <div id="accent-menu" class="accent-menu" role="group" aria-label="${escapeHtml(tr("Highlight color"))}" hidden>
@@ -201,7 +204,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="${escapeHtml(tr("Magenta highlight"))}" title="${escapeHtml(tr("Magenta"))}"></button>
       </div>
     </div>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="${escapeHtml(tr("Switch theme"))}" aria-pressed="false" title="${escapeHtml(tr("Toggle light/dark theme"))}"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="${escapeHtml(tr("Switch theme"))}" aria-pressed="false" title="${escapeHtml(tr("Toggle light/dark theme"))}" data-theme-label-dark="${escapeHtml(tr("Switch to dark theme"))}" data-theme-label-light="${escapeHtml(tr("Switch to light theme"))}"><span class="theme-toggle-icon" aria-hidden="true">◐</span></button>
   </header>
   <main id="main">
     ${mtNotice}${normalizedBody}

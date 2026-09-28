@@ -28,6 +28,7 @@ import {
 import { ontologyGraphSection } from "./graphs.mjs";
 import { layout } from "./layout.mjs";
 import { domainsSection } from "./domains.mjs";
+import { tr } from "../i18n/index.mjs";
 
 export function knowledgePreview(page, currentDir = "") {
   const previewConfig = {
@@ -59,7 +60,7 @@ export function knowledgePreview(page, currentDir = "") {
   return `<section class="content-band knowledge-preview-band" id="knowledge-preview">
     ${sectionHeading({ eyebrow: previewConfig.eyebrow, title: previewConfig.title, text: previewConfig.text })}
     ${previewConfig.table}
-    <p class="section-link"><a href="${hrefForSlug("knowledge", currentDir, previewConfig.anchor)}">Open the full Open Source Map</a></p>
+    <p class="section-link"><a href="${hrefForSlug("knowledge", currentDir, previewConfig.anchor)}">${escapeHtml(tr("Open the full Open Source Map"))}</a></p>
   </section>`;
 }
 
@@ -69,16 +70,16 @@ export function knowledgePage() {
   const currentDir = urlDirForSlug("knowledge");
   const body = `
   <section class="page-hero compact knowledge-hero">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${hrefForSlug("index", currentDir)}">Home</a><span aria-hidden="true">/</span><span>Open Source Map</span></nav>
-    <p class="eyebrow">Public open-source map</p>
+    <nav class="breadcrumb" aria-label="${escapeHtml(tr("Breadcrumb"))}"><a href="${hrefForSlug("index", currentDir)}">${escapeHtml(tr("Home"))}</a><span aria-hidden="true">/</span><span>${escapeHtml(tr("Open Source Map"))}</span></nav>
+    <p class="eyebrow">${escapeHtml(tr("Public open-source map"))}</p>
     <div class="knowledge-hero-layout">
       <div>
-        <h1>Open Source Map</h1>
-        <p>Structured public tables for public repositories, ideas, ontology relationships, governance, publications, policies, programs, and literature across the Active Inference Institute ecosystem.</p>
+        <h1>${escapeHtml(tr("Open Source Map"))}</h1>
+        <p>${escapeHtml(tr("Structured public tables for public repositories, ideas, ontology relationships, governance, publications, policies, programs, and literature across the Active Inference Institute ecosystem."))}</p>
         ${actionButtons([
-          { label: "Filter resources", href: "resources.html" },
-          { label: "Browse repositories", href: "directory.html#repositories" },
-          { label: "Start learning", sourceId: "start-docs" },
+          { label: tr("Filter resources"), href: "resources.html" },
+          { label: tr("Browse repositories"), href: "directory.html#repositories" },
+          { label: tr("Start learning"), sourceId: "start-docs" },
         ], currentDir)}
       </div>
       ${
@@ -88,50 +89,50 @@ export function knowledgePage() {
       }
     </div>
   </section>
-  <section class="metrics-band" aria-label="Open Source Map summary">
-    <div><strong>${counts.projects}</strong><span>public repositories</span></div>
-    <div><strong>${counts.ideas}</strong><span>idea rows</span></div>
-    <div><strong>${counts.ontology}</strong><span>relationship rows</span></div>
-    <div><strong>${counts.members}</strong><span>governance members</span></div>
-    <div><strong>${counts.publications}</strong><span>publications</span></div>
-    <div><strong>${counts.policies}</strong><span>policies</span></div>
-    <div><strong>${counts.programs}</strong><span>programs</span></div>
-    <div><strong>${counts.citations}</strong><span>citations</span></div>
+  <section class="metrics-band" aria-label="${escapeHtml(tr("Open Source Map summary"))}">
+    <div><strong>${counts.projects}</strong><span>${escapeHtml(tr("public repositories"))}</span></div>
+    <div><strong>${counts.ideas}</strong><span>${escapeHtml(tr("idea rows"))}</span></div>
+    <div><strong>${counts.ontology}</strong><span>${escapeHtml(tr("relationship rows"))}</span></div>
+    <div><strong>${counts.members}</strong><span>${escapeHtml(tr("governance members"))}</span></div>
+    <div><strong>${counts.publications}</strong><span>${escapeHtml(tr("publications"))}</span></div>
+    <div><strong>${counts.policies}</strong><span>${escapeHtml(tr("policies"))}</span></div>
+    <div><strong>${counts.programs}</strong><span>${escapeHtml(tr("programs"))}</span></div>
+    <div><strong>${counts.citations}</strong><span>${escapeHtml(tr("citations"))}</span></div>
   </section>
   <section class="content-band page-index-band">
     <div class="page-index">
       <div>
-        <p class="eyebrow">On this page</p>
-        <h2>Open Source Map guide</h2>
+        <p class="eyebrow">${escapeHtml(tr("On this page"))}</p>
+        <h2>${escapeHtml(tr("Open Source Map guide"))}</h2>
       </div>
-      <nav aria-label="Open Source Map sections">
-        <a href="#public-data-policy">Public link policy</a>
-        <a href="#projects-table">Repositories</a>
-        <a href="#ideas-table">Ideas</a>
-        <a href="#ontology-table">Ontology</a>
-        <a href="#members-table">Governance</a>
-        <a href="#publications-table">Publications</a>
-        <a href="#policies-table">Policies</a>
-        <a href="#programs-table">Programs</a>
-        <a href="#citations-table">Literature</a>
-        <a href="#related-pages">Related pages</a>
+      <nav aria-label="${escapeHtml(tr("Open Source Map sections"))}">
+        <a href="#public-data-policy">${escapeHtml(tr("Public link policy"))}</a>
+        <a href="#projects-table">${escapeHtml(tr("Repositories"))}</a>
+        <a href="#ideas-table">${escapeHtml(tr("Ideas"))}</a>
+        <a href="#ontology-table">${escapeHtml(tr("Ontology"))}</a>
+        <a href="#members-table">${escapeHtml(tr("Governance"))}</a>
+        <a href="#publications-table">${escapeHtml(tr("Publications"))}</a>
+        <a href="#policies-table">${escapeHtml(tr("Policies"))}</a>
+        <a href="#programs-table">${escapeHtml(tr("Programs"))}</a>
+        <a href="#citations-table">${escapeHtml(tr("Literature"))}</a>
+        <a href="#related-pages">${escapeHtml(tr("Related pages"))}</a>
       </nav>
     </div>
   </section>
   <section class="content-band next-action-band" id="next-actions">
     <div class="next-action-panel">
       <div>
-        <p class="eyebrow">Best next actions</p>
-        <h2>Use the structured map</h2>
-        <p>Start with search if you know a contributor, repository, paper, or concept. Use Directory when you need every public link and repository in one place.</p>
+        <p class="eyebrow">${escapeHtml(tr("Best next actions"))}</p>
+        <h2>${escapeHtml(tr("Use the structured map"))}</h2>
+        <p>${escapeHtml(tr("Start with search if you know a contributor, repository, paper, or concept. Use Directory when you need every public link and repository in one place."))}</p>
       </div>
       ${linkChips([
-        { label: "Directory", href: "directory.html#open-source-map" },
-        { label: "Projects", href: "projects.html#knowledge-preview" },
-        { label: "Learning", href: "learning.html#knowledge-preview" },
-        { label: "Repositories", href: "directory.html#repositories" },
-        { label: "Ontology shortlink", sourceId: "shortlink-ontology" },
-        { label: "START docs", sourceId: "start-docs" },
+        { label: tr("Directory"), href: "directory.html#open-source-map" },
+        { label: tr("Projects"), href: "projects.html#knowledge-preview" },
+        { label: tr("Learning"), href: "learning.html#knowledge-preview" },
+        { label: tr("Repositories"), href: "directory.html#repositories" },
+        { label: tr("Ontology shortlink"), sourceId: "shortlink-ontology" },
+        { label: tr("START docs"), sourceId: "start-docs" },
       ], currentDir)}
     </div>
   </section>
@@ -142,45 +143,45 @@ export function knowledgePage() {
       text: "These tables render public repositories, public concept metadata, and public governance records only. Internal operational records and private working details are excluded.",
     })}
     ${cardGrid([
-      { title: "Repositories", text: "Public ActiveInferenceInstitute repositories with project family, type, language, stars, and updated date.", links: [{ label: "Repository table", href: "#projects-table" }] },
-      { title: "Ideas", text: "Concept, method, tool, value, and publication nodes from public-safe tech-tree metadata.", links: [{ label: "Ideas table", href: "#ideas-table" }] },
-      { title: "Ontology", text: "Directed relationships between public ideas, methods, values, tools, and applications.", links: [{ label: "Ontology table", href: "#ontology-table" }] },
-      { title: "Governance", text: "Public governance members including board, officers, and registered organizational roles.", links: [{ label: "Governance table", href: "#members-table" }] },
-      { title: "Publications", text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: "Publications table", href: "#publications-table" }] },
-      { title: "Policies", text: "Public governance policy registry with category, status, version, and description.", links: [{ label: "Policies table", href: "#policies-table" }] },
-      { title: "Programs", text: "Public participation, learning, research, and support pathways for contributors.", links: [{ label: "Programs table", href: "#programs-table" }] },
-      { title: "Literature", text: "Bibliographic records that ground the public Active Inference domain pages.", links: [{ label: "Literature table", href: "#citations-table" }] },
+      { title: "Repositories", text: "Public ActiveInferenceInstitute repositories with project family, type, language, stars, and updated date.", links: [{ label: tr("Repository table"), href: "#projects-table" }] },
+      { title: "Ideas", text: "Concept, method, tool, value, and publication nodes from public-safe tech-tree metadata.", links: [{ label: tr("Ideas table"), href: "#ideas-table" }] },
+      { title: "Ontology", text: "Directed relationships between public ideas, methods, values, tools, and applications.", links: [{ label: tr("Ontology table"), href: "#ontology-table" }] },
+      { title: "Governance", text: "Public governance members including board, officers, and registered organizational roles.", links: [{ label: tr("Governance table"), href: "#members-table" }] },
+      { title: "Publications", text: "Approved public communications including reports, announcements, and newsletters.", links: [{ label: tr("Publications table"), href: "#publications-table" }] },
+      { title: "Policies", text: "Public governance policy registry with category, status, version, and description.", links: [{ label: tr("Policies table"), href: "#policies-table" }] },
+      { title: "Programs", text: "Public participation, learning, research, and support pathways for contributors.", links: [{ label: tr("Programs table"), href: "#programs-table" }] },
+      { title: "Literature", text: "Bibliographic records that ground the public Active Inference domain pages.", links: [{ label: tr("Literature table"), href: "#citations-table" }] },
     ], currentDir)}
   </section>
   <section class="content-band page-index-band">
-    <div class="knowledge-tools" aria-label="Open Source Map filters">
+    <div class="knowledge-tools" aria-label="${escapeHtml(tr("Open Source Map filters"))}">
       <label>
-        <span>Search Open Source Map</span>
-        <input id="knowledge-search" type="search" placeholder="Search repositories, ideas, relationships, governance, publications">
+        <span>${escapeHtml(tr("Search Open Source Map"))}</span>
+        <input id="knowledge-search" type="search" placeholder="${escapeHtml(tr("Search repositories, ideas, relationships, governance, publications"))}">
       </label>
       <label>
-        <span>Table</span>
+        <span>${escapeHtml(tr("Table"))}</span>
         <select id="knowledge-kind">
-          <option value="">All tables</option>
-          <option value="projects">Repositories</option>
-          <option value="ideas">Ideas</option>
-          <option value="ontology">Ontology</option>
-          <option value="members">Governance</option>
-          <option value="publications">Publications</option>
-          <option value="policies">Policies</option>
-          <option value="programs">Programs</option>
-          <option value="citations">Literature</option>
+          <option value="">${escapeHtml(tr("All tables"))}</option>
+          <option value="projects">${escapeHtml(tr("Repositories"))}</option>
+          <option value="ideas">${escapeHtml(tr("Ideas"))}</option>
+          <option value="ontology">${escapeHtml(tr("Ontology"))}</option>
+          <option value="members">${escapeHtml(tr("Governance"))}</option>
+          <option value="publications">${escapeHtml(tr("Publications"))}</option>
+          <option value="policies">${escapeHtml(tr("Policies"))}</option>
+          <option value="programs">${escapeHtml(tr("Programs"))}</option>
+          <option value="citations">${escapeHtml(tr("Literature"))}</option>
         </select>
       </label>
-      <p id="knowledge-count" class="result-count" aria-live="polite">${knowledgeRowTotal()} rows shown</p>
-    </div>
+      <p id="knowledge-count" class="result-count" aria-live="polite" data-msg-count-rows="${escapeHtml(tr("{n} rows shown"))}">${escapeHtml(tr("{n} rows shown").replace("{n}", String(knowledgeRowTotal())))}</p>
   </section>
   ${tableSection({
     id: "projects-table",
     eyebrow: "Repositories",
     title: `${counts.projects} public repository rows`,
     text: "Open-source project rows derived from the public ActiveInferenceInstitute GitHub namespace.",
-    countLabel: `${counts.projects} repositories shown`,
+    countLabel: tr("{n} repositories shown").replace("{n}", String(counts.projects)),
+    countPattern: tr("{n} repositories shown"),
     tableHtml: projectsTable(),
   })}
   ${tableSection({
@@ -188,7 +189,8 @@ export function knowledgePage() {
     eyebrow: "Ideas",
     title: `${counts.ideas} idea rows`,
     text: "Deduplicated concepts, methods, tools, values, and applications from the public-safe concept graph.",
-    countLabel: `${counts.ideas} ideas shown`,
+    countLabel: tr("{n} ideas shown").replace("{n}", String(counts.ideas)),
+    countPattern: tr("{n} ideas shown"),
     tableHtml: ideasTable(),
   })}
   ${ontologyGraphSection(currentDir)}
@@ -197,7 +199,8 @@ export function knowledgePage() {
     eyebrow: "Ontology",
     title: `${counts.ontology} relationship rows`,
     text: "Directed relationships from the Active Inference and Free Energy Principle tech trees.",
-    countLabel: `${counts.ontology} relationships shown`,
+    countLabel: tr("{n} relationships shown").replace("{n}", String(counts.ontology)),
+    countPattern: tr("{n} relationships shown"),
     tableHtml: ontologyTable(),
   })}
   ${tableSection({
@@ -205,7 +208,8 @@ export function knowledgePage() {
     eyebrow: "Governance",
     title: `${counts.members} governance member rows`,
     text: "Public governance members including board, officers, and registered organizational roles.",
-    countLabel: `${counts.members} governance members shown`,
+    countLabel: tr("{n} governance members shown").replace("{n}", String(counts.members)),
+    countPattern: tr("{n} governance members shown"),
     tableHtml: governanceMembersTable(),
   })}
   ${tableSection({
@@ -213,7 +217,8 @@ export function knowledgePage() {
     eyebrow: "Publications",
     title: `${counts.publications} publication rows`,
     text: "Approved public communications — reports, announcements, and newsletters.",
-    countLabel: `${counts.publications} publications shown`,
+    countLabel: tr("{n} publications shown").replace("{n}", String(counts.publications)),
+    countPattern: tr("{n} publications shown"),
     tableHtml: publicationsTable(publicationRows(), currentDir),
   })}
   ${tableSection({
@@ -221,7 +226,8 @@ export function knowledgePage() {
     eyebrow: "Policies",
     title: `${counts.policies} governance policy rows`,
     text: "Public governance policy registry with category, current status, version, and description.",
-    countLabel: `${counts.policies} policies shown`,
+    countLabel: tr("{n} policies shown").replace("{n}", String(counts.policies)),
+    countPattern: tr("{n} policies shown"),
     tableHtml: policiesTable(),
   })}
   ${tableSection({
@@ -229,7 +235,8 @@ export function knowledgePage() {
     eyebrow: "Programs",
     title: `${counts.programs} public program rows`,
     text: "Structured participation and support pathways derived from the Institute program registry.",
-    countLabel: `${counts.programs} programs shown`,
+    countLabel: tr("{n} programs shown").replace("{n}", String(counts.programs)),
+    countPattern: tr("{n} programs shown"),
     tableHtml: programsTable(),
   })}
   ${tableSection({
@@ -237,16 +244,17 @@ export function knowledgePage() {
     eyebrow: "Literature",
     title: `${counts.citations} public citation rows`,
     text: "Bibliographic records used to ground the public Active Inference research-domain pages.",
-    countLabel: `${counts.citations} citations shown`,
+    countLabel: tr("{n} citations shown").replace("{n}", String(counts.citations)),
+    countPattern: tr("{n} citations shown"),
     tableHtml: citationsTable(),
   })}
   <section class="content-band muted" id="related-pages">
     ${sectionHeading({ eyebrow: "Related pages", title: "Continue through the public site" })}
     ${cardGrid([
-      { title: "About", text: "Institutional orientation and public visitor pathways.", links: [{ label: "About the Institute", href: "about.html" }] },
-      { title: "Projects", text: "Public project, repository, and applied-work pathways.", links: [{ label: "Project map", href: "projects.html" }] },
-      { title: "Learning", text: "Learning paths, research references, and concept orientation.", links: [{ label: "Learning and Research", href: "learning.html" }] },
-      { title: "Directory", text: "Every rendered public page, resource group, official link, repository, and table row.", links: [{ label: "Global Directory", href: "directory.html" }] },
+      { title: "About", text: "Institutional orientation and public visitor pathways.", links: [{ label: tr("About the Institute"), href: "about.html" }] },
+      { title: "Projects", text: "Public project, repository, and applied-work pathways.", links: [{ label: tr("Project map"), href: "projects.html" }] },
+      { title: "Learning", text: "Learning paths, research references, and concept orientation.", links: [{ label: tr("Learning and Research"), href: "learning.html" }] },
+      { title: "Directory", text: "Every rendered public page, resource group, official link, repository, and table row.", links: [{ label: tr("Global Directory"), href: "directory.html" }] },
     ], currentDir)}
   </section>
   ${domainsSection(currentDir)}`;
@@ -264,7 +272,7 @@ export function knowledgeDirectoryRows(currentDir = "") {
     ...siteData.instituteos.projects.records.map((item) => ({
       kind: "Repositories",
       label: item.title,
-      summary: `${item.projectFamily} / ${item.language || "Unspecified"}`,
+      summary: `${item.projectFamily} / ${item.language || tr("Unspecified")}`,
       href: hrefForSlug("knowledge", currentDir, rowAnchor("project", item.id)),
     })),
     ...siteData.instituteos.ideas.records.map((item) => ({
@@ -317,9 +325,13 @@ export function knowledgeDirectoryRows(currentDir = "") {
     ...(siteData.instituteos.citations.records || []).map((item) => ({
       kind: "Literature",
       label: item.title,
-      summary: `${item.year || "n.d."} / ${item.venue || "Reference"}`,
+      summary: `${item.year || tr("n.d.")} / ${item.venue || tr("Reference")}`,
       href: hrefForSlug("knowledge", currentDir, rowAnchor("citation", item.id)),
     })),
   ];
-  return rows.sort((a, b) => a.kind.localeCompare(b.kind) || a.label.localeCompare(b.label));
+  // Sort on the stable English kind so directory grouping stays
+  // locale-independent, then translate the display label.
+  return rows
+    .sort((a, b) => a.kind.localeCompare(b.kind) || a.label.localeCompare(b.label))
+    .map((row) => ({ ...row, kind: tr(row.kind) }));
 }

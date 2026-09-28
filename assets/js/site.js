@@ -95,11 +95,31 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+// Filter/count status strings. The owning server markup (knowledge.mjs,
+// resources.mjs, calendar.mjs, feature-sections.mjs, projects.mjs) passes the
+// build-time tr()-translated FULL pattern via data-* attributes — on the count
+// element itself (el) or on <body> — with "{n}" as the only placeholder (the
+// noun is pre-inserted by the producer). The English fallbacks below keep the
+// pre-existing shape (including the {label} slot, filled from the JS-side noun
+// maps) for pages without the attributes.
+function countMsg(el, name, fallback, n, label = "") {
+  const pattern =
+    (el && el.getAttribute(name)) ||
+    (document.body && document.body.getAttribute(name)) ||
+    fallback;
+  return pattern.replace("{n}", String(n)).replace("{label}", label);
+}
+
 // Back-to-top control for long pages (created client-side; CSP-safe, no inline).
 const toTop = document.createElement("button");
 toTop.type = "button";
 toTop.className = "to-top";
-toTop.setAttribute("aria-label", "Back to top");
+toTop.setAttribute(
+  "aria-label",
+  // Localized by layout.mjs on <body data-backtotop-label> (build-time tr());
+  // fall back to the English literal when absent.
+  (document.body && document.body.getAttribute("data-backtotop-label")) || "Back to top",
+);
 toTop.textContent = "↑";
 toTop.hidden = true;
 document.body.appendChild(toTop);
@@ -150,7 +170,7 @@ function updateCategoryCounts() {
   for (const count of categoryCounts) {
     const category = count.dataset.categoryCount;
     const visible = resourceCards.filter((card) => card.dataset.category === category && !card.hidden).length;
-    count.textContent = `${visible} ${visible === 1 ? "resource" : "resources"} shown in this group`;
+    count.textContent = countMsg(count, "data-msg-count-resources-group", "{n} resources shown in this group", visible);
   }
 }
 
@@ -182,7 +202,7 @@ function updateResourceFilters() {
   }
 
   if (resourceCount) {
-    resourceCount.textContent = `${visible} ${visible === 1 ? "resource" : "resources"} shown`;
+    resourceCount.textContent = countMsg(resourceCount, "data-msg-count-resources", "{n} resources shown", visible);
   }
   syncTagButtons(filters.tag);
   updateCategoryCounts();
@@ -230,7 +250,7 @@ function updateKnowledgeFilters() {
   }
 
   if (knowledgeCount) {
-    knowledgeCount.textContent = `${visible} ${visible === 1 ? "row" : "rows"} shown`;
+    knowledgeCount.textContent = countMsg(knowledgeCount, "data-msg-count-rows", "{n} rows shown", visible);
   }
 
   for (const count of knowledgeSectionCounts) {
@@ -245,7 +265,7 @@ function updateKnowledgeFilters() {
       "ontology-table": "relationships",
       "research-table": "research links",
     }[label] || "rows";
-    count.textContent = `${visibleRows} ${sectionLabel} shown`;
+    count.textContent = countMsg(count, "data-msg-count-rows-labeled", "{n} {label} shown", visibleRows, sectionLabel);
   }
 }
 
@@ -298,8 +318,9 @@ function updateCalendarFilters() {
   }
 
   if (calendarCount) {
-    const scope = query ? "match" : kind === "all" ? "event" : `${kind} event`;
-    calendarCount.textContent = `${visible} ${scope}${visible === 1 ? "" : "s"} shown`;
+    // The scope noun pluralizes in the slot ("1 upcoming event shown" /
+    // "5 upcoming events shown"), preserving the pre-existing English shape.
+    calendarCount.textContent = countMsg(calendarCount, "data-msg-count-events", "{n} {label} shown", visible, visible === 1 ? scope : `${scope}s`);
   }
 }
 
@@ -329,7 +350,7 @@ if (activitiesProjectSearch && activitiesProjectRows.length) {
       }
     }
     if (activitiesProjectCount) {
-      activitiesProjectCount.textContent = `${shown} project${shown === 1 ? "" : "s"} shown`;
+      activitiesProjectCount.textContent = countMsg(activitiesProjectCount, "data-msg-count-projects-shown", "{n} projects shown", shown);
     }
   };
   activitiesProjectSearch.addEventListener("input", applyActivitiesProjectFilter);
@@ -358,7 +379,7 @@ const catalogSections = ["catalog-institute", "catalog-ecosystem"]
   }))
   .filter((section) => section.tables.length);
 for (const section of catalogSections) {
-  const pluralize = (n) => `${n} project${n === 1 ? "" : "s"}`;
+  const pluralize = (n) => countMsg(section.total, "data-msg-count-projects", "{n} projects", n);
   const applyCatalogFilter = () => {
     const query = (section.search?.value || "").trim().toLowerCase();
     const topic = section.topic?.value || "";
@@ -380,7 +401,7 @@ for (const section of catalogSections) {
     // Only speak when a filter is actually narrowing something; at rest the
     // section's own static count already states the total, and repeating it
     // here just prints the same number twice.
-    if (section.total) section.total.textContent = query || topic ? `${pluralize(shown)} shown` : "";
+    if (section.total) section.total.textContent = query || topic ? countMsg(section.total, "data-msg-count-projects-shown", "{n} projects shown", shown) : "";
   };
   section.search?.addEventListener("input", applyCatalogFilter);
   section.topic?.addEventListener("change", applyCatalogFilter);

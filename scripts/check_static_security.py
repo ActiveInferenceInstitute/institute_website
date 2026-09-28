@@ -60,14 +60,17 @@ PII_ATTRS = {"title", "alt", "aria-label", "content"}
 
 PII_ATTRS_PREFIXES = ("data-",)
 
-def jsonld_bodies(path: Path) -> list[str]:
-    """Raw text of every JSON-LD script body in an HTML file."""
-    raw = path.read_text(encoding="utf-8", errors="replace")
-    return re.findall(
-        r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',
-        raw,
-        re.IGNORECASE | re.DOTALL,
-    )
+def jsonld_blocks(path: Path) -> list[tuple[int, str]]:
+    """(byte offset, raw text) of every JSON-LD script body in an HTML file."""
+    raw = path.read_bytes()
+    return [
+        (match.start(), match.group(1).decode("utf-8", errors="replace"))
+        for match in re.finditer(
+            rb'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',
+            raw,
+            re.IGNORECASE | re.DOTALL,
+        )
+    ]
 
 
 def pii_data_files() -> list[Path]:
@@ -330,6 +333,10 @@ def check_security() -> int:
             for name in attrs:
                 if name.startswith("on"):
                     errors.append(f"{relative}: inline event handler attribute {name}")
+                if name == "style":
+                    errors.append(
+                        f"{relative}: inline style attribute is not allowed (style-src 'self' strips it): <{tag}>"
+                    )
 
         if parser.inline_script_chunks:
             errors.append(f"{relative}: inline script content is not allowed")
@@ -388,16 +395,30 @@ def check_security() -> int:
         # violation. The matched value itself is never printed — only a
         # redacted fingerprint — so a real finding cannot leak PII into CI
         # logs via this checker.
-        page_text = " ".join(parser.text_chunks)
+        # Attribute values are scanned one value at a time, never concatenated
+        # with each other or with page text: gluing e.g. og:image:width
+        # content="1200" and content="630" onto prose fabricates phone-shaped
+        # strings (a false positive), while per-value scanning still catches
+        # any address wholly contained in one attribute.
+        pii_candidates = [" ".join(parser.text_chunks)]
         for tag, attrs in parser.tags:
             for name, value in attrs.items():
                 if value and (name in PII_ATTRS or name.startswith(PII_ATTRS_PREFIXES)):
-                    page_text += " " + value
+                    pii_candidates.append(value)
         # JSON-LD script bodies: the parser records attrs only, so capture the
-        # structured-data text separately from the raw source.
-        for body in jsonld_bodies(html_path):
-            page_text += " " + body
-        pii_findings = set(find_pii(page_text))
+        # structured-data text separately from the raw source. Every block must
+        # also parse as JSON — a malformed block would ship silently otherwise.
+        for offset, body in jsonld_blocks(html_path):
+            try:
+                json.loads(body)
+            except ValueError as exc:
+                errors.append(
+                    f"{relative}: JSON-LD script block at byte offset {offset} does not parse as JSON: {exc}"
+                )
+            pii_candidates.append(body)
+        pii_findings: set[tuple[str, str]] = set()
+        for candidate in pii_candidates:
+            pii_findings.update(find_pii(candidate))
         vetted_lower = {allowed.lower() for allowed in VETTED_PUBLIC_EMAILS}
         for anchor in parser.anchors:
             href = anchor.get("href", "")
@@ -429,7 +450,7 @@ def check_security() -> int:
 
     print(
         "Static security passed: CSP/referrer meta, local assets, safe external anchors, "
-        "no disallowed tags, and no unvetted PII in rendered output."
+        "no disallowed tags, no inline style attributes, valid JSON-LD, and no unvetted PII in rendered output."
     )
     return 0
 

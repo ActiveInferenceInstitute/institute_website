@@ -141,7 +141,13 @@ export function newsletterIssuePage(record) {
     currentDir,
     canonicalPath: newsletterIssueOutputPath(record.route),
     body,
-    slug: "newsletter",
+    // Issue pages are not routed page slugs, but layout derives the hreflang
+    // alternates and the language switcher from `slug`. Passing the synthetic
+    // per-issue slug routes through the taxonomy's fallback (baseDirForSlug
+    // returns it verbatim), yielding localeOutputPathForSlug results identical
+    // to the per-issue <xhtml:link> alternates in sitemap.xml — instead of the
+    // /newsletter/ hub every issue previously advertised.
+    slug: `newsletter/${record.route}`,
   });
 }
 

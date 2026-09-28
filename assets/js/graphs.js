@@ -282,7 +282,7 @@
 
     function showDetail(node) {
       panel.textContent = "";
-      const heading = document.createElement("h4");
+      const heading = document.createElement("h3");
       heading.className = "graph-panel-title";
       heading.textContent = node.label || node.id;
       panel.appendChild(heading);
