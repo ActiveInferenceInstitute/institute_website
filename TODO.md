@@ -7,6 +7,23 @@ strict Content Security Policy, gated by `npm run check`.
 
 ## Backlog / ideas
 
+- [ ] **Light-theme accent contrast (F19, 2026-09-27).** Non-text accent
+      elements in light mode measure 3.0–4.4:1 against AA's 4.5:1 for UI
+      components — a brand/design-token decision (`assets/css/instituteos-ds.css`
+      + `styles.css`), not a mechanical fix; needs the Institute's color
+      sign-off before changing canonical tokens (design-system export gate
+      will re-pin both files).
+- [ ] **Newsletter archive dead "here" CTA (F24-adjacent, 2026-09-27).** The
+      2025-august / 2025-november newsletter snapshots contain "here"
+      call-to-action text whose target lived in the private archive snapshot;
+      fixing it requires an upstream content decision (refresh the snapshot
+      via the sanctioned export or edit copy). Not code-doable in this repo.
+- [ ] **Calendar event-count plural edge (2026-09-27).** The runtime count
+      contract ships the plural pattern ("{n} upcoming events shown"); at
+      n=1 Spanish/German/etc. render plural-phrased text ("1 próximos
+      eventos mostrados" class of artifact). Fix is catalog + contract work:
+      either per-element singular/plural attr pairs or a JS pluralizer; low
+      traffic page, deferred until catalogs next open.
 - [x] **i18n catalog backlog (2026-07-20) — DONE 2026-08-02.** The extract now
       collects 3,418 strings (long-form knowledge/course prose entered the
       catalog with the strategy-map wiring and content growth); the offline
@@ -26,13 +43,13 @@ strict Content Security Policy, gated by `npm run check`.
       "active inference") and 2,913 verbatim-missing (brand/program terms
       rendered natively, e.g. "Instituto de Inferencia Activa"). Against the
       committed HEAD catalogs the same sweep reports 4,959 findings (2,242
-      omitted / 2,717 verbatim-missing) — the uncommitted re-translate made
-      term fidelity worse; decide its fate before acting on either number.
+      omitted / 2,717 verbatim-missing). **Resolved 2026-09-27:** the
+      uncommitted re-translate was discarded, and all 11 catalogs were
+      refilled from scratch to 4,743 entries (commit `4e8905483a`); the
+      residual 573 gate-failing entries remain the accepted threshold.
       `--fix` re-translates flagged entries through the masked pipeline and is
-      incremental/resumable; the run was blocked this sweep because the local
-      Ollama server, though up, was starved by concurrent GPU jobs (a single
-      short string produced no response in 300s), so the findings stand as the
-      report for the next offline window.
+      incremental/resumable; a later offline window completed the full refill
+      (see the Resolved note above), closing this item.
 
 ### From the 2026-06 deep review (see [`INDEX.md`](INDEX.md), [`GATING.md`](GATING.md))
 

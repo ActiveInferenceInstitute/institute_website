@@ -41,7 +41,7 @@ export function domainsSection(currentDir) {
     .join("");
   return `
   <section class="content-band" id="domains">
-    ${sectionHeading({ eyebrow: tr("Domains"), title: tr("Active Inference across domains") })}
+    ${sectionHeading({ eyebrow: "Domains", title: "Active Inference across domains" })}
     <p>${escapeHtml(tr("Explorable overviews of how Active Inference is applied across scientific and practical domains — each with orientation, key ideas, and entry points into related projects and resources."))}</p>
     <div class="mini-links">${links}<a href="${escapeHtml(hrefForSlug("active-inference", currentDir))}">${escapeHtml(tr("All domains"))}</a></div>
   </section>`;

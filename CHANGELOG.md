@@ -4,6 +4,29 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **Verified-findings sweep (2026-09-27).** Committed as `4e8905483a`: 21
+  adversarial-review findings fixed (i18n coverage of the video table and
+  knowledge page chrome; runtime JS label/count writers now read localized
+  data-* attributes instead of clobbering server-rendered text; bibliography
+  bars CSP-safe bucket classes replacing inline `style="width:N%"`; calendar
+  ICS stamps preserve source UTC offsets; APG combobox pattern for the header
+  search; locale-home JSON-LD graph; newsletter per-issue hreflang; feed
+  guid `isPermaLink`; heading-order fixes). New `check:feeds` gate and three
+  `check:site` arms (locale-subtree completeness, `source_fingerprint`
+  staleness, i18n catalog integrity). The two pre-existing export-manifest
+  sha256 staleness errors at HEAD were fixed by re-running the sanctioned
+  InstituteOS `export-website` for the `projects` and `substack_newsletters`
+  slices; the regenerated payloads are byte-normalized re-serializations with
+  identical record content (29/29 line changes text-identical). Catalogs
+  refilled to 4,743 entries × 11 locales (backlog + 82 new strings).
+  Follow-up: floating calendar timestamps (29 records: 24 UTC, 3 Asia/Yerevan,
+  2 America/Los_Angeles) now derive their UTC instant from the record's
+  `timeZone` at build time via `Intl` (offset for the event's own instant, so
+  DST is honored) and stamp as `Z` — previously those `.ics` downloads
+  carried ambiguous floating times. Accepted trade-off: the runtime event
+  count pattern is plural ("{n} upcoming events shown"); at n=1 a
+  singular-aware phrasing is a catalog-content refinement, tracked in
+  TODO.md.
 
 - **i18n terminology repair passes (2026-09-25).** The `--fix` sweep ran against the
   committed catalogs via OpenRouter (2 passes `google/gemini-2.5-flash`, 1 pass
@@ -23,10 +46,11 @@ This project follows [Semantic Versioning](https://semver.org/).
   lost or garbled in translation, e.g. es "razonamiento activo" for "active
   inference", ja garble "アクティブインフェリエンス" — and 2,717
   **verbatim-missing**: brand/program terms rendered natively, e.g.
-  "Instituto de Inferencia Activa"). Against the uncommitted 2026-09-07
-  re-translate catalog state sitting in the worktree (not committed with this
-  change): 5,624 findings across 4,871 entries — that re-translate made term
-  fidelity worse, and its disposition is a separate decision. `--fix`
+  "Instituto de Inferencia Activa"). An uncommitted 2026-09-07 re-translate
+  catalog state measured 5,624 findings across 4,871 entries — worse than
+  committed HEAD, and it was discarded rather than committed. The 2026-09-27
+  sweep (above) superseded this whole question by refilling all 11 catalogs
+  from scratch (4,743 entries each). `--fix`
   re-translates flagged entries through the existing masked offline pipeline,
   replacing a value only when the candidate passes the same glossary check;
   the run itself is blocked this sweep on Ollama capacity (server up but

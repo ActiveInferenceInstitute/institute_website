@@ -28,6 +28,59 @@ function formatEventDate(event) {
   return `${m} ${d}, ${y} · ${time}${tz}`;
 }
 
+// Offset for an IANA zone at a fixed instant (build-time, deterministic):
+// Intl reports e.g. "+04:00" (longOffset) or a legacy name ("GMT+4"); both
+// normalize to a numeric "+HHMM". Returns "" when the zone is unresolvable.
+function zoneOffset(event, iso) {
+  const zone = String(event.timeZone || "").trim();
+  if (!zone) return "";
+  // Floating starts under timeZone "UTC" also resolve here ("+0000"), so
+  // they stamp as Z rather than staying ambiguous. The zone's DST rules are
+  // honored because the offset is derived for the event's own instant.
+  try {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: zone,
+      year: "numeric", month: "2-digit", day: "2-digit",
+      hour12: false, timeZoneName: "longOffset",
+    }).formatToParts(new Date(iso));
+    const name = (parts.find((p) => p.type === "timeZoneName")?.value || "").replace(/^GMT/, "UTC");
+    const m = name.match(/UTC([+-])(\d{1,2})(?::?(\d{2}))?/);
+    if (!m) return "";
+    const hh = String(Math.abs(Number(m[2]))).padStart(2, "0");
+    const mm = (m[3] || "00").padStart(2, "0");
+    return `${m[1]}${hh}${mm}`;
+  } catch {
+    return "";
+  }
+}
+
+// Re-label a floating ISO time ("YYYY-MM-DDTHH:MM:SS", no offset) as a
+// UTC-equivalent instant using the record's timeZone. The offset must be
+// evaluated at the event's true instant, not at wall-time-as-UTC: for wall
+// times within a zone's own offset of a DST transition the two differ by an
+// hour, so the derivation iterates until the offset is stable (converges in
+// 1 extra step for real zones; for nonexistent gap times it resolves to the
+// pre-transition offset, the conventional IANA interpretation). This matches
+// the RFC 5545 model (one absolute instant) and keeps the .ics unambiguous
+// for subscribers in any zone; the rendered page keeps the zone-name display
+// from formatEventDate.
+function floatToUtc(event, iso) {
+  const wall = new Date(`${iso}Z`);
+  if (Number.isNaN(wall.getTime())) return "";
+  let shifted = wall;
+  let offset = "";
+  for (let i = 0; i < 3; i += 1) {
+    const next = zoneOffset(event, shifted.toISOString());
+    if (!next || !/^[+-]\d{4}$/.test(next) || next === offset) break;
+    offset = next;
+    const sign = offset[0] === "-" ? -1 : 1;
+    const mins = sign * (Number(offset.slice(1, 3)) * 60 + Number(offset.slice(3, 5)));
+    shifted = new Date(wall.getTime() - mins * 60000);
+  }
+  if (!offset) return "";
+  return shifted.toISOString().replace(/\.\d{3}Z$/, "Z");
+}
+
 // Short, human label for a known event URL host (the URL itself is shown as
 // selectable text, not a clickable external anchor — see eventCard).
 function linkLabel(url) {
@@ -51,10 +104,12 @@ function icalText(value) {
 
 // Format a sanitized ISO start/end to an iCal stamp. All-day → YYYYMMDD (DATE);
 // timed → YYYYMMDDTHHMMSS. The source offset is preserved: UTC ("Z" or
-// "+00:00") gets a trailing Z, other offsets get a numeric suffix (+0400), and
-// a floating time stays floating rather than being silently re-labelled as UTC.
-// No Date()/locale, timezone-stable to match formatEventDate.
-function icalStamp(iso, allDay) {
+// "+00:00") gets a trailing Z, other offsets get a numeric suffix (+0400).
+// A floating time is converted to its UTC instant when the record carries an
+// IANA timeZone (offset derived at build time via Intl) — one unambiguous
+// RFC 5545 stamp; without a resolvable zone it stays floating rather than
+// being silently re-labelled as UTC.
+function icalStamp(iso, allDay, event) {
   const s = String(iso || "");
   const date = s.slice(0, 10).replace(/-/g, "");
   if (!/^\d{8}$/.test(date)) return allDay ? "19700101" : "19700101T000000Z";
@@ -67,6 +122,8 @@ function icalStamp(iso, allDay) {
   }
   const offset = rest.match(/^[+-]\d{2}:?\d{2}$/);
   if (offset) return `${date}T${time}${offset[0].replace(":", "")}`;
+  const utc = floatToUtc(event || {}, s);
+  if (utc) return utc.replace(/[-:]/g, "");
   return `${date}T${time}`;
 }
 
@@ -103,10 +160,10 @@ export function buildEventIcs(event) {
     "BEGIN:VEVENT",
     `UID:${uid}`,
     `DTSTAMP:${icalStamp(EXPORTED_AT, false)}`,
-    `${allDay ? "DTSTART;VALUE=DATE:" : "DTSTART:"}${icalStamp(event.start, allDay)}`,
+    `${allDay ? "DTSTART;VALUE=DATE:" : "DTSTART:"}${icalStamp(event.start, allDay, event)}`,
   ];
   if (event.end) {
-    lines.push(`${allDay ? "DTEND;VALUE=DATE:" : "DTEND:"}${icalStamp(event.end, allDay)}`);
+    lines.push(`${allDay ? "DTEND;VALUE=DATE:" : "DTEND:"}${icalStamp(event.end, allDay, event)}`);
   }
   lines.push(`SUMMARY:${icalText(event.title || "Untitled event")}`, "END:VEVENT", "END:VCALENDAR");
   return lines.join("\r\n");
