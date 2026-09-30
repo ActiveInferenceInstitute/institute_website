@@ -1,104 +1,205 @@
 {
   "slug": "working-groups",
   "title": "Working Groups",
-  "subtitle": "Open, participatory community groups pairing Active Inference with a domain of science, practice, or application.",
-  "audience": "Anyone who wants to join, follow, or propose an Institute Working Group — learners, researchers, and practitioners alike.",
-  "lede": "Working Groups are the Institute's community research groups: open teams that meet in public sessions to turn the Active Inference framework into domain-relevant questions, literature, models, and projects. Everyone is welcome to attend, contribute, and eventually convene.",
+  "subtitle": "Open, chartered community working groups for comparison, assessment, and domain development in Active Inference.",
+  "audience": "Implementers, domain practitioners, researchers, and community members who want to shape the Working Groups.",
+  "lede": "The Active Inference Institute proposes a system of open community working groups: one Field Working Group for field-level comparison and a shared assessment method, and domain working groups that pair active-inference experts with domain practitioners. The draft Charter and Operating Procedures are open for public review on GitHub now. The groups are proposed for founding at the Charter Development Session of the 6th Applied Active Inference Symposium, held online on 12-14 November 2026.",
   "primaryActions": [
     {
-      "label": "Active Inference Institute on GitHub",
-      "sourceId": "github-org"
+      "label": "Read the position paper",
+      "sourceId": "working-groups-position-paper"
     },
     {
-      "label": "Public calendar",
-      "href": "/calendar/"
+      "label": "Read the draft Charter",
+      "sourceId": "working-groups-charter"
     },
     {
-      "label": "Get involved",
-      "href": "/get-involved/"
+      "label": "Register for the Symposium (free, online)",
+      "sourceId": "symposium-2026-register"
     }
-  ],
-  "resourceGroups": [
-    "institute",
-    "community"
-  ],
-  "externalSourceIds": [
-    "working-groups-repo",
-    "github-org"
   ],
   "sections": [
     {
-      "heading": "What a Working Group is",
-      "body": "Each group works at the intersection of Active Inference and one domain — for example neuroscience, economics, or healthcare — turning the general framework into domain-relevant questions, literature, models, and projects.\n\nGroups meet in public sessions that anyone may join, with no application or affiliation required. Sessions are recorded where possible, and each group's sustained output lands in the Institute's public repositories and on the website's domain pages."
-    },
-    {
-      "heading": "Current Working Groups",
-      "body": "Each Working Group has a domain page on this site that surveys what the literature shows, the modeling patterns and tools researchers use, and the open questions for that domain.",
+      "heading": "What the Working Groups Are",
+      "body": "Working groups are bounded bodies charged with a named object of work, operating under a written charter with transparent governance, and producing public outputs the field can use or discard. They are constituted by their members. Responsibility for technical analysis, interpretation, and conclusions in working-group outputs belongs to the members.\n\nThe Institute's role is administrative, not epistemic: it convenes the groups, provides a non-voting Liaison, and is the exclusive official publisher of their outputs. Its publication review is limited to institutional policy, accuracy of institutional representations, and license terms. The Institute may not dissolve a working group, and a group continues if the Institute withdraws as convener.\n\nThe proposal is set out in the position paper *Coordinating the Field: The Case for Ecosystem-Level Technology Roadmapping and Community Working Groups in Active Inference* (Active Inference Institute Working Paper Series, Version 1.0.0, September 2026; DOI 10.5281/zenodo.23066904).",
       "links": [
-        { "label": "Agriculture", "href": "/active-inference/agriculture/" },
-        { "label": "Climate Science", "href": "/active-inference/climate/" },
-        { "label": "Computational Tools", "href": "/active-inference/computational/" },
-        { "label": "Cybersecurity", "href": "/active-inference/cybersecurity/" },
-        { "label": "Ecology", "href": "/active-inference/ecology/" },
-        { "label": "Economics", "href": "/active-inference/economics/" },
-        { "label": "Education", "href": "/active-inference/education/" },
-        { "label": "Entomology", "href": "/active-inference/entomology/" },
-        { "label": "Healthcare", "href": "/active-inference/healthcare/" },
-        { "label": "Law and Policy", "href": "/active-inference/law/" },
-        { "label": "Linguistics", "href": "/active-inference/linguistics/" },
-        { "label": "Medicine", "href": "/active-inference/medicine/" },
-        { "label": "Music and Sound", "href": "/active-inference/music/" },
-        { "label": "Neuroscience", "href": "/active-inference/neuroscience/" },
-        { "label": "Psychology", "href": "/active-inference/psychology/" },
-        { "label": "Robotics", "href": "/active-inference/robotics/" },
-        { "label": "The Scientific Method", "href": "/active-inference/scientific-method/" },
-        { "label": "Social", "href": "/active-inference/social/" },
-        { "label": "Urban Planning", "href": "/active-inference/urban-planning/" }
+        {
+          "label": "Position paper (Zenodo)",
+          "sourceId": "working-groups-position-paper"
+        },
+        {
+          "sourceId": "working-groups-repo"
+        }
       ]
     },
     {
-      "heading": "Joining a group",
-      "body": "Find the group's next public session on the public calendar, then attend — sessions are open to everyone, from first-time learners to domain experts.\n\nKeep coming back and pick up work: reviewing literature, building models, writing notes, and improving materials. Sustained contributors become candidates to convene or co-convene a group."
-    },
-    {
-      "heading": "Proposing a new group",
-      "body": "A new Working Group starts as a proposal, not an application.\n\n1. Propose the group to the Institute coordinators — through the Get involved channels — describing the domain, the questions the group would pursue, and why now. Proposals are also tracked as issues in the Institute's GitHub organization.\n2. Gather at least one other committed participant.\n3. Coordinators review proposals, schedule a first public session on the calendar, and add the group to the public roster on this page.",
+      "heading": "The Field Working Group",
+      "body": "The Field Working Group addresses field-level comparability and a shared assessment method. Its proposed year-one products are:\n\n1. A terminology correspondence matrix for a defined set of core terms as used in at least SPM/DEM, pymdp, and RxInfer.jl.\n2. A public comparison protocol for a small set of standard problems, stratified into conceptual, algorithmic, and numerical correspondence, with version pins, a stated equivalence rule, and at least one worked example across two implementations.\n3. A shared domain-assessment framework, reviewed and agreed with constituted domain groups.\n4. External review of the matrix and the protocol by at least two reviewers who are not Institute Board members and were not drafters.\n\nThe Field group is constituted when at least five individuals commit in writing to that object, including at least one person who maintains or actively uses an implementation in the initial comparison set. Implementers and users of SPM, pymdp, RxInfer.jl, or another implementation are invited.",
       "links": [
-        { "label": "Working Groups repository", "sourceId": "working-groups-repo" },
-        { "label": "Active Inference Institute on GitHub", "sourceId": "github-org" }
+        {
+          "label": "Active Inference Ontology",
+          "href": "/projects/active-inference-ontology/"
+        }
       ]
     },
     {
-      "heading": "Where things live",
-      "body": "The Working Groups repository holds the roster, proposals (issues), and per-group notes. This website carries the public overview: the Working Groups page, the public calendar, the domain pages, and the repository directory. Long-lived artifacts a group produces get their own repository in the ActiveInferenceInstitute organization.",
+      "heading": "Domain Working Groups",
+      "body": "Domain working groups each address a single field of application: whether Active Inference can be introduced to that domain in the domain's own terms, and where the domain currently stands under a shared rubric. Proposed year-one products are an audience and use-case note; one literacy or adaptation module designed jointly by active-inference experts and domain practitioners; participation in the Field group's framework series with an initial domain assessment; and a published go/no-go on the group's continuation.\n\nA domain group is constituted when at least five individuals commit in writing to its year-one product, including at least one active-inference expert and at least one domain practitioner actively working in the domain. Scientific Advisory Board members may volunteer to supply the expert role. There is no cap on the number of domain groups.\n\nThe paper's suggestion list of candidate domains:\n\n- Healthcare and clinical medicine\n- Neuroscience\n- Mental health and psychiatry\n- Education and learning science\n- Artificial intelligence and AGI\n- Robotics, drones, and autonomous systems\n- Finance and economic decision-making\n- Climate and environmental science\n- Cybersecurity\n- Logistics\n\nDefense and national security applications are deferred from the pilot year pending appropriate ethics review procedures.\n\nThe Active Inference and X pages on this site collect existing resources for many domains. They are not constituted working groups; domain groups form only when they meet the conditions above.",
       "links": [
-        { "label": "Active Inference Institute on GitHub", "sourceId": "github-org" },
-        { "label": "Working Groups repository", "sourceId": "working-groups-repo" },
-        { "label": "Repository directory", "href": "/directory/#repositories" }
+        {
+          "label": "Active Inference and X",
+          "href": "/active-inference/"
+        }
+      ]
+    },
+    {
+      "heading": "A Shared Assessment Framework",
+      "body": "The paper proposes a seven-stage domain development framework as a provisional heuristic, so that every domain group assesses itself against the same rubric:\n\n1. Theoretical Awareness\n2. Domain Translation\n3. Community Nucleation\n4. Educational Infrastructure\n5. Credentialing and Practitioner Market\n6. Standards, Auditing, and Professional Events\n7. Institutional Maturity\n\nThe Symposium may adopt the framework provisionally as starting text. The Field Working Group, with constituted domain groups, then reviews, refines, and agrees the version the domains will use. Stage ratings remain each domain group's own analysis.",
+      "links": []
+    },
+    {
+      "heading": "Founding Timeline",
+      "body": "**Now through November 2026.** Public review of the draft Charter and Operating Procedures on GitHub.\n\n**Phase 1, at the Symposium (12-14 November 2026).** Provisional adoption of the Charter and Operating Procedures for a 90-day ratification period; constitution of the Field Working Group and of every non-deferred domain that meets the formation floor and participation conditions; election of interim Chairs and Vice Chairs; a 90-day calendar for Phase 2; and provisional adoption of the seven-stage framework as starting text.\n\n**Phase 2, within 90 days.** Ratification of the final Charter and Operating Procedures by a two-thirds supermajority of the combined active membership; confirmation of the framework starting text; Year One Work Plans; and officer elections under the ratified Charter.\n\n**After year one.** A twelve-month pilot evaluation with a stop rule: a group that has not produced its named year-one products is paused. A five-year sunset review of the whole system follows, due no later than November 2031.",
+      "links": [
+        {
+          "label": "Applied Active Inference Symposium",
+          "href": "/projects/symposium/"
+        },
+        {
+          "sourceId": "symposium-2026-register"
+        }
+      ]
+    },
+    {
+      "heading": "Founding Documents",
+      "body": "The draft Charter (Appendix A of the position paper) and Operating Procedures (Appendix B) are maintained as living documents in the Working_Groups repository, alongside the predecessor governance documents they draw on: IEEE Technical Committees, the IETF working-group process (RFC 2418), the W3C Process Document, the IRS Form 1023 sample conflict-of-interest policy, and the ANSI Essential Requirements. Footnotes in each document give the predecessor source or design rationale for every provision.\n\nThe position paper is archived on Zenodo with the appendices as published; the repository versions carry any later changes.",
+      "links": [
+        {
+          "label": "Position paper (Zenodo)",
+          "sourceId": "working-groups-position-paper"
+        },
+        {
+          "label": "Working Group Charter (draft)",
+          "sourceId": "working-groups-charter"
+        },
+        {
+          "label": "Operating Procedures (draft)",
+          "sourceId": "working-groups-operating-procedures"
+        },
+        {
+          "label": "Predecessor governance documents",
+          "sourceId": "working-groups-predecessor-documents"
+        },
+        {
+          "sourceId": "working-groups-repo"
+        }
+      ]
+    },
+    {
+      "heading": "How to Participate",
+      "body": "- **Attend the Charter Development Session.** It is open to all registered Symposium participants, with remote participation and remote access to all substantive votes. Attending carries no obligation to join a working group.\n- **Review and comment on GitHub.** Open an issue in the Working_Groups repository naming the document and section, your concern, and the change that would resolve it.\n- **Comment by email.** Write to blanket@activeinference.institute with the subject line [WORKING GROUPS].\n- **Express interest in a group.** Open an issue naming the Field Working Group or a domain, and the role you could fill: active-inference expert, domain practitioner, or implementation maintainer or user.\n\nMembership is open to any individual with relevant expertise or substantive interest, including critics of Active Inference and domain practitioners who are not proponents of the framework. It requires no fee and no Institute membership. Active members are expected to attend four quarterly meetings of about ninety minutes and to contribute to at least one year-one product. All meetings are remote.",
+      "links": [
+        {
+          "label": "Open an issue",
+          "sourceId": "working-groups-issues"
+        },
+        {
+          "sourceId": "symposium-2026-register"
+        },
+        {
+          "label": "Email the organizers",
+          "href": "mailto:blanket@activeinference.institute"
+        }
       ]
     }
   ],
   "cards": [
     {
-      "title": "Open participation",
-      "text": "Public sessions anyone can join — no application, affiliation, or prior background required."
+      "title": "Position paper",
+      "text": "The case for the Field and domain working groups, the proposed assessment framework, and the draft founding documents as appendices.",
+      "links": [
+        {
+          "label": "Coordinating the Field",
+          "sourceId": "working-groups-position-paper"
+        }
+      ]
     },
     {
-      "title": "19 domain groups",
-      "text": "Domain Working Groups span agriculture to urban planning, each paired with a public domain page on this site."
+      "title": "Draft founding documents",
+      "text": "The Charter covers membership, officers, decisions, deliverables, IP, conflict of interest, amendment, and the stop rule; the Operating Procedures cover how groups run day to day.",
+      "links": [
+        {
+          "label": "Working Group Charter",
+          "sourceId": "working-groups-charter"
+        },
+        {
+          "label": "Operating Procedures",
+          "sourceId": "working-groups-operating-procedures"
+        }
+      ]
     },
     {
-      "title": "Propose a group",
-      "text": "New groups start as a proposal to the Institute coordinators, plus at least one other committed participant."
+      "title": "Charter Development Session",
+      "text": "Founding session at the 6th Applied Active Inference Symposium, 12-14 November 2026, online and free.",
+      "links": [
+        {
+          "label": "Symposium",
+          "href": "/projects/symposium/"
+        },
+        {
+          "sourceId": "symposium-2026-register"
+        }
+      ]
     }
   ],
+  "qanda": {
+    "heading": "Common questions",
+    "eyebrow": "Q&A",
+    "intro": "Short answers drawn from the position paper and the draft Charter.",
+    "items": [
+      {
+        "title": "Do I need to be an Active Inference expert to join?",
+        "body": "No. Membership is open to any individual with relevant expertise or substantive interest, and is not reserved to people who can work the underlying mathematics. Domain groups need domain practitioners as much as active-inference experts.",
+        "links": []
+      },
+      {
+        "title": "Does joining cost anything?",
+        "body": "No. Membership requires no financial contribution and no Institute membership. Donation to the Institute is not a condition of membership, speaking, or participation.",
+        "links": []
+      },
+      {
+        "title": "What does the Institute decide?",
+        "body": "Administrative matters: convening, the Liaison, institutional policy, and publication review limited to institutional representations and license terms. Technical and scientific content is the working group's responsibility. Adopting an output establishes a working-group position, not field-wide scientific consensus.",
+        "links": []
+      },
+      {
+        "title": "What happens if a group does not deliver?",
+        "body": "Under the proposed stop rule, a group that has not produced its named year-one products is paused, and the Institute suspends facilitation and publication for it. The Institute may not dissolve the group; a group may dissolve itself.",
+        "links": []
+      }
+    ]
+  },
   "order": 12,
   "relatedSlugs": [
+    "project-symposium",
+    "get-involved",
     "active-inference",
     "activities",
-    "weekly",
-    "get-involved",
-    "ecosystem",
+    "project-active-inference-ontology",
     "structure"
+  ],
+  "externalSourceIds": [
+    "working-groups-position-paper",
+    "working-groups-charter",
+    "symposium-2026-register",
+    "working-groups-repo",
+    "working-groups-operating-procedures",
+    "working-groups-predecessor-documents",
+    "working-groups-issues"
+  ],
+  "resourceGroups": [
+    "participation",
+    "community",
+    "institute"
   ]
 }

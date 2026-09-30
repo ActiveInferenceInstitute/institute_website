@@ -61,6 +61,9 @@
     "volunteer": "volunteer/",
     "donate": "programs/philanthropy/",
     "support": "programs/philanthropy/",
+    // Underscore alias matching the Working_Groups repository name, as cited
+    // in the Working Groups position paper (Zenodo 10.5281/zenodo.23066904).
+    "working_groups": "working-groups/",
 
     // Projects / groups
     "active-blockference": "projects/active-blockference/",

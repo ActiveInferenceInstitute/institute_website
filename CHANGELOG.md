@@ -4,6 +4,18 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **Working Groups page aligned with the position paper (2026-09-30).**
+  `/working-groups/` is rewritten to match *Coordinating the Field* (AII Working
+  Paper Series v1.0.0, DOI 10.5281/zenodo.23066904): the Field and domain working
+  groups, year-one products, formation floor, seven-stage assessment framework,
+  founding timeline, safeguards, participation routes, and a short Q&A. It
+  replaces the earlier 19-group roster, which predated the paper's founding
+  process. New live sources for the DOI and the Working_Groups charter,
+  operating procedures, predecessor documents, and issues are recorded
+  `ok=false` until the Zenodo record is published and the repository is public;
+  a follow-up commit flips them at go-live. `/working_groups` (as cited in the
+  paper) redirects to `/working-groups/`, and the Symposium page links the
+  Charter Development Session.
 - **Verified-findings sweep (2026-09-27).** Committed as `4e8905483a`: 21
   adversarial-review findings fixed (i18n coverage of the video table and
   knowledge page chrome; runtime JS label/count writers now read localized

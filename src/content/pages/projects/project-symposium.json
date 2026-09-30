@@ -144,6 +144,10 @@
         {
           "sourceId": "symposium-2026-register",
           "label": "Register as a participant (free, online)"
+        },
+        {
+          "label": "Working Groups Charter Development Session",
+          "href": "/working-groups/"
         }
       ]
     },
