@@ -4,6 +4,11 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **Working Groups go-live (2026-09-30).** The position paper is published on
+  Zenodo (DOI 10.5281/zenodo.23066904) and the Working_Groups repository is
+  public, so the six `working-groups-*` live sources are promoted to `ok=true`.
+  The paper button links the Zenodo record page, matching the site's other
+  Zenodo sources.
 - **Working Groups page aligned with the position paper (2026-09-30).**
   `/working-groups/` is rewritten to match *Coordinating the Field* (AII Working
   Paper Series v1.0.0, DOI 10.5281/zenodo.23066904): the Field and domain working
