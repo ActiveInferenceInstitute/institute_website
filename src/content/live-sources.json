@@ -652,10 +652,10 @@
       "label": "Alexandra Mikhailova public page",
       "category": "People",
       "url": "http://mcallisterlab.com/",
-      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
-      "statusCode": 200,
-      "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's SAB cohort roster. The domain returned NXDOMAIN on 2026-10-05, so the unreachable link is withheld.",
+      "statusCode": 0,
+      "ok": false,
+      "checkedAt": "2026-10-05T23:30:28Z"
     },
     {
       "id": "person-ana-magdalena",
@@ -1065,10 +1065,11 @@
       "label": "Karl John Friston public page",
       "category": "People",
       "url": "https://www.linkedin.com/in/karl-friston-26812742/",
-      "sourceBasis": "Public page for this Scientific Advisory Board member. The profile returned HTTP 404 when checked in a real browser session on 2026-08-19, so the link is withheld.",
-      "statusCode": 404,
+      "sourceBasis": "Public page recorded for this Scientific Advisory Board member; the link remains withheld. During verification on 2026-10-05, automated requests returned HTTP 429 and 999, while an isolated request returned HTTP 404. A real Chrome visit redirected to LinkedIn's /in/ page without displaying the member's profile, so current profile availability could not be confirmed. Automated results are informational under the existing bot-blocked-host policy; no reachability is claimed.",
+      "statusCode": 999,
       "ok": false,
-      "checkedAt": "2026-08-19T19:51:41Z"
+      "checkedAt": "2026-10-05T23:45:52Z",
+      "knownBotBlocked": true
     },
     {
       "id": "person-karl-john-friston-2",
@@ -1135,10 +1136,11 @@
       "label": "Matt Brown public page",
       "category": "People",
       "url": "https://www.linkedin.com/in/matt-brown-0558201/",
-      "sourceBasis": "LinkedIn profile recorded for this member in the 2022 and 2023 cohorts; the profile no longer exists (verified in a real browser 2026-08-19), so the link is withheld. His later cohorts link to thoughtforge.ai, which is live.",
+      "sourceBasis": "LinkedIn profile recorded for this member in the 2022 and 2023 cohorts; the link remains withheld. On 2026-10-05, a real Chrome visit displayed LinkedIn's /404/ page with 'This page doesn't exist'. Automated requests returned HTTP 429, while the prior record captured HTTP 999; these bot-restriction responses are informational under the existing bot-blocked-host policy. No profile availability is claimed. Later cohorts use a separate thoughtforge.ai source.",
       "statusCode": 999,
       "ok": false,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "checkedAt": "2026-10-05T23:49:21Z",
+      "knownBotBlocked": true
     },
     {
       "id": "person-maxwell-j-d-ramstead",
