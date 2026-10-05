@@ -105,10 +105,11 @@ new content-level finding is open, and known residual gaps remain:
    the offline `npm run check` chain) on every run, and a committed
    `finalUrl` field in the manifest is now a hard error in that gate — so
    resolved Coda destinations can no longer recur in source.
-5. **Denylist blind spots.** `validate_public_payload` matches `PRIVATE_KEYS`
-   only as exactly-quoted JSON keys and `FORBIDDEN_SUBSTRINGS` as substrings, so
-   the per-field whitelist sanitizers — not the denylist — are the primary
-   control. The denylist is defense-in-depth.
+5. **Denylist blind spots.** Private-key checks recognize canonical names,
+   camel-case/delimiter variants, and explicit address/contact aliases;
+   `FORBIDDEN_SUBSTRINGS` matches known unsafe text. Arbitrary innocuously named
+   fields can still carry private prose, so per-field whitelist sanitizers
+   remain the primary control. The denylist is defense-in-depth.
 6. **Governance glossary intentionally not exported (open, 2026-07-14).**
    `library/resources/definitions/glossary.json` (79 terms, private repo) is
    never projected onto this site. Only 7 of 79 terms are `core_concept`
@@ -150,3 +151,43 @@ Public structured content must be injected only through the sanitizing pipelines
 above — never hand-add private rows to `src/content/instituteos/*.json`. Edits
 under any committed file are **public commits**; never include private paths,
 internal tool names, or local context in any file that ships.
+
+### Complete export verification
+
+`check:instituteos` verifies `data/export-manifest.json` before accepting an
+export in either standalone or source-present checkouts. The manifest uses
+gate version `1.0.0`, its four defined root fields, and the five defined fields
+per file. Output paths must match their declared public target, be unique and
+normalized, and contain no symlinks. All listed JSON and newsletter images must
+exist with matching SHA-256 bytes and record counts; every required producer
+slice, project catalog, existing domain page, and newsletter image must be
+covered. Unknown public registry slices fail the check.
+
+Domain pages and the project catalog receive the same prose privacy checks as
+producer slices in both layouts. Newsletter prose permits the numeric public
+Authorea profile URL prefix; local `/Users/` paths remain blocked even alongside
+a permitted URL. Sync refuses to write registry slices when the existing export
+fails these checks. Hashes establish consistency with the manifest, not source
+authenticity or freshness against an unavailable source checkout.
+
+`npm run check:export` runs isolated synthetic positive and adversarial fixtures
+through the real sync command, including missing, partial, stale, poisoned,
+miscounted, redirected, and malformed exports. It is included in `npm run check`.
+
+The inventory fingerprint is verified against the first 12 hexadecimal digits
+of SHA-256 over the newline-joined, sorted artifact SHA-256 strings. The export
+namespaces are flat: nested directories, symlinks, extensionless files, and
+unexpected file types are rejected. The existing maintained
+`src/content/instituteos/README.md` is the sole non-JSON documentation exception.
+Newsletter assets allow only PNG, WebP, JPEG, and GIF filenames with matching
+raster headers; SVG and disguised non-raster bytes fail before publication.
+
+Private-key matching recognizes camel-case and delimiter variants, including
+`privateNotes`, `homeAddress`, and `primary-contact`. Export and rendered-page
+phone checks share one matcher: formatted phone numbers, explicit `tel:` links,
+`+1` numbers, and compact numbers introduced by call/phone/telephone/mobile are
+blocked. Unlabelled digit strings remain ambiguous identifiers and are not
+classified as telephone numbers by length alone. Per-record filtering includes
+these checks and preserves its visible dropped-record warning. Producer field
+allowlists remain the primary privacy boundary; matching cannot infer the
+meaning of arbitrary innocuously named prose.

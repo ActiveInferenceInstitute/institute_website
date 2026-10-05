@@ -14,6 +14,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterator, Any
 
+from check_export_manifest import check_export_manifest
+from public_privacy import PHONE_RE, private_key
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
@@ -117,6 +120,8 @@ PRODUCER2_PUBLIC_JSON_FILES = (
 # Drops slack/discord/linkedin (valid public node labels); email/phone are caught
 # by regex below regardless of key name.
 PROSE_PRIVATE_KEYS = {
+    "email",
+    "phone",
     "contacts",
     "interactions",
     "address",
@@ -128,13 +133,7 @@ PROSE_PRIVATE_KEYS = {
 PROSE_FORBIDDEN_SUBSTRINGS = tuple(
     s for s in FORBIDDEN_SUBSTRINGS if s != "workspace"
 )
-# Tight phone pattern (US/NANP 3-3-4 grouping with optional +1) — distinctly
-# phone-shaped to avoid false positives on years, IDs, or coordinates. The
-# leading negative lookbehind requires the match to start at a word boundary:
-# without it, DOI article-number suffixes (e.g. "s42003-021-02994-2") false-
-# positive because their digit groups happen to fall into 3-3-4 shape. A real
-# phone number is never glued directly onto a preceding letter/digit.
-PHONE_RE = re.compile(r"(?<![A-Za-z0-9])(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}")
+
 
 
 @dataclass(frozen=True)
@@ -317,6 +316,9 @@ def record_public_unsafe_reason(record: dict[str, Any]) -> str | None:
     are visible in the write/check path instead of silently vanishing.
     """
     serialized = json.dumps(record, ensure_ascii=False).lower()
+    for key in _iter_json_keys(record):
+        if private_key(key, PRIVATE_KEYS):
+            return "blocked private key variant"
     for blocked in PRIVATE_KEYS:
         if f'"{blocked}"' in serialized:
             return f"blocked private key {blocked!r}"
@@ -325,6 +327,8 @@ def record_public_unsafe_reason(record: dict[str, Any]) -> str | None:
             return f"blocked public term {blocked!r}"
     if EMAIL_RE.search(serialized):
         return "blocked email address"
+    if PHONE_RE.search(serialized):
+        return "blocked phone-like number"
     return None
 
 
@@ -648,6 +652,9 @@ def build_asset_records(instituteos_root: Path) -> tuple[dict[str, Any], list[Sy
 
 
 def validate_public_payload(data: Any, path: str) -> None:
+    for key in _iter_json_keys(data):
+        if private_key(key, PRIVATE_KEYS):
+            raise ValueError(f"{path} contains a blocked private key variant")
     serialized = json.dumps(data, ensure_ascii=False).lower()
     for blocked in PRIVATE_KEYS:
         if f'"{blocked}"' in serialized:
@@ -689,7 +696,7 @@ def validate_public_prose_payload(data: Any, path: str) -> None:
     "Notes" inside ``videos.json`` tripped the old substring check).
     """
     serialized = json.dumps(data, ensure_ascii=False).lower()
-    lowered_keys = {key.lower() for key in _iter_json_keys(data)}
+    lowered_keys = {private_key(key, PROSE_PRIVATE_KEYS) for key in _iter_json_keys(data)}
     for blocked in PROSE_PRIVATE_KEYS:
         if blocked in lowered_keys:
             raise ValueError(f"{path} contains blocked private key {blocked!r}")
@@ -698,7 +705,9 @@ def validate_public_prose_payload(data: Any, path: str) -> None:
             # Authorea public profile/article URLs legitimately contain this
             # path segment; newsletter links are otherwise constrained by the
             # generated public feed and the rendered-anchor gates.
-            continue
+            public_links = re.sub(r"https://(?:www\.)?authorea\.com/users/[0-9]+", "", serialized)
+            if blocked not in public_links:
+                continue
         if blocked in serialized:
             raise ValueError(f"{path} contains blocked public term {blocked!r}")
     found_emails = sorted(set(EMAIL_RE.findall(serialized)))
@@ -810,13 +819,20 @@ def check_producer2_payloads() -> tuple[list[str], int]:
     this defense-in-depth gate is silently skipped in the common case. See
     ``main()`` and GATING.md.
 
-    Missing files are not an error — they arrive from an external pipeline and
-    may be absent. Returns ``(errors, checked_count)``.
+    The manifest must cover the complete export and match its bytes. Domain
+    pages and the project catalog pass the same privacy gate in both layouts.
+    Returns ``(errors, checked_count)``.
     """
-    errors: list[str] = []
+    errors = check_export_manifest(PROJECT_ROOT, PRODUCER2_PUBLIC_JSON_FILES)
+    if errors:
+        return errors, 0
+    allowed = set(REQUIRED_PUBLIC_JSON_FILES) | set(PRODUCER2_PUBLIC_JSON_FILES)
+    errors.extend(f"unclaimed public payload: {path.name}" for path in sorted(CONTENT_OUT.glob("*.json")) if path.name not in allowed)
     checked = 0
-    for name in PRODUCER2_PUBLIC_JSON_FILES:
-        path = CONTENT_OUT / name
+    domain_dir = PROJECT_ROOT / "src/content/pages/domains"
+    paths = [CONTENT_OUT / name for name in PRODUCER2_PUBLIC_JSON_FILES]
+    paths.extend([PROJECT_ROOT / "data/projects.json", *sorted(domain_dir.glob("*.json"))])
+    for path in paths:
         if not path.exists():
             continue
         checked += 1
@@ -850,24 +866,6 @@ def check_committed_public_payloads() -> int:
     producer2_errors, producer2_checked = check_producer2_payloads()
     errors.extend(producer2_errors)
 
-    # Defense-in-depth for committed producer-2 outputs outside CONTENT_OUT:
-    # data/projects.json and the rendered domain pages. The canonical gate for
-    # these remains the backend PublicGate; here they get the prose-tuned gate
-    # (structured-registry tokens such as a "discord" link key are legitimate
-    # public content, so the strict registry gate would false-positive).
-    domain_dir = PROJECT_ROOT / "src" / "content" / "pages" / "domains"
-    extra_payloads = [PROJECT_ROOT / "data" / "projects.json", *sorted(domain_dir.glob("*.json"))]
-    extra_checked = 0
-    for path in extra_payloads:
-        if not path.exists():
-            errors.append(f"missing {path.relative_to(PROJECT_ROOT)}")
-            continue
-        extra_checked += 1
-        try:
-            validate_public_prose_payload(load_json(path), path.name)
-        except (OSError, json.JSONDecodeError, ValueError) as exc:
-            errors.append(f"{path.relative_to(PROJECT_ROOT)} failed public-safety validation: {exc}")
-
     for filename in BRAND_ASSETS:
         path = ASSET_OUT / filename
         if not path.exists() or path.stat().st_size == 0:
@@ -881,8 +879,7 @@ def check_committed_public_payloads() -> int:
 
     print(
         "InstituteOS registry source not available; validated committed public "
-        f"payloads ({len(json_files)} registry + {producer2_checked} producer-2 "
-        f"+ {extra_checked} domain/projects JSON files, "
+        f"payloads ({len(json_files)} registry + {producer2_checked} export JSON files, "
         f"{len(BRAND_ASSETS)} brand assets)."
     )
     return 0
@@ -922,6 +919,9 @@ def main() -> int:
             print(f"Producer-2 validation ran: {producer2_checked} producer-2 JSON file(s) validated.")
         return exit_code
 
+    producer2_errors, _ = check_producer2_payloads()
+    if producer2_errors:
+        raise SystemExit("InstituteOS export validation failed:\n- " + "\n- ".join(producer2_errors))
     write_results(results)
     print(f"Synced {len(results)} InstituteOS public data files.")
     return 0

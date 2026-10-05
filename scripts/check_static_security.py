@@ -11,6 +11,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
 
+from public_privacy import PHONE_RE
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CONTENT_DIR = PROJECT_ROOT / "src" / "content"
@@ -80,7 +82,6 @@ def pii_data_files() -> list[Path]:
     return [path for path in paths if path.is_file()]
 
 
-PHONE_RE = re.compile(r"(?<![A-Za-z0-9])(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}")
 # Genuine public-by-design contact addresses, vetted by hand against their
 # source content (never a raw leak): the Institute's general-inquiries address
 # (src/content/site.json contact block, rendered site-wide in the footer/JSON-LD)
