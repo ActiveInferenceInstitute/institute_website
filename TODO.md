@@ -17,8 +17,12 @@ strict Content Security Policy, gated by `npm run check`.
       Acceptance: all 13 gates and 90 tests pass with external Python, and all
       248 source checks pass. Exactly 96 HTTP anchors change across 12 SAB pages;
       all other rendered bytes and upstream public payloads are preserved.
-- [ ] Correct German footer accessibility label, search placeholder punctuation
+- [x] Correct German footer accessibility label, search placeholder punctuation
       and participation-label capitalization, then rebuild the locale pages.
+      Acceptance: all 13 gates and 90 tests pass. All 937 changed German pages
+      match exactly the three catalog substitutions; other rendered bytes are
+      preserved. Desktop and 390 px mobile browser checks confirm the labels,
+      menu/dropdown expansion and absence of horizontal overflow.
 - [x] Run local Python 3.14.7 from GitVault: verify both interpreter prefixes
       resolve on the external volume and bind gate commands to that interpreter.
 - [ ] Full translation refresh: 39 extracted keys are missing in each of the
@@ -472,6 +476,8 @@ fallback. Open items below are verified but deliberately deferred.
       German catalog fixes: unclosed `«` in the search placeholder, footer
       `aria-label` "Fußnote" → "Fußzeile", "teilnehmen" casing, number
       formatting, accent-swatch aria labels, gate-metric card copy).
+      The footer label, search-placeholder punctuation and participation casing
+      are corrected on 2026-10-13; the full translation sweep remains pending.
 - [x] **Video page meta descriptions** — already use the structured
       title/series/date summary in `src/pages/video-detail.mjs` rather than ASR
       openings; reconciled 2026-10-13.

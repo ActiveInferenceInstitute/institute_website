@@ -4,6 +4,10 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **German UI copy (2026-10-13).** Correct the footer navigation's accessible
+  name to “Fußzeile”, remove the unclosed quotation mark from the global search
+  placeholder and capitalize the “Teilnehmen” participation label. Rebuild all
+  German pages from the committed catalog.
 - **Verified profile HTTPS variants (2026-10-13).** Repair the missing apex/www
   hostname variants for Adeel Razi, Sandeep Ramesh and Sebastian Alvarado.
   Update their registered destinations to verified HTTPS URLs, preserve historical
