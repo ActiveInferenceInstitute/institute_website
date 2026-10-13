@@ -7,6 +7,28 @@ strict Content Security Policy, gated by `npm run check`.
 
 ## Backlog / ideas
 
+## GitVault follow-ups — 2026-10-13
+
+- [x] Replace the CI action implementations that GitHub now forces from Node 20
+      to Node 24 with verified Node 24 releases, pinned by immutable commit SHA.
+      Pin Ubuntu 24.04 to avoid an unreviewed `ubuntu-latest` operating-system
+      transition. Keep the website's Node 20/22 matrix and disable unused npm
+      caching explicitly.
+- [ ] Fresh live-source probe: all prior transport failures cleared; the remaining
+      failure is the individual RCSI profile for Mick Thacker (HTTP 404).
+      RCSI's School of Physiotherapy staff page returns 200 and lists Michael
+      Thacker as Professor; replacement destination is awaiting owner selection.
+- [x] Locate the organization-owned InstituteOS checkout on GitVault and validate
+      registry/export parity and design-system CSS/fonts with explicit source-root
+      overrides. Both freshness checks pass; no public payload resync is needed.
+
+CI acceptance requires `actionlint`, local build/check, and both Node jobs passing
+the real Chrome regression and committed-output parity on the pinned runner.
+Local acceptance passed: build, all 13 offline gates (57 export/indexing/process
+tests plus 31 i18n tests), source-present export/design-system freshness, and
+`actionlint`. An empty action revision was rejected as a negative control.
+The rebuilt public files are byte-identical to the committed output.
+
 ## Calendar and roadmap follow-ups — 2026-10-13
 
 - [x] Reproduce the live calendar `ReferenceError: scope is not defined` and

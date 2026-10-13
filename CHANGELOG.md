@@ -4,6 +4,10 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **CI runtime maintenance (2026-10-13).** Pin Ubuntu 24.04 and verified
+  checkout, Node setup and Python setup releases by commit SHA. Use their Node 24
+  implementations explicitly, retain the website's Node 20/22 validation matrix
+  and disable unused automatic npm caching.
 - **Browser process completion guard (2026-10-13).** Reject browser deadlines
   and signal termination even when Chrome returns exit 0. Remove unnecessary
   dump/virtual-time waiting from the synchronous calendar regression: read the
