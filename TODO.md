@@ -14,10 +14,16 @@ strict Content Security Policy, gated by `npm run check`.
       Pin Ubuntu 24.04 to avoid an unreviewed `ubuntu-latest` operating-system
       transition. Keep the website's Node 20/22 matrix and disable unused npm
       caching explicitly.
-- [ ] Fresh live-source probe: all prior transport failures cleared; the remaining
-      failure is the individual RCSI profile for Mick Thacker (HTTP 404).
-      RCSI's School of Physiotherapy staff page returns 200 and lists Michael
-      Thacker as Professor; replacement destination is awaiting owner selection.
+- [x] Replace the retired Mick Thacker profile (HTTP 404) with the owner-approved
+      RCSI School of Physiotherapy staff page (HTTP 200). Normalize historical
+      roster URLs through the live-source registry, preserving upstream payloads.
+      Local build and all 13 gates pass (58 export/indexing/process tests plus
+      31 i18n tests); the new regression fails before the fix and passes after.
+      Exactly 24 anchors change across 12 locale pages, with all other rendered
+      bytes preserved. Browser inspection confirms both historical cohort links.
+      All 248 live sources pass with 2 workers and 30-second timeouts after an
+      initial strategy 503 and two GitHub transport timeouts cleared on retry;
+      no unrelated source status was changed to accommodate those failures.
 - [x] Locate the organization-owned InstituteOS checkout on GitVault and validate
       registry/export parity and design-system CSS/fonts with explicit source-root
       overrides. Both freshness checks pass; no public payload resync is needed.
@@ -57,7 +63,7 @@ The rebuilt public files are byte-identical to the committed output.
 After publication, verify both Node CI jobs and deployed bytes using the
 deployment workflow in AGENTS.md. External-source reachability remains separate:
 
-- [ ] **Existing live-source failures (2026-10-13).** The default 248-source
+- [x] **Existing live-source failures (2026-10-13).** The default 248-source
       probe failed on the RCSI profile for `person-mick-thacker` (redirect to
       `people.rcsi.com/michaelthacker`, HTTP 404) and 17 HTTP 0 transport failures.
       A retry with 4 workers and 20-second source timeouts still failed on that
@@ -66,6 +72,10 @@ deployment workflow in AGENTS.md. External-source reachability remains separate:
       Resolve the profile with an approved public destination and re-check host
       reachability; do not change the gate or mark timed-out sources unreachable
       solely from these probes. The committed source registry was preserved.
+      Follow-up: transport failures cleared on the fresh GitVault probe. The
+      owner approved the official RCSI staff page to replace the retired profile;
+      its verified destination is now registered and historical links normalize
+      to it at render time.
 
 ## DNS / HTTPS / indexing follow-ups — 2026-10-12
 

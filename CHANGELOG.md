@@ -4,6 +4,10 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **RCSI profile replacement (2026-10-13).** Replace Mick Thacker's retired
+  individual profile with the approved official School of Physiotherapy staff
+  page. Resolve historical roster URLs through registered aliases at render
+  time, preserving the upstream public export and source identity.
 - **CI runtime maintenance (2026-10-13).** Pin Ubuntu 24.04 and verified
   checkout, Node setup and Python setup releases by commit SHA. Use their Node 24
   implementations explicitly, retain the website's Node 20/22 validation matrix

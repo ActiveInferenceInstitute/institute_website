@@ -1188,11 +1188,15 @@
       "id": "person-mick-thacker",
       "label": "Mick Thacker public page",
       "category": "People",
-      "url": "https://www.rcsi.com/people/profile/michaelthacker",
-      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "url": "https://www.rcsi.com/dublin/about/faculty-of-medicine-and-health-sciences/school-of-physiotherapy/our-people",
+      "previousUrls": [
+        "https://www.rcsi.com/people/profile/michaelthacker",
+        "https://people.rcsi.com/michaelthacker"
+      ],
+      "sourceBasis": "Owner-approved replacement for the retired individual profile: RCSI's official School of Physiotherapy staff page lists Michael Thacker as Professor. Historical SAB roster URLs are normalized to this registered public page at render time.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "checkedAt": "2026-10-13T17:52:52Z"
     },
     {
       "id": "person-mike-smith",

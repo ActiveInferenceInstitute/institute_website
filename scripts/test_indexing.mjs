@@ -42,6 +42,17 @@ test("public anchors remove dead links, normalize HTTPS, and keep on-site routes
   setActiveLocale("en");
 });
 
+test("retired RCSI profile resolves to the approved registered staff page", () => {
+  const retired = "https://www.rcsi.com/people/profile/michaelthacker";
+  const replacement = "https://www.rcsi.com/dublin/about/faculty-of-medicine-and-health-sciences/school-of-physiotherapy/our-people";
+  assert.equal(normalizePublicUrl(retired), replacement);
+  assert.equal(normalizePublicUrl("https://people.rcsi.com/michaelthacker"), replacement);
+  assert.equal(isVerifiedExternalUrl(retired), true);
+  assert.equal(normalizePublicUrl(replacement), replacement);
+  assert.equal(normalizePublicUrl("https://www.rcsi.com/people/profile/someone-else"), "https://www.rcsi.com/people/profile/someone-else");
+  assert.equal(normalizePublicAnchors(`<a href="${retired}">RCSI</a>`), `<a href="${replacement}">RCSI</a>`);
+});
+
 test("untranslated detail pages canonicalize to English; translated pages retain hreflang", () => {
   setActiveLocale("it");
   for (const [slug, dir, canonical] of [["newsletter/2023-march", "it/newsletter/2023-march", "newsletter/2023-march/"], ["video-example", "it/video/example", "video/example/"]]) {
