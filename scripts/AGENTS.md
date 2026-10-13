@@ -14,7 +14,7 @@ sync, and translate that source. Run gates with no network access.
 | --- | --- |
 | `npm run build` | `node src/build.mjs` — render HTML + crawler files |
 | `npm run check` | `node --check` the build, `py_compile` every checker, then `check:links` → `check:md-links` → `check:instituteos` → `check:export` → `check:design-system` → `check:site` → `check:feeds` → `check:security` → `check:redirects` → `check:projects` → `check:catalog` → `check:i18n` → `check:standalone` |
-| `npm run check:export` | `node --test scripts/test_export_manifest.mjs scripts/test_indexing.mjs` — export provenance and indexing/calendar controls |
+| `npm run check:export` | `node --test scripts/test_export_manifest.mjs scripts/test_indexing.mjs scripts/test_browser_process.mjs` — export provenance, indexing/calendar controls and real browser-process failures |
 | `npm run check:browser` | [`check_calendar_browser.mjs`](check_calendar_browser.mjs) — actual Chrome calendar filters/counts in all locales; requires `CHROME_BIN`, runs separately in CI |
 | `npm run check:links` | [`check_internal_links.py`](check_internal_links.py) |
 | `npm run check:md-links` | [`check_markdown_links.py`](check_markdown_links.py) |

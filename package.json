@@ -27,7 +27,7 @@
     "sync:transcripts": "python3 scripts/sync_video_transcripts.py",
     "check:transcripts": "python3 scripts/sync_video_transcripts.py --check",
     "check:i18n": "node --test scripts/test_i18n_translate.mjs scripts/test_i18n_terminology.mjs",
-    "check:export": "node --test scripts/test_export_manifest.mjs scripts/test_indexing.mjs",
+    "check:export": "node --test scripts/test_export_manifest.mjs scripts/test_indexing.mjs scripts/test_browser_process.mjs",
     "check:standalone": "python3 scripts/check_standalone_payloads.py"
   },
   "engines": {

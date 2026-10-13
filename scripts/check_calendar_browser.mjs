@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import { spawn } from "node:child_process";
+import { runBrowserProcess } from "./browser_process.mjs";
+import { readCalendarReceipt } from "./calendar_cdp.mjs";
 import { createServer } from "node:http";
 import { readFile, mkdtemp, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
@@ -20,6 +21,7 @@ const brokenScript = currentScript.replace(fixedCount,
 let negativeControl = false;
 const types = { ".html": "text/html", ".js": "application/javascript", ".css": "text/css", ".svg": "image/svg+xml" };
 const server = createServer(async (request, response) => {
+  response.setHeader("Cache-Control", "no-store");
   try {
     const url = new URL(request.url, "http://localhost");
     if (url.pathname === "/__calendar_probe.js") {
@@ -52,19 +54,14 @@ const origin = `http://127.0.0.1:${server.address().port}`;
 const receipts = [];
 async function browse(path) {
   const args = ["--headless=new", "--disable-gpu", "--no-first-run", "--no-default-browser-check", "--disable-background-networking",
-    `--user-data-dir=${profile}`, "--dump-dom", "--virtual-time-budget=4000", origin + path];
+    `--user-data-dir=${profile}`, "--remote-debugging-pipe", "--no-startup-window"];
   if (process.env.CHROME_NO_SANDBOX === "1") args.unshift("--no-sandbox");
-  const output = await new Promise((accept, reject) => {
-    const child = spawn(chrome, args, { timeout: 45000 });
-    let stdout = "", stderr = "";
-    child.stdout.on("data", (data) => { stdout += data; });
-    child.stderr.on("data", (data) => { stderr += data; });
-    child.on("error", reject);
-    child.on("close", (code) => code === 0 ? accept(stdout) : reject(new Error(`Chrome exited ${code}: ${stderr}`)));
-  });
-  const match = output.match(/<output id="calendar-test-result" data-status="(passed|failed)">([^<]*)<\/output>/);
-  assert.ok(match, `Browser produced no calendar receipt at ${path}`);
-  return { path, status: match[1], ...JSON.parse(decodeURIComponent(match[2])) };
+  const processResult = await runBrowserProcess(chrome, args, 45000,
+    (child) => readCalendarReceipt(child, origin + path));
+  const receipt = processResult.result;
+  assert.ok(["passed", "failed"].includes(receipt?.status), `Browser produced no calendar receipt at ${path}`);
+  return { path, status: receipt.status, exitCode: processResult.exitCode, killed: processResult.killed,
+    elapsedMs: processResult.elapsedMs, ...JSON.parse(decodeURIComponent(receipt.encoded)) };
 }
 try {
   negativeControl = true;

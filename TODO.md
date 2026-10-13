@@ -19,10 +19,18 @@ strict Content Security Policy, gated by `npm run check`.
       CI runs the browser command on Node 20 and 22.
 - [x] Reconcile implemented knowledge anchors, video descriptions, language
       semantics and Open Graph exclusions; document all 13 offline sub-gates.
-- [x] Finish local acceptance: all 13 offline sub-gates pass, including 43
-      export/indexing and 31 i18n tests. Chrome passes 84 scenarios in all 12
+- [x] Finish local acceptance: all 13 offline sub-gates pass, including 57
+      export/indexing/process and 31 i18n tests. Chrome passes 84 scenarios in all 12
       locales and rejects the original runtime-error control. Temporary-volume
       ENOSPC was resolved with GitVault fixtures; failed fixtures were preserved.
+- [x] Browser process follow-up: reproduce Chrome returning exit 0 after its
+      timeout; use Chrome's protocol pipe to read the DOM receipt and close the
+      browser explicitly, rejecting killed/signalled or incomplete processes.
+      Add real subprocess controls for timeout with a zero-exit SIGTERM handler,
+      ordinary success, nonzero exit, missing executable and signal termination.
+      Browser receipts record exit status, termination flag and elapsed time.
+      Fourteen process/protocol controls cover fragmented UTF-8 messages,
+      delayed receipts, malformed data, protocol/evaluation errors and early exit.
 
 After publication, verify both Node CI jobs and deployed bytes using the
 deployment workflow in AGENTS.md. External-source reachability remains separate:

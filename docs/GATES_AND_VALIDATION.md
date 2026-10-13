@@ -875,11 +875,16 @@ including agent guides. It rejects relative targets that do not exist and leaves
 external URLs to separate network verification.
 
 `check:export` runs `scripts/test_export_manifest.mjs` and
-`scripts/test_indexing.mjs`. Real temporary files exercise manifest hashes,
+`scripts/test_indexing.mjs` and `scripts/test_browser_process.mjs`. Real temporary files exercise manifest hashes,
 inventories, public-data safety, redirects, internal links, domain configuration,
 sitemap dates and indexing policy. The suite also checks UTC ICS stamps and the
 shared calendar count pattern in all locales. Negative controls must fail before
-the corresponding valid fixture is trusted.
+the corresponding valid fixture is trusted. Real subprocesses cover normal
+completion, nonzero exit, unavailable executables and timeout with an exit-zero
+SIGTERM handler; a timeout must never count as successful browser completion.
+The Chrome protocol controls also use real process pipes to exercise fragmented
+UTF-8 frames, delayed receipts, malformed JSON, command/evaluation errors and
+premature exit.
 
 `check:redirects` runs `scripts/check_redirects.py`. It independently enumerates
 the taxonomy's legacy source paths across locales and simulation filenames,
@@ -930,7 +935,9 @@ locale. It checks initial/upcoming/past/all counts, zero results, one past-event
 search result, clearing the search and group visibility, while capturing runtime
 errors. Restoring the original undefined `scope` expression must fail as a
 negative control. Missing Chrome, missing receipts or failed assertions fail
-the command; JSON receipts remain in its temporary browser profile.
+the command; JSON receipts remain in its temporary browser profile. The runner
+reads its DOM receipt over Chrome's protocol pipe and closes Chrome explicitly;
+killed, signalled or incomplete processes fail even if their exit code is zero.
 
 The optional `check:sources` probe is deliberately outside this deterministic
 chain: network outages must not make a reproducible local build hang or fail.

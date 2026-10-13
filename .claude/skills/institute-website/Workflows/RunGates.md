@@ -28,7 +28,7 @@ chain.
 | `check:links` | [`scripts/check_internal_links.py`](../../../../scripts/check_internal_links.py) | No broken local links or missing asset references in generated HTML. |
 | `check:md-links` | [`scripts/check_markdown_links.py`](../../../../scripts/check_markdown_links.py) | No broken relative `[text](path)` links in tracked Markdown docs (incl. `AGENTS.md` guides). |
 | `check:instituteos` | [`scripts/sync_instituteos_public_data.py --check`](../../../../scripts/sync_instituteos_public_data.py) | The committed sanitized Open Source Map slices + brand assets match what the sync would produce; drift means re-run `npm run sync:instituteos`. |
-| `check:export` | `node --test scripts/test_export_manifest.mjs scripts/test_indexing.mjs` | Export provenance, real negative controls for redirects/indexing, localized calendar count markup. |
+| `check:export` | `node --test scripts/test_export_manifest.mjs scripts/test_indexing.mjs scripts/test_browser_process.mjs` | Export provenance, redirect/indexing controls, localized calendar markup and real process failures including a zero-exit timeout. |
 | `check:design-system` | [`scripts/check_design_system_export.mjs`](../../../../scripts/check_design_system_export.mjs) | `styles.css` token fallbacks are intact; when the sibling DS source is present, byte-compares `instituteos-ds.css` to catch a stale committed copy. |
 | `check:site` | [`scripts/check_site_contract.py`](../../../../scripts/check_site_contract.py) | The resource-hub content contract (see below). |
 | `check:feeds` | [`scripts/check_feeds.py`](../../../../scripts/check_feeds.py) | Feed structure/dates, unique IDs, and feed/sitemap target existence. |

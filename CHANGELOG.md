@@ -4,6 +4,14 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **Browser process completion guard (2026-10-13).** Reject browser deadlines
+  and signal termination even when Chrome returns exit 0. Remove unnecessary
+  dump/virtual-time waiting from the synchronous calendar regression: read the
+  DOM receipt through Chrome's protocol pipe and close Chrome explicitly.
+  Disable fixture caching and record process completion metadata. Add real subprocess controls
+  for normal completion, nonzero exit, missing executable, signal termination
+  and a zero-exit timeout handler, plus fragmented UTF-8 protocol messages,
+  delayed receipts, malformed responses and driver errors.
 - **Calendar counts and roadmap reconciliation (2026-10-13).** Fix the
   undefined `scope` runtime error that interrupted calendar count updates.
   Share a count-neutral label between static markup and browser filtering,
