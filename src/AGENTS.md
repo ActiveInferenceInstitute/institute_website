@@ -78,6 +78,13 @@ Single source of truth for slug → directory. The output file is always
 
 ## Subdirectory map
 
+- `redirects.mjs` / `redirect-runtime.js` — static legacy stubs, the generated
+  404 fallback, redirect inventory and inbound-forward documentation table.
+- `public-links.mjs` — HTTPS normalization, internal forwarding destinations
+  and plain-text rendering for retired hosts; used before emitting visitor anchors.
+- `indexing-policy.mjs` — untranslated newsletter/video detail bodies use English
+  canonicals and omit hreflang clusters.
+
 - [`render/`](render/) — page renderers and the `layout()` shell (CSP-safe HTML,
   SEO/metadata, search index, feeds-adjacent helpers).
 - [`lib/`](lib/) — low-level helpers (`output.mjs` writeFile, `paths.mjs`,

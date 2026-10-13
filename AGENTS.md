@@ -4,7 +4,7 @@ This repository builds the public GitHub Pages website for the Active Inference 
 Canonical domain (post-cutover): **[https://activeinference.institute/](https://activeinference.institute/)**
 (the Squarespace → Pages migration is complete; before the 2026-06 cutover the
 site served at `activeinferenceinstitute.github.io/institute_website/`).
-See [SWITCHOVER.md](SWITCHOVER.md).
+See [docs/MIGRATION_AND_REDIRECTS.md](docs/MIGRATION_AND_REDIRECTS.md).
 
 ## 30-second orientation
 
@@ -75,8 +75,7 @@ Start here, then open the most specific doc for your task:
 | [`RELEASING.md`](RELEASING.md) | How/where to version and cut a release (SemVer policy, checklist). |
 | [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) | Colors, tokens, the design-system export contract. |
 | [`INTERNATIONALIZATION.md`](INTERNATIONALIZATION.md) | Locales, `tr()`, offline translation. |
-| [`MIGRATION.md`](MIGRATION.md) | Redirect map + subdomain-forward repoint table. |
-| [`SWITCHOVER.md`](SWITCHOVER.md) | Cutover handoff: done / can-do / needs-human, DNS records. |
+| [`docs/MIGRATION_AND_REDIRECTS.md`](docs/MIGRATION_AND_REDIRECTS.md) | Redirects, pinned forwarding targets and current hosting/DNS state. |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`CHANGELOG.md`](CHANGELOG.md) · [`TODO.md`](TODO.md) | Contribution flow, history, backlog. |
 
 > **Doc precedence:** per-folder `AGENTS.md` = enforced contract · root longform
@@ -144,6 +143,8 @@ then run `npm run i18n:extract`. Full guide:
 Generated public files should be limited to:
 
 - `index.html` and `404.html` (the only flat HTML at the repository root)
+- build-generated legacy redirect stubs and localized simulation filename stubs,
+  inventoried in `data/redirects.json` (never overwrite real pages)
 - curated pages as clean-URL directories — `<section>/index.html` and
   `<section>/<slug>/index.html` (e.g. `resources/`, `directory/`, `knowledge/`,
   `search/`, `sitemap/`, `projects/<name>/`, `programs/<name>/`,
@@ -260,5 +261,5 @@ GitHub Pages serves from `main` at `/`. After a verified commit is pushed to `or
 - `/robots.txt`
 
 The custom apex domain `activeinference.institute` is configured via the `CNAME`
-file and `site.json` `baseUrl`. The cutover (push + DNS) is a human step — see
-[SWITCHOVER.md](SWITCHOVER.md).
+file and `site.json` `baseUrl`. The cutover is complete; DNS and registrar updates remain administrator steps — see
+[docs/MIGRATION_AND_REDIRECTS.md](docs/MIGRATION_AND_REDIRECTS.md).

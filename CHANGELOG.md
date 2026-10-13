@@ -4,6 +4,15 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **DNS, HTTPS and indexing follow-ups (2026-10-12).** Build 450 static legacy
+  redirect stubs from the shared taxonomy, including localized simulation filenames;
+  fix locale simulation links and check their landing pages. Render on-site forwards
+  as internal links, normalize HTTPS and retire dead-host anchors. Pin the 30 inbound
+  forwarding destinations, canonicalize untranslated newsletter/video detail bodies
+  to English, and exclude utility pages from the sitemap. Preserve deterministic
+  lastmod dates and fix bare-GMT ICS offsets. Add redirect, link, domain and indexing
+  checks; refresh hosting/DNS docs. Production deployment and Search Console recrawl
+  require subsequent verification.
 - **Working Groups go-live (2026-09-30).** The position paper is published on
   Zenodo (DOI 10.5281/zenodo.23066904) and the Working_Groups repository is
   public, so the six `working-groups-*` live sources are promoted to `ok=true`.

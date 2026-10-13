@@ -1,92 +1,26 @@
 # Edit a legacy-URL redirect
 
-Workflow for adding, changing, or removing a redirect from an old Squarespace
-URL to a new clean-URL page. Redirects live in
-[`assets/js/redirects.js`](../../../../assets/js/redirects.js), which has **three
-mechanisms**:
+1. Edit `redirects.map`, `redirects.prefix` or `redirects.set` in
+   [url-taxonomy.json](../../../../src/url-taxonomy.json). MAP aliases are
+   English-only; PREFIX and SET renames apply across every locale. Structural
+   rules must agree with the routing rules in the same file.
+2. Confirm each destination is a real built page. A real route takes precedence
+   over an alias; stubs must never overwrite existing visitor content.
+3. Run `npm run build`. It emits canonical, noindex, meta-refresh stubs with
+   visible fallback links, the generated `assets/js/redirects.js`, and
+   `data/redirects.json`. Localized simulation aliases retain their filenames
+   and point to the root simulation files.
+4. Run `npm run check`. The redirect gate independently enumerates expected
+   source paths and checks destination existence, canonical/refresh/fallback,
+   noindex, runtime parity, inbound destinations and shortlink rendering.
+5. Commit the taxonomy and generated output together.
 
-- `MAP` — legacy, English-only Squarespace-URL → clean-URL aliases (this
-  workflow).
-- `PREFIX_REDIRECTS` — locale-aware structural renames for slug families that
-  share a string prefix (`active-inference-and-*` → `active-inference/`); one
-  entry covers all 12 locales.
-- `SET_REDIRECTS` — locale-aware exact-slug renames for families with no shared
-  prefix (e.g. `board-of-directors`/`officers`/`scientific-advisory-board` →
-  `structure/`, `2025`/`2026` → `years/`).
+Do not edit the generated script. Its browser logic is in
+[redirect-runtime.js](../../../../src/redirect-runtime.js). Static stubs return
+HTTP 200 on Pages; they are HTML redirects, not HTTP 301 responses. Unknown
+paths still receive the informative 404 and the fallback script.
 
-The `PREFIX_REDIRECTS`/`SET_REDIRECTS` entries must stay consistent with the
-`"prefix"`/`"set"` rules in [`src/url-taxonomy.json`](../../../../src/url-taxonomy.json)
-and the current build output — `check:redirects` (`scripts/check_redirects.py`)
-validates both, including that the old pre-migration output directories were
-actually removed (GitHub Pages must 404 before the client-side script can fire).
-See [`assets/AGENTS.md`](../../../../assets/AGENTS.md) and
-[`docs/MIGRATION_AND_REDIRECTS.md`](../../../../docs/MIGRATION_AND_REDIRECTS.md).
-
-This workflow covers the `MAP` object; for a structural rename, edit
-`PREFIX_REDIRECTS`/`SET_REDIRECTS` **and** the matching `url-taxonomy.json` rule
-together, then follow the same verification steps below.
-
-## How redirects work here
-
-GitHub Pages has no server-side redirects, so this site does them client-side:
-
-- `redirects.js` is loaded **only** on `404.html` (see the `redirects` branch in
-  [`src/render/layout.mjs`](../../../../src/render/layout.mjs)). GitHub Pages
-  serves `404.html` for any path that does not resolve to a built file, so every
-  unmatched request runs the script.
-- The script normalizes `location.pathname`, looks the key up in `MAP`, and on a
-  hit calls `location.replace()` to the new page. A miss falls through to the
-  normal, informative 404.
-- It is **base-aware**: `layout.mjs` references it with an absolute path and a
-  `data-base` attribute (`/` on the apex domain, `/institute_website/` on the
-  project-page base). The script reads `data-base`, strips the base off the
-  incoming path, and prepends the base to the destination — so the same `MAP`
-  works at both bases.
-
-## MAP entry format
-
-```js
-var MAP = {
-  "board-of-directors": "structure/",
-  "physics-as-information-processing": "ecosystem/physics/"
-};
-```
-
-- **Keys** are normalized incoming paths: lowercase, **no** leading or trailing
-  slash, no `.html`/`.htm` suffix. Matching is case-insensitive and ignores a
-  trailing slash, so one key covers `/Board-Of-Directors`, `/board-of-directors/`,
-  and `/board-of-directors.html`.
-- **Values** are destinations **relative to the site base**: no leading slash, a
-  **trailing slash** to land on the clean directory URL (e.g. `structure/`, not
-  `/structure/` and not `structure`). The script prepends the base for you.
-  Home maps to `""`.
-- Add aliases by giving multiple keys the same value (e.g. `bod`, `officers`,
-  and `scientific-advisory-board` all map to `structure/`).
-
-## Steps
-
-1. Confirm the destination page actually exists as a built clean URL (e.g.
-   `/structure/`). If it does not, the redirect just bounces visitors to a 404.
-2. Edit the `MAP` object in
-   [`assets/js/redirects.js`](../../../../assets/js/redirects.js): add, change,
-   or remove the key/value pair. Keep keys normalized and values base-relative
-   with a trailing slash.
-3. **No site rebuild is needed for this JS file** — it is a committed static
-   asset served directly, not generated by `node src/build.mjs`.
-4. Run the gates: `npm run check`.
-5. Commit. (Edits under this repo are public commits.)
-
-## Remove a redirect when a real page exists
-
-A `MAP` entry is a stopgap for a path that has **no** built page. Once a real
-page exists at that path (a `src/content/pages/*.json` page that builds to
-`/<path>/`), the redirect entry is redundant and shadowed — GitHub Pages serves
-the built file and `404.html` never runs for it. **Remove the stale key** so the
-map only ever lists paths that genuinely 404.
-
-## Notes
-
-- Subdomain shortlinks (`fellows.*`, `structure.*`, …) are DNS-level forwards,
-  **not** handled here. See [`MIGRATION.md`](../../../../MIGRATION.md) §2.
-- Keep the human-readable redirect table in `MIGRATION.md` §1 in sync when you
-  add or change a mapping.
+Registrar forwarding is administered outside this repository. On-site forwards
+are recorded in [inbound-forwards.json](../../../../src/content/inbound-forwards.json);
+the build generates the corresponding table in
+[Migration and redirects](../../../../docs/MIGRATION_AND_REDIRECTS.md).

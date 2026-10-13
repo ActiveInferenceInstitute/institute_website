@@ -23,6 +23,12 @@ Static, zero-runtime-dependency site for the Active Inference Institute. `node s
 
 ## Build & gates
 
+Legacy redirect directories and localized simulation filename stubs are generated
+output, inventoried in [`data/redirects.json`](data/redirects.json). Edit
+[`src/url-taxonomy.json`](src/url-taxonomy.json) and rebuild; the same source
+generates the 404 fallback script. On-site registrar forwards are pinned in
+[`src/content/inbound-forwards.json`](src/content/inbound-forwards.json).
+
 ```bash
 npm install
 node src/build.mjs          # render content -> committed HTML

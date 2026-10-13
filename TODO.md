@@ -7,6 +7,43 @@ strict Content Security Policy, gated by `npm run check`.
 
 ## Backlog / ideas
 
+## DNS / HTTPS / indexing follow-ups — 2026-10-12
+
+The administrator enabled HTTPS, added apex AAAA records and updated domain
+verification on 2026-10-12. Search Console's 2026-10-08 report listed 171 legacy
+404 URLs. These observations predate this repository change and do not prove
+recrawl or production acceptance.
+
+- [x] Build static redirect stubs from the shared taxonomy, preserve real routes,
+      and gate every destination plus the generated 404 fallback map.
+- [x] Use root simulation links in every locale; emit localized filename stubs
+      and include simulation landing pages in the internal-link gate.
+- [x] Render recorded on-site shortlinks and www self-links as internal clean URLs.
+      Preserve REQUIRED_SOURCE_IDS; registrar aliases remain in the source registry.
+- [x] Render dead measure/onboard/octopus links as plain text (owner decision).
+      Reject insecure or unknown Institute subdomain anchors in the security gate.
+- [x] Pin 33 forwarding subdomains landing on 30 paths in inbound-forwards.json;
+      generate the on-site documentation table and check real self-canonicals.
+- [x] Normalize Institute and six verified profile links to HTTPS at render time;
+      preserve upstream export bytes and provenance. Keep bayeslanguage.org on HTTP.
+- [x] Keep deterministic export-date lastmod on every sitemap URL; exclude search
+      and HTML sitemap, including hreflang. All five priority hubs are already
+      linked from global navigation. Retain the single sitemap at this size.
+- [x] Canonicalize untranslated newsletter/video detail variants to English and
+      remove their hreflang clusters (owner decision). Localized navigation remains.
+- [x] Record current hosting/DNS state and replace retired workflow-doc pointers;
+      require HTTPS baseUrl and matching CNAME. Treat bare GMT/UTC as zero ICS offset.
+- [x] Verify final generated-output parity on Node 20.20.2 and 22.23.3: 11286 site
+      files have identical aggregate SHA-256 16b3b212b7b775bfc73f9700f7fcd7daf00c3431d4a9bf29c46b96c0ae09fc8a.
+- [ ] Confirm deployed stub responses and Search Console recrawl after publication.
+- [ ] Administrator: repoint alias-domain HTTP forwards and robots-blocked external
+      forwards; validate Search Console fixes and resubmit the sitemap after deploy.
+- [ ] Content owner: select replacements for archived dead-host links, confirm the
+      Symposium's Adventure-space sponsorship copy and restore former Coda-hub routes
+      with approved public destinations. Upstream archive corrections remain separate.
+
+## Other backlog
+
 - [ ] **Light-theme accent contrast (F19, 2026-09-27).** Non-text accent
       elements in light mode measure 3.0–4.4:1 against AA's 4.5:1 for UI
       components — a brand/design-token decision (`assets/css/instituteos-ds.css`

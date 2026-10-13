@@ -161,6 +161,7 @@ test("collectTrLiterals derives the runtime-lookup extras from tr() call sites",
   // them at all.
   const lits = collectTrLiterals(new URL("../src/", import.meta.url).pathname);
   assert.ok(lits.has("This page was machine-translated from English."));
+  assert.ok(lits.has("Navigation is machine-translated; the archived content remains in English."));
   assert.ok(lits.has("View the English original."));
   assert.ok(lits.size > 100, `expected the full renderer literal set, got ${lits.size}`);
 });

@@ -16,7 +16,7 @@ ecosystem:
     note: Federated via the InstituteOS .aii manifest.
   links:
     github: https://github.com/ActiveInferenceInstitute/institute_website
-    website: https://www.activeinference.org
+    website: https://activeinference.institute
 artifacts:
 - path: README.md
   kind: doc

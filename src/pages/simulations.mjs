@@ -3,6 +3,7 @@ import { escapeHtml } from "../lib/text.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
 import { tr } from "../i18n/index.mjs";
+import { sourceFor } from "../render/links.mjs";
 
 // Interactive simulations index (/simulations/). Emitted programmatically like
 // the search/directory/sitemap pages (NOT a curated src/content/pages JSON), so
@@ -100,7 +101,7 @@ function simCard(sim) {
   return `<article class="info-card">
         <h3>${escapeHtml(tr(sim.title))}</h3>
         <p>${escapeHtml(tr(sim.text))}</p>
-        <div class="link-chips"><a href="${escapeHtml(sim.file)}"><span>${escapeHtml(tr("Open simulation"))}</span></a></div>
+        <div class="link-chips"><a href="${escapeHtml(`/simulations/${sim.file}`)}"><span>${escapeHtml(tr("Open simulation"))}</span></a></div>
       </article>`;
 }
 
@@ -113,6 +114,8 @@ function tierSection(tier) {
 }
 
 export function simulationsPage() {
+  const source = sourceFor("activeinference-org-simulations");
+  if (!source) throw new Error("Missing verified simulation collection source");
   const currentDir = urlDirForSlug("simulations");
   const total = TIERS.reduce((sum, tier) => sum + tier.sims.length, 0);
   const tierNav = TIERS.map((tier) => `<a href="#${escapeHtml(tier.id)}">${escapeHtml(tr(tier.label))} (${tier.sims.length})</a>`).join("");
@@ -127,7 +130,7 @@ export function simulationsPage() {
   ${TIERS.map(tierSection).join("\n  ")}
   <section class="content-band muted" id="about-simulations">
     ${sectionHeading({ eyebrow: "About these simulations", title: "Learn by doing" })}
-    <p>${escapeHtml(tr("These demonstrations make abstract Active Inference concepts tangible. They are also published on the Institute's main site at"))} <a href="https://activeinference.org/pages/simulations.html" target="_blank" rel="noopener noreferrer">activeinference.org/pages/simulations.html</a>. ${escapeHtml(tr("To learn the theory behind them, see"))} <a href="${hrefForSlug("active-inference", currentDir)}">${escapeHtml(tr("Active Inference"))}</a> ${escapeHtml(tr("and"))} <a href="${hrefForSlug("learning", currentDir)}">${escapeHtml(tr("Learning and Research"))}</a> ${escapeHtml(tr("resources."))}</p>
+    <p>${escapeHtml(tr("These demonstrations make abstract Active Inference concepts tangible. They are also published on the Institute's main site at"))} <a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">activeinference.org/pages/simulations.html</a>. ${escapeHtml(tr("To learn the theory behind them, see"))} <a href="${hrefForSlug("active-inference", currentDir)}">${escapeHtml(tr("Active Inference"))}</a> ${escapeHtml(tr("and"))} <a href="${hrefForSlug("learning", currentDir)}">${escapeHtml(tr("Learning and Research"))}</a> ${escapeHtml(tr("resources."))}</p>
   </section>`;
   return layout({
     title: tr("Simulations"),

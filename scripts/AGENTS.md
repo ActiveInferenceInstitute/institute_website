@@ -40,7 +40,8 @@ committing any content or build change.
 ## The check gates
 
 ### [`check_internal_links.py`](check_internal_links.py) (`check:links`)
-Parses every generated `*.html` (skipping `src`, `scripts`, `simulations`, etc.)
+Parses generated `*.html` (skipping source/tooling and vendored simulation bodies,
+but including every locale's simulation landing page)
 and resolves each `href`/`src`/`poster` against the repo root. Flags references
 to missing files and `#fragment` links whose anchor does not exist in the target
 document. It derives the deployment base prefix from `site.json`'s `baseUrl`
@@ -104,16 +105,12 @@ For `sitemap.xml` this gate resolves every `<loc>` and every
 `<loc>` set-equality against the routed page set stays in `check_site_contract.py`.
 
 ### [`check_redirects.py`](check_redirects.py) (`check:redirects`)
-Validates `assets/js/redirects.js` (loaded only by `404.html`). `MAP` entries
-must resolve to real built files. `PREFIX_REDIRECTS` entries (locale-aware
-structural URL renames) must stay consistent with the `"prefix"` rules in
-[`../src/url-taxonomy.json`](../src/url-taxonomy.json) and the current build
-output, including confirming the old pre-migration output directories were
-actually removed — GitHub Pages must 404 before the client-side redirect
-script can fire. `SET_REDIRECTS` entries (locale-aware exact-slug-match
-renames for families with no shared string prefix, e.g. `orgPageSlugs`,
-`yearPageSlugs`) are validated the same way against the `"set"` rules in
-`url-taxonomy.json`.
+Independently enumerates taxonomy aliases and localized simulation paths;
+checks static stubs, real destinations and generated runtime-map parity. Pins
+all on-site registrar destinations, rejects rendered forwarding shortlinks,
+and checks the generated documentation table. `test_indexing.mjs` exercises
+preservation, missing/chain targets, HTTPS/dead-host normalization, canonical
+policy, link/domain negative controls and ICU-independent ICS stamps.
 
 ### [`check_design_system_export.mjs`](check_design_system_export.mjs) (`check:design-system`)
 Validates `assets/css/styles.css` token fallbacks against the committed

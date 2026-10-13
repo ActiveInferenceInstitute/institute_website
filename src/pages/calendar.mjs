@@ -44,6 +44,7 @@ function zoneOffset(event, iso) {
       hour12: false, timeZoneName: "longOffset",
     }).formatToParts(new Date(iso));
     const name = (parts.find((p) => p.type === "timeZoneName")?.value || "").replace(/^GMT/, "UTC");
+    if (name === "UTC") return "+0000";
     const m = name.match(/UTC([+-])(\d{1,2})(?::?(\d{2}))?/);
     if (!m) return "";
     const hh = String(Math.abs(Number(m[2]))).padStart(2, "0");
@@ -109,7 +110,7 @@ function icalText(value) {
 // IANA timeZone (offset derived at build time via Intl) — one unambiguous
 // RFC 5545 stamp; without a resolvable zone it stays floating rather than
 // being silently re-labelled as UTC.
-function icalStamp(iso, allDay, event) {
+export function icalStamp(iso, allDay, event) {
   const s = String(iso || "");
   const date = s.slice(0, 10).replace(/-/g, "");
   if (!/^\d{8}$/.test(date)) return allDay ? "19700101" : "19700101T000000Z";

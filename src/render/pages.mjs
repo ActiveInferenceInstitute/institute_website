@@ -12,6 +12,7 @@ import {
   normalizedOfficialPages,
   normalizedRepositories,
   entriesForPage,
+  normalizeResource,
 } from "../lib/resources.mjs";
 import { resolveLinks } from "./links.mjs";
 import { actionButtons, linkChips, linkList } from "./page-sections.mjs";
@@ -102,8 +103,20 @@ export function audiencePathwaySection(currentDir = "") {
   </section>`;
 }
 
+function externalResourceForPage(page) {
+  for (const sourceId of [...(page.externalSourceIds || []), "github-org"]) {
+    const resource = normalizeResource({ sourceId, category: "community", audience: "contributor" }, "official");
+    if (resource && /^https?:\/\//.test(resource.href)) return resource;
+  }
+  throw new Error(`No approved external context for ${page.slug}`);
+}
+
 export function bestNextActions(page, currentDir = "") {
   const primary = resolveLinks(page.primaryActions || []).slice(0, 3);
+  if (!primary.some((link) => /^https?:\/\//.test(link.href))) {
+    const external = externalResourceForPage(page);
+    primary.push(external);
+  }
   const groups = page.resourceGroups || [];
   const related = relatedSlugsForPage(page)
     .map((slug) => pageBySlug.get(slug))
@@ -223,6 +236,10 @@ export function publicPage(page) {
   // domain pages repeat the same global catalog at the bottom of every page.
   const isDetailPage = page.slug.startsWith("project-") || page.slug.startsWith("active-inference-and-");
   const curatedEntries = entriesForPage(page, curated, 12, { fallbackToCategory: !isDetailPage });
+  if (curatedEntries.length && !curatedEntries.some((entry) => /^https?:\/\//.test(entry.href))) {
+    const external = externalResourceForPage(page);
+    curatedEntries.push(external);
+  }
   const officialEntries = entriesForPage(page, official, 8, { fallbackToCategory: false });
   const repositoryEntries = entriesForPage(page, repositories, page.slug === "projects" ? 16 : 8, {
     fallbackToCategory: false,

@@ -18,12 +18,100 @@
   "routing": {
     "indexSlug": "index",
     "rules": [
-      { "type": "prefix", "match": "project-", "dir": "projects/" },
-      { "type": "prefix", "match": "active-inference-and-", "dir": "active-inference/" },
-      { "type": "prefix", "match": "video-", "dir": "video/" },
-      { "type": "set", "match": "programSubpageSlugs", "dir": "programs/" },
-      { "type": "set", "match": "orgPageSlugs", "dir": "structure/" },
-      { "type": "set", "match": "yearPageSlugs", "dir": "years/" }
+      {
+        "type": "prefix",
+        "match": "project-",
+        "dir": "projects/"
+      },
+      {
+        "type": "prefix",
+        "match": "active-inference-and-",
+        "dir": "active-inference/"
+      },
+      {
+        "type": "prefix",
+        "match": "video-",
+        "dir": "video/"
+      },
+      {
+        "type": "set",
+        "match": "programSubpageSlugs",
+        "dir": "programs/"
+      },
+      {
+        "type": "set",
+        "match": "orgPageSlugs",
+        "dir": "structure/"
+      },
+      {
+        "type": "set",
+        "match": "yearPageSlugs",
+        "dir": "years/"
+      }
+    ]
+  },
+  "redirects": {
+    "map": {
+      "home": "",
+      "welcome": "get-involved/",
+      "about-us": "about/",
+      "bod": "structure/board-of-directors/",
+      "sab": "structure/scientific-advisory-board/",
+      "structure": "structure/",
+      "leadership": "structure/",
+      "courses": "learning/",
+      "education": "learning/",
+      "research-overview": "learning/",
+      "research": "learning/",
+      "livestreams": "activities/",
+      "physics-as-information-processing": "ecosystem/physics/",
+      "paip1": "ecosystem/physics/",
+      "participation": "get-involved/",
+      "fellowship": "programs/fellowship/",
+      "internship": "programs/internship/",
+      "mentorship": "programs/mentorship/",
+      "partnership": "programs/partnership/",
+      "volunteer": "volunteer/",
+      "donate": "programs/philanthropy/",
+      "support": "programs/philanthropy/",
+      "working_groups": "working-groups/",
+      "active-blockference": "projects/active-blockference/",
+      "active-blockference-1": "projects/active-blockference/",
+      "knowledge-engineering": "projects/knowledge-engineering/",
+      "rxinfer": "projects/rxinfer/",
+      "symposium": "projects/symposium/",
+      "textbook-group": "projects/textbook-group/",
+      "theoretical-neurobiology-group": "projects/theoretical-neurobiology/",
+      "theoretical-neurobiology-group-1": "projects/theoretical-neurobiology/",
+      "tnb": "projects/theoretical-neurobiology/"
+    },
+    "prefix": [
+      {
+        "from": "active-inference-and-",
+        "to": "active-inference/"
+      }
+    ],
+    "set": [
+      {
+        "from": "board-of-directors",
+        "to": "structure/board-of-directors/"
+      },
+      {
+        "from": "officers",
+        "to": "structure/officers/"
+      },
+      {
+        "from": "scientific-advisory-board",
+        "to": "structure/scientific-advisory-board/"
+      },
+      {
+        "from": "2025",
+        "to": "years/2025/"
+      },
+      {
+        "from": "2026",
+        "to": "years/2026/"
+      }
     ]
   }
 }

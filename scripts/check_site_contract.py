@@ -7,10 +7,13 @@ import hashlib
 import json
 import re
 import sys
+from datetime import date
+from xml.etree import ElementTree
 from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
+from public_link_policy import normalized_external_url
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -396,7 +399,7 @@ def live_source_urls(manifest: dict) -> set[str]:
             urls.add(value)
             urls.add(value.rstrip("/"))
             urls.add(f"{value.rstrip('/')}/")
-    return urls
+    return urls | {normalized_external_url(url) for url in urls}
 
 
 def newsletter_urls(root: Path) -> set[str]:
@@ -411,6 +414,7 @@ def newsletter_urls(root: Path) -> set[str]:
         for value in values:
             for match in re.findall(r"https?://[^\s<>\])]+", str(value)):
                 clean = match.rstrip(".,;:!?\\")
+                urls.add(normalized_external_url(clean))
                 urls.add(clean)
                 urls.add(clean.rstrip("/"))
                 urls.add(f"{clean.rstrip('/')}/")
@@ -423,6 +427,25 @@ def live_source_url_by_id(manifest: dict) -> dict[str, str]:
         for item in manifest.get("sources", [])
         if item.get("ok") and item.get("id") and item.get("url")
     }
+
+
+def rendered_source_urls(root: Path) -> dict[str, str]:
+    urls = live_source_url_by_id(live_manifest(root))
+    forwards = load_json(root / "src/content/inbound-forwards.json")["forwards"]
+    host = urlparse(CANONICAL_BASE).hostname
+    for source_id, value in urls.items():
+        parsed = urlparse(value)
+        subdomain = parsed.hostname.removesuffix(f".{host}") if (parsed.hostname or "").endswith(f".{host}") else ""
+        target = forwards.get(subdomain) if parsed.path in {"", "/"} else None
+        if parsed.hostname in {host, f"www.{host}"}:
+            target = parsed.path or "/"
+            if not target.endswith("/"):
+                target += "/"
+        if target is not None:
+            urls[source_id] = CANONICAL_BASE.rstrip("/") + target
+        else:
+            urls[source_id] = normalized_external_url(value)
+    return urls
 
 
 def generated_public_files(root: Path) -> list[Path]:
@@ -441,7 +464,8 @@ def generated_html_files(root: Path) -> list[Path]:
     return sorted(
         path
         for path in root.rglob("*.html")
-        if not any(part in SCAN_EXCLUDES or part in {"src"} for part in path.relative_to(root).parts)
+        if not any(part in (SCAN_EXCLUDES - {"simulations"}) or part in {"src"} for part in path.relative_to(root).parts)
+        and not (path.relative_to(root).parts[0] == "simulations" and path.name != "index.html")
     )
 
 
@@ -942,7 +966,8 @@ def check_resource_directory(root: Path, errors: list[str]) -> None:
 
     official_pages = load_json(root / "src" / "content" / "official-pages.json").get("pages", [])
     repositories = load_json(root / "src" / "content" / "repositories.json").get("repositories", [])
-    source_urls = live_source_url_by_id(live_manifest(root))
+    source_urls = rendered_source_urls(root)
+    hrefs.update(urljoin(f"{CANONICAL_BASE}resources/", href) for href in list(hrefs))
     for item in official_pages:
         expected_url = source_urls.get(item.get("sourceId", ""))
         if item.get("promoted") is not False and (
@@ -1092,7 +1117,8 @@ def check_directory_page(root: Path, errors: list[str]) -> None:
 
     official_pages = load_json(root / "src" / "content" / "official-pages.json").get("pages", [])
     repositories = load_json(root / "src" / "content" / "repositories.json").get("repositories", [])
-    source_urls = live_source_url_by_id(live_manifest(root))
+    source_urls = rendered_source_urls(root)
+    directory_hrefs.update(urljoin(f"{CANONICAL_BASE}directory/", href) for href in list(directory_hrefs))
     for item in official_pages:
         expected_url = source_urls.get(item.get("sourceId", ""))
         if item.get("promoted") is not False and (
@@ -1162,7 +1188,38 @@ def check_design_system_contract(root: Path, errors: list[str]) -> None:
             errors.append(f"{html_path.relative_to(root)} must link instituteos-ds.css before styles.css")
 
 
+def check_sitemap_dates(sitemap: str, errors: list[str]) -> None:
+    try:
+        document = ElementTree.fromstring(sitemap)
+    except ElementTree.ParseError as exc:
+        errors.append(f"invalid sitemap XML: {exc}")
+        return
+    namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+    for entry in document.findall(f"{namespace}url"):
+        dates = entry.findall(f"{namespace}lastmod")
+        if len(dates) != 1:
+            errors.append("every sitemap URL must carry exactly one dated lastmod")
+            continue
+        try:
+            value = dates[0].text or ""
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+                raise ValueError(value)
+            date.fromisoformat(value)
+        except ValueError:
+            errors.append("sitemap lastmod must be a valid calendar date")
+
+
+def check_domain_config(root: Path, errors: list[str]) -> None:
+    site = load_json(root / "src/content/site.json")
+    if urlparse(site["baseUrl"]).scheme != "https":
+        errors.append("site.json baseUrl must use https")
+    if (root / "CNAME").read_text().strip() != urlparse(site["baseUrl"]).hostname:
+        errors.append("CNAME must match the host of site.json baseUrl")
+
+
 def check_canonical_outputs(root: Path, errors: list[str]) -> None:
+    check_domain_config(root, errors)
+    redirects = {entry["file"]: entry["to"] for entry in load_json(root / "data/redirects.json")}
     site = load_json(root / "src" / "content" / "site.json")
     if site.get("baseUrl") != CANONICAL_BASE:
         errors.append(f"site.json baseUrl is {site.get('baseUrl')!r}, expected {CANONICAL_BASE!r}")
@@ -1181,8 +1238,9 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
         errors.append("sitemap.xml does not include the knowledge clean URL")
     if f"<loc>{CANONICAL_BASE}projects/</loc>" not in sitemap:
         errors.append("sitemap.xml does not include the projects clean URL")
-    if f"<loc>{CANONICAL_BASE}sitemap/</loc>" not in sitemap:
-        errors.append("sitemap.xml does not include the sitemap clean URL")
+    if f"<loc>{CANONICAL_BASE}sitemap/</loc>" in sitemap:
+        errors.append("sitemap.xml must exclude the noindex sitemap page")
+    check_sitemap_dates(sitemap, errors)
     if "<changefreq>" not in sitemap:
         errors.append("sitemap.xml does not include any <changefreq> hint")
     for obsolete in ("source.html", "assets/source", "atlas"):
@@ -1203,7 +1261,7 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
     locale_targets: set[str] = set()
     for html_path in routed_html_files(root):
         relative = html_path.relative_to(root).as_posix()
-        if relative == "404.html":
+        if relative == "404.html" or relative in redirects:
             continue
         page_dir = dir_for_html_path(root, html_path)
         # Non-default locale subtrees are excluded from the sitemap by the
@@ -1241,6 +1299,14 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
         expected_canonical = f"{CANONICAL_BASE}404.html" if relative == "404.html" else (
             f"{CANONICAL_BASE}{page_dir}/" if page_dir else CANONICAL_BASE
         )
+        if relative in redirects:
+            expected_canonical = f"{CANONICAL_BASE}{redirects[relative]}"
+        else:
+            parts = page_dir.split("/")
+            if parts[0] in LOCALE_CODES:
+                english_dir = "/".join(parts[1:])
+                if english_dir.startswith("newsletter/") or (english_dir.startswith("video/") and english_dir != "video"):
+                    expected_canonical = f"{CANONICAL_BASE}{english_dir}/"
         canonical = [attrs.get("href", "") for rel, attrs in info.links if rel.lower() == "canonical"]
         if not canonical or not canonical[0].startswith(CANONICAL_BASE):
             errors.append(f"{html_path.relative_to(root)} has invalid canonical URL {canonical[:1]}")
@@ -1249,6 +1315,9 @@ def check_canonical_outputs(root: Path, errors: list[str]) -> None:
                 f"{html_path.relative_to(root)} canonical URL {canonical[0]} does not equal "
                 f"the exact clean URL {expected_canonical}"
             )
+        if page_dir.startswith("newsletter/") or page_dir.startswith("video/") or "/newsletter/" in page_dir or "/video/" in page_dir:
+            if any(attrs.get("hreflang") for _rel, attrs in info.links):
+                errors.append(f"{relative}: untranslated detail body must not advertise hreflang")
         og_urls = [attrs.get("content", "") for attrs in info.metas if attrs.get("property") == "og:url"]
         if not og_urls or not og_urls[0].startswith(CANONICAL_BASE):
             errors.append(f"{html_path.relative_to(root)} has invalid og:url {og_urls[:1]}")

@@ -60,7 +60,9 @@ def generated_html_files(root: Path) -> list[Path]:
     files: list[Path] = []
     for path in root.rglob("*.html"):
         relative_parts = path.relative_to(root).parts
-        if any(part in SKIP_DIRS for part in relative_parts):
+        if any(part in SKIP_DIRS - {"simulations"} for part in relative_parts):
+            continue
+        if "simulations" in relative_parts and path.name != "index.html":
             continue
         files.append(path)
     return sorted(files)

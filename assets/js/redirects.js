@@ -1,120 +1,10 @@
-/*
- * Legacy-URL redirect map for the Active Inference Institute apex domain.
- *
- * GitHub Pages has no server-side redirects, so this file is loaded ONLY by the
- * site 404 page (404.html). GitHub Pages serves 404.html for any path that does
- * not resolve to a built file, so every unmatched request runs this script. If
- * the requested path matches a legacy Squarespace URL below, we replace() to the
- * new clean-URL location; otherwise the normal, informative 404 page is shown.
- *
- * CSP-safe: external 'self' script, no network calls — the map is inline and we
- * only call location.replace().
- *
- * The destination values are paths RELATIVE to the site base (no leading slash,
- * trailing slash to land on the clean directory URL). The script prepends the
- * base it was given via data-base (e.g. "/" on the apex domain, or
- * "/institute_website/" on the GitHub project page) so it works in both.
- *
- * Subdomain shortlinks (fellows.*, structure.*, …) are DNS-level forwards and
- * are NOT handled here — see docs/MIGRATION_REDIRECTS.md for where to repoint
- * each one.
- */
+/* Generated from src/url-taxonomy.json and src/redirect-runtime.js. */
 (function () {
   "use strict";
-
-  // Legacy Squarespace apex paths -> new clean-URL destinations.
-  // Keys are normalized: lowercase, no leading/trailing slash, no .html suffix.
-  var MAP = {
-    // Home / orientation
-    "home": "",
-    "welcome": "get-involved/",
-
-    // Institute / governance
-    // NOTE: "board-of-directors" / "officers" / "scientific-advisory-board"
-    // are NOT here -- they were Squarespace-era aliases to the generic
-    // structure/ page, but since superseded by their own dedicated pages
-    // (now nested under structure/ -- see SET_REDIRECTS below, v4.0.0).
-    // Leaving them here would shadow SET_REDIRECTS and send visitors to the
-    // wrong (generic) destination.
-    "about-us": "about/",
-    "bod": "structure/board-of-directors/",
-    "sab": "structure/scientific-advisory-board/",
-    "structure": "structure/",
-
-    "leadership": "structure/",
-
-    // Learn / research
-    "courses": "learning/",
-    "education": "learning/",
-    "research-overview": "learning/",
-    "research": "learning/",
-    "livestreams": "activities/",
-    "physics-as-information-processing": "ecosystem/physics/",
-    "paip1": "ecosystem/physics/",
-
-    // Participate / programs
-    "participation": "get-involved/",
-    "fellowship": "programs/fellowship/",
-    "internship": "programs/internship/",
-    "mentorship": "programs/mentorship/",
-    "partnership": "programs/partnership/",
-    "volunteer": "volunteer/",
-    "donate": "programs/philanthropy/",
-    "support": "programs/philanthropy/",
-    // Underscore alias matching the Working_Groups repository name, as cited
-    // in the Working Groups position paper (Zenodo 10.5281/zenodo.23066904).
-    "working_groups": "working-groups/",
-
-    // Projects / groups
-    "active-blockference": "projects/active-blockference/",
-    "active-blockference-1": "projects/active-blockference/",
-    "knowledge-engineering": "projects/knowledge-engineering/",
-    "rxinfer": "projects/rxinfer/",
-    "symposium": "projects/symposium/",
-    "textbook-group": "projects/textbook-group/",
-    "theoretical-neurobiology-group": "projects/theoretical-neurobiology/",
-    "theoretical-neurobiology-group-1": "projects/theoretical-neurobiology/",
-    "tnb": "projects/theoretical-neurobiology/"
-  };
-
-  // Non-default locale codes (mirrors src/i18n/locales.json minus "en"). Used
-  // only to detect and re-attach a locale prefix around a PREFIX_REDIRECTS
-  // match below -- MAP above stays English-only/locale-unaware by design,
-  // since every Squarespace-era path it covers pre-dates the locale system.
-  var LOCALE_CODES = ["ar", "de", "es", "fr", "hi", "it", "ja", "ko", "pt", "ru", "zh"];
-
-  // Structural URL-taxonomy renames that apply uniformly across every locale
-  // (unlike MAP's one-off English-only Squarespace aliases). Each entry moves
-  // one routing family's whole output directory; add a rule here alongside
-  // the matching entry in src/url-taxonomy.json when a routing family is
-  // renamed. `from`/`to` are locale-agnostic path segments (no leading slash).
-  //
-  // v3.0.0 (2026-07-01): flattened "active-inference-and-<domain>/" pages
-  // (16 of them, live at the time of the move) renested under
-  // "active-inference/<domain>/" to make room for future domain growth
-  // without cluttering the repository root. See
-  // docs/SLUG_AND_URL_TAXONOMY.md and CHANGELOG.md v3.0.0.
-  var PREFIX_REDIRECTS = [{ "from": "active-inference-and-", "to": "active-inference/" }];
-
-  // Like PREFIX_REDIRECTS but for routing families whose members share no
-  // common string prefix (a url-taxonomy.json "set" rule, not a "prefix"
-  // rule) -- the whole `rest` must equal `from` exactly, not just start with
-  // it. Also locale-aware: one entry covers the rename across all 12 locales.
-  //
-  // v4.0.0 (2026-07-01): the org/governance pages and the annual-report
-  // "years" pages renested under structure/ and years/ respectively, for the
-  // same reason as v3.0.0's domain-page move -- both are families that add
-  // roughly one new page per year and would otherwise keep cluttering the
-  // repository root indefinitely. See docs/SLUG_AND_URL_TAXONOMY.md and
-  // CHANGELOG.md v4.0.0.
-  var SET_REDIRECTS = [
-    { "from": "board-of-directors", "to": "structure/board-of-directors/" },
-    { "from": "officers", "to": "structure/officers/" },
-    { "from": "scientific-advisory-board", "to": "structure/scientific-advisory-board/" },
-    { "from": "2025", "to": "years/2025/" },
-    { "from": "2026", "to": "years/2026/" }
-  ];
-
+  var MAP = {"home":"","welcome":"get-involved/","about-us":"about/","bod":"structure/board-of-directors/","sab":"structure/scientific-advisory-board/","structure":"structure/","leadership":"structure/","courses":"learning/","education":"learning/","research-overview":"learning/","research":"learning/","livestreams":"activities/","physics-as-information-processing":"ecosystem/physics/","paip1":"ecosystem/physics/","participation":"get-involved/","fellowship":"programs/fellowship/","internship":"programs/internship/","mentorship":"programs/mentorship/","partnership":"programs/partnership/","volunteer":"volunteer/","donate":"programs/philanthropy/","support":"programs/philanthropy/","working_groups":"working-groups/","active-blockference":"projects/active-blockference/","active-blockference-1":"projects/active-blockference/","knowledge-engineering":"projects/knowledge-engineering/","rxinfer":"projects/rxinfer/","symposium":"projects/symposium/","textbook-group":"projects/textbook-group/","theoretical-neurobiology-group":"projects/theoretical-neurobiology/","theoretical-neurobiology-group-1":"projects/theoretical-neurobiology/","tnb":"projects/theoretical-neurobiology/","es/simulations/apple-frog":"simulations/Apple-Frog.html","es/simulations/ink":"simulations/Ink.html","es/simulations/active_inference_network":"simulations/active_inference_network.html","es/simulations/ant_colony":"simulations/ant_colony.html","es/simulations/dopamine_daniel":"simulations/dopamine_daniel.html","es/simulations/fep_surprise":"simulations/fep_surprise.html","es/simulations/fep_tutorial":"simulations/fep_tutorial.html","es/simulations/hierarchical_blankets":"simulations/hierarchical_blankets.html","es/simulations/school6":"simulations/school6.html","es/simulations/self_evidencing_tree":"simulations/self_evidencing_tree.html","es/simulations/t_maze_fep":"simulations/t_maze_fep.html","es/simulations/tree_with_quiz":"simulations/tree_with_quiz.html","fr/simulations/apple-frog":"simulations/Apple-Frog.html","fr/simulations/ink":"simulations/Ink.html","fr/simulations/active_inference_network":"simulations/active_inference_network.html","fr/simulations/ant_colony":"simulations/ant_colony.html","fr/simulations/dopamine_daniel":"simulations/dopamine_daniel.html","fr/simulations/fep_surprise":"simulations/fep_surprise.html","fr/simulations/fep_tutorial":"simulations/fep_tutorial.html","fr/simulations/hierarchical_blankets":"simulations/hierarchical_blankets.html","fr/simulations/school6":"simulations/school6.html","fr/simulations/self_evidencing_tree":"simulations/self_evidencing_tree.html","fr/simulations/t_maze_fep":"simulations/t_maze_fep.html","fr/simulations/tree_with_quiz":"simulations/tree_with_quiz.html","de/simulations/apple-frog":"simulations/Apple-Frog.html","de/simulations/ink":"simulations/Ink.html","de/simulations/active_inference_network":"simulations/active_inference_network.html","de/simulations/ant_colony":"simulations/ant_colony.html","de/simulations/dopamine_daniel":"simulations/dopamine_daniel.html","de/simulations/fep_surprise":"simulations/fep_surprise.html","de/simulations/fep_tutorial":"simulations/fep_tutorial.html","de/simulations/hierarchical_blankets":"simulations/hierarchical_blankets.html","de/simulations/school6":"simulations/school6.html","de/simulations/self_evidencing_tree":"simulations/self_evidencing_tree.html","de/simulations/t_maze_fep":"simulations/t_maze_fep.html","de/simulations/tree_with_quiz":"simulations/tree_with_quiz.html","pt/simulations/apple-frog":"simulations/Apple-Frog.html","pt/simulations/ink":"simulations/Ink.html","pt/simulations/active_inference_network":"simulations/active_inference_network.html","pt/simulations/ant_colony":"simulations/ant_colony.html","pt/simulations/dopamine_daniel":"simulations/dopamine_daniel.html","pt/simulations/fep_surprise":"simulations/fep_surprise.html","pt/simulations/fep_tutorial":"simulations/fep_tutorial.html","pt/simulations/hierarchical_blankets":"simulations/hierarchical_blankets.html","pt/simulations/school6":"simulations/school6.html","pt/simulations/self_evidencing_tree":"simulations/self_evidencing_tree.html","pt/simulations/t_maze_fep":"simulations/t_maze_fep.html","pt/simulations/tree_with_quiz":"simulations/tree_with_quiz.html","it/simulations/apple-frog":"simulations/Apple-Frog.html","it/simulations/ink":"simulations/Ink.html","it/simulations/active_inference_network":"simulations/active_inference_network.html","it/simulations/ant_colony":"simulations/ant_colony.html","it/simulations/dopamine_daniel":"simulations/dopamine_daniel.html","it/simulations/fep_surprise":"simulations/fep_surprise.html","it/simulations/fep_tutorial":"simulations/fep_tutorial.html","it/simulations/hierarchical_blankets":"simulations/hierarchical_blankets.html","it/simulations/school6":"simulations/school6.html","it/simulations/self_evidencing_tree":"simulations/self_evidencing_tree.html","it/simulations/t_maze_fep":"simulations/t_maze_fep.html","it/simulations/tree_with_quiz":"simulations/tree_with_quiz.html","ru/simulations/apple-frog":"simulations/Apple-Frog.html","ru/simulations/ink":"simulations/Ink.html","ru/simulations/active_inference_network":"simulations/active_inference_network.html","ru/simulations/ant_colony":"simulations/ant_colony.html","ru/simulations/dopamine_daniel":"simulations/dopamine_daniel.html","ru/simulations/fep_surprise":"simulations/fep_surprise.html","ru/simulations/fep_tutorial":"simulations/fep_tutorial.html","ru/simulations/hierarchical_blankets":"simulations/hierarchical_blankets.html","ru/simulations/school6":"simulations/school6.html","ru/simulations/self_evidencing_tree":"simulations/self_evidencing_tree.html","ru/simulations/t_maze_fep":"simulations/t_maze_fep.html","ru/simulations/tree_with_quiz":"simulations/tree_with_quiz.html","zh/simulations/apple-frog":"simulations/Apple-Frog.html","zh/simulations/ink":"simulations/Ink.html","zh/simulations/active_inference_network":"simulations/active_inference_network.html","zh/simulations/ant_colony":"simulations/ant_colony.html","zh/simulations/dopamine_daniel":"simulations/dopamine_daniel.html","zh/simulations/fep_surprise":"simulations/fep_surprise.html","zh/simulations/fep_tutorial":"simulations/fep_tutorial.html","zh/simulations/hierarchical_blankets":"simulations/hierarchical_blankets.html","zh/simulations/school6":"simulations/school6.html","zh/simulations/self_evidencing_tree":"simulations/self_evidencing_tree.html","zh/simulations/t_maze_fep":"simulations/t_maze_fep.html","zh/simulations/tree_with_quiz":"simulations/tree_with_quiz.html","ja/simulations/apple-frog":"simulations/Apple-Frog.html","ja/simulations/ink":"simulations/Ink.html","ja/simulations/active_inference_network":"simulations/active_inference_network.html","ja/simulations/ant_colony":"simulations/ant_colony.html","ja/simulations/dopamine_daniel":"simulations/dopamine_daniel.html","ja/simulations/fep_surprise":"simulations/fep_surprise.html","ja/simulations/fep_tutorial":"simulations/fep_tutorial.html","ja/simulations/hierarchical_blankets":"simulations/hierarchical_blankets.html","ja/simulations/school6":"simulations/school6.html","ja/simulations/self_evidencing_tree":"simulations/self_evidencing_tree.html","ja/simulations/t_maze_fep":"simulations/t_maze_fep.html","ja/simulations/tree_with_quiz":"simulations/tree_with_quiz.html","ko/simulations/apple-frog":"simulations/Apple-Frog.html","ko/simulations/ink":"simulations/Ink.html","ko/simulations/active_inference_network":"simulations/active_inference_network.html","ko/simulations/ant_colony":"simulations/ant_colony.html","ko/simulations/dopamine_daniel":"simulations/dopamine_daniel.html","ko/simulations/fep_surprise":"simulations/fep_surprise.html","ko/simulations/fep_tutorial":"simulations/fep_tutorial.html","ko/simulations/hierarchical_blankets":"simulations/hierarchical_blankets.html","ko/simulations/school6":"simulations/school6.html","ko/simulations/self_evidencing_tree":"simulations/self_evidencing_tree.html","ko/simulations/t_maze_fep":"simulations/t_maze_fep.html","ko/simulations/tree_with_quiz":"simulations/tree_with_quiz.html","hi/simulations/apple-frog":"simulations/Apple-Frog.html","hi/simulations/ink":"simulations/Ink.html","hi/simulations/active_inference_network":"simulations/active_inference_network.html","hi/simulations/ant_colony":"simulations/ant_colony.html","hi/simulations/dopamine_daniel":"simulations/dopamine_daniel.html","hi/simulations/fep_surprise":"simulations/fep_surprise.html","hi/simulations/fep_tutorial":"simulations/fep_tutorial.html","hi/simulations/hierarchical_blankets":"simulations/hierarchical_blankets.html","hi/simulations/school6":"simulations/school6.html","hi/simulations/self_evidencing_tree":"simulations/self_evidencing_tree.html","hi/simulations/t_maze_fep":"simulations/t_maze_fep.html","hi/simulations/tree_with_quiz":"simulations/tree_with_quiz.html","ar/simulations/apple-frog":"simulations/Apple-Frog.html","ar/simulations/ink":"simulations/Ink.html","ar/simulations/active_inference_network":"simulations/active_inference_network.html","ar/simulations/ant_colony":"simulations/ant_colony.html","ar/simulations/dopamine_daniel":"simulations/dopamine_daniel.html","ar/simulations/fep_surprise":"simulations/fep_surprise.html","ar/simulations/fep_tutorial":"simulations/fep_tutorial.html","ar/simulations/hierarchical_blankets":"simulations/hierarchical_blankets.html","ar/simulations/school6":"simulations/school6.html","ar/simulations/self_evidencing_tree":"simulations/self_evidencing_tree.html","ar/simulations/t_maze_fep":"simulations/t_maze_fep.html","ar/simulations/tree_with_quiz":"simulations/tree_with_quiz.html"};
+  var LOCALE_CODES = ["es","fr","de","pt","it","ru","zh","ja","ko","hi","ar"];
+  var PREFIX_REDIRECTS = [{"from":"active-inference-and-","to":"active-inference/"}];
+  var SET_REDIRECTS = [{"from":"board-of-directors","to":"structure/board-of-directors/"},{"from":"officers","to":"structure/officers/"},{"from":"scientific-advisory-board","to":"structure/scientific-advisory-board/"},{"from":"2025","to":"years/2025/"},{"from":"2026","to":"years/2026/"}];
   var script = document.currentScript;
   var base = (script && script.dataset && script.dataset.base) || "/";
 
@@ -176,4 +66,5 @@
       location.replace(out);
     }
   }
+
 })();

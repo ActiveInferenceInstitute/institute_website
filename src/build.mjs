@@ -21,6 +21,7 @@ import { directoryPage } from "./pages/directory.mjs";
 import { resourcesPage } from "./pages/resources.mjs";
 import { searchPage } from "./pages/search.mjs";
 import { simulationsPage } from "./pages/simulations.mjs";
+import { buildRedirects } from "./redirects.mjs";
 import { calendarPage } from "./pages/calendar.mjs";
 import { sitemapPage } from "./pages/sitemap.mjs";
 import { newsletterIssuePages, newsletterPage, newsletterIssueOutputPath } from "./pages/newsletter.mjs";
@@ -50,14 +51,17 @@ function build() {
   // per-renderer changes. Root-level singletons (sitemap, feeds, search index,
   // 404, …) are emitted once, below, in the default-locale pass only.
   let pageCount = 0;
+  const realFiles = new Set();
   for (const locale of LOCALES) {
     setActiveLocale(locale.code);
     for (const [slug, render] of slugRenderers) {
       writeFile(outputPathForSlug(slug), render());
+      realFiles.add(outputPathForSlug(slug));
       pageCount += 1;
     }
     for (const issue of newsletterIssuePages()) {
       writeFile(newsletterIssueOutputPath(issue.route), issue.render());
+      realFiles.add(newsletterIssueOutputPath(issue.route));
       pageCount += 1;
     }
     // Per-video detail pages: each carries its own transcript excerpt and
@@ -67,11 +71,13 @@ function build() {
       const record = videoRecordBySlug(slug);
       if (record) {
         writeFile(outputPathForSlug(slug), videoDetailPage(record));
+        realFiles.add(outputPathForSlug(slug));
         pageCount += 1;
       }
     }
   }
   setActiveLocale(DEFAULT_LOCALE);
+  buildRedirects(realFiles);
   // 404 stays a flat root file (GitHub Pages requires /404.html). Its links use
   // the root-relative clean paths (currentDir "").
   writeFile(
@@ -122,6 +128,7 @@ function build() {
   // page is a conflicting signal (see src/render/layout.mjs head comments).
   const HREFLANG_EXCLUDED_SLUG_PATHS = new Set(["sitemap/index.html", "search/index.html"]);
   const localeAlternatesFor = (defaultPath) => {
+    if (defaultPath.startsWith("newsletter/") || (defaultPath.startsWith("video/") && defaultPath !== "video/index.html")) return "";
     const eligible = LOCALES.filter(
       (locale) =>
         locale.code === DEFAULT_LOCALE ||
@@ -138,7 +145,7 @@ function build() {
   // Noindex utility pages (see HREFLANG_EXCLUDED_SLUG_PATHS above) are also
   // dropped from the XML sitemap's <url> list entirely: a sitemap entry
   // advertising a noindex page is a conflicting signal.
-  const SITEMAP_EXCLUDED_SLUG_PATHS = new Set(["search/index.html"]);
+  const SITEMAP_EXCLUDED_SLUG_PATHS = new Set(["search/index.html", "sitemap/index.html"]);
   const sitemapUrls = urls.filter((url) => !SITEMAP_EXCLUDED_SLUG_PATHS.has(url));
   writeFile(
     "sitemap.xml",

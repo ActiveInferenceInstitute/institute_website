@@ -53,8 +53,7 @@ This conceptual set defers to the implementation contracts that live with the co
 
 Canonical longform references at the repo root: [INDEX.md](../INDEX.md) (top-level
 repo map), [README.md](../README.md), [DESIGN_SYSTEM.md](../DESIGN_SYSTEM.md),
-[INTERNATIONALIZATION.md](../INTERNATIONALIZATION.md), [MIGRATION.md](../MIGRATION.md),
-[SWITCHOVER.md](../SWITCHOVER.md), [GATING.md](../GATING.md) (public-projection
+[INTERNATIONALIZATION.md](../INTERNATIONALIZATION.md), [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md), [GATING.md](../GATING.md) (public-projection
 gating contract), [RELEASING.md](../RELEASING.md), [CONTRIBUTING.md](../CONTRIBUTING.md),
 [CHANGELOG.md](../CHANGELOG.md), [TODO.md](../TODO.md). The
 `.claude/skills/institute-website/` skill and its `Workflows/` are the step-by-step
