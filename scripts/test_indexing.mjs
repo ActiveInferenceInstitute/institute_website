@@ -10,6 +10,8 @@ import { setActiveLocale, LOCALES, tr } from "../src/i18n/index.mjs";
 import { layout } from "../src/render/layout.mjs";
 import { icalStamp, calendarPage } from "../src/pages/calendar.mjs";
 import { isVerifiedExternalUrl } from "../src/render/urls.mjs";
+import { escapeHtml } from "../src/lib/text.mjs";
+import { actionButtons } from "../src/render/page-sections.mjs";
 
 test("redirect guard rejects missing, stale and chained targets, and preserves real pages", () => {
   const root = mkdtempSync(join(tmpdir(), "website-redirect-control-"));
@@ -78,17 +80,52 @@ test("retired RCSI profile resolves to the approved registered staff page", () =
 });
 
 test("untranslated detail pages canonicalize to English; translated pages retain hreflang", () => {
-  setActiveLocale("it");
-  for (const [slug, dir, canonical] of [["newsletter/2023-march", "it/newsletter/2023-march", "newsletter/2023-march/"], ["video-example", "it/video/example", "video/example/"]]) {
-    const html = layout({ title: "Example", slug, currentDir: dir, body: "<h1>Example</h1>" });
-    assert.ok(html.includes(`rel="canonical" href="https://activeinference.institute/${canonical}"`));
-    assert.ok(!html.includes('rel="alternate" hreflang='));
-    assert.ok(html.includes("archived content remains in English"));
+  const notice = "Navigation is machine-translated; the archived content remains in English.";
+  try {
+    for (const { code } of LOCALES.filter(locale => locale.code !== "en")) {
+      setActiveLocale(code);
+      const catalog = JSON.parse(readFileSync(new URL(`../src/content/i18n/${code}.json`, import.meta.url), "utf8"));
+      assert.ok(catalog[notice] && catalog[notice] !== notice, `Untranslated notice: ${code}`);
+      for (const [slug, path, canonical] of [["newsletter/2023-march", "newsletter/2023-march", "newsletter/2023-march/"], ["video-example", "video/example", "video/example/"]]) {
+        const body = "<h1>English archive body</h1>";
+        const html = layout({ title: "Example", slug, currentDir: `${code}/${path}`, body });
+        assert.ok(html.includes(`rel="canonical" href="https://activeinference.institute/${canonical}"`));
+        assert.ok(!html.includes('rel="alternate" hreflang='));
+        assert.ok(html.includes(escapeHtml(catalog[notice])));
+        assert.ok(html.includes(body));
+      }
+      const translated = layout({ title: "Ecology", slug: "active-inference-and-ecology", currentDir: `${code}/active-inference/ecology`, body: "<h1>Ecology</h1>" });
+      assert.ok(translated.includes(`rel="canonical" href="https://activeinference.institute/${code}/active-inference/ecology/"`));
+      assert.ok(translated.includes(`rel="alternate" hreflang="${code}"`));
+    }
+  } finally {
+    setActiveLocale("en");
   }
-  const translated = layout({ title: "Ecology", slug: "active-inference-and-ecology", currentDir: "it/active-inference/ecology", body: "<h1>Ecology</h1>" });
-  assert.ok(translated.includes('rel="canonical" href="https://activeinference.institute/it/active-inference/ecology/"'));
-  assert.ok(translated.includes('rel="alternate" hreflang="it"'));
-  setActiveLocale("en");
+});
+
+test("hero action labels translate in every locale and enter the English extraction", () => {
+  const actions = JSON.parse(readFileSync(new URL("../src/content/pages/participate/working-groups.json", import.meta.url), "utf8")).primaryActions;
+  try {
+    for (const { code } of LOCALES.filter(locale => locale.code !== "en")) {
+      setActiveLocale(code);
+      const catalog = JSON.parse(readFileSync(new URL(`../src/content/i18n/${code}.json`, import.meta.url), "utf8"));
+      const html = actionButtons(actions, `${code}/working-groups`);
+      assert.equal((html.match(/class="button /gu) || []).length, actions.length);
+      for (const { label } of actions) {
+        assert.ok(catalog[label] && catalog[label] !== label, `Missing action translation: ${code}: ${label}`);
+        assert.ok(html.includes(`>${escapeHtml(catalog[label])}</a>`));
+      }
+    }
+  } finally {
+    setActiveLocale("en");
+  }
+  const script = `import { actionButtons } from './src/render/page-sections.mjs';
+import { extractedStrings } from './src/i18n/index.mjs';
+actionButtons(${JSON.stringify(actions)}, 'working-groups');
+console.log(JSON.stringify(extractedStrings()));`;
+  const result = spawnSync(process.execPath, ["--input-type=module", "-e", script], { encoding: "utf8", env: { ...process.env, I18N_EXTRACT: "1" } });
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  assert.deepEqual(JSON.parse(result.stdout).sort(), actions.map(({ label }) => label).sort());
 });
 
 test("link and domain gates fail on real negative-control files", () => {

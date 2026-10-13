@@ -4,6 +4,22 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **Validator traversal (2026-10-13).** Skip already-excluded tooling trees
+  before descending, preserving the existing HTML and simulation coverage.
+  Retain diagnostic fixtures and fail on unreadable public paths. Verify the
+  file inventory and permission-error controls with real directories and symlinks.
+- **Locale completion and translation safeguards (2026-10-13).** Add 39 missing
+  source strings in each of 11 catalogs, including working-group governance,
+  participation and archive notices. Correct incomplete and mixed-language
+  drafts against English while preserving earlier translations and machine
+  provenance. Add strict completion, terminology, contact/placeholder and
+  selected-key controls to the offline translator; preserve multiline prose,
+  lists and existing emphasis. Cover failures with real local HTTP and CLI tests.
+- **Localized hero actions (2026-10-13).** Route action labels through translation
+  before escaping. Extract the previously missed controls and add 71 entries per
+  locale, including the working-group reading and registration actions. Preserve
+  registered destinations, proper names and publication titles. Test all locales
+  and verify that the English extraction captures the actual action labels.
 - **German UI copy (2026-10-13).** Correct the footer navigation's accessible
   name to “Fußzeile”, remove the unclosed quotation mark from the global search
   placeholder and capitalize the “Teilnehmen” participation label. Rebuild all

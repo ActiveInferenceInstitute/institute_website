@@ -45,7 +45,7 @@ export function actionButtons(links = [], currentDir = "") {
     .map((link, index) => {
       const kind = index === 0 ? "primary" : "secondary";
       const href = resolveInternalHref(link.href, currentDir);
-      return `<a class="button ${kind}" href="${escapeHtml(href)}"${linkAttrs(href)}>${escapeHtml(link.label)}</a>`;
+      return `<a class="button ${kind}" href="${escapeHtml(href)}"${linkAttrs(href)}>${escapeHtml(tr(link.label))}</a>`;
     })
     .join("")}</div>`;
 }

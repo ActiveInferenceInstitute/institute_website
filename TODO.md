@@ -7,6 +7,33 @@ strict Content Security Policy, gated by `npm run check`.
 
 ## Backlog / ideas
 
+## Translation completion follow-ups — 2026-10-13
+
+- [x] Add an explicit strict translation mode that rejects request failures,
+      truncated completions, empty/degenerate output and unchanged English
+      before saving a locale. Verify real HTTP failure fixtures and a successful
+      translated response while preserving the existing catalog bytes on failure.
+- [x] Copy the existing locale-default models into an isolated external-volume
+      cache, verify manifest/blob hashes and use a separately owned runtime.
+- [x] Fill the 39 missing source keys in each locale, preserve existing entries,
+      review new translations and validate regenerated pages before publication.
+      All 429 additions have been checked against the English source. Repair
+      incomplete/mixed-language drafts, governance wording, lists, contact tags
+      and dates; retain the machine-translation provenance notices.
+- [x] Translate shared hero actions before escaping their labels. A browser check
+      exposed three English working-group actions; the shared fix adds 72 source
+      keys to extraction and 71 missing catalog entries per locale. All 1,210
+      new entries preserve earlier values, with all 3,768 extracted keys present.
+      Keep proper names, publication titles and native cognates unchanged where
+      appropriate. Check actual action rendering and extraction in all locales.
+- [x] Prune already-excluded tooling directories before validator traversal.
+      Preserve retained fixtures and public-file coverage; prove inventory
+      equality on real files/symlinks and rejection of unreadable public paths.
+- [ ] Review older multiline translations separately: a source-paragraph scan
+      found 135 pre-existing entries per catalog with fewer paragraph breaks.
+      The multiline pipeline fix prevents first-line truncation in future runs;
+      refreshing older translations needs a separate review of content fidelity.
+
 ## Profile HTTPS and German UI follow-ups — 2026-10-13
 
 - [x] Reproduce the missed `www.adeelrazi.org`, `sandeepramesh.com` and
@@ -25,10 +52,10 @@ strict Content Security Policy, gated by `npm run check`.
       menu/dropdown expansion and absence of horizontal overflow.
 - [x] Run local Python 3.14.7 from GitVault: verify both interpreter prefixes
       resolve on the external volume and bind gate commands to that interpreter.
-- [ ] Full translation refresh: 39 extracted keys are missing in each of the
-      11 catalogs. The default provider's model store is outside GitVault;
-      refresh requires a provider whose model/cache storage meets the current
-      storage contract. Preserve the existing service and its owner.
+- [x] Fill the 39 missing extracted keys in each of the 11 catalogs using an
+      isolated external-volume model cache and source-based corrections.
+      Verify the existing models against their manifests, preserve earlier
+      catalog values and keep the existing provider services and owners intact.
 
 ## GitVault follow-ups — 2026-10-13
 
@@ -469,15 +496,15 @@ fallback. Open items below are verified but deliberately deferred.
 - [x] **search-data.js knowledge row anchors** — already implemented;
       confirmed 2026-10-13 that all 148 built knowledge search results carry
       fragments matching IDs in `knowledge/index.html`.
-- [ ] **New `tr()` strings need a translation sweep** — the 2026-09-04
-      wrappers (newsletter/sitemap/simulations/video pages) fall back to
-      English until the next `npm run i18n:extract` + offline translate pass;
-      fold into the terminology-QA sweep already noted above (includes the
-      German catalog fixes: unclosed `«` in the search placeholder, footer
-      `aria-label` "Fußnote" → "Fußzeile", "teilnehmen" casing, number
-      formatting, accent-swatch aria labels, gate-metric card copy).
-      The footer label, search-placeholder punctuation and participation casing
-      are corrected on 2026-10-13; the full translation sweep remains pending.
+- [x] **New `tr()` string coverage** — refreshed extraction on 2026-10-13:
+      all 3,768 extracted keys are present in every locale. Add 110 entries per
+      locale, including the newly extracted hero actions, and preserve existing
+      values. The German footer label, search punctuation and participation
+      casing were corrected earlier that day.
+- [ ] **Existing UI translation review** — number formatting, accent-swatch
+      accessibility labels and gate-metric copy still need semantic review.
+      Catalog coverage does not certify earlier translations; the 135 older
+      multiline entries are tracked in the translation follow-ups above.
 - [x] **Video page meta descriptions** — already use the structured
       title/series/date summary in `src/pages/video-detail.mjs` rather than ASR
       openings; reconciled 2026-10-13.

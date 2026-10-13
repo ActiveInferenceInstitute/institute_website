@@ -54,7 +54,33 @@ npm run i18n:translate -- --all            # every non-default locale
 npm run i18n:translate -- --locale zh --model qwen2.5:3b
 npm run i18n:translate -- --locale de --limit 50    # cap, for testing
 npm run i18n:translate -- --locale fr --force       # re-translate every key
+npm run i18n:translate -- --all --strict           # require complete translations
 ```
+
+Use `--strict` for a publication refresh. Ollama responses must finish with
+`done: true` and `done_reason: "stop"`; hosted responses require `finish_reason:
+"stop"`. Empty, degenerate and unchanged-English results fail the command
+before that locale is saved, except standalone protected names that must remain
+verbatim. Strict requests allow up
+to 2,048 output tokens for longer passages. Already completed locales remain
+available when a later locale fails, so retries stay incremental. Review the
+new entries and run terminology QA before building; completion checks do not
+replace translation review.
+
+For a bounded repair, `--keys-file <file.json>` selects an array of existing
+extracted English strings. Pair it with `--retry-incomplete` to repair cached
+values that lost source paragraphs, keeping unrelated entries intact. Multiline
+sources preserve paragraphs and list structure in both the prompt and output
+cleanup; single-line labels retain prompt-echo cleanup.
+Strict mode translates sentences and multiline sources segment by segment,
+retaining the original separators and checking protected terms before combining
+the result.
+Concept terms may use the established locale renderings in the terminology
+policy; institutional names remain protected. A missing protected term can
+trigger one logged retry using its original spelling and the same model, but
+the candidate must still pass validation. Contact addresses, uppercase subject
+tags and placeholder tokens must survive unchanged. A selected-key repair
+cannot be combined with `--force` or `--prune`.
 
 ### Ollama (default)
 
