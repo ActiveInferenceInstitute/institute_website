@@ -641,11 +641,12 @@
       "id": "person-adeel-razi",
       "label": "Adeel Razi public page",
       "category": "People",
-      "url": "http://www.adeelrazi.org/",
+      "url": "https://www.adeelrazi.org/",
+      "previousUrls": ["http://www.adeelrazi.org/"],
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "checkedAt": "2026-10-13T19:03:11Z"
     },
     {
       "id": "person-alexander-ororbia",
@@ -1253,11 +1254,12 @@
       "id": "person-sandeep-ramesh",
       "label": "Sandeep Ramesh public page",
       "category": "People",
-      "url": "http://sandeepramesh.com/",
+      "url": "https://www.sandeepramesh.com/",
+      "previousUrls": ["http://sandeepramesh.com/", "https://sandeepramesh.com/"],
       "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "checkedAt": "2026-10-13T19:03:11Z"
     },
     {
       "id": "person-sarah-hamburg",
@@ -1294,11 +1296,12 @@
       "id": "person-sebastian-alvarado-2",
       "label": "Sebastian Alvarado public page",
       "category": "People",
-      "url": "http://www.alvaradolab.com/",
+      "url": "https://www.alvaradolab.com/",
+      "previousUrls": ["http://www.alvaradolab.com/"],
       "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "checkedAt": "2026-10-13T19:03:11Z"
     },
     {
       "id": "person-shady-el-damaty",

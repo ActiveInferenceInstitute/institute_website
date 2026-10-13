@@ -5,7 +5,7 @@ import { activeLocale, DEFAULT_LOCALE } from "./i18n/index.mjs";
 const { forwards } = JSON.parse(fs.readFileSync(new URL("./content/inbound-forwards.json", import.meta.url), "utf8"));
 const instituteHost = (host) => /(^|\.)activeinference\.(institute|org)$/.test(host);
 const deadHosts = new Set(["measure.activeinference.org", "onboard.activeinference.org", "octopus.activeinference.institute"]);
-const secureProfileHosts = new Set(["adeelrazi.org", "faculty.washington.edu", "jakubsmekal.com", "www.sandeepramesh.com", "alvaradolab.com", "crowdsmart.ai"]);
+const secureProfileHosts = new Set(["adeelrazi.org", "www.adeelrazi.org", "faculty.washington.edu", "jakubsmekal.com", "sandeepramesh.com", "www.sandeepramesh.com", "alvaradolab.com", "www.alvaradolab.com", "crowdsmart.ai"]);
 const previousUrlDestinations = new Map(siteData.liveSources.sources
   .filter((source) => source.ok === true)
   .flatMap((source) => (source.previousUrls || []).map((url) => [url, source.url])));

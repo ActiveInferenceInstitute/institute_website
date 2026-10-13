@@ -4,6 +4,11 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **Verified profile HTTPS variants (2026-10-13).** Repair the missing apex/www
+  hostname variants for Adeel Razi, Sandeep Ramesh and Sebastian Alvarado.
+  Update their registered destinations to verified HTTPS URLs, preserve historical
+  URLs as aliases and align the renderer with the Python validation policy.
+  Keep unverified subdomains and the existing HTTP certificate exception unchanged.
 - **RCSI profile replacement (2026-10-13).** Replace Mick Thacker's retired
   individual profile with the approved official School of Physiotherapy staff
   page. Resolve historical roster URLs through registered aliases at render

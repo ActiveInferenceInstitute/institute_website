@@ -2,7 +2,7 @@ import re
 from urllib.parse import urlparse, urlunparse
 
 DEAD_HOSTS = {"measure.activeinference.org", "onboard.activeinference.org", "octopus.activeinference.institute"}
-SECURE_PROFILE_HOSTS = {"adeelrazi.org", "faculty.washington.edu", "jakubsmekal.com", "www.sandeepramesh.com", "alvaradolab.com", "crowdsmart.ai"}
+SECURE_PROFILE_HOSTS = {"adeelrazi.org", "www.adeelrazi.org", "faculty.washington.edu", "jakubsmekal.com", "sandeepramesh.com", "www.sandeepramesh.com", "alvaradolab.com", "www.alvaradolab.com", "crowdsmart.ai"}
 
 
 def institute_host(host):

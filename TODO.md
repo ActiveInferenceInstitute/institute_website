@@ -7,6 +7,25 @@ strict Content Security Policy, gated by `npm run check`.
 
 ## Backlog / ideas
 
+## Profile HTTPS and German UI follow-ups — 2026-10-13
+
+- [x] Reproduce the missed `www.adeelrazi.org`, `sandeepramesh.com` and
+      `www.alvaradolab.com` HTTPS variants. Verify their HTTPS endpoints, update
+      the registered URLs and preserve historical URLs as aliases. Keep renderer
+      and Python validation policy aligned, preserve paths/query/fragments and
+      retain HTTP for the unverified-subdomain and bayeslanguage controls.
+      Acceptance: all 13 gates and 90 tests pass with external Python, and all
+      248 source checks pass. Exactly 96 HTTP anchors change across 12 SAB pages;
+      all other rendered bytes and upstream public payloads are preserved.
+- [ ] Correct German footer accessibility label, search placeholder punctuation
+      and participation-label capitalization, then rebuild the locale pages.
+- [x] Run local Python 3.14.7 from GitVault: verify both interpreter prefixes
+      resolve on the external volume and bind gate commands to that interpreter.
+- [ ] Full translation refresh: 39 extracted keys are missing in each of the
+      11 catalogs. The default provider's model store is outside GitVault;
+      refresh requires a provider whose model/cache storage meets the current
+      storage contract. Preserve the existing service and its owner.
+
 ## GitVault follow-ups — 2026-10-13
 
 - [x] Replace the CI action implementations that GitHub now forces from Node 20

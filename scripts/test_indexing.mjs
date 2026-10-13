@@ -42,6 +42,30 @@ test("public anchors remove dead links, normalize HTTPS, and keep on-site routes
   setActiveLocale("en");
 });
 
+test("verified profile hostname variants use HTTPS in renderer and Python policy", () => {
+  const inputs = [
+    "http://www.adeelrazi.org/research?q=1#bio",
+    "http://sandeepramesh.com/research?q=1#bio",
+    "http://www.alvaradolab.com/research?q=1#bio",
+    "http://unverified.adeelrazi.org/",
+    "http://bayeslanguage.org/",
+  ];
+  const expected = [
+    "https://www.adeelrazi.org/research?q=1#bio",
+    "https://sandeepramesh.com/research?q=1#bio",
+    "https://www.alvaradolab.com/research?q=1#bio",
+    "http://unverified.adeelrazi.org/",
+    "http://bayeslanguage.org/",
+  ];
+  assert.deepEqual(inputs.map(normalizePublicUrl), expected);
+  const python = spawnSync("python3", ["-c", "import json, sys; from scripts.public_link_policy import normalized_external_url; print(json.dumps([normalized_external_url(url) for url in json.load(sys.stdin)]))"], { input: JSON.stringify(inputs), encoding: "utf8" });
+  assert.equal(python.status, 0, python.stdout + python.stderr);
+  assert.deepEqual(JSON.parse(python.stdout), expected);
+  assert.equal(normalizePublicUrl("http://www.adeelrazi.org/"), "https://www.adeelrazi.org/");
+  assert.equal(normalizePublicUrl("http://sandeepramesh.com/"), "https://www.sandeepramesh.com/");
+  assert.equal(normalizePublicUrl("http://www.alvaradolab.com/"), "https://www.alvaradolab.com/");
+});
+
 test("retired RCSI profile resolves to the approved registered staff page", () => {
   const retired = "https://www.rcsi.com/people/profile/michaelthacker";
   const replacement = "https://www.rcsi.com/dublin/about/faculty-of-medicine-and-health-sciences/school-of-physiotherapy/our-people";
