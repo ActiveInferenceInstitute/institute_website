@@ -46,6 +46,26 @@ Symptom → cause → fix for the common build and gate failures. Full gate sema
   regenerate, then rebuild. This data is produced by the InstituteOS export pipeline —
   do not hand-edit it.
 
+## Tests fail with `ENOSPC` in the temporary directory
+
+Check free space on both the checkout volume and the system temporary volume.
+If the checkout has space, use its ignored cache for test fixtures:
+
+```bash
+mkdir -p .cache/validation
+TMPDIR="$PWD/.cache/validation" npm run check
+```
+
+Preserve the failed output and fixtures. Python may fall back to the working
+directory when system temporary locations are unavailable; those synthetic
+HTML trees can interfere with later site checks. Identify fixtures created by
+the failed run, record their hashes and move them into the ignored cache before
+retrying. Do not remove unrelated temporary data to make the gate pass.
+
+`check:browser` also respects `TMPDIR` for its isolated Chrome profile and JSON
+receipts. Set `CHROME_BIN` to an installed Chrome/Chromium executable; a missing
+browser fails explicitly.
+
 ## "I edited a page but the site didn't change"
 
 - **Cause:** you edited built output (`*/index.html`) instead of source, or forgot to

@@ -7,6 +7,36 @@ strict Content Security Policy, gated by `npm run check`.
 
 ## Backlog / ideas
 
+## Calendar and roadmap follow-ups — 2026-10-13
+
+- [x] Reproduce the live calendar `ReferenceError: scope is not defined` and
+      replace the broken count update with a shared, count-neutral label.
+- [x] Translate `Events shown: {n}` in all 11 catalogs; use the same pattern
+      for static markup and runtime updates across all 12 locales.
+- [x] Add localized renderer assertions and a separate real-Chrome regression
+      command covering initial/upcoming/past/all, zero/one results, search reset
+      and group visibility. Restore the original error as a negative control.
+      CI runs the browser command on Node 20 and 22.
+- [x] Reconcile implemented knowledge anchors, video descriptions, language
+      semantics and Open Graph exclusions; document all 13 offline sub-gates.
+- [x] Finish local acceptance: all 13 offline sub-gates pass, including 43
+      export/indexing and 31 i18n tests. Chrome passes 84 scenarios in all 12
+      locales and rejects the original runtime-error control. Temporary-volume
+      ENOSPC was resolved with GitVault fixtures; failed fixtures were preserved.
+
+After publication, verify both Node CI jobs and deployed bytes using the
+deployment workflow in AGENTS.md. External-source reachability remains separate:
+
+- [ ] **Existing live-source failures (2026-10-13).** The default 248-source
+      probe failed on the RCSI profile for `person-mick-thacker` (redirect to
+      `people.rcsi.com/michaelthacker`, HTTP 404) and 17 HTTP 0 transport failures.
+      A retry with 4 workers and 20-second source timeouts still failed on that
+      profile and 16 HTTP 0 results (15 Zenodo requests plus `person-mlflumic`).
+      A direct Zenodo retry confirmed curl exit 28 after its 20-second timeout.
+      Resolve the profile with an approved public destination and re-check host
+      reachability; do not change the gate or mark timed-out sources unreachable
+      solely from these probes. The committed source registry was preserved.
+
 ## DNS / HTTPS / indexing follow-ups — 2026-10-12
 
 The administrator enabled HTTPS, added apex AAAA records and updated domain
@@ -35,7 +65,10 @@ recrawl or production acceptance.
       require HTTPS baseUrl and matching CNAME. Treat bare GMT/UTC as zero ICS offset.
 - [x] Verify final generated-output parity on Node 20.20.2 and 22.23.3: 11286 site
       files have identical aggregate SHA-256 16b3b212b7b775bfc73f9700f7fcd7daf00c3431d4a9bf29c46b96c0ae09fc8a.
-- [ ] Confirm deployed stub responses and Search Console recrawl after publication.
+- [x] Confirm deployed stubs: `/officers/` and `/ru/simulations/Ink.html`
+      returned HTTP 200 and matched committed bytes after the 4f339c0e deployment;
+      both Node CI jobs and Pages succeeded. Search Console recrawl is separate.
+- [ ] Owner: confirm Search Console recrawl and validate the legacy 404 fixes.
 - [ ] Administrator: repoint alias-domain HTTP forwards and robots-blocked external
       forwards; validate Search Console fixes and resubmit the sitemap after deploy.
 - [ ] Content owner: select replacements for archived dead-host links, confirm the
@@ -44,23 +77,23 @@ recrawl or production acceptance.
 
 ## Other backlog
 
-- [ ] **Light-theme accent contrast (F19, 2026-09-27).** Non-text accent
-      elements in light mode measure 3.0–4.4:1 against AA's 4.5:1 for UI
-      components — a brand/design-token decision (`assets/css/instituteos-ds.css`
-      + `styles.css`), not a mechanical fix; needs the Institute's color
-      sign-off before changing canonical tokens (design-system export gate
-      will re-pin both files).
+- [ ] **Light-theme accent contrast (F19, 2026-09-27).** Re-measure and classify
+      the previously reported 3.0–4.4:1 elements before changing tokens.
+      [WCAG non-text contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html)
+      requires 3:1 for necessary component/state indicators; ordinary text uses
+      [4.5:1](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
+      The earlier blanket 4.5:1 requirement for non-text controls was incorrect.
+      Rounded historical ratios do not establish current compliance. Canonical
+      token changes remain a design-system source and color-owner decision.
 - [ ] **Newsletter archive dead "here" CTA (F24-adjacent, 2026-09-27).** The
       2025-august / 2025-november newsletter snapshots contain "here"
       call-to-action text whose target lived in the private archive snapshot;
       fixing it requires an upstream content decision (refresh the snapshot
       via the sanctioned export or edit copy). Not code-doable in this repo.
-- [ ] **Calendar event-count plural edge (2026-09-27).** The runtime count
-      contract ships the plural pattern ("{n} upcoming events shown"); at
-      n=1 Spanish/German/etc. render plural-phrased text ("1 próximos
-      eventos mostrados" class of artifact). Fix is catalog + contract work:
-      either per-element singular/plural attr pairs or a JS pluralizer; low
-      traffic page, deferred until catalogs next open.
+- [x] **Calendar event-count plural edge (2026-09-27).** Resolved 2026-10-13
+      with a translated count-neutral label, shared static/runtime pattern and
+      real-browser checks at zero/one/many. Counts describe both past and
+      upcoming filters and searches, without a fixed "upcoming" qualifier.
 - [x] **i18n catalog backlog (2026-07-20) — DONE 2026-08-02.** The extract now
       collects 3,418 strings (long-form knowledge/course prose entered the
       catalog with the strategy-map wiring and content growth); the offline
@@ -370,11 +403,9 @@ coverage on the four programmatic pages, deterministic video ordering,
 nav-dedupe, null-safe site.js/redirects.js, icon purpose split, security.txt
 fallback. Open items below are verified but deliberately deferred.
 
-- [ ] **search-data.js knowledge entries lack row anchors** — repository/
-      concept/policy/program/member entries all share the bare `/knowledge/`
-      URL while the page renders per-row anchors; search results cannot jump
-      to the row. Needs the per-section id-prefix map verified against
-      `src/render/knowledge.mjs` before wiring fragments (medium, UX).
+- [x] **search-data.js knowledge row anchors** — already implemented;
+      confirmed 2026-10-13 that all 148 built knowledge search results carry
+      fragments matching IDs in `knowledge/index.html`.
 - [ ] **New `tr()` strings need a translation sweep** — the 2026-09-04
       wrappers (newsletter/sitemap/simulations/video pages) fall back to
       English until the next `npm run i18n:extract` + offline translate pass;
@@ -382,13 +413,14 @@ fallback. Open items below are verified but deliberately deferred.
       German catalog fixes: unclosed `«` in the search placeholder, footer
       `aria-label` "Fußnote" → "Fußzeile", "teilnehmen" casing, number
       formatting, accent-swatch aria labels, gate-metric card copy).
-- [ ] **Video page meta descriptions are raw ASR transcript openings** —
-      derive from title/series/date instead (minor, SEO quality).
-- [ ] **`aria-current="page"` in the language switcher** (currently
-      `aria-current="true"`; minor, a11y semantics).
-- [ ] **`og:locale:alternate` still advertises noindex locale variants**
-      (e.g. the human-sitemap pattern); mirrors the hreflang rule already
-      enforced for the XML sitemap (minor).
+- [x] **Video page meta descriptions** — already use the structured
+      title/series/date summary in `src/pages/video-detail.mjs` rather than ASR
+      openings; reconciled 2026-10-13.
+- [x] **Language switcher `aria-current="page"`** — already implemented;
+      confirmed in built Italian archive and sitemap pages on 2026-10-13.
+- [x] **Open Graph locale alternates** — already follow hreflang eligibility;
+      confirmed zero alternates on built Italian sitemap and untranslated
+      newsletter detail pages on 2026-10-13.
 - [ ] **Newsletter archive dead "here" call-to-action** in two archived
       issues (2025-august, 2025-november) — the sentence survives without its
       Substack inline link; fix belongs in the private archive snapshot, then

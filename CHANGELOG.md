@@ -4,6 +4,14 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **Calendar counts and roadmap reconciliation (2026-10-13).** Fix the
+  undefined `scope` runtime error that interrupted calendar count updates.
+  Share a count-neutral label between static markup and browser filtering,
+  translated in every locale, and localize the upcoming/past count headings.
+  Add renderer checks and a real-Chrome regression
+  for all locales, with the original runtime error as a negative control;
+  run it in both Node CI jobs. Reconcile stale backlog entries, document the
+  13 offline sub-gates and correct the non-text contrast threshold reference.
 - **DNS, HTTPS and indexing follow-ups (2026-10-12).** Build 450 static legacy
   redirect stubs from the shared taxonomy, including localized simulation filenames;
   fix locale simulation links and check their landing pages. Render on-site forwards
@@ -11,8 +19,9 @@ This project follows [Semantic Versioning](https://semver.org/).
   forwarding destinations, canonicalize untranslated newsletter/video detail bodies
   to English, and exclude utility pages from the sitemap. Preserve deterministic
   lastmod dates and fix bare-GMT ICS offsets. Add redirect, link, domain and indexing
-  checks; refresh hosting/DNS docs. Production deployment and Search Console recrawl
-  require subsequent verification.
+  checks; refresh hosting/DNS docs. Deployment of 4f339c0e passed both Node CI
+  jobs and Pages; 13 live acceptance URLs returned HTTP 200 with committed bytes.
+  Search Console recrawl remains an owner follow-up.
 - **Working Groups go-live (2026-09-30).** The position paper is published on
   Zenodo (DOI 10.5281/zenodo.23066904) and the Working_Groups repository is
   public, so the six `working-groups-*` live sources are promoted to `ok=true`.

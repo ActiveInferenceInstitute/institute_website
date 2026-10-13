@@ -14,13 +14,14 @@ This document is a complete reference for all gates and guards enforcing the sta
 # Build first (always) — gates read generated HTML
 node src/build.mjs
 
-# Run the deterministic offline gate suite (12 sub-checks, chained in package.json's "check" script)
+# Run the deterministic offline gate suite (13 sub-checks, chained in package.json's "check" script)
 npm run check
 
 # Explicitly run a single gate
 npm run check:links        # check_internal_links.py
 npm run check:md-links     # check_markdown_links.py -- relative links in tracked *.md docs
 npm run check:instituteos  # sync_instituteos_public_data.py --check
+npm run check:export       # export-manifest, indexing and localized calendar tests
 npm run check:design-system  # check_design_system_export.mjs
 npm run check:site         # check_site_contract.py
 npm run check:feeds        # check_feeds.py -- feed.xml/feed.json structure + sitemap target existence
@@ -32,6 +33,8 @@ npm run check:projects     # check_project_discoverability.py
 npm run check:catalog      # check_project_catalog_coverage.mjs
 npm run check:i18n         # test_i18n_translate.mjs + test_i18n_terminology.mjs (node --test)
 npm run check:standalone   # check_standalone_payloads.py (CI-only sync branch)
+# Separate real-browser check; CHROME_BIN must name a Chrome/Chromium executable
+npm run check:browser      # calendar filters/counts in all locales + runtime-error control
 ```
 
 ---
@@ -865,6 +868,27 @@ python3 scripts/check_feeds.py
 
 ---
 
+## Additional Offline Gates
+
+`check:md-links` runs `scripts/check_markdown_links.py` over tracked Markdown,
+including agent guides. It rejects relative targets that do not exist and leaves
+external URLs to separate network verification.
+
+`check:export` runs `scripts/test_export_manifest.mjs` and
+`scripts/test_indexing.mjs`. Real temporary files exercise manifest hashes,
+inventories, public-data safety, redirects, internal links, domain configuration,
+sitemap dates and indexing policy. The suite also checks UTC ICS stamps and the
+shared calendar count pattern in all locales. Negative controls must fail before
+the corresponding valid fixture is trusted.
+
+`check:redirects` runs `scripts/check_redirects.py`. It independently enumerates
+the taxonomy's legacy source paths across locales and simulation filenames,
+requires exact manifest coverage and validates canonical/refresh/fallback/noindex
+markup. Destinations must be real built pages, without chains or overwritten
+routes. The runtime map and generated forwarding documentation must match their
+sources; pinned forwarding targets must retain self-canonicals, and rendered
+on-site forwarding hosts must be replaced with internal URLs.
+
 ## Gate Chaining: What Gates Depend on Each Other
 
 The gate order matters because earlier gates set state for later ones. This mirrors the `check` script order in `package.json`:
@@ -877,6 +901,8 @@ check:links (validates generated HTML has no broken refs)
 check:md-links (validates relative links in tracked Markdown docs)
   ↓
 check:instituteos (validates public data sync)
+  ↓
+check:export (validates export provenance, indexing controls and calendar markup)
   ↓
 check:design-system (validates CSS exports)
   ↓
@@ -896,6 +922,15 @@ check:i18n (validates translation-helper logic via node --test)
   ↓
 check:standalone (validates the CI-only fallback branch of the sync check)
 ```
+
+`check:browser` is separate from the dependency-free offline chain and runs in
+CI after it on both Node versions. With `CHROME_BIN` set, it starts a loopback
+server and uses headless Chrome on the actual built calendar pages in every
+locale. It checks initial/upcoming/past/all counts, zero results, one past-event
+search result, clearing the search and group visibility, while capturing runtime
+errors. Restoring the original undefined `scope` expression must fail as a
+negative control. Missing Chrome, missing receipts or failed assertions fail
+the command; JSON receipts remain in its temporary browser profile.
 
 The optional `check:sources` probe is deliberately outside this deterministic
 chain: network outages must not make a reproducible local build hang or fail.
