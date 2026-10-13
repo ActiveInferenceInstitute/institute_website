@@ -13,6 +13,7 @@ from urllib.parse import urlparse
 from public_link_policy import normalized_external_url, institute_link_errors, institute_host
 
 from public_privacy import PHONE_RE
+from site_paths import site_paths
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -177,8 +178,8 @@ def parse_html(path: Path) -> StaticHtmlParser:
 def generated_html_files() -> list[Path]:
     return sorted(
         path
-        for path in PROJECT_ROOT.rglob("*.html")
-        if path.is_file()
+        for path in site_paths(PROJECT_ROOT, EXCLUDED_PARTS - {"simulations"})
+        if path.suffix == ".html" and path.is_file()
         and not any(part in EXCLUDED_PARTS - {"simulations"} for part in path.relative_to(PROJECT_ROOT).parts)
         and not (path.relative_to(PROJECT_ROOT).parts[0] == "simulations" and path.name != "index.html")
     )

@@ -7,6 +7,7 @@ import sys
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
+from site_paths import site_paths
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
@@ -112,7 +113,9 @@ def check_redirects(root):
         if not page.is_file() or parse(page).canonical != [base.rstrip("/") + target] or parse(page).stub:
             errors.append(f"{host}: pinned forwarding target must remain a real self-canonical page: {target}")
     forward_hosts = {f"{host}.activeinference.institute" for host in forwards}
-    for path in root.rglob("index.html"):
+    for path in site_paths(root, {".git", ".cache", "node_modules", "src", "scripts"}):
+        if path.name != "index.html":
+            continue
         if any(part in {".git", "node_modules", "src", "scripts"} for part in path.relative_to(root).parts):
             continue
         for href in parse(path).anchors:

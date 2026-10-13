@@ -14,6 +14,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, urljoin
 from public_link_policy import normalized_external_url
+from site_paths import site_paths
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -450,7 +451,7 @@ def rendered_source_urls(root: Path) -> dict[str, str]:
 
 def generated_public_files(root: Path) -> list[Path]:
     files: list[Path] = []
-    for path in root.rglob("*"):
+    for path in site_paths(root, SCAN_EXCLUDES):
         if not path.is_file() or path.suffix not in SCAN_SUFFIXES:
             continue
         relative_parts = path.relative_to(root).parts
@@ -463,7 +464,8 @@ def generated_public_files(root: Path) -> list[Path]:
 def generated_html_files(root: Path) -> list[Path]:
     return sorted(
         path
-        for path in root.rglob("*.html")
+        for path in site_paths(root, (SCAN_EXCLUDES - {"simulations"}) | {"src"})
+        if path.suffix == ".html"
         if not any(part in (SCAN_EXCLUDES - {"simulations"}) or part in {"src"} for part in path.relative_to(root).parts)
         and not (path.relative_to(root).parts[0] == "simulations" and path.name != "index.html")
     )
@@ -481,7 +483,8 @@ def routed_html_files(root: Path) -> list[Path]:
     """
     return sorted(
         path
-        for path in root.rglob("index.html")
+        for path in site_paths(root, {".git", ".cache", "node_modules", "__pycache__", "scripts", "src"})
+        if path.name == "index.html"
         if not any(part in {".git", ".cache", "node_modules", "__pycache__", "scripts", "src"} for part in path.relative_to(root).parts)
     )
 

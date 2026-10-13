@@ -9,6 +9,7 @@ import sys
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlparse
+from site_paths import site_paths
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -58,7 +59,9 @@ class LinkParser(HTMLParser):
 
 def generated_html_files(root: Path) -> list[Path]:
     files: list[Path] = []
-    for path in root.rglob("*.html"):
+    for path in site_paths(root, SKIP_DIRS - {"simulations"}):
+        if path.suffix != ".html":
+            continue
         relative_parts = path.relative_to(root).parts
         if any(part in SKIP_DIRS - {"simulations"} for part in relative_parts):
             continue

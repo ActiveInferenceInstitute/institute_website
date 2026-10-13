@@ -10,9 +10,34 @@ from check_internal_links import check_links
 from check_site_contract import check_domain_config, check_sitemap_dates
 from public_link_policy import institute_link_errors
 from check_redirects import check_redirects
+from site_paths import site_paths
 
 
 class IndexingControls(unittest.TestCase):
+    def test_site_walk_preserves_inventory_and_prunes_before_descent(self):
+        root = Path(tempfile.mkdtemp(prefix="website-walk-control-")).resolve()
+        paths = ["index.html", "deep/pages/index.html", "assets/site.css", "simulations/index.html", "simulations/Ink.html", "ru/simulations/Ink.html", "src/source.json", ".cache/ignored/deep/index.html", "node_modules/ignored.html", "deep/.cache/ignored.html"]
+        for relative in paths:
+            file = root / relative
+            file.parent.mkdir(parents=True, exist_ok=True)
+            file.write_text("fixture")
+        (root / "linked-directory").symlink_to(root / "deep", target_is_directory=True)
+        (root / "linked-file.html").symlink_to(root / "index.html")
+        (root / "directory.html").mkdir()
+        excluded = {".cache", "node_modules"}
+        expected = sorted(path for path in root.rglob("*") if not any(part in excluded for part in path.relative_to(root).parts))
+        self.assertEqual(sorted(site_paths(root, excluded)), expected)
+        blocked = root / ".cache"
+        blocked.chmod(0)
+        try:
+            self.assertEqual(sorted(site_paths(root, excluded)), expected)
+            with self.assertRaises(PermissionError):
+                list(site_paths(root, {"node_modules"}))
+        finally:
+            blocked.chmod(0o700)
+        with self.assertRaises(FileNotFoundError):
+            list(site_paths(root / "missing", excluded))
+
     def test_redirect_and_forward_negative_controls(self):
         source = Path(__file__).resolve().parents[1]
         root = Path(tempfile.mkdtemp(prefix="website-stub-control-")).resolve()
@@ -40,6 +65,17 @@ class IndexingControls(unittest.TestCase):
         target.write_text(original_target.replace('rel="canonical" href="https://activeinference.institute/programs/mentorship/"', 'rel="canonical" href="https://activeinference.institute/changed/"'))
         self.assertTrue(any("pinned forwarding target" in error for error in check_redirects(root)))
         target.write_text(original_target)
+        self.assertEqual(check_redirects(root), [])
+        host = next(iter(forwards))
+        ignored = root / ".cache/ignored/index.html"
+        ignored.parent.mkdir(parents=True)
+        ignored.write_text(f'<a href="https://{host}.activeinference.institute/">Alias</a>')
+        self.assertEqual(check_redirects(root), [])
+        public = root / "public-control/index.html"
+        public.parent.mkdir()
+        public.write_text(ignored.read_text())
+        self.assertTrue(any("on-site forwarding shortlink must render an internal URL" in error for error in check_redirects(root)))
+        public.write_text('<a href="/projects/">Projects</a>')
         self.assertEqual(check_redirects(root), [])
 
     def test_locale_simulation_negative_control(self):
