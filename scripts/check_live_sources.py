@@ -82,6 +82,27 @@ def validate_url(url: str, *, registered: bool = True) -> None:
         ) from None
 
 
+def approved_url_replacements(entries: list[JSONValue]) -> dict[str, str]:
+    replacements: dict[str, str] = {}
+    for entry in entries:
+        if not isinstance(entry, dict) or not isinstance(entry.get("url"), str):
+            raise ManifestError("source replacement must have a URL string")
+        target = entry["url"]
+        validate_url(target)
+        previous = entry.get("previousUrls", [])
+        if not isinstance(previous, list) or any(not isinstance(url, str) for url in previous):
+            raise ManifestError("previousUrls must be a list of URL strings")
+        for url in previous:
+            validate_url(url)
+        if entry.get("ok") is not True:
+            continue
+        for url in [target, *previous]:
+            if url in replacements and replacements[url] != target:
+                raise ManifestError("ambiguous approved URL replacement")
+            replacements[url] = target
+    return replacements
+
+
 def load_manifest(path: Path) -> tuple[dict[str, JSONValue], list[Source]]:
     data: JSONValue = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(data, dict) or not isinstance(data.get("sources"), list):
@@ -115,6 +136,7 @@ def load_manifest(path: Path) -> tuple[dict[str, JSONValue], list[Source]]:
         if type(status) is not int or not (status == 0 or 100 <= status <= 599 or status == 999):
             raise ManifestError(f"{prefix} statusCode must be an HTTP status integer or zero")
         sources.append(Source(source_id, url, entry["ok"], status, entry.get("knownBotBlocked", False)))
+    approved_url_replacements(data["sources"])
     return data, sources
 
 

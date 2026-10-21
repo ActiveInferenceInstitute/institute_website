@@ -108,12 +108,16 @@ class SourceDiscoveryTests(unittest.TestCase):
         content = website / "src/content"
         content.mkdir(parents=True)
         (content / "live-sources.json").write_text(json.dumps({"sources": [
-            {"id": "live", "url": "https://example.org/live", "ok": True},
-            {"id": "withheld", "url": "https://example.org/withheld", "ok": False},
+            {"id": "live", "url": "https://example.org/live", "ok": True,
+             "previousUrls": ["https://example.org/previous"]},
+            {"id": "withheld", "url": "https://example.org/withheld", "ok": False,
+             "previousUrls": ["https://example.org/previous-withheld"]},
         ]}))
         payload = {"cohorts": [{"year": 2025, "members": [
             {"name": "Live", "url": "https://example.org/live"},
+            {"name": "Approved replacement", "url": "https://example.org/previous"},
             {"name": "Withheld", "url": "https://example.org/withheld"},
+            {"name": "Withheld replacement", "url": "https://example.org/previous-withheld"},
             {"name": "Unregistered", "url": "https://example.org/unregistered"},
         ]}]}
         result = subprocess.run(
@@ -122,8 +126,10 @@ class SourceDiscoveryTests(unittest.TestCase):
             cwd=website / "scripts", env=self.env, capture_output=True, text=True, check=True,
         )
         members = json.loads(result.stdout)["cohorts"][0]["members"]
-        self.assertEqual([member["name"] for member in members], ["Live", "Withheld", "Unregistered"])
-        self.assertEqual([member["url"] for member in members], ["https://example.org/live", "", ""])
+        self.assertEqual([member["name"] for member in members],
+                         ["Live", "Approved replacement", "Withheld", "Withheld replacement", "Unregistered"])
+        self.assertEqual([member["url"] for member in members],
+                         ["https://example.org/live", "https://example.org/live", "", "", ""])
 
 
 if __name__ == "__main__":

@@ -12,6 +12,7 @@ import { sectionHeading } from "./components.mjs";
 import { relPrefix, isVerifiedExternalUrl } from "./urls.mjs";
 import { sourceAnchor } from "./sources.mjs";
 import { tr } from "../i18n/index.mjs";
+import { normalizePublicUrl } from "../public-links.mjs";
 
 // Book-cover feature section: renders a page's `books[]` (cover image + title,
 // authors, year, status, and a publisher link resolved via sourceId). Covers are
@@ -316,7 +317,7 @@ function isRoleSlotPlaceholder(name) {
 // visitor exactly which site they are about to open.
 function externalHostLabel(url) {
   try {
-    return new URL(url).hostname.replace(/^www\./, "");
+    return new URL(url, siteData.site.baseUrl).hostname.replace(/^www\./, "");
   } catch {
     return url;
   }
@@ -341,7 +342,7 @@ function governanceRosterSection(slug, currentDir = "") {
       // contact. Rendered only when the URL is a registered, reachable live
       // source, so a dead or unvetted link can never reach a visitor; the host
       // is shown as the label so the destination is visible before the click.
-      const site = person.website || "";
+      const site = normalizePublicUrl(person.website || "");
       const link = site && isVerifiedExternalUrl(site)
         ? `<a class="roster-link" href="${escapeHtml(site)}" target="_blank" rel="noopener noreferrer">${escapeHtml(externalHostLabel(site))}</a>`
         : "";

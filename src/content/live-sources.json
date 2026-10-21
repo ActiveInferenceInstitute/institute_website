@@ -604,10 +604,10 @@
       "label": "Active Inference (MIT Press, 2022)",
       "category": "Learning",
       "url": "https://mitpress.mit.edu/9780262045353/active-inference/",
-      "sourceBasis": "Publisher page for the 2022 textbook Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, authors Parr/Pezzulo/Friston, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so automated checks see 403 and cannot verify the page — recorded as ok:true/200 from the manual browser verification, with knownBotBlocked so CI-runner bot blocks cannot fail the gate, not because the page is gone.",
+      "sourceBasis": "Publisher page for the 2022 textbook. Browser verification on 2026-10-21 returned HTTP 200 and matched the title, Parr/Pezzulo/Friston authorship and ISBN 9780262045353. Automated requests remain subject to bot protection.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-07-07T17:16:51Z",
+      "checkedAt": "2026-10-21T22:50:04Z",
       "knownBotBlocked": true
     },
     {
@@ -615,10 +615,10 @@
       "label": "Fundamentals of Active Inference (MIT Press, 2026)",
       "category": "Learning",
       "url": "https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/",
-      "sourceBasis": "Publisher page for the 2026 textbook Fundamentals of Active Inference (MIT Press). Manually verified live in a real Chrome browser 2026-07-07 (renders full book page: title, author Sanjeev Namjoshi, description, purchase links). MIT Press has since added Akamai bot-protection (AkamaiGHost, 403 to curl/scripted requests regardless of UA), so automated checks see 403 and cannot verify the page — recorded as ok:true/200 from the manual browser verification, with knownBotBlocked so CI-runner bot blocks cannot fail the gate, not because the page is gone.",
+      "sourceBasis": "Publisher page for the 2026 textbook. Browser verification on 2026-10-21 returned HTTP 200 and matched the title, Sanjeev V. Namjoshi authorship and ISBN 9780262050951. Automated requests remain subject to bot protection.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-07-07T17:16:51Z",
+      "checkedAt": "2026-10-21T22:50:04Z",
       "knownBotBlocked": true
     },
     {
@@ -1073,12 +1073,12 @@
       "id": "person-hector-manrique",
       "label": "Héctor Manrique public page",
       "category": "People",
-      "url": "https://psicosocio.unizar.es/personal/hector-marin-manrique",
-      "sourceBasis": "Public page for this Scientific Advisory Board member. The host blocks automated requests inconsistently; manually verified live in a real Chrome session on 2026-08-19.",
-      "statusCode": 403,
+      "url": "https://sideral.unizar.es/sideral/CV/hector-marin-manrique",
+      "previousUrls": ["https://psicosocio.unizar.es/personal/hector-marin-manrique"],
+      "sourceBasis": "Official university CV identifies Marín Manrique, Héctor. Verified with HTTP 200 in both a live browser and an automated request on 2026-10-21; the previous faculty page now returns access denied.",
+      "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T19:51:41Z",
-      "knownBotBlocked": true
+      "checkedAt": "2026-10-21T22:50:04Z"
     },
     {
       "id": "person-holly-grimm",
@@ -1493,10 +1493,10 @@
       "label": "Susan Keen public page",
       "category": "People",
       "url": "https://biology.ucdavis.edu/people/susan-keen",
-      "sourceBasis": "Public page for this past Scientific Advisory Board member. The host blocks automated requests; the page was manually verified live in a real Chrome session on 2026-08-19.",
-      "statusCode": 403,
+      "sourceBasis": "Official university profile for Susan L. Keen. Browser verification on 2026-10-21 returned HTTP 200 and matched the named profile; automated requests remain subject to bot protection.",
+      "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z",
+      "checkedAt": "2026-10-21T22:50:04Z",
       "knownBotBlocked": true
     },
     {

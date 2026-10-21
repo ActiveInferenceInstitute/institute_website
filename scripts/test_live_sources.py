@@ -242,6 +242,12 @@ class LiveSourcesTests(unittest.TestCase):
             {"statusCode": -1},
             {"statusCode": 600},
             {"finalUrl": "https://coda.io/private-secret"},
+            {"previousUrls": None},
+            {"previousUrls": "https://example.org/old"},
+            {"previousUrls": [None]},
+            {"previousUrls": ["javascript:alert(1)"]},
+            {"previousUrls": ["https://coda.io/private-secret"]},
+            {"previousUrls": ["https://user:secret@example.org/old"]},
         ]
         invalid.extend({"sources": [self.source(**field)]} for field in fields)
         before = len(self.server.requests)
@@ -253,6 +259,20 @@ class LiveSourcesTests(unittest.TestCase):
                 self.assertNotIn("private-secret", result.stderr)
                 self.assertEqual(json.loads(self.manifest.read_text()), payload)
         self.assertEqual(len(self.server.requests), before)
+
+    def test_ambiguous_replacements_fail_without_network_or_writes(self):
+        for previous in ([self.base + "/shared"], [self.base + "/second"]):
+            with self.subTest(previous=previous):
+                payload = {"sources": [
+                    self.source("/first", id="first", previousUrls=previous),
+                    self.source("/second", id="second", previousUrls=[self.base + "/shared"]),
+                ]}
+                before = len(self.server.requests)
+                result = self.run_cli(payload, "--write")
+                self.assertEqual(result.returncode, 1)
+                self.assertIn("ambiguous", result.stderr)
+                self.assertEqual(len(self.server.requests), before)
+                self.assertEqual(json.loads(self.manifest.read_text()), payload)
 
     def test_invalid_urls_fail_offline(self):
         # Given unsafe or malformed URLs, when parsed offline, then none reach the network boundary.

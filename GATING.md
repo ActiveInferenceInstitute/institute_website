@@ -32,6 +32,12 @@ Each public file has one producer. Unknown slices and overlapping ownership
 fail validation. Edit canonical sources or generators, then regenerate;
 `src/content/instituteos/*.json` is generated data.
 
+An approved `previousUrls` entry may replace a historical roster URL with its
+current registered destination. Both URLs must pass the source URL rules, the
+destination must have `ok: true`, and ambiguous replacements fail before probing
+or writing. Public slices contain the current destination; historical source
+records remain unchanged.
+
 Source selection is explicit CLI selection, then `INSTITUTEOS_ROOT`, then the
 nearest ancestor containing `library/registries`, then the supported sibling
 checkout. Invalid explicit selections fail. Automatic discovery without a

@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Iterator, Any
 
 from check_export_manifest import check_export_manifest
+from check_live_sources import approved_url_replacements
 from public_privacy import PHONE_RE, private_key
 
 
@@ -403,7 +404,8 @@ def sanitize_sab_cohorts(cohorts_data: dict[str, Any]) -> dict[str, Any]:
     Cohorts and members arrive already ordered (newest year first, members by
     name) and that order is preserved so the rendered page is deterministic.
     """
-    public_urls = set(live_source_urls().values())
+    live = load_json(PROJECT_ROOT / "src" / "content" / "live-sources.json")
+    public_urls = approved_url_replacements(live.get("sources", []))
     cohorts = []
     for cohort in cohorts_data.get("cohorts", []):
         year = cohort.get("year")
@@ -411,13 +413,8 @@ def sanitize_sab_cohorts(cohorts_data: dict[str, Any]) -> dict[str, Any]:
             continue
         members = []
         for member in cohort.get("members", []):
-            # URL values bypass public_text(): that helper rewrites benign
-            # substrings such as "workspace"/"PDF" inside legitimate URLs and
-            # would launder a private URL before the public-safety gate sees
-            # it. Only the http(s) scheme is checked here instead.
             url = member.get("url") or ""
-            if not url.startswith(("http://", "https://")) or url not in public_urls:
-                url = ""
+            url = public_urls.get(url, "")
             record = {
                 "name": public_text(member.get("name")),
                 "url": url,
