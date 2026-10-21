@@ -104,6 +104,7 @@ test("registered alternative URL attributes and linked text are HTML-escaped", (
 function contractCases(cases) {
   const program = [
     "import json, runpy, sys",
+    "sys.path.insert(0, 'scripts')",
     "module = runpy.run_path('scripts/check_site_contract.py')",
     "results = []",
     "for case in json.load(sys.stdin):",

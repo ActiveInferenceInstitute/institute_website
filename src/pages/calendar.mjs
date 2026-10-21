@@ -44,6 +44,7 @@ function zoneOffset(event, iso) {
       hour12: false, timeZoneName: "longOffset",
     }).formatToParts(new Date(iso));
     const name = (parts.find((p) => p.type === "timeZoneName")?.value || "").replace(/^GMT/, "UTC");
+    if (name === "UTC") return "+0000";
     const m = name.match(/UTC([+-])(\d{1,2})(?::?(\d{2}))?/);
     if (!m) return "";
     const hh = String(Math.abs(Number(m[2]))).padStart(2, "0");
@@ -109,7 +110,7 @@ function icalText(value) {
 // IANA timeZone (offset derived at build time via Intl) — one unambiguous
 // RFC 5545 stamp; without a resolvable zone it stays floating rather than
 // being silently re-labelled as UTC.
-function icalStamp(iso, allDay, event) {
+export function icalStamp(iso, allDay, event) {
   const s = String(iso || "");
   const date = s.slice(0, 10).replace(/-/g, "");
   if (!/^\d{8}$/.test(date)) return allDay ? "19700101" : "19700101T000000Z";
@@ -251,7 +252,7 @@ export function calendarPage() {
   const upcomingBlock = upcoming.length
     ? `<div data-calendar-group>${sectionHeading({
         eyebrow: "Upcoming",
-        title: upcoming.length === 1 ? "1 upcoming event" : `${upcoming.length} upcoming events`,
+        title: tr("Upcoming ({n})").replace("{n}", upcoming.length),
         text: dateRange(upcoming),
       })}
     ${eventList(upcoming.map((event) => eventCard(event, "upcoming")), "calendar-list")}</div>`
@@ -259,7 +260,7 @@ export function calendarPage() {
   const pastBlock = past.length
     ? `<div data-calendar-group>${sectionHeading({
         eyebrow: "Archive",
-        title: past.length === 1 ? "1 past event" : `${past.length} past events`,
+        title: tr("Past ({n})").replace("{n}", past.length),
         text: dateRange(past),
       })}
     ${eventList(past.map((event) => eventCard(event, "past")), "calendar-list-past")}</div>`
@@ -268,8 +269,7 @@ export function calendarPage() {
     ? `${upcomingBlock}${pastBlock}`
     : `<p>${escapeHtml(tr("No events are currently published. Subscribe above to be notified when new events are added."))}</p>`;
 
-  const shownCount =
-    upcoming.length === 1 ? tr("{n} event shown") : tr("{n} events shown");
+  const shownCount = tr("Events shown: {n}");
 
   // The build has no live clock: "upcoming" is computed against the export date,
   // so a reader deserves to know which date that was rather than trusting a list
@@ -292,7 +292,7 @@ export function calendarPage() {
             <option value="all">${escapeHtml(tr("All events ({n})").replace("{n}", events.length))}</option>
           </select>
         </label>
-        <p id="calendar-count" class="result-count" aria-live="polite" data-msg-count-events="${escapeHtml(tr("{n} upcoming events shown"))}">${escapeHtml(shownCount.replace("{n}", upcoming.length))}</p>
+        <p id="calendar-count" class="result-count" aria-live="polite" data-msg-count-events="${escapeHtml(shownCount)}">${escapeHtml(shownCount.replace("{n}", upcoming.length))}</p>
       </div>`
     : "";
 

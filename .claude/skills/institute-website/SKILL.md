@@ -99,4 +99,4 @@ the identity:
 - Versioning & releasing: [`RELEASING.md`](../../../RELEASING.md)
 - Design system: [`DESIGN_SYSTEM.md`](../../../DESIGN_SYSTEM.md)
 - Internationalization: [`INTERNATIONALIZATION.md`](../../../INTERNATIONALIZATION.md)
-- Domain migration runbook: [`MIGRATION.md`](../../../MIGRATION.md) and [`SWITCHOVER.md`](../../../SWITCHOVER.md)
+- Hosting, DNS and redirect runbook: [`docs/MIGRATION_AND_REDIRECTS.md`](../../../docs/MIGRATION_AND_REDIRECTS.md)

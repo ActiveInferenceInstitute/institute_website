@@ -9,9 +9,124 @@
 // site build stays dependency-free.
 import test from "node:test";
 import assert from "node:assert/strict";
+import http from "node:http";
+import fs from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+
+test("strict CLI rejects real HTTP failures and truncated/empty responses without saving English", async (t) => {
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), "i18n-strict-"));
+  await fs.mkdir(path.join(root, "scripts"));
+  await fs.mkdir(path.join(root, "src/content/i18n"), { recursive: true });
+  await fs.mkdir(path.join(root, "src/i18n"));
+  await fs.copyFile(new URL("./i18n_translate.mjs", import.meta.url), path.join(root, "scripts/i18n_translate.mjs"));
+  await fs.copyFile(new URL("./i18n_check_terminology.mjs", import.meta.url), path.join(root, "scripts/i18n_check_terminology.mjs"));
+  await fs.writeFile(path.join(root, "src/i18n/locales.json"), JSON.stringify({ defaultLocale: "en", locales: [{ code: "de", name: "German" }] }));
+  await fs.writeFile(path.join(root, "src/content/i18n/_strings.json"), JSON.stringify(["Page moved"]));
+  const catalogPath = path.join(root, "src/content/i18n/de.json");
+  const original = '{"Existing":"Vorhanden"}\n';
+  await fs.writeFile(catalogPath, original);
+  await assert.rejects(promisify(execFile)(process.execPath, [path.join(root, "scripts/i18n_translate.mjs"), "--locale", "unknown", "--strict"]), error => error.code === 1 && error.stderr.includes("Unknown locale"));
+  assert.equal(await fs.readFile(catalogPath, "utf8"), original);
+  let response;
+  const requests = [];
+  const server = http.createServer((request, reply) => {
+    let body = "";
+    request.on("data", chunk => { body += chunk; });
+    request.on("end", () => {
+      const parsed = JSON.parse(body);
+      requests.push(parsed);
+      const message = parsed.messages[1].content;
+      const result = response.segmentTranslations
+        ? { done: true, done_reason: "stop", message: { content: response.segmentTranslations[message.slice(1, -1)] } }
+        : response.failSecondSegment && message.includes("Second paragraph")
+        ? { done: true, done_reason: "stop", message: { content: response.failSecondSegment === "repeat" ? "la".repeat(40) : "" } }
+        : response.body;
+      reply.writeHead(response.status, { "Content-Type": "application/json" });
+      reply.end(JSON.stringify(result));
+    });
+  });
+  await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
+  t.after(() => new Promise(resolve => server.close(resolve)));
+  const env = { ...process.env, I18N_PROVIDER: "ollama", OLLAMA_URL: `http://127.0.0.1:${server.address().port}` };
+  const execute = (extra = []) => promisify(execFile)(process.execPath, [path.join(root, "scripts/i18n_translate.mjs"), "--locale", "de", "--strict", ...extra], { env });
+  for (const fixture of [
+    { status: 503, body: { error: "unavailable" } },
+    { status: 200, body: { done: true, done_reason: "length", message: { content: "Seite" } } },
+    { status: 200, body: { done: true, done_reason: "stop", message: { content: "" } } },
+    { status: 200, body: { done: true, done_reason: "stop", message: { content: "Page moved" } } },
+    { status: 200, body: { done: true, done_reason: "stop", message: { content: "Page moved — translated" } } },
+    { source: "Active Inference meeting.", status: 200, body: { done: true, done_reason: "stop", message: { content: "Treffen." } } },
+    { source: "Active Inference Institute meeting.", status: 200, body: { done: true, done_reason: "stop", message: { content: "Treffen zur aktiven Inferenz." } } },
+    { source: "{n} upcoming events", status: 200, body: { done: true, done_reason: "stop", message: { content: "Künftige Ereignisse" } } },
+    { source: "Comment by email.", status: 200, body: { done: true, done_reason: "stop", message: { content: "Per E-Mail kommentieren {domain}" } } },
+    { source: "Write to blanket@activeinference.institute with subject [WORKING GROUPS].", status: 200, body: { done: true, done_reason: "stop", message: { content: "Schreiben Sie an blanket@activeinference.institute mit dem Betreff [ARBEITSGRUPPEN]." } } },
+    { source: "First paragraph.\n\nSecond paragraph.", failSecondSegment: true, status: 200, body: { done: true, done_reason: "stop", message: { content: "Erster Absatz." } } },
+    { source: "First paragraph.\n\nSecond paragraph.", failSecondSegment: "repeat", status: 200, body: { done: true, done_reason: "stop", message: { content: "Erster Absatz." } } },
+  ]) {
+    await fs.writeFile(path.join(root, "src/content/i18n/_strings.json"), JSON.stringify([fixture.source ?? "Page moved"]));
+    response = fixture;
+    await assert.rejects(execute(), error => error.code === 1);
+    assert.equal(await fs.readFile(catalogPath, "utf8"), original);
+  }
+  await fs.writeFile(path.join(root, "src/content/i18n/_strings.json"), JSON.stringify(["Page moved"]));
+  response = { status: 200, body: { done: true, done_reason: "stop", message: { content: "Seite verschoben" } } };
+  await execute();
+  const catalog = JSON.parse(await fs.readFile(catalogPath, "utf8"));
+  assert.deepEqual(catalog, { Existing: "Vorhanden", "Page moved": "Seite verschoben" });
+  const keysFile = path.join(root, "unknown-keys.json");
+  await fs.writeFile(keysFile, JSON.stringify(["Unknown source"]));
+  const saved = await fs.readFile(catalogPath, "utf8");
+  await assert.rejects(promisify(execFile)(process.execPath, [path.join(root, "scripts/i18n_translate.mjs"), "--locale", "de", "--strict", "--keys-file", keysFile], { env }), error => error.code === 1);
+  assert.equal(await fs.readFile(catalogPath, "utf8"), saved);
+  const multiline = "First paragraph.\n\nSecond paragraph.";
+  await fs.writeFile(path.join(root, "src/content/i18n/_strings.json"), JSON.stringify([multiline]));
+  await fs.writeFile(catalogPath, JSON.stringify({ ...catalog, [multiline]: "Erster Absatz." }));
+  await fs.writeFile(keysFile, JSON.stringify([multiline]));
+  response = { status: 200, segmentTranslations: { "First paragraph.": "Erster Absatz.", "Second paragraph.": "Zweiter Absatz." } };
+  await execute(["--retry-incomplete", "--keys-file", keysFile]);
+  assert.deepEqual(JSON.parse(await fs.readFile(catalogPath, "utf8")), {
+    Existing: "Vorhanden", "Page moved": "Seite verschoben", [multiline]: "Erster Absatz.\n\nZweiter Absatz.",
+  });
+  assert.ok(requests.every(request => request.options.num_predict === 2048));
+  assert.ok(requests.some(request => request.messages[0].content.includes("Required placeholder sequence: {K0}")));
+  const beforeForce = await fs.readFile(catalogPath, "utf8");
+  for (const operation of ["--force", "--prune"]) {
+    await assert.rejects(execute(["--keys-file", keysFile, operation]), error => error.code === 1);
+    assert.equal(await fs.readFile(catalogPath, "utf8"), beforeForce);
+  }
+  const hostedEnv = { ...env, I18N_PROVIDER: "openai", I18N_API_BASE: env.OLLAMA_URL, I18N_API_KEY: "local-http-fixture" };
+  const hosted = () => promisify(execFile)(process.execPath, [path.join(root, "scripts/i18n_translate.mjs"), "--locale", "de", "--strict"], { env: hostedEnv });
+  await fs.writeFile(path.join(root, "src/content/i18n/_strings.json"), JSON.stringify(["Current page"]));
+  const beforeHosted = await fs.readFile(catalogPath, "utf8");
+  response = { status: 200, body: { choices: [{ finish_reason: "length", message: { content: "Aktuelle" } }] } };
+  await assert.rejects(hosted(), error => error.code === 1);
+  assert.equal(await fs.readFile(catalogPath, "utf8"), beforeHosted);
+  response = { status: 200, body: { choices: [{ finish_reason: "stop", message: { content: "Aktuelle Seite" } }] } };
+  await hosted();
+  assert.equal(JSON.parse(await fs.readFile(catalogPath, "utf8"))["Current page"], "Aktuelle Seite");
+  assert.equal(requests.at(-1).max_tokens, 2048);
+  const sentences = "First sentence.  Second sentence.";
+  await fs.writeFile(path.join(root, "src/content/i18n/_strings.json"), JSON.stringify([sentences]));
+  response = { status: 200, segmentTranslations: { "First sentence.": "Erster Satz.", "Second sentence.": "Zweiter Satz." } };
+  await execute();
+  assert.equal(JSON.parse(await fs.readFile(catalogPath, "utf8"))[sentences], "Erster Satz.  Zweiter Satz.");
+  await fs.writeFile(path.join(root, "src/content/i18n/_strings.json"), JSON.stringify(["Active Inference meeting"]));
+  response = { status: 200, body: { done: true, done_reason: "stop", message: { content: "Treffen zur aktiven Inferenz" } } };
+  await execute();
+  assert.equal(JSON.parse(await fs.readFile(catalogPath, "utf8"))["Active Inference meeting"], "Treffen zur aktiven Inferenz");
+  await fs.writeFile(path.join(root, "src/content/i18n/_strings.json"), JSON.stringify(["GitHub"]));
+  response = { status: 200, body: { done: true, done_reason: "stop", message: { content: "GitHub" } } };
+  await execute();
+  assert.equal(JSON.parse(await fs.readFile(catalogPath, "utf8"))["GitHub"], "GitHub");
+});
 
 import {
   cleanTranslation,
+  hasMissingParagraphs,
+  systemPrompt,
   collectTrLiterals,
   isDegenerate,
   isTransientStatus,
@@ -20,6 +135,19 @@ import {
   pruneCatalog,
   unmaskProtectedTerms,
 } from "./i18n_translate.mjs";
+
+test("multiline translation preserves lists and paragraphs while labels still discard prompt echo", () => {
+  const source = "- Attend the meeting.\n- Review the draft.\n\nMembership is open.";
+  const translated = "- Nehmen Sie am Treffen teil.\n- Prüfen Sie den Entwurf.\n\nDie Mitgliedschaft ist offen.";
+  assert.equal(cleanTranslation(translated, "German", source), translated);
+  assert.equal(hasMissingParagraphs(source, translated), false);
+  assert.equal(hasMissingParagraphs(source, "Nehmen Sie am Treffen teil."), true);
+  assert.match(systemPrompt("German", source), /Preserve paragraph breaks, list structure/);
+  assert.doesNotMatch(systemPrompt("German", source), /single line/);
+  assert.match(systemPrompt("German", "Hello"), /single line/);
+  assert.equal(cleanTranslation("Hallo\nEnglish: Hello", "German", "Hello"), "Hallo");
+  assert.equal(cleanTranslation("**Jetzt.** Öffentliche Prüfung.", "German", "**Now.** Public review."), "**Jetzt.** Öffentliche Prüfung.");
+});
 
 test("protected terms round-trip through masking unchanged", () => {
   const source = "9 current Research Fellows at the Active Inference Institute with an ORCID";
@@ -161,6 +289,7 @@ test("collectTrLiterals derives the runtime-lookup extras from tr() call sites",
   // them at all.
   const lits = collectTrLiterals(new URL("../src/", import.meta.url).pathname);
   assert.ok(lits.has("This page was machine-translated from English."));
+  assert.ok(lits.has("Navigation is machine-translated; the archived content remains in English."));
   assert.ok(lits.has("View the English original."));
   assert.ok(lits.size > 100, `expected the full renderer literal set, got ${lits.size}`);
 });

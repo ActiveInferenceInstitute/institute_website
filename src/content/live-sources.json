@@ -168,6 +168,16 @@
       "checkedAt": "2026-10-21T00:00:00Z"
     },
     {
+      "id": "activeinference-org-simulations",
+      "label": "ActiveInference.org simulations",
+      "category": "Learning",
+      "url": "https://activeinference.org/pages/simulations.html",
+      "sourceBasis": "Public Institute simulation collection; verified HTTPS HTTP 200 on 2026-10-12.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-13T00:32:48Z"
+    },
+    {
       "id": "active-inferants",
       "label": "Active InferAnts repository",
       "category": "Projects",
@@ -182,7 +192,7 @@
       "label": "AICACP shortlink",
       "category": "Projects",
       "url": "https://aicacp.activeinference.institute",
-      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "sourceBasis": "Public Institute shortlink forwarding to its on-site page; observed 2026-10-12.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -232,7 +242,7 @@
       "label": "Board of Directors roster",
       "category": "Institute",
       "url": "https://bod.activeinference.institute",
-      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "sourceBasis": "Public Institute shortlink forwarding to its on-site page; observed 2026-10-12.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -645,7 +655,7 @@
       "id": "official-get-involved",
       "label": "Get involved overview",
       "category": "Participate",
-      "url": "https://www.activeinference.institute/get-involved",
+      "url": "https://activeinference.institute/get-involved/",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
@@ -655,7 +665,7 @@
       "id": "official-history",
       "label": "History",
       "category": "Institute",
-      "url": "https://www.activeinference.institute/history",
+      "url": "https://activeinference.institute/history/",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
@@ -665,7 +675,7 @@
       "id": "official-home",
       "label": "Institute website",
       "category": "Institute",
-      "url": "https://www.activeinference.institute/",
+      "url": "https://activeinference.institute/",
       "sourceBasis": "Verified official Institute public page or public subdomain.",
       "statusCode": 200,
       "ok": true,
@@ -695,7 +705,7 @@
       "id": "official-newsletter",
       "label": "Newsletter",
       "category": "Updates",
-      "url": "http://newsletter.activeinference.institute/",
+      "url": "https://newsletter.activeinference.institute/",
       "sourceBasis": "Verified official Institute public page or public subdomain. Manually verified live 2026-07-07 (curl from a residential/dev IP returns clean 200 with Cloudflare cf-ray header, no challenge). GitHub Actions runner IPs are commonly blocked/challenged by Cloudflare bot-management on Substack specifically — CI got a 403 for this exact URL while a direct check from elsewhere succeeded seconds later. Recorded as knownBotBlocked so CI-runner IP reputation cannot make this gate flaky.",
       "statusCode": 200,
       "ok": true,
@@ -796,11 +806,12 @@
       "id": "person-adeel-razi",
       "label": "Adeel Razi public page",
       "category": "People",
-      "url": "http://www.adeelrazi.org/",
+      "url": "https://www.adeelrazi.org/",
+      "previousUrls": ["http://www.adeelrazi.org/"],
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "checkedAt": "2026-10-13T19:03:11Z"
     },
     {
       "id": "person-alexander-ororbia",
@@ -1042,7 +1053,7 @@
       "id": "person-george-mobus",
       "label": "George Mobus public page",
       "category": "People",
-      "url": "http://faculty.washington.edu/gmobus/",
+      "url": "https://faculty.washington.edu/gmobus/",
       "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
       "statusCode": 200,
       "ok": true,
@@ -1105,7 +1116,7 @@
       "id": "person-jakub-smekal",
       "label": "Jakub Smékal public page",
       "category": "People",
-      "url": "http://jakubsmekal.com/",
+      "url": "https://jakubsmekal.com/",
       "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
       "statusCode": 200,
       "ok": true,
@@ -1323,7 +1334,11 @@
       "label": "Mick Thacker public page",
       "category": "People",
       "url": "https://www.rcsi.com/dublin/about/faculty-of-medicine-and-health-sciences/school-of-physiotherapy/our-people",
-      "sourceBasis": "RCSI's School of Physiotherapy staff listing names Professor Michael Thacker; replaces the institutional profile redirect that returns 404. Public destination checked directly.",
+      "previousUrls": [
+        "https://www.rcsi.com/people/profile/michaelthacker",
+        "https://people.rcsi.com/michaelthacker"
+      ],
+      "sourceBasis": "Owner-approved replacement for the retired individual profile: RCSI's official School of Physiotherapy staff page lists Michael Thacker as Professor. Historical SAB roster URLs are normalized to this registered public page at render time.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-10-21T00:00:00Z"
@@ -1383,11 +1398,12 @@
       "id": "person-sandeep-ramesh",
       "label": "Sandeep Ramesh public page",
       "category": "People",
-      "url": "http://sandeepramesh.com/",
+      "url": "https://www.sandeepramesh.com/",
+      "previousUrls": ["http://sandeepramesh.com/", "https://sandeepramesh.com/"],
       "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "checkedAt": "2026-10-13T19:03:11Z"
     },
     {
       "id": "person-sarah-hamburg",
@@ -1424,11 +1440,12 @@
       "id": "person-sebastian-alvarado-2",
       "label": "Sebastian Alvarado public page",
       "category": "People",
-      "url": "http://www.alvaradolab.com/",
+      "url": "https://www.alvaradolab.com/",
+      "previousUrls": ["http://www.alvaradolab.com/"],
       "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "checkedAt": "2026-10-13T19:03:11Z"
     },
     {
       "id": "person-shady-el-damaty",
@@ -1507,7 +1524,7 @@
       "id": "person-thomas-kehler",
       "label": "Thomas Kehler public page",
       "category": "People",
-      "url": "http://crowdsmart.ai",
+      "url": "https://crowdsmart.ai",
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
@@ -2090,7 +2107,7 @@
       "label": "Scientific Advisory Board roster",
       "category": "Institute",
       "url": "https://sab.activeinference.institute",
-      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "sourceBasis": "Public Institute shortlink forwarding to its on-site page; observed 2026-10-12.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -2120,7 +2137,7 @@
       "label": "2026 planning shortlink",
       "category": "Activities",
       "url": "https://2026.activeinference.institute",
-      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "sourceBasis": "Public Institute shortlink forwarding to its on-site page; observed 2026-10-12.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"
@@ -2130,7 +2147,7 @@
       "label": "Affordances shortlink",
       "category": "Research",
       "url": "https://affordances.activeinference.institute",
-      "sourceBasis": "Public Institute shortlink verified directly (forwards to the public Coda workspace).",
+      "sourceBasis": "Public Institute shortlink forwarding to its on-site page; observed 2026-10-12.",
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-08-19T20:59:38Z"

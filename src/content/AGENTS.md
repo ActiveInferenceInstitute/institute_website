@@ -67,7 +67,8 @@ locale files in sync.
 - **Strict CSP:** no inline script or style, no `iframe`/`object`/`embed`/`form`, no
   client-side fetch. Page-specific JS belongs in `assets/js/*.js` and is referenced
   conditionally from `src/render/layout.mjs`.
-- Legacy Squarespace URLs are redirected by `assets/js/redirects.js`, loaded only on
-  `404.html`.
+- Legacy redirects are authored in `src/url-taxonomy.json`; the build emits static
+  stubs plus `assets/js/redirects.js` as the 404 fallback. On-site registrar forwards
+  are pinned in `inbound-forwards.json` and rendered as internal links.
 - Keep all content visitor-facing; never publish internal paths, private tool names, or
   working-material artifacts in any registry.

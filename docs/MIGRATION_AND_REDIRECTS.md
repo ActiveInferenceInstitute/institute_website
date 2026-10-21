@@ -30,46 +30,36 @@ The site achieves clean URLs (e.g., `/projects/ai-safety/` instead of `/projects
 
 ---
 
-## 404-Based Redirect Mechanism
+## Static Redirect Stubs and 404 Fallback
 
-**Server-Side Limitation**: GitHub Pages provides no server-side redirect configuration (no `.htaccess`, no `_redirects` file, no rewrite rules). Legacy Squarespace URLs must be handled client-side.
+GitHub Pages has no configurable HTTP redirect rules. The build therefore emits
+HTML redirect stubs for known legacy paths. Each has a destination canonical,
+noindex, an immediate meta refresh and a visible fallback link, with the site's
+CSP and local assets. Pages serves these files with HTTP 200. They are not HTTP
+301 redirects; Search Console recognition still depends on recrawl.
 
-**404.html as a Catch-All**: GitHub Pages serves `404.html` for any request path that does not match a built file. This includes legacy Squarespace paths that no longer exist.
+The shared redirect source is `src/url-taxonomy.json`:
 
-**Client-Side Redirect Script**: `assets/js/redirects.js` is loaded **only** on `404.html` (via a `<script>` tag with `defer`). It implements three independent mechanisms:
+- `redirects.map`: English Squarespace aliases.
+- `redirects.prefix`: renamed slug families, across every locale.
+- `redirects.set`: exact renamed slugs, across every locale.
 
-1. **`MAP`** — a flat, English-only lookup table of one-off Squarespace-era
-   aliases (`about-us` → `about/`). These pre-date the locale system entirely,
-   so `MAP` is never locale-aware.
-2. **`PREFIX_REDIRECTS`** (added v3.0.0) — locale-aware structural renames for
-   `"prefix"`-routed families (an Axis-B change in
-   [SLUG_AND_URL_TAXONOMY.md](SLUG_AND_URL_TAXONOMY.md)), where every member
-   shares a literal slug prefix. Each entry is one
-   `{ "from": "<old-prefix>", "to": "<new-dir>" }` pair; one entry covers the
-   rename across **all 12 locales** — the script strips a leading locale
-   segment before matching, then re-attaches it to the destination.
-3. **`SET_REDIRECTS`** (added v4.0.0) — the same idea as `PREFIX_REDIRECTS`,
-   for `"set"`-routed families whose slugs share **no** common string prefix
-   (`board-of-directors`, `officers`, `2025`, …). Each entry is one
-   `{ "from": "<old-exact-slug>", "to": "<new-full-path>" }` pair, matched by
-   exact equality (not prefix), locale-aware the same way.
+Localized simulation filenames also get stubs pointing to the root demo files.
+Real routes take precedence over aliases. The build validates every destination
+and refuses to overwrite an existing non-stub page. It writes the inventory to
+`data/redirects.json` and generates `assets/js/redirects.js` from the same source
+plus `src/redirect-runtime.js`. The script remains loaded only by `404.html`
+for unmatched legacy spelling/case/suffix variants; unknown paths remain 404s.
 
-On a 404, the script:
-1. Reads `location.pathname` and normalizes it (strips leading/trailing slashes, lowercases, removes `.html` suffix)
-2. Looks it up in `MAP` first (exact match, full path including any locale prefix)
-3. On a `MAP` miss, strips a recognized leading locale segment (if any), then tests the remainder against each `PREFIX_REDIRECTS` rule (prefix match), then each `SET_REDIRECTS` rule (exact match); on a match, re-attaches the locale prefix to the computed destination
-4. On any match, calls `location.replace()` to the new clean URL
-5. On a full miss, allows the normal 404 page to display
+`check:redirects` independently enumerates the source paths, verifies every stub
+and destination, compares the browser map to the taxonomy, and pins the inbound
+forwarding destinations. The internal-link and security gates include generated
+simulation landing pages and localized stubs; vendored demo bodies stay excluded.
 
-**Base-Path Awareness**: The script reads a `data-base` attribute from its own `<script>` tag, allowing it to work at both the apex domain (`/`) and project-page bases (`/institute_website/`). It strips the base from the incoming path and prepends it to destination URLs.
-
-**CSP-Safe**: The script makes no network requests and contains no external dependencies — all three redirect tables are inline JSON. This satisfies the strict Content-Security-Policy.
-
-**Gated by `check:redirects`** (`scripts/check_redirects.py`, part of `npm run check`): verifies every `MAP`, `PREFIX_REDIRECTS`-, and `SET_REDIRECTS`-derived destination resolves to a real built file, that each `PREFIX_REDIRECTS`/`SET_REDIRECTS` entry has a matching `"prefix"`/`"set"` rule in `src/url-taxonomy.json`, and — critically — that the **old** pre-migration output directories have actually been removed (`git rm`'d), since the build only ever adds files and the redirect script only fires once GitHub Pages returns a 404 for the old path. Note `SET_REDIRECTS` is deliberately **not** required to cover every member of every `"set"`-routed family — `programSubpageSlugs` has always routed to `programs/<slug>/` and never had a flat URL to migrate away from, so it needs no entries at all.
-
-### How Legacy URLs Become 404s
-
-When Squarespace hosted the apex domain, requests like `/fellowship` returned a 200 page. After cutover to GitHub Pages, GitHub sees no built file at `/fellowship/index.html` and serves `404.html` instead, triggering the redirect script.
+Untranslated newsletter/video detail bodies use the English canonical and omit
+hreflang clusters. Translated content keeps self-canonicals and alternates.
+Search and the HTML sitemap are noindex and excluded from the XML sitemap. Each
+XML sitemap URL retains its deterministic content-export date in `lastmod`.
 
 ---
 
@@ -116,7 +106,7 @@ across every locale subtree.
 |---|---|---|---|
 | `active-inference-and-` → `active-inference/` | v3.0.0 (2026-07-01) | All 12 (`en` + 11 non-default) | All 16 "Active Inference and X" domain pages |
 
-**Concretely**, every one of these old URLs 404s and redirects to its new nested
+**Concretely**, every one of these old URLs serves a redirect stub to its new nested
 location (shown here for the default locale; the same rename applies verbatim
 under every `/<code>/` prefix, e.g. `/es/active-inference-and-medicine/` →
 `/es/active-inference/medicine/`):
@@ -213,38 +203,46 @@ Squarespace forwarding emits only a bare `301`/`302` — it cannot set an
 forwarded). This matters: see
 [Externally-blocked forwards](#externally-blocked-forwards-seo-trap) below.
 
+<!-- inbound-forwards:start -->
+| Subdomain | On-site destination |
+|---|---|
+| `2025` | `/years/2025/` |
+| `2026` | `/years/2026/` |
+| `active-blockference` | `/projects/active-blockference/` |
+| `activities` | `/projects/` |
+| `affordances` | `/projects/affordances/` |
+| `aicacp` | `/projects/aicacp/` |
+| `bod` | `/structure/board-of-directors/` |
+| `ecosystem` | `/ecosystem/` |
+| `eduactive` | `/eduactive/` |
+| `fellows` | `/programs/fellowship/` |
+| `fellowship` | `/programs/fellowship/` |
+| `intern` | `/programs/internship/` |
+| `knowledge-engineering` | `/projects/knowledge-engineering/` |
+| `measure` | `/measure/` |
+| `mentorship` | `/programs/mentorship/` |
+| `ontology` | `/projects/active-inference-ontology/` |
+| `partnership` | `/programs/partnership/` |
+| `partnerships` | `/programs/partnership/` |
+| `prepare` | `/prepare/` |
+| `projects` | `/projects/` |
+| `reinference` | `/reinference/` |
+| `rxinfer` | `/projects/rxinfer/` |
+| `sab` | `/structure/scientific-advisory-board/` |
+| `strategy` | `/strategy/` |
+| `structure` | `/structure/` |
+| `symposium` | `/projects/symposium/` |
+| `textbook-group` | `/projects/textbook-group/` |
+| `tnb` | `/projects/theoretical-neurobiology/` |
+| `video` | `/video/` |
+| `volunteer` | `/volunteer/` |
+| `wave-hypothesis` | `/projects/wave-hypothesis/` |
+| `weekly` | `/weekly/` |
+| `welcome` | `/get-involved/` |
+<!-- inbound-forwards:end -->
+
 | Subdomain | Destination | Type | Status |
 |---|---|---|---|
-| `eduactive` | `/eduactive/` | On-site | Ready |
-| `activities`, `projects` | `/projects/` | On-site | Ready |
-| `ecosystem` | `/ecosystem/` | On-site | Ready |
-| `structure` | `/structure/` | On-site | Ready |
-| `reinference` | `/reinference/` | On-site | Ready |
-| `volunteer` | `/volunteer/` | On-site | Ready |
-| `intern` | `/programs/internship/` | On-site | Ready |
-| `mentorship` | `/programs/mentorship/` | On-site | Ready |
-| `fellows`, `fellowship` | `/programs/fellowship/` | On-site | Ready |
-| `partnerships`, `partnership` | `/programs/partnership/` | On-site | Ready |
-| `welcome` | `/get-involved/` | On-site | Ready |
-| `textbook-group` | `/projects/textbook-group/` | On-site | Ready |
-| `rxinfer` | `/projects/rxinfer/` | On-site | Ready |
-| `knowledge-engineering` | `/projects/knowledge-engineering/` | On-site | Ready |
-| `active-blockference` | `/projects/active-blockference/` | On-site | Ready |
-| `symposium` | `/projects/symposium/` | On-site | Ready |
-| `tnb` | `/projects/theoretical-neurobiology/` | On-site | Ready |
-| `strategy` | `/strategy/` | On-site (gap page) | Link to Coda hub until content migrated |
-| `measure` | `/measure/` | On-site (gap page) | Link to Coda hub until content migrated |
-| `prepare` | `/prepare/` | On-site (gap page) | Link to Coda hub until content migrated |
-| `affordances` | `/projects/affordances/` | On-site (gap page) | Link to Coda hub until content migrated |
-| `wave-hypothesis` | `/projects/wave-hypothesis/` | On-site (gap page) | Link to Coda hub until content migrated |
-| `video` | `/video/` | On-site (gap page) | Link to Coda hub until content migrated |
-| `weekly` | `/weekly/` | On-site (gap page) | Link to Coda hub until content migrated |
-| `2025` | `/years/2025/` | On-site (gap page) | Annual overview — repointed, verified `200` 2026-07-27 |
-| `2026` | `/years/2026/` | On-site (gap page) | Annual overview — repointed, verified `200` 2026-07-27 |
-| `aicacp` | `/projects/aicacp/` | On-site | Ready |
-| `ontology` | `/projects/active-inference-ontology/` | On-site | Ready |
-| `sab` | `/structure/scientific-advisory-board/` | On-site | Repointed, verified `200` 2026-07-27 |
-| `bod` | `/structure/board-of-directors/` | On-site | Repointed, verified `200` 2026-07-27 |
 | `newsletter` | `https://activeinferenceinstitute.substack.com/` | External | Permanent — destination crawlable |
 | `chat` | `https://www.perplexity.ai/search/…` | External | Permanent — ⚠️ **destination robots-blocked** (see below) |
 | `obsidian` | Obsidian knowledge base (surfaced on `/active-inference/`) | External | Permanent — destination crawlable |
@@ -566,6 +564,25 @@ All URLs in the graph are absolute via `absoluteUrl()`.
 ---
 
 ## Base URL and Custom Domain
+
+Hosting state reported and verified by the domain administrator on 2026-10-12:
+
+- DNS is managed at Squarespace Domains; the Squarespace/NS1 authoritative
+  nameservers serve identical records.
+- The apex has four A records (`185.199.108.153` through `185.199.111.153`)
+  and four AAAA records (`2606:50c0:8000::153` through `2606:50c0:8003::153`).
+- `www` is a CNAME to `activeinferenceinstitute.github.io` and redirects to
+  the apex. GitHub Pages serves this repository from `main` at `/`.
+- Enforce HTTPS is on; HTTP redirects to HTTPS. The domain verification
+  record is `_github-pages-challenge-ActiveInferenceInstitute`.
+- Both `.institute` and `.org` domains are verified. `activeinference.org`
+  remains a separate site. Alias-domain HTTP forwarding targets require an
+  administrator change at Squarespace.
+- GitHub Pages does not provide a configurable HSTS response header.
+
+The on-site forwarding table above is generated from
+[`inbound-forwards.json`](../src/content/inbound-forwards.json) by the build;
+`check:redirects` pins every destination as a real self-canonical page.
 
 **Current Base URL**: `https://activeinference.institute/` (set in `src/content/site.json`)
 

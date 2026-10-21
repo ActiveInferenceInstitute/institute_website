@@ -1,0 +1,2252 @@
+[
+  {
+    "from": "home",
+    "to": "",
+    "file": "home/index.html"
+  },
+  {
+    "from": "welcome",
+    "to": "get-involved/",
+    "file": "welcome/index.html"
+  },
+  {
+    "from": "about-us",
+    "to": "about/",
+    "file": "about-us/index.html"
+  },
+  {
+    "from": "bod",
+    "to": "structure/board-of-directors/",
+    "file": "bod/index.html"
+  },
+  {
+    "from": "sab",
+    "to": "structure/scientific-advisory-board/",
+    "file": "sab/index.html"
+  },
+  {
+    "from": "leadership",
+    "to": "structure/",
+    "file": "leadership/index.html"
+  },
+  {
+    "from": "courses",
+    "to": "learning/",
+    "file": "courses/index.html"
+  },
+  {
+    "from": "education",
+    "to": "learning/",
+    "file": "education/index.html"
+  },
+  {
+    "from": "research-overview",
+    "to": "learning/",
+    "file": "research-overview/index.html"
+  },
+  {
+    "from": "research",
+    "to": "learning/",
+    "file": "research/index.html"
+  },
+  {
+    "from": "livestreams",
+    "to": "activities/",
+    "file": "livestreams/index.html"
+  },
+  {
+    "from": "physics-as-information-processing",
+    "to": "ecosystem/physics/",
+    "file": "physics-as-information-processing/index.html"
+  },
+  {
+    "from": "paip1",
+    "to": "ecosystem/physics/",
+    "file": "paip1/index.html"
+  },
+  {
+    "from": "participation",
+    "to": "get-involved/",
+    "file": "participation/index.html"
+  },
+  {
+    "from": "fellowship",
+    "to": "programs/fellowship/",
+    "file": "fellowship/index.html"
+  },
+  {
+    "from": "internship",
+    "to": "programs/internship/",
+    "file": "internship/index.html"
+  },
+  {
+    "from": "mentorship",
+    "to": "programs/mentorship/",
+    "file": "mentorship/index.html"
+  },
+  {
+    "from": "partnership",
+    "to": "programs/partnership/",
+    "file": "partnership/index.html"
+  },
+  {
+    "from": "donate",
+    "to": "programs/philanthropy/",
+    "file": "donate/index.html"
+  },
+  {
+    "from": "support",
+    "to": "programs/philanthropy/",
+    "file": "support/index.html"
+  },
+  {
+    "from": "working_groups",
+    "to": "working-groups/",
+    "file": "working_groups/index.html"
+  },
+  {
+    "from": "active-blockference",
+    "to": "projects/active-blockference/",
+    "file": "active-blockference/index.html"
+  },
+  {
+    "from": "active-blockference-1",
+    "to": "projects/active-blockference/",
+    "file": "active-blockference-1/index.html"
+  },
+  {
+    "from": "knowledge-engineering",
+    "to": "projects/knowledge-engineering/",
+    "file": "knowledge-engineering/index.html"
+  },
+  {
+    "from": "rxinfer",
+    "to": "projects/rxinfer/",
+    "file": "rxinfer/index.html"
+  },
+  {
+    "from": "symposium",
+    "to": "projects/symposium/",
+    "file": "symposium/index.html"
+  },
+  {
+    "from": "textbook-group",
+    "to": "projects/textbook-group/",
+    "file": "textbook-group/index.html"
+  },
+  {
+    "from": "theoretical-neurobiology-group",
+    "to": "projects/theoretical-neurobiology/",
+    "file": "theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "theoretical-neurobiology-group-1",
+    "to": "projects/theoretical-neurobiology/",
+    "file": "theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "tnb",
+    "to": "projects/theoretical-neurobiology/",
+    "file": "tnb/index.html"
+  },
+  {
+    "from": "active-inference-and-healthcare",
+    "to": "active-inference/healthcare/",
+    "file": "active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "active-inference-and-robotics",
+    "to": "active-inference/robotics/",
+    "file": "active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "active-inference-and-ecology",
+    "to": "active-inference/ecology/",
+    "file": "active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "active-inference-and-medicine",
+    "to": "active-inference/medicine/",
+    "file": "active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "active-inference-and-psychology",
+    "to": "active-inference/psychology/",
+    "file": "active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "active-inference-and-entomology",
+    "to": "active-inference/entomology/",
+    "file": "active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "active-inference-and-economics",
+    "to": "active-inference/economics/",
+    "file": "active-inference-and-economics/index.html"
+  },
+  {
+    "from": "active-inference-and-climate",
+    "to": "active-inference/climate/",
+    "file": "active-inference-and-climate/index.html"
+  },
+  {
+    "from": "active-inference-and-education",
+    "to": "active-inference/education/",
+    "file": "active-inference-and-education/index.html"
+  },
+  {
+    "from": "active-inference-and-law",
+    "to": "active-inference/law/",
+    "file": "active-inference-and-law/index.html"
+  },
+  {
+    "from": "active-inference-and-neuroscience",
+    "to": "active-inference/neuroscience/",
+    "file": "active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "active-inference-and-linguistics",
+    "to": "active-inference/linguistics/",
+    "file": "active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "active-inference-and-urban-planning",
+    "to": "active-inference/urban-planning/",
+    "file": "active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "active-inference-and-music",
+    "to": "active-inference/music/",
+    "file": "active-inference-and-music/index.html"
+  },
+  {
+    "from": "active-inference-and-agriculture",
+    "to": "active-inference/agriculture/",
+    "file": "active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "active-inference-and-cybersecurity",
+    "to": "active-inference/cybersecurity/",
+    "file": "active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "active-inference-and-computational",
+    "to": "active-inference/computational/",
+    "file": "active-inference-and-computational/index.html"
+  },
+  {
+    "from": "active-inference-and-social",
+    "to": "active-inference/social/",
+    "file": "active-inference-and-social/index.html"
+  },
+  {
+    "from": "active-inference-and-scientific-method",
+    "to": "active-inference/scientific-method/",
+    "file": "active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "board-of-directors",
+    "to": "structure/board-of-directors/",
+    "file": "board-of-directors/index.html"
+  },
+  {
+    "from": "officers",
+    "to": "structure/officers/",
+    "file": "officers/index.html"
+  },
+  {
+    "from": "scientific-advisory-board",
+    "to": "structure/scientific-advisory-board/",
+    "file": "scientific-advisory-board/index.html"
+  },
+  {
+    "from": "2025",
+    "to": "years/2025/",
+    "file": "2025/index.html"
+  },
+  {
+    "from": "2026",
+    "to": "years/2026/",
+    "file": "2026/index.html"
+  },
+  {
+    "from": "es/active-inference-and-healthcare",
+    "to": "es/active-inference/healthcare/",
+    "file": "es/active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "es/active-inference-and-robotics",
+    "to": "es/active-inference/robotics/",
+    "file": "es/active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "es/active-inference-and-ecology",
+    "to": "es/active-inference/ecology/",
+    "file": "es/active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "es/active-inference-and-medicine",
+    "to": "es/active-inference/medicine/",
+    "file": "es/active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "es/active-inference-and-psychology",
+    "to": "es/active-inference/psychology/",
+    "file": "es/active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "es/active-inference-and-entomology",
+    "to": "es/active-inference/entomology/",
+    "file": "es/active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "es/active-inference-and-economics",
+    "to": "es/active-inference/economics/",
+    "file": "es/active-inference-and-economics/index.html"
+  },
+  {
+    "from": "es/active-inference-and-climate",
+    "to": "es/active-inference/climate/",
+    "file": "es/active-inference-and-climate/index.html"
+  },
+  {
+    "from": "es/active-inference-and-education",
+    "to": "es/active-inference/education/",
+    "file": "es/active-inference-and-education/index.html"
+  },
+  {
+    "from": "es/active-inference-and-law",
+    "to": "es/active-inference/law/",
+    "file": "es/active-inference-and-law/index.html"
+  },
+  {
+    "from": "es/active-inference-and-neuroscience",
+    "to": "es/active-inference/neuroscience/",
+    "file": "es/active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "es/active-inference-and-linguistics",
+    "to": "es/active-inference/linguistics/",
+    "file": "es/active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "es/active-inference-and-urban-planning",
+    "to": "es/active-inference/urban-planning/",
+    "file": "es/active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "es/active-inference-and-music",
+    "to": "es/active-inference/music/",
+    "file": "es/active-inference-and-music/index.html"
+  },
+  {
+    "from": "es/active-inference-and-agriculture",
+    "to": "es/active-inference/agriculture/",
+    "file": "es/active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "es/active-inference-and-cybersecurity",
+    "to": "es/active-inference/cybersecurity/",
+    "file": "es/active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "es/active-inference-and-computational",
+    "to": "es/active-inference/computational/",
+    "file": "es/active-inference-and-computational/index.html"
+  },
+  {
+    "from": "es/active-inference-and-social",
+    "to": "es/active-inference/social/",
+    "file": "es/active-inference-and-social/index.html"
+  },
+  {
+    "from": "es/active-inference-and-scientific-method",
+    "to": "es/active-inference/scientific-method/",
+    "file": "es/active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "es/board-of-directors",
+    "to": "es/structure/board-of-directors/",
+    "file": "es/board-of-directors/index.html"
+  },
+  {
+    "from": "es/officers",
+    "to": "es/structure/officers/",
+    "file": "es/officers/index.html"
+  },
+  {
+    "from": "es/scientific-advisory-board",
+    "to": "es/structure/scientific-advisory-board/",
+    "file": "es/scientific-advisory-board/index.html"
+  },
+  {
+    "from": "es/2025",
+    "to": "es/years/2025/",
+    "file": "es/2025/index.html"
+  },
+  {
+    "from": "es/2026",
+    "to": "es/years/2026/",
+    "file": "es/2026/index.html"
+  },
+  {
+    "from": "es/simulations/Apple-Frog.html",
+    "to": "simulations/Apple-Frog.html",
+    "file": "es/simulations/Apple-Frog.html"
+  },
+  {
+    "from": "es/simulations/Ink.html",
+    "to": "simulations/Ink.html",
+    "file": "es/simulations/Ink.html"
+  },
+  {
+    "from": "es/simulations/active_inference_network.html",
+    "to": "simulations/active_inference_network.html",
+    "file": "es/simulations/active_inference_network.html"
+  },
+  {
+    "from": "es/simulations/ant_colony.html",
+    "to": "simulations/ant_colony.html",
+    "file": "es/simulations/ant_colony.html"
+  },
+  {
+    "from": "es/simulations/dopamine_daniel.html",
+    "to": "simulations/dopamine_daniel.html",
+    "file": "es/simulations/dopamine_daniel.html"
+  },
+  {
+    "from": "es/simulations/fep_surprise.html",
+    "to": "simulations/fep_surprise.html",
+    "file": "es/simulations/fep_surprise.html"
+  },
+  {
+    "from": "es/simulations/fep_tutorial.html",
+    "to": "simulations/fep_tutorial.html",
+    "file": "es/simulations/fep_tutorial.html"
+  },
+  {
+    "from": "es/simulations/hierarchical_blankets.html",
+    "to": "simulations/hierarchical_blankets.html",
+    "file": "es/simulations/hierarchical_blankets.html"
+  },
+  {
+    "from": "es/simulations/school6.html",
+    "to": "simulations/school6.html",
+    "file": "es/simulations/school6.html"
+  },
+  {
+    "from": "es/simulations/self_evidencing_tree.html",
+    "to": "simulations/self_evidencing_tree.html",
+    "file": "es/simulations/self_evidencing_tree.html"
+  },
+  {
+    "from": "es/simulations/t_maze_fep.html",
+    "to": "simulations/t_maze_fep.html",
+    "file": "es/simulations/t_maze_fep.html"
+  },
+  {
+    "from": "es/simulations/tree_with_quiz.html",
+    "to": "simulations/tree_with_quiz.html",
+    "file": "es/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "fr/active-inference-and-healthcare",
+    "to": "fr/active-inference/healthcare/",
+    "file": "fr/active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-robotics",
+    "to": "fr/active-inference/robotics/",
+    "file": "fr/active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-ecology",
+    "to": "fr/active-inference/ecology/",
+    "file": "fr/active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-medicine",
+    "to": "fr/active-inference/medicine/",
+    "file": "fr/active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-psychology",
+    "to": "fr/active-inference/psychology/",
+    "file": "fr/active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-entomology",
+    "to": "fr/active-inference/entomology/",
+    "file": "fr/active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-economics",
+    "to": "fr/active-inference/economics/",
+    "file": "fr/active-inference-and-economics/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-climate",
+    "to": "fr/active-inference/climate/",
+    "file": "fr/active-inference-and-climate/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-education",
+    "to": "fr/active-inference/education/",
+    "file": "fr/active-inference-and-education/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-law",
+    "to": "fr/active-inference/law/",
+    "file": "fr/active-inference-and-law/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-neuroscience",
+    "to": "fr/active-inference/neuroscience/",
+    "file": "fr/active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-linguistics",
+    "to": "fr/active-inference/linguistics/",
+    "file": "fr/active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-urban-planning",
+    "to": "fr/active-inference/urban-planning/",
+    "file": "fr/active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-music",
+    "to": "fr/active-inference/music/",
+    "file": "fr/active-inference-and-music/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-agriculture",
+    "to": "fr/active-inference/agriculture/",
+    "file": "fr/active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-cybersecurity",
+    "to": "fr/active-inference/cybersecurity/",
+    "file": "fr/active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-computational",
+    "to": "fr/active-inference/computational/",
+    "file": "fr/active-inference-and-computational/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-social",
+    "to": "fr/active-inference/social/",
+    "file": "fr/active-inference-and-social/index.html"
+  },
+  {
+    "from": "fr/active-inference-and-scientific-method",
+    "to": "fr/active-inference/scientific-method/",
+    "file": "fr/active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "fr/board-of-directors",
+    "to": "fr/structure/board-of-directors/",
+    "file": "fr/board-of-directors/index.html"
+  },
+  {
+    "from": "fr/officers",
+    "to": "fr/structure/officers/",
+    "file": "fr/officers/index.html"
+  },
+  {
+    "from": "fr/scientific-advisory-board",
+    "to": "fr/structure/scientific-advisory-board/",
+    "file": "fr/scientific-advisory-board/index.html"
+  },
+  {
+    "from": "fr/2025",
+    "to": "fr/years/2025/",
+    "file": "fr/2025/index.html"
+  },
+  {
+    "from": "fr/2026",
+    "to": "fr/years/2026/",
+    "file": "fr/2026/index.html"
+  },
+  {
+    "from": "fr/simulations/Apple-Frog.html",
+    "to": "simulations/Apple-Frog.html",
+    "file": "fr/simulations/Apple-Frog.html"
+  },
+  {
+    "from": "fr/simulations/Ink.html",
+    "to": "simulations/Ink.html",
+    "file": "fr/simulations/Ink.html"
+  },
+  {
+    "from": "fr/simulations/active_inference_network.html",
+    "to": "simulations/active_inference_network.html",
+    "file": "fr/simulations/active_inference_network.html"
+  },
+  {
+    "from": "fr/simulations/ant_colony.html",
+    "to": "simulations/ant_colony.html",
+    "file": "fr/simulations/ant_colony.html"
+  },
+  {
+    "from": "fr/simulations/dopamine_daniel.html",
+    "to": "simulations/dopamine_daniel.html",
+    "file": "fr/simulations/dopamine_daniel.html"
+  },
+  {
+    "from": "fr/simulations/fep_surprise.html",
+    "to": "simulations/fep_surprise.html",
+    "file": "fr/simulations/fep_surprise.html"
+  },
+  {
+    "from": "fr/simulations/fep_tutorial.html",
+    "to": "simulations/fep_tutorial.html",
+    "file": "fr/simulations/fep_tutorial.html"
+  },
+  {
+    "from": "fr/simulations/hierarchical_blankets.html",
+    "to": "simulations/hierarchical_blankets.html",
+    "file": "fr/simulations/hierarchical_blankets.html"
+  },
+  {
+    "from": "fr/simulations/school6.html",
+    "to": "simulations/school6.html",
+    "file": "fr/simulations/school6.html"
+  },
+  {
+    "from": "fr/simulations/self_evidencing_tree.html",
+    "to": "simulations/self_evidencing_tree.html",
+    "file": "fr/simulations/self_evidencing_tree.html"
+  },
+  {
+    "from": "fr/simulations/t_maze_fep.html",
+    "to": "simulations/t_maze_fep.html",
+    "file": "fr/simulations/t_maze_fep.html"
+  },
+  {
+    "from": "fr/simulations/tree_with_quiz.html",
+    "to": "simulations/tree_with_quiz.html",
+    "file": "fr/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "de/active-inference-and-healthcare",
+    "to": "de/active-inference/healthcare/",
+    "file": "de/active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "de/active-inference-and-robotics",
+    "to": "de/active-inference/robotics/",
+    "file": "de/active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "de/active-inference-and-ecology",
+    "to": "de/active-inference/ecology/",
+    "file": "de/active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "de/active-inference-and-medicine",
+    "to": "de/active-inference/medicine/",
+    "file": "de/active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "de/active-inference-and-psychology",
+    "to": "de/active-inference/psychology/",
+    "file": "de/active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "de/active-inference-and-entomology",
+    "to": "de/active-inference/entomology/",
+    "file": "de/active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "de/active-inference-and-economics",
+    "to": "de/active-inference/economics/",
+    "file": "de/active-inference-and-economics/index.html"
+  },
+  {
+    "from": "de/active-inference-and-climate",
+    "to": "de/active-inference/climate/",
+    "file": "de/active-inference-and-climate/index.html"
+  },
+  {
+    "from": "de/active-inference-and-education",
+    "to": "de/active-inference/education/",
+    "file": "de/active-inference-and-education/index.html"
+  },
+  {
+    "from": "de/active-inference-and-law",
+    "to": "de/active-inference/law/",
+    "file": "de/active-inference-and-law/index.html"
+  },
+  {
+    "from": "de/active-inference-and-neuroscience",
+    "to": "de/active-inference/neuroscience/",
+    "file": "de/active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "de/active-inference-and-linguistics",
+    "to": "de/active-inference/linguistics/",
+    "file": "de/active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "de/active-inference-and-urban-planning",
+    "to": "de/active-inference/urban-planning/",
+    "file": "de/active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "de/active-inference-and-music",
+    "to": "de/active-inference/music/",
+    "file": "de/active-inference-and-music/index.html"
+  },
+  {
+    "from": "de/active-inference-and-agriculture",
+    "to": "de/active-inference/agriculture/",
+    "file": "de/active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "de/active-inference-and-cybersecurity",
+    "to": "de/active-inference/cybersecurity/",
+    "file": "de/active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "de/active-inference-and-computational",
+    "to": "de/active-inference/computational/",
+    "file": "de/active-inference-and-computational/index.html"
+  },
+  {
+    "from": "de/active-inference-and-social",
+    "to": "de/active-inference/social/",
+    "file": "de/active-inference-and-social/index.html"
+  },
+  {
+    "from": "de/active-inference-and-scientific-method",
+    "to": "de/active-inference/scientific-method/",
+    "file": "de/active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "de/board-of-directors",
+    "to": "de/structure/board-of-directors/",
+    "file": "de/board-of-directors/index.html"
+  },
+  {
+    "from": "de/officers",
+    "to": "de/structure/officers/",
+    "file": "de/officers/index.html"
+  },
+  {
+    "from": "de/scientific-advisory-board",
+    "to": "de/structure/scientific-advisory-board/",
+    "file": "de/scientific-advisory-board/index.html"
+  },
+  {
+    "from": "de/2025",
+    "to": "de/years/2025/",
+    "file": "de/2025/index.html"
+  },
+  {
+    "from": "de/2026",
+    "to": "de/years/2026/",
+    "file": "de/2026/index.html"
+  },
+  {
+    "from": "de/simulations/Apple-Frog.html",
+    "to": "simulations/Apple-Frog.html",
+    "file": "de/simulations/Apple-Frog.html"
+  },
+  {
+    "from": "de/simulations/Ink.html",
+    "to": "simulations/Ink.html",
+    "file": "de/simulations/Ink.html"
+  },
+  {
+    "from": "de/simulations/active_inference_network.html",
+    "to": "simulations/active_inference_network.html",
+    "file": "de/simulations/active_inference_network.html"
+  },
+  {
+    "from": "de/simulations/ant_colony.html",
+    "to": "simulations/ant_colony.html",
+    "file": "de/simulations/ant_colony.html"
+  },
+  {
+    "from": "de/simulations/dopamine_daniel.html",
+    "to": "simulations/dopamine_daniel.html",
+    "file": "de/simulations/dopamine_daniel.html"
+  },
+  {
+    "from": "de/simulations/fep_surprise.html",
+    "to": "simulations/fep_surprise.html",
+    "file": "de/simulations/fep_surprise.html"
+  },
+  {
+    "from": "de/simulations/fep_tutorial.html",
+    "to": "simulations/fep_tutorial.html",
+    "file": "de/simulations/fep_tutorial.html"
+  },
+  {
+    "from": "de/simulations/hierarchical_blankets.html",
+    "to": "simulations/hierarchical_blankets.html",
+    "file": "de/simulations/hierarchical_blankets.html"
+  },
+  {
+    "from": "de/simulations/school6.html",
+    "to": "simulations/school6.html",
+    "file": "de/simulations/school6.html"
+  },
+  {
+    "from": "de/simulations/self_evidencing_tree.html",
+    "to": "simulations/self_evidencing_tree.html",
+    "file": "de/simulations/self_evidencing_tree.html"
+  },
+  {
+    "from": "de/simulations/t_maze_fep.html",
+    "to": "simulations/t_maze_fep.html",
+    "file": "de/simulations/t_maze_fep.html"
+  },
+  {
+    "from": "de/simulations/tree_with_quiz.html",
+    "to": "simulations/tree_with_quiz.html",
+    "file": "de/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "pt/active-inference-and-healthcare",
+    "to": "pt/active-inference/healthcare/",
+    "file": "pt/active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-robotics",
+    "to": "pt/active-inference/robotics/",
+    "file": "pt/active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-ecology",
+    "to": "pt/active-inference/ecology/",
+    "file": "pt/active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-medicine",
+    "to": "pt/active-inference/medicine/",
+    "file": "pt/active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-psychology",
+    "to": "pt/active-inference/psychology/",
+    "file": "pt/active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-entomology",
+    "to": "pt/active-inference/entomology/",
+    "file": "pt/active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-economics",
+    "to": "pt/active-inference/economics/",
+    "file": "pt/active-inference-and-economics/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-climate",
+    "to": "pt/active-inference/climate/",
+    "file": "pt/active-inference-and-climate/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-education",
+    "to": "pt/active-inference/education/",
+    "file": "pt/active-inference-and-education/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-law",
+    "to": "pt/active-inference/law/",
+    "file": "pt/active-inference-and-law/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-neuroscience",
+    "to": "pt/active-inference/neuroscience/",
+    "file": "pt/active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-linguistics",
+    "to": "pt/active-inference/linguistics/",
+    "file": "pt/active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-urban-planning",
+    "to": "pt/active-inference/urban-planning/",
+    "file": "pt/active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-music",
+    "to": "pt/active-inference/music/",
+    "file": "pt/active-inference-and-music/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-agriculture",
+    "to": "pt/active-inference/agriculture/",
+    "file": "pt/active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-cybersecurity",
+    "to": "pt/active-inference/cybersecurity/",
+    "file": "pt/active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-computational",
+    "to": "pt/active-inference/computational/",
+    "file": "pt/active-inference-and-computational/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-social",
+    "to": "pt/active-inference/social/",
+    "file": "pt/active-inference-and-social/index.html"
+  },
+  {
+    "from": "pt/active-inference-and-scientific-method",
+    "to": "pt/active-inference/scientific-method/",
+    "file": "pt/active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "pt/board-of-directors",
+    "to": "pt/structure/board-of-directors/",
+    "file": "pt/board-of-directors/index.html"
+  },
+  {
+    "from": "pt/officers",
+    "to": "pt/structure/officers/",
+    "file": "pt/officers/index.html"
+  },
+  {
+    "from": "pt/scientific-advisory-board",
+    "to": "pt/structure/scientific-advisory-board/",
+    "file": "pt/scientific-advisory-board/index.html"
+  },
+  {
+    "from": "pt/2025",
+    "to": "pt/years/2025/",
+    "file": "pt/2025/index.html"
+  },
+  {
+    "from": "pt/2026",
+    "to": "pt/years/2026/",
+    "file": "pt/2026/index.html"
+  },
+  {
+    "from": "pt/simulations/Apple-Frog.html",
+    "to": "simulations/Apple-Frog.html",
+    "file": "pt/simulations/Apple-Frog.html"
+  },
+  {
+    "from": "pt/simulations/Ink.html",
+    "to": "simulations/Ink.html",
+    "file": "pt/simulations/Ink.html"
+  },
+  {
+    "from": "pt/simulations/active_inference_network.html",
+    "to": "simulations/active_inference_network.html",
+    "file": "pt/simulations/active_inference_network.html"
+  },
+  {
+    "from": "pt/simulations/ant_colony.html",
+    "to": "simulations/ant_colony.html",
+    "file": "pt/simulations/ant_colony.html"
+  },
+  {
+    "from": "pt/simulations/dopamine_daniel.html",
+    "to": "simulations/dopamine_daniel.html",
+    "file": "pt/simulations/dopamine_daniel.html"
+  },
+  {
+    "from": "pt/simulations/fep_surprise.html",
+    "to": "simulations/fep_surprise.html",
+    "file": "pt/simulations/fep_surprise.html"
+  },
+  {
+    "from": "pt/simulations/fep_tutorial.html",
+    "to": "simulations/fep_tutorial.html",
+    "file": "pt/simulations/fep_tutorial.html"
+  },
+  {
+    "from": "pt/simulations/hierarchical_blankets.html",
+    "to": "simulations/hierarchical_blankets.html",
+    "file": "pt/simulations/hierarchical_blankets.html"
+  },
+  {
+    "from": "pt/simulations/school6.html",
+    "to": "simulations/school6.html",
+    "file": "pt/simulations/school6.html"
+  },
+  {
+    "from": "pt/simulations/self_evidencing_tree.html",
+    "to": "simulations/self_evidencing_tree.html",
+    "file": "pt/simulations/self_evidencing_tree.html"
+  },
+  {
+    "from": "pt/simulations/t_maze_fep.html",
+    "to": "simulations/t_maze_fep.html",
+    "file": "pt/simulations/t_maze_fep.html"
+  },
+  {
+    "from": "pt/simulations/tree_with_quiz.html",
+    "to": "simulations/tree_with_quiz.html",
+    "file": "pt/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "it/active-inference-and-healthcare",
+    "to": "it/active-inference/healthcare/",
+    "file": "it/active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "it/active-inference-and-robotics",
+    "to": "it/active-inference/robotics/",
+    "file": "it/active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "it/active-inference-and-ecology",
+    "to": "it/active-inference/ecology/",
+    "file": "it/active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "it/active-inference-and-medicine",
+    "to": "it/active-inference/medicine/",
+    "file": "it/active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "it/active-inference-and-psychology",
+    "to": "it/active-inference/psychology/",
+    "file": "it/active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "it/active-inference-and-entomology",
+    "to": "it/active-inference/entomology/",
+    "file": "it/active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "it/active-inference-and-economics",
+    "to": "it/active-inference/economics/",
+    "file": "it/active-inference-and-economics/index.html"
+  },
+  {
+    "from": "it/active-inference-and-climate",
+    "to": "it/active-inference/climate/",
+    "file": "it/active-inference-and-climate/index.html"
+  },
+  {
+    "from": "it/active-inference-and-education",
+    "to": "it/active-inference/education/",
+    "file": "it/active-inference-and-education/index.html"
+  },
+  {
+    "from": "it/active-inference-and-law",
+    "to": "it/active-inference/law/",
+    "file": "it/active-inference-and-law/index.html"
+  },
+  {
+    "from": "it/active-inference-and-neuroscience",
+    "to": "it/active-inference/neuroscience/",
+    "file": "it/active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "it/active-inference-and-linguistics",
+    "to": "it/active-inference/linguistics/",
+    "file": "it/active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "it/active-inference-and-urban-planning",
+    "to": "it/active-inference/urban-planning/",
+    "file": "it/active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "it/active-inference-and-music",
+    "to": "it/active-inference/music/",
+    "file": "it/active-inference-and-music/index.html"
+  },
+  {
+    "from": "it/active-inference-and-agriculture",
+    "to": "it/active-inference/agriculture/",
+    "file": "it/active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "it/active-inference-and-cybersecurity",
+    "to": "it/active-inference/cybersecurity/",
+    "file": "it/active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "it/active-inference-and-computational",
+    "to": "it/active-inference/computational/",
+    "file": "it/active-inference-and-computational/index.html"
+  },
+  {
+    "from": "it/active-inference-and-social",
+    "to": "it/active-inference/social/",
+    "file": "it/active-inference-and-social/index.html"
+  },
+  {
+    "from": "it/active-inference-and-scientific-method",
+    "to": "it/active-inference/scientific-method/",
+    "file": "it/active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "it/board-of-directors",
+    "to": "it/structure/board-of-directors/",
+    "file": "it/board-of-directors/index.html"
+  },
+  {
+    "from": "it/officers",
+    "to": "it/structure/officers/",
+    "file": "it/officers/index.html"
+  },
+  {
+    "from": "it/scientific-advisory-board",
+    "to": "it/structure/scientific-advisory-board/",
+    "file": "it/scientific-advisory-board/index.html"
+  },
+  {
+    "from": "it/2025",
+    "to": "it/years/2025/",
+    "file": "it/2025/index.html"
+  },
+  {
+    "from": "it/2026",
+    "to": "it/years/2026/",
+    "file": "it/2026/index.html"
+  },
+  {
+    "from": "it/simulations/Apple-Frog.html",
+    "to": "simulations/Apple-Frog.html",
+    "file": "it/simulations/Apple-Frog.html"
+  },
+  {
+    "from": "it/simulations/Ink.html",
+    "to": "simulations/Ink.html",
+    "file": "it/simulations/Ink.html"
+  },
+  {
+    "from": "it/simulations/active_inference_network.html",
+    "to": "simulations/active_inference_network.html",
+    "file": "it/simulations/active_inference_network.html"
+  },
+  {
+    "from": "it/simulations/ant_colony.html",
+    "to": "simulations/ant_colony.html",
+    "file": "it/simulations/ant_colony.html"
+  },
+  {
+    "from": "it/simulations/dopamine_daniel.html",
+    "to": "simulations/dopamine_daniel.html",
+    "file": "it/simulations/dopamine_daniel.html"
+  },
+  {
+    "from": "it/simulations/fep_surprise.html",
+    "to": "simulations/fep_surprise.html",
+    "file": "it/simulations/fep_surprise.html"
+  },
+  {
+    "from": "it/simulations/fep_tutorial.html",
+    "to": "simulations/fep_tutorial.html",
+    "file": "it/simulations/fep_tutorial.html"
+  },
+  {
+    "from": "it/simulations/hierarchical_blankets.html",
+    "to": "simulations/hierarchical_blankets.html",
+    "file": "it/simulations/hierarchical_blankets.html"
+  },
+  {
+    "from": "it/simulations/school6.html",
+    "to": "simulations/school6.html",
+    "file": "it/simulations/school6.html"
+  },
+  {
+    "from": "it/simulations/self_evidencing_tree.html",
+    "to": "simulations/self_evidencing_tree.html",
+    "file": "it/simulations/self_evidencing_tree.html"
+  },
+  {
+    "from": "it/simulations/t_maze_fep.html",
+    "to": "simulations/t_maze_fep.html",
+    "file": "it/simulations/t_maze_fep.html"
+  },
+  {
+    "from": "it/simulations/tree_with_quiz.html",
+    "to": "simulations/tree_with_quiz.html",
+    "file": "it/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "ru/active-inference-and-healthcare",
+    "to": "ru/active-inference/healthcare/",
+    "file": "ru/active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-robotics",
+    "to": "ru/active-inference/robotics/",
+    "file": "ru/active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-ecology",
+    "to": "ru/active-inference/ecology/",
+    "file": "ru/active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-medicine",
+    "to": "ru/active-inference/medicine/",
+    "file": "ru/active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-psychology",
+    "to": "ru/active-inference/psychology/",
+    "file": "ru/active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-entomology",
+    "to": "ru/active-inference/entomology/",
+    "file": "ru/active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-economics",
+    "to": "ru/active-inference/economics/",
+    "file": "ru/active-inference-and-economics/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-climate",
+    "to": "ru/active-inference/climate/",
+    "file": "ru/active-inference-and-climate/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-education",
+    "to": "ru/active-inference/education/",
+    "file": "ru/active-inference-and-education/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-law",
+    "to": "ru/active-inference/law/",
+    "file": "ru/active-inference-and-law/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-neuroscience",
+    "to": "ru/active-inference/neuroscience/",
+    "file": "ru/active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-linguistics",
+    "to": "ru/active-inference/linguistics/",
+    "file": "ru/active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-urban-planning",
+    "to": "ru/active-inference/urban-planning/",
+    "file": "ru/active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-music",
+    "to": "ru/active-inference/music/",
+    "file": "ru/active-inference-and-music/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-agriculture",
+    "to": "ru/active-inference/agriculture/",
+    "file": "ru/active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-cybersecurity",
+    "to": "ru/active-inference/cybersecurity/",
+    "file": "ru/active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-computational",
+    "to": "ru/active-inference/computational/",
+    "file": "ru/active-inference-and-computational/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-social",
+    "to": "ru/active-inference/social/",
+    "file": "ru/active-inference-and-social/index.html"
+  },
+  {
+    "from": "ru/active-inference-and-scientific-method",
+    "to": "ru/active-inference/scientific-method/",
+    "file": "ru/active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "ru/board-of-directors",
+    "to": "ru/structure/board-of-directors/",
+    "file": "ru/board-of-directors/index.html"
+  },
+  {
+    "from": "ru/officers",
+    "to": "ru/structure/officers/",
+    "file": "ru/officers/index.html"
+  },
+  {
+    "from": "ru/scientific-advisory-board",
+    "to": "ru/structure/scientific-advisory-board/",
+    "file": "ru/scientific-advisory-board/index.html"
+  },
+  {
+    "from": "ru/2025",
+    "to": "ru/years/2025/",
+    "file": "ru/2025/index.html"
+  },
+  {
+    "from": "ru/2026",
+    "to": "ru/years/2026/",
+    "file": "ru/2026/index.html"
+  },
+  {
+    "from": "ru/simulations/Apple-Frog.html",
+    "to": "simulations/Apple-Frog.html",
+    "file": "ru/simulations/Apple-Frog.html"
+  },
+  {
+    "from": "ru/simulations/Ink.html",
+    "to": "simulations/Ink.html",
+    "file": "ru/simulations/Ink.html"
+  },
+  {
+    "from": "ru/simulations/active_inference_network.html",
+    "to": "simulations/active_inference_network.html",
+    "file": "ru/simulations/active_inference_network.html"
+  },
+  {
+    "from": "ru/simulations/ant_colony.html",
+    "to": "simulations/ant_colony.html",
+    "file": "ru/simulations/ant_colony.html"
+  },
+  {
+    "from": "ru/simulations/dopamine_daniel.html",
+    "to": "simulations/dopamine_daniel.html",
+    "file": "ru/simulations/dopamine_daniel.html"
+  },
+  {
+    "from": "ru/simulations/fep_surprise.html",
+    "to": "simulations/fep_surprise.html",
+    "file": "ru/simulations/fep_surprise.html"
+  },
+  {
+    "from": "ru/simulations/fep_tutorial.html",
+    "to": "simulations/fep_tutorial.html",
+    "file": "ru/simulations/fep_tutorial.html"
+  },
+  {
+    "from": "ru/simulations/hierarchical_blankets.html",
+    "to": "simulations/hierarchical_blankets.html",
+    "file": "ru/simulations/hierarchical_blankets.html"
+  },
+  {
+    "from": "ru/simulations/school6.html",
+    "to": "simulations/school6.html",
+    "file": "ru/simulations/school6.html"
+  },
+  {
+    "from": "ru/simulations/self_evidencing_tree.html",
+    "to": "simulations/self_evidencing_tree.html",
+    "file": "ru/simulations/self_evidencing_tree.html"
+  },
+  {
+    "from": "ru/simulations/t_maze_fep.html",
+    "to": "simulations/t_maze_fep.html",
+    "file": "ru/simulations/t_maze_fep.html"
+  },
+  {
+    "from": "ru/simulations/tree_with_quiz.html",
+    "to": "simulations/tree_with_quiz.html",
+    "file": "ru/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "zh/active-inference-and-healthcare",
+    "to": "zh/active-inference/healthcare/",
+    "file": "zh/active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-robotics",
+    "to": "zh/active-inference/robotics/",
+    "file": "zh/active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-ecology",
+    "to": "zh/active-inference/ecology/",
+    "file": "zh/active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-medicine",
+    "to": "zh/active-inference/medicine/",
+    "file": "zh/active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-psychology",
+    "to": "zh/active-inference/psychology/",
+    "file": "zh/active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-entomology",
+    "to": "zh/active-inference/entomology/",
+    "file": "zh/active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-economics",
+    "to": "zh/active-inference/economics/",
+    "file": "zh/active-inference-and-economics/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-climate",
+    "to": "zh/active-inference/climate/",
+    "file": "zh/active-inference-and-climate/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-education",
+    "to": "zh/active-inference/education/",
+    "file": "zh/active-inference-and-education/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-law",
+    "to": "zh/active-inference/law/",
+    "file": "zh/active-inference-and-law/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-neuroscience",
+    "to": "zh/active-inference/neuroscience/",
+    "file": "zh/active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-linguistics",
+    "to": "zh/active-inference/linguistics/",
+    "file": "zh/active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-urban-planning",
+    "to": "zh/active-inference/urban-planning/",
+    "file": "zh/active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-music",
+    "to": "zh/active-inference/music/",
+    "file": "zh/active-inference-and-music/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-agriculture",
+    "to": "zh/active-inference/agriculture/",
+    "file": "zh/active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-cybersecurity",
+    "to": "zh/active-inference/cybersecurity/",
+    "file": "zh/active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-computational",
+    "to": "zh/active-inference/computational/",
+    "file": "zh/active-inference-and-computational/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-social",
+    "to": "zh/active-inference/social/",
+    "file": "zh/active-inference-and-social/index.html"
+  },
+  {
+    "from": "zh/active-inference-and-scientific-method",
+    "to": "zh/active-inference/scientific-method/",
+    "file": "zh/active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "zh/board-of-directors",
+    "to": "zh/structure/board-of-directors/",
+    "file": "zh/board-of-directors/index.html"
+  },
+  {
+    "from": "zh/officers",
+    "to": "zh/structure/officers/",
+    "file": "zh/officers/index.html"
+  },
+  {
+    "from": "zh/scientific-advisory-board",
+    "to": "zh/structure/scientific-advisory-board/",
+    "file": "zh/scientific-advisory-board/index.html"
+  },
+  {
+    "from": "zh/2025",
+    "to": "zh/years/2025/",
+    "file": "zh/2025/index.html"
+  },
+  {
+    "from": "zh/2026",
+    "to": "zh/years/2026/",
+    "file": "zh/2026/index.html"
+  },
+  {
+    "from": "zh/simulations/Apple-Frog.html",
+    "to": "simulations/Apple-Frog.html",
+    "file": "zh/simulations/Apple-Frog.html"
+  },
+  {
+    "from": "zh/simulations/Ink.html",
+    "to": "simulations/Ink.html",
+    "file": "zh/simulations/Ink.html"
+  },
+  {
+    "from": "zh/simulations/active_inference_network.html",
+    "to": "simulations/active_inference_network.html",
+    "file": "zh/simulations/active_inference_network.html"
+  },
+  {
+    "from": "zh/simulations/ant_colony.html",
+    "to": "simulations/ant_colony.html",
+    "file": "zh/simulations/ant_colony.html"
+  },
+  {
+    "from": "zh/simulations/dopamine_daniel.html",
+    "to": "simulations/dopamine_daniel.html",
+    "file": "zh/simulations/dopamine_daniel.html"
+  },
+  {
+    "from": "zh/simulations/fep_surprise.html",
+    "to": "simulations/fep_surprise.html",
+    "file": "zh/simulations/fep_surprise.html"
+  },
+  {
+    "from": "zh/simulations/fep_tutorial.html",
+    "to": "simulations/fep_tutorial.html",
+    "file": "zh/simulations/fep_tutorial.html"
+  },
+  {
+    "from": "zh/simulations/hierarchical_blankets.html",
+    "to": "simulations/hierarchical_blankets.html",
+    "file": "zh/simulations/hierarchical_blankets.html"
+  },
+  {
+    "from": "zh/simulations/school6.html",
+    "to": "simulations/school6.html",
+    "file": "zh/simulations/school6.html"
+  },
+  {
+    "from": "zh/simulations/self_evidencing_tree.html",
+    "to": "simulations/self_evidencing_tree.html",
+    "file": "zh/simulations/self_evidencing_tree.html"
+  },
+  {
+    "from": "zh/simulations/t_maze_fep.html",
+    "to": "simulations/t_maze_fep.html",
+    "file": "zh/simulations/t_maze_fep.html"
+  },
+  {
+    "from": "zh/simulations/tree_with_quiz.html",
+    "to": "simulations/tree_with_quiz.html",
+    "file": "zh/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "ja/active-inference-and-healthcare",
+    "to": "ja/active-inference/healthcare/",
+    "file": "ja/active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-robotics",
+    "to": "ja/active-inference/robotics/",
+    "file": "ja/active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-ecology",
+    "to": "ja/active-inference/ecology/",
+    "file": "ja/active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-medicine",
+    "to": "ja/active-inference/medicine/",
+    "file": "ja/active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-psychology",
+    "to": "ja/active-inference/psychology/",
+    "file": "ja/active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-entomology",
+    "to": "ja/active-inference/entomology/",
+    "file": "ja/active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-economics",
+    "to": "ja/active-inference/economics/",
+    "file": "ja/active-inference-and-economics/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-climate",
+    "to": "ja/active-inference/climate/",
+    "file": "ja/active-inference-and-climate/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-education",
+    "to": "ja/active-inference/education/",
+    "file": "ja/active-inference-and-education/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-law",
+    "to": "ja/active-inference/law/",
+    "file": "ja/active-inference-and-law/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-neuroscience",
+    "to": "ja/active-inference/neuroscience/",
+    "file": "ja/active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-linguistics",
+    "to": "ja/active-inference/linguistics/",
+    "file": "ja/active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-urban-planning",
+    "to": "ja/active-inference/urban-planning/",
+    "file": "ja/active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-music",
+    "to": "ja/active-inference/music/",
+    "file": "ja/active-inference-and-music/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-agriculture",
+    "to": "ja/active-inference/agriculture/",
+    "file": "ja/active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-cybersecurity",
+    "to": "ja/active-inference/cybersecurity/",
+    "file": "ja/active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-computational",
+    "to": "ja/active-inference/computational/",
+    "file": "ja/active-inference-and-computational/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-social",
+    "to": "ja/active-inference/social/",
+    "file": "ja/active-inference-and-social/index.html"
+  },
+  {
+    "from": "ja/active-inference-and-scientific-method",
+    "to": "ja/active-inference/scientific-method/",
+    "file": "ja/active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "ja/board-of-directors",
+    "to": "ja/structure/board-of-directors/",
+    "file": "ja/board-of-directors/index.html"
+  },
+  {
+    "from": "ja/officers",
+    "to": "ja/structure/officers/",
+    "file": "ja/officers/index.html"
+  },
+  {
+    "from": "ja/scientific-advisory-board",
+    "to": "ja/structure/scientific-advisory-board/",
+    "file": "ja/scientific-advisory-board/index.html"
+  },
+  {
+    "from": "ja/2025",
+    "to": "ja/years/2025/",
+    "file": "ja/2025/index.html"
+  },
+  {
+    "from": "ja/2026",
+    "to": "ja/years/2026/",
+    "file": "ja/2026/index.html"
+  },
+  {
+    "from": "ja/simulations/Apple-Frog.html",
+    "to": "simulations/Apple-Frog.html",
+    "file": "ja/simulations/Apple-Frog.html"
+  },
+  {
+    "from": "ja/simulations/Ink.html",
+    "to": "simulations/Ink.html",
+    "file": "ja/simulations/Ink.html"
+  },
+  {
+    "from": "ja/simulations/active_inference_network.html",
+    "to": "simulations/active_inference_network.html",
+    "file": "ja/simulations/active_inference_network.html"
+  },
+  {
+    "from": "ja/simulations/ant_colony.html",
+    "to": "simulations/ant_colony.html",
+    "file": "ja/simulations/ant_colony.html"
+  },
+  {
+    "from": "ja/simulations/dopamine_daniel.html",
+    "to": "simulations/dopamine_daniel.html",
+    "file": "ja/simulations/dopamine_daniel.html"
+  },
+  {
+    "from": "ja/simulations/fep_surprise.html",
+    "to": "simulations/fep_surprise.html",
+    "file": "ja/simulations/fep_surprise.html"
+  },
+  {
+    "from": "ja/simulations/fep_tutorial.html",
+    "to": "simulations/fep_tutorial.html",
+    "file": "ja/simulations/fep_tutorial.html"
+  },
+  {
+    "from": "ja/simulations/hierarchical_blankets.html",
+    "to": "simulations/hierarchical_blankets.html",
+    "file": "ja/simulations/hierarchical_blankets.html"
+  },
+  {
+    "from": "ja/simulations/school6.html",
+    "to": "simulations/school6.html",
+    "file": "ja/simulations/school6.html"
+  },
+  {
+    "from": "ja/simulations/self_evidencing_tree.html",
+    "to": "simulations/self_evidencing_tree.html",
+    "file": "ja/simulations/self_evidencing_tree.html"
+  },
+  {
+    "from": "ja/simulations/t_maze_fep.html",
+    "to": "simulations/t_maze_fep.html",
+    "file": "ja/simulations/t_maze_fep.html"
+  },
+  {
+    "from": "ja/simulations/tree_with_quiz.html",
+    "to": "simulations/tree_with_quiz.html",
+    "file": "ja/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "ko/active-inference-and-healthcare",
+    "to": "ko/active-inference/healthcare/",
+    "file": "ko/active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-robotics",
+    "to": "ko/active-inference/robotics/",
+    "file": "ko/active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-ecology",
+    "to": "ko/active-inference/ecology/",
+    "file": "ko/active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-medicine",
+    "to": "ko/active-inference/medicine/",
+    "file": "ko/active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-psychology",
+    "to": "ko/active-inference/psychology/",
+    "file": "ko/active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-entomology",
+    "to": "ko/active-inference/entomology/",
+    "file": "ko/active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-economics",
+    "to": "ko/active-inference/economics/",
+    "file": "ko/active-inference-and-economics/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-climate",
+    "to": "ko/active-inference/climate/",
+    "file": "ko/active-inference-and-climate/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-education",
+    "to": "ko/active-inference/education/",
+    "file": "ko/active-inference-and-education/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-law",
+    "to": "ko/active-inference/law/",
+    "file": "ko/active-inference-and-law/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-neuroscience",
+    "to": "ko/active-inference/neuroscience/",
+    "file": "ko/active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-linguistics",
+    "to": "ko/active-inference/linguistics/",
+    "file": "ko/active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-urban-planning",
+    "to": "ko/active-inference/urban-planning/",
+    "file": "ko/active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-music",
+    "to": "ko/active-inference/music/",
+    "file": "ko/active-inference-and-music/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-agriculture",
+    "to": "ko/active-inference/agriculture/",
+    "file": "ko/active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-cybersecurity",
+    "to": "ko/active-inference/cybersecurity/",
+    "file": "ko/active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-computational",
+    "to": "ko/active-inference/computational/",
+    "file": "ko/active-inference-and-computational/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-social",
+    "to": "ko/active-inference/social/",
+    "file": "ko/active-inference-and-social/index.html"
+  },
+  {
+    "from": "ko/active-inference-and-scientific-method",
+    "to": "ko/active-inference/scientific-method/",
+    "file": "ko/active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "ko/board-of-directors",
+    "to": "ko/structure/board-of-directors/",
+    "file": "ko/board-of-directors/index.html"
+  },
+  {
+    "from": "ko/officers",
+    "to": "ko/structure/officers/",
+    "file": "ko/officers/index.html"
+  },
+  {
+    "from": "ko/scientific-advisory-board",
+    "to": "ko/structure/scientific-advisory-board/",
+    "file": "ko/scientific-advisory-board/index.html"
+  },
+  {
+    "from": "ko/2025",
+    "to": "ko/years/2025/",
+    "file": "ko/2025/index.html"
+  },
+  {
+    "from": "ko/2026",
+    "to": "ko/years/2026/",
+    "file": "ko/2026/index.html"
+  },
+  {
+    "from": "ko/simulations/Apple-Frog.html",
+    "to": "simulations/Apple-Frog.html",
+    "file": "ko/simulations/Apple-Frog.html"
+  },
+  {
+    "from": "ko/simulations/Ink.html",
+    "to": "simulations/Ink.html",
+    "file": "ko/simulations/Ink.html"
+  },
+  {
+    "from": "ko/simulations/active_inference_network.html",
+    "to": "simulations/active_inference_network.html",
+    "file": "ko/simulations/active_inference_network.html"
+  },
+  {
+    "from": "ko/simulations/ant_colony.html",
+    "to": "simulations/ant_colony.html",
+    "file": "ko/simulations/ant_colony.html"
+  },
+  {
+    "from": "ko/simulations/dopamine_daniel.html",
+    "to": "simulations/dopamine_daniel.html",
+    "file": "ko/simulations/dopamine_daniel.html"
+  },
+  {
+    "from": "ko/simulations/fep_surprise.html",
+    "to": "simulations/fep_surprise.html",
+    "file": "ko/simulations/fep_surprise.html"
+  },
+  {
+    "from": "ko/simulations/fep_tutorial.html",
+    "to": "simulations/fep_tutorial.html",
+    "file": "ko/simulations/fep_tutorial.html"
+  },
+  {
+    "from": "ko/simulations/hierarchical_blankets.html",
+    "to": "simulations/hierarchical_blankets.html",
+    "file": "ko/simulations/hierarchical_blankets.html"
+  },
+  {
+    "from": "ko/simulations/school6.html",
+    "to": "simulations/school6.html",
+    "file": "ko/simulations/school6.html"
+  },
+  {
+    "from": "ko/simulations/self_evidencing_tree.html",
+    "to": "simulations/self_evidencing_tree.html",
+    "file": "ko/simulations/self_evidencing_tree.html"
+  },
+  {
+    "from": "ko/simulations/t_maze_fep.html",
+    "to": "simulations/t_maze_fep.html",
+    "file": "ko/simulations/t_maze_fep.html"
+  },
+  {
+    "from": "ko/simulations/tree_with_quiz.html",
+    "to": "simulations/tree_with_quiz.html",
+    "file": "ko/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "hi/active-inference-and-healthcare",
+    "to": "hi/active-inference/healthcare/",
+    "file": "hi/active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-robotics",
+    "to": "hi/active-inference/robotics/",
+    "file": "hi/active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-ecology",
+    "to": "hi/active-inference/ecology/",
+    "file": "hi/active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-medicine",
+    "to": "hi/active-inference/medicine/",
+    "file": "hi/active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-psychology",
+    "to": "hi/active-inference/psychology/",
+    "file": "hi/active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-entomology",
+    "to": "hi/active-inference/entomology/",
+    "file": "hi/active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-economics",
+    "to": "hi/active-inference/economics/",
+    "file": "hi/active-inference-and-economics/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-climate",
+    "to": "hi/active-inference/climate/",
+    "file": "hi/active-inference-and-climate/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-education",
+    "to": "hi/active-inference/education/",
+    "file": "hi/active-inference-and-education/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-law",
+    "to": "hi/active-inference/law/",
+    "file": "hi/active-inference-and-law/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-neuroscience",
+    "to": "hi/active-inference/neuroscience/",
+    "file": "hi/active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-linguistics",
+    "to": "hi/active-inference/linguistics/",
+    "file": "hi/active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-urban-planning",
+    "to": "hi/active-inference/urban-planning/",
+    "file": "hi/active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-music",
+    "to": "hi/active-inference/music/",
+    "file": "hi/active-inference-and-music/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-agriculture",
+    "to": "hi/active-inference/agriculture/",
+    "file": "hi/active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-cybersecurity",
+    "to": "hi/active-inference/cybersecurity/",
+    "file": "hi/active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-computational",
+    "to": "hi/active-inference/computational/",
+    "file": "hi/active-inference-and-computational/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-social",
+    "to": "hi/active-inference/social/",
+    "file": "hi/active-inference-and-social/index.html"
+  },
+  {
+    "from": "hi/active-inference-and-scientific-method",
+    "to": "hi/active-inference/scientific-method/",
+    "file": "hi/active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "hi/board-of-directors",
+    "to": "hi/structure/board-of-directors/",
+    "file": "hi/board-of-directors/index.html"
+  },
+  {
+    "from": "hi/officers",
+    "to": "hi/structure/officers/",
+    "file": "hi/officers/index.html"
+  },
+  {
+    "from": "hi/scientific-advisory-board",
+    "to": "hi/structure/scientific-advisory-board/",
+    "file": "hi/scientific-advisory-board/index.html"
+  },
+  {
+    "from": "hi/2025",
+    "to": "hi/years/2025/",
+    "file": "hi/2025/index.html"
+  },
+  {
+    "from": "hi/2026",
+    "to": "hi/years/2026/",
+    "file": "hi/2026/index.html"
+  },
+  {
+    "from": "hi/simulations/Apple-Frog.html",
+    "to": "simulations/Apple-Frog.html",
+    "file": "hi/simulations/Apple-Frog.html"
+  },
+  {
+    "from": "hi/simulations/Ink.html",
+    "to": "simulations/Ink.html",
+    "file": "hi/simulations/Ink.html"
+  },
+  {
+    "from": "hi/simulations/active_inference_network.html",
+    "to": "simulations/active_inference_network.html",
+    "file": "hi/simulations/active_inference_network.html"
+  },
+  {
+    "from": "hi/simulations/ant_colony.html",
+    "to": "simulations/ant_colony.html",
+    "file": "hi/simulations/ant_colony.html"
+  },
+  {
+    "from": "hi/simulations/dopamine_daniel.html",
+    "to": "simulations/dopamine_daniel.html",
+    "file": "hi/simulations/dopamine_daniel.html"
+  },
+  {
+    "from": "hi/simulations/fep_surprise.html",
+    "to": "simulations/fep_surprise.html",
+    "file": "hi/simulations/fep_surprise.html"
+  },
+  {
+    "from": "hi/simulations/fep_tutorial.html",
+    "to": "simulations/fep_tutorial.html",
+    "file": "hi/simulations/fep_tutorial.html"
+  },
+  {
+    "from": "hi/simulations/hierarchical_blankets.html",
+    "to": "simulations/hierarchical_blankets.html",
+    "file": "hi/simulations/hierarchical_blankets.html"
+  },
+  {
+    "from": "hi/simulations/school6.html",
+    "to": "simulations/school6.html",
+    "file": "hi/simulations/school6.html"
+  },
+  {
+    "from": "hi/simulations/self_evidencing_tree.html",
+    "to": "simulations/self_evidencing_tree.html",
+    "file": "hi/simulations/self_evidencing_tree.html"
+  },
+  {
+    "from": "hi/simulations/t_maze_fep.html",
+    "to": "simulations/t_maze_fep.html",
+    "file": "hi/simulations/t_maze_fep.html"
+  },
+  {
+    "from": "hi/simulations/tree_with_quiz.html",
+    "to": "simulations/tree_with_quiz.html",
+    "file": "hi/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "ar/active-inference-and-healthcare",
+    "to": "ar/active-inference/healthcare/",
+    "file": "ar/active-inference-and-healthcare/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-robotics",
+    "to": "ar/active-inference/robotics/",
+    "file": "ar/active-inference-and-robotics/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-ecology",
+    "to": "ar/active-inference/ecology/",
+    "file": "ar/active-inference-and-ecology/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-medicine",
+    "to": "ar/active-inference/medicine/",
+    "file": "ar/active-inference-and-medicine/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-psychology",
+    "to": "ar/active-inference/psychology/",
+    "file": "ar/active-inference-and-psychology/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-entomology",
+    "to": "ar/active-inference/entomology/",
+    "file": "ar/active-inference-and-entomology/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-economics",
+    "to": "ar/active-inference/economics/",
+    "file": "ar/active-inference-and-economics/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-climate",
+    "to": "ar/active-inference/climate/",
+    "file": "ar/active-inference-and-climate/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-education",
+    "to": "ar/active-inference/education/",
+    "file": "ar/active-inference-and-education/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-law",
+    "to": "ar/active-inference/law/",
+    "file": "ar/active-inference-and-law/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-neuroscience",
+    "to": "ar/active-inference/neuroscience/",
+    "file": "ar/active-inference-and-neuroscience/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-linguistics",
+    "to": "ar/active-inference/linguistics/",
+    "file": "ar/active-inference-and-linguistics/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-urban-planning",
+    "to": "ar/active-inference/urban-planning/",
+    "file": "ar/active-inference-and-urban-planning/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-music",
+    "to": "ar/active-inference/music/",
+    "file": "ar/active-inference-and-music/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-agriculture",
+    "to": "ar/active-inference/agriculture/",
+    "file": "ar/active-inference-and-agriculture/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-cybersecurity",
+    "to": "ar/active-inference/cybersecurity/",
+    "file": "ar/active-inference-and-cybersecurity/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-computational",
+    "to": "ar/active-inference/computational/",
+    "file": "ar/active-inference-and-computational/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-social",
+    "to": "ar/active-inference/social/",
+    "file": "ar/active-inference-and-social/index.html"
+  },
+  {
+    "from": "ar/active-inference-and-scientific-method",
+    "to": "ar/active-inference/scientific-method/",
+    "file": "ar/active-inference-and-scientific-method/index.html"
+  },
+  {
+    "from": "ar/board-of-directors",
+    "to": "ar/structure/board-of-directors/",
+    "file": "ar/board-of-directors/index.html"
+  },
+  {
+    "from": "ar/officers",
+    "to": "ar/structure/officers/",
+    "file": "ar/officers/index.html"
+  },
+  {
+    "from": "ar/scientific-advisory-board",
+    "to": "ar/structure/scientific-advisory-board/",
+    "file": "ar/scientific-advisory-board/index.html"
+  },
+  {
+    "from": "ar/2025",
+    "to": "ar/years/2025/",
+    "file": "ar/2025/index.html"
+  },
+  {
+    "from": "ar/2026",
+    "to": "ar/years/2026/",
+    "file": "ar/2026/index.html"
+  },
+  {
+    "from": "ar/simulations/Apple-Frog.html",
+    "to": "simulations/Apple-Frog.html",
+    "file": "ar/simulations/Apple-Frog.html"
+  },
+  {
+    "from": "ar/simulations/Ink.html",
+    "to": "simulations/Ink.html",
+    "file": "ar/simulations/Ink.html"
+  },
+  {
+    "from": "ar/simulations/active_inference_network.html",
+    "to": "simulations/active_inference_network.html",
+    "file": "ar/simulations/active_inference_network.html"
+  },
+  {
+    "from": "ar/simulations/ant_colony.html",
+    "to": "simulations/ant_colony.html",
+    "file": "ar/simulations/ant_colony.html"
+  },
+  {
+    "from": "ar/simulations/dopamine_daniel.html",
+    "to": "simulations/dopamine_daniel.html",
+    "file": "ar/simulations/dopamine_daniel.html"
+  },
+  {
+    "from": "ar/simulations/fep_surprise.html",
+    "to": "simulations/fep_surprise.html",
+    "file": "ar/simulations/fep_surprise.html"
+  },
+  {
+    "from": "ar/simulations/fep_tutorial.html",
+    "to": "simulations/fep_tutorial.html",
+    "file": "ar/simulations/fep_tutorial.html"
+  },
+  {
+    "from": "ar/simulations/hierarchical_blankets.html",
+    "to": "simulations/hierarchical_blankets.html",
+    "file": "ar/simulations/hierarchical_blankets.html"
+  },
+  {
+    "from": "ar/simulations/school6.html",
+    "to": "simulations/school6.html",
+    "file": "ar/simulations/school6.html"
+  },
+  {
+    "from": "ar/simulations/self_evidencing_tree.html",
+    "to": "simulations/self_evidencing_tree.html",
+    "file": "ar/simulations/self_evidencing_tree.html"
+  },
+  {
+    "from": "ar/simulations/t_maze_fep.html",
+    "to": "simulations/t_maze_fep.html",
+    "file": "ar/simulations/t_maze_fep.html"
+  },
+  {
+    "from": "ar/simulations/tree_with_quiz.html",
+    "to": "simulations/tree_with_quiz.html",
+    "file": "ar/simulations/tree_with_quiz.html"
+  }
+]

@@ -318,9 +318,7 @@ function updateCalendarFilters() {
   }
 
   if (calendarCount) {
-    // The scope noun pluralizes in the slot ("1 upcoming event shown" /
-    // "5 upcoming events shown"), preserving the pre-existing English shape.
-    calendarCount.textContent = countMsg(calendarCount, "data-msg-count-events", "{n} {label} shown", visible, visible === 1 ? scope : `${scope}s`);
+    calendarCount.textContent = countMsg(calendarCount, "data-msg-count-events", "Events shown: {n}", visible);
   }
 }
 

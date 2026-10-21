@@ -31,12 +31,24 @@ chain.
 | `check:citations` | Node citation-link controls | DOI labels and work links identify the registered paper. |
 | `check:md-links` | [`scripts/check_markdown_links.py`](../../../../scripts/check_markdown_links.py) | No broken relative `[text](path)` links in tracked Markdown docs (incl. `AGENTS.md` guides). |
 | `check:instituteos` | [`scripts/sync_instituteos_public_data.py --check`](../../../../scripts/sync_instituteos_public_data.py) | The committed sanitized Open Source Map slices + brand assets match what the sync would produce; drift means re-run `npm run sync:instituteos`. |
+| `check:export` | `node --test scripts/test_export_manifest.mjs scripts/test_indexing.mjs scripts/test_browser_process.mjs` | Export provenance, redirect/indexing controls, localized calendar markup and real process failures including a zero-exit timeout. |
 | `check:design-system` | [`scripts/check_design_system_export.mjs`](../../../../scripts/check_design_system_export.mjs) | `styles.css` token fallbacks are intact; when the sibling DS source is present, byte-compares `instituteos-ds.css` to catch a stale committed copy. |
 | `check:site` | [`scripts/check_site_contract.py`](../../../../scripts/check_site_contract.py) | The resource-hub content contract (see below). |
+| `check:feeds` | [`scripts/check_feeds.py`](../../../../scripts/check_feeds.py) | Feed structure/dates, unique IDs, and feed/sitemap target existence. |
 | `check:security` | [`scripts/check_static_security.py`](../../../../scripts/check_static_security.py) | Strict CSP meta tag (`script-src 'self'`, `connect-src 'none'`), referrer policy, and no `<form>`/`<iframe>`/`<object>`/`<embed>` or inline event-handler attributes. |
 | `check:redirects` | [`scripts/check_redirects.py`](../../../../scripts/check_redirects.py) | `assets/js/redirects.js` entries resolve to real built files and stay consistent with `src/url-taxonomy.json` and the build output. |
 | `check:projects` | [`scripts/check_project_discoverability.py`](../../../../scripts/check_project_discoverability.py) | Every public project page is linked from `/projects/` (with an allowlist for intentionally page-less projects). |
 | `check:catalog` | [`scripts/check_project_catalog_coverage.mjs`](../../../../scripts/check_project_catalog_coverage.mjs) | `data/projects.json` catalog rows all have rendered project pages. |
+| `check:i18n` | `node --test scripts/test_i18n_translate.mjs scripts/test_i18n_terminology.mjs` | Translation-helper behavior and terminology classification. |
+| `check:standalone` | [`scripts/check_standalone_payloads.py`](../../../../scripts/check_standalone_payloads.py) | CI-only public-payload verification without an upstream checkout. |
+
+There are 13 offline sub-gates. After changing calendar markup or `site.js`, also
+run `npm run check:browser` with `CHROME_BIN` set to a working Chrome/Chromium
+executable. It starts its own loopback server, exercises the actual built pages
+in all 12 locales and proves that restoring the original `scope` ReferenceError
+fails the check. It leaves JSON receipts in its temporary browser profile.
+CI runs this separate browser check on Node 20 and 22; a missing browser fails
+explicitly rather than skipping coverage.
 
 ### What `check:site` covers
 

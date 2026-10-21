@@ -3,6 +3,7 @@
 // href/label pairs) against the verified live-source registry.
 import { liveSourceById } from "../data.mjs";
 import { externalHref } from "./urls.mjs";
+import { normalizePublicUrl } from "../public-links.mjs";
 
 export function linkAttrs(href = "") {
   return externalHref(href) ? ' target="_blank" rel="noopener noreferrer"' : "";
@@ -14,7 +15,7 @@ export function sourceFor(id) {
 }
 
 export function publicHrefForSource(source) {
-  return source.url;
+  return normalizePublicUrl(source.url);
 }
 
 export function resolveLink(link) {
@@ -30,7 +31,7 @@ export function resolveLink(link) {
       label: link.label || source.label,
       href: publicHrefForSource(source),
       meta: source.category,
-      external: true,
+      external: externalHref(publicHrefForSource(source)),
     };
   }
   if (link.href && link.label) {

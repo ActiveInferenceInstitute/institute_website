@@ -1,6 +1,7 @@
 import { siteData } from "../data.mjs";
 import { escapeHtml } from "../lib/text.mjs";
 import { relPrefix } from "../render/urls.mjs";
+import { normalizePublicUrl } from "../public-links.mjs";
 
 const TOKEN_PREFIX = "\uE000NEWSLETTER_";
 
@@ -34,7 +35,7 @@ function safeHref(target, record, currentDir) {
     return localMedia;
   }
   if (/^(https?:\/\/|mailto:|#)/i.test(clean)) {
-    return clean;
+    return normalizePublicUrl(clean);
   }
   return "";
 }

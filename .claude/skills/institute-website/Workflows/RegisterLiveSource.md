@@ -5,6 +5,12 @@ inlined as raw `href`s on content pages — they must first be registered in
 [`src/content/live-sources.json`](../../../../src/content/live-sources.json) and
 then referenced from page JSON by `{sourceId}`.
 
+When an approved replacement supersedes a URL still present in a sanitized
+upstream export, retain the source ID and record the old URLs in optional
+`previousUrls`. The public URL normalizer maps those exact URLs to the registered
+`url` only when `ok` is true, then applies the normal HTTPS and locale rules.
+Rebuild and verify the rendered anchors; do not hand-edit the upstream export.
+
 ## Why raw external hrefs are rejected
 
 The security gate

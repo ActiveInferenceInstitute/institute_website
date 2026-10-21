@@ -6,6 +6,8 @@ import { cspContent } from "./security.mjs";
 import { absoluteUrl, relPrefix } from "./urls.mjs";
 import { nav, socialLinks } from "./page-sections.mjs";
 import { tr, activeLocale, localeMeta, isDefaultLocale, LOCALES, DEFAULT_LOCALE } from "../i18n/index.mjs";
+import { normalizePublicAnchors } from "../public-links.mjs";
+import { untranslatedBody } from "../indexing-policy.mjs";
 
 // Language switcher (header) + per-page hreflang alternates (head). Both are
 // pure markup — no JS, no network — so they satisfy the strict CSP. The switcher
@@ -55,9 +57,14 @@ function ogLocaleAlternatesFor(currentLang) {
     .join(" ");
 }
 
-export function layout({ title, description, currentDir = "", canonicalPath, body, bodyClass = "", slug = "", robots = "", ogType, redirects = false, hreflang = true } = {}) {
+export function layout({ title, description, currentDir = "", canonicalPath, body, bodyClass = "", slug = "", robots = "", ogType, redirects = false, hreflang = true, refreshPath } = {}) {
   const prefix = relPrefix(currentDir);
   const lang = activeLocale();
+  body = normalizePublicAnchors(body);
+  if (untranslatedBody(slug)) {
+    hreflang = false;
+    canonicalPath = localeOutputPathForSlug(slug, DEFAULT_LOCALE);
+  }
   const meta = localeMeta(lang);
   const dirAttr = meta.dir === "rtl" ? ' dir="rtl"' : "";
   // A noindexed page must not advertise itself as part of an hreflang cluster,
@@ -69,11 +76,14 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   // advertise translations either.
   const hreflangEligible = hreflang && !robots.includes("noindex");
   const hreflangLinks = hreflangEligible ? localeAlternateLinks(slug) : "";
+  const mtLabel = untranslatedBody(slug)
+    ? tr("Navigation is machine-translated; the archived content remains in English.")
+    : tr("This page was machine-translated from English.");
   // Machine-translated locales carry a visible, honest provenance note linking
   // back to the authoritative English original.
   const mtNotice =
     !isDefaultLocale(lang) && meta.machine && slug
-      ? `<p class="mt-notice" role="note"><span aria-hidden="true">🌐</span> ${escapeHtml(tr("This page was machine-translated from English."))} <a href="${escapeHtml(crossLocaleHref(slug, currentDir, DEFAULT_LOCALE))}" hreflang="en" lang="en">${escapeHtml(tr("View the English original."))}</a></p>`
+      ? `<p class="mt-notice" role="note"><span aria-hidden="true">🌐</span> ${escapeHtml(mtLabel)} <a href="${escapeHtml(crossLocaleHref(slug, currentDir, DEFAULT_LOCALE))}" hreflang="en" lang="en">${escapeHtml(tr("View the English original."))}</a></p>`
       : "";
   // Per-page Open Graph / Twitter card image (falls back to the shared card).
   const ogImage = ogImageForSlug(slug);
@@ -95,6 +105,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   const pageDescription = metaDescription(tr(description || siteData.site.description));
   // Content/detail pages are articles; section hubs and the root are websites.
   const resolvedOgType = ogType || (slug.startsWith("project-") ? "article" : "website");
+  const refreshTag = refreshPath ? `\n  <meta http-equiv="refresh" content="0; url=${escapeHtml(refreshPath)}">` : "";
   const robotsTag = robots ? `\n  <meta name="robots" content="${escapeHtml(robots)}">` : "";
   // canonicalPath overrides for the flat 404 file; otherwise derive from the dir.
   const canonicalUrl = absoluteUrl(canonicalPath ?? (currentDir ? `${currentDir}/index.html` : "index.html"));
@@ -137,7 +148,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="${escapeHtml(cspContent())}">
-  <meta name="referrer" content="strict-origin-when-cross-origin">${robotsTag}
+  <meta name="referrer" content="strict-origin-when-cross-origin">${robotsTag}${refreshTag}
   <title>${escapeHtml(pageTitle)}</title>
   <meta name="description" content="${escapeHtml(pageDescription)}">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a">

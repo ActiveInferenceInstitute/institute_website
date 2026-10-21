@@ -23,13 +23,27 @@ Static, zero-runtime-dependency site for the Active Inference Institute. `node s
 
 ## Build & gates
 
+Legacy redirect directories and localized simulation filename stubs are generated
+output, inventoried in [`data/redirects.json`](data/redirects.json). Edit
+[`src/url-taxonomy.json`](src/url-taxonomy.json) and rebuild; the same source
+generates the 404 fallback script. On-site registrar forwards are pinned in
+[`src/content/inbound-forwards.json`](src/content/inbound-forwards.json).
+
 ```bash
 npm install
 node src/build.mjs          # render content -> committed HTML
 npm run check               # all gates (run before commit)
 ```
 
-`npm run check` = `check:links` (built HTML internal links) + `check:md-links` (relative links in tracked Markdown docs, `check_markdown_links.py`) + `check:instituteos` (public-data parity/safety, `sync_instituteos_public_data.py --check`) + `check:design-system` (token parity) + `check:site` (`check_site_contract.py`, incl. `version.json`==`package.json`) + `check:security` (`check_static_security.py`, CSP + no coda.io/PII in HTML) + `check:redirects` + `check:projects` + `check:catalog` + `check:i18n` + `check:standalone`. Extra: `npm run sync:instituteos`, `npm run check:sources`, `npm run i18n:extract`, `npm run i18n:translate`.
+`npm run check` runs 13 offline sub-gates: `check:links`, `check:md-links`,
+`check:instituteos`, `check:export`, `check:design-system`, `check:site`,
+`check:feeds`, `check:security`, `check:redirects`, `check:projects`,
+`check:catalog`, `check:i18n`, and `check:standalone`. See
+[the gate reference](docs/GATES_AND_VALIDATION.md) for contracts and failures.
+`npm run check:browser` separately runs the calendar regression in real Chrome
+with `CHROME_BIN` set; CI runs it on both supported Node versions.
+Other commands: `npm run sync:instituteos`, `npm run check:sources`,
+`npm run i18n:extract`, `npm run i18n:translate`.
 
 ## Doc map
 

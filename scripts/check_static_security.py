@@ -10,8 +10,10 @@ import sys
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
+from public_link_policy import normalized_external_url, institute_link_errors, institute_host
 
 from public_privacy import PHONE_RE
+from site_paths import site_paths
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -30,7 +32,6 @@ DISALLOWED_TAGS = {"form", "iframe", "object", "embed"}
 VETTED_ANCHOR_HOST_SUFFIXES = (
     "youtube.com",
     "youtu.be",
-    "activeinference.institute",
     "github.com",
     "zoom.us",
     "meet.google.com",
@@ -177,8 +178,10 @@ def parse_html(path: Path) -> StaticHtmlParser:
 def generated_html_files() -> list[Path]:
     return sorted(
         path
-        for path in PROJECT_ROOT.rglob("*.html")
-        if path.is_file() and not any(part in EXCLUDED_PARTS for part in path.relative_to(PROJECT_ROOT).parts)
+        for path in site_paths(PROJECT_ROOT, EXCLUDED_PARTS - {"simulations"})
+        if path.suffix == ".html" and path.is_file()
+        and not any(part in EXCLUDED_PARTS - {"simulations"} for part in path.relative_to(PROJECT_ROOT).parts)
+        and not (path.relative_to(PROJECT_ROOT).parts[0] == "simulations" and path.name != "index.html")
     )
 
 
@@ -268,7 +271,7 @@ def live_urls() -> set[str]:
             urls.add(value)
             urls.add(clean)
             urls.add(f"{clean}/")
-    return urls
+    return urls | {normalized_external_url(url) for url in urls}
 
 
 def newsletter_urls() -> set[str]:
@@ -283,6 +286,7 @@ def newsletter_urls() -> set[str]:
         for value in values:
             for match in re.findall(r"https?://[^\s<>\])]+", str(value)):
                 clean = match.rstrip(".,;:!?\\")
+                urls.add(normalized_external_url(clean))
                 urls.add(clean)
                 urls.add(clean.rstrip("/"))
                 urls.add(f"{clean.rstrip('/')}/")
@@ -293,6 +297,9 @@ def check_security() -> int:
     errors: list[str] = []
     allowed_live_urls = live_urls()
     allowed_newsletter_urls = newsletter_urls()
+    known_institute_hosts = {urlparse(url).hostname for url in allowed_live_urls}
+    known_institute_hosts.update({"activeinference.institute", "activeinference.org"})
+    known_institute_hosts.update(json.loads((CONTENT_DIR / "inbound-forwards.json").read_text())["knownExternalHosts"])
     html_files = generated_html_files()
     instituteos_asset_dir = PROJECT_ROOT / "assets" / "img" / "instituteos"
     if instituteos_asset_dir.exists():
@@ -369,6 +376,7 @@ def check_security() -> int:
                 continue
             if not external_url(href):
                 continue
+            errors.extend(f"{relative}: {error}: {href}" for error in institute_link_errors(href, known_institute_hosts))
             if "coda.io" in href.lower():
                 errors.append(f"{relative}: direct Coda anchor is not allowed: {href}")
                 continue
@@ -378,6 +386,7 @@ def check_security() -> int:
                 or href in allowed_newsletter_urls
                 or href.rstrip("/") in allowed_newsletter_urls
                 or vetted_anchor_host(href)
+                or (institute_host(urlparse(href).hostname) and urlparse(href).hostname in known_institute_hosts)
             )
             if not backed:
                 errors.append(f"{relative}: external anchor is not backed by live-sources.json or a vetted host: {href}")

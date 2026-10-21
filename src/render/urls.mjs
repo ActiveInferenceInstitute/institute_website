@@ -4,12 +4,18 @@
 // already-initialized data.mjs exports, so there is no value cycle.
 import { siteData, liveSourceUrlSet, ALL_ROUTED_SLUGS } from "../data.mjs";
 import { urlDirForSlug, hrefForSlug, parseFlatHref } from "../url-taxonomy.mjs";
+import { normalizePublicUrl } from "../public-links.mjs";
+import { activeLocale, DEFAULT_LOCALE } from "../i18n/index.mjs";
 
 export function isVerifiedExternalUrl(url = "") {
   if (!url) {
     return false;
   }
-  return liveSourceUrlSet.has(url) || liveSourceUrlSet.has(url.replace(/\/+$/, ""));
+  const normalized = normalizePublicUrl(url);
+  const locale = activeLocale();
+  const canonicalPath = locale !== DEFAULT_LOCALE && normalized.startsWith(`/${locale}/`) ? normalized.slice(locale.length + 1) : normalized;
+  const canonical = canonicalPath.startsWith("/") ? new URL(canonicalPath, siteData.site.baseUrl).href : canonicalPath;
+  return [url, normalized, canonical].some((value) => value && (liveSourceUrlSet.has(value) || liveSourceUrlSet.has(value.replace(/\/+$/, ""))));
 }
 
 // Backwards-compatible thin wrapper: slugToHref resolves a slug to a

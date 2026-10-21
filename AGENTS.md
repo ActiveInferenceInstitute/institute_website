@@ -4,7 +4,7 @@ This repository builds the public GitHub Pages website for the Active Inference 
 Canonical domain (post-cutover): **[https://activeinference.institute/](https://activeinference.institute/)**
 (the Squarespace → Pages migration is complete; before the 2026-06 cutover the
 site served at `activeinferenceinstitute.github.io/institute_website/`).
-See [SWITCHOVER.md](SWITCHOVER.md).
+See [docs/MIGRATION_AND_REDIRECTS.md](docs/MIGRATION_AND_REDIRECTS.md).
 
 ## 30-second orientation
 
@@ -29,7 +29,8 @@ Never commit private paths or internal tool names — every commit is public.
 | Command | What it does |
 | --- | --- |
 | `npm run build` | `node src/build.mjs` — render all public HTML + crawler files |
-| `npm run check` | `node --check src/build.mjs` + `py_compile` of all checkers + the 11 `check:*` sub-gates below |
+| `npm run check` | `node --check src/build.mjs` + `py_compile` of all checkers + the 13 `check:*` sub-gates below |
+| `npm run check:browser` | Real Chrome calendar regression in all locales, including the original runtime-error negative control; requires `CHROME_BIN` |
 | `npm run i18n:extract` | `I18N_EXTRACT=1 node src/build.mjs` — extract translatable strings |
 | `npm run i18n:translate` | `node scripts/i18n_translate.mjs` — offline translation (Ollama/hosted API) |
 | `npm run i18n:check-terms` | `node scripts/i18n_check_terminology.mjs` — terminology QA report over the committed catalogs (`--fix` re-translates findings offline) |
@@ -46,8 +47,10 @@ treat as order-of-magnitude):
 | `check:links` | `check_internal_links.py` | href/src/poster + `#fragment` anchors in every generated HTML | heavy-ish (parses all built HTML) | — |
 | `check:md-links` | `check_markdown_links.py` | relative links in tracked `*.md` | ~8 s | — |
 | `check:instituteos` | `sync_instituteos_public_data.py --check` | committed public-data parity/safety | medium | historical: `videos.json` "Notes" tripped a substring scan; key matching is now key-level only (`validate_public_prose_payload`), so it should not recur |
+| `check:export` | Node export-manifest and indexing tests | provenance, redirect/indexing controls, localized calendar markup | medium | — |
 | `check:design-system` | `check_design_system_export.mjs` | CSS token fallbacks + `instituteos-ds.css`/font byte-parity | medium | fails when the private design-system checkout is absent and the export is stale |
 | `check:site` | `check_site_contract.py` | the big content/structure contract (canonical URLs, registries, exact counts) | heavy | the one hardcoded count is 35 repositories; everything else is derived from content |
+| `check:feeds` | `check_feeds.py` | feed structure/dates, unique IDs and feed/sitemap targets | medium | — |
 | `check:security` | `check_static_security.py` | CSP, no inline/external scripts, external anchors backed by `live-sources.json` or vetted hosts, PII scan | heavy | — |
 | `check:redirects` | `check_redirects.py` | redirect map vs `src/url-taxonomy.json` + build output | ~1 s | — |
 | `check:projects` | `check_project_discoverability.py` | every `website_slug` project has a page | <1 s | — |
@@ -75,8 +78,7 @@ Start here, then open the most specific doc for your task:
 | [`RELEASING.md`](RELEASING.md) | How/where to version and cut a release (SemVer policy, checklist). |
 | [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) | Colors, tokens, the design-system export contract. |
 | [`INTERNATIONALIZATION.md`](INTERNATIONALIZATION.md) | Locales, `tr()`, offline translation. |
-| [`MIGRATION.md`](MIGRATION.md) | Redirect map + subdomain-forward repoint table. |
-| [`SWITCHOVER.md`](SWITCHOVER.md) | Cutover handoff: done / can-do / needs-human, DNS records. |
+| [`docs/MIGRATION_AND_REDIRECTS.md`](docs/MIGRATION_AND_REDIRECTS.md) | Redirects, pinned forwarding targets and current hosting/DNS state. |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`CHANGELOG.md`](CHANGELOG.md) · [`TODO.md`](TODO.md) | Contribution flow, history, backlog. |
 
 > **Doc precedence:** per-folder `AGENTS.md` = enforced contract · root longform
@@ -144,6 +146,8 @@ then run `npm run i18n:extract`. Full guide:
 Generated public files should be limited to:
 
 - `index.html` and `404.html` (the only flat HTML at the repository root)
+- build-generated legacy redirect stubs and localized simulation filename stubs,
+  inventoried in `data/redirects.json` (never overwrite real pages)
 - curated pages as clean-URL directories — `<section>/index.html` and
   `<section>/<slug>/index.html` (e.g. `resources/`, `directory/`, `knowledge/`,
   `search/`, `sitemap/`, `projects/<name>/`, `programs/<name>/`,
@@ -260,5 +264,5 @@ GitHub Pages serves from `main` at `/`. After a verified commit is pushed to `or
 - `/robots.txt`
 
 The custom apex domain `activeinference.institute` is configured via the `CNAME`
-file and `site.json` `baseUrl`. The cutover (push + DNS) is a human step — see
-[SWITCHOVER.md](SWITCHOVER.md).
+file and `site.json` `baseUrl`. The cutover is complete; DNS and registrar updates remain administrator steps — see
+[docs/MIGRATION_AND_REDIRECTS.md](docs/MIGRATION_AND_REDIRECTS.md).

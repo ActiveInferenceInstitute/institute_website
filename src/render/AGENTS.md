@@ -40,6 +40,8 @@ Key behaviours:
 - **i18n.** Locale comes from `activeLocale()`; the language switcher and
   `hreflang` alternates are pure markup (CSP-safe). Non-default machine-translated
   locales render an honest provenance note linking the English original.
+  Untranslated newsletter/video detail bodies retain localized navigation but use
+  the English canonical and omit hreflang; their notice identifies the English body.
 
 ## Link resolution — [`links.mjs`](links.mjs)
 
