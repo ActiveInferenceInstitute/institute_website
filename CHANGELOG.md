@@ -4,6 +4,20 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- Bibliography titles and DOI labels resolve to registered individual works.
+  Collection pages cannot masquerade as paper destinations. Canonical research
+  metadata and public projections include verified bibliographic corrections.
+- Registry-source discovery supports nested consumer checkouts. Past-cohort
+  exports retain names while withholding unregistered or unavailable links.
+  Obsolete unreachable source records are retired from the public manifest.
+- Offline gates exercise source discovery, citation identity, canonical-origin
+  fragments and real local HTTP failures. Live checks validate HTML anchors,
+  enforce shared deadlines and provide safe per-source JSON reports. Empty
+  inventories fail; partial and bot-blocked checks never refresh evidence.
+- Design-system validation discovers upstream sources across nested checkout
+  layouts. Explicit missing source overrides fail closed. The offline gate runs
+  real-file controls for discovery, stale CSS/fonts, overrides and standalone
+  fallback behavior.
 - **Working Groups go-live (2026-09-30).** The position paper is published on
   Zenodo (DOI 10.5281/zenodo.23066904) and the Working_Groups repository is
   public, so the six `working-groups-*` live sources are promoted to `ok=true`.

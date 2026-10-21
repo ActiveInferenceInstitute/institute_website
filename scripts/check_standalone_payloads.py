@@ -43,6 +43,9 @@ def main() -> int:
                 shutil.copytree(source, sandbox / name, symlinks=True)
 
         env = {k: v for k, v in os.environ.items() if k != "INSTITUTEOS_ROOT"}
+        if any((parent / "library/registries").is_dir() for parent in sandbox.parents):
+            print("Standalone fixture has a registry ancestor; select an external TMPDIR.", file=sys.stderr)
+            return 1
         result = subprocess.run(
             [sys.executable, "scripts/sync_instituteos_public_data.py", "--check"],
             cwd=sandbox,
@@ -52,7 +55,7 @@ def main() -> int:
             check=False,
         )
 
-    if result.returncode != 0:
+    if result.returncode != 0 or "registry source not available" not in result.stdout:
         print("Standalone public-payload check FAILED (this is the branch CI takes):", file=sys.stderr)
         print(result.stdout.strip(), file=sys.stderr)
         print(result.stderr.strip(), file=sys.stderr)

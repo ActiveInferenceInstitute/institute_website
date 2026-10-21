@@ -1,215 +1,340 @@
 #!/usr/bin/env python3
-"""Verify live public sources recorded in src/content/live-sources.json."""
+"""Verify registered public URLs without publishing resolved redirect destinations."""
 
 from __future__ import annotations
 
 import argparse
-from concurrent.futures import TimeoutError as FuturesTimeoutError
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import ipaddress
 import json
+import math
+import os
+import re
 import subprocess
 import sys
+import tempfile
+import time
+from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
+from dataclasses import dataclass
 from datetime import UTC, datetime
+from email.parser import Parser
+from html.parser import HTMLParser
 from pathlib import Path
-
+from typing import TypeAlias
+from urllib.parse import unquote, urldefrag, urljoin, urlsplit
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = PROJECT_ROOT / "src" / "content" / "live-sources.json"
 USER_AGENT = "ActiveInferenceInstituteWebsiteCheck/1.0 (+https://github.com/ActiveInferenceInstitute/institute_website)"
+BODY_LIMIT = 2 * 1024 * 1024
+REDIRECT_LIMIT = 10
+BOT_STATUSES = {403, 429, 999}
+JSONValue: TypeAlias = str | bool | int | float | None | list["JSONValue"] | dict[str, "JSONValue"]
 
 
-def check_url(url: str, timeout: int) -> tuple[int, str]:
-    command = [
-        "curl",
-        "-L",
-        "-sS",
-        "-o",
-        "/dev/null",
-        "-w",
-        "%{http_code}\t%{url_effective}",
-        "--max-time",
-        str(timeout),
-        "--connect-timeout",
-        str(max(1, min(timeout, 10))),
-        "-A",
-        USER_AGENT,
-        url,
-    ]
+@dataclass(frozen=True, slots=True)
+class Source:
+    id: str
+    url: str
+    ok: bool
+    status: int
+    bot_blocked: bool
+
+
+@dataclass(frozen=True, slots=True)
+class Probe:
+    status: int = 0
+    error: str = ""
+
+
+class ManifestError(ValueError):
+    pass
+
+
+def validate_url(url: str, *, registered: bool = True) -> None:
     try:
-        completed = subprocess.run(
-            command,
-            capture_output=True,
-            text=True,
-            check=False,
-            timeout=max(1, timeout + 5),
+        if any(c.isspace() or ord(c) < 32 or 127 <= ord(c) <= 159 for c in url) or "\\" in url:
+            raise ValueError
+        if re.search(r"%(?![0-9a-fA-F]{2})", url):
+            raise ValueError
+        decoded = unquote(url, errors="strict")
+        if any(ord(c) < 32 or 127 <= ord(c) <= 159 for c in decoded):
+            raise ValueError
+        parts = urlsplit(url)
+        host = (parts.hostname or "").encode("idna").decode("ascii").lower().rstrip(".")
+        if (
+            parts.scheme not in {"http", "https"}
+            or not host
+            or parts.username is not None
+            or parts.password is not None
+        ):
+            raise ValueError
+        if parts.port is not None and not 1 <= parts.port <= 65535:
+            raise ValueError
+        if ":" in host:
+            ipaddress.IPv6Address(host)
+        elif not all(re.fullmatch(r"[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?", label) for label in host.split(".")):
+            raise ValueError
+        if registered and (host == "coda.io" or host.endswith(".coda.io")):
+            raise ValueError
+    except (ValueError, UnicodeError):
+        raise ManifestError(
+            "URL must be absolute HTTP(S), without credentials, controls, or direct Coda destinations"
+        ) from None
+
+
+def load_manifest(path: Path) -> tuple[dict[str, JSONValue], list[Source]]:
+    data: JSONValue = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict) or not isinstance(data.get("sources"), list):
+        raise ManifestError("root must be an object containing a sources list")
+    if not data["sources"]:
+        raise ManifestError("sources list must not be empty")
+    sources: list[Source] = []
+    ids: set[str] = set()
+    for index, entry in enumerate(data["sources"]):
+        prefix = f"source record {index}"
+        if not isinstance(entry, dict):
+            raise ManifestError(f"{prefix} must be an object")
+        source_id, url = entry.get("id"), entry.get("url")
+        if (
+            not isinstance(source_id, str)
+            or not source_id
+            or any(c.isspace() or ord(c) < 32 or 127 <= ord(c) <= 159 for c in source_id)
+        ):
+            raise ManifestError(f"{prefix} must have a nonempty id without whitespace or controls")
+        if source_id in ids:
+            raise ManifestError(f"{prefix} has a duplicate id")
+        ids.add(source_id)
+        if not isinstance(url, str):
+            raise ManifestError(f"{prefix} must have a URL string")
+        validate_url(url)
+        if "finalUrl" in entry:
+            raise ManifestError(f"{prefix} contains forbidden resolved finalUrl evidence; reconcile explicitly")
+        if type(entry.get("ok")) is not bool or type(entry.get("knownBotBlocked", False)) is not bool:
+            raise ManifestError(f"{prefix} ok/knownBotBlocked must be booleans")
+        status = entry.get("statusCode")
+        if type(status) is not int or not (status == 0 or 100 <= status <= 599 or status == 999):
+            raise ManifestError(f"{prefix} statusCode must be an HTTP status integer or zero")
+        sources.append(Source(source_id, url, entry["ok"], status, entry.get("knownBotBlocked", False)))
+    return data, sources
+
+
+class Anchors(HTMLParser):
+    def __init__(self, fragment: str):
+        super().__init__(convert_charrefs=True)
+        self.fragment = fragment
+        self.found = False
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.found |= any(
+            value == self.fragment and (key == "id" or (tag == "a" and key == "name")) for key, value in attrs
         )
-    except subprocess.TimeoutExpired:
-        return 0, url
-    output = completed.stdout.strip()
-    if "\t" in output:
-        status_text, final_url = output.split("\t", 1)
-    else:
-        status_text, final_url = output or "000", url
+
+
+def check_url(url: str, deadline: float) -> Probe:
     try:
-        status_code = int(status_text)
-    except ValueError:
-        status_code = 0
-    return status_code, final_url or url
+        with tempfile.TemporaryDirectory(prefix="live-source-") as directory:
+            headers_path, body_path = Path(directory) / "headers", Path(directory) / "body"
+            for _ in range(REDIRECT_LIMIT + 1):
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    return Probe(error="network deadline exceeded")
+                request_url, fragment = urldefrag(url)
+                command = [
+                    "curl",
+                    "--disable",
+                    "--silent",
+                    "--show-error",
+                    "--globoff",
+                    "--proto",
+                    "=http,https",
+                    "--max-redirs",
+                    "0",
+                    "--max-time",
+                    str(remaining),
+                    "--connect-timeout",
+                    str(min(remaining, 10)),
+                    "--dump-header",
+                    str(headers_path),
+                    "--output",
+                    str(body_path) if fragment else os.devnull,
+                    "--write-out",
+                    "%{http_code}",
+                    "--user-agent",
+                    USER_AGENT,
+                ]
+                if fragment:
+                    command.extend(["--max-filesize", str(BODY_LIMIT)])
+                command.extend(["--url", request_url])
+                try:
+                    completed = subprocess.run(command, capture_output=True, text=True, check=False, timeout=remaining)
+                except subprocess.TimeoutExpired:
+                    return Probe(error="network deadline exceeded")
+                status = int(completed.stdout) if re.fullmatch(r"\d{3}", completed.stdout) else 0
+                if completed.returncode != 0:
+                    return Probe(status, f"incomplete curl transfer (exit {completed.returncode})")
+                if status == 0:
+                    return Probe(error="missing HTTP status")
+                with headers_path.open("rb") as stream:
+                    header_bytes = stream.read(256 * 1024 + 1)
+                if len(header_bytes) > 256 * 1024:
+                    return Probe(status, "response headers exceed limit")
+                header_block = header_bytes.decode("iso-8859-1").replace("\r\n", "\n").strip().split("\n\n")[-1]
+                headers = Parser().parsestr(header_block.partition("\n")[2])
+                if status in {301, 302, 303, 307, 308}:
+                    location = headers.get("Location")
+                    if not location:
+                        return Probe(status, "redirect has no Location")
+                    if any(c.isspace() or ord(c) < 32 or 127 <= ord(c) <= 159 for c in location) or "\\" in location:
+                        return Probe(status, "unsafe or malformed redirect URL")
+                    target = urljoin(url, location)
+                    if "#" not in location and "#" in url:
+                        target = urldefrag(target)[0] + "#" + fragment
+                    validate_url(target, registered=False)
+                    url = target
+                    continue
+                if 300 <= status < 400:
+                    return Probe(status, "unresolved HTTP redirect")
+                if not 200 <= status < 300 or not fragment:
+                    return Probe(status)
+                if headers.get_content_type() not in {"text/html", "application/xhtml+xml"}:
+                    return Probe(status, "fragment unverified: response is not HTML (including PDF)")
+                with body_path.open("rb") as stream:
+                    body = stream.read(BODY_LIMIT + 1)
+                if len(body) > BODY_LIMIT:
+                    return Probe(status, "fragment unverified: response body exceeds limit")
+                parser = Anchors(unquote(fragment, errors="strict"))
+                document = body.decode(headers.get_content_charset() or "utf-8", errors="replace")
+                for start in range(0, len(document), 1024):
+                    if time.monotonic() >= deadline:
+                        return Probe(status, "fragment parsing deadline exceeded")
+                    parser.feed(document[start : start + 1024])
+                    if parser.found:
+                        break
+                if time.monotonic() >= deadline:
+                    return Probe(status, "fragment parsing deadline exceeded")
+                parser.close()
+                return Probe(status, "" if parser.found else "fragment not found in HTML id/name anchors")
+            return Probe(status, "redirect limit exceeded")
+    except ManifestError:
+        return Probe(error="unsafe or malformed redirect URL")
+    except (OSError, UnicodeError, LookupError):
+        return Probe(error="probe I/O or decoding failure")
 
 
-def load_manifest(path: Path) -> dict:
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_manifest(path: Path, manifest: dict) -> None:
-    path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+def probe_sources(sources: list[Source], timeout: float, workers: int, total_timeout: float) -> list[Probe]:
+    deadline = time.monotonic() + total_timeout
+    results = [Probe(error="batch deadline exceeded before verification") for _ in sources]
+    pool = ThreadPoolExecutor(max_workers=workers, thread_name_prefix="live-source")
+    pending = {}
+    next_index = 0
+    try:
+        while next_index < len(sources) or pending:
+            while next_index < len(sources) and len(pending) < workers and time.monotonic() < deadline:
+                index = next_index
+                next_index += 1
+                per_source_deadline = min(deadline, time.monotonic() + timeout)
+                pending[pool.submit(check_url, sources[index].url, per_source_deadline)] = index
+            remaining = deadline - time.monotonic()
+            if remaining <= 0 or not pending:
+                break
+            done, _ = wait(pending, timeout=remaining, return_when=FIRST_COMPLETED)
+            for future in done:
+                results[pending.pop(future)] = future.result()
+    finally:
+        for future in pending:
+            future.cancel()
+        # Only running, deadline-bounded subprocesses can remain; no queued batch waits.
+        pool.shutdown(wait=True, cancel_futures=True)
+    return results
 
 
 def verify(
     manifest_path: Path,
     *,
-    timeout: int,
+    timeout: float,
     write: bool,
     workers: int = 16,
-    total_timeout: int = 90,
+    total_timeout: float = 90,
     offline: bool = False,
+    report: Path | None = None,
 ) -> int:
-    manifest = load_manifest(manifest_path)
-    sources = manifest.get("sources", [])
-    if not isinstance(sources, list):
-        print("Live-source manifest is invalid: 'sources' must be a list.", file=sys.stderr)
+    try:
+        if not all(math.isfinite(value) and value > 0 for value in (timeout, total_timeout)) or not 1 <= workers <= 32:
+            raise ManifestError("timeouts must be finite and positive; workers must be between 1 and 32")
+        if report is not None and (
+            report.resolve() == manifest_path.resolve() or (report.exists() and report.samefile(manifest_path))
+        ):
+            raise ManifestError("report path must differ from manifest path")
+        manifest, sources = load_manifest(manifest_path)
+    except (OSError, UnicodeError, ValueError) as exc:
+        reason = str(exc) if isinstance(exc, ManifestError) else "cannot read or decode JSON manifest"
+        print(f"Live-source manifest is invalid: {reason}", file=sys.stderr)
         return 1
 
-    # The committed manifest must never carry resolved `finalUrl` values —
-    # they are check-time verification metadata (and historically leaked
-    # resolved coda.io destinations into source). Redirect targets are
-    # resolved live by check_url() on every run instead.
-    final_url_offenders = [
-        str(source.get("id", index))
-        for index, source in enumerate(sources)
-        if isinstance(source, dict) and "finalUrl" in source
-    ]
-    if final_url_offenders:
-        if write:
-            for source in sources:
-                if isinstance(source, dict):
-                    source.pop("finalUrl", None)
-            print(
-                f"note: stripped committed finalUrl from {len(final_url_offenders)} sources (resolved at check time only)"
-            )
+    probes = [Probe() for _ in sources] if offline else probe_sources(sources, timeout, workers, total_timeout)
+    rows = []
+    errors = 0
+    for source, probe in zip(sources, probes, strict=True):
+        outcome, error = "verified", probe.error
+        live_ok = 200 <= probe.status < 300
+        if offline:
+            outcome = "offline"
+        elif not error and source.bot_blocked and probe.status in BOT_STATUSES:
+            outcome, error = "unverified", "plausible bot response; human verification required"
         else:
+            if not error and not live_ok and probe.status >= 500:
+                error = "HTTP server error"
+            if not error and source.ok != live_ok:
+                error = "HTTP reachability differs from registered ok"
+            if not error and not source.ok and probe.status != source.status:
+                error = "HTTP status differs from registered statusCode"
+            if not error and probe.status == 0:
+                error = "incomplete HTTP verification"
+            if error:
+                outcome = "error"
+                errors += 1
+        rows.append({"id": source.id, "url": source.url, "statusCode": probe.status, "result": outcome, "error": error})
+        if error:
             print(
-                "Live-source manifest must not commit resolved 'finalUrl' values "
-                "(check-time verification metadata; rerun with --write to strip):",
-                file=sys.stderr,
-            )
-            for offender in final_url_offenders:
-                print(f"- {offender}", file=sys.stderr)
-            return 1
-
-    if offline:
-        invalid = [
-            str(source.get("id", index))
-            for index, source in enumerate(sources)
-            if not isinstance(source, dict) or not source.get("id") or not source.get("url")
-        ]
-        if invalid:
-            print(
-                "Offline live-source manifest validation failed for: " + ", ".join(invalid),
-                file=sys.stderr,
-            )
-            return 1
-        print(f"Offline live-source validation passed: {len(sources)} source records; network probes skipped.")
-        return 0
-
-    checked_at = datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
-    errors: list[str] = []
-    notes: list[str] = []
-
-    workers = max(1, min(int(workers), 32))
-    total_timeout = max(1, int(total_timeout))
-    print(f"Checking {len(sources)} live sources with {workers} workers (per-source timeout={timeout}s).")
-    results: list[tuple[int, str]] = [(0, str(source.get("url", ""))) for source in sources]
-    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="live-source") as pool:
-        futures = {pool.submit(check_url, source["url"], timeout): index for index, source in enumerate(sources)}
-        try:
-            completed_futures = as_completed(futures, timeout=total_timeout)
-            for future in completed_futures:
-                index = futures[future]
-                try:
-                    results[index] = future.result()
-                except Exception as exc:  # an individual source must not abort the batch
-                    notes.append(f"{sources[index]['id']}: checker error {type(exc).__name__}")
-        except FuturesTimeoutError:
-            remaining = sum(1 for status_code, _ in results if status_code == 0)
-            notes.append(f"batch timeout after {total_timeout}s; {remaining} source checks remained bounded")
-
-    for index, source in enumerate(sources):
-        status_code, final_url = results[index]
-        live_ok = 200 <= status_code < 400
-        expected_ok = bool(source.get("ok"))
-        expected_status = int(source.get("statusCode") or 0)
-        # Some hosts (LinkedIn, Akamai-fronted publisher sites) block automated
-        # requests inconsistently — sometimes a normal status, sometimes a bot-block
-        # code — regardless of the page's real, human-visible liveness. Pinning any
-        # single expected status for these makes the gate flaky rather than useful.
-        # `knownBotBlocked` entries are manually verified in a real browser instead
-        # (see sourceBasis); the automated check is informational only and never
-        # gates or overwrites their recorded state.
-        bot_blocked = bool(source.get("knownBotBlocked"))
-
-        if bot_blocked:
-            if not live_ok:
-                notes.append(f"{source['id']}: bot-blocked host returned HTTP {status_code} (expected, not gated)")
-        elif expected_ok and not live_ok:
-            errors.append(f"{source['id']}: expected reachable, got HTTP {status_code} at {final_url}")
-        elif not expected_ok and live_ok:
-            errors.append(f"{source['id']}: expected not promoted, but now reachable at {final_url}")
-        elif not expected_ok and expected_status and status_code != expected_status:
-            errors.append(f"{source['id']}: expected HTTP {expected_status}, got HTTP {status_code} at {final_url}")
-        elif status_code != expected_status:
-            notes.append(
-                f"{source['id']}: live result is HTTP {status_code} at {final_url}; manifest records HTTP {expected_status}"
+                f"{outcome}: {source.id} {source.url} HTTP {probe.status}: {error}",
+                file=sys.stderr if outcome == "error" else sys.stdout,
             )
 
-        if write and not bot_blocked:
-            source["statusCode"] = status_code
-            source["ok"] = live_ok
-            source["checkedAt"] = checked_at
-
-    if write:
-        manifest["lastCheckedAt"] = checked_at
-        write_manifest(manifest_path, manifest)
-
-    for note in notes:
-        print(f"note: {note}")
-
-    if errors:
-        print("Live-source verification failed:", file=sys.stderr)
-        for error in errors:
-            print(f"- {error}", file=sys.stderr)
+    counts = {
+        kind: sum(row["result"] == kind for row in rows) for kind in ("verified", "unverified", "error", "offline")
+    }
+    try:
+        if report is not None:
+            report.write_text(json.dumps({"counts": counts, "sources": rows}, indent=2) + "\n", encoding="utf-8")
+        if write and not errors and not offline:
+            checked_at = datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+            for entry, row in zip(manifest["sources"], rows, strict=True):
+                if row["result"] == "verified" and not entry.get("knownBotBlocked", False):
+                    entry.update(statusCode=row["statusCode"], ok=200 <= row["statusCode"] < 300, checkedAt=checked_at)
+            if not counts["unverified"]:
+                manifest["lastCheckedAt"] = checked_at
+            manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    except OSError:
+        print("Live-source evidence could not be written", file=sys.stderr)
         return 1
-
-    print(f"Checked {len(manifest.get('sources', []))} live sources.")
-    return 0
+    print(
+        f"Live sources: {counts['verified']} verified, {counts['unverified']} unverified, {counts['error']} errors, {counts['offline']} offline."
+        + (" Network skipped." if offline else "")
+    )
+    return int(bool(errors))
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("manifest", nargs="?", default=str(DEFAULT_MANIFEST))
-    parser.add_argument("--timeout", type=int, default=10)
-    parser.add_argument("--workers", type=int, default=16, help="Concurrent source checks (default: 16)")
-    parser.add_argument("--total-timeout", type=int, default=90, help="Maximum batch wait in seconds (default: 90)")
+    parser.add_argument("--timeout", type=float, default=10)
+    parser.add_argument("--workers", type=int, default=16)
+    parser.add_argument("--total-timeout", type=float, default=90)
     parser.add_argument(
-        "--write",
-        action="store_true",
-        help="Update checkedAt/statusCode/ok fields (and strip any committed finalUrl)",
+        "--write", action="store_true", help="Refresh verified evidence only after successful verification"
     )
-    parser.add_argument(
-        "--offline",
-        action="store_true",
-        help="Validate source-record shape without making network requests",
-    )
+    parser.add_argument("--offline", action="store_true", help="Validate records without network or manifest mutation")
+    parser.add_argument("--report", type=Path, help="Write safe per-source JSON results (registered URLs only)")
     args = parser.parse_args()
     return verify(
         Path(args.manifest).resolve(),
@@ -218,6 +343,7 @@ def main() -> int:
         workers=args.workers,
         total_timeout=args.total_timeout,
         offline=args.offline,
+        report=args.report,
     )
 
 

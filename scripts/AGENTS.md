@@ -17,12 +17,15 @@ sync, and translate that source. Run gates with no network access.
 | `npm run check:links` | [`check_internal_links.py`](check_internal_links.py) |
 | `npm run check:md-links` | [`check_markdown_links.py`](check_markdown_links.py) |
 | `npm run check:instituteos` | [`sync_instituteos_public_data.py`](sync_instituteos_public_data.py) `--check` |
-| `npm run check:design-system` | [`check_design_system_export.mjs`](check_design_system_export.mjs) |
+| `npm run check:design-system` | [`test_design_system_export.mjs`](test_design_system_export.mjs), then [`check_design_system_export.mjs`](check_design_system_export.mjs) |
 | `npm run check:site` | [`check_site_contract.py`](check_site_contract.py) |
 | `npm run check:feeds` | [`check_feeds.py`](check_feeds.py) — `feed.xml`/`feed.json` structure + dates + guid uniqueness, and `feed`/`sitemap.xml` link targets |
 | `npm run check:security` | [`check_static_security.py`](check_static_security.py) |
 | `npm run check:redirects` | [`check_redirects.py`](check_redirects.py) |
 | `npm run check:sources` | [`check_live_sources.py`](check_live_sources.py) — **network; NOT part of `check`** |
+| `npm run check:sources:offline` | Source manifest shape and URL validation without network |
+| `npm run check:source-controls` | Real HTTP, canonical-link and source-discovery regression controls |
+| `npm run check:citations` | Exact paper/DOI identity and rendered bibliography controls |
 | `npm run check:projects` | [`check_project_discoverability.py`](check_project_discoverability.py) — every project page linked from `/projects/` |
 | `npm run check:catalog` | [`check_project_catalog_coverage.mjs`](check_project_catalog_coverage.mjs) — `data/projects.json` vs rendered project pages |
 | `npm run sync:instituteos` | `sync_instituteos_public_data.py` (writes) |
@@ -117,21 +120,22 @@ renames for families with no shared string prefix, e.g. `orgPageSlugs`,
 
 ### [`check_design_system_export.mjs`](check_design_system_export.mjs) (`check:design-system`)
 Validates `assets/css/styles.css` token fallbacks against the committed
-`assets/css/instituteos-ds.css`. When the design-system source is present
-(`../../library/design-system`, override `INSTITUTEOS_DS_ROOT`) it re-exports and
-byte-compares to catch a stale committed CSS; in a standalone checkout it skips
-the freshness comparison and validates only the self-contained tokens.
+`assets/css/instituteos-ds.css`. When the design-system source is present,
+it re-exports and byte-compares to catch stale committed CSS and fonts. See the
+[source discovery contract](../DESIGN_SYSTEM.md#what-the-gate-enforces) for ancestor
+lookup, explicit overrides and standalone behavior. The package command also runs
+real-file controls that require stale exports and invalid overrides to fail.
 
 ## [`sync_instituteos_public_data.py`](sync_instituteos_public_data.py)
 
 Projects public-safe slices of the InstituteOS registries into
 `src/content/instituteos/*.json` plus brand-only assets into
 `assets/img/instituteos/`. Locates the registry source via `INSTITUTEOS_ROOT`
-(or `--instituteos-root`, else auto-detected parent/sibling checkout).
+(or `--instituteos-root`, else the nearest valid ancestor or supported sibling).
 
-- **write** (`sync:instituteos`): sanitizes people/projects/ideas/ontology/
-  entities/processes/communications/policies (and optional `calendar.json`),
-  then writes.
+- **write** (`sync:instituteos`): emits the declared registry slices and brand
+  assets after validating the existing producer-2 export. Only registered,
+  reachable public URLs survive into past-cohort roster fields.
 - **`--check`** (`check:instituteos`): rebuilds payloads in memory and fails on
   any stale/missing file. With no registry source available and no explicit
   root, it falls back to validating the already-committed payloads.
@@ -148,11 +152,12 @@ payload passes untouched.
 
 The **only networked** checker, deliberately excluded from `npm run check`.
 `curl`s every entry in `src/content/live-sources.json` and compares the live
-HTTP result against the recorded `ok`/`statusCode`. Redirect targets are
-resolved live at check time; a committed `finalUrl` field in the manifest is a
-hard error (`--write` strips it). `--write` updates the recorded fields plus
-`lastCheckedAt`; default is read-only verification. Every
-request has a per-source timeout and the batch has a total timeout. Use
+HTTP result against the recorded `ok`/`statusCode` and checks HTML fragments.
+Redirects are bounded; resolved destinations and bodies are never persisted.
+A committed `finalUrl` is rejected. `--write` updates verified evidence only
+after a successful run; unverified bot records retain prior dates.
+`--report PATH` records safe per-source outcomes. Every request shares the
+batch deadline as well as its per-source timeout. Use
 `--offline` in a disconnected environment to validate all source-record ids and
 URLs without making network requests.
 

@@ -86,7 +86,9 @@ def site_base_prefix(root: Path) -> str:
     return prefix
 
 
-def resolve_local_reference(source: Path, raw_url: str, root: Path, base_prefix: str = "/") -> tuple[Path | None, str]:
+def resolve_local_reference(
+    source: Path, raw_url: str, root: Path, base_prefix: str = "/", base_url: str = ""
+) -> tuple[Path | None, str]:
     """Resolve a local reference to (target file, fragment).
 
     Returns (None, fragment) for external/empty/protocol-relative references and
@@ -95,7 +97,12 @@ def resolve_local_reference(source: Path, raw_url: str, root: Path, base_prefix:
     """
     parsed = urlparse(raw_url)
     fragment = unquote(parsed.fragment) if parsed.fragment else ""
-    if parsed.scheme in EXTERNAL_SCHEMES:
+    canonical = urlparse(base_url)
+    canonical_target = bool(
+        canonical.netloc and parsed.netloc.lower() == canonical.netloc.lower()
+        and parsed.scheme in ("", canonical.scheme)
+    )
+    if (parsed.scheme in EXTERNAL_SCHEMES or parsed.netloc) and not canonical_target:
         return None, ""
     if not parsed.path:
         # Bare "#fragment" (or "#"): the target is the source document itself.
@@ -139,6 +146,8 @@ def check_links(root: Path) -> int:
     errors: list[str] = []
     html_files = generated_html_files(root)
     base_prefix = site_base_prefix(root)
+    site_path = root / "src/content/site.json"
+    base_url = json.loads(site_path.read_text(encoding="utf-8")).get("baseUrl", "") if site_path.is_file() else ""
     fragment_cache: dict[Path, set[str]] = {}
     for html_file in html_files:
         parser = LinkParser()
@@ -151,7 +160,7 @@ def check_links(root: Path) -> int:
                 errors.append(f"{html_file.relative_to(root)} {tag} javascript: URL must never render: {raw_url}")
                 continue
             try:
-                target, fragment = resolve_local_reference(html_file, raw_url, root, base_prefix)
+                target, fragment = resolve_local_reference(html_file, raw_url, root, base_prefix, base_url)
             except ValueError as exc:
                 errors.append(f"{html_file.relative_to(root)} {tag} {exc}")
                 continue

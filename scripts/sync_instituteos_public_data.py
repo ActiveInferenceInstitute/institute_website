@@ -24,15 +24,13 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 def _resolve_instituteos_root() -> Path:
     """Locate the InstituteOS source checkout that provides public-safe data.
 
-    Honors the ``INSTITUTEOS_ROOT`` env var first, then auto-detects common
-    layouts: a parent checkout that embeds this site as a submodule, or a sibling
-    clone (``../instituteos``). Only a candidate that actually contains
-    ``library/registries`` is accepted; otherwise the sibling path is returned.
+    Honor explicit selection, then inspect ancestors and a standalone sibling.
+    Validate the registry directory rather than assuming an embedding depth.
     """
     env = os.environ.get("INSTITUTEOS_ROOT")
-    if env:
+    if env is not None:
         return Path(env)
-    for candidate in (PROJECT_ROOT.parents[1], PROJECT_ROOT.parent / "instituteos"):
+    for candidate in (*PROJECT_ROOT.parents, PROJECT_ROOT.parent / "instituteos"):
         if (candidate / "library" / "registries").is_dir():
             return candidate
     return PROJECT_ROOT.parent / "instituteos"
@@ -191,7 +189,10 @@ def live_source_urls() -> dict[str, str]:
     `social.json`, `official-pages.json`, and `resources.json` resolve links.
     """
     live = load_json(PROJECT_ROOT / "src" / "content" / "live-sources.json")
-    return {source["id"]: source.get("url", "") for source in live.get("sources", []) if source.get("id")}
+    return {
+        source["id"]: source.get("url", "")
+        for source in live.get("sources", []) if source.get("id") and source.get("ok") is True
+    }
 
 
 def sanitize_projects(repositories_data: dict[str, Any]) -> dict[str, Any]:
@@ -402,6 +403,7 @@ def sanitize_sab_cohorts(cohorts_data: dict[str, Any]) -> dict[str, Any]:
     Cohorts and members arrive already ordered (newest year first, members by
     name) and that order is preserved so the rendered page is deterministic.
     """
+    public_urls = set(live_source_urls().values())
     cohorts = []
     for cohort in cohorts_data.get("cohorts", []):
         year = cohort.get("year")
@@ -414,7 +416,7 @@ def sanitize_sab_cohorts(cohorts_data: dict[str, Any]) -> dict[str, Any]:
             # would launder a private URL before the public-safety gate sees
             # it. Only the http(s) scheme is checked here instead.
             url = member.get("url") or ""
-            if not url.startswith(("http://", "https://")):
+            if not url.startswith(("http://", "https://")) or url not in public_urls:
                 url = ""
             record = {
                 "name": public_text(member.get("name")),
@@ -887,13 +889,13 @@ def check_committed_public_payloads() -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--instituteos-root", type=Path, default=DEFAULT_INSTITUTEOS_ROOT)
+    parser.add_argument("--instituteos-root", type=Path)
     parser.add_argument("--check", action="store_true", help="verify generated files are current without writing")
     args = parser.parse_args()
 
-    instituteos_root = args.instituteos_root.expanduser().resolve()
-    if not (instituteos_root / "library" / "registries").exists():
-        explicit_root = os.environ.get("INSTITUTEOS_ROOT") or any(
+    instituteos_root = (args.instituteos_root if args.instituteos_root is not None else _resolve_instituteos_root()).expanduser().resolve()
+    if not (instituteos_root / "library" / "registries").is_dir():
+        explicit_root = "INSTITUTEOS_ROOT" in os.environ or any(
             arg == "--instituteos-root" or arg.startswith("--instituteos-root=") for arg in sys.argv[1:]
         )
         if args.check and not explicit_root:

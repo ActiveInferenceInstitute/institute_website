@@ -88,7 +88,12 @@ own CI), the script skips the freshness comparison with a `NOTE` and still runs
 the fully self-contained fallback check against the committed `instituteos-ds.css`
 — so the brand-consistency invariant is enforced everywhere, while freshness is
 enforced wherever the source is available (set `INSTITUTEOS_DS_ROOT` to point at
-it explicitly).
+it explicitly). Discovery searches checkout ancestors for `library/design-system`,
+so nested consumer checkouts retain freshness validation. An explicit
+`INSTITUTEOS_DS_ROOT` takes priority and must name an existing directory; an
+invalid override fails instead of selecting standalone mode. The gate also runs
+[real-file discovery controls](scripts/test_design_system_export.mjs), including
+stale CSS/font failures and standalone fallback behavior.
 
 If the check reports a stale export, regenerate `instituteos-ds.css` from the
 upstream design system and re-run the gate. If it reports a fallback mismatch,

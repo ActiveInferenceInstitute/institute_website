@@ -18,7 +18,7 @@
       "venue": "Engineering Applications of Artificial Intelligence",
       "doi": "10.1016/j.engappai.2026.114519",
       "sourceIds": [
-        "journal"
+        "citation-torzoni-2026-active-digital-twins"
       ],
       "tags": [
         "active-inference",
@@ -38,7 +38,7 @@
       "venue": "The Cancer Journal",
       "doi": "10.1097/PPO.0000000000000798",
       "sourceIds": [
-        "journal"
+        "citation-mapes-2025-active-inference-ai-spatial-web-medicine"
       ],
       "tags": [
         "active-inference",
@@ -66,7 +66,7 @@
       "venue": "npj Digital Medicine",
       "doi": "10.1038/s41746-025-01516-2",
       "sourceIds": [
-        "journal"
+        "citation-brankovic-2025-active-inference-llm-medical-devices"
       ],
       "tags": [
         "active-inference",
@@ -87,7 +87,7 @@
       "venue": "Entropy",
       "doi": "10.3390/e26100833",
       "sourceIds": [
-        "journal"
+        "citation-badcock-davey-2024-active-inference-psychology-psychiatry"
       ],
       "tags": [
         "active-inference",
@@ -102,12 +102,13 @@
       "citationKey": "Ramstead2023ActiveInferencePrecis",
       "authors": [
         "Maxwell J. D. Ramstead",
-        "Karl J. Friston",
-        "Axel Constant",
-        "Lancelot Da Costa",
-        "Casper Hesp",
+        "Dalton A. R. Sakthivadivel",
+        "Conor Heins",
+        "Magnus Koudahl",
         "Beren Millidge",
-        "Alexander Tschantz"
+        "Lancelot Da Costa",
+        "Brennan Klein",
+        "Karl J. Friston"
       ],
       "year": 2023,
       "title": "On Bayesian Mechanics: A Physics of and by Beliefs",
@@ -137,7 +138,7 @@
       "venue": "Frontiers in Computational Neuroscience",
       "doi": "10.3389/fncom.2022.988977",
       "sourceIds": [
-        "journal"
+        "citation-pio-lopez-2022-morphogenesis-computational-psychiatry"
       ],
       "tags": [
         "active-inference",
@@ -159,7 +160,7 @@
       "venue": "MIT Press",
       "doi": "",
       "sourceIds": [
-        "learning-active-inference-book-mit"
+        "mitpress-active-inference-2022"
       ],
       "tags": [
         "applications",
@@ -180,7 +181,7 @@
       "venue": "Clinical Psychology in Europe",
       "doi": "10.32872/cpe.9697",
       "sourceIds": [
-        "journal"
+        "citation-kirchner-2022-broken-models-treatment-selection"
       ],
       "tags": [
         "active-inference",
@@ -205,7 +206,7 @@
       "venue": "Frontiers in Behavioral Neuroscience",
       "doi": "10.3389/fnbeh.2021.647732",
       "sourceIds": [
-        "active-inferants"
+        "citation-friedman-2021-active-inference-ant-colony"
       ],
       "tags": [
         "active-inference",
@@ -228,7 +229,7 @@
       "venue": "arXiv",
       "doi": "10.48550/arXiv.2112.01871",
       "sourceIds": [
-        "lanillos-2021-arxiv"
+        "citation-lanillos-2021-active-inference-robotics-survey"
       ],
       "tags": [
         "active-inference",
@@ -252,7 +253,7 @@
       "venue": "Trends in Neurosciences",
       "doi": "10.1016/j.tins.2020.09.012",
       "sourceIds": [
-        "journal"
+        "citation-petzschner-2021-interoception-body-regulation"
       ],
       "tags": [
         "active-inference",
@@ -278,7 +279,7 @@
       "venue": "Journal of Mathematical Psychology",
       "doi": "10.1016/j.jmp.2020.102447",
       "sourceIds": [
-        "learning-foundations-arxiv"
+        "citation-da-costa-2020-active-inference-discrete"
       ],
       "tags": [
         "active-inference",
@@ -300,34 +301,13 @@
       "venue": "Annual Review of Clinical Psychology",
       "doi": "10.1146/annurev-clinpsy-050718-095617",
       "sourceIds": [
-        "journal"
+        "citation-paulus-2019-interoceptive-psychopathology"
       ],
       "tags": [
         "active-inference",
         "healthcare",
         "interoception",
         "psychopathology"
-      ]
-    },
-    {
-      "id": "pezzulo-2017-active-inference-process-theory",
-      "citationKey": "Pezzulo2017ActiveInferenceProcessTheory",
-      "authors": [
-        "Giovanni Pezzulo",
-        "Francesco Rigoli",
-        "Karl J. Friston"
-      ],
-      "year": 2017,
-      "title": "Active Inference, homeostatic regulation and adaptive behavioural control",
-      "venue": "Progress in Neurobiology",
-      "doi": "10.1016/j.pneurobio.2017.08.001",
-      "sourceIds": [
-        "learning-beren-papers"
-      ],
-      "tags": [
-        "adaptive-control",
-        "biology",
-        "homeostasis"
       ]
     },
     {
@@ -344,7 +324,7 @@
       "venue": "Journal of Mathematical Psychology",
       "doi": "10.1016/j.jmp.2017.09.004",
       "sourceIds": [
-        "learning-beren-papers"
+        "citation-buckley-2017-free-energy-mathematical-review"
       ],
       "tags": [
         "foundations",
@@ -366,13 +346,34 @@
       "venue": "Journal of the Royal Society Interface",
       "doi": "10.1098/rsif.2016.0616",
       "sourceIds": [
-        "journal"
+        "citation-pio-lopez-2016-robot-control-case-study"
       ],
       "tags": [
         "active-inference",
         "healthcare",
         "motor-control",
         "robotics"
+      ]
+    },
+    {
+      "id": "pezzulo-2017-active-inference-process-theory",
+      "citationKey": "Pezzulo2017ActiveInferenceProcessTheory",
+      "authors": [
+        "Giovanni Pezzulo",
+        "Francesco Rigoli",
+        "Karl J. Friston"
+      ],
+      "year": 2015,
+      "title": "Active Inference, homeostatic regulation and adaptive behavioural control",
+      "venue": "Progress in Neurobiology",
+      "doi": "10.1016/j.pneurobio.2015.09.001",
+      "sourceIds": [
+        "citation-pezzulo-2017-active-inference-process-theory"
+      ],
+      "tags": [
+        "adaptive-control",
+        "biology",
+        "homeostasis"
       ]
     },
     {
@@ -386,7 +387,7 @@
       "venue": "Nature Reviews Neuroscience",
       "doi": "10.1038/nrn2787",
       "sourceIds": [
-        "friston-2010-doi"
+        "citation-friston-2010-free-energy-principle"
       ],
       "tags": [
         "foundations",

@@ -14,6 +14,9 @@ import { sourceAnchor } from "./sources.mjs";
 import { listText } from "./text.mjs";
 import { isVerifiedExternalUrl } from "./urls.mjs";
 import { newsletterIssueHref } from "../pages/newsletter.mjs";
+import { liveSourceById } from "../data.mjs";
+import { doiFromUrl, resolveCitationSource } from "../lib/citation-links.mjs";
+import { tr } from "../i18n/index.mjs";
 
 // Governance board-status badge — a solid pill tinted by the board-status token
 // through the design-system .ds-status-<slug> utility class. Class-only (no inline
@@ -175,13 +178,24 @@ export function programsTable(rows = programRows()) {
   return dataTable({ caption: "Public participation and support programs at the Active Inference Institute.", columns, rows });
 }
 
-export function citationsTable(rows = citationRows()) {
+export function citationsTable(rows = citationRows(), sources = liveSourceById) {
+  const unavailable = escapeHtml(tr("Verified work link unavailable"));
+  const resolved = new Map(rows.map((item) => [item, resolveCitationSource(item, sources)]));
+  const anchor = (source, label) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
   const columns = [
-    { label: "Work", render: (item) => `<a href="#${escapeHtml(item.rowId)}">${escapeHtml(item.title)}</a>` },
+    { label: "Work", render: (item) => resolved.get(item) ? anchor(resolved.get(item), item.title) : escapeHtml(item.title) },
     { label: "Authors", render: (item) => escapeHtml(listText(item.authors)) },
     { label: "Year", render: (item) => escapeHtml(item.year || "n.d.") },
     { label: "Venue", render: (item) => escapeHtml(item.venue || "") },
-    { label: "DOI", render: (item) => item.sourceIds?.[0] ? sourceAnchor(item.sourceIds[0], item.doi || "Open source") : escapeHtml(item.doi || "") },
+    {
+      label: "DOI",
+      render: (item) => {
+        const source = resolved.get(item);
+        const doi = escapeHtml(item.doi || "");
+        if (!source) return `${doi}${doi ? " · " : ""}<span data-citation-link="unavailable">${unavailable}</span>`;
+        return doiFromUrl(source.url) && item.doi ? anchor(source, item.doi) : doi;
+      },
+    },
   ];
   return dataTable({ caption: "Public bibliography records used by Active Inference research domain pages.", columns, rows });
 }

@@ -10,7 +10,7 @@ import sys
 from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -959,6 +959,128 @@ def check_resource_directory(root: Path, errors: list[str]) -> None:
             errors.append(f"resources.html missing repository {repo.get('fullName', repo.get('name'))}")
 
 
+def normalized_citation_doi(value: object) -> str | None:
+    if not isinstance(value, str):
+        return None
+    try:
+        if re.search(r"%(?![0-9a-fA-F]{2})", value):
+            return None
+        doi = unquote(value.strip(), errors="strict")
+    except UnicodeDecodeError:
+        return None
+    return doi.lower() if re.fullmatch(r'10\.[0-9]{4,9}/[^\s<>"\\\x00-\x1f\x7f]+', doi) else None
+
+
+def citation_source(citation: dict, sources: dict[str, dict]) -> dict | None:
+    has_doi = bool(citation.get("doi"))
+    doi = normalized_citation_doi(citation.get("doi"))
+    if has_doi and not doi:
+        return None
+    for source_id in citation.get("sourceIds", []):
+        source = sources.get(source_id)
+        if not source or source.get("id") != source_id or source.get("ok") is not True or source.get("promoted") is False:
+            continue
+        href = source.get("url", "")
+        if not isinstance(href, str) or not re.match(r"https?://", href, re.I) or re.search(r"[\s\\\x00-\x1f\x7f]", href):
+            continue
+        try:
+            url = urlparse(href)
+            port = url.port
+            if not url.hostname or url.username or url.password:
+                continue
+        except ValueError:
+            continue
+        if not has_doi:
+            return source
+        if url.hostname == "doi.org":
+            default_port = 443 if url.scheme == "https" else 80
+            if port in (None, default_port) and not url.query and not url.fragment and normalized_citation_doi(url.path[1:]) == doi:
+                return source
+            continue
+        prefix = f"citation-{citation['id']}"
+        if (source_id == prefix or source_id.startswith(prefix + "-")) and normalized_citation_doi(source.get("doi")) == doi:
+            return source
+    return None
+
+
+class CitationRows(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.rows: dict[str, list[dict]] = {}
+        self.row: dict | None = None
+        self.cell: dict | None = None
+        self.anchor: dict | None = None
+        self.unavailable = False
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attributes = dict(attrs)
+        if tag == "tr" and str(attributes.get("id", "")).startswith("citation-"):
+            self.row = {"cells": [], "anchors": [], "unavailable": ""}
+            self.rows.setdefault(attributes["id"], []).append(self.row)
+        if self.row is None:
+            return
+        if tag in {"td", "th"}:
+            self.cell = {"text": "", "anchors": []}
+            self.row["cells"].append(self.cell)
+        if tag == "a":
+            self.anchor = {"href": attributes.get("href", ""), "text": ""}
+            self.row["anchors"].append(self.anchor)
+            if self.cell is not None:
+                self.cell["anchors"].append(self.anchor)
+        if attributes.get("data-citation-link") == "unavailable":
+            self.unavailable = True
+
+    def handle_data(self, data: str) -> None:
+        if self.cell is not None:
+            self.cell["text"] += data
+        if self.anchor is not None:
+            self.anchor["text"] += data
+        if self.row is not None and self.unavailable:
+            self.row["unavailable"] += data
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "a":
+            self.anchor = None
+        if tag == "span":
+            self.unavailable = False
+        if tag in {"td", "th"}:
+            self.cell = None
+        if tag == "tr":
+            self.row = None
+
+
+def check_citation_anchors(html: str, citations: list[dict], sources: list[dict], errors: list[str], label: str) -> None:
+    parser = CitationRows()
+    parser.feed(html)
+    by_id = {source["id"]: source for source in sources}
+    for citation in citations:
+        row_id = "citation-" + slugify_anchor(citation["id"])
+        rows = parser.rows.get(row_id, [])
+        if len(rows) != 1 or len(rows[0]["cells"]) != 5:
+            errors.append(f"{label}: citation {citation['id']} must have one five-cell row")
+            continue
+        row = rows[0]
+        source = citation_source(citation, by_id)
+        expected = [{"href": source["url"], "text": citation["title"]}] if source else []
+        doi = str(citation.get("doi") or "")
+        if source and doi and urlparse(source["url"]).hostname == "doi.org":
+            expected.append({"href": source["url"], "text": doi})
+        if (
+            row["anchors"] != expected
+            or row["cells"][0]["anchors"] != expected[:1]
+            or row["cells"][4]["anchors"] != expected[1:]
+            or any(cell["anchors"] for cell in row["cells"][1:4])
+        ):
+            errors.append(f"{label}: citation {citation['id']} anchors do not match its verified registered work")
+        if row["cells"][0]["text"] != citation["title"]:
+            errors.append(f"{label}: citation {citation['id']} title is missing or changed")
+        if source:
+            if row["cells"][4]["text"] != doi or row["unavailable"]:
+                errors.append(f"{label}: citation {citation['id']} DOI identifier differs from its record")
+        elif not row["unavailable"].strip() or row["cells"][4]["text"] != doi + (" · " if doi else "") + row["unavailable"]:
+            errors.append(f"{label}: citation {citation['id']} must retain its DOI and visibly mark the work link unavailable")
+
+
 def check_knowledge_page(root: Path, errors: list[str]) -> None:
     html_path = html_path_for_slug(root, "knowledge")
     current_dir = url_dir_for_slug("knowledge")
@@ -969,6 +1091,16 @@ def check_knowledge_page(root: Path, errors: list[str]) -> None:
     info = parse_html(html_path)
     hrefs = {href for href, _class_name in info.anchors}
     data = instituteos_data(root)
+
+    sources = live_manifest(root)["sources"]
+    check_citation_anchors(html, data["citations"].get("records", []), sources, errors, "knowledge/index.html")
+    for locale in sorted(LOCALE_CODES):
+        localized = root / url_dir_for_slug("knowledge", locale) / "index.html"
+        if localized.exists():
+            check_citation_anchors(
+                localized.read_text(encoding="utf-8"), data["citations"].get("records", []), sources, errors,
+                localized.relative_to(root).as_posix(),
+            )
 
     missing_table_ids = set(KNOWLEDGE_TABLE_IDS) - info.ids
     if missing_table_ids:

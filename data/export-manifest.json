@@ -4,14 +4,14 @@
       "name": "active-inference-and-agriculture.json",
       "output_path": "src/content/pages/domains/active-inference-and-agriculture.json",
       "record_count": 1,
-      "sha256": "736efb860ed1e260e66699e4a29067d6a070b396485d684f88acdde77937df44",
+      "sha256": "13f132d970d9706512f344e8148c1a1f78890dcc13fdeb9b850a07c4886cf9bb",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-climate.json",
       "output_path": "src/content/pages/domains/active-inference-and-climate.json",
       "record_count": 1,
-      "sha256": "18d317973546528863a84c150acd90f6ec99895d6f0731bfa87dbb3f65f6661d",
+      "sha256": "97eafae43ed2552c070ef382adb734aa1a7a661b9138c5c20c9f9fb3510ea0d5",
       "target": "pages_domains"
     },
     {
@@ -25,70 +25,70 @@
       "name": "active-inference-and-cybersecurity.json",
       "output_path": "src/content/pages/domains/active-inference-and-cybersecurity.json",
       "record_count": 1,
-      "sha256": "730c0732a46658407348808f2af439bbe7c9a9be1081deb5ddbe2c459c7e178d",
+      "sha256": "06632ddab0e8236942e5e5609d4f0aa19f778a02633da1454e2d4730700dda83",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-ecology.json",
       "output_path": "src/content/pages/domains/active-inference-and-ecology.json",
       "record_count": 1,
-      "sha256": "5b9cab1fb28455ebe358a335aa499244c299aa5600a30f9a43a92fc6c0d7c7d8",
+      "sha256": "4139a7a4b441c23509fc61d2448852358c43c5cc23a7016bc5b824f1f46bed66",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-economics.json",
       "output_path": "src/content/pages/domains/active-inference-and-economics.json",
       "record_count": 1,
-      "sha256": "d2100346e615a7f4fdaa3e26a668550a8969172a8e43a907fe4833535bc561a1",
+      "sha256": "7843c0093f8ce4abcfb2c7c196dfba415b57460ae040c5c55781bee5a87b006d",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-education.json",
       "output_path": "src/content/pages/domains/active-inference-and-education.json",
       "record_count": 1,
-      "sha256": "ffc3a50e0b87d081517bb844e310921b5eae849f880f7e870095eac4e01a686b",
+      "sha256": "43b40cc45398cd09c2f898fe33fb2fc8116eb877d0272ec6ba0c59b93eec266e",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-entomology.json",
       "output_path": "src/content/pages/domains/active-inference-and-entomology.json",
       "record_count": 1,
-      "sha256": "4a845fd3ab70d3e7f4f923f2cc3d4670918bbd2e90fab7f6f9117957b139a5b1",
+      "sha256": "c2aba0b650fce1d849aea5224489e3605e0c3ede2980d3d3d02edf6cbe6f61ee",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-healthcare.json",
       "output_path": "src/content/pages/domains/active-inference-and-healthcare.json",
       "record_count": 1,
-      "sha256": "c9367298bd005f9623b641f3002bea34a5453f8c310ac70cfdf456ac27eb1b06",
+      "sha256": "ddd7a42cb7554bc6e1b4d4711e135911bb43d7e495ae8a4f374fcf088c1fa83d",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-law.json",
       "output_path": "src/content/pages/domains/active-inference-and-law.json",
       "record_count": 1,
-      "sha256": "441165a5c5d790e4e15bb25ceef6490c489e684232fc6970c95b36b621f60c19",
+      "sha256": "e9fd5e123ed3264c55ce1a902b411d6ce462f788825ec5ac9667f549193e4ccf",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-linguistics.json",
       "output_path": "src/content/pages/domains/active-inference-and-linguistics.json",
       "record_count": 1,
-      "sha256": "a43d08afe1e53a658f7fe12d1f3f4a4af8b3c82dc80addf254fbcd7178a12902",
+      "sha256": "a577972eaab382f37157e12bd6c4d4ee51b50168ae474a3ba17c0787f6be88f2",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-medicine.json",
       "output_path": "src/content/pages/domains/active-inference-and-medicine.json",
       "record_count": 1,
-      "sha256": "fcc7d23f2b59e78910688c85d9dc941eb803e6c759ba8e4d3bc5d13bf59bf7f2",
+      "sha256": "844f66815ddc21658815b42b96bd8c90d8033940e177f822ec23ebce53b3f319",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-music.json",
       "output_path": "src/content/pages/domains/active-inference-and-music.json",
       "record_count": 1,
-      "sha256": "4ae31bf009c2c87af80d955e8a97c71aff4d2641e65844537add0121889d55eb",
+      "sha256": "8088d01104f09a5b14e099a1fbd5bea9f74d1be85df7e204df000ee8e6dec93c",
       "target": "pages_domains"
     },
     {
@@ -102,14 +102,14 @@
       "name": "active-inference-and-psychology.json",
       "output_path": "src/content/pages/domains/active-inference-and-psychology.json",
       "record_count": 1,
-      "sha256": "44df47539c26b603cbdeb9b21fa0bb534a31ce96e32e74e39fe0311ff4793660",
+      "sha256": "0baae34838d5092f7b450da9846e50f18311ff84a354b00dd559cc490ec9b453",
       "target": "pages_domains"
     },
     {
       "name": "active-inference-and-robotics.json",
       "output_path": "src/content/pages/domains/active-inference-and-robotics.json",
       "record_count": 1,
-      "sha256": "a8fa9e6f128127bffb2ffb07d398baac548ee5b2a982babc2c8a00d23e5d0029",
+      "sha256": "ba5f93897b4113a1c9e1cfbe4f4575fd1d16c13d162f93d7fe2e345b44ebc215",
       "target": "pages_domains"
     },
     {
@@ -130,7 +130,7 @@
       "name": "active-inference-and-urban-planning.json",
       "output_path": "src/content/pages/domains/active-inference-and-urban-planning.json",
       "record_count": 1,
-      "sha256": "92dd51ed5b1e8b0e0b053c2a206e4b03e9d4ead5e458e775dff4461163e13a6a",
+      "sha256": "fd3cac57b9497be0bf411da7d44e0c4ab22f891ca02a4a89bcbb51f41d1dc45e",
       "target": "pages_domains"
     },
     {
@@ -144,7 +144,7 @@
       "name": "citations.json",
       "output_path": "src/content/instituteos/citations.json",
       "record_count": 17,
-      "sha256": "f11fcdb08481d09c48698e3eedb8e6278f0dc17505f6a794c46e63d7f71f408d",
+      "sha256": "f51de0409ef727272515655e0c0f29f20fb4d137e48597a4ef6a051dbf1919f6",
       "target": "content"
     },
     {
@@ -303,6 +303,6 @@
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-09-29T19:06:07.020707+00:00",
-  "source_fingerprint": "3924765d1582"
+  "generated_at": "2026-10-21T19:48:48.784826+00:00",
+  "source_fingerprint": "c2691845d66b"
 }

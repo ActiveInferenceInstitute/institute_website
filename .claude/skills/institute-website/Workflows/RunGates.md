@@ -26,6 +26,9 @@ chain.
 | Sub-check | Command | Enforces |
 | --- | --- | --- |
 | `check:links` | [`scripts/check_internal_links.py`](../../../../scripts/check_internal_links.py) | No broken local links or missing asset references in generated HTML. |
+| `check:source-controls` | Python unittest discovery under `scripts/` | Real HTTP, source-discovery and canonical-origin fragment controls. |
+| `check:sources:offline` | Live-source checker with `--offline` | Typed manifest and URL safety without network. |
+| `check:citations` | Node citation-link controls | DOI labels and work links identify the registered paper. |
 | `check:md-links` | [`scripts/check_markdown_links.py`](../../../../scripts/check_markdown_links.py) | No broken relative `[text](path)` links in tracked Markdown docs (incl. `AGENTS.md` guides). |
 | `check:instituteos` | [`scripts/sync_instituteos_public_data.py --check`](../../../../scripts/sync_instituteos_public_data.py) | The committed sanitized Open Source Map slices + brand assets match what the sync would produce; drift means re-run `npm run sync:instituteos`. |
 | `check:design-system` | [`scripts/check_design_system_export.mjs`](../../../../scripts/check_design_system_export.mjs) | `styles.css` token fallbacks are intact; when the sibling DS source is present, byte-compares `instituteos-ds.css` to catch a stale committed copy. |
@@ -43,7 +46,7 @@ read from [`src/content/site.json`](../../../../src/content/site.json) `baseUrl`
 - **Versioning** — `version.json` `site_version` matches `package.json`, and its `pages`
   count matches the `<loc>` count in `sitemap.xml`.
 - **Content model** — required nav slugs, required live-source ids, registry record
-  counts (resources, official pages, 37 public repositories, people/projects/ideas),
+  counts derived from the resource, official-page and public-data registries,
   and that every content page has non-empty `audience`, `resourceGroups`,
   `primaryActions`, `relatedSlugs`, and `externalSourceIds`.
 - **Curated pages** — each page renders the `next-actions`, `resources`,
@@ -77,5 +80,6 @@ and reference it; a raw `href` to an external host fails even for vetted domains
 `check:sources` (`python3 scripts/check_live_sources.py src/content/live-sources.json`)
 is a **separate network probe** that re-fetches every live source to confirm it is still
 reachable. It is intentionally excluded from `npm run check` so the gate stays offline
-and deterministic. Run it manually when you add or edit a live source, and commit the
-refreshed `ok` flags.
+and deterministic. Run it when adding or editing a live source and review its
+per-source report. `--write` refreshes verified records only after success;
+bot responses remain explicitly unverified. Resolved redirects are never committed.

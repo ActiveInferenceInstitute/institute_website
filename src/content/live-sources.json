@@ -3,6 +3,171 @@
   "policy": "Public resource hub: visitor-facing summaries are maintained in the content registries, and volatile public links are checked through this manifest before publication. Only reachable public resources are promoted in rendered pages.",
   "sources": [
     {
+      "id": "citation-friston-2010-free-energy-principle",
+      "label": "The free-energy principle: a unified brain theory?",
+      "category": "Research",
+      "url": "https://doi.org/10.1038/nrn2787",
+      "doi": "10.1038/nrn2787",
+      "sourceBasis": "Work DOI and title verified against Crossref or DataCite/arXiv metadata; DOI destination checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-buckley-2017-free-energy-mathematical-review",
+      "label": "The free energy principle for action and perception: A mathematical review",
+      "category": "Research",
+      "url": "https://doi.org/10.1016/j.jmp.2017.09.004",
+      "doi": "10.1016/j.jmp.2017.09.004",
+      "sourceBasis": "Work DOI and title verified against Crossref or DataCite/arXiv metadata; DOI destination checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-pezzulo-2017-active-inference-process-theory",
+      "label": "Active Inference, homeostatic regulation and adaptive behavioural control",
+      "category": "Research",
+      "url": "https://doi.org/10.1016/j.pneurobio.2015.09.001",
+      "doi": "10.1016/j.pneurobio.2015.09.001",
+      "sourceBasis": "Work DOI and title verified against Crossref or DataCite/arXiv metadata; DOI destination checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-da-costa-2020-active-inference-discrete",
+      "label": "Active inference on discrete state-spaces: A synthesis",
+      "category": "Research",
+      "url": "https://doi.org/10.1016/j.jmp.2020.102447",
+      "doi": "10.1016/j.jmp.2020.102447",
+      "sourceBasis": "Work DOI and title verified against Crossref or DataCite/arXiv metadata; DOI destination checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-lanillos-2021-active-inference-robotics-survey",
+      "label": "Active Inference in Robotics and Artificial Agents: Survey and Challenges",
+      "category": "Research",
+      "url": "https://doi.org/10.48550/arXiv.2112.01871",
+      "doi": "10.48550/arXiv.2112.01871",
+      "sourceBasis": "Work DOI and title verified against Crossref or DataCite/arXiv metadata; DOI destination checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-friedman-2021-active-inference-ant-colony",
+      "label": "Active Inferants: An Active Inference Framework for Ant Colony Behavior",
+      "category": "Research",
+      "url": "https://doi.org/10.3389/fnbeh.2021.647732",
+      "doi": "10.3389/fnbeh.2021.647732",
+      "sourceBasis": "Work DOI and title verified against Crossref or DataCite/arXiv metadata; DOI destination checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-badcock-davey-2024-active-inference-psychology-psychiatry",
+      "label": "Active Inference in Psychology and Psychiatry: Progress to Date?",
+      "category": "Research",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11507080/",
+      "doi": "10.3390/e26100833",
+      "sourceBasis": "Work identity verified against DOI and title metadata in the NLM article record; public landing URL checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-kirchner-2022-broken-models-treatment-selection",
+      "label": "From Broken Models to Treatment Selection: Active Inference as a Tool to Guide Clinical Research and Practice",
+      "category": "Research",
+      "url": "https://doi.org/10.32872/cpe.9697",
+      "doi": "10.32872/cpe.9697",
+      "sourceBasis": "Work DOI and title verified against Crossref or DataCite/arXiv metadata; DOI destination checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-petzschner-2021-interoception-body-regulation",
+      "label": "Computational Models of Interoception and Body Regulation",
+      "category": "Research",
+      "url": "https://doi.org/10.1016/j.tins.2020.09.012",
+      "doi": "10.1016/j.tins.2020.09.012",
+      "sourceBasis": "Work DOI and title verified against Crossref or DataCite/arXiv metadata; DOI destination checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-paulus-2019-interoceptive-psychopathology",
+      "label": "An Active Inference Approach to Interoceptive Psychopathology",
+      "category": "Research",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7280559/",
+      "doi": "10.1146/annurev-clinpsy-050718-095617",
+      "sourceBasis": "Work identity verified against DOI and title metadata in the NLM article record; public landing URL checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-pio-lopez-2022-morphogenesis-computational-psychiatry",
+      "label": "Active inference, morphogenesis, and computational psychiatry",
+      "category": "Research",
+      "url": "https://doi.org/10.3389/fncom.2022.988977",
+      "doi": "10.3389/fncom.2022.988977",
+      "sourceBasis": "Work DOI and title verified against Crossref or DataCite/arXiv metadata; DOI destination checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-torzoni-2026-active-digital-twins",
+      "label": "Active Digital Twins via Active Inference",
+      "category": "Research",
+      "url": "https://doi.org/10.1016/j.engappai.2026.114519",
+      "doi": "10.1016/j.engappai.2026.114519",
+      "sourceBasis": "Work DOI and title verified against Crossref or DataCite/arXiv metadata; DOI destination checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-mapes-2025-active-inference-ai-spatial-web-medicine",
+      "label": "Active Inference AI and the Spatial Web for Medicine: A New Paradigm for Medical Research, Treatment, and Education",
+      "category": "Research",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41252127/",
+      "doi": "10.1097/PPO.0000000000000798",
+      "sourceBasis": "Work identity verified against DOI and title metadata in the NLM article record; public landing URL checked directly.",
+      "statusCode": 203,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-brankovic-2025-active-inference-llm-medical-devices",
+      "label": "An active inference strategy for prompting reliable responses from large language models in medical practice",
+      "category": "Research",
+      "url": "https://doi.org/10.1038/s41746-025-01516-2",
+      "doi": "10.1038/s41746-025-01516-2",
+      "sourceBasis": "Work DOI and title verified against Crossref or DataCite/arXiv metadata; DOI destination checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
+      "id": "citation-pio-lopez-2016-robot-control-case-study",
+      "label": "Active inference and robot control: a case study",
+      "category": "Research",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5046960/",
+      "doi": "10.1098/rsif.2016.0616",
+      "sourceBasis": "Work identity verified against DOI and title metadata in the NLM article record; public landing URL checked directly.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-21T00:00:00Z"
+    },
+    {
       "id": "active-inferants",
       "label": "Active InferAnts repository",
       "category": "Projects",
@@ -648,16 +813,6 @@
       "checkedAt": "2026-08-19T20:59:38Z"
     },
     {
-      "id": "person-alexandra-mikhailova",
-      "label": "Alexandra Mikhailova public page",
-      "category": "People",
-      "url": "http://mcallisterlab.com/",
-      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's SAB cohort roster. The domain returned NXDOMAIN on 2026-10-05, so the unreachable link is withheld.",
-      "statusCode": 0,
-      "ok": false,
-      "checkedAt": "2026-10-05T23:30:28Z"
-    },
-    {
       "id": "person-ana-magdalena",
       "label": "Ana-Magdalena GitHub profile",
       "category": "People",
@@ -1061,25 +1216,14 @@
       "knownBotBlocked": true
     },
     {
-      "id": "person-karl-john-friston",
-      "label": "Karl John Friston public page",
-      "category": "People",
-      "url": "https://www.linkedin.com/in/karl-friston-26812742/",
-      "sourceBasis": "Public page recorded for this Scientific Advisory Board member; the link remains withheld. During verification on 2026-10-05, automated requests returned HTTP 429 and 999, while an isolated request returned HTTP 404. A real Chrome visit redirected to LinkedIn's /in/ page without displaying the member's profile, so current profile availability could not be confirmed. Automated results are informational under the existing bot-blocked-host policy; no reachability is claimed.",
-      "statusCode": 999,
-      "ok": false,
-      "checkedAt": "2026-10-05T23:45:52Z",
-      "knownBotBlocked": true
-    },
-    {
       "id": "person-karl-john-friston-2",
       "label": "Karl John Friston public page",
       "category": "People",
-      "url": "https://www.fil.ion.ucl.ac.uk/~karl/",
-      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "url": "https://www.ae-info.org/ae/Member/Friston_Karl",
+      "sourceBasis": "Academia Europaea member profile names Karl Friston; replaces an unreachable institutional homepage. Public destination checked directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "checkedAt": "2026-10-21T00:00:00Z"
     },
     {
       "id": "person-luca-possati",
@@ -1095,11 +1239,11 @@
       "id": "person-mahault-albarracin",
       "label": "Mahault Albarracin public page",
       "category": "People",
-      "url": "https://info.uqam.ca/",
-      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "url": "https://orcid.org/0000-0003-0916-4645",
+      "sourceBasis": "Researcher-owned ORCID record identifies Mahault Albarracin; replaces an unreachable department homepage. Public destination checked directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "checkedAt": "2026-10-21T00:00:00Z"
     },
     {
       "id": "person-manuel-razo-mejia",
@@ -1178,11 +1322,11 @@
       "id": "person-mick-thacker",
       "label": "Mick Thacker public page",
       "category": "People",
-      "url": "https://www.rcsi.com/people/profile/michaelthacker",
-      "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
+      "url": "https://www.rcsi.com/dublin/about/faculty-of-medicine-and-health-sciences/school-of-physiotherapy/our-people",
+      "sourceBasis": "RCSI's School of Physiotherapy staff listing names Professor Michael Thacker; replaces the institutional profile redirect that returns 404. Public destination checked directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-08-19T20:59:38Z"
+      "checkedAt": "2026-10-21T00:00:00Z"
     },
     {
       "id": "person-mike-smith",
