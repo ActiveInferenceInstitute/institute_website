@@ -77,7 +77,7 @@ submitted. These measurements are point-in-time observations.
 | Browser runtime | Calendar filters/counts pass in all 12 locales; the original injected ReferenceError is rejected by the negative control. |
 | Export boundary | 52 focused application export-contract/guard tests pass. No private source or registry changes are needed for this repair. |
 | Design system | Export matches the available source when checked with its explicit source binding; token checks pass. |
-| Source-bound export freshness | FAIL on both untouched website main and this branch: `stale src/content/instituteos/sab_cohorts.json`. The file is byte-identical to main and was not regenerated into this SEO change. This pre-existing source/export reconciliation remains a separate release gate. |
+| Source-bound export freshness | Initially failed on untouched main and the original repair head. Follow-up reconciliation through the existing sanitizer now passes against the available authoritative source; all 31 producer-2 JSON files are also validated. Only six public profile URL values changed in the historical cohort projection; cohort membership, years and entity IDs are unchanged. |
 
 The initial live audit intentionally exits nonzero for its nine recorded
 non-successes. Its raw failures are retained, not swallowed. The initial probe
@@ -86,6 +86,23 @@ claim. The second set uses the actual forward registry.
 The maintained seed file now uses the registered `intern` shortlink and labels
 unknown-route controls with expected HTTP 404. The audit still retains every raw
 non-success, but exits nonzero only for unexpected status or transport results.
+
+### SAB export reconciliation follow-up
+
+The original freshness failure is retained in the initial evidence. It was
+reproduced before the follow-up fix, then resolved using the committed, clean
+authoritative cohort registry and the existing public sanitizer. Other private
+registry edits were not integrated. A byte comparison confirmed that every
+other producer-1 public artifact already matched and remained unchanged.
+
+The delta is six historical member URL values across two cohorts, referring to
+three approved destinations. All three were fetched successfully over HTTPS.
+Two existing live-source records now identify the Academia Europaea member
+profile and ORCID profile already named by the authoritative registry; their
+source IDs and old-URL aliases are retained. The RCSI replacement was already
+registered. Each destination renders in all 12 localized SAB pages, and the
+superseded profile URLs are absent from those rendered anchors. No membership
+claim or private contact field was added.
 
 ## Explicit indexability matrix
 
@@ -186,9 +203,9 @@ with the review evidence, outside published output.
 Review source and generated HTML together. Keep this change separate from the
 existing research/export PR. Merging to `main` is a production action because
 Pages publishes committed root output; this handoff does not authorize it.
-Resolve the separately reproduced SAB-cohort source/export drift before claiming
-source-bound release readiness; the standalone public safety gate is not proof
-of freshness against the available private source.
+Keep the source-bound check in release validation. The original SAB drift is
+resolved by the follow-up, but a standalone public safety check still cannot
+establish freshness against an unavailable private source.
 
 After an authorized merge/deployment, recheck important aliases, exact simulation
 filenames, unknown-path controls, both schemes/hosts, and the sitemap. If an
