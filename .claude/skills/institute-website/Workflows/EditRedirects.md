@@ -2,7 +2,7 @@
 
 1. Edit `redirects.map`, `redirects.prefix` or `redirects.set` in
    [url-taxonomy.json](../../../../src/url-taxonomy.json). MAP aliases are
-   English-only; PREFIX and SET renames apply across every locale. Structural
+   expanded across every published locale, as are PREFIX and SET renames. Structural
    rules must agree with the routing rules in the same file.
 2. Confirm each destination is a real built page. A real route takes precedence
    over an alias; stubs must never overwrite existing visitor content.

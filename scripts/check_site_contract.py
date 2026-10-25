@@ -1200,8 +1200,10 @@ def check_sitemap_dates(sitemap: str, errors: list[str]) -> None:
     namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
     for entry in document.findall(f"{namespace}url"):
         dates = entry.findall(f"{namespace}lastmod")
+        if not dates:
+            continue
         if len(dates) != 1:
-            errors.append("every sitemap URL must carry exactly one dated lastmod")
+            errors.append("a sitemap URL may carry at most one evidenced lastmod")
             continue
         try:
             value = dates[0].text or ""

@@ -40,7 +40,7 @@ CSP and local assets. Pages serves these files with HTTP 200. They are not HTTP
 
 The shared redirect source is `src/url-taxonomy.json`:
 
-- `redirects.map`: English Squarespace aliases.
+- `redirects.map`: Squarespace aliases, expanded across every published locale.
 - `redirects.prefix`: renamed slug families, across every locale.
 - `redirects.set`: exact renamed slugs, across every locale.
 
@@ -59,7 +59,8 @@ simulation landing pages and localized stubs; vendored demo bodies stay excluded
 Untranslated newsletter/video detail bodies use the English canonical and omit
 hreflang clusters. Translated content keeps self-canonicals and alternates.
 Search and the HTML sitemap are noindex and excluded from the XML sitemap. Each
-XML sitemap URL retains its deterministic content-export date in `lastmod`.
+XML sitemap URL omits `lastmod` until per-page modification evidence is available;
+the shared data-export timestamp is not a page modification date.
 
 ---
 
@@ -139,9 +140,10 @@ paths. Nesting under the existing `/active-inference/` hub page instead avoids
 any collision and reads correctly: these pages *are* "Active Inference and X."
 See [SLUG_AND_URL_TAXONOMY.md § Two independent axes](SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url).
 
-**Follow-up (manual, outside this repo):** submit a Search Console
-change-of-address / re-submit the sitemap so search engines re-crawl the new
-paths promptly, since the old URLs had been live and indexed.
+**Follow-up (after an authorized release):** re-submit the sitemap and validate
+only the genuinely repaired issues. A same-domain path migration does not need
+Search Console's change-of-address tool. See the measured
+[indexing repair and browser-agent handoff](INDEXING_REPAIR_2026-10-25.md).
 
 ### Structural Renames (`SET_REDIRECTS` in assets/js/redirects.js)
 

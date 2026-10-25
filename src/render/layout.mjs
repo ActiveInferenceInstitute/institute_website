@@ -64,6 +64,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   if (untranslatedBody(slug)) {
     hreflang = false;
     canonicalPath = localeOutputPathForSlug(slug, DEFAULT_LOCALE);
+    if (!isDefaultLocale(lang)) body = `<div lang="en" dir="ltr">${body}</div>`;
   }
   const meta = localeMeta(lang);
   const dirAttr = meta.dir === "rtl" ? ' dir="rtl"' : "";

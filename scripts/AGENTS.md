@@ -13,7 +13,7 @@ sync, and translate that source. Run gates with no network access.
 | Command | Runs |
 | --- | --- |
 | `npm run build` | `node src/build.mjs` — render HTML + crawler files |
-| `npm run check` | `node --check` the build, `py_compile` every checker, then `check:links` → `check:md-links` → `check:instituteos` → `check:export` → `check:design-system` → `check:site` → `check:feeds` → `check:security` → `check:redirects` → `check:projects` → `check:catalog` → `check:i18n` → `check:standalone` |
+| `npm run check` | `node --check` the build, `py_compile` every checker, then `check:links` → `check:md-links` → `check:instituteos` → `check:export` → `check:design-system` → `check:site` → `check:feeds` → `check:security` → `check:redirects` → `check:indexability` → `check:projects` → `check:catalog` → `check:i18n` → `check:standalone` |
 | `npm run check:export` | `node --test scripts/test_export_manifest.mjs scripts/test_indexing.mjs scripts/test_browser_process.mjs` — export provenance, indexing/calendar controls and real browser-process failures |
 | `npm run check:browser` | [`check_calendar_browser.mjs`](check_calendar_browser.mjs) — actual Chrome calendar filters/counts in all locales; requires `CHROME_BIN`, runs separately in CI |
 | `npm run check:links` | [`check_internal_links.py`](check_internal_links.py) |
@@ -24,6 +24,7 @@ sync, and translate that source. Run gates with no network access.
 | `npm run check:feeds` | [`check_feeds.py`](check_feeds.py) — `feed.xml`/`feed.json` structure + dates + guid uniqueness, and `feed`/`sitemap.xml` link targets |
 | `npm run check:security` | [`check_static_security.py`](check_static_security.py) |
 | `npm run check:redirects` | [`check_redirects.py`](check_redirects.py) |
+| `npm run check:indexability` | [`check_indexability.py`](check_indexability.py) + `test_indexability.py` / `test_live_url_audit.py` controls |
 | `npm run check:sources` | [`check_live_sources.py`](check_live_sources.py) — **network; NOT part of `check`** |
 | `npm run check:projects` | [`check_project_discoverability.py`](check_project_discoverability.py) — every project page linked from `/projects/` |
 | `npm run check:catalog` | [`check_project_catalog_coverage.mjs`](check_project_catalog_coverage.mjs) — `data/projects.json` vs rendered project pages |

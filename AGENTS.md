@@ -29,7 +29,7 @@ Never commit private paths or internal tool names — every commit is public.
 | Command | What it does |
 | --- | --- |
 | `npm run build` | `node src/build.mjs` — render all public HTML + crawler files |
-| `npm run check` | `node --check src/build.mjs` + `py_compile` of all checkers + the 13 `check:*` sub-gates below |
+| `npm run check` | `node --check src/build.mjs` + `py_compile` of all checkers + the `check:*` sub-gates below |
 | `npm run check:browser` | Real Chrome calendar regression in all locales, including the original runtime-error negative control; requires `CHROME_BIN` |
 | `npm run i18n:extract` | `I18N_EXTRACT=1 node src/build.mjs` — extract translatable strings |
 | `npm run i18n:translate` | `node scripts/i18n_translate.mjs` — offline translation (Ollama/hosted API) |
@@ -53,6 +53,7 @@ treat as order-of-magnitude):
 | `check:feeds` | `check_feeds.py` | feed structure/dates, unique IDs and feed/sitemap targets | medium | — |
 | `check:security` | `check_static_security.py` | CSP, no inline/external scripts, external anchors backed by `live-sources.json` or vetted hosts, PII scan | heavy | — |
 | `check:redirects` | `check_redirects.py` | redirect map vs `src/url-taxonomy.json` + build output | ~1 s | — |
+| `check:indexability` | `check_indexability.py` + real-file/HTTP controls | canonical and robots policy, reciprocal hreflang, sitemap coverage and filename case | full generated output | disk evidence, not Google indexing acceptance |
 | `check:projects` | `check_project_discoverability.py` | every `website_slug` project has a page | <1 s | — |
 | `check:catalog` | `check_project_catalog_coverage.mjs` | every project page linked from built `/projects/` | fast | — |
 | `check:i18n` | `node --test scripts/test_i18n_translate.mjs scripts/test_i18n_terminology.mjs` | translation-helper logic (masking, degeneration guard) + terminology-QA classification rules | ~7 s | — |
