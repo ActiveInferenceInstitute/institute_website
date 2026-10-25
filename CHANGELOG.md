@@ -4,6 +4,13 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+- **SAB export freshness reconciliation (2026-10-25).** Regenerate the historical
+  cohort projection through its existing sanitizer from the committed source;
+  align two verified source records and retain historical aliases. Update six
+  public profile URL values without changing cohort membership or private
+  registries. Source-bound freshness and producer-2 privacy validation pass.
+- **Indexing and route recovery (2026-10-25, prepared for review).** Expand legacy aliases across locales; preserve explicit language and shared asset URLs; restrict 404 recovery to known destinations. Declare English archive bodies, restore newsletter collection sitemap alternates, and omit unevidenced per-page modification dates. Add a generated-output indexability gate, bounded live HTTP inventory tooling, and an optional 308 handler for a separately authorized HTTP boundary. No production or Search Console change is made by this patch. See [the measured handoff](docs/INDEXING_REPAIR_2026-10-25.md).
+
 - **Validator traversal (2026-10-13).** Skip already-excluded tooling trees
   before descending, preserving the existing HTML and simulation coverage.
   Retain diagnostic fixtures and fail on unreadable public paths. Verify the

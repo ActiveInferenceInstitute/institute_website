@@ -82,7 +82,7 @@ Single source of truth for slug → directory. The output file is always
   404 fallback, redirect inventory and inbound-forward documentation table.
 - `public-links.mjs` — HTTPS normalization, internal forwarding destinations
   and plain-text rendering for retired hosts; used before emitting visitor anchors.
-- `indexing-policy.mjs` — untranslated newsletter/video detail bodies use English
+- `indexing-policy.mjs` — untranslated newsletter/video detail bodies declare English and use English
   canonicals and omit hreflang clusters.
 
 - [`render/`](render/) — page renderers and the `layout()` shell (CSP-safe HTML,

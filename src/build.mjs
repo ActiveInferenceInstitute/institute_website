@@ -102,9 +102,9 @@ function build() {
     ...newsletterIssuePages().map((issue) => newsletterIssueOutputPath(issue.route)),
     ...allVideoSlugs().map((slug) => outputPathForSlug(slug)),
   ];
-  // lastmod from the export date (stable per export, not a live clock); priority
-  // by depth: home 1.0, top-level sections 0.8, deeper collection pages 0.6.
-  const lastmod = (EXPORTED_AT || "").slice(0, 10);
+  // No lastmod: a shared registry-export date does not establish when each
+  // page's substantive content changed. Add it only with per-page evidence.
+  // Priority by depth: home 1.0, top-level sections 0.8, deeper pages 0.6.
   const sitemapPriority = (url) => {
     const depth = url.split("/").filter((part) => part && part !== "index.html").length;
     return depth === 0 ? "1.0" : depth >= 2 ? "0.6" : "0.8";
@@ -128,7 +128,7 @@ function build() {
   // page is a conflicting signal (see src/render/layout.mjs head comments).
   const HREFLANG_EXCLUDED_SLUG_PATHS = new Set(["sitemap/index.html", "search/index.html"]);
   const localeAlternatesFor = (defaultPath) => {
-    if (defaultPath.startsWith("newsletter/") || (defaultPath.startsWith("video/") && defaultPath !== "video/index.html")) return "";
+    if ((defaultPath.startsWith("newsletter/") && defaultPath !== "newsletter/index.html") || (defaultPath.startsWith("video/") && defaultPath !== "video/index.html")) return "";
     const eligible = LOCALES.filter(
       (locale) =>
         locale.code === DEFAULT_LOCALE ||
@@ -152,7 +152,7 @@ function build() {
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapUrls
       .map(
         (url) =>
-          `  <url><loc>${absoluteUrl(url)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}<changefreq>${sitemapChangefreq(url)}</changefreq><priority>${sitemapPriority(url)}</priority>\n${localeAlternatesFor(url)}  </url>`,
+          `  <url><loc>${absoluteUrl(url)}</loc><changefreq>${sitemapChangefreq(url)}</changefreq><priority>${sitemapPriority(url)}</priority>\n${localeAlternatesFor(url)}  </url>`,
       )
       .join("\n")}\n</urlset>\n`,
   );
