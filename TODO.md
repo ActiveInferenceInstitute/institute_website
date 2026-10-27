@@ -167,14 +167,18 @@ recrawl or production acceptance.
 
 ## Other backlog
 
-- [ ] **Light-theme accent contrast (F19, 2026-09-27).** Re-measure and classify
-      the previously reported 3.0–4.4:1 elements before changing tokens.
+- [x] **Accent text contrast (F19, resolved 2026-10-26).** Reproduced the
+      previously reported low text contrast and added site-only foreground roles.
+      Real Chromium measurements cover seven palettes in both themes on selected
+      solid surfaces: all 42 normal and 42 primary-hover readings exceed 4.5:1.
+      Restoring white text on the original bright button fills produces six
+      failures. The canonical design-system export remains byte-identical.
       [WCAG non-text contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html)
       requires 3:1 for necessary component/state indicators; ordinary text uses
       [4.5:1](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
       The earlier blanket 4.5:1 requirement for non-text controls was incorrect.
-      Rounded historical ratios do not establish current compliance. Canonical
-      token changes remain a design-system source and color-owner decision.
+      These scoped text checks do not establish whole-site accessibility or
+      certify every component/state indicator.
 - [ ] **Newsletter archive dead "here" CTA (F24-adjacent, 2026-09-27).** The
       2025-august / 2025-november newsletter snapshots contain "here"
       call-to-action text whose target lived in the private archive snapshot;
@@ -285,9 +289,9 @@ recrawl or production acceptance.
 - [ ] Per-page `lastmod` in `sitemap.xml` from content provenance — **deferred**:
       there is no per-page timestamp source today (`data/export-manifest.json`
       records per-file hashes, not page mtimes), and deriving it from git history
-      would break the build's determinism. The uniform export-date `lastmod` is
-      correct for a site regenerated as a unit; revisit if per-page provenance
-      lands in the export manifest.
+      would break the build's determinism. The optional `lastmod` is now omitted
+      rather than presenting a shared export date as per-page modification
+      evidence. Revisit when per-page provenance lands in the export manifest.
 - [x] Taxonomy-driven redirect generator + a `check:redirects` gate — **done**:
       shipped as part of the Axis-B migration of the 16 "Active Inference and X"
       domain pages from `/active-inference-and-<x>/` to `/active-inference/<x>/`

@@ -25,6 +25,23 @@ test("browser runner rejects timeout even when SIGTERM handler exits zero", asyn
     /killed=true, exit=0.*stdout=ready/);
 });
 
+test("browser runner forcibly ends a real process that ignores termination", async () => {
+  const started = Date.now();
+  await assert.rejects(runBrowserProcess(process.execPath, ["-e",
+    'process.on("SIGTERM", () => {}); process.stdout.write("ready"); setInterval(() => {}, 1000);'], 2000),
+    /killed=true, exit=null, signal=SIGKILL.*stdout=ready/);
+  assert.ok(Date.now() - started < 7000, "Forced teardown exceeded its bounded grace period");
+});
+
+test("an exited parent cannot leave inherited browser pipes open indefinitely", { skip: process.platform === "win32" }, async () => {
+  const started = Date.now();
+  const descendant = 'process.on("SIGTERM",()=>{});process.stdout.write("descendant ready");setInterval(()=>{},1000);';
+  const launcher = `const {spawn}=require('node:child_process');const child=spawn(process.execPath,['-e',${JSON.stringify(descendant)}],{stdio:['ignore','pipe','inherit']});child.stdout.once('data',data=>{process.stdout.write(data,()=>process.exit(0))});`;
+  await assert.rejects(runBrowserProcess(process.execPath, ["-e", launcher], 2000),
+    /killed=true, exit=0.*stdout=descendant ready/);
+  assert.ok(Date.now() - started < 7000, "Inherited pipes defeated the process deadline");
+});
+
 test("browser runner rejects an unavailable executable", async () => {
   await assert.rejects(runBrowserProcess(join(tmpdir(), `unavailable-browser-${process.pid}-${Date.now()}`), []),
     { code: "ENOENT" });
@@ -51,6 +68,13 @@ test("browser runner rejects driver errors and terminates its own subprocess", a
 test("browser runner rejects clean exit before driver completion", async () => {
   await assert.rejects(runBrowserProcess(process.execPath, ["-e", 'process.exit(0);'], 45000,
     () => new Promise(() => {})), /exited before driver completed/);
+});
+
+test("late driver rejection cannot signal a process group after closure", async () => {
+  await assert.rejects(runBrowserProcess(process.execPath, ["-e", "process.exit(0);"], 45000,
+    child => new Promise((accept, reject) => child.once("close", () => reject(new Error("late driver failure"))))),
+    /exited before driver completed/);
+  await new Promise(resolve => setImmediate(resolve));
 });
 
 const protocolProcess = `

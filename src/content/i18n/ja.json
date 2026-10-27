@@ -4863,5 +4863,17 @@
   "Donor": "寄付者",
   "Intern": "インターン",
   "Research fellow": "研究フェロー",
-  "Symposium participant": "シンポジウム参加者"
+  "Symposium participant": "シンポジウム参加者",
+  "Search newsletters and announcements": "ニュースレターとお知らせを検索",
+  "Search article text, titles, authors, and tags": "本文・タイトル・著者・タグを検索",
+  "Year": "年",
+  "All years": "すべての年",
+  "Reset filters": "絞り込みをリセット",
+  "Posts shown: {n}": "表示中の投稿: {n}",
+  "No posts match these filters.": "条件に一致する投稿はありません。",
+  "Newsletter navigation": "ニュースレターの移動",
+  "Older post": "前の投稿",
+  "Newer post": "次の投稿",
+  "Latest newsletters": "最新のニュースレター",
+  "View newsletter archive": "ニュースレターのアーカイブを見る"
 }

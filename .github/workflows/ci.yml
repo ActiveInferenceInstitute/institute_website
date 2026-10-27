@@ -63,6 +63,12 @@ jobs:
       - name: Run calendar browser regression
         run: CHROME_BIN="$(command -v google-chrome)" npm run check:browser
 
+      - name: Run newsletter and contrast browser regressions
+        run: |
+          export CHROME_BIN="$(command -v google-chrome)"
+          WEBSITE_AUDIT_OUTPUT="${RUNNER_TEMP}/website-newsletter-browser" npm run check:browser:archive
+          WEBSITE_AUDIT_OUTPUT="${RUNNER_TEMP}/website-contrast-browser" node scripts/check_audit_browser.mjs --quick
+
       # GitHub Pages serves the committed *.html. If the build produced output
       # that differs from what is committed, the published site is stale — fail
       # loudly so the contributor rebuilds and commits the regenerated output.

@@ -4863,5 +4863,17 @@
   "Donor": "기부자",
   "Intern": "인턴",
   "Research fellow": "연구 펠로",
-  "Symposium participant": "심포지엄 참가자"
+  "Symposium participant": "심포지엄 참가자",
+  "Search newsletters and announcements": "뉴스레터 및 공지 검색",
+  "Search article text, titles, authors, and tags": "기사 본문, 제목, 저자, 태그 검색",
+  "Year": "연도",
+  "All years": "모든 연도",
+  "Reset filters": "필터 초기화",
+  "Posts shown: {n}": "표시된 글: {n}",
+  "No posts match these filters.": "이 필터와 일치하는 글이 없습니다.",
+  "Newsletter navigation": "뉴스레터 탐색",
+  "Older post": "이전 글",
+  "Newer post": "다음 글",
+  "Latest newsletters": "최신 뉴스레터",
+  "View newsletter archive": "뉴스레터 보관함 보기"
 }

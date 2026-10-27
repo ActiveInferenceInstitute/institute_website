@@ -42,12 +42,16 @@ chain.
 | `check:i18n` | `node --test scripts/test_i18n_translate.mjs scripts/test_i18n_terminology.mjs` | Translation-helper behavior and terminology classification. |
 | `check:standalone` | [`scripts/check_standalone_payloads.py`](../../../../scripts/check_standalone_payloads.py) | CI-only public-payload verification without an upstream checkout. |
 
-There are 13 offline sub-gates. After changing calendar markup or `site.js`, also
-run `npm run check:browser` with `CHROME_BIN` set to a working Chrome/Chromium
-executable. It starts its own loopback server, exercises the actual built pages
+The complete offline chain is declared in `package.json:scripts.check`. After
+changing interactive assets or newsletter renderers, run
+`npm run check:browser:all` with `CHROME_BIN` set to a working Chrome/Chromium
+binary and `WEBSITE_AUDIT_OUTPUT` set outside the public checkout. The suite
+runs each browser check sequentially and creates a new evidence directory.
+For focused calendar work, run `npm run check:browser` with the same
+browser binding. It starts its own loopback server, exercises the actual built pages
 in all 12 locales and proves that restoring the original `scope` ReferenceError
 fails the check. It leaves JSON receipts in its temporary browser profile.
-CI runs this separate browser check on Node 20 and 22; a missing browser fails
+CI runs calendar, newsletter and focused contrast/interaction checks on Node 20 and 22; a missing browser fails
 explicitly rather than skipping coverage.
 
 ### What `check:site` covers

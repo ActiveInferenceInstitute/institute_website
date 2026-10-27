@@ -5,6 +5,12 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- Add full-text newsletter search, year/format filters, shareable filter URLs and no-results/reset states, translated in every locale.
+- Link adjacent archived posts and populate year hubs with their latest exported monthly newsletters.
+- Improve palette text/button contrast with site-only foreground roles and measured hover checks; preserve the canonical design-system export.
+- Run the complete browser suite sequentially with isolated evidence directories, bounded teardown and real subprocess failure controls.
+- Add newsletter and focused contrast/interaction browser regressions to every CI runtime job.
+
 - Correct the 2026 Symposium dates to November 12–13 on the year overview and Working Groups pages, including translated copy.
 - Refresh the complete Substack mirror through September 2026 and remove the withdrawn June newsletter paragraph.
 

@@ -136,6 +136,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   // no fetch, no external index, CSP-safe.
   const hasVideoTable = normalizedBody.includes("video-table-mount");
   const videoTableScript = hasVideoTable ? `\n  <script src="${prefix}assets/js/video-table.js" defer></script>` : "";
+  const newsletterScript = normalizedBody.includes('id="newsletter-controls"') ? `\n  <script src="${prefix}assets/js/newsletter.js" defer></script>` : "";
   // Alias stubs load the shared redirect runtime synchronously; the 404
   // fallback defers it. An ABSOLUTE base path means it
   // resolves even when the unmatched request is several segments deep (relative
@@ -250,7 +251,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   <script src="${prefix}assets/js/accent.js" defer></script>
   <script src="${prefix}assets/js/tts.js" defer></script>
   <script src="${prefix}assets/js/site.js" defer></script>
-  <script src="${prefix}assets/js/search.js" data-search-data="${escapeHtml(searchDataSrc)}" defer></script>${searchPageScript}${graphScript}${videoTableScript}${redirectScript}
+  <script src="${prefix}assets/js/search.js" data-search-data="${escapeHtml(searchDataSrc)}" defer></script>${searchPageScript}${graphScript}${videoTableScript}${newsletterScript}${redirectScript}
 </body>
 </html>`;
 }

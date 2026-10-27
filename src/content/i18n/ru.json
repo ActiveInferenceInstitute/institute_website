@@ -4863,5 +4863,17 @@
   "Donor": "Благотворитель",
   "Intern": "Стажёр",
   "Research fellow": "Исследователь программы Fellowship",
-  "Symposium participant": "Участник симпозиума"
+  "Symposium participant": "Участник симпозиума",
+  "Search newsletters and announcements": "Поиск выпусков и объявлений",
+  "Search article text, titles, authors, and tags": "Поиск по тексту, заголовкам, авторам и тегам",
+  "Year": "Год",
+  "All years": "Все годы",
+  "Reset filters": "Сбросить фильтры",
+  "Posts shown: {n}": "Показано публикаций: {n}",
+  "No posts match these filters.": "Нет публикаций, соответствующих этим фильтрам.",
+  "Newsletter navigation": "Навигация по рассылке",
+  "Older post": "Более ранняя публикация",
+  "Newer post": "Более новая публикация",
+  "Latest newsletters": "Последние выпуски рассылки",
+  "View newsletter archive": "Открыть архив рассылки"
 }

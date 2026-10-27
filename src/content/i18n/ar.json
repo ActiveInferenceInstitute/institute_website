@@ -4863,5 +4863,17 @@
   "Donor": "متبرع",
   "Intern": "متدرب",
   "Research fellow": "زميل بحثي",
-  "Symposium participant": "مشارك في الندوة"
+  "Symposium participant": "مشارك في الندوة",
+  "Search newsletters and announcements": "ابحث في النشرات والإعلانات",
+  "Search article text, titles, authors, and tags": "ابحث في نص المقالات والعناوين والمؤلفين والوسوم",
+  "Year": "السنة",
+  "All years": "كل السنوات",
+  "Reset filters": "إعادة ضبط عوامل التصفية",
+  "Posts shown: {n}": "المنشورات المعروضة: {n}",
+  "No posts match these filters.": "لا توجد منشورات تطابق عوامل التصفية هذه.",
+  "Newsletter navigation": "التنقل بين النشرات",
+  "Older post": "منشور أقدم",
+  "Newer post": "منشور أحدث",
+  "Latest newsletters": "أحدث النشرات",
+  "View newsletter archive": "عرض أرشيف النشرات"
 }

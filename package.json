@@ -27,13 +27,15 @@
     "sync:transcripts": "python3 scripts/sync_video_transcripts.py",
     "check:transcripts": "python3 scripts/sync_video_transcripts.py --check",
     "check:i18n": "node --test scripts/test_i18n_translate.mjs scripts/test_i18n_terminology.mjs",
-    "check:export": "node --test scripts/test_export_manifest.mjs scripts/test_indexing.mjs scripts/test_browser_process.mjs scripts/test_route_recovery.mjs scripts/test_http_redirects.mjs scripts/test_audit_repairs.mjs scripts/test_edge_worker.mjs scripts/test_build_identity.mjs",
+    "check:export": "node --test scripts/test_export_manifest.mjs scripts/test_indexing.mjs scripts/test_browser_process.mjs scripts/test_route_recovery.mjs scripts/test_http_redirects.mjs scripts/test_audit_repairs.mjs scripts/test_edge_worker.mjs scripts/test_build_identity.mjs scripts/test_newsletter.mjs scripts/test_browser_suite.mjs",
     "check:standalone": "python3 scripts/check_standalone_payloads.py",
     "check:source-controls": "python3 -m unittest discover -s scripts -p 'test_*.py' && node --test scripts/test_public_links.mjs",
     "check:citations": "node --test scripts/test_citation_links.mjs",
     "check:sources:offline": "python3 scripts/check_live_sources.py --offline",
     "check:indexability": "python3 -m unittest discover -s scripts -p test_indexability.py && python3 -m unittest discover -s scripts -p test_live_url_audit.py && python3 scripts/check_indexability.py",
-    "check:audit-browser": "node scripts/check_audit_browser.mjs"
+    "check:audit-browser": "node scripts/check_audit_browser.mjs",
+    "check:browser:archive": "node scripts/check_audit_browser.mjs --archive",
+    "check:browser:all": "node scripts/check_browser_suite.mjs"
   },
   "engines": {
     "node": ">=20"

@@ -14,7 +14,7 @@ This document is a complete reference for all gates and guards enforcing the sta
 # Build first (always) — gates read generated HTML
 node src/build.mjs
 
-# Run the deterministic offline gate suite (13 sub-checks, chained in package.json's "check" script)
+# Run the deterministic offline gate suite declared in package.json's "check" script
 npm run check
 
 # Explicitly run a single gate
@@ -35,6 +35,7 @@ npm run check:i18n         # test_i18n_translate.mjs + test_i18n_terminology.mjs
 npm run check:standalone   # check_standalone_payloads.py (CI-only sync branch)
 # Separate real-browser check; CHROME_BIN must name a Chrome/Chromium executable
 npm run check:browser      # calendar filters/counts in all locales + runtime-error control
+npm run check:browser:all  # sequential calendar, interaction/contrast and newsletter checks
 ```
 
 ---
@@ -874,8 +875,8 @@ python3 scripts/check_feeds.py
 including agent guides. It rejects relative targets that do not exist and leaves
 external URLs to separate network verification.
 
-`check:export` runs `scripts/test_export_manifest.mjs` and
-`scripts/test_indexing.mjs` and `scripts/test_browser_process.mjs`. Real temporary files exercise manifest hashes,
+`check:export` runs the Node test files declared in `package.json`.
+Real temporary files exercise manifest hashes,
 inventories, public-data safety, redirects, internal links, domain configuration,
 sitemap dates and indexing policy. The suite also checks UTC ICS stamps and the
 shared calendar count pattern in all locales. Negative controls must fail before
@@ -884,7 +885,9 @@ completion, nonzero exit, unavailable executables and timeout with an exit-zero
 SIGTERM handler; a timeout must never count as successful browser completion.
 The Chrome protocol controls also use real process pipes to exercise fragmented
 UTF-8 frames, delayed receipts, malformed JSON, command/evaluation errors and
-premature exit.
+premature exit. Newsletter tests check archive completeness, chronological
+neighbors, localized routes and year summaries. Browser-suite controls verify
+sequential execution, early failure, bounded teardown and external evidence paths.
 
 `check:redirects` runs `scripts/check_redirects.py`. It independently enumerates
 the taxonomy's legacy source paths across locales and simulation filenames,
@@ -938,6 +941,22 @@ negative control. Missing Chrome, missing receipts or failed assertions fail
 the command; JSON receipts remain in its temporary browser profile. The runner
 reads its DOM receipt over Chrome's protocol pipe and closes Chrome explicitly;
 killed, signalled or incomplete processes fail even if their exit code is zero.
+Timeouts and driver failures first request termination, then force termination
+after a one-second grace period; either path remains a failed check.
+
+For interactive asset or newsletter changes, run `npm run check:browser:all`
+with `CHROME_BIN` set and `WEBSITE_AUDIT_OUTPUT` outside the public checkout.
+It runs calendar, general interaction and newsletter scenarios sequentially,
+keeping each run in a new evidence directory. Newsletter checks cover full-text
+search, year/format filters, URL restoration, reset, empty results, localized
+counts, Arabic layout, adjacent-post navigation and the complete archive with
+JavaScript disabled. Accent measurements cover seven palettes in both themes
+on selected solid surfaces and primary-button hover; restoring the previous
+white-on-bright-fill pairing must fail. These measurements are scoped checks,
+not whole-site accessibility certification. `check:browser:archive` runs only
+the newsletter scenarios while developing that surface.
+CI runs the newsletter scenarios and focused contrast/interaction checks after
+the calendar regression in every runtime-matrix job.
 
 The optional `check:sources` probe is deliberately outside this deterministic
 chain: network outages must not make a reproducible local build hang or fail.

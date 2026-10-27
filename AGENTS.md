@@ -31,6 +31,7 @@ Never commit private paths or internal tool names — every commit is public.
 | `npm run build` | `node src/build.mjs` — render all public HTML + crawler files |
 | `npm run check` | `node --check src/build.mjs` + `py_compile` of all checkers + the `check:*` sub-gates below |
 | `npm run check:browser` | Real Chrome calendar regression in all locales, including the original runtime-error negative control; requires `CHROME_BIN` |
+| `npm run check:browser:all` | Sequential calendar, interaction/contrast and newsletter browser checks; isolated evidence outside the public checkout |
 | `npm run i18n:extract` | `I18N_EXTRACT=1 node src/build.mjs` — extract translatable strings |
 | `npm run i18n:translate` | `node scripts/i18n_translate.mjs` — offline translation (Ollama/hosted API) |
 | `npm run i18n:check-terms` | `node scripts/i18n_check_terminology.mjs` — terminology QA report over the committed catalogs (`--fix` re-translates findings offline) |

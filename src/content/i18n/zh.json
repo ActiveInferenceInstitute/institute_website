@@ -4863,5 +4863,17 @@
   "Donor": "捐赠者",
   "Intern": "实习生",
   "Research fellow": "研究学者",
-  "Symposium participant": "研讨会参与者"
+  "Symposium participant": "研讨会参与者",
+  "Search newsletters and announcements": "搜索通讯和公告",
+  "Search article text, titles, authors, and tags": "搜索文章正文、标题、作者和标签",
+  "Year": "年份",
+  "All years": "全部年份",
+  "Reset filters": "重置筛选",
+  "Posts shown: {n}": "显示文章：{n}",
+  "No posts match these filters.": "没有符合这些筛选条件的文章。",
+  "Newsletter navigation": "通讯导航",
+  "Older post": "较早的文章",
+  "Newer post": "较新的文章",
+  "Latest newsletters": "最新通讯",
+  "View newsletter archive": "查看通讯归档"
 }

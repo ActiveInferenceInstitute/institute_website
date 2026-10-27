@@ -39,6 +39,7 @@ All files are IIFE, `"use strict"`, no dependencies, no `fetch`.
 | `search.js` | Global inline search; reads `window.__SEARCH_INDEX__` and renders ranked results. |
 | `search-page.js` | Dedicated `/search/` page renderer; reads the same index, shows the full result set, prefills from `?q=`. |
 | `video-table.js` | Filter/sort behavior for the video-library tables on `/video/` and video detail pages. |
+| `newsletter.js` | Archive search/year/format filters, result counts, reset and shareable URL state; reads the existing cards without network access. |
 | `search-data.js` | **BUILD-GENERATED** by `../src/build.mjs`. Defines `window.__SEARCH_INDEX__`, `window.__SEARCH_PAGE_URL__`, and `window.__SEARCH_SYNONYMS__`. Do not hand-edit; regenerate via the build. |
 | `graphs.js` | Deterministic (seeded) node-link graph renderer reading build-baked JSON `<script>` blocks. Contract must match `build.mjs` output (`.graph-mount[data-graph-source]` + `#graph-data-<NAME>`). |
 | `redirects.js` | Build-generated 404 fallback from `src/url-taxonomy.json` and `src/redirect-runtime.js`. Edit those sources and rebuild; known legacy paths also have static redirect stubs. |

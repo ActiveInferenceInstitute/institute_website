@@ -41,9 +41,11 @@
   --surface-strong: var(--ds-surface-2, #2a2a2a);
   --line: var(--ds-glass-border, rgba(255, 255, 255, 0.08));
   --red: var(--ds-red, #dc2626);
-  /* Accent for link/label text. Flips to brand red in light mode — see the
-     html.theme-light override below — so it clears WCAG AA on both backgrounds. */
-  --accent-text: var(--ds-red-light, #ef4444);
+  /* Site text roles retain readable contrast independently of palette fills. */
+  --accent-ink-dark: #f87171;
+  --accent-ink-light: #b91c1c;
+  --accent-on-base: #ffffff;
+  --accent-text: var(--accent-ink-dark);
   /* Custom dark-red used only as a colored hover background (white text sits on
      it in both themes); intentionally not a DS token. */
   --red-deep: #2a0d0d;
@@ -53,12 +55,10 @@
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 }
 
-/* Accent text flips to the darker brand red in light mode so links and small
-   labels clear WCAG AA on light backgrounds (light-red #ef4444 is only ~3.6:1
-   there, while brand red #dc2626 is ~5:1). The DS handles surface/text flipping;
-   this handles the one accent that needs a per-theme value. */
+/* The palette picker supplies separate text shades for light/dark surfaces.
+   The canonical design-system export and original palette fills stay intact. */
 html.theme-light {
-  --accent-text: var(--ds-red, #dc2626);
+  --accent-text: var(--accent-ink-light);
 }
 
 * {
@@ -81,8 +81,7 @@ body {
 }
 
 a {
-  /* Theme-aware accent text (see --accent-text): light-red on the dark bg,
-     brand red on the light bg — both clear WCAG AA. */
+  /* Palette-specific text shades adapt to the surrounding theme. */
   color: var(--accent-text);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
@@ -92,7 +91,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--accent-text);
   outline-offset: 3px;
 }
 
@@ -281,9 +280,8 @@ select:focus-visible {
   align-items: end;
   padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 5vw, 5rem);
   color: var(--ds-on-accent, #ffffff);
-  /* The hero is always dark, so its accent text stays light-red in both themes
-     (brand red is too dim on this dark gradient). Scoped override of the alias. */
-  --accent-text: var(--ds-red-light, #ef4444);
+  /* The hero keeps its dark-surface text shade in both themes. */
+  --accent-text: var(--accent-ink-dark);
   /* Intentionally theme-independent: the home hero is an always-dark showcase
      band with white text in both light and dark mode, so these stops are fixed
      dark values rather than (theme-flipping) surface tokens. */
@@ -350,7 +348,7 @@ select:focus-visible {
 .button.primary {
   border-color: var(--accent-text);
   background: var(--red);
-  color: var(--ds-on-accent, #ffffff);
+  color: var(--accent-on-base);
 }
 
 .button.secondary {
@@ -360,6 +358,12 @@ select:focus-visible {
 
 .button:hover {
   filter: brightness(1.06);
+}
+
+.button.primary:hover {
+  background: var(--ds-red-dark, #b91c1c);
+  color: var(--ds-on-accent, #ffffff);
+  filter: none;
 }
 
 .metrics-band {
@@ -1232,7 +1236,7 @@ select:focus-visible {
 }
 
 .directory-table th button.th-sort:focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--accent-text);
   outline-offset: 2px;
 }
 
@@ -1630,7 +1634,7 @@ body{transition:background-color 200ms,color 200ms}
 .to-top:hover {
   background: var(--red);
   border-color: var(--accent-text);
-  color: var(--ds-on-accent, #ffffff);
+  color: var(--accent-on-base);
 }
 
 /* Interactive-surface polish ─────────────────────────────────────────────────
@@ -1908,6 +1912,8 @@ body{transition:background-color 200ms,color 200ms}
   border-radius: var(--radius);
 }
 .newsletter-source { margin-top: 2rem; }
+.newsletter-pager a { display: grid; gap: 0.35rem; flex: 1; }
+.newsletter-pager strong { color: var(--accent-text); }
 
 /* Governance roster (Board of Directors / Officers / Scientific Advisory Board pages) */
 .roster-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem 1.25rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }

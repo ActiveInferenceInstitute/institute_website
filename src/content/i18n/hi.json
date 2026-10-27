@@ -4863,5 +4863,17 @@
   "Donor": "दाता",
   "Intern": "प्रशिक्षु",
   "Research fellow": "रिसर्च फेलो",
-  "Symposium participant": "संगोष्ठी प्रतिभागी"
+  "Symposium participant": "संगोष्ठी प्रतिभागी",
+  "Search newsletters and announcements": "न्यूज़लेटर और घोषणाएँ खोजें",
+  "Search article text, titles, authors, and tags": "लेख का पाठ, शीर्षक, लेखक और टैग खोजें",
+  "Year": "वर्ष",
+  "All years": "सभी वर्ष",
+  "Reset filters": "फ़िल्टर रीसेट करें",
+  "Posts shown: {n}": "दिखाई गई पोस्ट: {n}",
+  "No posts match these filters.": "इन फ़िल्टर से मेल खाने वाली कोई पोस्ट नहीं है।",
+  "Newsletter navigation": "न्यूज़लेटर नेविगेशन",
+  "Older post": "पुरानी पोस्ट",
+  "Newer post": "नई पोस्ट",
+  "Latest newsletters": "नवीनतम न्यूज़लेटर",
+  "View newsletter archive": "न्यूज़लेटर संग्रह देखें"
 }

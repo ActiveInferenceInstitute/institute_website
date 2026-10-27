@@ -41,7 +41,7 @@ The public site must not expose input artifacts, drafting screenshots, generated
 
 Volatile public links are centralized in `src/content/live-sources.json`. Templates should resolve public channels, official pages, and repositories by `sourceId` instead of hardcoding repeated external URLs.
 
-Visitor-facing links must not point directly at resolved Coda destinations. If an official `*.activeinference.institute` shortlink redirects to a Coda page, render the shortlink and keep the resolved destination only as verification metadata in `live-sources.json`.
+Visitor-facing links must not point directly at resolved Coda destinations. If an official `*.activeinference.institute` shortlink redirects to a Coda page, render the shortlink. Resolve redirect targets during live verification; keep them out of the committed source registry.
 
 InstituteOS-adjacent data may be injected only through the public sync script or the private InstituteOS website export pipeline. The sync and export outputs are intentionally sanitized: they may include public GitHub profile rows, public repository rows, concept nodes, relationship rows, approved brand marks, public project summaries, public narrative excerpts, graph rows, strategy summaries, and public communications, but they must exclude nonpublic rosters, private operational fields, raw task detail, nonpublic stewardship records, working documents, demos, recordings, and internal UI captures.
 

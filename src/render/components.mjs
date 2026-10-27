@@ -82,7 +82,7 @@ export function pageGuide(page, currentDir = "", surfaceIds = []) {
         <h2>${escapeHtml(tr("Sections"))}</h2>
       </div>
       <nav aria-label="${escapeHtml(tr(page.title))} ${escapeHtml(tr("page sections"))}">
-        ${sectionLinks}
+        ${sectionLinks}${surfaceIds.includes("latest-newsletters") ? `\n        <a href="#latest-newsletters">${escapeHtml(tr("Latest newsletters"))}</a>` : ""}
         <a href="#next-actions">${escapeHtml(tr("Best next actions"))}</a>
         ${surfaceIds.includes("key-surfaces") ? `<a href="#key-surfaces">${escapeHtml(tr("Key surfaces"))}</a>` : ""}
         <a href="${hrefForSlug("knowledge", currentDir)}">${escapeHtml(tr("Open Source Map"))}</a>

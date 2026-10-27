@@ -1,6 +1,7 @@
 import { urlDirForSlug, hrefForSlug } from "../url-taxonomy.mjs";
 import { escapeHtml, slugifyAnchor } from "../lib/text.mjs";
 import { tr } from "../i18n/index.mjs";
+import { newsletterYearSection } from "../pages/newsletter.mjs";
 import {
   siteData,
   pageBySlug,
@@ -245,7 +246,9 @@ export function publicPage(page) {
     fallbackToCategory: false,
   });
   const hasKeySurfaces = Array.isArray(page.cards) && page.cards.length > 0;
+  const yearNewsletters = /^\d{4}$/.test(page.slug) ? newsletterYearSection(page.slug, currentDir) : "";
   const surfaceIds = [
+    yearNewsletters ? "latest-newsletters" : "",
     hasKeySurfaces ? "key-surfaces" : "",
     curatedEntries.length ? "resources" : "",
     officialEntries.length ? "official-pages" : "",
@@ -282,7 +285,7 @@ export function publicPage(page) {
     <p>${escapeHtml(tr(page.subtitle))}</p>${projectLeadLine}${archivedProjectNotice}
     ${actionButtons(page.primaryActions, currentDir)}
   </section>
-  ${pageGuide(page, currentDir, surfaceIds)}
+  ${pageGuide(page, currentDir, surfaceIds)}${yearNewsletters ? "\n" + yearNewsletters : ""}
   ${page.syllabus ? syllabusGrid(page.syllabus, currentDir) : ""}
   <section class="content-band">
     <p class="lede">${escapeHtml(tr(page.lede))}</p>

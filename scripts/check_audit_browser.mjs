@@ -4,8 +4,17 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { resolve, extname, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { browserSession } from "./browser_session.mjs";
+import { measureAccentContrast } from "./accent_contrast.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
+const newsletterRecords = JSON.parse(await readFile(resolve(root, "src/content/instituteos/newsletter.json"), "utf8")).records;
+const fullTextFixture = newsletterRecords.map(record => {
+  const metadata = [record.title, record.author, record.date, ...(record.tags || [])].join(" ").toLowerCase();
+  const words = (record.body_markdown || "").replace(/https?:\/\/\S+/g, "").match(/[a-zA-Z]{8,}/g) || [];
+  const word = words.find(value => !metadata.includes(value.toLowerCase()));
+  return word ? { id: record.id, query: word.toUpperCase() } : null;
+}).find(Boolean);
+assert.ok(fullTextFixture, "The archive needs a body-only search fixture");
 const output = process.env.WEBSITE_AUDIT_OUTPUT;
 assert.ok(output, "Set WEBSITE_AUDIT_OUTPUT to a private evidence directory");
 assert.ok(process.env.CHROME_BIN, "Set CHROME_BIN to real Chrome");
@@ -17,6 +26,8 @@ if(simulationOnly)assert.match(simulationOnly,/^[A-Za-z0-9_-]+\.html$/);
 const controlsOnly = process.argv.includes("--controls")||Boolean(simulationOnly);
 const zoomOnly = process.argv.includes("--zoom");
 const tabletOnly = process.argv.includes("--tablet");
+const archiveOnly = process.argv.includes("--archive");
+const focused = quick || controlsOnly || zoomOnly || tabletOnly || archiveOnly;
 const mime = { ".html": "text/html", ".js": "application/javascript", ".css": "text/css", ".woff2": "font/woff2", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".json": "application/json" };
 let fontDelay = 0, blockRedirect = false;
 const server = createServer(async (req, res) => {
@@ -136,9 +147,82 @@ async function browse(path, width, extra = {}) {
       }
       state.sound = await evaluate(`(()=>{const b=document.getElementById('tts-toggle');if(!b||b.hidden)return {available:false};b.click();const started=b.getAttribute('aria-pressed');b.click();speechSynthesis.cancel();return {available:true,started,stopped:b.getAttribute('aria-pressed')}})()`);
       if(state.sound.available)assert.equal(state.sound.stopped,"false");
+      const contrastProbe = "(" + measureAccentContrast.toString() + ")()";
+      await command("Input.dispatchMouseEvent", { type: "mouseMoved", x: 0, y: 0 });
+      state.accentContrast = await evaluate(contrastProbe);
+      assert.ok(state.accentContrast.length > 0);
+      assert.ok(state.accentContrast.every(row => row.ratio >= 4.5), JSON.stringify(state.accentContrast.filter(row => row.ratio < 4.5)));
+      await evaluate("document.querySelector('.hero .button.primary').style.setProperty('color','#ffffff','important')");
+      state.accentNegativeControl = await evaluate(contrastProbe);
+      await evaluate("document.querySelector('.hero .button.primary').style.removeProperty('color')");
+      assert.ok(state.accentNegativeControl.some(row => row.selector === ".hero .button.primary" && row.ratio < 4.5), "Original white-on-bright-accent text must fail contrast");
+      await evaluate("scrollTo(0,0)");
+      const primaryCenter = await evaluate("(()=>{const r=document.querySelector('.hero .button.primary').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()");
+      await command("Input.dispatchMouseEvent", { type: "mouseMoved", ...primaryCenter });
+      assert.equal(await evaluate("document.querySelector('.hero .button.primary').matches(':hover')"),true);
+      state.accentHoverContrast = await evaluate(contrastProbe);
+      assert.ok(state.accentHoverContrast.every(row => row.ratio >= 4.5), JSON.stringify(state.accentHoverContrast.filter(row => row.ratio < 4.5)));
+      await command("Input.dispatchMouseEvent", { type: "mouseMoved", x: 0, y: 0 });
       await pause(450);
     }
+    if (extra.newsletter) {
+      state.newsletter = await evaluate(`(async()=>{
+        const controls=document.getElementById('newsletter-controls'),q=document.getElementById('newsletter-search'),year=document.getElementById('newsletter-year'),type=document.getElementById('newsletter-type');
+        if(!controls||controls.hidden)throw Error('Newsletter controls did not initialize');
+        const cards=[...document.querySelectorAll('[data-newsletter-card]')],shown=()=>cards.filter(card=>!card.hidden);
+        const initial=shown().length;if(!initial)throw Error('URL filters produced no initial issues');
+        if(shown().some(card=>card.dataset.year!=='2026'||card.dataset.type!=='newsletter'))throw Error('URL filters were not restored');
+        q.value='zzznomatcharchive';q.dispatchEvent(new Event('input',{bubbles:true}));
+        const counter=document.getElementById('newsletter-count'),expectedCount=n=>counter.dataset.countTemplate.replace('{n}',new Intl.NumberFormat(document.documentElement.lang).format(n));
+        const zero=shown().length,empty=!document.getElementById('newsletter-empty').hidden,zeroCount=counter.textContent===expectedCount(0);
+        if(document.querySelector('[data-newsletter-section]:not([hidden])'))throw Error('Empty groups remain visible');
+        document.getElementById('newsletter-reset').click();
+        const reset=shown().length,focused=document.activeElement===q,resetCount=counter.textContent===expectedCount(cards.length);
+        const fixture=${JSON.stringify(fullTextFixture)};q.value=fixture.query;q.dispatchEvent(new Event('input',{bubbles:true}));
+        const fullText=shown().some(card=>card.dataset.newsletterId===fixture.id);
+        document.getElementById('newsletter-reset').click();
+        const announcement=cards.find(card=>card.dataset.type==='announcement');if(!announcement)throw Error('Missing announcement fixture');
+        year.value=announcement.dataset.year;year.dispatchEvent(new Event('change',{bubbles:true}));type.value='announcement';type.dispatchEvent(new Event('change',{bubbles:true}));
+        const announcementOnly=shown().length>0&&shown().every(card=>card.dataset.type==='announcement'&&card.dataset.year===year.value);
+        q.value='><script>window.archiveInjected=true</script>';q.dispatchEvent(new Event('input',{bubbles:true}));
+        const safe=!window.archiveInjected&&shown().length===0;
+        document.getElementById('newsletter-reset').click();
+        const previous=location.href,next=new URL(location.href);next.searchParams.set('year',announcement.dataset.year);next.searchParams.set('type','announcement');history.pushState(null,'',next);
+        year.value=announcement.dataset.year;type.value='announcement';type.dispatchEvent(new Event('change',{bubbles:true}));
+        const back=await new Promise(resolve=>{addEventListener('popstate',()=>resolve(location.href===previous&&shown().length===cards.length&&year.value===''&&type.value===''),{once:true});history.back()});
+        return {initial,zero,empty,zeroCount,reset,resetCount,total:cards.length,focused,fullText,announcementOnly,safe,back,url:location.href,count:counter.textContent};
+      })()`);
+      assert.equal(state.newsletter.zero,0);assert.equal(state.newsletter.empty,true);
+      assert.equal(state.newsletter.reset,state.newsletter.total);assert.equal(state.newsletter.focused,true);
+      assert.equal(state.newsletter.zeroCount,true);assert.equal(state.newsletter.resetCount,true);
+      assert.equal(state.newsletter.fullText,true);assert.equal(state.newsletter.back,true);
+      assert.equal(state.newsletter.announcementOnly,true);assert.equal(state.newsletter.safe,true);
+      const url=new URL(state.newsletter.url);assert.equal(url.searchParams.get('keep'),'1');
+      for(const key of ['q','year','type'])assert.equal(url.searchParams.has(key),false);
+      assert.equal(url.hash,'#newsletter-archive');
+      await evaluate("scrollTo(0,0)");
+    }
+    if (extra.archiveNoJs) {
+      state.archiveNoJs = await evaluate("({hidden:document.getElementById('newsletter-controls').hidden,visible:[...document.querySelectorAll('[data-newsletter-card]')].filter(card=>!card.hidden).length})");
+      assert.equal(state.archiveNoJs.hidden,true);assert.equal(state.archiveNoJs.visible,newsletterRecords.length);
+    }
+    if (extra.issueNavigation) {
+      const base = extra.issueNavigation.prefix;
+      const older = await evaluate("document.querySelector('.newsletter-pager a[rel=prev]').href");
+      await command("Page.navigate",{url:older});await settle(evaluate);
+      const olderPath = await evaluate("location.pathname");
+      assert.equal(olderPath,base+"newsletter/"+extra.issueNavigation.older+"/");
+      const newer = await evaluate("document.querySelector('.newsletter-pager a[rel=next]').href");
+      await command("Page.navigate",{url:newer});await settle(evaluate);
+      const returned = await evaluate("location.pathname");
+      assert.equal(returned,base+"newsletter/"+extra.issueNavigation.current+"/");
+      state.issueNavigation={olderPath,returned};
+    }
     if (extra.screenshot || (controlsOnly && path.startsWith("/simulations/"))) {
+      if (extra.screenshotSelector) {
+        await evaluate(`(()=>{const element=document.querySelector(${JSON.stringify(extra.screenshotSelector)});if(!element)throw Error('Missing screenshot surface');scrollTo({top:element.getBoundingClientRect().top+scrollY-24,behavior:'instant'})})()`);
+        await pause(100);
+      }
       const shot = await command("Page.captureScreenshot", { format: "png", captureBeyondViewport: false });
       await writeFile(resolve(output, extra.screenshot || path.split('/').at(-1)+`-${width}.png`), Buffer.from(shot.data, "base64"));
     }
@@ -152,6 +236,16 @@ async function browse(path, width, extra = {}) {
 }
 try {
   if (quick) await browse("/",1440,{interactions:true});
+  if (archiveOnly) {
+    for (const [path, screenshot] of [["/newsletter/", "archive-en-390.png"], ["/ar/newsletter/", "archive-ar-390.png"]]) {
+      await browse(path+"?year=2026&type=newsletter&keep=1#newsletter-archive",390,{newsletter:true,screenshot,screenshotSelector:"#newsletter-controls"});
+    }
+    await browse("/newsletter/?year=2026",390,{noJs:true,archiveNoJs:true});
+    for (const prefix of ["/","/ar/"]) {
+      await browse(prefix+"newsletter/"+newsletterRecords[1].route+"/",390,{issueNavigation:{prefix,current:newsletterRecords[1].route,older:newsletterRecords[2].route}});
+    }
+    await browse("/years/2026/",1440,{screenshot:"year-2026-1440.png",screenshotSelector:"#latest-newsletters"});
+  }
   if(tabletOnly)for(const path of ['/','/ar/'])await browse(path,768,{keyboard:true,interactions:true,screenshot:path==='/'?'tablet-en.png':'tablet-ar.png'});
   if(zoomOnly){
     for(const scale of [2,4])await browse("/",390,{pageScale:scale,screenshot:`pinch-${scale}x.png`});
@@ -160,14 +254,14 @@ try {
   // Same browser version, cold profile, viewport and delayed font responses in
   // all six runs. This is a reproducible font-loading stress test, not PSI/CrUX.
   fontDelay = 600;
-  if (!quick && !controlsOnly && !zoomOnly && !tabletOnly) for (const width of [390,1440]) for (let i=0;i<3;i++) await browse("/", width, { performance: true });
+  if (!focused) for (const width of [390,1440]) for (let i=0;i<3;i++) await browse("/", width, { performance: true });
   fontDelay = 0;
   if (controlsOnly) {
     if(!simulationOnly)for(const path of ["/resources/","/directory/","/video/","/search/?q=zzznomatchaudit"])await browse(path,390,{exercise:true});
     const files=JSON.parse(await readFile(resolve(root,"data/redirects.json"),"utf8"));
     for(const path of [...new Set(files.filter(x=>x.to.startsWith("simulations/")&&(!simulationOnly||x.to==="simulations/"+simulationOnly)).map(x=>"/"+x.to))])for(const width of [390,1440])await browse(path,width,{exercise:true});
   }
-  if (!baseline && !quick && !controlsOnly && !zoomOnly && !tabletOnly) {
+  if (!baseline && !focused) {
     for (const [from,to] of [["/ru/internship/","/ru/programs/internship/"],["/fellowship/","/programs/fellowship/"],["/es/simulations/Ink.html","/simulations/Ink.html"]]) {
       const tail="?a=one%20two&a=%2F%26#next-actions%20encoded";
       const state=await browse(from+tail,390);
@@ -186,7 +280,7 @@ try {
     assert.equal(simulations.length,12);
     for (const path of simulations) for (const width of [390,1440]) await browse(path,width,{exercise:true});
   }
-  await writeFile(resolve(output,"browser-receipts.json"),JSON.stringify({baseline,scope:tabletOnly?"Measured 768 px English and Arabic responsive navigation":zoomOnly?"Measured 200/400% pinch scale and desktop reflow-equivalent widths; not desktop browser UI zoom":controlsOnly?"Targeted real-browser control groups":quick?"Targeted real-browser disclosure/contrast/audio acceptance":"Local real Chrome; six controlled cold font stress runs; no Google indexing or field performance claim",receipts},null,2));
+  await writeFile(resolve(output,"browser-receipts.json"),JSON.stringify({baseline,scope:archiveOnly?"Newsletter filters, URL state, year summary and no-JS rendering":tabletOnly?"Measured 768 px English and Arabic responsive navigation":zoomOnly?"Measured 200/400% pinch scale and desktop reflow-equivalent widths; not desktop browser UI zoom":controlsOnly?"Targeted real-browser control groups":quick?"Targeted real-browser disclosure/contrast/audio acceptance":"Local real Chrome; six controlled cold font stress runs; no Google indexing or field performance claim",receipts},null,2));
   console.log(`Verified ${receipts.length} real-browser scenarios; evidence ${output}`);
 } catch(error) {
   await writeFile(resolve(output,"browser-partial.json"),JSON.stringify({error:error.message,receipts},null,2));

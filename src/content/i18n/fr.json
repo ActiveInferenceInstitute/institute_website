@@ -4862,5 +4862,17 @@
   "Donor": "Donateur",
   "Intern": "Stagiaire",
   "Research fellow": "Chercheur associé",
-  "Symposium participant": "Participant au symposium"
+  "Symposium participant": "Participant au symposium",
+  "Search newsletters and announcements": "Rechercher des lettres d’information et des annonces",
+  "Search article text, titles, authors, and tags": "Rechercher dans les textes, titres, auteurs et mots-clés",
+  "Year": "Année",
+  "All years": "Toutes les années",
+  "Reset filters": "Réinitialiser les filtres",
+  "Posts shown: {n}": "Publications affichées : {n}",
+  "No posts match these filters.": "Aucune publication ne correspond à ces filtres.",
+  "Newsletter navigation": "Navigation des lettres d’information",
+  "Older post": "Publication plus ancienne",
+  "Newer post": "Publication plus récente",
+  "Latest newsletters": "Dernières lettres d’information",
+  "View newsletter archive": "Voir les archives des lettres d’information"
 }
