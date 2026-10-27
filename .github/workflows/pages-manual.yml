@@ -1,0 +1,56 @@
+name: Reviewed Pages artifact deployment
+
+# Manual candidate only. Switch Pages from branch publishing to Actions before
+# adopting this workflow; do not run both publication mechanisms concurrently.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reviewed-pages-deployment
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22"
+          package-manager-cache: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Build and verify reviewed source
+        run: |
+          npm run build
+          npm run check
+          CHROME_BIN="$(command -v google-chrome)" npm run check:browser
+          git diff --exit-code
+      - name: Stage public output and bind deployment identity
+        env:
+          SITE_ARTIFACT: ${{ runner.temp }}/reviewed-site
+          RELEASE_SHA: ${{ github.sha }}
+          RELEASE_RUN: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 scripts/stage_public_assets.py --output "$SITE_ARTIFACT" --commit "$RELEASE_SHA" --run-url "$RELEASE_RUN"
+      - name: Upload reviewed Pages artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: ${{ runner.temp }}/reviewed-site
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy reviewed artifact
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

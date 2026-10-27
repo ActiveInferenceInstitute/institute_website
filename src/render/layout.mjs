@@ -64,6 +64,7 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   if (untranslatedBody(slug)) {
     hreflang = false;
     canonicalPath = localeOutputPathForSlug(slug, DEFAULT_LOCALE);
+    if (!isDefaultLocale(lang)) body = `<div lang="en" dir="ltr">${body}</div>`;
   }
   const meta = localeMeta(lang);
   const dirAttr = meta.dir === "rtl" ? ' dir="rtl"' : "";
@@ -105,7 +106,10 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   const pageDescription = metaDescription(tr(description || siteData.site.description));
   // Content/detail pages are articles; section hubs and the root are websites.
   const resolvedOgType = ogType || (slug.startsWith("project-") ? "article" : "website");
-  const refreshTag = refreshPath ? `\n  <meta http-equiv="refresh" content="0; url=${escapeHtml(refreshPath)}">` : "";
+  // A static refresh cannot preserve request query/fragment data. With JS,
+  // the shared redirect runtime handles it; no-JS gets the deliberate static
+  // fallback. A script load failure leaves the accessible continuation link.
+  const refreshTag = refreshPath ? `\n  <noscript><meta http-equiv="refresh" content="0; url=${escapeHtml(refreshPath)}"></noscript>` : "";
   const robotsTag = robots ? `\n  <meta name="robots" content="${escapeHtml(robots)}">` : "";
   // canonicalPath overrides for the flat 404 file; otherwise derive from the dir.
   const canonicalUrl = absoluteUrl(canonicalPath ?? (currentDir ? `${currentDir}/index.html` : "index.html"));
@@ -132,15 +136,15 @@ export function layout({ title, description, currentDir = "", canonicalPath, bod
   // no fetch, no external index, CSP-safe.
   const hasVideoTable = normalizedBody.includes("video-table-mount");
   const videoTableScript = hasVideoTable ? `\n  <script src="${prefix}assets/js/video-table.js" defer></script>` : "";
-  // Legacy-URL redirects load ONLY on the 404 page (GitHub Pages' catch-all for
-  // any unmatched path). The script is referenced by an ABSOLUTE base path so it
+  // Alias stubs load the shared redirect runtime synchronously; the 404
+  // fallback defers it. An ABSOLUTE base path means it
   // resolves even when the unmatched request is several segments deep (relative
   // asset paths would break there). It reads its own base from data-base to build
   // destinations, so it works at both the apex root and the /institute_website/
   // project-page base. See assets/js/redirects.js.
   const basePathname = new URL(siteData.site.baseUrl).pathname;
-  const redirectScript = redirects
-    ? `\n  <script src="${basePathname}assets/js/redirects.js" data-base="${escapeHtml(basePathname)}" defer></script>`
+  const redirectScript = redirects || refreshPath
+    ? `\n  <script src="${basePathname}assets/js/redirects.js" data-base="${escapeHtml(basePathname)}"${refreshPath ? "" : " defer"}></script>`
     : "";
   return `<!doctype html>
 <html lang="${escapeHtml(lang)}"${dirAttr}>

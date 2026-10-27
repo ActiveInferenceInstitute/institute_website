@@ -1,8 +1,9 @@
 {
   "site_version": "4.0.0",
-  "built_at": "2026-10-21T19:48:48.784826+00:00",
-  "exported_at": "2026-10-21T19:48:48.784826+00:00",
-  "source_fingerprint": "c2691845d66b",
-  "pages": 899,
+  "built_at": "2026-10-26T21:23:17.516774+00:00",
+  "exported_at": "2026-10-26T21:23:17.516774+00:00",
+  "source_fingerprint": "a1db4c2892e5",
+  "website_source_fingerprint": "484c6b418dc85ccd01e4469b40a9b17ec09cda4b65abc06b9ebaca2fe2091f29",
+  "pages": 902,
   "commit": null
 }

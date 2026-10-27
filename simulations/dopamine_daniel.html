@@ -180,6 +180,23 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
     box-shadow: 0 6px 16px rgba(0,0,0,0.2);
   }
 </style>
+
+<meta name="description" content="Explore an interactive educational demonstration connecting dopamine and Active Inference.">
+<link rel="canonical" href="https://activeinference.institute/simulations/dopamine_daniel.html">
+
+<style id="institute-mobile-layout">
+/* Institute presentation patch; model calculations are unchanged. */
+@media (max-width: 760px) {
+body { overflow-y: auto; height: auto; padding-top: 65vh; }
+body > canvas { position: fixed; inset: 0; }
+#ui { position: relative; inset: auto; transform: none; max-height: none; height: auto; width: 100%; }
+#brain-inset { top: 72px; bottom: auto; }
+#toggle-ex { top: 18px; right: 64px; }
+#narrative { bottom: auto; top: 260px; }
+#footer { position: relative; left: auto; height: auto; min-height: 26px; flex-wrap: wrap; }
+#explainer.open { width: 100vw; }
+}
+</style>
 </head><body>
 <a href="./" class="aii-floating-back">&#8592; Back to Catalog</a>
 <canvas id="c"></canvas>

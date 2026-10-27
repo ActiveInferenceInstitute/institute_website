@@ -8,7 +8,7 @@
       "primaryHref": "/about/",
       "links": [
         {
-          "label": "Current landing page",
+          "label": "ActiveInference.org",
           "sourceId": "official-activeinference-org"
         },
         {
@@ -114,6 +114,54 @@
         {
           "label": "Fellows pathway",
           "sourceId": "shortlink-fellows"
+        }
+      ]
+    },
+    {
+      "id": "intern",
+      "label": "Intern",
+      "summary": "Develop a bounded contribution with structured support and a regular learning commitment.",
+      "primaryHref": "/programs/internship/",
+      "links": [
+        {
+          "label": "Internship application",
+          "sourceId": "internform"
+        }
+      ]
+    },
+    {
+      "id": "fellow",
+      "label": "Research fellow",
+      "summary": "Review the research proposal, CV and recommendation requirements for sustained public work.",
+      "primaryHref": "/programs/fellowship/#application-requirements",
+      "links": [
+        {
+          "label": "Fellows program",
+          "sourceId": "shortlink-fellows"
+        }
+      ]
+    },
+    {
+      "id": "symposium",
+      "label": "Symposium participant",
+      "summary": "Register for the online Symposium, propose a presentation, or help organize the event.",
+      "primaryHref": "/projects/symposium/",
+      "links": [
+        {
+          "label": "Symposium registration",
+          "sourceId": "symposium-2026-register"
+        }
+      ]
+    },
+    {
+      "id": "donor",
+      "label": "Donor",
+      "summary": "Support open education, research and community infrastructure through the Institute's public donation pathway.",
+      "primaryHref": "/programs/philanthropy/",
+      "links": [
+        {
+          "label": "Support the Institute",
+          "sourceId": "donate"
         }
       ]
     }

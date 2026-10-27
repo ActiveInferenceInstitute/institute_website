@@ -33,14 +33,14 @@ for (const group of navGroups) {
     group.toggleAttribute("data-open", nextOpen);
     button.setAttribute("aria-expanded", String(nextOpen));
   });
-  // Keep aria-expanded in sync with keyboard focus so it matches the
-  // :focus-within CSS that visually opens the menu (otherwise screen-reader
-  // users hear "collapsed" while the menu is visibly open).
+  // Focus is not an open action. Enter/Space/click owns the disclosure state;
+  // :focus-within is only the no-JS CSS fallback.
   group.addEventListener("focusin", () => {
-    button.setAttribute("aria-expanded", "true");
+    button.setAttribute("aria-expanded", String(group.hasAttribute("data-open")));
   });
   group.addEventListener("focusout", (event) => {
     if (!group.contains(event.relatedTarget)) {
+      group.removeAttribute("data-open");
       button.setAttribute("aria-expanded", "false");
     }
   });
@@ -74,6 +74,9 @@ if (header && navToggle && siteNav) {
 }
 
 document.addEventListener("click", (event) => {
+  if (!event.target.closest(".lang-switcher")) {
+    header?.querySelectorAll(".lang-switcher[open]").forEach(menu => { menu.open = false; });
+  }
   if (!event.target.closest(".nav")) {
     closeNavGroups();
   }
@@ -86,11 +89,18 @@ document.addEventListener("click", (event) => {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
+    const focusedGroup = document.activeElement?.closest(".nav-group[data-open]");
+    const focusedLanguage = document.activeElement?.closest(".lang-switcher[open]");
+    header?.querySelectorAll(".lang-switcher[open]").forEach(menu => { menu.open = false; });
     closeNavGroups();
     // Escape also collapses the mobile drawer and hands focus back to the
     // toggle so keyboard users are not left on a hidden element.
     if (closeMobileNav()) {
       navToggle?.focus();
+    } else if (focusedGroup) {
+      focusedGroup.querySelector("[data-nav-toggle]")?.focus();
+    } else if (focusedLanguage) {
+      focusedLanguage.querySelector("summary")?.focus();
     }
   }
 });

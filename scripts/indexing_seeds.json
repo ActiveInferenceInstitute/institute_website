@@ -1,0 +1,456 @@
+{
+  "report_date": "2026-10-15",
+  "inspected_date": "2026-10-25",
+  "filter": "All known pages",
+  "scope": "50 handoff examples plus labeled developer controls; not the full 163 or 582 URLs",
+  "urls": [
+    {
+      "URL": "https://activeinference.institute/active-inference-and-healthcare/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-08-28"
+    },
+    {
+      "URL": "https://activeinference.institute/ru/active-inference-and-healthcare/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-10-11"
+    },
+    {
+      "URL": "https://activeinference.institute/zh/active-inference-and-psychology/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-10-11"
+    },
+    {
+      "URL": "https://activeinference.institute/es/active-inference-and-entomology/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-10-10"
+    },
+    {
+      "URL": "https://activeinference.institute/ru/active-inference-and-entomology/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-10-10"
+    },
+    {
+      "URL": "https://activeinference.institute/fr/active-inference-and-ecology/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-10-09"
+    },
+    {
+      "URL": "https://activeinference.institute/pt/active-inference-and-medicine/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-10-08"
+    },
+    {
+      "URL": "https://activeinference.institute/pt/active-inference-and-healthcare/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-10-08"
+    },
+    {
+      "URL": "https://activeinference.institute/ja/active-inference-and-robotics/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-09-05"
+    },
+    {
+      "URL": "https://activeinference.institute/scientific-advisory-board/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-08-19"
+    },
+    {
+      "URL": "https://activeinference.institute/hi/scientific-advisory-board/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-10-09"
+    },
+    {
+      "URL": "https://activeinference.institute/ru/officers/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-10-08"
+    },
+    {
+      "URL": "https://activeinference.institute/de/board-of-directors/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-09-22"
+    },
+    {
+      "URL": "https://activeinference.institute/ja/board-of-directors/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-09-19"
+    },
+    {
+      "URL": "http://activeinference.institute/officers/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-07-29"
+    },
+    {
+      "URL": "https://activeinference.institute/2025/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-10-10"
+    },
+    {
+      "URL": "https://activeinference.institute/ar/2026/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/de/2026/",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/ru/simulations/fep_surprise.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/pt/simulations/hierarchical_blankets.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/ru/simulations/active_inference_network.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/pt/simulations/school6.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/pt/simulations/Ink.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/pt/simulations/t_maze_fep.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/pt/simulations/self_evidencing_tree.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/pt/simulations/ant_colony.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/pt/simulations/fep_tutorial.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/pt/simulations/Apple-Frog.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/pt/simulations/dopamine_daniel.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/ru/simulations/tree_with_quiz.html",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/knowledge-engineering",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-10-03"
+    },
+    {
+      "URL": "https://www.activeinference.institute/courses",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-09-08"
+    },
+    {
+      "URL": "https://www.activeinference.institute/fellowship",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-09-06"
+    },
+    {
+      "URL": "https://www.activeinference.institute/internship",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-08-23"
+    },
+    {
+      "URL": "https://www.activeinference.institute/symposium",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-08-21"
+    },
+    {
+      "URL": "https://www.activeinference.institute/tnb",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-08-21"
+    },
+    {
+      "URL": "https://www.activeinference.institute/research-overview",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "2026-08-20"
+    },
+    {
+      "URL": "https://www.activeinference.institute/active-blockference",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/livestreams",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/partnership",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/donate",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/scientific-advisory-board",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/rxinfer",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/officers",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/theoretical-neurobiology-group",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/textbook-group",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/home",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/participation",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/board-of-directors",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/research",
+      "source": "handoff GSC 404 example",
+      "GSC reason": "Not found (404)",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "http://activeinference.institute/programs/internship",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "http://activeinference.institute/programs/internship/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "http://activeinference.institute/ru/internship/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "http://activeinference.institute/ru/active-inference-and-nonexistent/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied",
+      "expected status": 404
+    },
+    {
+      "URL": "http://www.activeinference.institute/programs/internship",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "http://www.activeinference.institute/programs/internship/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "http://www.activeinference.institute/ru/internship/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "http://www.activeinference.institute/ru/active-inference-and-nonexistent/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied",
+      "expected status": 404
+    },
+    {
+      "URL": "https://activeinference.institute/programs/internship",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/programs/internship/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/ru/internship/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://activeinference.institute/ru/active-inference-and-nonexistent/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied",
+      "expected status": 404
+    },
+    {
+      "URL": "https://www.activeinference.institute/programs/internship",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/programs/internship/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/ru/internship/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://www.activeinference.institute/ru/active-inference-and-nonexistent/",
+      "source": "representative protocol/host/slash/control matrix",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied",
+      "expected status": 404
+    },
+    {
+      "URL": "https://donate.activeinference.institute/",
+      "source": "public shortlink control",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://intern.activeinference.institute/",
+      "source": "registered public shortlink control",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://fellowship.activeinference.institute/",
+      "source": "public shortlink control",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://symposium.activeinference.institute/",
+      "source": "public shortlink control",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://sab.activeinference.institute/",
+      "source": "public shortlink control",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://bod.activeinference.institute/",
+      "source": "public shortlink control",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://2025.activeinference.institute/",
+      "source": "public shortlink control",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    },
+    {
+      "URL": "https://2026.activeinference.institute/",
+      "source": "public shortlink control",
+      "GSC reason": "not a GSC example",
+      "last crawl": "not supplied"
+    }
+  ]
+}

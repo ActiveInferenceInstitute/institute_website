@@ -15,6 +15,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlparse, urljoin
 from public_link_policy import normalized_external_url
 from site_paths import site_paths
+from source_identity import website_source_fingerprint
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -253,6 +254,10 @@ REQUIRED_AUDIENCE_PATHWAYS = {
     "developer",
     "contributor",
     "partner-supporter",
+    "intern",
+    "fellow",
+    "symposium",
+    "donor",
 }
 RESOURCE_VIEW_IDS = {
     "resource-views",
@@ -315,7 +320,7 @@ OLD_THEME_PATTERNS = [
 # activeinference.org. They are not first-party generated pages and are exempt
 # from the navigation/design-system/canonical/CSP site contract; only generated
 # pages are validated.
-SCAN_EXCLUDES = {".git", ".cache", "node_modules", "__pycache__", "scripts", "simulations"}
+SCAN_EXCLUDES = {".git", ".cache", ".graft", "graft", "node_modules", "__pycache__", "scripts", "simulations"}
 SCAN_SUFFIXES = {".css", ".html", ".js", ".json", ".md", ".txt", ".xml"}
 
 
@@ -1332,8 +1337,10 @@ def check_sitemap_dates(sitemap: str, errors: list[str]) -> None:
     namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
     for entry in document.findall(f"{namespace}url"):
         dates = entry.findall(f"{namespace}lastmod")
+        if not dates:
+            continue
         if len(dates) != 1:
-            errors.append("every sitemap URL must carry exactly one dated lastmod")
+            errors.append("a sitemap URL may carry at most one evidenced lastmod")
             continue
         try:
             value = dates[0].text or ""
@@ -1567,6 +1574,8 @@ def check_version(root: Path, errors: list[str]) -> None:
     # by the build, so they must agree (only compared when both fields exist —
     # an export without a fingerprint is not detectably stale).
     fingerprint = version.get("source_fingerprint")
+    if version.get("website_source_fingerprint") != website_source_fingerprint(root):
+        errors.append("version.json website_source_fingerprint is stale; rebuild after source or authored asset changes")
     manifest_path = root / "data" / "export-manifest.json"
     if fingerprint and manifest_path.exists():
         try:
@@ -1723,11 +1732,13 @@ def check_instituteos_interface(root: Path, errors: list[str]) -> None:
         + len(data["citations"].get("records", []))
     )
     required_home_snippets = {
-        'id="public-interface"',
-        'href="instituteos/#export-snapshot"',
-        'href="instituteos/#public-export-gate"',
-        f">{open_map_rows:,}<",
-        f">{len(files):,}<",
+        'href="learning/"',
+        'href="calendar/"',
+        'href="projects/"',
+        'href="programs/internship/"',
+        'href="programs/fellowship/#application-requirements"',
+        'href="projects/symposium/"',
+        'href="instituteos/"',
     }
     for snippet in required_home_snippets:
         if snippet not in index_html:

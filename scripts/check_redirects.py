@@ -49,12 +49,12 @@ def expected_redirects(root):
     default = locales["defaultLocale"]
     slugs = [json.loads(path.read_text())["slug"] for path in (root / "src/content/pages").rglob("*.json")]
     expected = {}
-    for source, target in redirects["map"].items():
-        if source != target.rstrip("/"):
-            expected[f"{source}/index.html"] = target
     routing = taxonomy["routing"]["rules"]
     for code in codes:
         prefix = "" if code == default else f"{code}/"
+        for source, target in redirects["map"].items():
+            if source != target.rstrip("/"):
+                expected[f"{prefix}{source}/index.html"] = prefix + target
         for rule in redirects["prefix"]:
             if not any(r["type"] == "prefix" and r["match"] == rule["from"] and r["dir"] == rule["to"] for r in routing):
                 raise ValueError(f"prefix redirect disagrees with routing: {rule}")
@@ -101,8 +101,8 @@ def check_redirects(root):
     text = (root / "assets/js/redirects.js").read_text()
     runtime_map = dict(rules["map"])
     for file, target in expected.items():
-        if not file.endswith("/index.html"):
-            runtime_map[re.sub(r"\.html?$", "", file, flags=re.I).lower()] = target
+        source = file.removesuffix("/index.html")
+        runtime_map[re.sub(r"\.html?$", "", source, flags=re.I).lower()] = target
     for name, value in [("MAP", runtime_map), ("PREFIX_REDIRECTS", rules["prefix"]), ("SET_REDIRECTS", rules["set"])]:
         match = re.search(rf"var {name} = (.+);", text)
         if not match or json.loads(match[1]) != value:

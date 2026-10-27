@@ -1,8 +1,15 @@
 import fs from "node:fs";
-import { siteData } from "./data.mjs";
-import { activeLocale, DEFAULT_LOCALE } from "./i18n/index.mjs";
+import { siteData, ALL_ROUTED_SLUGS } from "./data.mjs";
+import { activeLocale, DEFAULT_LOCALE, LOCALES } from "./i18n/index.mjs";
+import { baseDirForSlug } from "./url-taxonomy.mjs";
 
 const { forwards } = JSON.parse(fs.readFileSync(new URL("./content/inbound-forwards.json", import.meta.url), "utf8"));
+const { redirects } = JSON.parse(fs.readFileSync(new URL("./url-taxonomy.json", import.meta.url), "utf8"));
+const publicRoutes = new Set(ALL_ROUTED_SLUGS.map(baseDirForSlug));
+const routeAliases = new Map(siteData.pages.map(page => [page.slug, baseDirForSlug(page.slug)]));
+for (const [from, to] of Object.entries(redirects.map)) {
+  if (!publicRoutes.has(from)) routeAliases.set(from, to.replace(/\/$/, ""));
+}
 const instituteHost = (host) => /(^|\.)activeinference\.(institute|org)$/.test(host);
 const deadHosts = new Set(["measure.activeinference.org", "onboard.activeinference.org", "octopus.activeinference.institute"]);
 const secureProfileHosts = new Set(["adeelrazi.org", "www.adeelrazi.org", "faculty.washington.edu", "jakubsmekal.com", "sandeepramesh.com", "www.sandeepramesh.com", "alvaradolab.com", "www.alvaradolab.com", "crowdsmart.ai"]);
@@ -26,9 +33,18 @@ export function normalizePublicUrl(value) {
   }
   if (url.hostname === apex.hostname) {
     if (!url.pathname.endsWith("/") && !url.pathname.split("/").at(-1).includes(".")) url.pathname += "/";
-    const locale = activeLocale();
-    const prefix = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
-    return `${prefix}${url.pathname}${url.search}${url.hash}`;
+    const parts = url.pathname.slice(1).split("/");
+    const explicitLocale = LOCALES.find(locale => locale.code !== DEFAULT_LOCALE && locale.code === parts[0]);
+    const route = (explicitLocale ? parts.slice(1) : parts).join("/").replace(/\/$/, "");
+    const target = routeAliases.get(route) ?? route;
+    // Only real page routes get a locale. Shared files and unknown paths retain
+    // their stable pathname; an explicit language choice is never prefixed twice.
+    if (publicRoutes.has(target)) {
+      const locale = explicitLocale?.code || activeLocale();
+      const prefix = locale === DEFAULT_LOCALE ? "" : `${locale}/`;
+      return `/${prefix}${target ? target + "/" : ""}${url.search}${url.hash}`;
+    }
+    return `${url.pathname}${url.search}${url.hash}`;
   }
   return raw.replace(/^http:/i, url.protocol === "https:" ? "https:" : "http:");
 }

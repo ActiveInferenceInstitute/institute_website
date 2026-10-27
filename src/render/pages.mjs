@@ -23,7 +23,7 @@ import { resourceCards } from "./resources.mjs";
 import { layout } from "./layout.mjs";
 import { domainsSection } from "./domains.mjs";
 import { slugToHref, resolveInternalHref, relPrefix } from "./urls.mjs";
-import { homeInstituteosGate, instituteosFeatureSections } from "./feature-sections.mjs";
+import { instituteosFeatureSections } from "./feature-sections.mjs";
 import { autolinkInternal } from "./autolink.mjs";
 import { knowledgePreview } from "./knowledge.mjs";
 import {
@@ -39,12 +39,14 @@ import { programCatalogSection } from "../pages/programs.mjs";
 // Homepage stat cards. Two of the five metrics are derivable from the live
 // content catalogs; computing them here keeps the homepage in sync with the
 // Directory (which computes the same counts), instead of drifting from the
-// static values in src/content/metrics.json. Community/recording counts are
-// not derivable from any catalog and stay static.
+// static values in src/content/metrics.json. Undated audience/recording
+// estimates are replaced with explicitly indexed public catalog counts.
 function homeMetrics() {
   const derived = {
-    "verified public links": String(allResourceEntries().length),
+    "public resources indexed": String(allResourceEntries().length),
     "public repositories indexed": String(normalizedRepositories().length),
+    "project guides": String(siteData.pages.filter(page => page.slug.startsWith("project-")).length),
+    "video sessions indexed": String(siteData.instituteos.videos.videos.length),
   };
   return siteData.metrics.map((metric) => ({
     value: derived[metric.label] || metric.value,
@@ -150,7 +152,6 @@ export function homePage() {
   const projectPage = siteData.pages.find((page) => page.slug === "projects");
   const learningPage = siteData.pages.find((page) => page.slug === "learning");
   const ecosystemPage = siteData.pages.find((page) => page.slug === "ecosystem");
-  const instituteosPage = siteData.pages.find((page) => page.slug === "instituteos");
   const featuredResources = uniqueEntries(allResourceEntries().filter((resource) => resource.featured || resource.priority <= 12)).slice(0, 12);
   const body = `
   <section class="hero">
@@ -159,9 +160,9 @@ export function homePage() {
       <h1>${escapeHtml(siteData.site.name)}</h1>
       <p class="hero-copy">${escapeHtml(tr(siteData.site.description))}</p>
       ${actionButtons([
-        { label: tr("Open global directory"), href: "directory.html" },
-        { label: tr("Browse resources"), href: "resources.html" },
+        { label: tr("Start learning"), href: "learning.html" },
         { label: tr("Explore projects"), href: "projects.html" },
+        { label: tr("Attend an event"), href: "calendar.html" },
       ], currentDir)}
     </div>
   </section>
@@ -188,14 +189,13 @@ export function homePage() {
         <a href="${hrefForSlug("directory", currentDir)}"><strong>${escapeHtml(tr("Global index"))}</strong><span>${escapeHtml(tr("Every page, resource, official link, and repository"))}</span></a>
         <a href="${hrefForSlug("resources", currentDir)}"><strong>${escapeHtml(tr("Filter resources"))}</strong><span>${escapeHtml(tr("Search by type, category, audience, and tag"))}</span></a>
         <a href="${hrefForSlug("knowledge", currentDir)}"><strong>${escapeHtml(tr("Open Source Map"))}</strong><span>${escapeHtml(tr("Public people, repositories, research, ideas, and ontology tables"))}</span></a>
-        <a href="${hrefForSlug("instituteos", currentDir)}"><strong>${escapeHtml(tr("Public export gate"))}</strong><span>${escapeHtml(tr("How private docs and library records become public-safe website surfaces"))}</span></a>
+        <a href="${hrefForSlug("calendar", currentDir)}"><strong>${escapeHtml(tr("Attend an event"))}</strong><span>${escapeHtml(tr("Find an open meeting or learning session"))}</span></a>
         <a href="${hrefForSlug("get-involved", currentDir)}"><strong>${escapeHtml(tr("Participate"))}</strong><span>${escapeHtml(tr("Channels, activities, support, and contact"))}</span></a>
       </aside>
     </div>
   </section>
 
   ${audiencePathwaySection(currentDir)}
-  ${homeInstituteosGate(currentDir)}
 
   <section class="content-band muted">
     ${sectionHeading({ eyebrow: "Core areas", title: "How the public work is organized" })}
@@ -205,7 +205,7 @@ export function homePage() {
       { title: "Projects", icon: "projects", text: projectPage.lede, links: [{ label: "Projects", href: "projects.html" }, { label: "Repositories", href: "directory.html#repositories" }] },
       { title: "Learning", icon: "learning", text: learningPage.lede, links: [{ label: "Learning", href: "learning.html" }, { label: "Learning resources", href: "resources.html#learning" }] },
       { title: "Ecosystem", icon: "ecosystem", text: ecosystemPage.lede, links: [{ label: "Ecosystem", href: "ecosystem.html" }] },
-      { title: "InstituteOS Interface", icon: "resources", text: instituteosPage.lede, links: [{ label: "Export gate", href: "instituteos.html" }, { label: "Open Source Map", href: "knowledge.html" }] },
+      { title: "About these resources", icon: "resources", text: "Explore the sources, public records, and tools behind this resource hub.", links: [{ label: "Sources and methods", href: "instituteos.html" }, { label: "Open Source Map", href: "knowledge.html" }] },
       { title: "Open Source Map", icon: "map", text: "Structured public tables for people, repositories, research links, ideas, and ontology relationships.", links: [{ label: "Open Source Map", href: "knowledge.html" }] },
       { title: "Directory", icon: "directory", text: "A complete global index of public pages, resource groups, repositories, and verified external links.", links: [{ label: "Global directory", href: "directory.html" }] },
     ], currentDir)}

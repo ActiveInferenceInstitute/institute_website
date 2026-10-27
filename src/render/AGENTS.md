@@ -30,8 +30,8 @@ Key behaviours:
   - body contains `search-page-mount` → emit `assets/js/search-page.js` (the
     dedicated `/search/` page only).
   - `redirects: true` → emit `assets/js/redirects.js` with a `data-base`
-    **absolute** base path. Passed only for `404.html`, GitHub Pages' catch-all
-    for unmatched (legacy Squarespace) URLs; absolute base survives deep paths.
+    **absolute** base path. Used for `404.html`, GitHub Pages' catch-all
+    for unmatched (legacy Squarespace) URLs, and synchronously by alias stubs; absolute base survives deep paths. Their static refresh is inside `noscript`.
 - **Canonical + SEO.** `canonicalUrl` derives from `currentDir` (or
   `canonicalPath` override for the flat 404) via `absoluteUrl()`, which is rooted
   at `siteData.site.baseUrl` (`https://activeinference.institute/`). Head also

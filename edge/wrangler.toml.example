@@ -1,0 +1,21 @@
+# Preparation only: copy to a private operator configuration after approval.
+# Requires a Cloudflare-managed zone and a staged, reviewed public asset directory.
+name = "active-inference-website"
+main = "../src/edge-worker.mjs"
+compatibility_date = "2026-10-25"
+workers_dev = false
+preview_urls = false
+
+[assets]
+directory = "./public-assets"
+binding = "ASSETS"
+run_worker_first = true
+not_found_handling = "404-page"
+
+# Bind ONLY these two hosts, after the zone/binding migration is approved.
+# [[routes]]
+# pattern = "activeinference.institute"
+# custom_domain = true
+# [[routes]]
+# pattern = "www.activeinference.institute"
+# custom_domain = true

@@ -124,7 +124,10 @@ class IndexingControls(unittest.TestCase):
         misplaced = start + '<url><loc>https://example.test/</loc></url><url><loc>https://example.test/about/</loc><lastmod>2026-10-12</lastmod><lastmod>2026-10-12</lastmod></url></urlset>'
         errors = []
         check_sitemap_dates(misplaced, errors)
-        self.assertEqual(len(errors), 2)
+        self.assertEqual(errors, ["a sitemap URL may carry at most one evidenced lastmod"])
+        errors = []
+        check_sitemap_dates(start + '<url><loc>https://example.test/</loc></url></urlset>', errors)
+        self.assertEqual(errors, [])
         errors = []
         check_sitemap_dates(valid.replace("2026-10-12", "2026-13-01"), errors)
         self.assertEqual(errors, ["sitemap lastmod must be a valid calendar date"])

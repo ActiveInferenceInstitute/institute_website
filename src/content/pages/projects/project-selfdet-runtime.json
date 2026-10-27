@@ -1,0 +1,41 @@
+{
+  "slug": "project-selfdet-runtime",
+  "title": "SelfDet Runtime: A Comparative Pilot of Decision Architectures under Conflicting Goals, Constraints, and Delegated Authority",
+  "subtitle": "A proposed comparative simulation pilot of decision architectures under conflicting goals, constraints and delegated authority.",
+  "audience": "Researchers and contributors interested in independent, open collaboration.",
+  "lede": "SelfDet Runtime is a pre-implementation research proposal by Garegin Miskaryan. The proposed bounded simulation pilot compares LLM-only, rules-only and an integrated controller on task completion, constraint violations, uncertainty and delegated authority. The project seeks methodological reviewers, simulation engineers and independent evaluators. A protocol, matched controls and preregistered evaluation would precede claims of benefit; no implemented system or validated result is claimed. Listing invites voluntary collaboration and does not establish funding, endorsement or an institutional partnership.",
+  "order": 100,
+  "primaryActions": [
+    {
+      "sourceId": "discord"
+    }
+  ],
+  "resourceGroups": [
+    "projects",
+    "research"
+  ],
+  "sections": [
+    {
+      "heading": "Participate",
+      "body": "Discuss the proposed scope, review available artifacts and agree on a bounded first milestone with the project facilitator. Progress and open questions can be shared through the Institute's project forms.",
+      "links": [
+        {
+          "sourceId": "discord"
+        },
+        {
+          "sourceId": "prepareform"
+        }
+      ]
+    }
+  ],
+  "cards": [],
+  "relatedSlugs": [
+    "reinference",
+    "projects",
+    "ecosystem"
+  ],
+  "externalSourceIds": [
+    "discord",
+    "prepareform"
+  ]
+}

@@ -9,6 +9,8 @@ This `docs/` folder is the **conceptual / navigation view**. The authoritative,
 enforced contracts live in each folder's `AGENTS.md` — this set cross-references them
 rather than duplicating them. `docs/` is **not** built into the published site.
 
+See the [indexing and accessibility follow-up](INDEXING_FOLLOWUP.md) for current redirect, metadata, font and deployment-custody behavior.
+
 ## Start here
 
 | If you want to… | Read |
@@ -66,3 +68,6 @@ npm run build      # render JSON content -> HTML into the repo root
 npm run check      # run all gates (md-links, instituteos, design-system, site contract, security, redirects, projects, catalog)
 npm run i18n:translate   # update locale catalogs
 ```
+
+For the 2026-10-25 SEO repair, measured URL dispositions, optional HTTP 308 boundary,
+and deferred authenticated checks, read [Indexing repair and browser-agent handoff](INDEXING_REPAIR_2026-10-25.md).

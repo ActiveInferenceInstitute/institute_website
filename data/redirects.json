@@ -270,6 +270,156 @@
     "file": "2026/index.html"
   },
   {
+    "from": "es/home",
+    "to": "es/",
+    "file": "es/home/index.html"
+  },
+  {
+    "from": "es/welcome",
+    "to": "es/get-involved/",
+    "file": "es/welcome/index.html"
+  },
+  {
+    "from": "es/about-us",
+    "to": "es/about/",
+    "file": "es/about-us/index.html"
+  },
+  {
+    "from": "es/bod",
+    "to": "es/structure/board-of-directors/",
+    "file": "es/bod/index.html"
+  },
+  {
+    "from": "es/sab",
+    "to": "es/structure/scientific-advisory-board/",
+    "file": "es/sab/index.html"
+  },
+  {
+    "from": "es/leadership",
+    "to": "es/structure/",
+    "file": "es/leadership/index.html"
+  },
+  {
+    "from": "es/courses",
+    "to": "es/learning/",
+    "file": "es/courses/index.html"
+  },
+  {
+    "from": "es/education",
+    "to": "es/learning/",
+    "file": "es/education/index.html"
+  },
+  {
+    "from": "es/research-overview",
+    "to": "es/learning/",
+    "file": "es/research-overview/index.html"
+  },
+  {
+    "from": "es/research",
+    "to": "es/learning/",
+    "file": "es/research/index.html"
+  },
+  {
+    "from": "es/livestreams",
+    "to": "es/activities/",
+    "file": "es/livestreams/index.html"
+  },
+  {
+    "from": "es/physics-as-information-processing",
+    "to": "es/ecosystem/physics/",
+    "file": "es/physics-as-information-processing/index.html"
+  },
+  {
+    "from": "es/paip1",
+    "to": "es/ecosystem/physics/",
+    "file": "es/paip1/index.html"
+  },
+  {
+    "from": "es/participation",
+    "to": "es/get-involved/",
+    "file": "es/participation/index.html"
+  },
+  {
+    "from": "es/fellowship",
+    "to": "es/programs/fellowship/",
+    "file": "es/fellowship/index.html"
+  },
+  {
+    "from": "es/internship",
+    "to": "es/programs/internship/",
+    "file": "es/internship/index.html"
+  },
+  {
+    "from": "es/mentorship",
+    "to": "es/programs/mentorship/",
+    "file": "es/mentorship/index.html"
+  },
+  {
+    "from": "es/partnership",
+    "to": "es/programs/partnership/",
+    "file": "es/partnership/index.html"
+  },
+  {
+    "from": "es/donate",
+    "to": "es/programs/philanthropy/",
+    "file": "es/donate/index.html"
+  },
+  {
+    "from": "es/support",
+    "to": "es/programs/philanthropy/",
+    "file": "es/support/index.html"
+  },
+  {
+    "from": "es/working_groups",
+    "to": "es/working-groups/",
+    "file": "es/working_groups/index.html"
+  },
+  {
+    "from": "es/active-blockference",
+    "to": "es/projects/active-blockference/",
+    "file": "es/active-blockference/index.html"
+  },
+  {
+    "from": "es/active-blockference-1",
+    "to": "es/projects/active-blockference/",
+    "file": "es/active-blockference-1/index.html"
+  },
+  {
+    "from": "es/knowledge-engineering",
+    "to": "es/projects/knowledge-engineering/",
+    "file": "es/knowledge-engineering/index.html"
+  },
+  {
+    "from": "es/rxinfer",
+    "to": "es/projects/rxinfer/",
+    "file": "es/rxinfer/index.html"
+  },
+  {
+    "from": "es/symposium",
+    "to": "es/projects/symposium/",
+    "file": "es/symposium/index.html"
+  },
+  {
+    "from": "es/textbook-group",
+    "to": "es/projects/textbook-group/",
+    "file": "es/textbook-group/index.html"
+  },
+  {
+    "from": "es/theoretical-neurobiology-group",
+    "to": "es/projects/theoretical-neurobiology/",
+    "file": "es/theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "es/theoretical-neurobiology-group-1",
+    "to": "es/projects/theoretical-neurobiology/",
+    "file": "es/theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "es/tnb",
+    "to": "es/projects/theoretical-neurobiology/",
+    "file": "es/tnb/index.html"
+  },
+  {
     "from": "es/active-inference-and-healthcare",
     "to": "es/active-inference/healthcare/",
     "file": "es/active-inference-and-healthcare/index.html"
@@ -448,6 +598,156 @@
     "from": "es/simulations/tree_with_quiz.html",
     "to": "simulations/tree_with_quiz.html",
     "file": "es/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "fr/home",
+    "to": "fr/",
+    "file": "fr/home/index.html"
+  },
+  {
+    "from": "fr/welcome",
+    "to": "fr/get-involved/",
+    "file": "fr/welcome/index.html"
+  },
+  {
+    "from": "fr/about-us",
+    "to": "fr/about/",
+    "file": "fr/about-us/index.html"
+  },
+  {
+    "from": "fr/bod",
+    "to": "fr/structure/board-of-directors/",
+    "file": "fr/bod/index.html"
+  },
+  {
+    "from": "fr/sab",
+    "to": "fr/structure/scientific-advisory-board/",
+    "file": "fr/sab/index.html"
+  },
+  {
+    "from": "fr/leadership",
+    "to": "fr/structure/",
+    "file": "fr/leadership/index.html"
+  },
+  {
+    "from": "fr/courses",
+    "to": "fr/learning/",
+    "file": "fr/courses/index.html"
+  },
+  {
+    "from": "fr/education",
+    "to": "fr/learning/",
+    "file": "fr/education/index.html"
+  },
+  {
+    "from": "fr/research-overview",
+    "to": "fr/learning/",
+    "file": "fr/research-overview/index.html"
+  },
+  {
+    "from": "fr/research",
+    "to": "fr/learning/",
+    "file": "fr/research/index.html"
+  },
+  {
+    "from": "fr/livestreams",
+    "to": "fr/activities/",
+    "file": "fr/livestreams/index.html"
+  },
+  {
+    "from": "fr/physics-as-information-processing",
+    "to": "fr/ecosystem/physics/",
+    "file": "fr/physics-as-information-processing/index.html"
+  },
+  {
+    "from": "fr/paip1",
+    "to": "fr/ecosystem/physics/",
+    "file": "fr/paip1/index.html"
+  },
+  {
+    "from": "fr/participation",
+    "to": "fr/get-involved/",
+    "file": "fr/participation/index.html"
+  },
+  {
+    "from": "fr/fellowship",
+    "to": "fr/programs/fellowship/",
+    "file": "fr/fellowship/index.html"
+  },
+  {
+    "from": "fr/internship",
+    "to": "fr/programs/internship/",
+    "file": "fr/internship/index.html"
+  },
+  {
+    "from": "fr/mentorship",
+    "to": "fr/programs/mentorship/",
+    "file": "fr/mentorship/index.html"
+  },
+  {
+    "from": "fr/partnership",
+    "to": "fr/programs/partnership/",
+    "file": "fr/partnership/index.html"
+  },
+  {
+    "from": "fr/donate",
+    "to": "fr/programs/philanthropy/",
+    "file": "fr/donate/index.html"
+  },
+  {
+    "from": "fr/support",
+    "to": "fr/programs/philanthropy/",
+    "file": "fr/support/index.html"
+  },
+  {
+    "from": "fr/working_groups",
+    "to": "fr/working-groups/",
+    "file": "fr/working_groups/index.html"
+  },
+  {
+    "from": "fr/active-blockference",
+    "to": "fr/projects/active-blockference/",
+    "file": "fr/active-blockference/index.html"
+  },
+  {
+    "from": "fr/active-blockference-1",
+    "to": "fr/projects/active-blockference/",
+    "file": "fr/active-blockference-1/index.html"
+  },
+  {
+    "from": "fr/knowledge-engineering",
+    "to": "fr/projects/knowledge-engineering/",
+    "file": "fr/knowledge-engineering/index.html"
+  },
+  {
+    "from": "fr/rxinfer",
+    "to": "fr/projects/rxinfer/",
+    "file": "fr/rxinfer/index.html"
+  },
+  {
+    "from": "fr/symposium",
+    "to": "fr/projects/symposium/",
+    "file": "fr/symposium/index.html"
+  },
+  {
+    "from": "fr/textbook-group",
+    "to": "fr/projects/textbook-group/",
+    "file": "fr/textbook-group/index.html"
+  },
+  {
+    "from": "fr/theoretical-neurobiology-group",
+    "to": "fr/projects/theoretical-neurobiology/",
+    "file": "fr/theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "fr/theoretical-neurobiology-group-1",
+    "to": "fr/projects/theoretical-neurobiology/",
+    "file": "fr/theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "fr/tnb",
+    "to": "fr/projects/theoretical-neurobiology/",
+    "file": "fr/tnb/index.html"
   },
   {
     "from": "fr/active-inference-and-healthcare",
@@ -630,6 +930,156 @@
     "file": "fr/simulations/tree_with_quiz.html"
   },
   {
+    "from": "de/home",
+    "to": "de/",
+    "file": "de/home/index.html"
+  },
+  {
+    "from": "de/welcome",
+    "to": "de/get-involved/",
+    "file": "de/welcome/index.html"
+  },
+  {
+    "from": "de/about-us",
+    "to": "de/about/",
+    "file": "de/about-us/index.html"
+  },
+  {
+    "from": "de/bod",
+    "to": "de/structure/board-of-directors/",
+    "file": "de/bod/index.html"
+  },
+  {
+    "from": "de/sab",
+    "to": "de/structure/scientific-advisory-board/",
+    "file": "de/sab/index.html"
+  },
+  {
+    "from": "de/leadership",
+    "to": "de/structure/",
+    "file": "de/leadership/index.html"
+  },
+  {
+    "from": "de/courses",
+    "to": "de/learning/",
+    "file": "de/courses/index.html"
+  },
+  {
+    "from": "de/education",
+    "to": "de/learning/",
+    "file": "de/education/index.html"
+  },
+  {
+    "from": "de/research-overview",
+    "to": "de/learning/",
+    "file": "de/research-overview/index.html"
+  },
+  {
+    "from": "de/research",
+    "to": "de/learning/",
+    "file": "de/research/index.html"
+  },
+  {
+    "from": "de/livestreams",
+    "to": "de/activities/",
+    "file": "de/livestreams/index.html"
+  },
+  {
+    "from": "de/physics-as-information-processing",
+    "to": "de/ecosystem/physics/",
+    "file": "de/physics-as-information-processing/index.html"
+  },
+  {
+    "from": "de/paip1",
+    "to": "de/ecosystem/physics/",
+    "file": "de/paip1/index.html"
+  },
+  {
+    "from": "de/participation",
+    "to": "de/get-involved/",
+    "file": "de/participation/index.html"
+  },
+  {
+    "from": "de/fellowship",
+    "to": "de/programs/fellowship/",
+    "file": "de/fellowship/index.html"
+  },
+  {
+    "from": "de/internship",
+    "to": "de/programs/internship/",
+    "file": "de/internship/index.html"
+  },
+  {
+    "from": "de/mentorship",
+    "to": "de/programs/mentorship/",
+    "file": "de/mentorship/index.html"
+  },
+  {
+    "from": "de/partnership",
+    "to": "de/programs/partnership/",
+    "file": "de/partnership/index.html"
+  },
+  {
+    "from": "de/donate",
+    "to": "de/programs/philanthropy/",
+    "file": "de/donate/index.html"
+  },
+  {
+    "from": "de/support",
+    "to": "de/programs/philanthropy/",
+    "file": "de/support/index.html"
+  },
+  {
+    "from": "de/working_groups",
+    "to": "de/working-groups/",
+    "file": "de/working_groups/index.html"
+  },
+  {
+    "from": "de/active-blockference",
+    "to": "de/projects/active-blockference/",
+    "file": "de/active-blockference/index.html"
+  },
+  {
+    "from": "de/active-blockference-1",
+    "to": "de/projects/active-blockference/",
+    "file": "de/active-blockference-1/index.html"
+  },
+  {
+    "from": "de/knowledge-engineering",
+    "to": "de/projects/knowledge-engineering/",
+    "file": "de/knowledge-engineering/index.html"
+  },
+  {
+    "from": "de/rxinfer",
+    "to": "de/projects/rxinfer/",
+    "file": "de/rxinfer/index.html"
+  },
+  {
+    "from": "de/symposium",
+    "to": "de/projects/symposium/",
+    "file": "de/symposium/index.html"
+  },
+  {
+    "from": "de/textbook-group",
+    "to": "de/projects/textbook-group/",
+    "file": "de/textbook-group/index.html"
+  },
+  {
+    "from": "de/theoretical-neurobiology-group",
+    "to": "de/projects/theoretical-neurobiology/",
+    "file": "de/theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "de/theoretical-neurobiology-group-1",
+    "to": "de/projects/theoretical-neurobiology/",
+    "file": "de/theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "de/tnb",
+    "to": "de/projects/theoretical-neurobiology/",
+    "file": "de/tnb/index.html"
+  },
+  {
     "from": "de/active-inference-and-healthcare",
     "to": "de/active-inference/healthcare/",
     "file": "de/active-inference-and-healthcare/index.html"
@@ -808,6 +1258,156 @@
     "from": "de/simulations/tree_with_quiz.html",
     "to": "simulations/tree_with_quiz.html",
     "file": "de/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "pt/home",
+    "to": "pt/",
+    "file": "pt/home/index.html"
+  },
+  {
+    "from": "pt/welcome",
+    "to": "pt/get-involved/",
+    "file": "pt/welcome/index.html"
+  },
+  {
+    "from": "pt/about-us",
+    "to": "pt/about/",
+    "file": "pt/about-us/index.html"
+  },
+  {
+    "from": "pt/bod",
+    "to": "pt/structure/board-of-directors/",
+    "file": "pt/bod/index.html"
+  },
+  {
+    "from": "pt/sab",
+    "to": "pt/structure/scientific-advisory-board/",
+    "file": "pt/sab/index.html"
+  },
+  {
+    "from": "pt/leadership",
+    "to": "pt/structure/",
+    "file": "pt/leadership/index.html"
+  },
+  {
+    "from": "pt/courses",
+    "to": "pt/learning/",
+    "file": "pt/courses/index.html"
+  },
+  {
+    "from": "pt/education",
+    "to": "pt/learning/",
+    "file": "pt/education/index.html"
+  },
+  {
+    "from": "pt/research-overview",
+    "to": "pt/learning/",
+    "file": "pt/research-overview/index.html"
+  },
+  {
+    "from": "pt/research",
+    "to": "pt/learning/",
+    "file": "pt/research/index.html"
+  },
+  {
+    "from": "pt/livestreams",
+    "to": "pt/activities/",
+    "file": "pt/livestreams/index.html"
+  },
+  {
+    "from": "pt/physics-as-information-processing",
+    "to": "pt/ecosystem/physics/",
+    "file": "pt/physics-as-information-processing/index.html"
+  },
+  {
+    "from": "pt/paip1",
+    "to": "pt/ecosystem/physics/",
+    "file": "pt/paip1/index.html"
+  },
+  {
+    "from": "pt/participation",
+    "to": "pt/get-involved/",
+    "file": "pt/participation/index.html"
+  },
+  {
+    "from": "pt/fellowship",
+    "to": "pt/programs/fellowship/",
+    "file": "pt/fellowship/index.html"
+  },
+  {
+    "from": "pt/internship",
+    "to": "pt/programs/internship/",
+    "file": "pt/internship/index.html"
+  },
+  {
+    "from": "pt/mentorship",
+    "to": "pt/programs/mentorship/",
+    "file": "pt/mentorship/index.html"
+  },
+  {
+    "from": "pt/partnership",
+    "to": "pt/programs/partnership/",
+    "file": "pt/partnership/index.html"
+  },
+  {
+    "from": "pt/donate",
+    "to": "pt/programs/philanthropy/",
+    "file": "pt/donate/index.html"
+  },
+  {
+    "from": "pt/support",
+    "to": "pt/programs/philanthropy/",
+    "file": "pt/support/index.html"
+  },
+  {
+    "from": "pt/working_groups",
+    "to": "pt/working-groups/",
+    "file": "pt/working_groups/index.html"
+  },
+  {
+    "from": "pt/active-blockference",
+    "to": "pt/projects/active-blockference/",
+    "file": "pt/active-blockference/index.html"
+  },
+  {
+    "from": "pt/active-blockference-1",
+    "to": "pt/projects/active-blockference/",
+    "file": "pt/active-blockference-1/index.html"
+  },
+  {
+    "from": "pt/knowledge-engineering",
+    "to": "pt/projects/knowledge-engineering/",
+    "file": "pt/knowledge-engineering/index.html"
+  },
+  {
+    "from": "pt/rxinfer",
+    "to": "pt/projects/rxinfer/",
+    "file": "pt/rxinfer/index.html"
+  },
+  {
+    "from": "pt/symposium",
+    "to": "pt/projects/symposium/",
+    "file": "pt/symposium/index.html"
+  },
+  {
+    "from": "pt/textbook-group",
+    "to": "pt/projects/textbook-group/",
+    "file": "pt/textbook-group/index.html"
+  },
+  {
+    "from": "pt/theoretical-neurobiology-group",
+    "to": "pt/projects/theoretical-neurobiology/",
+    "file": "pt/theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "pt/theoretical-neurobiology-group-1",
+    "to": "pt/projects/theoretical-neurobiology/",
+    "file": "pt/theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "pt/tnb",
+    "to": "pt/projects/theoretical-neurobiology/",
+    "file": "pt/tnb/index.html"
   },
   {
     "from": "pt/active-inference-and-healthcare",
@@ -990,6 +1590,156 @@
     "file": "pt/simulations/tree_with_quiz.html"
   },
   {
+    "from": "it/home",
+    "to": "it/",
+    "file": "it/home/index.html"
+  },
+  {
+    "from": "it/welcome",
+    "to": "it/get-involved/",
+    "file": "it/welcome/index.html"
+  },
+  {
+    "from": "it/about-us",
+    "to": "it/about/",
+    "file": "it/about-us/index.html"
+  },
+  {
+    "from": "it/bod",
+    "to": "it/structure/board-of-directors/",
+    "file": "it/bod/index.html"
+  },
+  {
+    "from": "it/sab",
+    "to": "it/structure/scientific-advisory-board/",
+    "file": "it/sab/index.html"
+  },
+  {
+    "from": "it/leadership",
+    "to": "it/structure/",
+    "file": "it/leadership/index.html"
+  },
+  {
+    "from": "it/courses",
+    "to": "it/learning/",
+    "file": "it/courses/index.html"
+  },
+  {
+    "from": "it/education",
+    "to": "it/learning/",
+    "file": "it/education/index.html"
+  },
+  {
+    "from": "it/research-overview",
+    "to": "it/learning/",
+    "file": "it/research-overview/index.html"
+  },
+  {
+    "from": "it/research",
+    "to": "it/learning/",
+    "file": "it/research/index.html"
+  },
+  {
+    "from": "it/livestreams",
+    "to": "it/activities/",
+    "file": "it/livestreams/index.html"
+  },
+  {
+    "from": "it/physics-as-information-processing",
+    "to": "it/ecosystem/physics/",
+    "file": "it/physics-as-information-processing/index.html"
+  },
+  {
+    "from": "it/paip1",
+    "to": "it/ecosystem/physics/",
+    "file": "it/paip1/index.html"
+  },
+  {
+    "from": "it/participation",
+    "to": "it/get-involved/",
+    "file": "it/participation/index.html"
+  },
+  {
+    "from": "it/fellowship",
+    "to": "it/programs/fellowship/",
+    "file": "it/fellowship/index.html"
+  },
+  {
+    "from": "it/internship",
+    "to": "it/programs/internship/",
+    "file": "it/internship/index.html"
+  },
+  {
+    "from": "it/mentorship",
+    "to": "it/programs/mentorship/",
+    "file": "it/mentorship/index.html"
+  },
+  {
+    "from": "it/partnership",
+    "to": "it/programs/partnership/",
+    "file": "it/partnership/index.html"
+  },
+  {
+    "from": "it/donate",
+    "to": "it/programs/philanthropy/",
+    "file": "it/donate/index.html"
+  },
+  {
+    "from": "it/support",
+    "to": "it/programs/philanthropy/",
+    "file": "it/support/index.html"
+  },
+  {
+    "from": "it/working_groups",
+    "to": "it/working-groups/",
+    "file": "it/working_groups/index.html"
+  },
+  {
+    "from": "it/active-blockference",
+    "to": "it/projects/active-blockference/",
+    "file": "it/active-blockference/index.html"
+  },
+  {
+    "from": "it/active-blockference-1",
+    "to": "it/projects/active-blockference/",
+    "file": "it/active-blockference-1/index.html"
+  },
+  {
+    "from": "it/knowledge-engineering",
+    "to": "it/projects/knowledge-engineering/",
+    "file": "it/knowledge-engineering/index.html"
+  },
+  {
+    "from": "it/rxinfer",
+    "to": "it/projects/rxinfer/",
+    "file": "it/rxinfer/index.html"
+  },
+  {
+    "from": "it/symposium",
+    "to": "it/projects/symposium/",
+    "file": "it/symposium/index.html"
+  },
+  {
+    "from": "it/textbook-group",
+    "to": "it/projects/textbook-group/",
+    "file": "it/textbook-group/index.html"
+  },
+  {
+    "from": "it/theoretical-neurobiology-group",
+    "to": "it/projects/theoretical-neurobiology/",
+    "file": "it/theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "it/theoretical-neurobiology-group-1",
+    "to": "it/projects/theoretical-neurobiology/",
+    "file": "it/theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "it/tnb",
+    "to": "it/projects/theoretical-neurobiology/",
+    "file": "it/tnb/index.html"
+  },
+  {
     "from": "it/active-inference-and-healthcare",
     "to": "it/active-inference/healthcare/",
     "file": "it/active-inference-and-healthcare/index.html"
@@ -1168,6 +1918,156 @@
     "from": "it/simulations/tree_with_quiz.html",
     "to": "simulations/tree_with_quiz.html",
     "file": "it/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "ru/home",
+    "to": "ru/",
+    "file": "ru/home/index.html"
+  },
+  {
+    "from": "ru/welcome",
+    "to": "ru/get-involved/",
+    "file": "ru/welcome/index.html"
+  },
+  {
+    "from": "ru/about-us",
+    "to": "ru/about/",
+    "file": "ru/about-us/index.html"
+  },
+  {
+    "from": "ru/bod",
+    "to": "ru/structure/board-of-directors/",
+    "file": "ru/bod/index.html"
+  },
+  {
+    "from": "ru/sab",
+    "to": "ru/structure/scientific-advisory-board/",
+    "file": "ru/sab/index.html"
+  },
+  {
+    "from": "ru/leadership",
+    "to": "ru/structure/",
+    "file": "ru/leadership/index.html"
+  },
+  {
+    "from": "ru/courses",
+    "to": "ru/learning/",
+    "file": "ru/courses/index.html"
+  },
+  {
+    "from": "ru/education",
+    "to": "ru/learning/",
+    "file": "ru/education/index.html"
+  },
+  {
+    "from": "ru/research-overview",
+    "to": "ru/learning/",
+    "file": "ru/research-overview/index.html"
+  },
+  {
+    "from": "ru/research",
+    "to": "ru/learning/",
+    "file": "ru/research/index.html"
+  },
+  {
+    "from": "ru/livestreams",
+    "to": "ru/activities/",
+    "file": "ru/livestreams/index.html"
+  },
+  {
+    "from": "ru/physics-as-information-processing",
+    "to": "ru/ecosystem/physics/",
+    "file": "ru/physics-as-information-processing/index.html"
+  },
+  {
+    "from": "ru/paip1",
+    "to": "ru/ecosystem/physics/",
+    "file": "ru/paip1/index.html"
+  },
+  {
+    "from": "ru/participation",
+    "to": "ru/get-involved/",
+    "file": "ru/participation/index.html"
+  },
+  {
+    "from": "ru/fellowship",
+    "to": "ru/programs/fellowship/",
+    "file": "ru/fellowship/index.html"
+  },
+  {
+    "from": "ru/internship",
+    "to": "ru/programs/internship/",
+    "file": "ru/internship/index.html"
+  },
+  {
+    "from": "ru/mentorship",
+    "to": "ru/programs/mentorship/",
+    "file": "ru/mentorship/index.html"
+  },
+  {
+    "from": "ru/partnership",
+    "to": "ru/programs/partnership/",
+    "file": "ru/partnership/index.html"
+  },
+  {
+    "from": "ru/donate",
+    "to": "ru/programs/philanthropy/",
+    "file": "ru/donate/index.html"
+  },
+  {
+    "from": "ru/support",
+    "to": "ru/programs/philanthropy/",
+    "file": "ru/support/index.html"
+  },
+  {
+    "from": "ru/working_groups",
+    "to": "ru/working-groups/",
+    "file": "ru/working_groups/index.html"
+  },
+  {
+    "from": "ru/active-blockference",
+    "to": "ru/projects/active-blockference/",
+    "file": "ru/active-blockference/index.html"
+  },
+  {
+    "from": "ru/active-blockference-1",
+    "to": "ru/projects/active-blockference/",
+    "file": "ru/active-blockference-1/index.html"
+  },
+  {
+    "from": "ru/knowledge-engineering",
+    "to": "ru/projects/knowledge-engineering/",
+    "file": "ru/knowledge-engineering/index.html"
+  },
+  {
+    "from": "ru/rxinfer",
+    "to": "ru/projects/rxinfer/",
+    "file": "ru/rxinfer/index.html"
+  },
+  {
+    "from": "ru/symposium",
+    "to": "ru/projects/symposium/",
+    "file": "ru/symposium/index.html"
+  },
+  {
+    "from": "ru/textbook-group",
+    "to": "ru/projects/textbook-group/",
+    "file": "ru/textbook-group/index.html"
+  },
+  {
+    "from": "ru/theoretical-neurobiology-group",
+    "to": "ru/projects/theoretical-neurobiology/",
+    "file": "ru/theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "ru/theoretical-neurobiology-group-1",
+    "to": "ru/projects/theoretical-neurobiology/",
+    "file": "ru/theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "ru/tnb",
+    "to": "ru/projects/theoretical-neurobiology/",
+    "file": "ru/tnb/index.html"
   },
   {
     "from": "ru/active-inference-and-healthcare",
@@ -1350,6 +2250,156 @@
     "file": "ru/simulations/tree_with_quiz.html"
   },
   {
+    "from": "zh/home",
+    "to": "zh/",
+    "file": "zh/home/index.html"
+  },
+  {
+    "from": "zh/welcome",
+    "to": "zh/get-involved/",
+    "file": "zh/welcome/index.html"
+  },
+  {
+    "from": "zh/about-us",
+    "to": "zh/about/",
+    "file": "zh/about-us/index.html"
+  },
+  {
+    "from": "zh/bod",
+    "to": "zh/structure/board-of-directors/",
+    "file": "zh/bod/index.html"
+  },
+  {
+    "from": "zh/sab",
+    "to": "zh/structure/scientific-advisory-board/",
+    "file": "zh/sab/index.html"
+  },
+  {
+    "from": "zh/leadership",
+    "to": "zh/structure/",
+    "file": "zh/leadership/index.html"
+  },
+  {
+    "from": "zh/courses",
+    "to": "zh/learning/",
+    "file": "zh/courses/index.html"
+  },
+  {
+    "from": "zh/education",
+    "to": "zh/learning/",
+    "file": "zh/education/index.html"
+  },
+  {
+    "from": "zh/research-overview",
+    "to": "zh/learning/",
+    "file": "zh/research-overview/index.html"
+  },
+  {
+    "from": "zh/research",
+    "to": "zh/learning/",
+    "file": "zh/research/index.html"
+  },
+  {
+    "from": "zh/livestreams",
+    "to": "zh/activities/",
+    "file": "zh/livestreams/index.html"
+  },
+  {
+    "from": "zh/physics-as-information-processing",
+    "to": "zh/ecosystem/physics/",
+    "file": "zh/physics-as-information-processing/index.html"
+  },
+  {
+    "from": "zh/paip1",
+    "to": "zh/ecosystem/physics/",
+    "file": "zh/paip1/index.html"
+  },
+  {
+    "from": "zh/participation",
+    "to": "zh/get-involved/",
+    "file": "zh/participation/index.html"
+  },
+  {
+    "from": "zh/fellowship",
+    "to": "zh/programs/fellowship/",
+    "file": "zh/fellowship/index.html"
+  },
+  {
+    "from": "zh/internship",
+    "to": "zh/programs/internship/",
+    "file": "zh/internship/index.html"
+  },
+  {
+    "from": "zh/mentorship",
+    "to": "zh/programs/mentorship/",
+    "file": "zh/mentorship/index.html"
+  },
+  {
+    "from": "zh/partnership",
+    "to": "zh/programs/partnership/",
+    "file": "zh/partnership/index.html"
+  },
+  {
+    "from": "zh/donate",
+    "to": "zh/programs/philanthropy/",
+    "file": "zh/donate/index.html"
+  },
+  {
+    "from": "zh/support",
+    "to": "zh/programs/philanthropy/",
+    "file": "zh/support/index.html"
+  },
+  {
+    "from": "zh/working_groups",
+    "to": "zh/working-groups/",
+    "file": "zh/working_groups/index.html"
+  },
+  {
+    "from": "zh/active-blockference",
+    "to": "zh/projects/active-blockference/",
+    "file": "zh/active-blockference/index.html"
+  },
+  {
+    "from": "zh/active-blockference-1",
+    "to": "zh/projects/active-blockference/",
+    "file": "zh/active-blockference-1/index.html"
+  },
+  {
+    "from": "zh/knowledge-engineering",
+    "to": "zh/projects/knowledge-engineering/",
+    "file": "zh/knowledge-engineering/index.html"
+  },
+  {
+    "from": "zh/rxinfer",
+    "to": "zh/projects/rxinfer/",
+    "file": "zh/rxinfer/index.html"
+  },
+  {
+    "from": "zh/symposium",
+    "to": "zh/projects/symposium/",
+    "file": "zh/symposium/index.html"
+  },
+  {
+    "from": "zh/textbook-group",
+    "to": "zh/projects/textbook-group/",
+    "file": "zh/textbook-group/index.html"
+  },
+  {
+    "from": "zh/theoretical-neurobiology-group",
+    "to": "zh/projects/theoretical-neurobiology/",
+    "file": "zh/theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "zh/theoretical-neurobiology-group-1",
+    "to": "zh/projects/theoretical-neurobiology/",
+    "file": "zh/theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "zh/tnb",
+    "to": "zh/projects/theoretical-neurobiology/",
+    "file": "zh/tnb/index.html"
+  },
+  {
     "from": "zh/active-inference-and-healthcare",
     "to": "zh/active-inference/healthcare/",
     "file": "zh/active-inference-and-healthcare/index.html"
@@ -1528,6 +2578,156 @@
     "from": "zh/simulations/tree_with_quiz.html",
     "to": "simulations/tree_with_quiz.html",
     "file": "zh/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "ja/home",
+    "to": "ja/",
+    "file": "ja/home/index.html"
+  },
+  {
+    "from": "ja/welcome",
+    "to": "ja/get-involved/",
+    "file": "ja/welcome/index.html"
+  },
+  {
+    "from": "ja/about-us",
+    "to": "ja/about/",
+    "file": "ja/about-us/index.html"
+  },
+  {
+    "from": "ja/bod",
+    "to": "ja/structure/board-of-directors/",
+    "file": "ja/bod/index.html"
+  },
+  {
+    "from": "ja/sab",
+    "to": "ja/structure/scientific-advisory-board/",
+    "file": "ja/sab/index.html"
+  },
+  {
+    "from": "ja/leadership",
+    "to": "ja/structure/",
+    "file": "ja/leadership/index.html"
+  },
+  {
+    "from": "ja/courses",
+    "to": "ja/learning/",
+    "file": "ja/courses/index.html"
+  },
+  {
+    "from": "ja/education",
+    "to": "ja/learning/",
+    "file": "ja/education/index.html"
+  },
+  {
+    "from": "ja/research-overview",
+    "to": "ja/learning/",
+    "file": "ja/research-overview/index.html"
+  },
+  {
+    "from": "ja/research",
+    "to": "ja/learning/",
+    "file": "ja/research/index.html"
+  },
+  {
+    "from": "ja/livestreams",
+    "to": "ja/activities/",
+    "file": "ja/livestreams/index.html"
+  },
+  {
+    "from": "ja/physics-as-information-processing",
+    "to": "ja/ecosystem/physics/",
+    "file": "ja/physics-as-information-processing/index.html"
+  },
+  {
+    "from": "ja/paip1",
+    "to": "ja/ecosystem/physics/",
+    "file": "ja/paip1/index.html"
+  },
+  {
+    "from": "ja/participation",
+    "to": "ja/get-involved/",
+    "file": "ja/participation/index.html"
+  },
+  {
+    "from": "ja/fellowship",
+    "to": "ja/programs/fellowship/",
+    "file": "ja/fellowship/index.html"
+  },
+  {
+    "from": "ja/internship",
+    "to": "ja/programs/internship/",
+    "file": "ja/internship/index.html"
+  },
+  {
+    "from": "ja/mentorship",
+    "to": "ja/programs/mentorship/",
+    "file": "ja/mentorship/index.html"
+  },
+  {
+    "from": "ja/partnership",
+    "to": "ja/programs/partnership/",
+    "file": "ja/partnership/index.html"
+  },
+  {
+    "from": "ja/donate",
+    "to": "ja/programs/philanthropy/",
+    "file": "ja/donate/index.html"
+  },
+  {
+    "from": "ja/support",
+    "to": "ja/programs/philanthropy/",
+    "file": "ja/support/index.html"
+  },
+  {
+    "from": "ja/working_groups",
+    "to": "ja/working-groups/",
+    "file": "ja/working_groups/index.html"
+  },
+  {
+    "from": "ja/active-blockference",
+    "to": "ja/projects/active-blockference/",
+    "file": "ja/active-blockference/index.html"
+  },
+  {
+    "from": "ja/active-blockference-1",
+    "to": "ja/projects/active-blockference/",
+    "file": "ja/active-blockference-1/index.html"
+  },
+  {
+    "from": "ja/knowledge-engineering",
+    "to": "ja/projects/knowledge-engineering/",
+    "file": "ja/knowledge-engineering/index.html"
+  },
+  {
+    "from": "ja/rxinfer",
+    "to": "ja/projects/rxinfer/",
+    "file": "ja/rxinfer/index.html"
+  },
+  {
+    "from": "ja/symposium",
+    "to": "ja/projects/symposium/",
+    "file": "ja/symposium/index.html"
+  },
+  {
+    "from": "ja/textbook-group",
+    "to": "ja/projects/textbook-group/",
+    "file": "ja/textbook-group/index.html"
+  },
+  {
+    "from": "ja/theoretical-neurobiology-group",
+    "to": "ja/projects/theoretical-neurobiology/",
+    "file": "ja/theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "ja/theoretical-neurobiology-group-1",
+    "to": "ja/projects/theoretical-neurobiology/",
+    "file": "ja/theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "ja/tnb",
+    "to": "ja/projects/theoretical-neurobiology/",
+    "file": "ja/tnb/index.html"
   },
   {
     "from": "ja/active-inference-and-healthcare",
@@ -1710,6 +2910,156 @@
     "file": "ja/simulations/tree_with_quiz.html"
   },
   {
+    "from": "ko/home",
+    "to": "ko/",
+    "file": "ko/home/index.html"
+  },
+  {
+    "from": "ko/welcome",
+    "to": "ko/get-involved/",
+    "file": "ko/welcome/index.html"
+  },
+  {
+    "from": "ko/about-us",
+    "to": "ko/about/",
+    "file": "ko/about-us/index.html"
+  },
+  {
+    "from": "ko/bod",
+    "to": "ko/structure/board-of-directors/",
+    "file": "ko/bod/index.html"
+  },
+  {
+    "from": "ko/sab",
+    "to": "ko/structure/scientific-advisory-board/",
+    "file": "ko/sab/index.html"
+  },
+  {
+    "from": "ko/leadership",
+    "to": "ko/structure/",
+    "file": "ko/leadership/index.html"
+  },
+  {
+    "from": "ko/courses",
+    "to": "ko/learning/",
+    "file": "ko/courses/index.html"
+  },
+  {
+    "from": "ko/education",
+    "to": "ko/learning/",
+    "file": "ko/education/index.html"
+  },
+  {
+    "from": "ko/research-overview",
+    "to": "ko/learning/",
+    "file": "ko/research-overview/index.html"
+  },
+  {
+    "from": "ko/research",
+    "to": "ko/learning/",
+    "file": "ko/research/index.html"
+  },
+  {
+    "from": "ko/livestreams",
+    "to": "ko/activities/",
+    "file": "ko/livestreams/index.html"
+  },
+  {
+    "from": "ko/physics-as-information-processing",
+    "to": "ko/ecosystem/physics/",
+    "file": "ko/physics-as-information-processing/index.html"
+  },
+  {
+    "from": "ko/paip1",
+    "to": "ko/ecosystem/physics/",
+    "file": "ko/paip1/index.html"
+  },
+  {
+    "from": "ko/participation",
+    "to": "ko/get-involved/",
+    "file": "ko/participation/index.html"
+  },
+  {
+    "from": "ko/fellowship",
+    "to": "ko/programs/fellowship/",
+    "file": "ko/fellowship/index.html"
+  },
+  {
+    "from": "ko/internship",
+    "to": "ko/programs/internship/",
+    "file": "ko/internship/index.html"
+  },
+  {
+    "from": "ko/mentorship",
+    "to": "ko/programs/mentorship/",
+    "file": "ko/mentorship/index.html"
+  },
+  {
+    "from": "ko/partnership",
+    "to": "ko/programs/partnership/",
+    "file": "ko/partnership/index.html"
+  },
+  {
+    "from": "ko/donate",
+    "to": "ko/programs/philanthropy/",
+    "file": "ko/donate/index.html"
+  },
+  {
+    "from": "ko/support",
+    "to": "ko/programs/philanthropy/",
+    "file": "ko/support/index.html"
+  },
+  {
+    "from": "ko/working_groups",
+    "to": "ko/working-groups/",
+    "file": "ko/working_groups/index.html"
+  },
+  {
+    "from": "ko/active-blockference",
+    "to": "ko/projects/active-blockference/",
+    "file": "ko/active-blockference/index.html"
+  },
+  {
+    "from": "ko/active-blockference-1",
+    "to": "ko/projects/active-blockference/",
+    "file": "ko/active-blockference-1/index.html"
+  },
+  {
+    "from": "ko/knowledge-engineering",
+    "to": "ko/projects/knowledge-engineering/",
+    "file": "ko/knowledge-engineering/index.html"
+  },
+  {
+    "from": "ko/rxinfer",
+    "to": "ko/projects/rxinfer/",
+    "file": "ko/rxinfer/index.html"
+  },
+  {
+    "from": "ko/symposium",
+    "to": "ko/projects/symposium/",
+    "file": "ko/symposium/index.html"
+  },
+  {
+    "from": "ko/textbook-group",
+    "to": "ko/projects/textbook-group/",
+    "file": "ko/textbook-group/index.html"
+  },
+  {
+    "from": "ko/theoretical-neurobiology-group",
+    "to": "ko/projects/theoretical-neurobiology/",
+    "file": "ko/theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "ko/theoretical-neurobiology-group-1",
+    "to": "ko/projects/theoretical-neurobiology/",
+    "file": "ko/theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "ko/tnb",
+    "to": "ko/projects/theoretical-neurobiology/",
+    "file": "ko/tnb/index.html"
+  },
+  {
     "from": "ko/active-inference-and-healthcare",
     "to": "ko/active-inference/healthcare/",
     "file": "ko/active-inference-and-healthcare/index.html"
@@ -1890,6 +3240,156 @@
     "file": "ko/simulations/tree_with_quiz.html"
   },
   {
+    "from": "hi/home",
+    "to": "hi/",
+    "file": "hi/home/index.html"
+  },
+  {
+    "from": "hi/welcome",
+    "to": "hi/get-involved/",
+    "file": "hi/welcome/index.html"
+  },
+  {
+    "from": "hi/about-us",
+    "to": "hi/about/",
+    "file": "hi/about-us/index.html"
+  },
+  {
+    "from": "hi/bod",
+    "to": "hi/structure/board-of-directors/",
+    "file": "hi/bod/index.html"
+  },
+  {
+    "from": "hi/sab",
+    "to": "hi/structure/scientific-advisory-board/",
+    "file": "hi/sab/index.html"
+  },
+  {
+    "from": "hi/leadership",
+    "to": "hi/structure/",
+    "file": "hi/leadership/index.html"
+  },
+  {
+    "from": "hi/courses",
+    "to": "hi/learning/",
+    "file": "hi/courses/index.html"
+  },
+  {
+    "from": "hi/education",
+    "to": "hi/learning/",
+    "file": "hi/education/index.html"
+  },
+  {
+    "from": "hi/research-overview",
+    "to": "hi/learning/",
+    "file": "hi/research-overview/index.html"
+  },
+  {
+    "from": "hi/research",
+    "to": "hi/learning/",
+    "file": "hi/research/index.html"
+  },
+  {
+    "from": "hi/livestreams",
+    "to": "hi/activities/",
+    "file": "hi/livestreams/index.html"
+  },
+  {
+    "from": "hi/physics-as-information-processing",
+    "to": "hi/ecosystem/physics/",
+    "file": "hi/physics-as-information-processing/index.html"
+  },
+  {
+    "from": "hi/paip1",
+    "to": "hi/ecosystem/physics/",
+    "file": "hi/paip1/index.html"
+  },
+  {
+    "from": "hi/participation",
+    "to": "hi/get-involved/",
+    "file": "hi/participation/index.html"
+  },
+  {
+    "from": "hi/fellowship",
+    "to": "hi/programs/fellowship/",
+    "file": "hi/fellowship/index.html"
+  },
+  {
+    "from": "hi/internship",
+    "to": "hi/programs/internship/",
+    "file": "hi/internship/index.html"
+  },
+  {
+    "from": "hi/mentorship",
+    "to": "hi/programs/mentorship/",
+    "file": "hi/mentorship/index.html"
+  },
+  {
+    "from": "hi/partnership",
+    "to": "hi/programs/partnership/",
+    "file": "hi/partnership/index.html"
+  },
+  {
+    "from": "hi/donate",
+    "to": "hi/programs/philanthropy/",
+    "file": "hi/donate/index.html"
+  },
+  {
+    "from": "hi/support",
+    "to": "hi/programs/philanthropy/",
+    "file": "hi/support/index.html"
+  },
+  {
+    "from": "hi/working_groups",
+    "to": "hi/working-groups/",
+    "file": "hi/working_groups/index.html"
+  },
+  {
+    "from": "hi/active-blockference",
+    "to": "hi/projects/active-blockference/",
+    "file": "hi/active-blockference/index.html"
+  },
+  {
+    "from": "hi/active-blockference-1",
+    "to": "hi/projects/active-blockference/",
+    "file": "hi/active-blockference-1/index.html"
+  },
+  {
+    "from": "hi/knowledge-engineering",
+    "to": "hi/projects/knowledge-engineering/",
+    "file": "hi/knowledge-engineering/index.html"
+  },
+  {
+    "from": "hi/rxinfer",
+    "to": "hi/projects/rxinfer/",
+    "file": "hi/rxinfer/index.html"
+  },
+  {
+    "from": "hi/symposium",
+    "to": "hi/projects/symposium/",
+    "file": "hi/symposium/index.html"
+  },
+  {
+    "from": "hi/textbook-group",
+    "to": "hi/projects/textbook-group/",
+    "file": "hi/textbook-group/index.html"
+  },
+  {
+    "from": "hi/theoretical-neurobiology-group",
+    "to": "hi/projects/theoretical-neurobiology/",
+    "file": "hi/theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "hi/theoretical-neurobiology-group-1",
+    "to": "hi/projects/theoretical-neurobiology/",
+    "file": "hi/theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "hi/tnb",
+    "to": "hi/projects/theoretical-neurobiology/",
+    "file": "hi/tnb/index.html"
+  },
+  {
     "from": "hi/active-inference-and-healthcare",
     "to": "hi/active-inference/healthcare/",
     "file": "hi/active-inference-and-healthcare/index.html"
@@ -2068,6 +3568,156 @@
     "from": "hi/simulations/tree_with_quiz.html",
     "to": "simulations/tree_with_quiz.html",
     "file": "hi/simulations/tree_with_quiz.html"
+  },
+  {
+    "from": "ar/home",
+    "to": "ar/",
+    "file": "ar/home/index.html"
+  },
+  {
+    "from": "ar/welcome",
+    "to": "ar/get-involved/",
+    "file": "ar/welcome/index.html"
+  },
+  {
+    "from": "ar/about-us",
+    "to": "ar/about/",
+    "file": "ar/about-us/index.html"
+  },
+  {
+    "from": "ar/bod",
+    "to": "ar/structure/board-of-directors/",
+    "file": "ar/bod/index.html"
+  },
+  {
+    "from": "ar/sab",
+    "to": "ar/structure/scientific-advisory-board/",
+    "file": "ar/sab/index.html"
+  },
+  {
+    "from": "ar/leadership",
+    "to": "ar/structure/",
+    "file": "ar/leadership/index.html"
+  },
+  {
+    "from": "ar/courses",
+    "to": "ar/learning/",
+    "file": "ar/courses/index.html"
+  },
+  {
+    "from": "ar/education",
+    "to": "ar/learning/",
+    "file": "ar/education/index.html"
+  },
+  {
+    "from": "ar/research-overview",
+    "to": "ar/learning/",
+    "file": "ar/research-overview/index.html"
+  },
+  {
+    "from": "ar/research",
+    "to": "ar/learning/",
+    "file": "ar/research/index.html"
+  },
+  {
+    "from": "ar/livestreams",
+    "to": "ar/activities/",
+    "file": "ar/livestreams/index.html"
+  },
+  {
+    "from": "ar/physics-as-information-processing",
+    "to": "ar/ecosystem/physics/",
+    "file": "ar/physics-as-information-processing/index.html"
+  },
+  {
+    "from": "ar/paip1",
+    "to": "ar/ecosystem/physics/",
+    "file": "ar/paip1/index.html"
+  },
+  {
+    "from": "ar/participation",
+    "to": "ar/get-involved/",
+    "file": "ar/participation/index.html"
+  },
+  {
+    "from": "ar/fellowship",
+    "to": "ar/programs/fellowship/",
+    "file": "ar/fellowship/index.html"
+  },
+  {
+    "from": "ar/internship",
+    "to": "ar/programs/internship/",
+    "file": "ar/internship/index.html"
+  },
+  {
+    "from": "ar/mentorship",
+    "to": "ar/programs/mentorship/",
+    "file": "ar/mentorship/index.html"
+  },
+  {
+    "from": "ar/partnership",
+    "to": "ar/programs/partnership/",
+    "file": "ar/partnership/index.html"
+  },
+  {
+    "from": "ar/donate",
+    "to": "ar/programs/philanthropy/",
+    "file": "ar/donate/index.html"
+  },
+  {
+    "from": "ar/support",
+    "to": "ar/programs/philanthropy/",
+    "file": "ar/support/index.html"
+  },
+  {
+    "from": "ar/working_groups",
+    "to": "ar/working-groups/",
+    "file": "ar/working_groups/index.html"
+  },
+  {
+    "from": "ar/active-blockference",
+    "to": "ar/projects/active-blockference/",
+    "file": "ar/active-blockference/index.html"
+  },
+  {
+    "from": "ar/active-blockference-1",
+    "to": "ar/projects/active-blockference/",
+    "file": "ar/active-blockference-1/index.html"
+  },
+  {
+    "from": "ar/knowledge-engineering",
+    "to": "ar/projects/knowledge-engineering/",
+    "file": "ar/knowledge-engineering/index.html"
+  },
+  {
+    "from": "ar/rxinfer",
+    "to": "ar/projects/rxinfer/",
+    "file": "ar/rxinfer/index.html"
+  },
+  {
+    "from": "ar/symposium",
+    "to": "ar/projects/symposium/",
+    "file": "ar/symposium/index.html"
+  },
+  {
+    "from": "ar/textbook-group",
+    "to": "ar/projects/textbook-group/",
+    "file": "ar/textbook-group/index.html"
+  },
+  {
+    "from": "ar/theoretical-neurobiology-group",
+    "to": "ar/projects/theoretical-neurobiology/",
+    "file": "ar/theoretical-neurobiology-group/index.html"
+  },
+  {
+    "from": "ar/theoretical-neurobiology-group-1",
+    "to": "ar/projects/theoretical-neurobiology/",
+    "file": "ar/theoretical-neurobiology-group-1/index.html"
+  },
+  {
+    "from": "ar/tnb",
+    "to": "ar/projects/theoretical-neurobiology/",
+    "file": "ar/tnb/index.html"
   },
   {
     "from": "ar/active-inference-and-healthcare",

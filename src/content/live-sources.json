@@ -807,7 +807,9 @@
       "label": "Adeel Razi public page",
       "category": "People",
       "url": "https://www.adeelrazi.org/",
-      "previousUrls": ["http://www.adeelrazi.org/"],
+      "previousUrls": [
+        "http://www.adeelrazi.org/"
+      ],
       "sourceBasis": "Public web page listed for this Scientific Advisory Board member in the Institute's own SAB roster.",
       "statusCode": 200,
       "ok": true,
@@ -1074,7 +1076,9 @@
       "label": "Héctor Manrique public page",
       "category": "People",
       "url": "https://sideral.unizar.es/sideral/CV/hector-marin-manrique",
-      "previousUrls": ["https://psicosocio.unizar.es/personal/hector-marin-manrique"],
+      "previousUrls": [
+        "https://psicosocio.unizar.es/personal/hector-marin-manrique"
+      ],
       "sourceBasis": "Official university CV identifies Marín Manrique, Héctor. Verified with HTTP 200 in both a live browser and an automated request on 2026-10-21; the previous faculty page now returns access denied.",
       "statusCode": 200,
       "ok": true,
@@ -1234,7 +1238,10 @@
       "sourceBasis": "Academia Europaea member profile names Karl Friston; replaces an unreachable institutional homepage. Public destination checked directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-10-21T00:00:00Z"
+      "checkedAt": "2026-10-21T00:00:00Z",
+      "previousUrls": [
+        "https://www.fil.ion.ucl.ac.uk/~karl/"
+      ]
     },
     {
       "id": "person-luca-possati",
@@ -1254,7 +1261,10 @@
       "sourceBasis": "Researcher-owned ORCID record identifies Mahault Albarracin; replaces an unreachable department homepage. Public destination checked directly.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-10-21T00:00:00Z"
+      "checkedAt": "2026-10-21T00:00:00Z",
+      "previousUrls": [
+        "https://info.uqam.ca/"
+      ]
     },
     {
       "id": "person-manuel-razo-mejia",
@@ -1399,7 +1409,10 @@
       "label": "Sandeep Ramesh public page",
       "category": "People",
       "url": "https://www.sandeepramesh.com/",
-      "previousUrls": ["http://sandeepramesh.com/", "https://sandeepramesh.com/"],
+      "previousUrls": [
+        "http://sandeepramesh.com/",
+        "https://sandeepramesh.com/"
+      ],
       "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
       "statusCode": 200,
       "ok": true,
@@ -1441,7 +1454,9 @@
       "label": "Sebastian Alvarado public page",
       "category": "People",
       "url": "https://www.alvaradolab.com/",
-      "previousUrls": ["http://www.alvaradolab.com/"],
+      "previousUrls": [
+        "http://www.alvaradolab.com/"
+      ],
       "sourceBasis": "Public web page listed for this past Scientific Advisory Board member in the Institute's own SAB cohort roster.",
       "statusCode": 200,
       "ok": true,
@@ -2661,6 +2676,16 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-09-30T19:20:00Z"
+    },
+    {
+      "id": "symposium-2026-program",
+      "label": "2026 Symposium public program",
+      "category": "Symposium",
+      "url": "https://2026symposium.activeinference.institute/",
+      "sourceBasis": "Current public program: two days, November 12–13, 2026; both livestreams open at 12:00 UTC. Verified through the public shortlink and program source.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-10-26T00:49:15.886893Z"
     }
   ]
 }

@@ -34,13 +34,13 @@ The site achieves clean URLs (e.g., `/projects/ai-safety/` instead of `/projects
 
 GitHub Pages has no configurable HTTP redirect rules. The build therefore emits
 HTML redirect stubs for known legacy paths. Each has a destination canonical,
-noindex, an immediate meta refresh and a visible fallback link, with the site's
+noindex, a no-JavaScript meta refresh and a visible fallback link, with the site's
 CSP and local assets. Pages serves these files with HTTP 200. They are not HTTP
 301 redirects; Search Console recognition still depends on recrawl.
 
 The shared redirect source is `src/url-taxonomy.json`:
 
-- `redirects.map`: English Squarespace aliases.
+- `redirects.map`: Squarespace aliases, expanded across every published locale.
 - `redirects.prefix`: renamed slug families, across every locale.
 - `redirects.set`: exact renamed slugs, across every locale.
 
@@ -48,8 +48,7 @@ Localized simulation filenames also get stubs pointing to the root demo files.
 Real routes take precedence over aliases. The build validates every destination
 and refuses to overwrite an existing non-stub page. It writes the inventory to
 `data/redirects.json` and generates `assets/js/redirects.js` from the same source
-plus `src/redirect-runtime.js`. The script remains loaded only by `404.html`
-for unmatched legacy spelling/case/suffix variants; unknown paths remain 404s.
+plus `src/redirect-runtime.js`. The same script loads synchronously in alias stubs to preserve query strings and fragments, and deferred in `404.html` for unmatched legacy spelling/case/suffix variants. Unknown paths remain 404s. See [follow-up behavior and hosting options](INDEXING_FOLLOWUP.md).
 
 `check:redirects` independently enumerates the source paths, verifies every stub
 and destination, compares the browser map to the taxonomy, and pins the inbound
@@ -59,7 +58,8 @@ simulation landing pages and localized stubs; vendored demo bodies stay excluded
 Untranslated newsletter/video detail bodies use the English canonical and omit
 hreflang clusters. Translated content keeps self-canonicals and alternates.
 Search and the HTML sitemap are noindex and excluded from the XML sitemap. Each
-XML sitemap URL retains its deterministic content-export date in `lastmod`.
+XML sitemap URL omits `lastmod` until per-page modification evidence is available;
+the shared data-export timestamp is not a page modification date.
 
 ---
 
@@ -139,9 +139,10 @@ paths. Nesting under the existing `/active-inference/` hub page instead avoids
 any collision and reads correctly: these pages *are* "Active Inference and X."
 See [SLUG_AND_URL_TAXONOMY.md § Two independent axes](SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url).
 
-**Follow-up (manual, outside this repo):** submit a Search Console
-change-of-address / re-submit the sitemap so search engines re-crawl the new
-paths promptly, since the old URLs had been live and indexed.
+**Follow-up (after an authorized release):** re-submit the sitemap and validate
+only the genuinely repaired issues. A same-domain path migration does not need
+Search Console's change-of-address tool. See the measured
+[indexing repair and browser-agent handoff](INDEXING_REPAIR_2026-10-25.md).
 
 ### Structural Renames (`SET_REDIRECTS` in assets/js/redirects.js)
 
@@ -415,7 +416,7 @@ disallowed), `start` (GitHub repo roots are not disallowed), `donate`/`paypal`/
 5. Assigning `changefreq` hints:
    - **weekly** for home and top-level sections
    - **monthly** for deeper routes
-6. Setting `lastmod` to the export date (stable per export, never a live clock)
+6. Omitting `lastmod` until page-specific modification evidence is available
 
 **Location**: The sitemap declares itself in `robots.txt`:
 ```

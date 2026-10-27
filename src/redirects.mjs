@@ -14,9 +14,9 @@ export function redirectEntries() {
     if (entries.has(file) && entries.get(file).to !== to) throw new Error(`Conflicting redirect: ${file}`);
     entries.set(file, { from, to, file });
   };
-  for (const [from, to] of Object.entries(taxonomy.redirects.map)) add(from, to);
   for (const locale of LOCALES) {
     const prefix = locale.code === DEFAULT_LOCALE ? "" : `${locale.code}/`;
+    for (const [from, to] of Object.entries(taxonomy.redirects.map)) add(`${prefix}${from}`, `${prefix}${to}`);
     for (const rule of taxonomy.redirects.prefix) {
       for (const page of siteData.pages.filter((page) => page.slug.startsWith(rule.from))) {
         add(`${prefix}${page.slug}`, `${prefix}${baseDirForSlug(page.slug)}/`);
@@ -59,7 +59,7 @@ export function buildRedirects(realFiles) {
   }
   setActiveLocale(DEFAULT_LOCALE);
   const map = { ...taxonomy.redirects.map };
-  for (const entry of stubs.filter((entry) => entry.file.endsWith(".html") && !entry.file.endsWith("/index.html"))) {
+  for (const entry of stubs) {
     map[entry.from.replace(/\.html?$/i, "").toLowerCase()] = entry.to;
   }
   const runtime = fs.readFileSync(new URL("./redirect-runtime.js", import.meta.url), "utf8");
@@ -72,4 +72,5 @@ export function buildRedirects(realFiles) {
   if (!doc.includes("<!-- inbound-forwards:start -->") || !doc.includes("<!-- inbound-forwards:end -->")) throw new Error("Missing inbound-forward documentation markers");
   writeFile(docPath, doc.replace(/<!-- inbound-forwards:start -->[\s\S]*?<!-- inbound-forwards:end -->/, table));
   console.log(`Built ${stubs.length} static redirect stubs; preserved real routes.`);
+  return stubs;
 }

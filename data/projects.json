@@ -194,7 +194,23 @@
       },
       "tasks": [],
       "affiliation": "institute",
+      "owner_entity_id": "daniel-friedman",
+      "owner_name": "Daniel Friedman",
       "people": [
+        {
+          "id": "daniel-friedman",
+          "name": "Daniel Friedman",
+          "institute_roles": [
+            "President",
+            "Treasurer",
+            "Board Member",
+            "Officer",
+            "Member",
+            "Unit Member",
+            "Board of Directors"
+          ],
+          "active": true
+        },
         {
           "id": "holly-grimm",
           "name": "Holly Grimm",
@@ -870,7 +886,7 @@
       "title": "Creativity and Creators Under the Free Energy Principle",
       "description": "The project designs and researches creativity as an Active Inference process — asking how creative agents update beliefs, explore possibility spaces, and produce novel outputs. The work connects theoretical accounts with practical research on creative practice.",
       "version": "0.1",
-      "status": "archived",
+      "status": "active",
       "category": "research",
       "repository_url": null,
       "start_date": null,
@@ -955,7 +971,7 @@
       "title": "Active Inference Cycle Book for Self-Knowing",
       "description": "The Active Inference Cycle Book for Self-Knowing develops a practical framework for personal growth and self-knowledge grounded in Active Inference. It uses the inference cycle — perceiving, modeling, acting, learning — as a scaffold for reflective practice and long-term personal development.",
       "version": "0.1",
-      "status": "archived",
+      "status": "active",
       "category": "research",
       "repository_url": null,
       "start_date": null,
@@ -1804,7 +1820,7 @@
       "title": "Neurodivergent Learning Sessions",
       "description": "Neurodivergent Learning Sessions develops Active Inference learning resources and sessions designed for neurodivergent participants — building curriculum, milestones, and community structures that support autistic, ADHD, and other neurodivergent learners in engaging deeply with Active Inference.",
       "version": "0.1",
-      "status": "archived",
+      "status": "active",
       "category": "research",
       "repository_url": null,
       "start_date": null,
@@ -2481,7 +2497,7 @@
       "title": "The Three Mosqueteers",
       "description": "The Three Mosqueteers is an Ecosystem project creating a live science communication show for people without a scientific background. It develops a format that makes scientific information — including Active Inference and related work — engaging and genuinely accessible.",
       "version": "0.1",
-      "status": "archived",
+      "status": "active",
       "category": "research",
       "repository_url": null,
       "start_date": null,
@@ -2535,7 +2551,7 @@
       "title": "Project Development for Solving the Tower of Babel Problem",
       "description": "This Ecosystem project develops a framework for solving the Tower of Babel Problem — the challenge of cross-domain knowledge communication and translation. Drawing on philosophical and physical principles, it outlines, develops, and implements UniFysica Philo-sophia as a universal conceptual bridge for communication across scientific, humanistic, and cultural domains.",
       "version": "0.1",
-      "status": "archived",
+      "status": "active",
       "category": "research",
       "repository_url": null,
       "start_date": null,
@@ -2776,7 +2792,7 @@
       "title": "The Unordinary Bible Study (TUBS)",
       "description": "Monthly sessions cross-referencing biblical verses with a focus on inter-faith and contemporary perspective dialogue, connecting active inference to process theology.",
       "version": "0.1",
-      "status": "archived",
+      "status": "active",
       "category": "research",
       "repository_url": null,
       "start_date": null,
@@ -3011,6 +3027,56 @@
       "affiliation": "ecosystem",
       "owner_entity_id": "dr-martin-bello",
       "owner_name": "Dr. Martin Bello",
+      "people": []
+    },
+    {
+      "id": "active-inference-softmax-extensions",
+      "title": "Active inference through completion of the softmax formula and extension using Bannach Contractions, Fixed-Point arithmetic, and sparse-max.",
+      "description": "Daniel Dragolich proposes an independent systems-engineering investigation of alternatives and extensions to softmax, including contraction mappings, fixed-point arithmetic and sparse-max. The proposer seeks hardware and firmware contributors and independent examination of available code and artifacts. The immediate objective is a reproducible test protocol and critical review; theoretical claims, proof validity and performance remain to be evaluated. Listing invites voluntary collaboration and does not validate the claims or establish Institute funding or a research partnership.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "topics": [
+        "active-inference",
+        "fixed-point-arithmetic",
+        "reinference",
+        "softmax"
+      ],
+      "summary": "An independent proposal to examine softmax alternatives, fixed-point arithmetic and sparse-max in Active Inference-related architectures.",
+      "website_slug": "project-active-inference-softmax-extensions",
+      "links": {
+        "artifacts": "https://zenodo.org/communities/pi_origin_architecture"
+      },
+      "tasks": [],
+      "affiliation": "ecosystem",
+      "people": []
+    },
+    {
+      "id": "selfdet-runtime",
+      "title": "SelfDet Runtime: A Comparative Pilot of Decision Architectures under Conflicting Goals, Constraints, and Delegated Authority",
+      "description": "SelfDet Runtime is a pre-implementation research proposal by Garegin Miskaryan. The proposed bounded simulation pilot compares LLM-only, rules-only and an integrated controller on task completion, constraint violations, uncertainty and delegated authority. The project seeks methodological reviewers, simulation engineers and independent evaluators. A protocol, matched controls and preregistered evaluation would precede claims of benefit; no implemented system or validated result is claimed. Listing invites voluntary collaboration and does not establish funding, endorsement or an institutional partnership.",
+      "version": "0.1",
+      "status": "active",
+      "category": "research",
+      "repository_url": null,
+      "start_date": null,
+      "end_date": null,
+      "topics": [
+        "agent-architectures",
+        "decision-making",
+        "delegated-authority",
+        "reinference"
+      ],
+      "summary": "A proposed comparative simulation pilot of decision architectures under conflicting goals, constraints and delegated authority.",
+      "website_slug": "project-selfdet-runtime",
+      "links": {
+        "website": "https://selfdet.com/"
+      },
+      "tasks": [],
+      "affiliation": "ecosystem",
       "people": []
     }
   ]

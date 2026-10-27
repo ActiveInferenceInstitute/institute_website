@@ -6,7 +6,15 @@
   "lede": "Fellows develop research, applications, or public resources aligned with the Institute and Ecosystem, provide regular progress reports, and produce outputs that advance the field and remain publicly accessible.",
   "primaryActions": [
     {
-      "label": "Fellows pathway",
+      "label": "How to apply",
+      "href": "#application-requirements"
+    },
+    {
+      "label": "Email your application",
+      "href": "mailto:blanket@activeinference.institute?subject=%5BRESEARCH%20FELLOWS%5D"
+    },
+    {
+      "label": "Read about the Fellows program",
       "sourceId": "shortlink-fellows"
     }
   ],

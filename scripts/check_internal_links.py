@@ -16,7 +16,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 # "simulations" holds vendored third-party interactive demos mirrored from
 # activeinference.org; their internal asset graph is self-contained and not part
 # of the first-party generated site, so it is excluded from link checking.
-SKIP_DIRS = {".git", ".cache", "node_modules", "scripts", "src", "simulations"}
+SKIP_DIRS = {".git", ".cache", ".graft", "graft", "node_modules", "scripts", "src", "simulations"}
 LOCAL_ATTRS = {"href", "src", "poster"}
 EXTERNAL_SCHEMES = {"http", "https", "mailto", "tel", "sms", "data"}
 
@@ -65,7 +65,7 @@ def generated_html_files(root: Path) -> list[Path]:
         relative_parts = path.relative_to(root).parts
         if any(part in SKIP_DIRS - {"simulations"} for part in relative_parts):
             continue
-        if "simulations" in relative_parts and path.name != "index.html":
+        if relative_parts[0] == "simulations" and path.name != "index.html":
             continue
         files.append(path)
     return sorted(files)

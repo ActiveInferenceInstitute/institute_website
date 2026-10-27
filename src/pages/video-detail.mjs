@@ -5,7 +5,6 @@ import { hrefForSlug, urlDirForSlug } from "../url-taxonomy.mjs";
 import { escapeHtml } from "../lib/text.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { layout } from "../render/layout.mjs";
-import { absoluteUrl } from "../render/urls.mjs";
 import { tr } from "../i18n/index.mjs";
 
 const _dir = path.dirname(fileURLToPath(import.meta.url));
@@ -55,45 +54,10 @@ export function allVideoSlugs() {
   return loadVideoRecords().map((r) => `video-${r.id}`);
 }
 
-/**
- * Build Schema.org VideoObject JSON-LD for a video detail page.
- * Provides crawlers with structured metadata about the recording.
- * Google's VideoObject rich result requires a crawlable thumbnailUrl, so we
- * derive it from the YouTube id (img.youtube.com) with a fallback to the
- * site social card when the id is absent.
- */
-function videoObjectSchema(record, canonicalUrl) {
-  // Google's VideoObject rich result requires a crawlable thumbnailUrl. We derive
-  // it from the YouTube id. maxresdefault (1280x720) is not published for every
-  // video, so we use sddefault (640x360), which YouTube serves for all videos and
-  // which meets Google's >=640px thumbnail guidance. Falls back to the site social
-  // card for the rare record lacking a youtube id. Build stays offline/deterministic.
-  const thumbnail =
-    (record.youtubeId && `https://img.youtube.com/vi/${record.youtubeId}/sddefault.jpg`) ||
-    absoluteUrl("assets/img/social-card.png");
-  const obj = {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "@id": `${canonicalUrl}#video`,
-    name: record.title || tr("Video session"),
-    description: buildDescription(record),
-    // Google requires a non-empty ISO date for VideoObject rich results; fall
-    // back to the series default rather than emitting an empty field.
-    uploadDate: record.date || "2021-01-01",
-    thumbnailUrl: thumbnail,
-  };
-  if (record.youtubeUrl) {
-    const yt = record.youtubeUrl;
-    const youtuBe = yt.match(/youtu\.be\/([^?&#]+)/);
-    if (youtuBe) {
-      obj.embedUrl = `https://www.youtube.com/embed/${youtuBe[1]}`;
-    } else {
-      obj.embedUrl = yt.replace("/live/", "/embed/").replace("watch?v=", "embed/");
-    }
-    obj.url = record.youtubeUrl;
-  }
-  return `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, "\\u003c")}</script>`;
-}
+// These pages are transcript/reference archives linking to an external watch
+// page. The current projection contains session dates, not authenticated upload
+// timestamps or verified representative thumbnails. Keep normal page metadata;
+// do not manufacture VideoObject rich-result eligibility from those fields.
 
 /**
  * Build a deterministic meta description from the record's structured fields.
@@ -128,7 +92,6 @@ export function videoDetailPage(record) {
   const currentDir = urlDirForSlug(slug);
   const seriesLabel = [record.series, record.number].filter(Boolean).join(" ");
   const dateStr = formatDate(record.date);
-  const canonicalUrl = absoluteUrl(`${currentDir}/`).replace(/\/+$/, "/");
 
   const guestNames = (record.guests || []).filter(Boolean);
   const guestList = guestNames.length
@@ -219,7 +182,6 @@ export function videoDetailPage(record) {
   </section>
 
   ${transcriptSection}
-  ${videoObjectSchema(record, canonicalUrl)}
 
   <section class="content-band" id="related">
     ${sectionHeading({

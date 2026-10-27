@@ -22,7 +22,7 @@ CONTENT_DIR = PROJECT_ROOT / "src" / "content"
 # canvas apps with inline scripts) mirrored from activeinference.org. They are
 # intentionally exempt from the first-party CSP/no-inline-script contract; only
 # generated, first-party pages are validated here.
-EXCLUDED_PARTS = {".git", ".cache", "node_modules", "__pycache__", "src", "scripts", "simulations"}
+EXCLUDED_PARTS = {".git", ".cache", ".graft", "graft", "node_modules", "__pycache__", "src", "scripts", "simulations"}
 DISALLOWED_TAGS = {"form", "iframe", "object", "embed"}
 # Public, well-known destination hosts that may back an external anchor WITHOUT a
 # per-URL live-sources.json entry. Used for data-driven links from public feeds

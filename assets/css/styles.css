@@ -1,3 +1,32 @@
+/* Site-only, metric-compatible local fallbacks. The canonical brand export is
+   unchanged. Ratios were measured from the shipped font advances/hhea tables
+   against Arial and Times New Roman; see docs/INDEXING_FOLLOWUP.md. */
+@font-face {
+  font-family: "Inter Tight Metric Fallback";
+  src: local("Arial"), local("Liberation Sans");
+  size-adjust: 96.6655%;
+  ascent-override: 100.2167%;
+  descent-override: 24.9531%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Fraunces Metric Fallback";
+  src: local("Times New Roman"), local("Liberation Serif");
+  size-adjust: 130.2973%;
+  ascent-override: 75.0591%;
+  descent-override: 19.5706%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Inter Tight Metric Fallback";
+  font-weight: 700;
+  src: local("Arial Bold"), local("Liberation Sans Bold");
+  size-adjust: 89.4316%;
+  ascent-override: 108.3231%;
+  descent-override: 26.9716%;
+  line-gap-override: 0%;
+}
+
 :root {
   color-scheme: dark light;
   /* Unified onto the InstituteOS design-system token contract (instituteos-ds.css,
@@ -20,7 +49,7 @@
   --red-deep: #2a0d0d;
   --shadow: var(--ds-shadow, 0 8px 32px rgba(0, 0, 0, 0.5));
   --radius: var(--ds-radius-sm, 10px);
-  font-family: var(--ds-font-body,
+  font-family: "Inter Tight", "Inter Tight Metric Fallback", var(--ds-font-body,
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 }
 
@@ -225,7 +254,7 @@ select:focus-visible {
 }
 
 .nav-group[data-open] .nav-menu,
-.nav-group:focus-within .nav-menu {
+.site-header:not([data-nav-js]) .nav-group:focus-within .nav-menu {
   display: grid;
   gap: 0.15rem;
 }
@@ -281,7 +310,7 @@ select:focus-visible {
 .page-hero h1 {
   margin: 0;
   /* Editorial display serif (Fraunces) for hero headlines — matches the DS. */
-  font-family: var(--ds-font-display, "Fraunces", Georgia, serif);
+  font-family: "Fraunces", "Fraunces Metric Fallback", var(--ds-font-display, "Fraunces", Georgia, serif);
   font-size: clamp(2.6rem, 6.2vw, 5.25rem);
   line-height: 0.98;
   letter-spacing: -0.018em;
@@ -355,7 +384,7 @@ select:focus-visible {
   display: block;
   color: var(--ink);
   /* Editorial display serif + tabular figures for the headline metrics. */
-  font-family: var(--ds-font-display, "Fraunces", Georgia, serif);
+  font-family: "Fraunces", "Fraunces Metric Fallback", var(--ds-font-display, "Fraunces", Georgia, serif);
   font-variant-numeric: tabular-nums;
   font-size: clamp(1.35rem, 3vw, 2rem);
   line-height: 1.05;
@@ -591,7 +620,7 @@ select:focus-visible {
 }
 
 .gate-metric strong {
-  font-family: var(--ds-font-display, "Fraunces", Georgia, serif);
+  font-family: "Fraunces", "Fraunces Metric Fallback", var(--ds-font-display, "Fraunces", Georgia, serif);
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 0.95;
 }
@@ -1329,7 +1358,25 @@ select:focus-visible {
   }
 }
 
+/* Keep the search's flex basis horizontal on tablets. In the former column
+   header, its 240px basis became empty vertical space and stacked every tool. */
+@media (min-width: 601px) and (max-width: 960px) {
+  .hero { min-height: 0; }
+  .site-header { flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .site-header > .brand,
+  .site-header > .nav { flex-basis: 100%; }
+  .site-header > .site-search { flex: 1 1 15rem; max-width: none; margin: 0; }
+  .site-header > .lang-switcher,
+  .site-header > .tts-toggle,
+  .site-header > .accent-control,
+  .site-header > .theme-toggle { margin: 0; }
+}
+
 @media (max-width: 600px) {
+  .hero {
+    min-height: 0;
+  }
+
   .hero,
   .page-hero {
     padding-top: 4rem;
@@ -1358,7 +1405,7 @@ select:focus-visible {
     max-width: none;
   }
 }
-.build-stamp{margin-top:1.5rem;font-size:.75rem;opacity:.55;letter-spacing:.02em}
+.build-stamp{margin-top:1.5rem;font-size:.8125rem;color:var(--muted);opacity:1;letter-spacing:.02em}
 
 /* Global site search (header) */
 .site-search{position:relative;margin-left:auto;flex:0 1 15rem;max-width:15rem}

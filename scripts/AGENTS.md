@@ -174,3 +174,10 @@ re-run only fills missing keys (`--force` re-does all). Flags: `--locale`,
 
 `generate-project-pages.mjs`, `generate-cards.mjs`, and `generate-icons.sh` are
 content/asset generators, not gates; they are not part of `npm run check`.
+
+## Indexing follow-up tools
+
+- `npm run check:audit-browser`: measured viewports, URL tails, disclosure/contrast/audio state, RTL and simulation control scenarios; set real Chrome and a private evidence output.
+- `stage_public_assets.py --output NEW_DIRECTORY`: stage the public HTML inventory and explicit public assets, refusing stale builds, unsafe paths and existing evidence; never deploys.
+- `source_identity.py` independently checks the website source fingerprint against the JavaScript build.
+- Keep raw browser/GSC/provider evidence outside this public checkout. See [the current follow-up](../docs/INDEXING_FOLLOWUP.md).

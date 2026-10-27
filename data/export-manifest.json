@@ -136,8 +136,8 @@
     {
       "name": "calendar.json",
       "output_path": "src/content/instituteos/calendar.json",
-      "record_count": 307,
-      "sha256": "d2e0b9cba8e4607994d5a10e72555ebac12241a544b9991b030b39ce67d72e60",
+      "record_count": 306,
+      "sha256": "c62540e212131cc2dadbee0402c1d74d74c66911ef90bf829414d2c990ce44d1",
       "target": "content"
     },
     {
@@ -260,10 +260,17 @@
       "target": "newsletter_assets"
     },
     {
+      "name": "newsletter-media/218225989-da3e7d20ba59.png",
+      "output_path": "assets/img/newsletters/218225989-da3e7d20ba59.png",
+      "record_count": 1,
+      "sha256": "68e55a14aa714331427bcdddbb0d1c7a08117d7633c5d2bd6578f8edb62bcefe",
+      "target": "newsletter_assets"
+    },
+    {
       "name": "newsletter.json",
       "output_path": "src/content/instituteos/newsletter.json",
-      "record_count": 56,
-      "sha256": "8d54d9cc4e017910550dee462e4d1303c7a6a34c240603243e6bd1429cb40f2d",
+      "record_count": 57,
+      "sha256": "6f2d76b83b7994c1f0d0855570e608123d2a029798f4f50ae444acff01616291",
       "target": "content"
     },
     {
@@ -283,8 +290,8 @@
     {
       "name": "projects.json",
       "output_path": "data/projects.json",
-      "record_count": 68,
-      "sha256": "9b7a8b48b83f73fe8b16aa8b76b1d76dafc650c2fee1318e46b9d9acbfe66dd4",
+      "record_count": 70,
+      "sha256": "0f495ae39dede16c1f8fcf909f8d9019b0ed9f20763870c37dc30ab10c3dc830",
       "target": "data"
     },
     {
@@ -303,6 +310,6 @@
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-10-21T19:48:48.784826+00:00",
-  "source_fingerprint": "c2691845d66b"
+  "generated_at": "2026-10-26T21:23:17.516774+00:00",
+  "source_fingerprint": "a1db4c2892e5"
 }

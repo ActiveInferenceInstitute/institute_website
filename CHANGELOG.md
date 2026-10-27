@@ -4,6 +4,15 @@ All notable changes to the Active Inference Institute website are documented her
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
+
+- Correct the 2026 Symposium dates to November 12–13 on the year overview and Working Groups pages, including translated copy.
+- Refresh the complete Substack mirror through September 2026 and remove the withdrawn June newsletter paragraph.
+
+- Preserve query strings and fragments in JavaScript-enabled HTML aliases; retain explicit no-JS/manual fallbacks and shared mapping controls.
+- Add exact-case simulation metadata, remove unsupported video upload-time rich-result claims, align the 2026 Symposium to its current public program, and improve fellowship/newcomer actions.
+- Repair keyboard menu dismissal and footer contrast; add measured local font fallbacks and real-browser responsive/interaction checks.
+- Separate website source identity from export provenance; prepare a public-only artifact stager, manual Pages workflow and unbound HTTP 308 adapter.
+
 - Run the full offline website gate on Python 3.15 with Node 22 in CI, alongside
   the existing Python 3.12 jobs. Preserve upstream locale and indexing controls
   when integrating public research validation.
