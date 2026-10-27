@@ -32,7 +32,7 @@
     "check:source-controls": "python3 -m unittest discover -s scripts -p 'test_*.py' && node --test scripts/test_public_links.mjs",
     "check:citations": "node --test scripts/test_citation_links.mjs",
     "check:sources:offline": "python3 scripts/check_live_sources.py --offline",
-    "check:indexability": "python3 scripts/check_indexability.py",
+    "check:indexability": "python3 -m unittest discover -s scripts -p test_indexability.py && python3 -m unittest discover -s scripts -p test_live_url_audit.py && python3 scripts/check_indexability.py",
     "check:audit-browser": "node scripts/check_audit_browser.mjs"
   },
   "engines": {

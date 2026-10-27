@@ -1235,13 +1235,11 @@
       "label": "Karl John Friston public page",
       "category": "People",
       "url": "https://www.ae-info.org/ae/Member/Friston_Karl",
-      "sourceBasis": "Academia Europaea member profile names Karl Friston; replaces an unreachable institutional homepage. Public destination checked directly.",
+      "sourceBasis": "Committed InstituteOS past-cohort registry; identity confirmed by the Academia Europaea member page and current HTTP 200 retrieval.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-10-21T00:00:00Z",
-      "previousUrls": [
-        "https://www.fil.ion.ucl.ac.uk/~karl/"
-      ]
+      "checkedAt": "2026-10-25T21:59:02Z",
+      "previousUrls": ["https://www.fil.ion.ucl.ac.uk/~karl/"]
     },
     {
       "id": "person-luca-possati",
@@ -1258,13 +1256,11 @@
       "label": "Mahault Albarracin public page",
       "category": "People",
       "url": "https://orcid.org/0000-0003-0916-4645",
-      "sourceBasis": "Researcher-owned ORCID record identifies Mahault Albarracin; replaces an unreachable department homepage. Public destination checked directly.",
+      "sourceBasis": "Committed InstituteOS past-cohort registry; identity confirmed by the ORCID public personal-details API and current HTTP 200 retrieval.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-10-21T00:00:00Z",
-      "previousUrls": [
-        "https://info.uqam.ca/"
-      ]
+      "checkedAt": "2026-10-25T21:59:04Z",
+      "previousUrls": ["https://info.uqam.ca/"]
     },
     {
       "id": "person-manuel-razo-mejia",
@@ -1344,10 +1340,7 @@
       "label": "Mick Thacker public page",
       "category": "People",
       "url": "https://www.rcsi.com/dublin/about/faculty-of-medicine-and-health-sciences/school-of-physiotherapy/our-people",
-      "previousUrls": [
-        "https://www.rcsi.com/people/profile/michaelthacker",
-        "https://people.rcsi.com/michaelthacker"
-      ],
+      "previousUrls": ["https://www.rcsi.com/people/profile/michaelthacker", "https://people.rcsi.com/michaelthacker"],
       "sourceBasis": "Owner-approved replacement for the retired individual profile: RCSI's official School of Physiotherapy staff page lists Michael Thacker as Professor. Historical SAB roster URLs are normalized to this registered public page at render time.",
       "statusCode": 200,
       "ok": true,
