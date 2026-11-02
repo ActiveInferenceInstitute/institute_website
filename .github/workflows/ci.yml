@@ -23,7 +23,7 @@ jobs:
   build-and-check:
     strategy:
       matrix:
-        node: ["20", "22"]
+        node: ["22", "24"]
         python: ["3.12"]
         include:
           - node: "22"
