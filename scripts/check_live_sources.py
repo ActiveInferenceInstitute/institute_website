@@ -28,6 +28,10 @@ USER_AGENT = "ActiveInferenceInstituteWebsiteCheck/1.0 (+https://github.com/Acti
 BODY_LIMIT = 2 * 1024 * 1024
 REDIRECT_LIMIT = 10
 BOT_STATUSES = {403, 429, 999}
+FRAGMENT_UNVERIFIED_JS = (
+    "fragment unverified: JavaScript-rendered document "
+    "(noscript requires JavaScript; no static anchor is possible)"
+)
 JSONValue: TypeAlias = str | bool | int | float | None | list["JSONValue"] | dict[str, "JSONValue"]
 
 
@@ -145,10 +149,32 @@ class Anchors(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.fragment = fragment
         self.found = False
+        self.scripts = 0
+        self.noscript: list[str] = []
+        self.noscript_depth = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "script":
+            self.scripts += 1
+        if tag == "noscript":
+            self.noscript_depth += 1
         self.found |= any(
             value == self.fragment and (key == "id" or (tag == "a" and key == "name")) for key, value in attrs
+        )
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "noscript" and self.noscript_depth:
+            self.noscript_depth -= 1
+
+    def handle_data(self, data: str) -> None:
+        if self.noscript_depth:
+            self.noscript.append(data)
+
+    @property
+    def client_rendered(self) -> bool:
+        notice = " ".join("".join(self.noscript).split()).lower()
+        return self.scripts > 0 and "javascript" in notice and any(
+            marker in notice for marker in ("required", "enable", "does not work", "doesn't work")
         )
 
 
@@ -235,7 +261,11 @@ def check_url(url: str, deadline: float) -> Probe:
                 if time.monotonic() >= deadline:
                     return Probe(status, "fragment parsing deadline exceeded")
                 parser.close()
-                return Probe(status, "" if parser.found else "fragment not found in HTML id/name anchors")
+                if parser.found:
+                    return Probe(status, "")
+                if parser.client_rendered:
+                    return Probe(status, FRAGMENT_UNVERIFIED_JS)
+                return Probe(status, "fragment not found in HTML id/name anchors")
             return Probe(status, "redirect limit exceeded")
     except ManifestError:
         return Probe(error="unsafe or malformed redirect URL")
@@ -303,6 +333,8 @@ def verify(
             outcome = "offline"
         elif not error and source.bot_blocked and probe.status in BOT_STATUSES:
             outcome, error = "unverified", "plausible bot response; human verification required"
+        elif error == FRAGMENT_UNVERIFIED_JS and live_ok and source.ok:
+            outcome = "unverified"
         else:
             if not error and not live_ok and probe.status >= 500:
                 error = "HTTP server error"

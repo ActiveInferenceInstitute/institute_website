@@ -32,6 +32,14 @@ class Handler(BaseHTTPRequestHandler):
             status = 302
         elif path == "/pdf":
             content_type, body = "application/pdf", b"%PDF-1.7"
+        elif path in {"/js-rendered", "/js-rendered-missing"}:
+            if path == "/js-rendered-missing":
+                status = 404
+            body = (
+                '<html><head><script src="/app.js"></script></head><body>'
+                '<noscript>JavaScript required. This document does not work without JavaScript enabled.</noscript>'
+                '<p id="present">Hello</p><div id="root"></div></body></html>'
+            ).encode()
         elif path in {"/large", "/chunked"}:
             body += b"x" * (2 * 1024 * 1024)
         elif path.startswith("/status/"):
@@ -127,6 +135,38 @@ class LiveSourcesTests(unittest.TestCase):
         # Given a reachable page, when its absent anchor is checked, then HTTP 200 is insufficient.
         result = self.run_cli({"sources": [self.source("/#absent")]})
         self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+
+    def test_javascript_rendered_fragment_is_unverified_not_an_error(self):
+        # Given a client-rendered page, when a non-static anchor is checked, then it is unverified, not an error.
+        report = Path(self.temp.name) / "report.json"
+        result = self.run_cli({"sources": [self.source("/js-rendered#absent")]}, "--report", str(report))
+        row = json.loads(report.read_text())["sources"][0]
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(row["result"], "unverified")
+        self.assertIn("JavaScript-rendered document", row["error"])
+        self.assertIn("unverified:", result.stdout)
+        self.assertNotIn("error:", result.stderr)
+
+    def test_javascript_rendered_fragment_retains_prior_evidence_on_write(self):
+        # Given unverified client rendering, when --write runs, then the record keeps its prior evidence.
+        payload = {"sources": [self.source("/js-rendered#absent", checkedAt="old")]}
+        result = self.run_cli(payload, "--write")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(json.loads(self.manifest.read_text())["sources"][0]["checkedAt"], "old")
+
+    def test_javascript_rendered_page_still_verifies_static_anchors(self):
+        # Given a client-rendered page, when a static anchor exists, then the record verifies normally.
+        report = Path(self.temp.name) / "report.json"
+        result = self.run_cli({"sources": [self.source("/js-rendered#present")]}, "--report", str(report))
+        row = json.loads(report.read_text())["sources"][0]
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(row["result"], "verified")
+
+    def test_javascript_rendered_404_still_fails(self):
+        # Given a client-rendered 404, when a live record is checked, then the run still fails.
+        result = self.run_cli({"sources": [self.source("/js-rendered-missing#absent")]})
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("error:", result.stderr)
 
     def test_html_id_name_and_percent_decoded_fragments_pass(self):
         # Given HTML anchors, when ids/names and encoded Unicode are checked, then all resolve.

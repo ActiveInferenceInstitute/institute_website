@@ -155,6 +155,11 @@ payload passes untouched.
 The **only networked** checker, deliberately excluded from `npm run check`.
 `curl`s every entry in `src/content/live-sources.json` and compares the live
 HTTP result against the recorded `ok`/`statusCode` and checks HTML fragments.
+A fragment that cannot exist in static HTML because the target is a
+JavaScript-rendered document (200 response, `<noscript>` notice requiring
+JavaScript, no matching static anchor) is reported as `unverified` with that
+reason; missing anchors on any other page, non-HTML targets, and non-200
+responses still fail the run.
 Redirects are bounded; resolved destinations and bodies are never persisted.
 A committed `finalUrl` is rejected. `--write` updates verified evidence only
 after a successful run; unverified bot records retain prior dates.
