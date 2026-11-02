@@ -961,7 +961,11 @@ the calendar regression in every runtime-matrix job.
 The optional `check:sources` probe is deliberately outside this deterministic
 chain: network outages must not make a reproducible local build hang or fail.
 Run it with its bounded per-source and batch timeouts when internet access is
-available. **Key dependency:** `check:site` and `check:security` both validate external anchors against `live-sources.json`. If either fails, check:
+available. A fragment that cannot exist in static HTML because the target is a
+JavaScript-rendered document (200 response, `<noscript>` notice requiring
+JavaScript, no matching static anchor) is reported as `unverified` with that
+reason; missing anchors on any other page, non-HTML targets, and non-200
+responses still fail the probe. **Key dependency:** `check:site` and `check:security` both validate external anchors against `live-sources.json`. If either fails, check:
 
 1. Is the source in `live-sources.json`?
 2. Is `ok: true`?
