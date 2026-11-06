@@ -5,6 +5,10 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+## v4.0.1 — 2026-11-05
+
+- Synchronize the public Bylaws record with adopted version 1.1 (September 18, 2026) and rebuild the public site.
+
 - Add full-text newsletter search, year/format filters, shareable filter URLs and no-results/reset states, translated in every locale.
 - Link adjacent archived posts and populate year hubs with their latest exported monthly newsletters.
 - Improve palette text/button contrast with site-only foreground roles and measured hover checks; preserve the canonical design-system export.
