@@ -5,6 +5,11 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+## v4.0.3 — 2026-11-06
+
+- Project current public memberships from canonical Institute positions, preserving privacy and appointment history.
+- Cover malformed position data and historical-role exclusion with producer and renderer regressions.
+
 ## v4.0.2 — 2026-11-06
 
 - Keep package and lockfile release versions synchronized, and reject inconsistent metadata in the offline site contract.

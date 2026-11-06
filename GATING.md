@@ -32,6 +32,11 @@ Each public file has one producer. Unknown slices and overlapping ownership
 fail validation. Edit canonical sources or generators, then regenerate;
 `src/content/instituteos/*.json` is generated data.
 
+Current governance membership comes only from canonical `institute_roles`
+Position Names. The sync maps those names to the public `roles` labels; an empty
+or missing current list never falls back to internal role history. Published
+fellowship appointments and past SAB cohorts retain their separate histories.
+
 An approved `previousUrls` entry may replace a historical roster URL with its
 current registered destination. Both URLs must pass the source URL rules, the
 destination must have `ok: true`, and ambiguous replacements fail before probing

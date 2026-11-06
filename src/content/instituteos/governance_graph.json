@@ -20,10 +20,10 @@
           "President",
           "Treasurer",
           "Board Member",
-          "Officer",
-          "Member",
           "Unit Member",
-          "Board of Directors"
+          "Board of Directors",
+          "Member",
+          "Officer"
         ]
       },
       "href": "knowledge.html#member-daniel-friedman"
@@ -230,6 +230,7 @@
         "roles": [
           "Board Member",
           "Director",
+          "Board of Directors",
           "Member"
         ]
       },
@@ -341,8 +342,8 @@
         "roles": [
           "Vice President",
           "Secretary",
-          "Officer",
-          "Board Member"
+          "Board Member",
+          "Officer"
         ]
       },
       "href": "knowledge.html#member-alexandra-mikhailova"
@@ -820,8 +821,7 @@
       "meta": {
         "entity_type": "",
         "roles": [
-          "Unit Member",
-          "Fellow"
+          "Unit Member"
         ]
       },
       "href": "knowledge.html#member-anna-pereira"

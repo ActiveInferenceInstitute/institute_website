@@ -165,7 +165,7 @@
       "name": "governance_graph.json",
       "output_path": "src/content/instituteos/governance_graph.json",
       "record_count": 85,
-      "sha256": "b1a4f7056fcb249874bbcf689ad9e60c3ebb3ad881ee1316afc98c4f10ea7633",
+      "sha256": "e4338855880a9c549bd08e0fa8e47cd2073ae495a2913dacfbd53046b619be06",
       "target": "content"
     },
     {
@@ -291,7 +291,7 @@
       "name": "projects.json",
       "output_path": "data/projects.json",
       "record_count": 70,
-      "sha256": "0f495ae39dede16c1f8fcf909f8d9019b0ed9f20763870c37dc30ab10c3dc830",
+      "sha256": "4da3139fef61a378dadd1de5f5eeeb7065b5a450f2a56ceb9fe1283be756ad31",
       "target": "data"
     },
     {
@@ -310,6 +310,6 @@
     }
   ],
   "gate_version": "1.0.0",
-  "generated_at": "2026-10-26T21:23:17.516774+00:00",
-  "source_fingerprint": "a1db4c2892e5"
+  "generated_at": "2026-11-06T10:22:15.612632+00:00",
+  "source_fingerprint": "715706fdd018"
 }

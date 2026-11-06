@@ -290,14 +290,11 @@ function activitiesFeatureSection(currentDir = "") {
 // name is composed entirely of role words, e.g. "Board Secretary") are excluded
 // so only real members appear.
 const GOVERNANCE_ROSTERS = {
-  "board-of-directors": { roles: ["Board of Directors", "Director"], title: "Current Board of Directors" },
-  officers: { roles: ["Officer", "President", "Vice President", "Secretary", "Treasurer"], title: "Current Officers" },
-  // "SAB membership" is the label the public export actually emits: the sync
-  // script collapses the registry's "Scientific Advisor" / "Scientific Advisory
-  // Board" roles into that one public membership name. The legacy labels stay
-  // listed so the roster keeps rendering if the export vocabulary changes back.
+  "board-of-directors": { roles: ["Board of Directors"], title: "Current Board of Directors" },
+  officers: { roles: ["Officer"], title: "Current Officers" },
+  // The producer maps exact current Position Names to these public labels.
   "scientific-advisory-board": {
-    roles: ["SAB membership", "Scientific Advisory Board", "Scientific Advisor"],
+    roles: ["SAB membership"],
     title: "Current Scientific Advisory Board",
   },
 };

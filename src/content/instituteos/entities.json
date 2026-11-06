@@ -412,8 +412,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "SAB membership",
-        "Unit Member"
+        "SAB membership"
       ],
       "tags": [],
       "title": "Primary point of contact / IE project facilitator for AICACP",
@@ -465,10 +464,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Vice President",
-        "Secretary",
-        "Officer",
-        "Board of Directors"
+        "Officer"
       ],
       "tags": [],
       "title": "Vice President & Secretary",
@@ -493,9 +489,7 @@
       "name": "Alianna Maren",
       "orgId": "active-inference-institute",
       "policyRoles": [],
-      "roles": [
-        "Board of Directors"
-      ],
+      "roles": [],
       "tags": [],
       "title": "Board Member",
       "website": ""
@@ -507,8 +501,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board of Directors",
-        "Unit Member"
+        "Board of Directors"
       ],
       "tags": [],
       "title": "Board Member",
@@ -546,10 +539,7 @@
       "name": "Anna Pereira",
       "orgId": "eduactive",
       "policyRoles": [],
-      "roles": [
-        "Unit Member",
-        "Fellow"
-      ],
+      "roles": [],
       "tags": [],
       "title": "",
       "website": ""
@@ -767,12 +757,9 @@
         }
       ],
       "roles": [
-        "President",
-        "Treasurer",
         "Board of Directors",
-        "Officer",
         "Member",
-        "Unit Member"
+        "Officer"
       ],
       "tags": [
         "leadership",
@@ -789,9 +776,7 @@
       "name": "Dean Tickles",
       "orgId": "active-inference-institute",
       "policyRoles": [],
-      "roles": [
-        "Board of Directors"
-      ],
+      "roles": [],
       "tags": [],
       "title": "Board Member (2022-2024)",
       "website": ""
@@ -802,9 +787,7 @@
       "name": "Ed Ober",
       "orgId": "active-inference-institute",
       "policyRoles": [],
-      "roles": [
-        "Board of Directors"
-      ],
+      "roles": [],
       "tags": [],
       "title": "Board Member",
       "website": ""
@@ -841,9 +824,7 @@
       "name": "Fraser Paterson",
       "orgId": "active-inference-institute",
       "policyRoles": [],
-      "roles": [
-        "Unit Member"
-      ],
+      "roles": [],
       "tags": [],
       "title": "Primary point of contact / IE project facilitator for Improving RxInfer.jl's Model Visualization Capabilities",
       "website": ""
@@ -881,8 +862,7 @@
       "orgId": "eduactive",
       "policyRoles": [],
       "roles": [
-        "SAB membership",
-        "Unit Member"
+        "SAB membership"
       ],
       "tags": [],
       "title": "",
@@ -907,9 +887,7 @@
       "name": "Ivan Metelkin",
       "orgId": "active-inference-institute",
       "policyRoles": [],
-      "roles": [
-        "Unit Member"
-      ],
+      "roles": [],
       "tags": [],
       "title": "Primary point of contact / IE project facilitator for Active Inference for Built Environments & CooperActive Systems",
       "website": ""
@@ -934,7 +912,6 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Unit Member",
         "Fellow"
       ],
       "tags": [],
@@ -947,9 +924,7 @@
       "name": "Jeremy Cooper",
       "orgId": "active-inference-institute",
       "policyRoles": [],
-      "roles": [
-        "Unit Member"
-      ],
+      "roles": [],
       "tags": [],
       "title": "Primary point of contact / IE project facilitator for Active Inference Account of Belief Updating in PTSD",
       "website": ""
@@ -960,9 +935,7 @@
       "name": "Jesse G",
       "orgId": "eduactive",
       "policyRoles": [],
-      "roles": [
-        "Unit Member"
-      ],
+      "roles": [],
       "tags": [],
       "title": "",
       "website": ""
@@ -987,7 +960,6 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Unit Member",
         "Fellow"
       ],
       "tags": [],
@@ -1027,8 +999,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Member",
-        "SAB membership"
+        "Member"
       ],
       "tags": [],
       "title": "",
@@ -1105,9 +1076,7 @@
       "name": "PabloFM",
       "orgId": "eduactive",
       "policyRoles": [],
-      "roles": [
-        "Unit Member"
-      ],
+      "roles": [],
       "tags": [],
       "title": "",
       "website": ""
@@ -1118,9 +1087,7 @@
       "name": "Rafael Kaufmann",
       "orgId": "active-inference-institute",
       "policyRoles": [],
-      "roles": [
-        "Board of Directors"
-      ],
+      "roles": [],
       "tags": [],
       "title": "Board Member (2022-2024)",
       "website": ""
@@ -1132,7 +1099,6 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Unit Member",
         "Fellow"
       ],
       "tags": [],
@@ -1184,9 +1150,7 @@
       "name": "Shagor (Shaggy) Rahman",
       "orgId": "active-inference-institute",
       "policyRoles": [],
-      "roles": [
-        "Unit Member"
-      ],
+      "roles": [],
       "tags": [],
       "title": "Primary point of contact / IE project facilitator for Humanity's Story of an Uncertain Self",
       "website": ""
@@ -1197,9 +1161,7 @@
       "name": "Theodoros Aliferis",
       "orgId": "active-inference-institute",
       "policyRoles": [],
-      "roles": [
-        "Unit Member"
-      ],
+      "roles": [],
       "tags": [],
       "title": "Primary point of contact / IE project facilitator for The Einstein Model of a Solid as a Model of the Mental Apparatus from the Economic Perspective of Psychoanalytic Theory",
       "website": ""
@@ -1238,8 +1200,7 @@
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
-        "Board of Directors",
-        "Unit Member"
+        "Board of Directors"
       ],
       "tags": [],
       "title": "Board Member",

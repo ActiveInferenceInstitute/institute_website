@@ -48,10 +48,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -93,10 +93,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -149,10 +149,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -204,10 +204,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         },
@@ -267,10 +267,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -325,10 +325,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -389,10 +389,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -584,10 +584,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -798,10 +798,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -872,10 +872,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -957,10 +957,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -1002,8 +1002,7 @@
           "id": "anna-pereira",
           "name": "Anna Pereira",
           "institute_roles": [
-            "Unit Member",
-            "Fellow"
+            "Unit Member"
           ],
           "active": true
         }
@@ -1050,10 +1049,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -1092,10 +1091,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -1280,10 +1279,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -1334,10 +1333,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -1423,10 +1422,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -1471,10 +1470,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -1518,10 +1517,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -1612,6 +1611,7 @@
           "institute_roles": [
             "Board Member",
             "Director",
+            "Board of Directors",
             "Member"
           ],
           "active": true
@@ -1623,10 +1623,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -1714,10 +1714,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         },
@@ -1970,10 +1970,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -2057,10 +2057,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -2154,10 +2154,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -2203,10 +2203,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -2334,10 +2334,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -2391,10 +2391,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -2483,10 +2483,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -2705,10 +2705,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }
@@ -2854,10 +2854,10 @@
             "President",
             "Treasurer",
             "Board Member",
-            "Officer",
-            "Member",
             "Unit Member",
-            "Board of Directors"
+            "Board of Directors",
+            "Member",
+            "Officer"
           ],
           "active": true
         }

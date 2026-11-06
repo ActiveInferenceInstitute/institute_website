@@ -472,15 +472,25 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
                 return value
         return ""
 
-    def public_membership_roles(roles: list[str]) -> list[str]:
-        """Collapse legacy governance labels into public membership names."""
+    def current_membership_roles(roles: object) -> list[str]:
+        """Project a validated current-position list into stable public labels."""
+        if roles is None:
+            return []
+        if not isinstance(roles, list) or any(not isinstance(role, str) for role in roles):
+            raise ValueError("institute_roles must be a list of strings or null")
+        labels = {
+            "Board of Directors": "Board of Directors",
+            "Scientific Advisory Board": "SAB membership",
+            "Fellow": "Fellow",
+            "Officer": "Officer",
+            "Intern": "Intern",
+            "Member": "Member",
+            "Partner": "Partner",
+            "Registered Agent": "Registered Agent",
+        }
         normalized = []
         for role in roles:
-            public_role = public_text(role)
-            if public_role in {"Scientific Advisor", "Scientific Advisory Board"}:
-                public_role = "SAB membership"
-            elif public_role in {"Board Member", "Director", "Board of Directors"}:
-                public_role = "Board of Directors"
+            public_role = labels.get(role)
             if public_role and public_role not in normalized:
                 normalized.append(public_role)
         return normalized
@@ -512,7 +522,7 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
                 "id": entity.get("id"),
                 "name": public_text(entity.get("name")),
                 "title": public_text(entity.get("title")),
-                "roles": public_membership_roles(entity.get("roles", [])),
+                "roles": current_membership_roles(entity.get("institute_roles")),
                 "website": public_website(entity),
                 "orgId": entity.get("org_id"),
                 "active": entity.get("active"),
