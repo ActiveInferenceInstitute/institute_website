@@ -5,6 +5,11 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+## v4.0.2 — 2026-11-06
+
+- Keep package and lockfile release versions synchronized, and reject inconsistent metadata in the offline site contract.
+- Exercise stale and malformed lock metadata with real-file controls and document the version-before-build release sequence.
+
 ## v4.0.1 — 2026-11-05
 
 - Synchronize the public Bylaws record with adopted version 1.1 (September 18, 2026) and rebuild the public site.

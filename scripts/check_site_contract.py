@@ -1557,6 +1557,23 @@ def check_version(root: Path, errors: list[str]) -> None:
         errors.append(f"version.json is not valid JSON: {exc}")
         return
     package = json.loads((root / "package.json").read_text(encoding="utf-8"))
+    try:
+        lock = json.loads((root / "package-lock.json").read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"package-lock.json cannot be read as JSON: {exc}")
+    else:
+        if not isinstance(lock, dict):
+            errors.append("package-lock.json must contain an object")
+        else:
+            packages = lock.get("packages")
+            root_package = packages.get("") if isinstance(packages, dict) else None
+            root_version = root_package.get("version") if isinstance(root_package, dict) else None
+            for field, actual in (("version", lock.get("version")), ('packages[""].version', root_version)):
+                if actual != package.get("version"):
+                    errors.append(
+                        f"package-lock.json {field} {actual!r} does not match "
+                        f"package.json version {package.get('version')!r}"
+                    )
     if version.get("site_version") != package.get("version"):
         errors.append(
             f"version.json site_version {version.get('site_version')!r} does not match "
