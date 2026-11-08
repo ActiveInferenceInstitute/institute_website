@@ -8,10 +8,6 @@
     {
       "label": "Apply for the internship",
       "sourceId": "internform"
-    },
-    {
-      "label": "Intern details",
-      "sourceId": "official-intern"
     }
   ],
   "sections": [
@@ -32,10 +28,10 @@
     },
     {
       "heading": "How to Apply",
-      "body": "The Internship pathway page lists current open positions and describes how to express interest. Most internship engagement begins through community participation — attending activities, volunteering on a project, and then formalizing a contribution scope.\n\nIf you are new to the Institute, starting as a volunteer and moving toward an internship is the most natural path.",
+      "body": "Use the internship application form to express interest. Most internship engagement begins through community participation — attending activities, volunteering on a project, and then formalizing a contribution scope.\n\nIf you are new to the Institute, starting as a volunteer and moving toward an internship is the most natural path.",
       "links": [
         {
-          "sourceId": "official-intern"
+          "sourceId": "internform"
         },
         {
           "label": "Volunteer",
@@ -117,7 +113,6 @@
   ],
   "externalSourceIds": [
     "internform",
-    "official-intern",
     "discord",
     "weekly"
   ],

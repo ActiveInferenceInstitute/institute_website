@@ -34,8 +34,12 @@ fail validation. Edit canonical sources or generators, then regenerate;
 
 Current governance membership comes only from canonical `institute_roles`
 Position Names. The sync maps those names to the public `roles` labels; an empty
-or missing current list never falls back to internal role history. Published
-fellowship appointments and past SAB cohorts retain their separate histories.
+or missing current list never falls back to internal role history. For two
+explicitly approved Board appointments, the sync reuses existing public
+directory entries and projects only the approved display name and current Board
+membership from the matching active roster record. Imported records, contact
+details and other imported roles remain outside the public entity export.
+Published fellowship appointments and past SAB cohorts retain their separate histories.
 
 An approved `previousUrls` entry may replace a historical roster URL with its
 current registered destination. Both URLs must pass the source URL rules, the

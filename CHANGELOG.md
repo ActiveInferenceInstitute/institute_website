@@ -5,6 +5,11 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+## v4.0.4 — 2026-11-08
+
+- Publish the ten current directors under their approved names while retaining existing public directory links.
+- Direct volunteer inquiries to Discord and internship applications to the current form across all locales.
+
 ## v4.0.3 — 2026-11-06
 
 - Project current public memberships from canonical Institute positions, preserving privacy and appointment history.

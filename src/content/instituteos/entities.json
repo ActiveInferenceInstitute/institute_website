@@ -486,10 +486,12 @@
     {
       "active": null,
       "id": "alianna-maren",
-      "name": "Alianna Maren",
+      "name": "Alianna J. Maren",
       "orgId": "active-inference-institute",
       "policyRoles": [],
-      "roles": [],
+      "roles": [
+        "Board of Directors"
+      ],
       "tags": [],
       "title": "Board Member",
       "website": ""
@@ -784,10 +786,12 @@
     {
       "active": null,
       "id": "ed-ober",
-      "name": "Ed Ober",
+      "name": "Edward Ober",
       "orgId": "active-inference-institute",
       "policyRoles": [],
-      "roles": [],
+      "roles": [
+        "Board of Directors"
+      ],
       "tags": [],
       "title": "Board Member",
       "website": ""
@@ -1182,7 +1186,7 @@
     {
       "active": true,
       "id": "bleu-knight",
-      "name": "Virginia Bleu Knight",
+      "name": "V. Bleu Knight",
       "orgId": "active-inference-institute",
       "policyRoles": [],
       "roles": [
