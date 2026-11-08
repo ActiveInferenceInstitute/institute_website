@@ -447,7 +447,15 @@ def sanitize_sab_cohorts(cohorts_data: dict[str, Any]) -> dict[str, Any]:
 def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
     people = []
     organizations = []
+    entities = entities_data.get("entities", [])
     excluded_people = {"alexander-vyatkin"}
+    board_role = "Board of Directors"
+    # These two public Board appointments use the existing directory anchors.
+    # Only the explicitly approved display name and Board role cross the boundary.
+    board_appointments = {
+        "alianna-j-maren": ("alianna-maren", "Alianna Maren", "Alianna J. Maren"),
+        "edward-ober": ("ed-ober", "Ed Ober", "Edward Ober"),
+    }
 
     def public_website(entity: dict[str, Any]) -> str:
         """Return the person's own public web presence, or "".
@@ -495,11 +503,22 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
                 normalized.append(public_role)
         return normalized
 
-    for entity in entities_data.get("entities", []):
+    approved_board_names = {}
+    for entity in entities:
+        appointment = board_appointments.get(entity.get("id"))
+        if appointment is None:
+            continue
+        public_id, previous_name, display_name = appointment
+        if (entity.get("entity_type") == "person" and entity.get("name") == display_name
+                and entity.get("active") is True and not entity.get("role_placeholder")
+                and "roster-import" in (entity.get("tags") or [])
+                and board_role in current_membership_roles(entity.get("institute_roles"))):
+            approved_board_names[public_id] = (previous_name, display_name)
+
+    for entity in entities:
         entity_type = entity.get("entity_type")
         # Public-release gate: contacts imported from the private CRM roster
-        # (tagged "roster-import") are directory contacts, not public governance
-        # members — withhold them from the public knowledge page.
+        # (tagged "roster-import") remain excluded as public entity records.
         if "roster-import" in (entity.get("tags") or []):
             continue
         # Public-release gate: generic RACI role-slots (e.g. "Compliance Officer",
@@ -518,11 +537,21 @@ def sanitize_entities(entities_data: dict[str, Any]) -> dict[str, Any]:
                 }
                 for link in entity.get("policy_links", [])
             ]
+            entity_id = entity.get("id")
+            name = public_text(entity.get("name"))
+            roles = current_membership_roles(entity.get("institute_roles"))
+            board_name = approved_board_names.get(entity_id)
+            if board_name and name in board_name:
+                name = board_name[1]
+                if board_role not in roles:
+                    roles.append(board_role)
+            if entity_id == "bleu-knight" and name == "Virginia Bleu Knight" and board_role in roles:
+                name = "V. Bleu Knight"
             record = {
-                "id": entity.get("id"),
-                "name": public_text(entity.get("name")),
+                "id": entity_id,
+                "name": name,
                 "title": public_text(entity.get("title")),
-                "roles": current_membership_roles(entity.get("institute_roles")),
+                "roles": roles,
                 "website": public_website(entity),
                 "orgId": entity.get("org_id"),
                 "active": entity.get("active"),

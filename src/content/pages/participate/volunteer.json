@@ -6,10 +6,6 @@
   "lede": "Volunteering is how most people begin participating in the Institute. There is no expertise threshold — contributions at every level of familiarity with Active Inference are meaningful and welcome.",
   "primaryActions": [
     {
-      "label": "Volunteer pathway",
-      "sourceId": "official-volunteer"
-    },
-    {
       "label": "Join Discord",
       "sourceId": "discord"
     }
@@ -29,10 +25,10 @@
     },
     {
       "heading": "How to Get Started",
-      "body": "The best way to start volunteering is to join the Discord community, attend an open activity, and let the organizers know you are interested in contributing. The newsletter archive covers recent activities and projects.\n\nThe Institute uses a volunteer registration form to collect interest and match volunteers with projects — the Volunteer pathway page and the organizers in Discord have the current link. No prior experience is required to introduce yourself and find where you can help.",
+      "body": "The best way to start volunteering is to join the Discord community, attend an open activity, and let the organizers know you are interested in contributing. The newsletter archive covers recent activities and projects.\n\nAsk the organizers in Discord for the current volunteer registration link. No prior experience is required to introduce yourself and find where you can help.",
       "links": [
         {
-          "sourceId": "official-volunteer"
+          "sourceId": "discord"
         },
         {
           "sourceId": "official-activities-shortlink"
@@ -113,7 +109,6 @@
     "activities"
   ],
   "externalSourceIds": [
-    "official-volunteer",
     "discord",
     "weekly",
     "official-activities-shortlink",
