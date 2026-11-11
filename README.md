@@ -163,7 +163,8 @@ The `/instituteos/` page and homepage export-gate band are covered by `npm run c
 
 ## Local Workflow
 
-Install dependencies once:
+The build has no runtime dependencies, so installation is optional; `npm install`
+is a harmless no-op kept only so the workflow matches a conventional Node package.
 
 ```bash
 npm install

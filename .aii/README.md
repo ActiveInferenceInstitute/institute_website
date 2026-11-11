@@ -23,10 +23,10 @@ Institute repositories without touching this project's own content. The schema i
 | Repository | `ActiveInferenceInstitute/institute_website` |
 | Category | `website` |
 | Status | `active` |
-| Maturity | `wip` |
+| Maturity | `released` |
 | License | `CC-BY-4.0` |
 | Default branch | `main` |
-| Homepage | — |
+| Homepage | https://activeinference.institute |
 | Tags | `institute-website`, `website`, `static-site`, `github-pages` |
 
 ## Capabilities
@@ -41,8 +41,8 @@ Institute repositories without touching this project's own content. The schema i
 
 | Task | Command | Working directory | Description |
 | --- | --- | --- | --- |
-| `build` | `npm run build` | `.` | npm build. |
-| `check` | `npm run check` | `.` | Run the check script. |
+| `build` | `npm run build` | `.` | Render every public HTML page and crawler file from src/content with node src/build.mjs; no install or network needed. |
+| `check` | `npm run check` | `.` | Run the offline release gate chain (node --check, py_compile, internal and Markdown links, source controls, site, feed, security, redirect, indexability, project, i18n, and standalone checks). |
 
 ## Links
 

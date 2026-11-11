@@ -35,10 +35,11 @@ node src/build.mjs          # render content -> committed HTML
 npm run check               # all gates (run before commit)
 ```
 
-`npm run check` runs 13 offline sub-gates: `check:links`, `check:md-links`,
+`npm run check` runs 17 offline sub-gates: `check:links`, `check:md-links`,
+`check:source-controls`, `check:sources:offline`, `check:citations`,
 `check:instituteos`, `check:export`, `check:design-system`, `check:site`,
-`check:feeds`, `check:security`, `check:redirects`, `check:projects`,
-`check:catalog`, `check:i18n`, and `check:standalone`. See
+`check:feeds`, `check:security`, `check:redirects`, `check:indexability`,
+`check:projects`, `check:catalog`, `check:i18n`, and `check:standalone`. See
 [the gate reference](docs/GATES_AND_VALIDATION.md) for contracts and failures.
 `npm run check:browser` separately runs the calendar regression in real Chrome
 with `CHROME_BIN` set; CI runs it on both supported Node versions.

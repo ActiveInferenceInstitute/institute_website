@@ -47,6 +47,9 @@ treat as order-of-magnitude):
 | --- | --- | --- | --- | --- |
 | `check:links` | `check_internal_links.py` | href/src/poster + `#fragment` anchors in every generated HTML | heavy-ish (parses all built HTML) | — |
 | `check:md-links` | `check_markdown_links.py` | relative links in tracked `*.md` | ~8 s | — |
+| `check:source-controls` | `python3 -m unittest discover -s scripts -p 'test_*.py'` + `node --test scripts/test_public_links.mjs` | offline Python control/regression tests and public-link policy | — (not re-observed) | — |
+| `check:sources:offline` | `check_live_sources.py --offline` | `live-sources.json` manifest integrity without network | — (not re-observed) | — |
+| `check:citations` | `node --test scripts/test_citation_links.mjs` | citation-link catalog controls | — (not re-observed) | — |
 | `check:instituteos` | `sync_instituteos_public_data.py --check` | committed public-data parity/safety | medium | historical: `videos.json` "Notes" tripped a substring scan; key matching is now key-level only (`validate_public_prose_payload`), so it should not recur |
 | `check:export` | Node export-manifest and indexing tests | provenance, redirect/indexing controls, localized calendar markup | medium | — |
 | `check:design-system` | `check_design_system_export.mjs` | CSS token fallbacks + `instituteos-ds.css`/font byte-parity | medium | fails when the private design-system checkout is absent and the export is stale |

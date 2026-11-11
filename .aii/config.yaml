@@ -1,7 +1,7 @@
 # AII sidecar — InstituteOS metadata. Schema: aii_platform.aii_sidecar
 meta:
   sidecar_version: 1.2.1
-  updated: '2026-11-10'
+  updated: '2026-11-11'
 repo:
   name: institute_website
   slug: institute-website
@@ -9,8 +9,11 @@ repo:
   description: Static GitHub Pages resource hub for the Active Inference Institute
     — newcomer, learner, researcher, and contributor pathways plus verified public
     resources and the InstituteOS public-interface pages.
+  homepage: https://activeinference.institute
 institute:
   category: website
+  status: active
+  maturity: released
   steward: Active Inference Institute
 ecosystem:
   relations:
@@ -47,6 +50,7 @@ artifacts:
   description: Changelog.
 provenance:
   license: CC-BY-4.0
+  current_release: v4.0.4
   citation:
     text: Active Inference Institute — institute_website.
 instituteos:
@@ -64,10 +68,10 @@ capabilities:
 tasks:
   build:
     cmd: npm run build
-    description: npm build.
+    description: Render every public HTML page and crawler file from src/content with node src/build.mjs; no install or network needed.
   check:
     cmd: npm run check
-    description: Run the check script.
+    description: Run the offline release gate chain (node --check, py_compile, internal and Markdown links, source controls, site, feed, security, redirect, indexability, project, i18n, and standalone checks).
 docs:
 - README.md
 - AGENTS.md
