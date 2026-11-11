@@ -21,6 +21,7 @@ concurrency:
 
 jobs:
   build-and-check:
+    timeout-minutes: 120
     strategy:
       matrix:
         node: ["22", "24"]
@@ -65,7 +66,8 @@ jobs:
 
       - name: Run newsletter and contrast browser regressions
         run: |
-          export CHROME_BIN="$(command -v google-chrome)"
+          CHROME_BIN="$(command -v google-chrome)"
+          export CHROME_BIN
           WEBSITE_AUDIT_OUTPUT="${RUNNER_TEMP}/website-newsletter-browser" npm run check:browser:archive
           WEBSITE_AUDIT_OUTPUT="${RUNNER_TEMP}/website-contrast-browser" node scripts/check_audit_browser.mjs --quick
 

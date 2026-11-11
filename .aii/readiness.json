@@ -1,0 +1,11 @@
+{
+  "schema": "aii-readiness/v1",
+  "repo": "ActiveInferenceInstitute/institute_website",
+  "tier": "typescript-node",
+  "standard_version": "1.0.0",
+  "baseline": {
+    "commit": "448ade3dcaf3014d754772ccc069569ed9bf8895",
+    "measured_at": "2026-11-10"
+  },
+  "waivers": []
+}

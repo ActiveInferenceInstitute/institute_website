@@ -1,11 +1,14 @@
-# AII sidecar — InstituteOS metadata. Schema: instituteos.platform.aii_sidecar
+# AII sidecar — InstituteOS metadata. Schema: aii_platform.aii_sidecar
 meta:
-  updated: '2026-06-30'
+  sidecar_version: 1.2.1
+  updated: '2026-11-10'
 repo:
   name: institute_website
   slug: institute-website
   full_name: ActiveInferenceInstitute/institute_website
-  description: Static public resource hub for the Active Inference Institute.
+  description: Static GitHub Pages resource hub for the Active Inference Institute
+    — newcomer, learner, researcher, and contributor pathways plus verified public
+    resources and the InstituteOS public-interface pages.
 institute:
   category: website
   steward: Active Inference Institute
@@ -27,23 +30,48 @@ artifacts:
 - path: package.json
   kind: code
   description: Node package config.
+- path: AGENTS.md
+  kind: doc
+  description: Agent guidance.
+- path: LICENSE
+  kind: doc
+  description: License.
+- path: CITATION.cff
+  kind: citation
+  description: Machine-readable citation metadata.
+- path: docs
+  kind: doc
+  description: Documentation tree.
+- path: CHANGELOG.md
+  kind: doc
+  description: Changelog.
 provenance:
   license: CC-BY-4.0
   citation:
     text: Active Inference Institute — institute_website.
 instituteos:
   tags:
-  - institute
+  - institute-website
   - website
-  - static
-  - public
-  - resource
-  - html
+  - static-site
+  - github-pages
 capabilities:
 - node-package
 - documentation
 - dataset
+- ci
+- citation
 tasks:
   build:
     cmd: npm run build
     description: npm build.
+  check:
+    cmd: npm run check
+    description: Run the check script.
+docs:
+- README.md
+- AGENTS.md
+- docs/INTEGRATION.md
+- docs/README.md
+- docs/AGENTS.md
+schema: aii-sidecar/v1
