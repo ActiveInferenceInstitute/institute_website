@@ -24,8 +24,8 @@ The enforced contract and full command table for this folder are in
   including the per-folder guides.
 - **Node gates** — [`check_design_system_export.mjs`](check_design_system_export.mjs),
   [`check_project_catalog_coverage.mjs`](check_project_catalog_coverage.mjs),
-  [`check_export_manifest.py`](check_export_manifest.py), and the `test_*.mjs`
-  controls.
+  and the `test_*.mjs` controls (which drive the Python helper
+  [`check_export_manifest.py`](check_export_manifest.py)).
 - **Networked** — [`check_live_sources.py`](check_live_sources.py)
   (`npm run check:sources` / `--offline`) verifies the external-link registry.
 - **Sync** — [`sync_instituteos_public_data.py`](sync_instituteos_public_data.py),
