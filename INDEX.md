@@ -12,7 +12,7 @@ Static, zero-runtime-dependency site for the Active Inference Institute. `node s
 | `scripts/` | SOURCE | yes | Build/gate/sync scripts (`check_*.py`, `sync_instituteos_public_data.py`, `i18n_translate.mjs`). See [scripts/AGENTS.md](scripts/AGENTS.md) |
 | `assets/` | SOURCE | yes | CSS / JS / images (`css/styles.css`, `css/graphs.css`, `js/site.js`). See [assets/AGENTS.md](assets/AGENTS.md) |
 | `data/` | CONFIG | yes | Build provenance (`export-manifest.json`) + `projects.json` feed. See [data/README.md](data/README.md) |
-| `docs/` | DOCS | yes | 11 conceptual guides — **start at [docs/README.md](docs/README.md)** |
+| `docs/` | DOCS | yes | 12 conceptual guides — **start at [docs/README.md](docs/README.md)** |
 | `.claude/` | TOOLING | yes | `skills/institute-website/` skill + Workflows |
 | `.github/` | CONFIG | yes | CI (builds, runs `npm run check`, asserts committed HTML parity) |
 | `node_modules/` | TOOLING | never | npm-managed, gitignored — not build output |

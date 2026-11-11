@@ -908,6 +908,12 @@ check:links (validates generated HTML has no broken refs)
   ↓
 check:md-links (validates relative links in tracked Markdown docs)
   ↓
+check:source-controls (offline Python/Node control + public-link-policy tests)
+  ↓
+check:sources:offline (validates live-source manifest integrity without network)
+  ↓
+check:citations (validates citation/DOI identity + rendered bibliography)
+  ↓
 check:instituteos (validates public data sync)
   ↓
 check:export (validates export provenance, indexing controls and calendar markup)
@@ -921,6 +927,8 @@ check:feeds (validates feed.xml/feed.json structure + feed/sitemap target existe
 check:security (validates CSP, no disallowed tags, external anchors backed)
   ↓
 check:redirects (validates legacy-URL redirect coverage)
+  ↓
+check:indexability (validates canonical/robots policy + hreflang/sitemap coverage)
   ↓
 check:projects (validates backend project ↔ website page discoverability)
   ↓

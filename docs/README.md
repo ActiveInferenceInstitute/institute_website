@@ -64,10 +64,15 @@ task runbooks.
 ## Quick command reference
 
 ```bash
-npm run build      # render JSON content -> HTML into the repo root
-npm run check      # run all gates (md-links, instituteos, design-system, site contract, security, redirects, projects, catalog)
-npm run i18n:translate   # update locale catalogs
+npm run build            # render JSON content -> HTML into the repo root
+npm run check            # all 17 offline sub-gates (see GATES_AND_VALIDATION.md)
+npm run check:sources    # network probe of external links; NOT part of `check`
+npm run i18n:translate   # update locale catalogs (offline engine)
 ```
 
 For the 2026-10-25 SEO repair, measured URL dispositions, optional HTTP 308 boundary,
 and deferred authenticated checks, read [Indexing repair and browser-agent handoff](INDEXING_REPAIR_2026-10-25.md).
+
+## Archive
+
+- [Review log 2026-08-02](archive/REVIEW_LOG_2026-08-02.md) — historical docs/gates review, kept for provenance only.

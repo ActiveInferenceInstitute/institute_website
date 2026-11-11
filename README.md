@@ -17,6 +17,21 @@ map) or [AGENTS.md](AGENTS.md) (documentation map), and the agent skill at
 [docs/README.md](docs/README.md). How to version and release: [RELEASING.md](RELEASING.md).
 The gated public-projection contract: [GATING.md](GATING.md).
 
+## Contents
+
+- [Purpose](#purpose)
+- [Public Content Policy](#public-content-policy)
+- [Architecture](#architecture)
+- [Content Model](#content-model)
+- [Public Data Injection](#public-data-injection)
+- [Local Workflow](#local-workflow)
+- [Internationalization](#internationalization)
+- [Deployment](#deployment)
+- [Status](#status)
+- [License](#license)
+- [Design Contract](#design-contract)
+- [InstituteOS sidecar](#instituteos-sidecar)
+
 ## Purpose
 
 This site helps visitors quickly find:
@@ -189,11 +204,13 @@ npm run check:design-system
 git diff --check
 ```
 
-`npm run check` is the deterministic offline gate and already chains `check:links`, `check:md-links`,
-`check:instituteos`, `check:design-system`, `check:site`, `check:security`,
-`check:redirects`, `check:projects`, `check:catalog`, `check:i18n`, and
-`check:standalone`; the individual
-commands above are listed for targeted runs. `check:sources` is intentionally
+`npm run check` is the deterministic offline gate and chains all 17 sub-gates:
+`check:links`, `check:md-links`, `check:source-controls`, `check:sources:offline`,
+`check:citations`, `check:instituteos`, `check:export`, `check:design-system`,
+`check:site`, `check:feeds`, `check:security`, `check:redirects`,
+`check:indexability`, `check:projects`, `check:catalog`, `check:i18n`, and
+`check:standalone`; the individual commands above are listed for targeted runs.
+`check:sources` is intentionally
 separate because it probes the network; use `check_live_sources.py --offline`
 when only manifest integrity can be verified.
 
@@ -243,6 +260,28 @@ Before pushing, confirm:
 - `npm run check:security` passes.
 - `npm run check:design-system` confirms the CSS stays aligned with the design-system tokens.
 - Browser checks cover desktop home, Resources, Directory, mobile navigation, Projects, Get Involved, and 404.
+
+## Status
+
+What works **offline, today, with no install** (`node` ≥ 20 and `python3` only):
+`npm run build` renders the complete site, and `npm run check` runs all 17
+offline sub-gates. `python3 -m http.server 4173` serves the committed output for
+local review.
+
+What needs the **network**: `npm run check:sources` probes every external link in
+`src/content/live-sources.json` (it is deliberately *outside* `npm run check`);
+use `python3 scripts/check_live_sources.py --offline` when disconnected.
+
+What needs a **private/adjacent checkout**: `npm run sync:instituteos` reads the
+InstituteOS registries via `INSTITUTEOS_ROOT` (the committed
+`src/content/instituteos/*.json` keep the offline build working), and
+`uv run instituteos export-website` is owned by the private InstituteOS package,
+not by this repository. Browser checks (`npm run check:browser*`) need a real
+Chrome via `CHROME_BIN`.
+
+Because the site runs under `connect-src 'none'`, translation cannot happen in
+the browser: `npm run i18n:translate` runs offline against a local Ollama model
+or a hosted OpenAI-compatible API and commits reviewable JSON catalogs.
 
 ## License
 

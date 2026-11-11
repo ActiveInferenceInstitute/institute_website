@@ -78,7 +78,7 @@ Start here, then open the most specific doc for your task:
 | **[`INDEX.md`](INDEX.md)** | Top-level repository map: every entry tagged source/output/config/docs, build+gate commands, doc map, gating, versioning. The fastest orientation. |
 | This file (`AGENTS.md`) | Operating contract, build/content/design model, gates. |
 | [`README.md`](README.md) | Human-facing overview. |
-| [`docs/README.md`](docs/README.md) | **Conceptual & navigation guides** (11 docs: ARCHITECTURE, SLUG_AND_URL_TAXONOMY, CONTENT_AUTHORING, GATES_AND_VALIDATION, …). Start here for the *why*. |
+| [`docs/README.md`](docs/README.md) | **Conceptual & navigation guides** (12 docs: ARCHITECTURE, SLUG_AND_URL_TAXONOMY, CONTENT_AUTHORING, GATES_AND_VALIDATION, …). Start here for the *why*. |
 | [`GATING.md`](GATING.md) | The gated-public-projection contract: what flows from private sources, sanitizers, gates, exclusions. |
 | [`RELEASING.md`](RELEASING.md) | How/where to version and cut a release (SemVer policy, checklist). |
 | [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) | Colors, tokens, the design-system export contract. |
