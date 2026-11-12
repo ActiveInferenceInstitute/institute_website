@@ -17,7 +17,7 @@ class SourceDiscoveryTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temp = tempfile.TemporaryDirectory(prefix="website-source-discovery-")
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         self.env = {key: value for key, value in os.environ.items() if key != "INSTITUTEOS_ROOT"}
 
     def checkout(self, relative: str) -> Path:

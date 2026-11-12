@@ -1,90 +1,88 @@
 name: CI
 
-# Validates the static, dependency-free build on every push and pull request to
-# main. The site is served by GitHub Pages directly from main at the repository
-# root, so the committed *.html must always match what `node src/build.mjs`
-# produces from src/content. This workflow rebuilds, runs the full check gate,
-# and fails if the committed output has drifted from source.
-
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_call:
+    inputs:
+      stage-pages:
+        description: Stage the checked source for the separate reviewed deployment
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 concurrency:
-  group: ci-${{ github.ref }}
+  group: checks-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build-and-check:
     timeout-minutes: 120
-    strategy:
-      matrix:
-        node: ["22", "24"]
-        python: ["3.12"]
-        include:
-          - node: "22"
-            python: "3.15"
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
       - name: Set up Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: ${{ matrix.node }}
+          node-version: "22"
           package-manager-cache: false
-
       - name: Set up Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
-          python-version: ${{ matrix.python }}
-
-      # Zero-dependency build: no runtime npm packages are installed, so a
-      # plain install is a no-op; it keeps the step honest if a dev dependency
-      # is ever added. package-lock.json is committed (repository metadata),
-      # but nothing is installed from it.
-      - name: Install Node dependencies
-        run: npm install --no-audit --no-fund
-
+          python-version: "3.12"
+      # package-lock.json has no dependencies. Do not repeat no-op installs.
       - name: Build static site
-        run: npm run build
-
-      # The full gate: node --check, py_compile, internal links, instituteos data
-      # sync, site contract, and static security. Offline-safe (the network-only
-      # live-source check is intentionally excluded from `npm run check`).
-      - name: Run checks
-        run: npm run check
-
-      - name: Run calendar browser regression
-        run: CHROME_BIN="$(command -v google-chrome)" npm run check:browser
-
-      - name: Run newsletter and contrast browser regressions
-        run: |
-          CHROME_BIN="$(command -v google-chrome)"
-          export CHROME_BIN
-          WEBSITE_AUDIT_OUTPUT="${RUNNER_TEMP}/website-newsletter-browser" npm run check:browser:archive
-          WEBSITE_AUDIT_OUTPUT="${RUNNER_TEMP}/website-contrast-browser" node scripts/check_audit_browser.mjs --quick
-
-      # GitHub Pages serves the committed *.html. If the build produced output
-      # that differs from what is committed, the published site is stale — fail
-      # loudly so the contributor rebuilds and commits the regenerated output.
+        run: ./run.sh build
+      - name: Run full offline gate (includes lint and docs)
+        run: ./run.sh full
+      - name: Run browser regressions once
+        run: CHROME_BIN="$(command -v google-chrome)" WEBSITE_AUDIT_OUTPUT="$RUNNER_TEMP/website-browser" ./run.sh browser
       - name: Verify committed output is up to date
-        run: |
-          if ! git diff --exit-code; then
-            echo "::error::Generated output is out of date. Run 'npm run build' and commit the result."
-            exit 1
-          fi
+        run: git diff --exit-code
+      - name: Stage public output and bind deployment identity
+        if: inputs.stage-pages
+        env:
+          SITE_ARTIFACT: ${{ runner.temp }}/reviewed-site
+          RELEASE_SHA: ${{ github.sha }}
+          RELEASE_RUN: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 scripts/stage_public_assets.py --output "$SITE_ARTIFACT" --commit "$RELEASE_SHA" --run-url "$RELEASE_RUN"
+      - name: Upload reviewed Pages artifact
+        if: inputs.stage-pages
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ${{ runner.temp }}/reviewed-site
 
-  # GNN pin: .github/gnn-pin.json (v5.0.3, 8f293d9ba810e6eda5c09842d9c7ed9ffa5f92c1)
+  compatibility:
+    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        include:
+          - node: "24"
+            python: "3.12"
+          - node: "22"
+            python: "3.15"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ matrix.node }}
+          package-manager-cache: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      # Compatibility smoke only; full generated-site/browser work is above.
+      - run: ./run.sh lint
+      - run: ./run.sh fast
+
   gnn-conformance:
     name: gnn conformance (pinned)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -92,96 +90,12 @@ jobs:
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
+      - name: Set up Node.js for the shared entry point
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22"
+          package-manager-cache: false
       - name: Install pinned GNN parser
-        run: |
-          python -m pip install --disable-pip-version-check defusedxml psutil pyyaml
-          python - <<'PY'
-          import json
-          import subprocess
-          import sys
-          from pathlib import Path
-
-          pin = json.loads(Path(".github/gnn-pin.json").read_text(encoding="utf-8"))
-          assert pin["repository"] == "ActiveInferenceInstitute/Generalized_Notation_Notation"
-          assert pin["tag"] == "v5.0.3"
-          assert pin["revision"] == "8f293d9ba810e6eda5c09842d9c7ed9ffa5f92c1"
-          spec = (
-              "generalized-notation-notation @ "
-              f"git+https://github.com/{pin['repository']}.git@{pin['revision']}"
-          )
-          subprocess.check_call(
-              [sys.executable, "-m", "pip", "install", "--disable-pip-version-check", "--no-deps", spec]
-          )
-          PY
+        run: python3 scripts/check_gnn_conformance.py --install
       - name: Verify pinned parser and repository sketches
-        run: |
-          python - <<'PY'
-          import json
-          import shutil
-          import tempfile
-          import urllib.request
-          from pathlib import Path
-
-          from gnn import __version__
-          from gnn.parsers.basic import parse_gnn_formal, validate_gnn_syntax
-          from gnn.type_checker import GNNTypeChecker
-
-          pin = json.loads(Path(".github/gnn-pin.json").read_text(encoding="utf-8"))
-          expected_version = pin["tag"].removeprefix("v")
-          if __version__ != expected_version:
-              raise SystemExit(f"installed GNN {__version__!r} does not match {pin['tag']!r}")
-
-          sketches = sorted(Path(".").rglob("*.gnn.md"))
-          if sketches:
-              for sketch in sketches:
-                  parsed = parse_gnn_formal(sketch)
-                  if parsed is None or getattr(parsed, "parse_errors", None):
-                      raise SystemExit(f"{sketch} did not parse cleanly")
-                  valid, errors = validate_gnn_syntax(sketch.read_text(encoding="utf-8"))
-                  if not valid:
-                      raise SystemExit(f"{sketch} syntax errors: {errors!r}")
-              with tempfile.TemporaryDirectory(prefix="repo-gnn-") as output_dir:
-                  model_dir = Path(output_dir) / "models"
-                  model_dir.mkdir()
-                  for index, sketch in enumerate(sketches):
-                      shutil.copy2(sketch, model_dir / f"{index:03d}_{sketch.name}")
-                  if not GNNTypeChecker().validate_gnn_files(model_dir, Path(output_dir)):
-                      raise SystemExit("GNN type checker rejected the repository sketches")
-              checked = len(sketches)
-              source = "repository"
-          else:
-              exemplar_url = (
-                  "https://raw.githubusercontent.com/ActiveInferenceInstitute/"
-                  "Generalized_Notation_Notation/"
-                  f"{pin['revision']}/input/gnn_files/basics/static_perception.md"
-              )
-              with tempfile.TemporaryDirectory(prefix="pinned-exemplar-") as output_dir:
-                  exemplar = Path(output_dir) / "static_perception.md"
-                  urllib.request.urlretrieve(exemplar_url, exemplar)
-                  parsed = parse_gnn_formal(exemplar)
-                  if parsed is None or getattr(parsed, "parse_errors", None):
-                      raise SystemExit("pinned exemplar did not parse cleanly")
-                  valid, errors = validate_gnn_syntax(exemplar.read_text(encoding="utf-8"))
-                  if not valid:
-                      raise SystemExit(f"pinned exemplar syntax errors: {errors!r}")
-                  model_dir = Path(output_dir) / "models"
-                  model_dir.mkdir()
-                  shutil.copy2(exemplar, model_dir / exemplar.name)
-                  if not GNNTypeChecker().validate_gnn_files(model_dir, Path(output_dir)):
-                      raise SystemExit("GNN type checker rejected the pinned exemplar")
-              checked = 1
-              source = "pinned-exemplar"
-
-          print(
-              json.dumps(
-                  {
-                      "gnn-version": __version__,
-                      "pin-revision": pin["revision"],
-                      "models": checked,
-                      "source": source,
-                      "result": "verified",
-                  },
-                  sort_keys=True,
-              )
-          )
-          PY
+        run: ./run.sh gnn

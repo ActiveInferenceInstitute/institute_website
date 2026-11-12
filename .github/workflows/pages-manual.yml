@@ -1,7 +1,7 @@
 name: Reviewed Pages artifact deployment
 
 # Manual candidate only. Switch Pages from branch publishing to Actions before
-# adopting this workflow; do not run both publication mechanisms concurrently.
+# adopting this workflow; never run both publication mechanisms concurrently.
 on:
   workflow_dispatch:
 
@@ -14,33 +14,9 @@ concurrency:
 
 jobs:
   build:
-    timeout-minutes: 120
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
-        with:
-          node-version: "22"
-          package-manager-cache: false
-      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
-        with:
-          python-version: "3.12"
-      - name: Build and verify reviewed source
-        run: |
-          npm run build
-          npm run check
-          CHROME_BIN="$(command -v google-chrome)" npm run check:browser
-          git diff --exit-code
-      - name: Stage public output and bind deployment identity
-        env:
-          SITE_ARTIFACT: ${{ runner.temp }}/reviewed-site
-          RELEASE_SHA: ${{ github.sha }}
-          RELEASE_RUN: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: python3 scripts/stage_public_assets.py --output "$SITE_ARTIFACT" --commit "$RELEASE_SHA" --run-url "$RELEASE_RUN"
-      - name: Upload reviewed Pages artifact
-        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
-        with:
-          path: ${{ runner.temp }}/reviewed-site
+    uses: ./.github/workflows/ci.yml
+    with:
+      stage-pages: true
   deploy:
     timeout-minutes: 60
     needs: build
