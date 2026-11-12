@@ -11,14 +11,18 @@ The job verifies the pin and installed parser, parses every `*.gnn.md` sketch
 in the repository, and type-checks them. When the repository has no sketch yet,
 it parses the pinned upstream `input/gnn_files/basics/static_perception.md`
 exemplar; this is a pipeline and pin conformance baseline, not a claim that the
-repository already contains a model.
+repository already contains a model. The receipt's `result` says which happened:
+`repository-content-passed` when repository sketches were checked, and
+`pinned-exemplar-baseline-passed` when only the pinned exemplar was. The type
+check must return exactly `True`; `2` (invalid files or none found) and `False`
+fail the job.
 
 The implementation reads `schema`, `repository`, `revision` and `tag`; `recorded`
 is provenance metadata, not a parser argument. It installs by revision, checks
 the installed version against the tag and validates syntax plus type conformance.
 `--exemplar PATH` accepts offline bytes only when their SHA-256 matches the
 reviewed digest for the pin revision in `scripts/check_gnn_conformance.py`.
-Unknown revisions and mismatched bytes fail before parser imports or a verified
+Unknown revisions and mismatched bytes fail before parser imports or a passing
 receipt. The verified bytes are used directly, without reopening the input.
 Pin updates require reviewing the new immutable upstream exemplar and recording
 its digest. Without `--exemplar`, the no-sketch path downloads from the pinned revision.

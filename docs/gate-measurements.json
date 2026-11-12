@@ -39,16 +39,16 @@
       "command": "npm run check"
     }
   },
-  "refreshed_at": "2026-11-12T16:00:52.584900+00:00",
-  "command_source_sha256": "abbd1f045de41a467bd89fca800c904bc57cb00534622dc1a47f56ed4dad426d",
+  "refreshed_at": "2026-11-12T18:45:51.244153+00:00",
+  "command_source_sha256": "ad72e5daa751c4151cf2cd91429d028ddd5630e2f7867bd72bd861ee3c436aed",
   "after": {
     "lint": {
-      "seconds": 0.411,
+      "seconds": 0.501,
       "exit_code": 0,
       "command": "./run.sh lint"
     },
     "fast": {
-      "seconds": 2.754,
+      "seconds": 3.21,
       "exit_code": 0,
       "command": "./run.sh fast"
     },
@@ -63,9 +63,9 @@
       "command": "./run.sh docs"
     },
     "gnn": {
-      "seconds": 0.617,
+      "seconds": 0.88,
       "exit_code": 0,
-      "command": "./run.sh gnn --exemplar PINNED_FILE"
+      "command": "./run.sh gnn"
     },
     "browser": {
       "seconds": 18.623,

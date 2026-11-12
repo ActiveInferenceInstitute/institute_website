@@ -75,17 +75,24 @@ def main() -> None:
             parsed = parse_gnn_formal(sketch)
             if parsed is None or getattr(parsed, "parse_errors", None):
                 raise SystemExit(f"{sketch} did not parse cleanly")
-            valid, errors = validate_gnn_syntax(sketch.read_text(encoding="utf-8"))
+            valid, errors = validate_gnn_syntax(sketch.read_text(encoding="utf-8"), is_content=True)
             if not valid:
                 raise SystemExit(f"{sketch} syntax errors: {errors!r}")
         model_dir = output / "models"
         model_dir.mkdir()
         for index, sketch in enumerate(sketches):
             shutil.copy2(sketch, model_dir / f"{index:03d}_{sketch.name}")
-        if not GNNTypeChecker().validate_gnn_files(model_dir, output):
-            raise SystemExit("GNN type checker rejected the models")
+        # validate_gnn_files returns True only when every file validates; 2 means
+        # invalid files or no files found, False a hard failure. Require `is True`:
+        # a truthiness test would let 2 pass.
+        checked = GNNTypeChecker().validate_gnn_files(model_dir, output)
+        if checked is not True:
+            raise SystemExit(f"GNN type checker did not pass the models (returned {checked!r}; expected True)")
+    # A pinned-exemplar run only shows the pipeline and pin work; it says nothing
+    # about repository content, so the label must not read as a repository pass.
+    result = "repository-content-passed" if source == "repository" else "pinned-exemplar-baseline-passed"
     print(json.dumps({"gnn-version": __version__, "pin-revision": pin["revision"],
-                      "models": len(sketches), "source": source, "result": "verified"}, sort_keys=True))
+                      "models": len(sketches), "source": source, "result": result}, sort_keys=True))
 
 
 if __name__ == "__main__":
