@@ -11,6 +11,7 @@ This project follows [Semantic Versioning](https://semver.org/).
 - Add a checked flat documentation index and generated local gate measurements.
 - Canonicalize temporary fixture roots on macOS and avoid rerunning indexability controls in the full gate.
 - Bind offline GNN exemplar receipts to a reviewed per-revision SHA-256; reject unrelated models before issuing pinned conformance.
+- Derive the GNN timing note from the recorded commands, so an arm that fetches the pinned exemplar no longer reads as offline.
 
 
 ## v4.0.4 — 2026-11-08

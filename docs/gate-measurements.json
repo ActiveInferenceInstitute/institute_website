@@ -26,7 +26,7 @@
     "gnn": {
       "seconds": 5.663,
       "exit_code": 0,
-      "command": "original CI GNN verification body; pinned exemplar pre-fetched"
+      "command": "original CI GNN verification body; fetches the pinned exemplar at the pin revision"
     },
     "build": {
       "seconds": 38.01,
@@ -39,8 +39,8 @@
       "command": "npm run check"
     }
   },
-  "refreshed_at": "2026-11-12T18:45:51.244153+00:00",
-  "command_source_sha256": "ad72e5daa751c4151cf2cd91429d028ddd5630e2f7867bd72bd861ee3c436aed",
+  "refreshed_at": "2026-11-12T19:39:25.386788+00:00",
+  "command_source_sha256": "b12d7268ade9f8bde15fb273fd53d69364d8f87529399bf804355457ff820016",
   "after": {
     "lint": {
       "seconds": 0.501,

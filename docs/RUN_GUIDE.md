@@ -98,7 +98,9 @@ Measured wall times and exit statuses live in generated
 [GATE_MEASUREMENTS.md](GATE_MEASUREMENTS.md), backed by the sanitized
 [observation data](gate-measurements.json). Never hand-edit numbers in prose.
 The producer records every arm once, continues after failures and saves raw logs
-outside the public checkout. Installation/download time is separate.
+outside the public checkout. Parser installation is never measured, and the GNN
+sentence beside the table is derived from each recorded command: an arm without
+`--exemplar` fetches the pinned exemplar and its time includes that download.
 
 ```sh
 GNN_PYTHON=/outside/checkout/gnn-env/bin/python CHROME_BIN=/path/to/chrome \
