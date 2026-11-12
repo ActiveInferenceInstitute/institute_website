@@ -8,8 +8,10 @@ Host: Darwin 27.0.0 arm64. Node v26.13.0; Python 3.15.2.
 One local run per phase/arm; seconds are wall time, including command startup but excluding dependency acquisition.
 Before/after failures are partial runs, not comparable full-suite timings. No speedup is claimed.
 The baseline build/full ran outside the governed sandbox with the default temporary directory;
-the other observations use the offline runner and a canonical temporary directory.
-GNN uses the same pre-fetched pinned exemplar in both phases; installation/download time is excluded.
+the other observations use the vault's governed execution and a canonical temporary directory.
+The GNN before arm fetches the pinned exemplar itself, so its time includes that download.
+The GNN after arm fetches the pinned exemplar itself, so its time includes that download.
+Parser installation is excluded from both arms.
 
 | Arm | Before (s) | Exit | After (s) | Exit |
 | --- | ---: | ---: | ---: | ---: |
