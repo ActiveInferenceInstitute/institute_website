@@ -16,9 +16,12 @@ repository already contains a model.
 The implementation reads `schema`, `repository`, `revision` and `tag`; `recorded`
 is provenance metadata, not a parser argument. It installs by revision, checks
 the installed version against the tag and validates syntax plus type conformance.
-`--exemplar PATH` accepts previously acquired pinned exemplar bytes for offline
-runs; callers must preserve their revision provenance. Without it, the no-sketch
-path downloads the exemplar from the pinned revision.
+`--exemplar PATH` accepts offline bytes only when their SHA-256 matches the
+reviewed digest for the pin revision in `scripts/check_gnn_conformance.py`.
+Unknown revisions and mismatched bytes fail before parser imports or a verified
+receipt. The verified bytes are used directly, without reopening the input.
+Pin updates require reviewing the new immutable upstream exemplar and recording
+its digest. Without `--exemplar`, the no-sketch path downloads from the pinned revision.
 
 Both workflows use pinned `actions/setup-python`, not the
 `ActiveInferenceInstitute/.github/.github/actions/setup-python-uv` composite.

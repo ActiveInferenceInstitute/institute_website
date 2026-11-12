@@ -61,8 +61,11 @@ Conformance parses repository `*.gnn.md` sketches. With none present, it validat
 the upstream `input/gnn_files/basics/static_perception.md` at that exact revision;
 this is a parser/pin baseline, not evidence of a repository model.
 For offline execution, acquire that file before entering the offline runner and
-pass `./run.sh gnn --exemplar /outside/checkout/static_perception.md`; preserve
-its revision provenance. The default no-sketch path downloads it.
+pass `./run.sh gnn --exemplar /outside/checkout/static_perception.md`. The checker
+requires a byte-exact SHA-256 match to the reviewed digest for the pin revision;
+unknown revisions or unrelated valid models are rejected. A pin update requires
+reviewing the new immutable upstream exemplar and recording its digest in the
+checker. The default no-sketch path downloads from the pinned revision.
 
 ## CI versus deployment
 

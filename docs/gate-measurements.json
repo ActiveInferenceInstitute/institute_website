@@ -39,13 +39,18 @@
       "command": "npm run check"
     }
   },
-  "refreshed_at": "2026-11-12T13:39:40.358017+00:00",
-  "command_source_sha256": "cfe702b730cff81086a32b4ae7927c20b1a0bc653d996503b1c510ab9d4637ef",
+  "refreshed_at": "2026-11-12T13:55:52.167135+00:00",
+  "command_source_sha256": "c2933349249fa161deb2a01e35f68fe5f5043d129da44f5714bba0be38f4852c",
   "after": {
     "lint": {
-      "seconds": 0.638,
+      "seconds": 0.658,
       "exit_code": 0,
-      "command": "./run.sh lint"
+      "command": "./run.sh lint",
+      "earlier_attempt": {
+        "seconds": 0.638,
+        "exit_code": 0,
+        "command": "./run.sh lint"
+      }
     },
     "fast": {
       "seconds": 4.397,
@@ -53,24 +58,39 @@
       "command": "./run.sh fast"
     },
     "full": {
-      "seconds": 422.699,
+      "seconds": 421.778,
       "exit_code": 0,
       "command": "./run.sh full",
       "earlier_attempt": {
-        "seconds": 765.482,
-        "exit_code": 1,
-        "command": "./run.sh full"
+        "seconds": 422.699,
+        "exit_code": 0,
+        "command": "./run.sh full",
+        "earlier_attempt": {
+          "seconds": 765.482,
+          "exit_code": 1,
+          "command": "./run.sh full"
+        }
       }
     },
     "docs": {
-      "seconds": 1.904,
+      "seconds": 0.701,
       "exit_code": 0,
-      "command": "./run.sh docs"
+      "command": "./run.sh docs",
+      "earlier_attempt": {
+        "seconds": 1.904,
+        "exit_code": 0,
+        "command": "./run.sh docs"
+      }
     },
     "gnn": {
-      "seconds": 5.52,
+      "seconds": 2.36,
       "exit_code": 0,
-      "command": "./run.sh gnn --exemplar PINNED_FILE"
+      "command": "./run.sh gnn --exemplar PINNED_FILE",
+      "earlier_attempt": {
+        "seconds": 5.52,
+        "exit_code": 0,
+        "command": "./run.sh gnn --exemplar PINNED_FILE"
+      }
     },
     "browser": {
       "seconds": 24.231,

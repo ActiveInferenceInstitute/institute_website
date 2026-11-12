@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -13,6 +14,13 @@ import tempfile
 import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
+# Reviewed from the immutable revision's
+# input/gnn_files/basics/static_perception.md. Pin changes require reviewing
+# and recording the new exemplar digest before offline verification is allowed.
+EXEMPLAR_SHA256 = {
+    "8f293d9ba810e6eda5c09842d9c7ed9ffa5f92c1":
+        "1ddd0fbde8155e2083d586a368503278373f26f6aae11dd4a2b4adfdf5ea7b8c",
+}
 
 
 def main() -> None:
@@ -34,20 +42,30 @@ def main() -> None:
                        check=True, stdin=subprocess.DEVNULL)
         return
 
+    sketches = sorted(ROOT.rglob("*.gnn.md"))
+    offline_exemplar = None
+    if args.exemplar and not sketches:
+        expected = EXEMPLAR_SHA256.get(pin["revision"])
+        if expected is None:
+            raise SystemExit("EXEMPLAR-DIGEST-UNREVIEWED: no reviewed SHA-256 for the pin revision")
+        offline_exemplar = args.exemplar.read_bytes()
+        if hashlib.sha256(offline_exemplar).hexdigest() != expected:
+            raise SystemExit("EXEMPLAR-DIGEST-MISMATCH: offline bytes do not match the pin revision")
+
     from gnn import __version__
     from gnn.parsers.basic import parse_gnn_formal, validate_gnn_syntax
     from gnn.type_checker import GNNTypeChecker
 
     if __version__ != pin["tag"].removeprefix("v"):
         raise SystemExit(f"installed GNN {__version__!r} does not match {pin['tag']!r}")
-    sketches = sorted(ROOT.rglob("*.gnn.md"))
     source = "repository" if sketches else "pinned-exemplar"
     with tempfile.TemporaryDirectory(prefix="repo-gnn-") as output_dir:
         output = Path(output_dir)
         if not sketches:
             exemplar = output / "static_perception.md"
-            if args.exemplar:
-                shutil.copy2(args.exemplar, exemplar)
+            if offline_exemplar is not None:
+                # Publish exactly the bytes hashed above; never reopen caller input.
+                exemplar.write_bytes(offline_exemplar)
             else:
                 url = (f"https://raw.githubusercontent.com/{pin['repository']}/{pin['revision']}/"
                        "input/gnn_files/basics/static_perception.md")

@@ -10,6 +10,7 @@ This project follows [Semantic Versioning](https://semver.org/).
 - Extract pinned GNN conformance into the shared local/CI command and document its canonical pin schema.
 - Add a checked flat documentation index and generated local gate measurements.
 - Canonicalize temporary fixture roots on macOS and avoid rerunning indexability controls in the full gate.
+- Bind offline GNN exemplar receipts to a reviewed per-revision SHA-256; reject unrelated models before issuing pinned conformance.
 
 
 ## v4.0.4 — 2026-11-08
