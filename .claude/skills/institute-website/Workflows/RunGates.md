@@ -8,14 +8,18 @@ offline gate suite.
 ## The two commands
 
 ```bash
-node src/build.mjs   # regenerate all HTML + crawler files from src/content/
-npm run check        # run the full offline gate suite (python + node, no network)
+./run.sh build       # regenerate all HTML + crawler files from src/content/
+./run.sh full        # complete offline gate (same command as CI)
 ```
 
 Always run the build first. The gates read the generated `*/index.html`, the root
 `index.html`/`404.html`, `sitemap.xml`, `robots.txt`, and `version.json` — stale output
 makes them fail (or pass) for the wrong reason. Never hand-edit built `*/index.html` to
 make a gate pass; fix the source and rebuild.
+
+For focused work use `./run.sh` (existing fast i18n selection), `./run.sh lint`
+or `./run.sh docs`. The [run guide](../../../../docs/RUN_GUIDE.md) documents all
+arms, pinned GNN setup and generated measurements.
 
 ## What `npm run check` runs
 
@@ -51,8 +55,8 @@ For focused calendar work, run `npm run check:browser` with the same
 browser binding. It starts its own loopback server, exercises the actual built pages
 in all 12 locales and proves that restoring the original `scope` ReferenceError
 fails the check. It leaves JSON receipts in its temporary browser profile.
-CI runs calendar, newsletter and focused contrast/interaction checks on Node 20 and 22; a missing browser fails
-explicitly rather than skipping coverage.
+CI runs calendar, newsletter and focused interaction checks once on its primary
+runtime. Compatibility jobs run lint/fast; missing prerequisites fail explicitly.
 
 ### What `check:site` covers
 

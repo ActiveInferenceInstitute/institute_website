@@ -5,6 +5,13 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- Add composable local/CI gate arms, keeping the default on existing fast tests.
+- Run expensive build/full/browser checks once; reuse the same checks before the separate manual deployment.
+- Extract pinned GNN conformance into the shared local/CI command and document its canonical pin schema.
+- Add a checked flat documentation index and generated local gate measurements.
+- Canonicalize temporary fixture roots on macOS and avoid rerunning indexability controls in the full gate.
+
+
 ## v4.0.4 — 2026-11-08
 
 - Publish the ten current directors under their approved names while retaining existing public directory links.

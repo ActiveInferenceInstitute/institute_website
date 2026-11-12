@@ -24,12 +24,17 @@ skill (task workflows) → the doc-map table below. Concepts live in
 `npm run check` → commit source **and** regenerated HTML together → push.
 Never commit private paths or internal tool names — every commit is public.
 
+Composable entry point: `./run.sh` defaults to the existing fast i18n selection.
+Use `./run.sh lint`, `docs`, `build`, `full`, `browser` or `gnn` independently.
+The [run guide](docs/RUN_GUIDE.md) defines prerequisites and shared CI ownership;
+measured wall times live in generated [gate measurements](docs/GATE_MEASUREMENTS.md).
+
 **Canonical commands (verbatim from `package.json`):**
 
 | Command | What it does |
 | --- | --- |
 | `npm run build` | `node src/build.mjs` — render all public HTML + crawler files |
-| `npm run check` | `node --check src/build.mjs` + `py_compile` of all checkers + the `check:*` sub-gates below |
+| `npm run check` | `check:syntax` followed by the `check:*` offline sub-gates below |
 | `npm run check:browser` | Real Chrome calendar regression in all locales, including the original runtime-error negative control; requires `CHROME_BIN` |
 | `npm run check:browser:all` | Sequential calendar, interaction/contrast and newsletter browser checks; isolated evidence outside the public checkout |
 | `npm run i18n:extract` | `I18N_EXTRACT=1 node src/build.mjs` — extract translatable strings |
@@ -39,29 +44,28 @@ Never commit private paths or internal tool names — every commit is public.
 | `npm run sync:instituteos` / `check:instituteos` | write / `--check` sanitized public data (`scripts/sync_instituteos_public_data.py`) |
 | `npm run sync:transcripts` / `check:transcripts` | write / `--check` video transcript excerpts (`scripts/sync_video_transcripts.py`) |
 
-**Offline gate table** (each `npm run check:<g>` sub-gate; runtimes below are
-cold-start wall-clock on an external-drive checkout, as observed 2026-08-31 —
-treat as order-of-magnitude):
+**Offline gate table** (canonical commands in `package.json`; measurements are
+generated separately, not maintained in this table):
 
-| Gate | Script | Checks | Observed runtime | Known noise |
-| --- | --- | --- | --- | --- |
-| `check:links` | `check_internal_links.py` | href/src/poster + `#fragment` anchors in every generated HTML | heavy-ish (parses all built HTML) | — |
-| `check:md-links` | `check_markdown_links.py` | relative links in tracked `*.md` | ~8 s | — |
-| `check:source-controls` | `python3 -m unittest discover -s scripts -p 'test_*.py'` + `node --test scripts/test_public_links.mjs` | offline Python control/regression tests and public-link policy | — (not re-observed) | — |
-| `check:sources:offline` | `check_live_sources.py --offline` | `live-sources.json` manifest integrity without network | — (not re-observed) | — |
-| `check:citations` | `node --test scripts/test_citation_links.mjs` | citation-link catalog controls | — (not re-observed) | — |
-| `check:instituteos` | `sync_instituteos_public_data.py --check` | committed public-data parity/safety | medium | historical: `videos.json` "Notes" tripped a substring scan; key matching is now key-level only (`validate_public_prose_payload`), so it should not recur |
-| `check:export` | Node export-manifest and indexing tests | provenance, redirect/indexing controls, localized calendar markup | medium | — |
-| `check:design-system` | `check_design_system_export.mjs` | CSS token fallbacks + `instituteos-ds.css`/font byte-parity | medium | fails when the private design-system checkout is absent and the export is stale |
-| `check:site` | `check_site_contract.py` | the big content/structure contract (canonical URLs, registries, exact counts) | heavy | the one hardcoded count is 35 repositories; everything else is derived from content |
-| `check:feeds` | `check_feeds.py` | feed structure/dates, unique IDs and feed/sitemap targets | medium | — |
-| `check:security` | `check_static_security.py` | CSP, no inline/external scripts, external anchors backed by `live-sources.json` or vetted hosts, PII scan | heavy | — |
-| `check:redirects` | `check_redirects.py` | redirect map vs `src/url-taxonomy.json` + build output | ~1 s | — |
-| `check:indexability` | `check_indexability.py` + real-file/HTTP controls | canonical and robots policy, reciprocal hreflang, sitemap coverage and filename case | full generated output | disk evidence, not Google indexing acceptance |
-| `check:projects` | `check_project_discoverability.py` | every `website_slug` project has a page | <1 s | — |
-| `check:catalog` | `check_project_catalog_coverage.mjs` | every project page linked from built `/projects/` | fast | — |
-| `check:i18n` | `node --test scripts/test_i18n_translate.mjs scripts/test_i18n_terminology.mjs` | translation-helper logic (masking, degeneration guard) + terminology-QA classification rules | ~7 s | — |
-| `check:standalone` | `check_standalone_payloads.py` | the CI-only (no-InstituteOS-root) sync branch | ~37 s | — |
+| Gate | Checks |
+| --- | --- |
+| `check:links` | Local HTML/asset references and fragments |
+| `check:md-links` | Markdown links, flat docs index and generated measurement freshness |
+| `check:source-controls` | Python regression discovery and public-link policy |
+| `check:sources:offline` | Source registry integrity without network |
+| `check:citations` | Citation identity |
+| `check:instituteos` | Public-data parity/safety |
+| `check:export` | Export, indexing, browser-process and rendering controls |
+| `check:design-system` | Token fallbacks and export parity |
+| `check:site` | Generated content/structure contract |
+| `check:feeds` | Feed/sitemap structure and targets |
+| `check:security` | CSP, public-link and privacy policy |
+| `check:redirects` | Redirect map/output parity |
+| `check:indexability` | Generated crawler signals; regression modules run in source-controls |
+| `check:projects` | Project discoverability |
+| `check:catalog` | Catalog/page coverage |
+| `check:i18n` | Translation helper and terminology logic |
+| `check:standalone` | Public-payload verification without an upstream checkout |
 
 Full gate reference with failure messages and fixes:
 [docs/GATES_AND_VALIDATION.md](docs/GATES_AND_VALIDATION.md). Gating contract
@@ -234,14 +238,10 @@ Every rendered external URL should resolve from `src/content/live-sources.json`.
 Run these before committing:
 
 ```bash
-npm run build
-npm run check:instituteos
-npm run check
-npm run check:links
+./run.sh build
+./run.sh full
+# Separately, after adding/changing external destinations:
 npm run check:sources
-npm run check:site
-npm run check:security
-npm run check:design-system
 git diff --check
 ```
 

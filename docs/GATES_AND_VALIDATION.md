@@ -10,6 +10,15 @@ This document is a complete reference for all gates and guards enforcing the sta
 
 ## Quick Start: Running the Gates
 
+The composable entry point is [`../run.sh`](../run.sh); see
+[RUN_GUIDE.md](RUN_GUIDE.md) for arms, shared CI commands, GNN setup, deployment
+separation and measurement refresh. `./run.sh` defaults to the existing fast
+i18n selection. `./run.sh full` delegates to the complete `npm run check`.
+The Markdown arm also checks the generated measurements and flat docs index.
+Indexability controls run once in Python discovery; `check:indexability` itself
+only scans the generated site.
+
+
 ```bash
 # Build first (always) — gates read generated HTML
 node src/build.mjs
@@ -910,7 +919,7 @@ check:md-links (validates relative links in tracked Markdown docs)
   ↓
 check:source-controls (offline Python/Node control + public-link-policy tests)
   ↓
-check:sources:offline (validates live-source manifest integrity without network)
+check:sources:offline (validates live-source registry integrity without network)
   ↓
 check:citations (validates citation/DOI identity + rendered bibliography)
   ↓

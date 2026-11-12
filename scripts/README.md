@@ -2,9 +2,9 @@
 
 Validation, public-data sync, and offline translation for the Active Inference
 Institute website. The build itself lives in [`../src/build.mjs`](../src/build.mjs);
-these scripts check and maintain its source. Everything here is offline except
-`check_live_sources.py` (`npm run check:sources`), which probes the network and is
-deliberately outside `npm run check`.
+these scripts check and maintain its source. The full `npm run check` is offline.
+External-source probes and pinned GNN setup/default exemplar acquisition use
+the network; they remain outside that offline umbrella.
 
 The enforced contract and full command table for this folder are in
 [`AGENTS.md`](AGENTS.md); this file is a short orientation only.
@@ -41,9 +41,15 @@ The enforced contract and full command table for this folder are in
 ## Run it
 
 ```bash
-npm run check            # all 17 offline sub-gates (see ../docs/GATES_AND_VALIDATION.md)
-npm run check:md-links   # just the relative-link gate over tracked Markdown
+./run.sh                 # default: existing fast i18n helper tests
+./run.sh build
+./run.sh full            # complete offline gate
+./run.sh docs            # Markdown links, flat index and generated measurements
 ```
 
 Gate reference with failure messages and fixes:
 [`../docs/GATES_AND_VALIDATION.md`](../docs/GATES_AND_VALIDATION.md).
+
+Shared dispatch: [`gates.mjs`](gates.mjs). Pinned conformance:
+[`check_gnn_conformance.py`](check_gnn_conformance.py). Measurement producer/check:
+[`measure_gates.py`](measure_gates.py). See the [run guide](../docs/RUN_GUIDE.md).
