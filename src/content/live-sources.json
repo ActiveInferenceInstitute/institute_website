@@ -2682,10 +2682,50 @@
       "label": "2026 Symposium public program",
       "category": "Symposium",
       "url": "https://2026symposium.activeinference.institute/",
-      "sourceBasis": "Current public program: two days, November 12–13, 2026; both livestreams open at 12:00 UTC. Verified through the public shortlink and program source.",
+      "sourceBasis": "Current public program: two days, November 12–13, 2026; the Day 1 livestream opens at 12:00 UTC and Day 2 at 11:00 UTC. Verified through the public shortlink and program source.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-10-26T00:49:15.886893Z"
+      "checkedAt": "2026-11-12T12:51:37Z"
+    },
+    {
+      "id": "symposium-2026-livestream-day1",
+      "label": "2026 Symposium Day 1 livestream",
+      "category": "Symposium",
+      "url": "https://www.youtube.com/watch?v=-v4IaFY9MZI",
+      "sourceBasis": "Public Institute YouTube livestream for Day 1 (12 November 2026), listed in the approved 2026 public program.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-12T12:51:37Z"
+    },
+    {
+      "id": "symposium-2026-livestream-day2",
+      "label": "2026 Symposium Day 2 livestream",
+      "category": "Symposium",
+      "url": "https://www.youtube.com/watch?v=ccze9ay8D0o",
+      "sourceBasis": "Public Institute YouTube livestream for Day 2 (13 November 2026), listed in the approved 2026 public program.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-12T12:51:37Z"
+    },
+    {
+      "id": "symposium-2026-program-explorer",
+      "label": "2026 Symposium program explorer",
+      "category": "Symposium",
+      "url": "https://activeinferenceinstitute.github.io/Symposium/",
+      "sourceBasis": "Searchable approved 2026 public program (abstracts, sessions, consenting participant profiles, book downloads) published from the Symposium repository.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-12T12:51:37Z"
+    },
+    {
+      "id": "symposium-2026-presenter-program",
+      "label": "2026 Presenter Program (book of abstracts), version 3.3.0",
+      "category": "Symposium",
+      "url": "https://zenodo.org/records/24161029",
+      "sourceBasis": "Public Zenodo record, DOI 10.5281/zenodo.24161029: final-lineup book of abstracts for the 6th Symposium, in printable and editable formats.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-12T12:51:37Z"
     }
   ]
 }
