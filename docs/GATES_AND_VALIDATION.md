@@ -910,7 +910,7 @@ check:md-links (validates relative links in tracked Markdown docs)
   ↓
 check:source-controls (offline Python/Node control + public-link-policy tests)
   ↓
-check:sources:offline (validates live-source manifest integrity without network)
+check:sources:offline (validates live-source registry integrity without network)
   ↓
 check:citations (validates citation/DOI identity + rendered bibliography)
   ↓
