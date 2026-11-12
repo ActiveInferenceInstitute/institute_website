@@ -178,38 +178,26 @@ The `/instituteos/` page and homepage export-gate band are covered by `npm run c
 
 ## Local Workflow
 
-The build has no runtime dependencies, so installation is optional; `npm install`
-is a harmless no-op kept only so the workflow matches a conventional Node package.
+The build has no runtime dependencies; no package installation is needed.
+The committed `package-lock.json` remains the npm metadata authority.
 
 ```bash
-npm install
+./run.sh                  # default: fast i18n helper tests, no build needed
+./run.sh lint             # existing Node/Python syntax checks
+./run.sh docs             # Markdown links, flat index, generated measurements
+./run.sh build            # regenerate the static site
+./run.sh full             # complete offline release gate (includes lint/docs)
+CHROME_BIN=/path/to/chrome ./run.sh browser
 ```
 
-Build the site:
+CI calls these same arms through [`scripts/gates.mjs`](scripts/gates.mjs), which
+delegates to the canonical package commands rather than copying their bodies.
+The separate GNN arm, local setup and CI/deployment ownership are documented in
+the [run guide](docs/RUN_GUIDE.md). Timings and failures are recorded in the
+generated [gate measurements](docs/GATE_MEASUREMENTS.md).
 
-```bash
-npm run build
-```
-
-Run the local release gates:
-
-```bash
-npm run check
-npm run check:instituteos
-npm run check:links
-npm run check:sources              # optional bounded network probe
-npm run check:site
-npm run check:security
-npm run check:design-system
-git diff --check
-```
-
-`npm run check` is the deterministic offline gate and chains all 17 sub-gates:
-`check:links`, `check:md-links`, `check:source-controls`, `check:sources:offline`,
-`check:citations`, `check:instituteos`, `check:export`, `check:design-system`,
-`check:site`, `check:feeds`, `check:security`, `check:redirects`,
-`check:indexability`, `check:projects`, `check:catalog`, `check:i18n`, and
-`check:standalone`; the individual commands above are listed for targeted runs.
+`npm run check` remains the full offline umbrella. Individual `check:*`
+commands remain available for targeted investigation.
 `check:sources` is intentionally
 separate because it probes the network; use `check_live_sources.py --offline`
 when only manifest integrity can be verified.

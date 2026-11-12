@@ -11,6 +11,10 @@ rather than duplicating them. `docs/` is **not** built into the published site.
 
 See the [indexing and accessibility follow-up](INDEXING_FOLLOWUP.md) for current redirect, metadata, font and deployment-custody behavior.
 
+Full inventory: [documentation-index.md](documentation-index.md). Gate commands
+and CI ownership: [RUN_GUIDE.md](RUN_GUIDE.md). Measured local observations live
+only in the generated [GATE_MEASUREMENTS.md](GATE_MEASUREMENTS.md).
+
 ## Start here
 
 | If you want to… | Read |
@@ -64,8 +68,9 @@ task runbooks.
 ## Quick command reference
 
 ```bash
-npm run build            # render JSON content -> HTML into the repo root
-npm run check            # all 17 offline sub-gates (see GATES_AND_VALIDATION.md)
+./run.sh                 # default: existing fast i18n helper tests
+./run.sh build           # render JSON content -> HTML
+./run.sh full            # complete offline gate, including lint and docs
 npm run check:sources    # network probe of external links; NOT part of `check`
 npm run i18n:translate   # update locale catalogs (offline engine)
 ```

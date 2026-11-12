@@ -1,0 +1,81 @@
+{
+  "host": "Darwin 27.0.0 arm64",
+  "node": "v26.13.0",
+  "python": "3.15.2",
+  "before": {
+    "lint": {
+      "seconds": 0.539,
+      "exit_code": 0,
+      "command": "sh -c node --check src/build.mjs && python3 -m py_compile scripts/site_paths.py scripts/check_internal_links.py scripts/check_markdown_links.py scripts/check_live_sources.py scripts/check_site_contract.py scripts/check_feeds.py scripts/check_static_security.py scripts/check_redirects.py scripts/check_project_discoverability.py scripts/sync_instituteos_public_data.py"
+    },
+    "fast": {
+      "seconds": 17.481,
+      "exit_code": 0,
+      "command": "npm run check:i18n"
+    },
+    "docs": {
+      "seconds": 1.218,
+      "exit_code": 0,
+      "command": "npm run check:md-links"
+    },
+    "browser": {
+      "seconds": 27.4,
+      "exit_code": 1,
+      "command": "sh -c npm run check:browser && npm run check:browser:archive && node scripts/check_audit_browser.mjs --quick"
+    },
+    "gnn": {
+      "seconds": 5.663,
+      "exit_code": 0,
+      "command": "original CI GNN verification body; pinned exemplar pre-fetched"
+    },
+    "build": {
+      "seconds": 38.01,
+      "exit_code": 0,
+      "command": "npm run build"
+    },
+    "full": {
+      "seconds": 607.56,
+      "exit_code": 1,
+      "command": "npm run check"
+    }
+  },
+  "refreshed_at": "2026-11-12T16:00:52.584900+00:00",
+  "command_source_sha256": "abbd1f045de41a467bd89fca800c904bc57cb00534622dc1a47f56ed4dad426d",
+  "after": {
+    "lint": {
+      "seconds": 0.411,
+      "exit_code": 0,
+      "command": "./run.sh lint"
+    },
+    "fast": {
+      "seconds": 2.754,
+      "exit_code": 0,
+      "command": "./run.sh fast"
+    },
+    "full": {
+      "seconds": 217.695,
+      "exit_code": 0,
+      "command": "./run.sh full"
+    },
+    "docs": {
+      "seconds": 0.304,
+      "exit_code": 0,
+      "command": "./run.sh docs"
+    },
+    "gnn": {
+      "seconds": 0.617,
+      "exit_code": 0,
+      "command": "./run.sh gnn --exemplar PINNED_FILE"
+    },
+    "browser": {
+      "seconds": 18.623,
+      "exit_code": 0,
+      "command": "./run.sh browser"
+    },
+    "build": {
+      "seconds": 4.942,
+      "exit_code": 0,
+      "command": "./run.sh build"
+    }
+  }
+}

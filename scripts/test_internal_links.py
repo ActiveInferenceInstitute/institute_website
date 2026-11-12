@@ -14,7 +14,7 @@ class CanonicalLinkTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temp = tempfile.TemporaryDirectory(prefix="website-canonical-links-")
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         content = self.root / "src/content"
         content.mkdir(parents=True)
         (content / "site.json").write_text(json.dumps({"baseUrl": "https://institute.example/"}))

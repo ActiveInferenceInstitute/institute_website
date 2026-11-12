@@ -12,7 +12,7 @@ Static, zero-runtime-dependency site for the Active Inference Institute. `node s
 | `scripts/` | SOURCE | yes | Build/gate/sync scripts (`check_*.py`, `sync_instituteos_public_data.py`, `i18n_translate.mjs`). See [scripts/AGENTS.md](scripts/AGENTS.md) |
 | `assets/` | SOURCE | yes | CSS / JS / images (`css/styles.css`, `css/graphs.css`, `js/site.js`). See [assets/AGENTS.md](assets/AGENTS.md) |
 | `data/` | CONFIG | yes | Build provenance (`export-manifest.json`) + `projects.json` feed. See [data/README.md](data/README.md) |
-| `docs/` | DOCS | yes | 12 conceptual guides — **start at [docs/README.md](docs/README.md)** |
+| `docs/` | DOCS | yes | Conceptual guides — **start at [docs/README.md](docs/README.md)**; flat inventory in [documentation-index.md](docs/documentation-index.md) |
 | `.claude/` | TOOLING | yes | `skills/institute-website/` skill + Workflows |
 | `.github/` | CONFIG | yes | CI (builds, runs `npm run check`, asserts committed HTML parity) |
 | `node_modules/` | TOOLING | never | npm-managed, gitignored — not build output |
@@ -30,9 +30,9 @@ generates the 404 fallback script. On-site registrar forwards are pinned in
 [`src/content/inbound-forwards.json`](src/content/inbound-forwards.json).
 
 ```bash
-npm install
-node src/build.mjs          # render content -> committed HTML
-npm run check               # all gates (run before commit)
+./run.sh                   # existing fast i18n helper selection
+./run.sh build             # render content -> committed HTML
+./run.sh full              # complete offline gate, including lint/docs
 ```
 
 `npm run check` runs 17 offline sub-gates: `check:links`, `check:md-links`,
@@ -41,8 +41,9 @@ npm run check               # all gates (run before commit)
 `check:feeds`, `check:security`, `check:redirects`, `check:indexability`,
 `check:projects`, `check:catalog`, `check:i18n`, and `check:standalone`. See
 [the gate reference](docs/GATES_AND_VALIDATION.md) for contracts and failures.
-`npm run check:browser` separately runs the calendar regression in real Chrome
-with `CHROME_BIN` set; CI runs it on both supported Node versions.
+`./run.sh browser` runs the original calendar/newsletter/quick-interaction
+sequence once in CI. Compatibility jobs run lint/fast rather than repeating the
+full build and browser work. See [the run guide](docs/RUN_GUIDE.md).
 Other commands: `npm run sync:instituteos`, `npm run check:sources`,
 `npm run i18n:extract`, `npm run i18n:translate`.
 

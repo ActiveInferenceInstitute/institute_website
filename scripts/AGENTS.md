@@ -10,6 +10,10 @@ sync, and translate that source. Run gates with no network access.
 
 ## npm scripts ([`../package.json`](../package.json))
 
+Use [`../run.sh`](../run.sh) for composable arms; its default is the existing i18n
+helper selection. [`../docs/RUN_GUIDE.md`](../docs/RUN_GUIDE.md) documents CI parity
+and the measurement producer. No separate Python/JavaScript type checker exists.
+
 | Command | Runs |
 | --- | --- |
 | `npm run build` | `node src/build.mjs` — render HTML + crawler files |
@@ -26,7 +30,7 @@ sync, and translate that source. Run gates with no network access.
 | `npm run check:feeds` | [`check_feeds.py`](check_feeds.py) — `feed.xml`/`feed.json` structure + dates + guid uniqueness, and `feed`/`sitemap.xml` link targets |
 | `npm run check:security` | [`check_static_security.py`](check_static_security.py) |
 | `npm run check:redirects` | [`check_redirects.py`](check_redirects.py) |
-| `npm run check:indexability` | [`check_indexability.py`](check_indexability.py) + `test_indexability.py` / `test_live_url_audit.py` controls |
+| `npm run check:indexability` | [`check_indexability.py`](check_indexability.py); regression modules run once in `check:source-controls` |
 | `npm run check:sources` | [`check_live_sources.py`](check_live_sources.py) — **network; NOT part of `check`** |
 | `npm run check:sources:offline` | Source manifest shape and URL validation without network |
 | `npm run check:source-controls` | Real HTTP, canonical-link and source-discovery regression controls |
