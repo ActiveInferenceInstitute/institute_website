@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { mkdtempSync, readFileSync, mkdirSync, symlinkSync } from "node:fs";
+import { mkdtempSync, readFileSync, mkdirSync, realpathSync, symlinkSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createEvidenceDirectory, runSequential } from "./check_browser_suite.mjs";
@@ -29,7 +29,9 @@ test("signals and unavailable working directories cannot become successful check
 });
 
 test("evidence runs are unique and cannot enter the public tree through symlinks", () => {
-  const temp = mkdtempSync(join(tmpdir(), "browser-suite-evidence-"));
+  // Canonical root: a symlinked temp spelling (macOS /var/folders) must not look
+  // like an unrelated directory to the realpath-based containment check.
+  const temp = realpathSync(mkdtempSync(join(tmpdir(), "browser-suite-evidence-")));
   const website = join(temp, "website"), evidence = join(temp, "evidence");
   mkdirSync(website);
   const first = createEvidenceDirectory(website, evidence), second = createEvidenceDirectory(website, evidence);

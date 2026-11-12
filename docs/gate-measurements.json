@@ -39,66 +39,41 @@
       "command": "npm run check"
     }
   },
-  "refreshed_at": "2026-11-12T13:55:52.167135+00:00",
-  "command_source_sha256": "c2933349249fa161deb2a01e35f68fe5f5043d129da44f5714bba0be38f4852c",
+  "refreshed_at": "2026-11-12T16:00:52.584900+00:00",
+  "command_source_sha256": "abbd1f045de41a467bd89fca800c904bc57cb00534622dc1a47f56ed4dad426d",
   "after": {
     "lint": {
-      "seconds": 0.658,
+      "seconds": 0.411,
       "exit_code": 0,
-      "command": "./run.sh lint",
-      "earlier_attempt": {
-        "seconds": 0.638,
-        "exit_code": 0,
-        "command": "./run.sh lint"
-      }
+      "command": "./run.sh lint"
     },
     "fast": {
-      "seconds": 4.397,
+      "seconds": 2.754,
       "exit_code": 0,
       "command": "./run.sh fast"
     },
     "full": {
-      "seconds": 421.778,
+      "seconds": 217.695,
       "exit_code": 0,
-      "command": "./run.sh full",
-      "earlier_attempt": {
-        "seconds": 422.699,
-        "exit_code": 0,
-        "command": "./run.sh full",
-        "earlier_attempt": {
-          "seconds": 765.482,
-          "exit_code": 1,
-          "command": "./run.sh full"
-        }
-      }
+      "command": "./run.sh full"
     },
     "docs": {
-      "seconds": 0.701,
+      "seconds": 0.304,
       "exit_code": 0,
-      "command": "./run.sh docs",
-      "earlier_attempt": {
-        "seconds": 1.904,
-        "exit_code": 0,
-        "command": "./run.sh docs"
-      }
+      "command": "./run.sh docs"
     },
     "gnn": {
-      "seconds": 2.36,
+      "seconds": 0.617,
       "exit_code": 0,
-      "command": "./run.sh gnn --exemplar PINNED_FILE",
-      "earlier_attempt": {
-        "seconds": 5.52,
-        "exit_code": 0,
-        "command": "./run.sh gnn --exemplar PINNED_FILE"
-      }
+      "command": "./run.sh gnn --exemplar PINNED_FILE"
     },
     "browser": {
-      "seconds": 24.231,
-      "exit_code": 1,
+      "seconds": 18.623,
+      "exit_code": 0,
       "command": "./run.sh browser"
     },
     "build": {
-      "seconds": 17.361,
+      "seconds": 4.942,
       "exit_code": 0,
       "command": "./run.sh build"
     }

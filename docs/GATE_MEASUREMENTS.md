@@ -13,13 +13,13 @@ GNN uses the same pre-fetched pinned exemplar in both phases; installation/downl
 
 | Arm | Before (s) | Exit | After (s) | Exit |
 | --- | ---: | ---: | ---: | ---: |
-| lint | 0.539 | 0 | 0.658 | 0 |
-| fast | 17.481 | 0 | 4.397 | 0 |
-| full | 607.560 | 1 | 421.778 | 0 |
-| docs | 1.218 | 0 | 0.701 | 0 |
-| gnn | 5.663 | 0 | 2.360 | 0 |
-| build | 38.010 | 0 | 17.361 | 0 |
-| browser | 27.400 | 1 | 24.231 | 1 |
+| lint | 0.539 | 0 | 0.411 | 0 |
+| fast | 17.481 | 0 | 2.754 | 0 |
+| full | 607.560 | 1 | 217.695 | 0 |
+| docs | 1.218 | 0 | 0.304 | 0 |
+| gnn | 5.663 | 0 | 0.617 | 0 |
+| build | 38.010 | 0 | 4.942 | 0 |
+| browser | 27.400 | 1 | 18.623 | 0 |
 
 ## Scope
 

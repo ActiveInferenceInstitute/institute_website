@@ -17,7 +17,7 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 
 test("strict CLI rejects real HTTP failures and truncated/empty responses without saving English", async (t) => {
-  const root = await fs.mkdtemp(path.join(os.tmpdir(), "i18n-strict-"));
+  const root = await fs.realpath(await fs.mkdtemp(path.join(os.tmpdir(), "i18n-strict-")));
   await fs.mkdir(path.join(root, "scripts"));
   await fs.mkdir(path.join(root, "src/content/i18n"), { recursive: true });
   await fs.mkdir(path.join(root, "src/i18n"));
