@@ -5,7 +5,57 @@ lives in [`CHANGELOG.md`](CHANGELOG.md); this file tracks what's planned and in
 progress. The site is a static, dependency-free build (`node src/build.mjs`) with a
 strict Content Security Policy, gated by `npm run check`.
 
+Last reviewed: 2026-11-12 (`origin/main` `aa443d193f`; see the gate, pin and
+release truth pass below).
+
 ## Backlog / ideas
+
+## Gate, pin and release truth pass — 2026-11-12
+
+- [x] ✓ Composable gate entry point: `run.sh` exposes seven arms (`lint`, `fast`,
+      `full`, `docs`, `gnn`, `build`, `browser`) over `scripts/gates.mjs`, and
+      `npm run check` is 18 sub-checks in `package.json`. The docs arm is
+      `./run.sh docs` → `npm run check:md-links`; it printed
+      `Checked 63 Markdown files (534 relative links); no broken links.` and
+      `Gate measurements and documentation index are current.` (#17, `45275640bf`).
+- [x] ✓ Canonical GNN importer pin: `.github/gnn-pin.json` declares schema
+      `gnn-importer-pin/v1` for tag `v5.0.3` at
+      `8f293d9ba810e6eda5c09842d9c7ed9ffa5f92c1`. GNN's own reader accepts it —
+      `PYTHONPATH=<gnn>/src python3 -m gnn.importers check --repo .` returns
+      `"ok": true`, normalizes this file's `revision` key to `commit`, and reports
+      only the expected `spec-absent` warning (no `*.gnn.md` here). (#16,
+      `4562781fc2`).
+- [x] ✓ Live Symposium and home page: the 6th Symposium page with final program
+      and book (#18, `922dd559de`), its translation into all 11 locales (#19,
+      `5cf4e170e3`), and the home-page pathway change (#20, `aa443d193f`).
+- [x] ✓ `.aii` sidecar validates:
+      `python -m aii_platform.aii_sidecar validate .` → `OK: .`.
+- [x] ✓ Checked for a `pymdp` / `inferactively-pymdp` dependency: none exists.
+      `package.json` declares no `dependencies` and no `devDependencies`, and the
+      build is a static Node script, so no 1.0.5 pin applies.
+- [ ] Raise the GNN pin from `v5.0.3` to `v5.1.0`
+      (`75c834bd8519dc7b5adc4d24f16bf393cfd1ecdf`), the importer release already
+      pinned by ActInf_RxInfer, ActiveBlockference, active_inference_power and
+      pymdp. Three files carry the revision: `.github/gnn-pin.json` (`tag`,
+      `revision`, `recorded`), `.github/GNN.md:7-8`, and `docs/RUN_GUIDE.md:42-44`.
+      `scripts/check_gnn_conformance.py` needs no new exemplar digest: the
+      reviewed `input/gnn_files/basics/static_perception.md` is byte-identical at
+      both revisions (sha256 `1ddd0fbde8155e2083d586a368503278373f26f6aae11dd4a2b4adfdf5ea7b8c`),
+      so the single `EXEMPLAR_SHA256` row still matches. Verify with
+      `./run.sh gnn` (downloads) or
+      `python3 scripts/check_gnn_conformance.py --exemplar <path>` (offline).
+      Owner: repository maintainer; no external blocker.
+- [ ] `CHANGELOG.md` has no entry for #18, #19 or #20 — none of the three merge
+      commits touches the file, and `## Unreleased` still holds six entries that
+      predate them. Add the three under `## Unreleased` before the next cut.
+      Owner: whoever cuts the next release; writing it is a docs obligation of
+      these merges, not a code change.
+- [ ] Release tags lag `CHANGELOG.md`: `package.json` and `version.json` say
+      4.0.4, and the changelog lists v4.0.1 and v4.0.4, but
+      `git ls-remote --tags` stops at `v4.0.3` and GitHub Releases stop at
+      `v2.4.0`. Cut or backfill `v4.0.1` and `v4.0.4` after the Unreleased
+      entries land. Owner: maintainer; this is a user decision because it
+      changes the live `version.json`.
 
 ## Translation completion follow-ups — 2026-10-13
 
@@ -383,12 +433,18 @@ recrawl or production acceptance.
       independently; a small cross-check pass keeps them in sync. **Deferred:**
       low marginal value — both are currently accurate and the per-folder
       `AGENTS.md` precedence is well documented; revisit only when a new root
-      doc is added.
+      doc is added. Since #17 the docs arm covers the `docs/` half only:
+      `scripts/measure_gates.py` `check_index` proves
+      `docs/documentation-index.md` links every `docs/*.md`, and
+      `check_markdown_links.py` resolves all 534 relative links across 63 files;
+      the `INDEX.md` ↔ `docs/README.md` overlap is still unchecked by any gate.
 - [ ] **Line-number references in docs drift** — `SLUG_AND_URL_TAXONOMY.md` and
       `RELEASING.md` cite exact source line numbers (`src/data.mjs:45-58`, …)
       that will rot. **Deferred:** mechanically removing them all is churn with
       no gate impact; the stale one in RELEASING.md was fixed this pass and the
-      taxonomy doc's refs were spot-verified accurate.
+      taxonomy doc's refs were spot-verified accurate. Ten such references remain
+      in `docs/SLUG_AND_URL_TAXONOMY.md` (`src/url-taxonomy.mjs`, `src/build.mjs`,
+      `src/pages/ecosystem.mjs`, `src/render/urls.mjs`, `src/data.mjs`).
 
 ### Follow-up — completed audit batch findings (deleg_aca05bf9)
 
@@ -437,26 +493,34 @@ Second wave of verified findings from the two completed audit subagents
 
 ### Open / deferred (from the audits)
 
-- [ ] **Cut a release** — 17 Unreleased entries sit on `main` at version 4.0.0
-      with no tag. Deferred: the RELEASING rule now documents the accumulate-
-      on-main practice; cutting a release (version bump → rebuild → tag) is a
-      user decision affecting the live site's `version.json`.
-- [ ] **Stale i18n catalog keys "52 public repositories"** in all 11 locale
-      catalogs (leftover from the older repo count; absent from `_strings.json`
-      and unused). Deferred: translation data, not docs — needs an
-      `npm run i18n:extract` + re-translate sweep.
+- [ ] **Stale i18n catalog key `Repositories (52)`** in all 11 locale catalogs
+      (`ar`, `de`, `es`, `fr`, `hi`, `it`, `ja`, `ko`, `pt`, `ru`, `zh`). The live
+      source string in `src/content/i18n/_strings.json` is `Repositories (35)`,
+      and `scripts/check_site_contract.py:651` enforces 35 repositories, so the 52
+      keys are dead. Each catalog also carries 1,125–1,126 keys absent from
+      `_strings.json` (4,886–4,887 entries against 3,802 extracted). Deferred:
+      translation data, not docs — needs an `npm run i18n:extract` +
+      re-translate sweep, plus a decision on pruning retired keys.
 - [ ] **README ↔ AGENTS.md contract duplication** (Design Contract /
       Operating Contract lists). Deferred: both are accurate today and the
       split is intentional (human overview vs agent contract).
-- [ ] **docs/MIGRATION_AND_REDIRECTS.md:279 literal `https://coda.io` URL** —
-      documents a legacy redirect target; safe today because the coda-URL scan
-      covers only root README/AGENTS, but fragile if that scan ever widens.
+- [ ] **`docs/MIGRATION_AND_REDIRECTS.md` literal `https://coda.io` URL** (line
+      278, § *Externally-blocked forwards (SEO trap)*) — it documents a verified
+      redirect chain, not something the site renders. No gate scans `docs/*.md` for
+      Coda URLs: `scripts/check_site_contract.py:640` scans `src/content/*.json`,
+      `scripts/check_static_security.py` scans rendered anchors, and
+      `check_no_public_coda_links` scans generated HTML plus `assets/css/styles.css`.
+      So it is inert today, but any widening of that scan flags it. Owner: docs
+      maintainer; either keep it as evidence or restate the chain without the
+      literal URL.
 
 ### Open / deferred (original)
 
-- [ ] **docs/ folder audit subagent was interrupted** (provider billing error) —
-      its coverage was completed first-hand this pass; the docs/ set is now
-      verified against the repo.
+- [x] **docs/ folder audit coverage** — the subagent interrupted by a provider
+      billing error had its coverage completed first-hand in the 2026-08-02 pass,
+      and `./run.sh docs` now re-verifies the set on every run (63 Markdown files,
+      534 relative links, `docs/documentation-index.md` complete). Nothing remains
+      open here.
 - [x] **Terminology QA on machine-translated catalogs** — shipped as
       `scripts/i18n_check_terminology.mjs` (see the i18n backlog item above for
       the first-run counts). The deferred remainder is the `--fix`
