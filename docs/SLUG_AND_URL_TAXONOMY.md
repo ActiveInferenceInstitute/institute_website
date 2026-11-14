@@ -179,7 +179,7 @@ export function localeOutputPathForSlug(slug, code = activeLocale()) {
 
 ### Locale Prefix System
 
-The `localePrefix()` function in `src/url-taxonomy.mjs:27–29` applies the locale code as a path segment:
+The `localePrefix()` function in `src/url-taxonomy.mjs` applies the locale code as a path segment:
 
 ```javascript
 export function localePrefix(code = activeLocale()) {
@@ -268,7 +268,7 @@ No runtime translation occurs (CSP forbids network fetch). All locales are fully
 
 ### Route Renderer Registry
 
-In `src/build.mjs:30–41`, the `slugRenderers` array lists every routable page:
+In `src/build.mjs`, the `slugRenderers` array lists the primary routable pages:
 
 ```javascript
 const slugRenderers = [
@@ -280,8 +280,9 @@ const slugRenderers = [
   ["search", searchPage],
   ["simulations", simulationsPage],
   ["calendar", calendarPage],
+  ["newsletter", newsletterPage],
   ["sitemap", sitemapPage],
-  ...ecosystemDomainPages().map((page) => [page.slug, page.render]),
+  ...ecosystemTopicPages().map((page) => [page.slug, page.render]),
 ];
 ```
 
@@ -299,11 +300,11 @@ Some pages are not loaded from `siteData.pages` but generated programmatically:
 
 ### Ecosystem Domain Pages
 
-Generated dynamically by `ecosystemDomainPages()` in `src/pages/ecosystem.mjs:54–102`:
+Generated dynamically by `ecosystemTopicPages()` in `src/pages/ecosystem.mjs`:
 
-- One page per domain in `siteData.instituteos.domainProjects.domains`
-- Slugs: `ecosystem/<domain.slug>` (e.g., `ecosystem/ai-and-ecology`)
-- Not part of `siteData.pages`; generated on-the-fly per locale
+- `ecosystemTopics()` merges named public narrative topics and domain-project mappings, then cross-links matching curated research-domain pages.
+- Slugs: `ecosystem/${topic.slug}` (e.g., `ecosystem/ai-and-ecology`).
+- Not part of `siteData.pages`; each returned `render` function runs lazily for the active locale.
 
 ## HTML Layout and Output
 
@@ -440,7 +441,7 @@ from whatever array name a `"set"` rule's `match` references, so no
 
 ### 4. If it's a programmatically generated page (like ecosystem domains)
 
-Create a function like `ecosystemDomainPages()` in `src/pages/ecosystem.mjs` that returns an array of `{ slug, render }` objects, and add it to `slugRenderers` in `src/build.mjs`.
+Create a function like `ecosystemTopicPages()` in `src/pages/ecosystem.mjs` that returns an array of `{ slug, render }` objects, and add it to `slugRenderers` in `src/build.mjs`.
 
 The render function must:
 - Call `urlDirForSlug(slug)` to get the current directory

@@ -117,7 +117,7 @@ function countMsg(el, name, fallback, n, label = "") {
     (el && el.getAttribute(name)) ||
     (document.body && document.body.getAttribute(name)) ||
     fallback;
-  return pattern.replace("{n}", String(n)).replace("{label}", label);
+  return pattern.replace("{n}", Number(n).toLocaleString(document.documentElement.lang || "en")).replace("{label}", label);
 }
 
 // Back-to-top control for long pages (created client-side; CSP-safe, no inline).

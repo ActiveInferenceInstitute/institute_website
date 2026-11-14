@@ -94,9 +94,9 @@
           <span>Ressources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Recherche</a><a href="../../resources/">Répertoire des ressources</a><a href="../../directory/">Index mondial</a><a href="../../knowledge/">Carte Open Source</a><a href="../../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../../directory/#official-pages">Pages Officielles</a><a href="../../resources/#research">Références de recherche</a><a href="../../#audience-pathways">Chemins de l'audience</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Recherche</a><a href="../../resources/">Répertoire des ressources</a><a href="../../directory/">Index mondial</a><a href="../../knowledge/">Open Source Map</a><a href="../../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../../directory/#official-pages">Pages Officielles</a><a href="../../resources/#research">Références de recherche</a><a href="../../#audience-pathways">Chemins de l'audience</a></div>
       </div></nav>
-    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour «{q}" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
+    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour « {q} »" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
       <input type="search" id="site-search-input" placeholder="Rechercher l'Institut…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Rechercher sur le site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
@@ -108,13 +108,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Écoutez cette page" title="Écoutez cette page" data-tts-label-idle="Écoutez cette page" data-tts-label-active="Arrêtez de lire cette page." data-tts-title-idle="Écoutez cette page" data-tts-title-active="Arrêtez de lire"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choisir la couleur de mise en évidence" title="Choisir la couleur de mise en évidence"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur mise en évidence" hidden>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur de mise en évidence" hidden>
         <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Mise en évidence rouge (par défaut)" title="Rouge"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amor éclair" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Vert mis en évidence" title="Vert"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight» → «Souligner en teal" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Haut de page bleu" title="Bleu"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Mise en évidence ambrée" title="Ambre"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Mise en évidence verte" title="Vert"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Mise en évidence en bleu sarcelle" title="Bleu sarcelle"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Mise en évidence bleue" title="Bleu"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Mise en évidence violette" title="Violet"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Mise en évidence magenta" title="Magenta"></button>
       </div>
     </div>
@@ -144,7 +144,7 @@
         <a href="#what-mentorship-looks-like">À quoi ressemble un mentorat ?</a><a href="#for-those-seeking-a-mentor">Pour ceux qui cherchent un mentor</a><a href="#for-those-offering-mentorship">Pour ceux qui offrent un mentorat</a><a href="#mentorship-and-internship">Mentorat et stage</a><a href="#related-programs">Programmes associés</a>
         <a href="#next-actions">Meilleures prochaines étapes</a>
         <a href="#key-surfaces">Surfaces clés</a>
-        <a href="../../knowledge/">Carte Open Source</a>
+        <a href="../../knowledge/">Open Source Map</a>
         <a href="#resources">Ressources associées</a>
         <a href="#official-pages">Pages officielles</a>
 
@@ -158,23 +158,29 @@
     <div class="article-stack">
       <article class="article-block" id="what-mentorship-looks-like">
             <h2>À quoi ressemble un mentorat ?</h2>
-            <p>Le mentorat au sein de l’Institut peut prendre de nombreuses formes: des conversations individuelles régulières, des commentaires sur les travaux en cours, des présentations à d’autres membres de la communauté, des conseils pour la gestion de projets et des ressources d’apprentissage, ou simplement un contact fiable qui connaît le terrain. Le mentorat formel comprend des objectifs définis et un rythme régulier de points de contrôle.</p>
+            <p>Le mentorat à l'Institut peut prendre de nombreuses formes: des conversations individuelles régulières, des retours sur les travaux en cours, des mises en relation avec d'autres membres de la communauté, des conseils pour s'orienter parmi les projets et les ressources d'apprentissage, ou simplement un point de contact fiable qui connaît bien cet environnement. Le mentorat formel comporte des objectifs définis et des points de suivi réguliers.</p>
+<p>Le mentorat informel naît naturellement de la participation à la communauté et du travail en commun sur des projets. Les deux formes sont précieuses.</p>
             <div class="link-chips"><a href="./"><span>Mentorship pathway</span><em>Participate</em></a></div>
           </article><article class="article-block" id="for-those-seeking-a-mentor">
             <h2>Pour ceux qui cherchent un mentor</h2>
-            <p>Si vous êtes nouveau dans Active Inference ou l'Institut et que vous bénéficiez d'un accompagnement, un mentorat est disponible. Commencez par participer aux activités de la communauté et identifier des contributeurs expérimentés dont le travail et la perspective vous correspondent.</p>
+            <p>Si vous découvrez Active Inference ou l'Institut et qu'un accompagnement vous serait utile, vous pouvez bénéficier d'un mentorat. Commencez par participer aux activités de la communauté et par repérer des contributeurs expérimentés dont les travaux et les perspectives font écho aux vôtres.</p>
+<p>Pour demander un mentor, soumettez une présentation personnelle au moyen du formulaire de mentorat, en décrivant votre parcours et le type de conseils qui conviendrait le mieux à votre trajectoire d'apprentissage. L'Institut s'efforce de mettre les personnes qui soumettent une demande en relation avec les mentors disponibles, au fil de l'eau.</p>
+<p>Vous pouvez également entrer directement en contact avec la communauté sur Discord pendant que votre demande est en attente. Les mentors sont des membres de la communauté qui ont accepté d'apporter leur soutien: ce ne sont pas des figures d'autorité distantes, mais des participants actifs qui se souviennent de ce que signifie débuter.</p>
             <div class="link-chips"><a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Discord invite</span><em>Community</em></a><a href="./"><span>Mentorship pathway</span><em>Participate</em></a></div>
           </article><article class="article-block" id="for-those-offering-mentorship">
             <h2>Pour ceux qui offrent un mentorat</h2>
-            <p>Si vous êtes un participant expérimenté de l’Institut ou de l’Écosystème et que vous êtes prêt(e) à soutenir les autres, le mentorat est un moyen significatif de contribuer. Les mentors aident les nouveaux participants à naviguer dans la communauté, à développer leurs compétences et à apporter des contributions significatives.</p>
+            <p>Si vous avez une solide expérience de participation à l'Institut ou à l'Écosystème et souhaitez soutenir d'autres personnes, le mentorat est une manière utile de contribuer. Les mentors aident les nouveaux participants à s'orienter dans la communauté, à développer leurs compétences et à apporter des contributions utiles.</p>
+<p>L'engagement en temps est flexible: même des conseils occasionnels font une différence importante pour les personnes qui sont moins avancées dans leur parcours. Les personnes souhaitant devenir mentors peuvent consulter les présentations personnelles soumises au moyen du formulaire de mentorat et contacter celles dont les objectifs d'apprentissage correspondent à leur propre expertise, en particulier celles qui n'ont pas encore de mentor.</p>
             <div class="link-chips"><a href="./"><span>Mentorship pathway</span><em>Participate</em></a></div>
           </article><article class="article-block" id="mentorship-and-internship">
             <h2>Mentorat et stage</h2>
-            <p>Le mentorat et les stages sont des voies complémentaires. Les stagiaires sont généralement associés à des mentors de la communauté qui leur apportent des conseils tout au long de leur stage.</p>
+            <p>Le mentorat et les stages sont des parcours complémentaires. Les stagiaires sont généralement mis en relation avec des mentors de la communauté qui les accompagnent tout au long de leur stage.</p>
+<p>Le programme de mentorat fonctionne également de manière indépendante: certaines relations de mentorat se nouent en dehors de tout cadre formel de stage, simplement grâce à une participation durable à la communauté.</p>
             <div class="link-chips"><a href="../internship/"><span>Internship</span></a></div>
           </article><article class="article-block" id="related-programs">
             <h2>Programmes associés</h2>
-            <p>Le mentorat se connecte naturellement avec le bénévolat, les stages et les bourses. Les bénévoles bénéficient souvent du mentorat lorsqu'ils explorent comment contribuer. Les stagiaires reçoivent un mentorat dans le cadre de leur engagement structuré. Les boursiers s'appuient sur des relations de mentorat lorsqu'ils développent des travaux soutenus.</p>
+            <p>Le mentorat s'articule naturellement avec le bénévolat, les stages et le programme de fellowship. Les bénévoles bénéficient souvent d'un mentorat lorsqu'ils explorent les façons de contribuer.</p>
+<p>Les stagiaires bénéficient d'un mentorat dans le cadre de leur engagement structuré. Les membres du programme de fellowship s'appuient sur des relations de mentorat pour constituer un ensemble de travaux dans la durée.</p>
             <div class="link-chips"><a href="../"><span>All programs</span></a><a href="../fellowship/"><span>Fellowship</span></a></div>
           </article>
     </div>
@@ -277,9 +283,9 @@
         <p>Rejoignez les canaux publics, participez aux activités, contribuez aux projets ou soutenez l'Institut.</p>
       </a></div>
   </section>
-  <nav class="pager page-pager" aria-label="pages adjacentes">
+  <nav class="pager page-pager" aria-label="Pages adjacentes à Mentorship">
     <a href="../../working-groups/">Précédent : Working Groups</a>
-    <a href="../../structure/officers/">Prochainement : Officers</a>
+    <a href="../../structure/officers/">Suivant : Officers</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -293,7 +299,7 @@
       <a href="../">Programmes</a>
       <a href="../../directory/">Répertoire</a>
       <a href="../../resources/">Ressources</a>
-      <a href="../../knowledge/">Carte Open Source</a>
+      <a href="../../knowledge/">Open Source Map</a>
       <a href="../../get-involved/">Impliquez-vous</a>
       <a href="../../search/">Recherche</a>
       <a href="../../sitemap/">Plan du site</a>

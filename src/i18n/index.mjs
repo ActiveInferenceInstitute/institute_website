@@ -65,6 +65,12 @@ export function activeLocale() {
   return _active;
 }
 
+// Numeric UI values use the same locale as their translated surrounding text.
+// Identifiers, dates and provenance hashes are deliberately not passed here.
+export function formatNumber(value) {
+  return Number(value).toLocaleString(_active);
+}
+
 // ── Extraction mode ──────────────────────────────────────────────────────────
 // When I18N_EXTRACT is set, every tr() source string is recorded so the
 // translate pipeline knows the exact set of strings that need translating.

@@ -86,7 +86,6 @@ InstituteOS-adjacent data may be injected only through the public sync script or
 │   └── js/theme.js               # Light/dark theme toggle (localStorage)
 ├── scripts/
 │   ├── sync_instituteos_public_data.py # Sanitized public data injection
-│   ├── generate-project-pages.mjs # Per-project page content generator
 │   ├── generate-cards.mjs        # Per-page Open Graph social cards
 │   ├── generate-icons.sh         # Brand icon / favicon generation
 │   ├── check_internal_links.py   # Local HTML and asset link checker

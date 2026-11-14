@@ -11,7 +11,7 @@ import { hrefForSlug } from "../url-taxonomy.mjs";
 import { sectionHeading } from "./components.mjs";
 import { relPrefix, isVerifiedExternalUrl } from "./urls.mjs";
 import { sourceAnchor } from "./sources.mjs";
-import { tr } from "../i18n/index.mjs";
+import { formatNumber, tr } from "../i18n/index.mjs";
 import { normalizePublicUrl } from "../public-links.mjs";
 
 // Book-cover feature section: renders a page's `books[]` (cover image + title,
@@ -82,7 +82,7 @@ export function fellowsSection(currentDir = "") {
 // ── InstituteOS feature sections (graphs, narratives, domains, related projects) ──
 
 function formatCount(value) {
-  return Number(value || 0).toLocaleString("en-US");
+  return formatNumber(value || 0);
 }
 
 function manifestFiles() {
@@ -91,7 +91,7 @@ function manifestFiles() {
 
 function shortHash(value) {
   const hash = String(value || "");
-  return hash ? hash.slice(0, 12) : "not recorded";
+  return hash ? hash.slice(0, 12) : tr("not recorded");
 }
 
 function gateMetric({ label, value, text, href }) {
@@ -112,21 +112,21 @@ export function homeInstituteosGate(currentDir = "") {
     })}
     <div class="gate-home-grid">
       ${gateMetric({
-        label: "public export artifacts",
+        label: tr("public export artifacts"),
         value: formatCount(manifestFiles().length),
-        text: `${formatCount(exportedRecords)} records tracked in the public export manifest.`,
+        text: tr("{n} records tracked in the public export manifest.").replace("{n}", formatCount(exportedRecords)),
         href: hrefForSlug("instituteos", currentDir, "export-snapshot"),
       })}
       ${gateMetric({
-        label: "Open Source Map rows",
+        label: tr("Open Source Map rows"),
         value: formatCount(knowledgeRowTotal()),
-        text: "Searchable public rows for repositories, ideas, ontology relationships, governance, publications, policies, programs, and literature.",
+        text: tr("Searchable public rows for repositories, ideas, ontology relationships, governance, publications, policies, programs, and literature."),
         href: hrefForSlug("knowledge", currentDir),
       })}
       ${gateMetric({
-        label: "gate version",
-        value: EXPORT_PROVENANCE.gate_version || "tracked",
-        text: "The export manifest records the public-safety gate version and source fingerprint.",
+        label: tr("gate version"),
+        value: EXPORT_PROVENANCE.gate_version || tr("tracked"),
+        text: tr("The export manifest records the public-safety gate version and source fingerprint."),
         href: hrefForSlug("instituteos", currentDir, "public-export-gate"),
       })}
     </div>
@@ -138,13 +138,13 @@ function instituteosInterfaceSection(currentDir = "") {
   const exportedRecords = files.reduce((total, file) => total + Number(file.record_count || 0), 0);
   const generatedAt = EXPORT_PROVENANCE.generated_at
     ? new Date(EXPORT_PROVENANCE.generated_at).toISOString().replace(".000Z", "Z")
-    : "Not recorded";
+    : tr("Not recorded");
   const artifactRows = files
     .map((file) => `<article class="export-artifact">
       <strong>${escapeHtml(file.name)}</strong>
-      <span>${formatCount(file.record_count)} records</span>
+      <span>${escapeHtml(tr("{n} records").replace("{n}", formatCount(file.record_count)))}</span>
       <em>${escapeHtml(file.output_path || "")}</em>
-      <code class="export-artifact-hash" title="SHA-256 ${escapeHtml(file.sha256 || "not recorded")}">sha256:${escapeHtml(shortHash(file.sha256))}</code>
+      <code class="export-artifact-hash" title="SHA-256 ${escapeHtml(file.sha256 || tr("not recorded"))}">sha256:${escapeHtml(shortHash(file.sha256))}</code>
     </article>`)
     .join("");
 
@@ -157,34 +157,34 @@ function instituteosInterfaceSection(currentDir = "") {
     <div class="gate-ladder" aria-label="${escapeHtml(tr("Private to public export steps"))}">
       <article>
         <span>01</span>
-        <h3>Author privately</h3>
-        <p>Docs and library registries remain the source of truth for operational and governance work.</p>
+        <h3>${escapeHtml(tr("Author privately"))}</h3>
+        <p>${escapeHtml(tr("Docs and library registries remain the source of truth for operational and governance work."))}</p>
       </article>
       <article>
         <span>02</span>
-        <h3>Project publicly</h3>
-        <p>Exporter modules choose only public fields, public summaries, graph nodes, and approved brand assets.</p>
+        <h3>${escapeHtml(tr("Project publicly"))}</h3>
+        <p>${escapeHtml(tr("Exporter modules choose only public fields, public summaries, graph nodes, and approved brand assets."))}</p>
       </article>
       <article>
         <span>03</span>
-        <h3>Gate payloads</h3>
-        <p>PublicGate rejects direct private-platform destinations, contact details, private keys, raw tasks, and working artifacts.</p>
+        <h3>${escapeHtml(tr("Gate payloads"))}</h3>
+        <p>${escapeHtml(tr("PublicGate rejects direct private-platform destinations, contact details, private keys, raw tasks, and working artifacts."))}</p>
       </article>
       <article>
         <span>04</span>
-        <h3>Build and verify</h3>
-        <p>The website rebuilds clean URLs, search data, feeds, sitemap files, and provenance before release.</p>
+        <h3>${escapeHtml(tr("Build and verify"))}</h3>
+        <p>${escapeHtml(tr("The website rebuilds clean URLs, search data, feeds, sitemap files, and provenance before release."))}</p>
       </article>
     </div>
     <div class="export-snapshot" id="export-snapshot">
       <div>
-        <p class="eyebrow">Current public snapshot</p>
-        <h3>${formatCount(files.length)} artifacts, ${formatCount(exportedRecords)} manifest records</h3>
-        <p>Gate version ${escapeHtml(EXPORT_PROVENANCE.gate_version || "not recorded")}; source fingerprint ${escapeHtml(EXPORT_PROVENANCE.source_fingerprint || "not recorded")}; generated ${escapeHtml(generatedAt)}.</p>
+        <p class="eyebrow">${escapeHtml(tr("Current public snapshot"))}</p>
+        <h3>${escapeHtml(tr("{artifacts} artifacts, {records} manifest records").replace("{artifacts}", formatCount(files.length)).replace("{records}", formatCount(exportedRecords)))}</h3>
+        <p>${escapeHtml(tr("Gate version {version}; source fingerprint {fingerprint}; generated {date}.").replace("{version}", EXPORT_PROVENANCE.gate_version || tr("not recorded")).replace("{fingerprint}", EXPORT_PROVENANCE.source_fingerprint || tr("not recorded")).replace("{date}", generatedAt))}</p>
         <div class="mini-links">
-          <a href="${hrefForSlug("knowledge", currentDir)}">Open Source Map</a>
-          <a href="${hrefForSlug("directory", currentDir, "open-source-map")}">Directory rows</a>
-          <a href="${hrefForSlug("sitemap", currentDir)}">Sitemap</a>
+          <a href="${hrefForSlug("knowledge", currentDir)}">${escapeHtml(tr("Open Source Map"))}</a>
+          <a href="${hrefForSlug("directory", currentDir, "open-source-map")}">${escapeHtml(tr("Directory rows"))}</a>
+          <a href="${hrefForSlug("sitemap", currentDir)}">${escapeHtml(tr("Sitemap"))}</a>
         </div>
       </div>
       <div class="export-artifacts" aria-label="${escapeHtml(tr("Export manifest artifacts"))}">

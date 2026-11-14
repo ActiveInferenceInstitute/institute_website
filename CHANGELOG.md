@@ -12,6 +12,11 @@ This project follows [Semantic Versioning](https://semver.org/).
 - Canonicalize temporary fixture roots on macOS and avoid rerunning indexability controls in the full gate.
 - Bind offline GNN exemplar receipts to a reviewed per-revision SHA-256; reject unrelated models before issuing pinned conformance.
 - Derive the GNN timing note from the recorded commands, so an arm that fetches the pinned exemplar no longer reads as offline.
+- Record the 6th Symposium final program and book updates (#18), their eleven-locale localization (#19), and the homepage pathway improvements (#20).
+- Retire the obsolete project-page overwrite generator while preserving maintained page JSON.
+- Localize project catalog labels, accessible controls and locale-formatted counts; preserve independent affiliation filters.
+- Validate unique ontology ideas separately from per-tree membership and edge counts.
+- Review the selected older multiline and UI catalog copy in all eleven locales; preserve scientific qualifications, source identifiers and machine-translation notices. This is not human linguistic certification.
 
 
 ## v4.0.4 — 2026-11-08

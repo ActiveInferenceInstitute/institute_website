@@ -45,11 +45,9 @@ release truth pass below).
       `./run.sh gnn` (downloads) or
       `python3 scripts/check_gnn_conformance.py --exemplar <path>` (offline).
       Owner: repository maintainer; no external blocker.
-- [ ] `CHANGELOG.md` has no entry for #18, #19 or #20 — none of the three merge
-      commits touches the file, and `## Unreleased` still holds six entries that
-      predate them. Add the three under `## Unreleased` before the next cut.
-      Owner: whoever cuts the next release; writing it is a docs obligation of
-      these merges, not a code change.
+- [x] Record the missing #18 Symposium final-program/book, #19 eleven-locale
+      localization and #20 homepage pathway notes under `CHANGELOG.md` Unreleased.
+      These notes do not cut a release, backfill tags or establish deployment.
 - [ ] Release tags lag `CHANGELOG.md`: `package.json` and `version.json` say
       4.0.4, and the changelog lists v4.0.1 and v4.0.4, but
       `git ls-remote --tags` stops at `v4.0.3` and GitHub Releases stop at
@@ -83,6 +81,9 @@ release truth pass below).
       found 135 pre-existing entries per catalog with fewer paragraph breaks.
       The multiline pipeline fix prevents first-line truncation in future runs;
       refreshing older translations needs a separate review of content fidelity.
+      The selected eleven-locale source review is authored; focused controls now
+      preserve paragraph/list structure and interpolation slots. Real rebuilt-page
+      browser acceptance and human linguistic certification remain distinct.
 
 ## Profile HTTPS and German UI follow-ups — 2026-10-13
 
@@ -438,13 +439,10 @@ recrawl or production acceptance.
       `docs/documentation-index.md` links every `docs/*.md`, and
       `check_markdown_links.py` resolves all 534 relative links across 63 files;
       the `INDEX.md` ↔ `docs/README.md` overlap is still unchecked by any gate.
-- [ ] **Line-number references in docs drift** — `SLUG_AND_URL_TAXONOMY.md` and
-      `RELEASING.md` cite exact source line numbers (`src/data.mjs:45-58`, …)
-      that will rot. **Deferred:** mechanically removing them all is churn with
-      no gate impact; the stale one in RELEASING.md was fixed this pass and the
-      taxonomy doc's refs were spot-verified accurate. Ten such references remain
-      in `docs/SLUG_AND_URL_TAXONOMY.md` (`src/url-taxonomy.mjs`, `src/build.mjs`,
-      `src/pages/ecosystem.mjs`, `src/render/urls.mjs`, `src/data.mjs`).
+- [x] **Demonstrated taxonomy reference drift** — replace the stale
+      `localePrefix()` location and `ecosystemDomainPages()` examples with stable
+      `localePrefix()` / `ecosystemTopicPages()` references and the actual lazy
+      topic-rendering contract. Unrelated line-number churn is not part of this fix.
 
 ### Follow-up — completed audit batch findings (deleg_aca05bf9)
 
@@ -573,6 +571,8 @@ fallback. Open items below are verified but deliberately deferred.
       accessibility labels and gate-metric copy still need semantic review.
       Catalog coverage does not certify earlier translations; the 135 older
       multiline entries are tracked in the translation follow-ups above.
+      Locale-aware count, accessible-label and metric controls pass; this does not
+      certify all historical translations or replace rebuilt-page browser proof.
 - [x] **Video page meta descriptions** — already use the structured
       title/series/date summary in `src/pages/video-detail.mjs` rather than ASR
       openings; reconciled 2026-10-13.

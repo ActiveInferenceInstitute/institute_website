@@ -95,9 +95,9 @@
           <span>Ressources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Carte Open Source</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Open Source Map</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
       </div></nav>
-    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour «{q}" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
+    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour « {q} »" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
       <input type="search" id="site-search-input" placeholder="Rechercher l'Institut…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Rechercher sur le site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
@@ -109,13 +109,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Écoutez cette page" title="Écoutez cette page" data-tts-label-idle="Écoutez cette page" data-tts-label-active="Arrêtez de lire cette page." data-tts-title-idle="Écoutez cette page" data-tts-title-active="Arrêtez de lire"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choisir la couleur de mise en évidence" title="Choisir la couleur de mise en évidence"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur mise en évidence" hidden>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur de mise en évidence" hidden>
         <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Mise en évidence rouge (par défaut)" title="Rouge"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amor éclair" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Vert mis en évidence" title="Vert"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight» → «Souligner en teal" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Haut de page bleu" title="Bleu"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Mise en évidence ambrée" title="Ambre"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Mise en évidence verte" title="Vert"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Mise en évidence en bleu sarcelle" title="Bleu sarcelle"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Mise en évidence bleue" title="Bleu"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Mise en évidence violette" title="Violet"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Mise en évidence magenta" title="Magenta"></button>
       </div>
     </div>
@@ -143,7 +143,7 @@
         <a href="#governance-overview">Présentation de la gouvernance</a><a href="#members">Membres</a><a href="#board-of-directors">Conseil d'administration</a><a href="#officers">Officiers</a><a href="#scientific-advisory-board">Conseil scientifique</a><a href="#organizational-units">Unités organisationnelles</a><a href="#volunteers-learners-and-interns">Volontaires, apprenants et stagiaires</a><a href="#ecosystem-relationship">Relation écosystémique</a>
         <a href="#next-actions">Meilleures prochaines étapes</a>
         <a href="#key-surfaces">Surfaces clés</a>
-        <a href="../knowledge/">Carte Open Source</a>
+        <a href="../knowledge/">Open Source Map</a>
         <a href="#resources">Ressources associées</a>
         <a href="#official-pages">Pages officielles</a>
 
@@ -157,33 +157,47 @@
     <div class="article-stack">
       <article class="article-block" id="governance-overview">
             <h2>Présentation de la gouvernance</h2>
-            <p>L’institut est une organisation à but non lucratif enregistrée sous le statut 501(c)(3), constituée dans le Delaware, aux États-Unis. Le conseil d’administration exerce son pouvoir de décision, appuyé par des officiers pour les opérations et un conseil consultatif scientifique pour les conseils scientifiques.</p>
+            <p>L’Institut est une organisation à but non lucratif enregistrée sous le statut 501(c)(3), constituée dans le Delaware, aux États-Unis. La gouvernance est exercée par un conseil d’administration, appuyé par des responsables pour les opérations et par un conseil consultatif scientifique pour l’orientation scientifique.</p>
+<p>Cette structure garantit que les orientations de l’Institut reflètent à la fois une gouvernance solide et l’intégrité scientifique. Les principaux documents de gouvernance, tels que les statuts, sont accessibles au public; l’Institut tient également à jour un ensemble plus vaste de politiques et de procédures internes qui soutiennent les opérations quotidiennes.</p>
             <div class="link-chips"><a href="../ecosystem/"><span>Ecosystem shortlink</span><em>Research</em></a></div>
           </article><article class="article-block" id="members">
             <h2>Membres</h2>
-            <p>L'institut est une société nonprofit délitée du Delaware et les sociétés nonprofit délitées du Delaware ont des membres corporatifs formels — une couche de gouvernance distincte du conseil d'administration. Les membres détiennent les droits de vote réservés à eux en vertu des statuts de l'institut, y compris l'approbation des élections du conseil d'administration et l'approbation des modifications des statuts.</p>
+            <p>L’Institut est une société à but non lucratif de droit du Delaware, et les sociétés à but non lucratif du Delaware ont des Membres statutaires — un niveau de gouvernance distinct du conseil d’administration. Les Membres détiennent les droits de vote qui leur sont réservés par les statuts de l’Institut, notamment l’approbation des élections au conseil d’administration et des modifications des statuts.</p>
+<p>Il y a trois Membres: Virginia Bleu Knight, Daniel Friedman et Karl J. Friston.</p>
           </article><article class="article-block" id="board-of-directors">
             <h2>Conseil d'administration</h2>
-            <p>Le conseil d'administration est l'organe de direction principal de la <a href="../about/">Active Inference Institute</a>. Le conseil fournit une direction stratégique, une surveillance financière et une responsabilité institutionnelle.</p>
+            <p>Le conseil d’administration est le principal organe de gouvernance de l’<a href="../about/">Active Inference Institute</a>. Le conseil fixe les orientations stratégiques, exerce une surveillance fiduciaire et répond de l’action de l’institution.</p>
+<p>Les membres du conseil sont responsables de la bonne santé à long terme de l’Institut et de son alignement sur sa mission. Le conseil se réunit régulièrement; ses documents de gouvernance, tels que les statuts, sont accessibles au public.</p>
+<p>Le conseil comprend dix administrateurs de même statut: Alexander Sabine, Alianna J. Maren, Ana Magdalena Hurtado, Ann Stapleton, Austin Cook, Daniel Friedman, Edward Ober, Ellynne Dec, V.</p>
+<p>Bleu Knight et Vladimir Baulin.</p>
             <div class="link-chips"><a href="board-of-directors/"><span>Board of Directors roster</span><em>Institute</em></a></div>
           </article><article class="article-block" id="officers">
             <h2>Officiers</h2>
-            <p>Les officiers sont responsables des opérations quotidiennes de l’Institut. Les rôles d’officier comprennent le président, le trésorier et le secrétaire, entre autres.</p>
+            <p>Les responsables exécutifs sont chargés du fonctionnement quotidien de l'Institut. Leurs fonctions comprennent notamment celles de président, de trésorier et de secrétaire.</p>
+<p>Ils mettent en œuvre les décisions du conseil d'administration, gèrent les processus organisationnels, tiennent les registres financiers, coordonnent les communications et supervisent les programmes de l'Institut. Ils travaillent en étroite collaboration avec les unités organisationnelles et rendent compte au conseil d'administration.</p>
+<p>Responsables exécutifs actuels: Daniel Friedman (président et trésorier) et Alexandra Mikhailova (vice-présidente et secrétaire).</p>
           </article><article class="article-block" id="scientific-advisory-board">
             <h2>Conseil scientifique</h2>
-            <p>Le Comité Consultatif Scientifique (CCS) fournit des conseils scientifiques et universitaires à l’Institut. Les membres du CCS sont des experts en Active Inference, en neurosciences computationnelles, en sciences cognitives et dans des domaines connexes.</p>
+            <p>Le conseil consultatif scientifique (<a href="scientific-advisory-board/">SAB</a>) fournit à l’Institut des orientations scientifiques et universitaires. Les membres du SAB sont des experts en Active Inference, en neurosciences computationnelles, en sciences cognitives et dans des domaines connexes.</p>
+<p>Le SAB conseille l’Institut sur les orientations de recherche, les contenus pédagogiques, la sélection des projets et la qualité scientifique de ses productions. Les membres du SAB peuvent exercer le rôle de facilitateurs pour des projets de recherche et des groupes d’apprentissage.</p>
+<p>Membres actuels du conseil consultatif scientifique: Adam Safron, Adeel Razi, Alexander Ororbia, Ali Rahmjoo, Andrew Pashea, Antonio Lucas-Alba, Arun Niranjan, Avel Guénin-Carlut, Bradly Alicea, Candice Pattisapu, Chris Fields, Christo Kurisummoottil Thomas, Cory Slater, Elliott Hauser, Haris Neophytou, Héctor Manrique, Holly Grimm, Ian Tennant, Jana Lumi, Joel Dietz, John Clippinger, Joshua Shane, Karl J. Friston, Luca Possati, Matt Brown, Maxwell J.</p>
+<p>D. Ramstead, Michael Lennon, Mike Smith, Scott David, Sebastian Alvarado, Shady El Damaty et Thomas Kehler.</p>
             <div class="link-chips"><a href="scientific-advisory-board/"><span>Scientific Advisory Board roster</span><em>Institute</em></a></div>
           </article><article class="article-block" id="organizational-units">
             <h2>Unités organisationnelles</h2>
-            <p>Deux unités organisationnelles mettent en œuvre les programmes de l’Institut. L’unité <a href="../eduactive/">EduActive</a> se concentre sur l’éducation: elle soutient les groupes d’apprentissage, les cours, les cohortes de manuels, les écoles saisonnières, le développement de cours éducatifs et la production audiovisuelle.</p>
+            <p>Deux unités organisationnelles mettent en œuvre les programmes de l’Institut. L’unité <a href="../eduactive/">EduActive</a> se concentre sur l’éducation: elle soutient les groupes d’apprentissage, les cours, les cohortes d’étude de manuels, les écoles saisonnières, la conception de cours et la production audiovisuelle.</p>
+<p>L’unité <a href="../reinference/">ReInference</a> se concentre sur la recherche: elle soutient les projets de recherche, l’<a href="../projects/active-inference-journal/">Active Inference Journal</a>, l’<a href="../projects/active-inference-ontology/">Active Inference Ontology</a>, l’ingénierie des connaissances et l’<a href="../projects/symposium/">Applied Active Inference Symposium</a>. Les deux unités sont dirigées par des facilitateurs qui coordonnent les groupes de projet, les activités d’apprentissage et la participation de la communauté.</p>
             <div class="link-chips"><a href="../eduactive/"><span>EduActive Unit</span></a><a href="../reinference/"><span>ReInference Unit</span></a><a href="../projects/"><span>All Projects</span></a></div>
           </article><article class="article-block" id="volunteers-learners-and-interns">
             <h2>Volontaires, apprenants et stagiaires</h2>
-            <p>Les bénévoles, les apprenants et les stagiaires sont les participants actifs qui alimentent le travail quotidien de l’Institut. Les bénévoles contribuent dans toutes les fonctions — groupes d’apprentissage, soutien aux projets, opérations, rédaction, analyse et médias.</p>
+            <p>Les bénévoles, les apprenants et les stagiaires sont les participants actifs qui font vivre le travail quotidien de l’Institut. Les bénévoles contribuent à toutes les fonctions — groupes d’apprentissage, soutien aux projets, fonctionnement de l’Institut, rédaction, analyse et médias.</p>
+<p>Les apprenants suivent les programmes éducatifs à leur propre rythme. Les stagiaires participent à des parcours structurés qui développent leurs compétences par la contribution aux projets et la participation à la communauté.</p>
+<p>Tous ces rôles s’inscrivent dans l’écosystème plus large d’Active Inference.</p>
             <div class="link-chips"><a href="../volunteer/"><span>Volunteer</span><em>Participate</em></a></div>
           </article><article class="article-block" id="ecosystem-relationship">
             <h2>Relation écosystémique</h2>
-            <p>L’Institut se situe au cœur de l’Écosystème plus large — un réseau mondial de chercheurs, de praticiens, d’apprenants, d’universités, d’entreprises et de collaborateurs qui travaillent avec et autour de l’Écosystème. L’Institut fournit un soutien à l’Écosystème grâce aux communications, à l’éducation, à la facilitation de projets, aux ressources informatiques et de stockage, au soutien à la publication et aux licences, à la découverte de financements et aux partenariats.</p>
+            <p>L’Institut s’inscrit dans l’écosystème plus large d’Active Inference — un réseau mondial de chercheurs, de praticiens, d’apprenants, d’universités, d’entreprises et de collaborateurs qui travaillent avec et autour d’Active Inference. L’Institut soutient cet écosystème par la communication, l’éducation, la facilitation de projets, des ressources de calcul et de stockage, un accompagnement en matière de publication et de licences, la recherche de possibilités de financement et des partenariats.</p>
+<p>L’écosystème apporte à son tour des membres, des projets, des idées et des retours qui façonnent les orientations de l’Institut.</p>
             <div class="link-chips"><a href="../ecosystem/"><span>Ecosystem shortlink</span><em>Research</em></a></div>
           </article>
     </div>
@@ -418,9 +432,9 @@
         <p>Rejoignez les canaux publics, participez aux activités, contribuez aux projets ou soutenez l'Institut.</p>
       </a></div>
   </section>
-  <nav class="pager page-pager" aria-label="pages adjacentes">
+  <nav class="pager page-pager" aria-label="Pages adjacentes à Institute Structure">
     <a href="../active-inference/">Précédent : Active Inference</a>
-    <a href="../activities/">Prochainement : Activities</a>
+    <a href="../activities/">Suivant : Activities</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -434,7 +448,7 @@
       <a href="../programs/">Programmes</a>
       <a href="../directory/">Répertoire</a>
       <a href="../resources/">Ressources</a>
-      <a href="../knowledge/">Carte Open Source</a>
+      <a href="../knowledge/">Open Source Map</a>
       <a href="../get-involved/">Impliquez-vous</a>
       <a href="../search/">Recherche</a>
       <a href="../sitemap/">Plan du site</a>

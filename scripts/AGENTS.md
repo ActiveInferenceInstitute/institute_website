@@ -184,8 +184,8 @@ re-run only fills missing keys (`--force` re-does all). Flags: `--locale`,
 
 ## Other scripts
 
-`generate-project-pages.mjs`, `generate-cards.mjs`, and `generate-icons.sh` are
-content/asset generators, not gates; they are not part of `npm run check`.
+`generate-cards.mjs` and `generate-icons.sh` are asset generators, not gates;
+they are not part of `npm run check`. Project page JSON is maintained source.
 
 ## Indexing follow-up tools
 
