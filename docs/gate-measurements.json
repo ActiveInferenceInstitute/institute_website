@@ -39,43 +39,13 @@
       "command": "npm run check"
     }
   },
-  "refreshed_at": "2026-11-12T19:39:25.386788+00:00",
-  "command_source_sha256": "b12d7268ade9f8bde15fb273fd53d69364d8f87529399bf804355457ff820016",
+  "refreshed_at": "2026-11-14T20:17:47.344786+00:00",
+  "command_source_sha256": "cad0533da06763610de7ed5303639ea6a0a99c98d0024dc420d91e7be576a9c7",
   "after": {
-    "lint": {
-      "seconds": 0.501,
-      "exit_code": 0,
-      "command": "./run.sh lint"
-    },
-    "fast": {
-      "seconds": 3.21,
-      "exit_code": 0,
-      "command": "./run.sh fast"
-    },
     "full": {
-      "seconds": 217.695,
+      "seconds": 274.177,
       "exit_code": 0,
       "command": "./run.sh full"
-    },
-    "docs": {
-      "seconds": 0.304,
-      "exit_code": 0,
-      "command": "./run.sh docs"
-    },
-    "gnn": {
-      "seconds": 0.88,
-      "exit_code": 0,
-      "command": "./run.sh gnn"
-    },
-    "browser": {
-      "seconds": 18.623,
-      "exit_code": 0,
-      "command": "./run.sh browser"
-    },
-    "build": {
-      "seconds": 4.942,
-      "exit_code": 0,
-      "command": "./run.sh build"
     }
   }
 }

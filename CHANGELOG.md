@@ -17,6 +17,8 @@ This project follows [Semantic Versioning](https://semver.org/).
 - Localize project catalog labels, accessible controls and locale-formatted counts; preserve independent affiliation filters.
 - Validate unique ontology ideas separately from per-tree membership and edge counts.
 - Review the selected older multiline and UI catalog copy in all eleven locales; preserve scientific qualifications, source identifiers and machine-translation notices. This is not human linguistic certification.
+- Render archive text entities and escaped Markdown punctuation once, preserving literal code and fence lengths, producer link destinations and declared image alt text.
+- Derive GNN timing claims only from recorded arms; partial measurement sets no longer invent exemplar handling for unmeasured phases.
 
 
 ## v4.0.4 — 2026-11-08

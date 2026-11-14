@@ -10,18 +10,17 @@ Before/after failures are partial runs, not comparable full-suite timings. No sp
 The baseline build/full ran outside the governed sandbox with the default temporary directory;
 the other observations use the vault's governed execution and a canonical temporary directory.
 The GNN before arm fetches the pinned exemplar itself, so its time includes that download.
-The GNN after arm fetches the pinned exemplar itself, so its time includes that download.
-Parser installation is excluded from both arms.
+Parser installation is excluded from the recorded GNN arms.
 
 | Arm | Before (s) | Exit | After (s) | Exit |
 | --- | ---: | ---: | ---: | ---: |
-| lint | 0.539 | 0 | 0.501 | 0 |
-| fast | 17.481 | 0 | 3.210 | 0 |
-| full | 607.560 | 1 | 217.695 | 0 |
-| docs | 1.218 | 0 | 0.304 | 0 |
-| gnn | 5.663 | 0 | 0.880 | 0 |
-| build | 38.010 | 0 | 4.942 | 0 |
-| browser | 27.400 | 1 | 18.623 | 0 |
+| lint | 0.539 | 0 | not measured | — |
+| fast | 17.481 | 0 | not measured | — |
+| full | 607.560 | 1 | 274.177 | 0 |
+| docs | 1.218 | 0 | not measured | — |
+| gnn | 5.663 | 0 | not measured | — |
+| build | 38.010 | 0 | not measured | — |
+| browser | 27.400 | 1 | not measured | — |
 
 ## Scope
 
