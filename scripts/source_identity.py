@@ -28,4 +28,11 @@ def website_source_fingerprint(root: Path) -> str:
 
     for entry in ["package.json", "src", "assets", "simulations"]:
         visit(entry)
+    # Keep the build's input order and avoid pulling in generated data files.
+    if (root / "data").is_symlink():
+        raise ValueError("Website source identity cannot follow symlinks")
+    for entry in ("data/export-manifest.json", "data/projects.json"):
+        path = root / entry
+        if path.exists() or path.is_symlink():
+            visit(entry)
     return digest.hexdigest()

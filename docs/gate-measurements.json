@@ -39,8 +39,8 @@
       "command": "npm run check"
     }
   },
-  "refreshed_at": "2026-11-12T19:39:25.386788+00:00",
-  "command_source_sha256": "b12d7268ade9f8bde15fb273fd53d69364d8f87529399bf804355457ff820016",
+  "refreshed_at": "2026-11-15T20:59:03.030083+00:00",
+  "command_source_sha256": "a1901a54a1b72b0d24bcf054b110e20ff34e755f7c6040d2444316314bf6fe3a",
   "after": {
     "lint": {
       "seconds": 0.501,
@@ -53,14 +53,24 @@
       "command": "./run.sh fast"
     },
     "full": {
-      "seconds": 217.695,
+      "seconds": 329.667,
       "exit_code": 0,
-      "command": "./run.sh full"
+      "command": "./run.sh full",
+      "runtime": {
+        "host": "Darwin 27.2.0 arm64",
+        "node": "v26.13.1",
+        "python": "3.15.2"
+      }
     },
     "docs": {
-      "seconds": 0.304,
+      "seconds": 0.347,
       "exit_code": 0,
-      "command": "./run.sh docs"
+      "command": "./run.sh docs",
+      "runtime": {
+        "host": "Darwin 27.2.0 arm64",
+        "node": "v26.13.1",
+        "python": "3.15.2"
+      }
     },
     "gnn": {
       "seconds": 0.88,
@@ -73,9 +83,14 @@
       "command": "./run.sh browser"
     },
     "build": {
-      "seconds": 4.942,
+      "seconds": 7.448,
       "exit_code": 0,
-      "command": "./run.sh build"
+      "command": "./run.sh build",
+      "runtime": {
+        "host": "Darwin 27.2.0 arm64",
+        "node": "v26.13.1",
+        "python": "3.15.2"
+      }
     }
   }
 }

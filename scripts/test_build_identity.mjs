@@ -11,13 +11,26 @@ test("website identity follows source bytes and stays independent of build outpu
     const root = mkdtempSync(join(tmpdir(), "website-identity-"));
     mkdirSync(join(root, "src")); mkdirSync(join(root, "assets/js"), { recursive: true }); mkdirSync(join(root, "simulations"));
     writeFileSync(join(root, "src/page.mjs"), "public source"); writeFileSync(join(root, "package.json"), "{}");
+    mkdirSync(join(root, "data"));
+    writeFileSync(join(root, "data/export-manifest.json"), '{"files":[]}');
+    writeFileSync(join(root, "data/projects.json"), '{"projects":[]}');
     return root;
   };
   const one = make(), two = make(); const before = websiteSourceFingerprint(one);
   assert.equal(before, websiteSourceFingerprint(two));
   writeFileSync(join(one, "version.json"), "generated output");
   writeFileSync(join(one, "assets/js/search-data.js"), "generated index");
+  writeFileSync(join(one, "data/public-html-files.json"), '["index.html"]');
   assert.equal(before, websiteSourceFingerprint(one));
+  for (const [file, original] of [
+    ["export-manifest.json", '{"files":[]}'],
+    ["projects.json", '{"projects":[]}'],
+  ]) {
+    const input = join(one, "data", file);
+    writeFileSync(input, '{"changed":true}');
+    assert.notEqual(before, websiteSourceFingerprint(one), file);
+    writeFileSync(input, original);
+  }
   writeFileSync(join(one, "src/page.mjs"), "changed public source");
   assert.notEqual(before, websiteSourceFingerprint(one));
 });
@@ -26,6 +39,9 @@ test("independent Python identity agrees for Unicode paths as well as ordinary s
   const root = mkdtempSync(join(tmpdir(), "website-unicode-"));
   mkdirSync(join(root, "src")); mkdirSync(join(root, "assets")); mkdirSync(join(root, "simulations"));
   writeFileSync(join(root, "package.json"), "{}");
+  mkdirSync(join(root, "data"));
+  writeFileSync(join(root, "data/export-manifest.json"), '{"files":[]}');
+  writeFileSync(join(root, "data/projects.json"), '{"projects":[{"title":"Café"}]}');
   for (const name of ["\uE000.mjs", "\u{10000}.mjs", "é.mjs"]) writeFileSync(join(root, "src", name), name);
   const script = "import sys;from pathlib import Path;sys.path.insert(0,sys.argv[1]);from source_identity import website_source_fingerprint;print(website_source_fingerprint(Path(sys.argv[2])))";
   const actual = execFileSync("python3", ["-c", script, new URL("./", import.meta.url).pathname, root], { encoding: "utf8" }).trim();

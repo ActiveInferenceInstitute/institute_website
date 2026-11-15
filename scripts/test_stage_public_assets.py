@@ -42,11 +42,13 @@ class StageTests(unittest.TestCase):
 
     def test_stale_source_and_unsafe_inventory_fail_before_writing(self):
         out = self.parent / "artifact"
-        (self.root / "src/page.mjs").write_text("changed")
-        with self.assertRaisesRegex(ValueError, "Stale"):
-            stage(self.root, out)
-        self.assertFalse(out.exists())
-        self.version()
+        for name in ("src/page.mjs", "data/export-manifest.json", "data/projects.json"):
+            with self.subTest(name=name):
+                (self.root / name).write_text('{"changed":true}')
+                with self.assertRaisesRegex(ValueError, "Stale"):
+                    stage(self.root, out)
+                self.assertFalse(out.exists())
+                self.version()
         for bad in ["../outside.html", "/outside.html", "src/private.html"]:
             (self.root / "data/public-html-files.json").write_text(json.dumps([bad]))
             with self.assertRaises(ValueError):
