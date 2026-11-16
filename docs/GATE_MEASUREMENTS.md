@@ -10,13 +10,12 @@ Before/after failures are partial runs, not comparable full-suite timings. No sp
 The baseline build/full ran outside the governed sandbox with the default temporary directory;
 the other observations use the vault's governed execution and a canonical temporary directory.
 The GNN before arm fetches the pinned exemplar itself, so its time includes that download.
-The GNN after arm was not measured.
-Parser installation is excluded from both arms.
+Parser installation is excluded from the recorded GNN arms.
 
 | Arm | Before (s) | Exit | After (s) | Exit |
 | --- | ---: | ---: | ---: | ---: |
-| lint | 0.539 | 0 | 0.663 | 0 |
-| fast | 17.481 | 0 | 3.103 | 0 |
+| lint | 0.539 | 0 | 0.623 | 0 |
+| fast | 17.481 | 0 | 3.233 | 0 |
 | full | 607.560 | 1 | not measured | — |
 | docs | 1.218 | 0 | not measured | — |
 | gnn | 5.663 | 0 | not measured | — |
@@ -27,8 +26,8 @@ Parser installation is excluded from both arms.
 
 `fast` selects the existing i18n helper tests. `full` retains the offline checks;
 indexability regression modules run once via Python discovery, not again in `check:indexability`.
-Lint/docs are independently runnable and included in full. Browser retains the original calendar,
-newsletter and quick-interaction sequence; a first-step failure prevents later steps from running.
+Lint/docs are independently runnable and included in full. Browser runs calendar, interactions,
+governance, newsletter and project catalog checks; a first-step failure prevents later steps from running.
 There is no repository type-checker or manuscript directory; no type or manuscript arm is invented.
 
 Before: the complete build/full/browser sequence ran in every CI matrix entry.

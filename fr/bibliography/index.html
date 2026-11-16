@@ -94,9 +94,9 @@
           <span>Ressources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Carte Open Source</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Open Source Map</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
       </div></nav>
-    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour «{q}" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
+    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour « {q} »" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
       <input type="search" id="site-search-input" placeholder="Rechercher l'Institut…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Rechercher sur le site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
@@ -108,13 +108,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Écoutez cette page" title="Écoutez cette page" data-tts-label-idle="Écoutez cette page" data-tts-label-active="Arrêtez de lire cette page." data-tts-title-idle="Écoutez cette page" data-tts-title-active="Arrêtez de lire"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choisir la couleur de mise en évidence" title="Choisir la couleur de mise en évidence"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur mise en évidence" hidden>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur de mise en évidence" hidden>
         <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Mise en évidence rouge (par défaut)" title="Rouge"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amor éclair" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Vert mis en évidence" title="Vert"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight» → «Souligner en teal" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Haut de page bleu" title="Bleu"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Mise en évidence ambrée" title="Ambre"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Mise en évidence verte" title="Vert"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Mise en évidence en bleu sarcelle" title="Bleu sarcelle"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Mise en évidence bleue" title="Bleu"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Mise en évidence violette" title="Violet"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Mise en évidence magenta" title="Magenta"></button>
       </div>
     </div>
@@ -139,7 +139,8 @@
     <div class="article-stack">
       <article class="article-block" id="about-this-bibliography">
             <h2>À propos de cette bibliographie</h2>
-            <p>Cette page présente les résultats structurés complets du projet d'analyse méta- Active Inference. La bibliographie comprend 71 références sélectionnées à partir de la source du manuscrit, ainsi que l'analyse de l'ensemble du corpus: métriques de croissance des domaines, scores d'évidence des hypothèses extraits par des LLM, analyse du réseau de citations, modélisation thématique NMF, classification des sous-domaines, statistiques de couverture du corpus et données sur la qualité et la reproductibilité du projet.</p>
+            <p>Cette page présente l’intégralité des résultats structurés du projet de méta-analyse d’Active Inference. La bibliographie comprend 71 références sélectionnées à partir du code source du manuscrit, ainsi que l’analyse complète du corpus: indicateurs de croissance du domaine, scores d’étayage des hypothèses fondés sur des assertions extraites par des LLM, analyse du réseau de citations, modélisation thématique NMF, classification des sous-domaines, statistiques de couverture du corpus et données sur la qualité et la reproductibilité du projet.</p>
+<p>Le code source BibTeX complet, tous les fichiers de données de sortie et le manuscrit compilé sont disponibles sur GitHub.</p>
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/manuscript/references.bib" target="_blank" rel="noopener noreferrer"><span>View BibTeX source on GitHub</span></a><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis" target="_blank" rel="noopener noreferrer"><span>Meta-analysis repository</span></a><a href="https://github.com/ActiveInferenceInstitute/act_inf_metaanalysis/blob/main/output/pdf/act_inf_metaanalysis_combined.pdf" target="_blank" rel="noopener noreferrer"><span>Meta-analysis document</span></a></div>
           </article><article class="article-block" id="scope-and-coverage">
             <h2>Portée et étendue</h2>
@@ -1415,9 +1416,9 @@
         <p>Un cadre pour comprendre la perception, l'action, l'apprentissage, la cognition et les systèmes adaptatifs.</p>
       </a></div>
   </section>
-  <nav class="pager page-pager" aria-label="pages adjacentes">
+  <nav class="pager page-pager" aria-label="Pages adjacentes à Bibliography">
     <a href="../projects/belief-updating-ptsd/">Précédent : Active Inference Account of Belief Updating in PTSD</a>
-    <a href="../projects/translation-agent/">Prochainement : Active Inference Agent for Modeling Human Translation</a>
+    <a href="../projects/translation-agent/">Suivant : Active Inference Agent for Modeling Human Translation</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -1431,7 +1432,7 @@
       <a href="../programs/">Programmes</a>
       <a href="../directory/">Répertoire</a>
       <a href="../resources/">Ressources</a>
-      <a href="../knowledge/">Carte Open Source</a>
+      <a href="../knowledge/">Open Source Map</a>
       <a href="../get-involved/">Impliquez-vous</a>
       <a href="../search/">Recherche</a>
       <a href="../sitemap/">Plan du site</a>

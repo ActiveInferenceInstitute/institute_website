@@ -580,6 +580,93 @@ def check_no_obsolete_public_artifacts(root: Path, errors: list[str]) -> None:
         errors.append(f"obsolete public image remains: {image.relative_to(root)}")
 
 
+def check_idea_ontology_contract(ideas: dict, ontology: dict, errors: list[str]) -> None:
+    """Check unique public ideas against their per-tree memberships, not their sum.
+
+    The producer deduplicates ideas by ID and publishes membership as tree titles
+    (falling back to IDs). Shared ideas therefore contribute once to each tree
+    they belong to, but only once to ideas.json. Do not change that public schema.
+    """
+    trees = ontology.get("trees", [])
+    if not trees:
+        errors.append("src/content/instituteos/ontology.json carries no trees")
+        return
+    by_id: dict[str, dict] = {}
+    by_label: dict[str, str] = {}
+    members: dict[str, set[str]] = {}
+    edge_counts: dict[str, int] = {}
+    for tree in trees:
+        tree_id = tree.get("id")
+        if not isinstance(tree_id, str) or not tree_id:
+            errors.append("ontology.json tree has no nonempty ID")
+            continue
+        if tree_id in by_id:
+            errors.append(f"ontology.json has duplicate tree ID {tree_id!r}")
+            continue
+        by_id[tree_id] = tree
+        members[tree_id] = set()
+        edge_counts[tree_id] = 0
+        label = tree.get("title") or tree_id
+        if not isinstance(label, str):
+            errors.append(f"ontology.json tree {tree_id!r} has an invalid title")
+        elif label in by_label:
+            errors.append(f"ontology.json has ambiguous membership label {label!r}")
+        else:
+            by_label[label] = tree_id
+
+    seen_ideas: set[str] = set()
+    for idea in ideas.get("records", []):
+        idea_id = idea.get("id")
+        if not isinstance(idea_id, str) or not idea_id:
+            errors.append("ideas.json record has no nonempty ID")
+            continue
+        if idea_id in seen_ideas:
+            errors.append(f"ideas.json has duplicate idea ID {idea_id!r}")
+        seen_ideas.add(idea_id)
+        labels = idea.get("trees")
+        if not isinstance(labels, list) or not labels:
+            errors.append(f"ideas.json idea {idea_id!r} has no tree memberships")
+            continue
+        seen_labels: set[str] = set()
+        for label in labels:
+            if not isinstance(label, str) or label not in by_label:
+                errors.append(f"ideas.json idea {idea_id!r} has unknown membership {label!r}")
+                continue
+            if label in seen_labels:
+                errors.append(f"ideas.json idea {idea_id!r} repeats membership {label!r}")
+            seen_labels.add(label)
+            members[by_label[label]].add(idea_id)
+
+    seen_edges: set[tuple[str, str]] = set()
+    for edge in ontology.get("edges", []):
+        tree_id = edge.get("treeId")
+        if not isinstance(tree_id, str) or tree_id not in by_id:
+            errors.append(f"ontology.json edge {edge.get('id')!r} has unknown tree {tree_id!r}")
+            continue
+        edge_counts[tree_id] += 1
+        edge_id = edge.get("id")
+        if not isinstance(edge_id, str) or not edge_id:
+            errors.append(f"ontology.json edge in tree {tree_id!r} has no nonempty ID")
+        elif (tree_id, edge_id) in seen_edges:
+            errors.append(f"ontology.json has duplicate edge ID {edge_id!r} in tree {tree_id!r}")
+        else:
+            seen_edges.add((tree_id, edge_id))
+        for endpoint in ("sourceId", "targetId"):
+            node_id = edge.get(endpoint)
+            if not isinstance(node_id, str) or node_id not in members[tree_id]:
+                errors.append(
+                    f"ontology.json edge {edge_id!r} {endpoint} {node_id!r} is not a member of tree {tree_id!r}"
+                )
+
+    for tree_id, tree in by_id.items():
+        for field, actual in (("nodeCount", len(members[tree_id])), ("edgeCount", edge_counts[tree_id])):
+            declared = tree.get(field)
+            if type(declared) is not int or declared < 0 or declared != actual:
+                errors.append(
+                    f"ontology.json tree {tree_id!r} declares {field} {declared!r}, found {actual}"
+                )
+
+
 def check_content_model(root: Path, errors: list[str]) -> None:
     site = load_json(root / "src" / "content" / "site.json")
     if "sourcePdf" in site:
@@ -765,25 +852,7 @@ def check_content_model(root: Path, errors: list[str]) -> None:
         actual = len(data[key].get("records", []))
         if actual != expected:
             errors.append(f"src/content/instituteos/{key}.json expected {expected} records, found {actual}")
-    # Ideas and ontology edges are self-consistent with the tree summaries the
-    # same sync writes, so assert the relation rather than pinning a number that
-    # goes stale the moment the backend tech trees grow.
-    trees = data["ontology"].get("trees", [])
-    if not trees:
-        errors.append("src/content/instituteos/ontology.json carries no trees")
-    else:
-        expected_ideas = sum(int(tree.get("nodeCount", 0)) for tree in trees)
-        actual_ideas = len(data["ideas"].get("records", []))
-        if actual_ideas != expected_ideas:
-            errors.append(
-                f"ideas.json has {actual_ideas} records but ontology.json trees declare {expected_ideas} nodes"
-            )
-        expected_edges = sum(int(tree.get("edgeCount", 0)) for tree in trees)
-        actual_edges = len(data["ontology"].get("edges", []))
-        if actual_edges != expected_edges:
-            errors.append(
-                f"ontology.json has {actual_edges} edges but its trees declare {expected_edges}"
-            )
+    check_idea_ontology_contract(data["ideas"], data["ontology"], errors)
 
     for label, payload in data.items():
         serialized = json.dumps(payload, ensure_ascii=False).lower()
@@ -1670,8 +1739,8 @@ def check_instituteos_interface(root: Path, errors: list[str]) -> None:
         errors.append("data/export-manifest.json missing generated_at")
 
     exported_records = sum(int(file.get("record_count", 0)) for file in files)
-    # The page renders this count via JS toLocaleString("en-US") (formatCount in
-    # feature-sections.mjs), which comma-groups thousands (e.g. "1,009"). Match
+    # The English page uses locale-aware formatNumber via formatCount in
+    # feature-sections.mjs, comma-grouping thousands (e.g. "1,009"). Match
     # either form so this check doesn't regress the moment total records cross
     # 1000 — it did exactly that on 2026-07-15 when the videos.json exporter
     # (694 records) pushed the total from 315 to 1009 records.

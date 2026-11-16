@@ -94,9 +94,9 @@
           <span>Ressources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Carte Open Source</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Open Source Map</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
       </div></nav>
-    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour «{q}" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
+    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour « {q} »" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
       <input type="search" id="site-search-input" placeholder="Rechercher l'Institut…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Rechercher sur le site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
@@ -108,13 +108,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Écoutez cette page" title="Écoutez cette page" data-tts-label-idle="Écoutez cette page" data-tts-label-active="Arrêtez de lire cette page." data-tts-title-idle="Écoutez cette page" data-tts-title-active="Arrêtez de lire"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choisir la couleur de mise en évidence" title="Choisir la couleur de mise en évidence"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur mise en évidence" hidden>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur de mise en évidence" hidden>
         <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Mise en évidence rouge (par défaut)" title="Rouge"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amor éclair" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Vert mis en évidence" title="Vert"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight» → «Souligner en teal" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Haut de page bleu" title="Bleu"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Mise en évidence ambrée" title="Ambre"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Mise en évidence verte" title="Vert"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Mise en évidence en bleu sarcelle" title="Bleu sarcelle"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Mise en évidence bleue" title="Bleu"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Mise en évidence violette" title="Violet"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Mise en évidence magenta" title="Magenta"></button>
       </div>
     </div>
@@ -142,7 +142,7 @@
         <a href="#what-grant-support-looks-like">À quoi ressemble le soutien financier par subvention ?</a><a href="#alignment-with-institute-goals">Alignement avec les objectifs de l'Institut</a><a href="#funding-track-record">Dossier de suivi des financements</a><a href="#funding-opportunities">Opportunités de financement</a><a href="#how-to-engage">Comment s'engager</a><a href="#related-programs">Programmes associés</a>
         <a href="#next-actions">Meilleures prochaines étapes</a>
         <a href="#key-surfaces">Surfaces clés</a>
-        <a href="../knowledge/">Carte Open Source</a>
+        <a href="../knowledge/">Open Source Map</a>
         <a href="#resources">Ressources associées</a>
         <a href="#official-pages">Pages officielles</a>
 
@@ -160,22 +160,27 @@
             <div class="link-chips"><a href="../weekly/"><span>Weekly updates</span><em>Community</em></a></div>
           </article><article class="article-block" id="alignment-with-institute-goals">
             <h2>Alignement avec les objectifs de l'Institut</h2>
-            <p>Un soutien financier est disponible pour les travaux qui font progresser Active Inference la recherche, l'éducation ou les applications dans le respect de la mission de l'Institut. Les domaines prioritaires comprennent: Active Inference la recherche et la modélisation fondamentales; les outils, les programmes et les cours éducatifs; les logiciels et les outils open source; les applications interdisciplinaires dans les domaines de la santé, de l'écologie, de l'économie, de la cognition et des systèmes sociaux; et l'infrastructure de l'écosystème Active Inference plus large.</p>
+            <p>Un soutien sous forme de subventions est disponible pour les travaux qui font progresser la recherche, l'enseignement ou les applications en Active Inference d'une manière conforme à la mission de l'Institut. Les domaines prioritaires comprennent: la recherche fondamentale et la modélisation en Active Inference; les outils pédagogiques, les programmes d'enseignement et les cours; les logiciels et l'outillage open source; les applications interdisciplinaires dans les domaines de la santé, de l'écologie, de l'économie, de la cognition et des systèmes sociaux; ainsi que l'infrastructure destinée à l'ensemble de l'Écosystème Active Inference.</p>
+<p>Les propositions qui aboutissent à des productions accessibles au public se prêtent particulièrement bien au soutien de l'Institut.</p>
           </article><article class="article-block" id="funding-track-record">
             <h2>Dossier de suivi des financements</h2>
-            <p>En juin 2025, le Fonds de Survie et de Prospérité a attribué à l'Institut une subvention de 270 000 $ pour soutenir le Projet de Consensus sur les Capacités et l'Alignement de l'IA (PCAIA), une initiative pluriannuelle sur les capacités de l'IA, l'alignement et la réglementation. L'Institut a également soumis des demandes de subvention qui n'ont pas été financées: une demande de 2022 pour « Modélisation des Systèmes et Audits Cognitifs pour l'Écosystème Hypercert », publiée sur Zenodo; une demande de 2023 au programme National Science Foundation Pathways to Enable Open-Source Ecosystems (POSE); une demande de 2024 au Future of Life Institute pour « FarmWorks: Agents d'IA Décentralisés pour des Solutions Personnalisées »; une demande de 2024 à l'Institute for the Future pour « VILLAGE (Validation de l'Inférence pour un Écosystème de Gouvernance d'Agents à Grande Échelle) »; une demande de 2025 à la programme Dana Frontiers de la Fondation Dana pour « Augmenter l'Accessibilité et l'Applicabilité de Active Inference: Manuels Génératifs et Développement du Curriculum de l'École d'Été Open Source »; et une demande de 2025 à l'accélérateur Google.org: IA Générative.</p>
+            <p>En juin 2025, le Survival and Flourishing Fund a accordé à l'Institut une subvention de 270 000 $ pour soutenir l'AI Capabilities &amp; Alignment Consensus Project (AICACP), une initiative pluriannuelle consacrée aux capacités de l'IA, à l'alignement et à la réglementation. L'Institut a également soumis des demandes de subvention qui n'ont pas été financées: une demande en 2022 pour « Systems Modeling and Cognitive Audits for Hypercert Ecosystems », publiée sur Zenodo; une demande en 2023 au programme Pathways to Enable Open-Source Ecosystems (POSE) de la National Science Foundation; une demande en 2024 au Future of Life Institute pour « FarmWorks: Decentralized AI Agents for Personalized Solutions »; une demande en 2024 au Foresight Institute pour « VILLAGE (Validating Inference for Large-scale Agent Governance Ecosystems) »; une demande en 2025 au programme Dana Frontiers de la Dana Foundation pour « Increasing the Accessibility and Applicability of Active Inference: Generative Playbooks and Open-Source Summer School Curriculum Development »; et une demande en 2025 au Google.org Accelerator: Generative AI.</p>
+<p>Aucune de ces six demandes n'a été financée.</p>
             <div class="link-chips"><a href="../projects/aicacp/"><span>AICACP project page</span></a><a href="../projects/farmworks/"><span>FarmWorks project page</span></a></div>
           </article><article class="article-block" id="funding-opportunities">
             <h2>Opportunités de financement</h2>
-            <p>L'institut suit les opportunités de financement pertinentes pour la communauté Active Inference et les partage via des mises à jour hebdomadaires, avec les éditions précédentes archivées dans la newsletter. Les opportunités proviennent d'agences gouvernementales, de fondations privées, d'institutions universitaires et d'autres sources.</p>
+            <p>L’Institut suit les possibilités de financement pertinentes pour la communauté Active Inference et les partage dans des mises à jour hebdomadaires, dont les éditions précédentes sont archivées dans la lettre d’information. Ces possibilités proviennent d’organismes publics, de fondations privées, d’établissements universitaires et d’autres sources.</p>
+<p>Si vous connaissez une possibilité qui pourrait bénéficier à la communauté et souhaitez collaborer à une proposition, contactez l’Institut.</p>
             <div class="link-chips"><a href="../weekly/"><span>Weekly updates</span><em>Community</em></a><a href="https://newsletter.activeinference.institute/" target="_blank" rel="noopener noreferrer"><span>Newsletter</span><em>Updates</em></a></div>
           </article><article class="article-block" id="how-to-engage">
             <h2>Comment s'engager</h2>
-            <p>Si vous êtes intéressé(e) à poursuivre une subvention avec le soutien de l'institut, la meilleure première étape est de décrire votre travail proposé et pourquoi il correspond à Active Inference et à la mission de l'institut. Envoyez un courriel à blanket@activeinference.institute avec une brève description de l'opportunité de financement et de votre rôle proposé.</p>
+            <p>Si vous souhaitez solliciter une subvention avec le soutien de l'Institut, la meilleure première étape consiste à décrire le travail que vous proposez et à expliquer en quoi il est en accord avec Active Inference et la mission de l'Institut. Envoyez un courriel à blanket@activeinference.institute avec une brève description de la possibilité de financement et du rôle que vous proposez de jouer.</p>
+<p>L'Institut vous répondra en vous indiquant comment ce soutien pourrait être organisé.</p>
             <div class="link-chips"><a href="../programs/partnership/"><span>Partnership</span></a><a href="../programs/fellowship/"><span>Fellowship</span></a></div>
           </article><article class="article-block" id="related-programs">
             <h2>Programmes associés</h2>
-            <p>Le travail financé par des subventions s'effectue souvent en parallèle avec un stage ou un partenariat. Les stagiaires peuvent utiliser des subventions pour soutenir leur travail continu.</p>
+            <p>Les travaux financés par des subventions sont souvent menés parallèlement à une participation au programme de fellowship ou à un partenariat. Les membres du programme peuvent recourir à des subventions pour soutenir leurs travaux dans la durée.</p>
+<p>Les partenaires peuvent solliciter des subventions conjointement avec l'Institut. La philanthropie constitue une voie complémentaire de soutien aux projets qui ne nécessite pas de procédure formelle de subvention.</p>
             <div class="link-chips"><a href="../programs/partnership/"><span>Partnership</span></a><a href="../programs/philanthropy/"><span>Philanthropy</span></a><a href="../programs/"><span>All programs</span></a></div>
           </article>
     </div>
@@ -277,9 +282,9 @@
         <p>L'institut et les projets écosystémiques transforment l'inférence active en artefacts publics, outils, recherches, éducation et pratique appliquée.</p>
       </a></div>
   </section>
-  <nav class="pager page-pager" aria-label="pages adjacentes">
+  <nav class="pager page-pager" aria-label="Pages adjacentes à Grants">
     <a href="../structure/scientific-advisory-board/">Précédent : Scientific Advisory Board</a>
-    <a href="../programs/partnership/">Prochainement : Partnership</a>
+    <a href="../programs/partnership/">Suivant : Partnership</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -293,7 +298,7 @@
       <a href="../programs/">Programmes</a>
       <a href="../directory/">Répertoire</a>
       <a href="../resources/">Ressources</a>
-      <a href="../knowledge/">Carte Open Source</a>
+      <a href="../knowledge/">Open Source Map</a>
       <a href="../get-involved/">Impliquez-vous</a>
       <a href="../search/">Recherche</a>
       <a href="../sitemap/">Plan du site</a>

@@ -3,18 +3,21 @@ import { escapeHtml } from "../lib/text.mjs";
 import { relPrefix } from "../render/urls.mjs";
 import { normalizePublicUrl } from "../public-links.mjs";
 
-const TOKEN_PREFIX = "\uE000NEWSLETTER_";
+const TEXT_ENTITIES = { amp: "&", lt: "<", gt: ">" };
+
+function decodeTextEntities(value) {
+  return String(value || "").replace(/&(amp|lt|gt);/g, (_match, name) => TEXT_ENTITIES[name]);
+}
 
 function formatText(value) {
-  let text = escapeHtml(String(value || ""));
-  text = text.replace(/`([^`]+)`/g, "<code>$1</code>");
+  let text = escapeHtml(decodeTextEntities(value));
   text = text.replace(/\*\*([^*]+?)\*\*/g, "<strong>$1</strong>");
   text = text.replace(/\*([^*\s][^*]*?)\*/g, "<em>$1</em>");
   return text;
 }
 
-function restoreTokens(text, tokens) {
-  return tokens.reduce((result, token, index) => result.replaceAll(`${TOKEN_PREFIX}${index}\uE001`, token), text);
+function restoreTokens(text, tokens, prefix, field = "html") {
+  return tokens.reduceRight((result, token, index) => result.replaceAll(`${prefix}${index}\uE001`, () => token[field]), text);
 }
 
 function mediaHref(target, record, currentDir) {
@@ -43,7 +46,7 @@ function safeHref(target, record, currentDir) {
 function linkMarkup(label, target, record, currentDir, image = false) {
   const href = safeHref(target, record, currentDir);
   if (!href) {
-    return formatText(label);
+    return image ? escapeHtml(label) : formatText(label);
   }
   if (image) {
     // A bare filename (e.g. "image.png", "Screenshot 2023-...png") or the
@@ -74,20 +77,35 @@ function meaningfulAlt(label) {
 
 function inlineMarkdown(value, record, currentDir) {
   let source = String(value || "");
+  // Escapes/entity decoding cannot manufacture this punctuation-free namespace.
+  let prefix = "\uE000NEWSLETTER";
+  while (source.includes(prefix)) prefix += "X";
   const tokens = [];
-  const stash = (html) => {
-    const marker = `${TOKEN_PREFIX}${tokens.length}\uE001`;
-    tokens.push(html);
+  const stash = (html, plain) => {
+    const marker = `${prefix}${tokens.length}\uE001`;
+    tokens.push({ html, plain });
     return marker;
   };
-  source = source.replace(/!\[([^\]]*)\]\(([^)\n]+)\)/g, (_match, label, target) => stash(linkMarkup(label, target, record, currentDir, true)));
-  source = source.replace(/\[([^\]]+)\]\(([^)\n]+)\)/g, (_match, label, target) => stash(linkMarkup(label, target, record, currentDir)));
+  const plainText = (text) => restoreTokens(text, tokens, prefix, "plain");
+  // Protect literal punctuation and code before recognizing Markdown structure.
+  // Code retains its literal entities and backslashes; ordinary prose does not.
+  source = source.replace(/\\([\u0021-\u002f\u003a-\u0040\u005b-\u0060\u007b-\u007e])|(`+)(?!`)([\s\S]*?)(?<!`)\2(?!`)/g, (match, escaped, _fence, code) => {
+    if (escaped) return stash(escapeHtml(escaped), escaped);
+    const text = code.startsWith(" ") && code.endsWith(" ") && /\S/.test(code)
+      ? code.slice(1, -1) : code;
+    return stash(`<code>${escapeHtml(text)}</code>`, match);
+  });
+  source = source.replace(/!\[([^\]]*)\]\(([^)\n]+)\)/g, (match, label, target) =>
+    stash(linkMarkup(decodeTextEntities(plainText(label)), plainText(target), record, currentDir, true), match));
+  source = source.replace(/\[([^\]]+)\]\(([^)\n]+)\)/g, (match, label, target) =>
+    stash(linkMarkup(label, plainText(target), record, currentDir), match));
   source = source.replace(/https?:\/\/[^\s<>]+/gi, (raw) => {
     const trailing = raw.match(/[.,;:!?]+$/)?.[0] || "";
-    const target = trailing ? raw.slice(0, -trailing.length) : raw;
-    return `${stash(linkMarkup(target, target, record, currentDir))}${formatText(trailing)}`;
+    const label = trailing ? raw.slice(0, -trailing.length) : raw;
+    const target = decodeTextEntities(plainText(label));
+    return `${stash(linkMarkup(label, target, record, currentDir), label)}${formatText(trailing)}`;
   });
-  return restoreTokens(formatText(source), tokens);
+  return restoreTokens(formatText(source), tokens, prefix);
 }
 
 function renderNewsletterBody(markdown, record, currentDir) {
@@ -126,7 +144,7 @@ function renderNewsletterBody(markdown, record, currentDir) {
   };
   const flushAll = () => {
     if (code) {
-      output.push(`<pre><code>${escapeHtml(code.join("\n"))}</code></pre>`);
+      output.push(`<pre><code>${escapeHtml(code.lines.join("\n"))}</code></pre>`);
       code = null;
     }
     flushParagraph();
@@ -137,17 +155,19 @@ function renderNewsletterBody(markdown, record, currentDir) {
   for (const rawLine of lines) {
     const line = rawLine.trimEnd();
     if (code) {
-      if (line.trim().startsWith("```")) {
-        output.push(`<pre><code>${escapeHtml(code.join("\n"))}</code></pre>`);
+      const closing = line.match(/^\s*(`{3,})\s*$/);
+      if (closing && closing[1].length >= code.fence) {
+        output.push(`<pre><code>${escapeHtml(code.lines.join("\n"))}</code></pre>`);
         code = null;
       } else {
-        code.push(line);
+        code.lines.push(line);
       }
       continue;
     }
-    if (line.trim().startsWith("```")) {
+    const opening = line.match(/^\s*(`{3,})([^`]*)$/);
+    if (opening) {
       flushAll();
-      code = [];
+      code = { fence: opening[1].length, lines: [] };
       continue;
     }
     if (!line.trim()) {

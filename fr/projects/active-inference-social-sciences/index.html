@@ -94,9 +94,9 @@
           <span>Ressources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Recherche</a><a href="../../resources/">Répertoire des ressources</a><a href="../../directory/">Index mondial</a><a href="../../knowledge/">Carte Open Source</a><a href="../../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../../directory/#official-pages">Pages Officielles</a><a href="../../resources/#research">Références de recherche</a><a href="../../#audience-pathways">Chemins de l'audience</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Recherche</a><a href="../../resources/">Répertoire des ressources</a><a href="../../directory/">Index mondial</a><a href="../../knowledge/">Open Source Map</a><a href="../../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../../directory/#official-pages">Pages Officielles</a><a href="../../resources/#research">Références de recherche</a><a href="../../#audience-pathways">Chemins de l'audience</a></div>
       </div></nav>
-    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour «{q}" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
+    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour « {q} »" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
       <input type="search" id="site-search-input" placeholder="Rechercher l'Institut…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Rechercher sur le site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
@@ -108,13 +108,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Écoutez cette page" title="Écoutez cette page" data-tts-label-idle="Écoutez cette page" data-tts-label-active="Arrêtez de lire cette page." data-tts-title-idle="Écoutez cette page" data-tts-title-active="Arrêtez de lire"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choisir la couleur de mise en évidence" title="Choisir la couleur de mise en évidence"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur mise en évidence" hidden>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur de mise en évidence" hidden>
         <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Mise en évidence rouge (par défaut)" title="Rouge"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amor éclair" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Vert mis en évidence" title="Vert"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight» → «Souligner en teal" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Haut de page bleu" title="Bleu"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Mise en évidence ambrée" title="Ambre"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Mise en évidence verte" title="Vert"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Mise en évidence en bleu sarcelle" title="Bleu sarcelle"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Mise en évidence bleue" title="Bleu"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Mise en évidence violette" title="Violet"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Mise en évidence magenta" title="Magenta"></button>
       </div>
     </div>
@@ -146,7 +146,7 @@
         <a href="#overview">Présentation générale</a><a href="#past-work">Travaux antérieurs</a><a href="#course-description">Description du cours</a><a href="#key-questions">Questions clés</a><a href="#participate">Participer</a>
         <a href="#next-actions">Meilleures prochaines étapes</a>
 
-        <a href="../../knowledge/">Carte Open Source</a>
+        <a href="../../knowledge/">Open Source Map</a>
         <a href="#resources">Ressources associées</a>
 
         <a href="#repositories">Répositoires</a>
@@ -234,10 +234,13 @@
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/courses" target="_blank" rel="noopener noreferrer"><span>courses repository</span><em>Repository</em></a></div>
           </article><article class="article-block" id="course-description">
             <h2>Description du cours</h2>
-            <p>Construire des paysages culturels: Active Inference pour les sciences sociales” était un cours participatif de douze sessions qui s'est déroulé en 2023, co-organisé par Kairos Research et le <a href="../../about/">Active Inference Institute</a>, et animé par Avel Guénin-Carlut, Ben White, Mahault Albarracin, Lorena Sganzerla et Daniel Friedman. Il a présenté aux participants les concepts de base de Active Inference et leur pertinence pour les sciences sociales, montrant comment l'organisation physique des agents cognitifs permet de décrire leurs perceptions et actions comme une « modélisation du monde » qui exprime leur identité structurelle — et comment cette modélisation du monde est construite de manière participative dans les sociétés humaines, à la fois par la modification du nième partagé et par l'intégration de normes sociales et linguistiques.</p>
+            <p>« Construire des paysages culturels: Active Inference pour les sciences sociales » était un cours participatif de douze séances organisé en 2023, conjointement par Kairos Research et l’<a href="../../about/">Active Inference Institute</a>, et animé par Avel Guénin-Carlut, Ben White, Mahault Albarracin, Lorena Sganzerla et Daniel Friedman. Il présentait aux participants les concepts de base d’Active Inference et leur pertinence pour les sciences sociales, en montrant comment l’organisation physique des agents cognitifs permet de décrire leurs perceptions et leurs actions comme la mise en acte d’un « modèle du monde » qui exprime leur identité structurelle — et comment ce modèle du monde se construit de manière participative dans les sociétés humaines, à la fois par la modification de la niche matérielle partagée et par l’intégration de normes sociales et linguistiques.</p>
+<p>Le cours était conçu pour des apprenants de tous horizons, quel que soit leur niveau de familiarité avec les mathématiques, la physique et l’informatique, en privilégiant le sens intuitif plutôt que le formalisme technique. Il s’articulait autour de cinq séances mensuelles de présentation suivies de séances de discussion invitant les participants à formuler leurs propres réflexions. Toutes les séances ont été enregistrées et rendues accessibles de manière asynchrone; leurs transcriptions ont été compilées et publiées.</p>
           </article><article class="article-block" id="key-questions">
             <h2>Questions clés</h2>
-            <p>Le cours était organisé autour de cinq questions clés: Qu'est-ce que c'est d'être un agent Active Inference? Quel est le rapport entre la signification cognitive et le nième (et social) dans lequel un agent est immergé?</p>
+            <p>Le cours était organisé autour de cinq questions clés: Quel effet cela fait-il d’exister en tant qu’agent d’Active Inference? Quelle est la relation entre la signification cognitive et la niche matérielle (et sociale) dont un agent fait l’expérience?</p>
+<p>Comment les humains construisent-ils une réalité culturelle partagée et quel rapport entretiennent-ils avec elle? Qu’est-ce qui anime l’évolution ouverte des normes et des institutions?</p>
+<p>Et quelle est la relation entre l’organisation d’une société et les schémas de sa cognition collective?</p>
           </article><article class="article-block" id="participate">
             <h2>Participer</h2>
             <p>Les scientifiques sociaux, éducateurs et chercheurs interdisciplinaires intéressés par la connexion de l'Inférence Active à leurs domaines sont les bienvenus pour contribuer.</p>
@@ -415,9 +418,9 @@
         <p>Un cadre pour comprendre la perception, l'action, l'apprentissage, la cognition et les systèmes adaptatifs.</p>
       </a></div>
   </section>
-  <nav class="pager page-pager" aria-label="pages adjacentes">
+  <nav class="pager page-pager" aria-label="Pages adjacentes à Active Inference for Social Sciences">
     <a href="../theoretical-neurobiology/">Précédent : Theoretical Neurobiology Group</a>
-    <a href="../active-inference-journal/">Prochainement : Active Inference Journal</a>
+    <a href="../active-inference-journal/">Suivant : Active Inference Journal</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -431,7 +434,7 @@
       <a href="../../programs/">Programmes</a>
       <a href="../../directory/">Répertoire</a>
       <a href="../../resources/">Ressources</a>
-      <a href="../../knowledge/">Carte Open Source</a>
+      <a href="../../knowledge/">Open Source Map</a>
       <a href="../../get-involved/">Impliquez-vous</a>
       <a href="../../search/">Recherche</a>
       <a href="../../sitemap/">Plan du site</a>

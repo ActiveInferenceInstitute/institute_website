@@ -33,8 +33,8 @@ The enforced contract and full command table for this folder are in
   [`generate_bibliography.py`](generate_bibliography.py).
 - **i18n** — [`i18n_translate.mjs`](i18n_translate.mjs),
   [`i18n_check_terminology.mjs`](i18n_check_terminology.mjs).
-- **Generators (not gates)** — [`generate-project-pages.mjs`](generate-project-pages.mjs),
-  [`generate-cards.mjs`](generate-cards.mjs), [`generate-icons.sh`](generate-icons.sh).
+- **Generators (not gates)** — [`generate-cards.mjs`](generate-cards.mjs),
+  [`generate-icons.sh`](generate-icons.sh). Project page JSON is maintained source.
 - **Browser checks** — `check_*browser*.mjs` / `browser_*.mjs` need a real
   Chrome via `CHROME_BIN` and run outside `npm run check`.
 

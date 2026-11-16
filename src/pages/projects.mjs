@@ -5,7 +5,7 @@ import { autolinkInternal } from "../render/autolink.mjs";
 import { slugToHref } from "../render/urls.mjs";
 import { sectionHeading } from "../render/components.mjs";
 import { linkChips } from "../render/page-sections.mjs";
-import { tr } from "../i18n/index.mjs";
+import { formatNumber, tr } from "../i18n/index.mjs";
 
 // Map a data/projects.json project id to its generated page slug. Prefers the
 // explicit website_slug; falls back to the conventional project-<id> form when a
@@ -166,13 +166,13 @@ function catalogStatusTable(projects, { anchor, suffix, caption, heading, emptyT
     return "";
   }
   const rows = projects.map((project) => catalogProjectRow(project, currentDir)).join("");
-  return `<div class="catalog-subhead"><h3>${escapeHtml(heading)}</h3><span class="catalog-subcount" id="${anchor}-${suffix}-count" data-msg-count-projects="${escapeHtml(tr("{n} projects"))}">${projects.length} project${projects.length === 1 ? "" : "s"}</span></div>
+  return `<div class="catalog-subhead"><h3>${escapeHtml(tr(heading))}</h3><span class="catalog-subcount" id="${anchor}-${suffix}-count" data-msg-count-projects="${escapeHtml(tr("{n} projects"))}">${escapeHtml(tr("{n} projects").replace("{n}", formatNumber(projects.length)))}</span></div>
       <div class="table-wrap"><table class="directory-table catalog-table" id="${anchor}-${suffix}-table">
-        <caption>${escapeHtml(caption)}</caption>
-        <thead><tr><th scope="col">Project</th><th scope="col">About</th><th scope="col">Topics</th><th scope="col">Lead &amp; people</th></tr></thead>
+        <caption>${escapeHtml(tr(caption))}</caption>
+        <thead><tr>${["Project", "About", "Topics", "Lead & people"].map((label) => `<th scope="col">${escapeHtml(tr(label))}</th>`).join("")}</tr></thead>
         <tbody id="${anchor}-${suffix}-body">${rows}</tbody>
       </table></div>
-      <p class="catalog-empty" id="${anchor}-${suffix}-empty" hidden>${escapeHtml(emptyText)}</p>`;
+      <p class="catalog-empty" id="${anchor}-${suffix}-empty" hidden>${escapeHtml(tr(emptyText))}</p>`;
 }
 
 // The two catalog groups. Each renders as a fully self-contained <section>:
@@ -188,6 +188,11 @@ const CATALOG_GROUPS = [
     text: "Projects the Active Inference Institute hosts and stewards directly, drawn from the canonical InstituteOS affiliation field. This table is independent of the Ecosystem table below: its search, topic filter, and counts cover Institute-hosted projects only.",
     activeCaption: "Active Institute-hosted projects, from the public InstituteOS project registry.",
     archivedCaption: "Archived and completed Institute-hosted projects, from the public InstituteOS project registry.",
+    searchPlaceholder: "Search {n} institute-hosted projects by name, topic, or lead…",
+    searchLabel: "Search institute-hosted projects",
+    topicLabel: "Filter institute-hosted projects by topic",
+    activeEmpty: "No active institute-hosted projects match your search.",
+    archivedEmpty: "No archived or completed institute-hosted projects match your search.",
   },
   {
     key: "ecosystem",
@@ -197,6 +202,11 @@ const CATALOG_GROUPS = [
     text: "Community-driven projects across the wider Active Inference ecosystem, drawn from the same canonical affiliation field. This table is independent of the Institute-hosted table above: its search, topic filter, and counts cover Ecosystem projects only.",
     activeCaption: "Active Ecosystem projects, from the public InstituteOS project registry.",
     archivedCaption: "Archived and completed Ecosystem projects, from the public InstituteOS project registry.",
+    searchPlaceholder: "Search {n} ecosystem projects by name, topic, or lead…",
+    searchLabel: "Search ecosystem projects",
+    topicLabel: "Filter ecosystem projects by topic",
+    activeEmpty: "No active ecosystem projects match your search.",
+    archivedEmpty: "No archived or completed ecosystem projects match your search.",
   },
 ];
 
@@ -218,20 +228,19 @@ export function projectCatalogSection(currentDir = "") {
     const active = groupProjects.filter((project) => project.status === "active");
     const archived = groupProjects.filter((project) => project.status !== "active");
     const topicOptions = topCatalogTopics(groupProjects)
-      .map(({ topic, count }) => `<option value="${escapeHtml(topic)}">${escapeHtml(title_case_token_js(topic))} (${count})</option>`)
+      .map(({ topic, count }) => `<option value="${escapeHtml(topic)}">${escapeHtml(title_case_token_js(topic))} (${escapeHtml(formatNumber(count))})</option>`)
       .join("");
-    const label = group.title.toLowerCase();
     return `<section class="content-band catalog-affiliation" id="${group.anchor}" data-affiliation="${group.key}">
     ${sectionHeading({
       eyebrow: group.eyebrow,
       title: group.title,
       text: group.text,
     })}
-    <p class="category-count">${groupProjects.length} project${groupProjects.length === 1 ? "" : "s"}</p>
+    <p class="category-count">${escapeHtml(tr("{n} projects").replace("{n}", formatNumber(groupProjects.length)))}</p>
     <div class="activities-search">
-      <input id="${group.anchor}-search" type="search" placeholder="Search ${groupProjects.length} ${label} by name, topic, or lead…" autocomplete="off" aria-label="Search ${label}">
-      <select id="${group.anchor}-topic" aria-label="Filter ${label} by topic">
-        <option value="">All topics</option>
+      <input id="${group.anchor}-search" type="search" placeholder="${escapeHtml(tr(group.searchPlaceholder).replace("{n}", formatNumber(groupProjects.length)))}" autocomplete="off" aria-label="${escapeHtml(tr(group.searchLabel))}">
+      <select id="${group.anchor}-topic" aria-label="${escapeHtml(tr(group.topicLabel))}">
+        <option value="">${escapeHtml(tr("All topics"))}</option>
         ${topicOptions}
       </select>
       <span id="${group.anchor}-count" aria-live="polite" data-msg-count-projects="${escapeHtml(tr("{n} projects"))}" data-msg-count-projects-shown="${escapeHtml(tr("{n} projects shown"))}"></span>
@@ -241,21 +250,21 @@ export function projectCatalogSection(currentDir = "") {
       suffix: "active",
       caption: group.activeCaption,
       heading: "Active projects",
-      emptyText: `No active ${label} match your search.`,
+      emptyText: group.activeEmpty,
     }, currentDir)}
     ${catalogStatusTable(archived, {
       anchor: group.anchor,
       suffix: "archived",
       caption: group.archivedCaption,
       heading: "Archived & completed projects",
-      emptyText: `No archived or completed ${label} match your search.`,
+      emptyText: group.archivedEmpty,
     }, currentDir)}
   </section>`;
   }).join("");
   const jump = CATALOG_GROUPS.map((group) => {
     const count = projects.filter((project) => project.affiliation === group.key).length;
     return count
-      ? `<a href="#${group.anchor}"><span>${escapeHtml(group.title)}</span><em>${count} project${count === 1 ? "" : "s"}</em></a>`
+      ? `<a href="#${group.anchor}"><span>${escapeHtml(tr(group.title))}</span><em>${escapeHtml(tr("{n} projects").replace("{n}", formatNumber(count)))}</em></a>`
       : "";
   }).join("");
   return `<section class="content-band" id="project-catalog">
@@ -264,7 +273,7 @@ export function projectCatalogSection(currentDir = "") {
       title: "Browse every public project",
       text: "Projects are classified by the canonical InstituteOS affiliation field. Institute-hosted and Ecosystem projects are listed in two separate tables below, each with its own search, topic filter, and counts; active and archived work stay distinct within each.",
     })}
-    <p class="category-count">${projects.length} public projects with a page on this site</p>
+    <p class="category-count">${escapeHtml(tr("{n} public projects with a page on this site").replace("{n}", formatNumber(projects.length)))}</p>
     <div class="link-chips">${jump}</div>
   </section>${sections}`;
 }
