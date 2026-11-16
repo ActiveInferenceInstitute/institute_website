@@ -94,9 +94,9 @@
           <span>Ressources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Recherche</a><a href="../../resources/">Répertoire des ressources</a><a href="../../directory/">Index mondial</a><a href="../../knowledge/">Carte Open Source</a><a href="../../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../../directory/#official-pages">Pages Officielles</a><a href="../../resources/#research">Références de recherche</a><a href="../../#audience-pathways">Chemins de l'audience</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Recherche</a><a href="../../resources/">Répertoire des ressources</a><a href="../../directory/">Index mondial</a><a href="../../knowledge/">Open Source Map</a><a href="../../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../../directory/#official-pages">Pages Officielles</a><a href="../../resources/#research">Références de recherche</a><a href="../../#audience-pathways">Chemins de l'audience</a></div>
       </div></nav>
-    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour «{q}" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
+    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour « {q} »" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
       <input type="search" id="site-search-input" placeholder="Rechercher l'Institut…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Rechercher sur le site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
@@ -108,13 +108,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Écoutez cette page" title="Écoutez cette page" data-tts-label-idle="Écoutez cette page" data-tts-label-active="Arrêtez de lire cette page." data-tts-title-idle="Écoutez cette page" data-tts-title-active="Arrêtez de lire"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choisir la couleur de mise en évidence" title="Choisir la couleur de mise en évidence"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur mise en évidence" hidden>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur de mise en évidence" hidden>
         <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Mise en évidence rouge (par défaut)" title="Rouge"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amor éclair" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Vert mis en évidence" title="Vert"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight» → «Souligner en teal" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Haut de page bleu" title="Bleu"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Mise en évidence ambrée" title="Ambre"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Mise en évidence verte" title="Vert"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Mise en évidence en bleu sarcelle" title="Bleu sarcelle"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Mise en évidence bleue" title="Bleu"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Mise en évidence violette" title="Violet"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Mise en évidence magenta" title="Magenta"></button>
       </div>
     </div>
@@ -144,7 +144,7 @@
         <a href="#why-the-project-exists">Pourquoi le projet existe.</a><a href="#approach">Approche</a><a href="#roadmap">Roadmap</a><a href="#funding-strategy">Stratégie de financement</a><a href="#project-lead">Chef de projet</a><a href="#who-should-join">Qui devrait se joindre</a><a href="#learn-more-and-get-in-touch">En savoir plus et prendre contact</a>
         <a href="#next-actions">Meilleures prochaines étapes</a>
 
-        <a href="../../knowledge/">Carte Open Source</a>
+        <a href="../../knowledge/">Open Source Map</a>
         <a href="#resources">Ressources associées</a>
 
 
@@ -162,13 +162,16 @@
             <div class="link-chips"><a href="../../active-inference/"><span>Active Inference</span></a></div>
           </article><article class="article-block" id="approach">
             <h2>Approche</h2>
-            <p>La plupart du travail d'alignement se concentre sur des agents individuels évalués par rapport à des benchmarks statiques. AI²C étudie plutôt la motivation intrinsèque (la curiosité, la prosocialité), la motivation extrinsèque (les règles, les normes, les contraintes de sécurité) et les systèmes incarnés (la robotique, la coordination multi-agents), considérant l'alignement comme quelque chose qui émerge dans des systèmes réels plutôt qu'une propriété d'un seul agent.</p>
+            <p>La plupart des travaux sur l'alignement portent sur des agents individuels évalués au moyen de référentiels d'évaluation statiques. AI²C étudie plutôt la motivation intrinsèque (curiosité, prosocialité), la motivation extrinsèque (recueils de règles, normes, contraintes de sécurité) et les systèmes incarnés (robotique, coordination multi-agents), en considérant l'alignement comme un phénomène qui émerge dans des systèmes réels plutôt que comme une propriété d'un seul agent.</p>
+<p>Les productions prévues par la coalition comprennent des cadres de gouvernance tels que des recueils de règles et des systèmes de reprise de contrôle, des modules réutilisables pour les propositions de financement, des référentiels d'évaluation de l'alignement fondés sur Active Inference, des expériences multi-agents incarnées, ainsi que des outils et de la documentation open source — dans le but de rendre la recherche sur l'alignement reproductible, finançable et applicable à plus grande échelle.</p>
           </article><article class="article-block" id="roadmap">
             <h2>Roadmap</h2>
-            <p>L’AI²C décrit son travail en trois phases. La phase 1 couvre la mise en place de l’alliance — partenaires, gouvernance et infrastructure.</p>
+            <p>AI²C décrit son travail en trois phases. La phase 1 porte sur la mise en place de la coalition — partenaires, gouvernance et infrastructure.</p>
+<p>La phase 2 porte sur la recherche et les propositions — développement du pipeline de financement et de modules de propositions partagés. La phase 3 porte sur les expérimentations et les résultats — systèmes incarnés, publications et outils.</p>
           </article><article class="article-block" id="funding-strategy">
             <h2>Stratégie de financement</h2>
-            <p>AI²C's travail de développement de propositions cible des véhicules de financement multicentriques et multinstitutionnels pour la recherche sur l'alignement de l'IA, y compris les Instituts nationaux américains de recherche sur l'IA, les Centres scientifiques et technologiques de la NSF, et les actions en partenariat multi-organismes du Pilier II de l'Horizon Europe.</p>
+            <p>Les travaux d’élaboration de propositions d’AI²C ciblent des programmes de financement d’envergure réunissant plusieurs institutions pour la recherche sur l’alignement de l’IA, notamment les National AI Research Institutes aux États-Unis, les Science and Technology Centers de la NSF et les actions multipartenaires du pilier II d’Horizon Europe.</p>
+<p>Le projet cherche actuellement à mobiliser des soutiens pour la coordination de la coalition, l’élaboration de propositions, des ateliers et des événements, une infrastructure ouverte et des expérimentations incarnées — le financement à ce stade vise à amorcer un écosystème de recherche à plus long terme plutôt qu’à produire un livrable unique.</p>
           </article><article class="article-block" id="project-lead">
             <h2>Chef de projet</h2>
             <p>Mahault Albarracin, Research Fellow à l' <a href="../../about/">Active Inference Institute</a>, est la créatrice et la responsable d'AI²C.</p>
@@ -269,9 +272,9 @@
         <p>Le projet Consensus sur les Capacités et l'Alignement de l'IA — redéfinissant la discussion autour des capacités de l'IA, de l'alignement et de la réglementation.</p>
       </a></div>
   </section>
-  <nav class="pager page-pager" aria-label="pages adjacentes">
+  <nav class="pager page-pager" aria-label="Pages adjacentes à AI²C">
     <a href="../aeos/">Précédent : Active Entity Ontology for Science (AEOS)</a>
-    <a href="../foundations-of-ideology/">Prochainement : The Foundations of Ideology</a>
+    <a href="../foundations-of-ideology/">Suivant : The Foundations of Ideology</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -285,7 +288,7 @@
       <a href="../../programs/">Programmes</a>
       <a href="../../directory/">Répertoire</a>
       <a href="../../resources/">Ressources</a>
-      <a href="../../knowledge/">Carte Open Source</a>
+      <a href="../../knowledge/">Open Source Map</a>
       <a href="../../get-involved/">Impliquez-vous</a>
       <a href="../../search/">Recherche</a>
       <a href="../../sitemap/">Plan du site</a>

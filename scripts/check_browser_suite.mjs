@@ -41,6 +41,7 @@ function main() {
     { name: "interactions", argv: [join(root, "scripts/check_audit_browser.mjs")], env: { WEBSITE_AUDIT_OUTPUT: join(output, "interactions") } },
     { name: "governance", argv: [join(root, "scripts/check_audit_browser.mjs"), "--governance"], env: { WEBSITE_AUDIT_OUTPUT: join(output, "governance") } },
     { name: "archive", argv: [join(root, "scripts/check_audit_browser.mjs"), "--archive"], env: { WEBSITE_AUDIT_OUTPUT: join(output, "archive") } },
+    { name: "catalog", argv: [join(root, "scripts/check_project_catalog_browser.mjs")], env: { WEBSITE_AUDIT_OUTPUT: join(output, "catalog") } },
   ];
   try {
     const result = runSequential(steps, root);

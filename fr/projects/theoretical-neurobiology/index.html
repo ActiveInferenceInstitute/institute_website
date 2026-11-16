@@ -94,9 +94,9 @@
           <span>Ressources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Recherche</a><a href="../../resources/">Répertoire des ressources</a><a href="../../directory/">Index mondial</a><a href="../../knowledge/">Carte Open Source</a><a href="../../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../../directory/#official-pages">Pages Officielles</a><a href="../../resources/#research">Références de recherche</a><a href="../../#audience-pathways">Chemins de l'audience</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../../search/">Recherche</a><a href="../../resources/">Répertoire des ressources</a><a href="../../directory/">Index mondial</a><a href="../../knowledge/">Open Source Map</a><a href="../../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../../directory/#official-pages">Pages Officielles</a><a href="../../resources/#research">Références de recherche</a><a href="../../#audience-pathways">Chemins de l'audience</a></div>
       </div></nav>
-    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour «{q}" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
+    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour « {q} »" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
       <input type="search" id="site-search-input" placeholder="Rechercher l'Institut…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Rechercher sur le site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
@@ -108,13 +108,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Écoutez cette page" title="Écoutez cette page" data-tts-label-idle="Écoutez cette page" data-tts-label-active="Arrêtez de lire cette page." data-tts-title-idle="Écoutez cette page" data-tts-title-active="Arrêtez de lire"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choisir la couleur de mise en évidence" title="Choisir la couleur de mise en évidence"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur mise en évidence" hidden>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur de mise en évidence" hidden>
         <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Mise en évidence rouge (par défaut)" title="Rouge"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amor éclair" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Vert mis en évidence" title="Vert"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight» → «Souligner en teal" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Haut de page bleu" title="Bleu"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Mise en évidence ambrée" title="Ambre"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Mise en évidence verte" title="Vert"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Mise en évidence en bleu sarcelle" title="Bleu sarcelle"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Mise en évidence bleue" title="Bleu"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Mise en évidence violette" title="Violet"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Mise en évidence magenta" title="Magenta"></button>
       </div>
     </div>
@@ -145,7 +145,7 @@
         <a href="#objective">Objectif</a><a href="#recordings">Enregistrements</a><a href="#meeting-details">Détails de la réunion</a><a href="#how-to-participate">Comment participer</a><a href="#chair-riddhi-j-pitliya-phd">Présidente – Riddhi J. Pitliya, PhD</a><a href="#chair-peter-thestrup-waade">Chaise – Peter Thestrup Waade</a><a href="#chair-robert-chis-ciure-phd">Chaise – Robert Chis-Ciure, PhD</a><a href="#chair-will-yun-farmbrough">Fauteuil – Will Yun-Farmbrough</a><a href="#chair-jonathan-ehrenreich-laursen">Chaise – Jonathan Ehrenreich Laursen</a><a href="#chair-samuel-william-nehrer">Chaise – Samuel William Nehrer</a><a href="#work-in-progress">En cours de réalisation</a>
         <a href="#next-actions">Meilleures prochaines étapes</a>
         <a href="#key-surfaces">Surfaces clés</a>
-        <a href="../../knowledge/">Carte Open Source</a>
+        <a href="../../knowledge/">Open Source Map</a>
         <a href="#resources">Ressources associées</a>
 
 
@@ -159,43 +159,53 @@
     <div class="article-stack">
       <article class="article-block" id="objective">
             <h2>Objectif</h2>
-            <p>Le groupe TNB favorise la recherche et la collaboration interdisciplinaires depuis des décennies. Sa mission est de faire avancer la compréhension et l'application de l'inférence active, le cadre théorique développé par le Professeur Karl Friston. Cela est réalisé grâce à des réunions en ligne régulières présentant des présentations et des discussions, qui peuvent inclure des données empiriques et leur analyse, des simulations et un développement mathématique.</p>
+            <p>Le groupe TNB favorise la recherche et la collaboration interdisciplinaires depuis des décennies. Sa mission est de faire progresser la compréhension et l’application de l’inférence active, le cadre théorique développé par le professeur</p>
+<p>Karl Friston. Cela se fait au moyen de réunions régulières en ligne comprenant des présentations et des discussions, qui peuvent porter sur des données empiriques et leur analyse, des simulations et des développements mathématiques.</p>
+<p>Le groupe accueille les contributions et les perspectives de divers domaines, notamment les neurosciences, les mathématiques, l’apprentissage automatique, la psychologie, la philosophie, la médecine et la biologie.</p>
           </article><article class="article-block" id="recordings">
             <h2>Enregistrements</h2>
             <p>Les enregistrements des réunions précédentes, organisés par domaine de recherche, peuvent être trouvés sur la chaîne YouTube TNB. Le groupe ajoute progressivement plus de vidéos de son archivage ainsi que des sessions récemment enregistrées.</p>
             <div class="link-chips"><a href="https://www.youtube.com/@theoreticalneurobiology" target="_blank" rel="noopener noreferrer"><span>TNB YouTube channel</span><em>Research</em></a></div>
           </article><article class="article-block" id="meeting-details">
             <h2>Détails de la réunion</h2>
-            <p>Les réunions ont lieu le lundi et mardi à 14h30 heure britannique, d'une durée d'environ deux heures: une présentation d'environ 40 minutes, 40 minutes de questions-réponses et 40 minutes de discussion et de commentaires avec le Prof. Friston.</p>
+            <p>Les réunions ont lieu les lundis et les mardis à 14 h 30, heure du Royaume-Uni, et durent environ deux heures: une présentation d'environ 40 minutes, 40 minutes de questions-réponses, puis 40 minutes de discussion et de retours avec le Prof. Friston.</p>
+<p>Elles se tiennent chaque semaine sur Zoom, et le lien de connexion est envoyé par la liste de diffusion. Pour vous y inscrire, envoyez un courriel à theoreticalneurobiology@gmail.com.</p>
             <div class="link-chips"><a href="mailto:theoreticalneurobiology@gmail.com"><span>Email the TNB Group</span></a></div>
           </article><article class="article-block" id="how-to-participate">
             <h2>Comment participer</h2>
-            <p>Les réunions sont ouvertes aux chercheurs, aux étudiants et aux professionnels du monde entier. Sans frais d’adhésion, le groupe offre un environnement détendu et sans pression pour l’engagement — que ce soit par une participation active ou en tant qu’observateur — et vous êtes le bienvenu pour rejoindre toute session qui vous intéresse.</p>
+            <p>Les réunions sont ouvertes aux chercheurs, aux étudiants et aux professionnels du monde entier. Sans frais d'adhésion, le groupe offre un cadre détendu et sans pression pour participer activement ou simplement observer. Vous pouvez rejoindre toute séance qui vous intéresse.</p>
+<p>Pour vous inscrire à la liste de diffusion et recevoir des informations sur les prochaines présentations, les événements consacrés à l'inférence active ou les offres d'emploi, ou pour demander à présenter vos travaux, envoyez un courriel à theoreticalneurobiology@gmail.com. Veuillez noter que les créneaux de présentation sont généralement réservés deux à trois mois à l'avance.</p>
             <div class="link-chips"><a href="mailto:theoreticalneurobiology@gmail.com"><span>Email the TNB Group</span></a></div>
           </article><article class="article-block has-figure" id="chair-riddhi-j-pitliya-phd">
             <img class="article-figure" src="../../../assets/img/tnb/riddhi-pitliya.jpg" alt="Riddhi J. Pitliya" width="600" height="588" loading="lazy" decoding="async">
             <div class="article-figure-body"><h2>Présidente – Riddhi J. Pitliya, PhD</h2>
-            <p>Riddhi mène des recherches sur l’inférence active, la cognition humaine et les systèmes multi-agents. Elle a obtenu son doctorat à l’Université d’Oxford, où elle a étudié comment les individus infèrent la structure causale et l’agence dans les environnements multi-agents, notamment dans le spectre de la dépression — constatant que les symptômes dépressifs sont liés à une sensibilité réduite aux relations causales inhibitrices, à une perception réduite de l’agence et à une tendance à effectuer des actions fréquentes mais moins orientées vers des objectifs lors de l’apprentissage des structures causales.</p></div>
+            <p>Les recherches de Riddhi portent sur l’inférence active, la cognition humaine et les systèmes multi-agents. Elle a obtenu son doctorat à l’Université d’Oxford, où elle a étudié la manière dont les individus infèrent la structure causale et l’agentivité dans des environnements multi-agents, notamment sur l’ensemble du spectre de la dépression. Elle a constaté que les symptômes dépressifs sont associés à une sensibilité réduite aux relations causales inhibitrices, à une perception réduite de l’agentivité et à une tendance à effectuer des actions fréquentes, mais moins orientées vers un but, lors de l’apprentissage des structures causales.</p>
+<p>Elle travaille aujourd’hui chez VERSES, au sein de l’Intelligent Systems Lab, où elle développe des modèles computationnels de la théorie de l’esprit qui s’appuient sur l’inférence active pour faciliter la collaboration et la compétition entre plusieurs agents.</p></div>
           </article><article class="article-block has-figure" id="chair-peter-thestrup-waade">
             <img class="article-figure" src="../../../assets/img/tnb/peter-thestrup-waade.jpg" alt="Pierre Thestrup Waade" width="600" height="600" loading="lazy" decoding="async">
             <div class="article-figure-body"><h2>Chaise – Peter Thestrup Waade</h2>
-            <p>La recherche de Peter porte sur la modélisation cognitive computationnelle des interactions sociales multi-échelle, en particulier du point de vue de l'inférence active et du traitement prédictif. Il a obtenu son doctorat avec Chris Mathys au Centre des esprits interactifs à l'Université d'Aarhus et commence un poste de chercheur postdoctoral à l'Unité de modélisation neuromodulaire translationnelle à l'ETH Zürich avec Klaas Stephan.</p></div>
+            <p>Les recherches de Peter portent sur la modélisation cognitive computationnelle des interactions sociales à plusieurs échelles, en particulier du point de vue de l’inférence active et du traitement prédictif. Il a effectué son doctorat avec Chris Mathys à l’Interacting Minds Centre de l’Université d’Aarhus et commence un postdoctorat à la Translational Neuromodeling Unit de l’ETH Zürich avec Klaas Stephan.</p>
+<p>Il développe des logiciels en Julia pour la modélisation cognitive en général, le filtre gaussien hiérarchique et l’inférence active avec des POMDP; il travaille également sur la conscience, l’action conjointe dans la danse à deux, ainsi que la philosophie chinoise et le traitement prédictif.</p></div>
           </article><article class="article-block has-figure" id="chair-robert-chis-ciure-phd">
             <img class="article-figure" src="../../../assets/img/tnb/robert-chis-ciure.jpg" alt="Robert Chis-Ciure" width="600" height="589" loading="lazy" decoding="async">
             <div class="article-figure-body"><h2>Chaise – Robert Chis-Ciure, PhD</h2>
-            <p>Robert est un chercheur postdoctoral ERC financé par l'Action Contractuelle de Recherche Européenne auprès d'Anil Seth dans son laboratoire à l'Université de Sussex et au Sussex Centre for Consciousness Science. Ses recherches portent sur les notions formalisées d'émergence et la phénoménologie computationnelle, en utilisant des formalismes de codage prédictif hybride et d'inférence active pour modéliser les propriétés phénoménales de l'expérience et les valider expérimentalement — aboutissant à une nouvelle approche méthodologique, la Phénoménomique, pour caractériser les mondes intérieurs des observateurs humains et, éventuellement, de tous les autres observateurs, y compris en tirant parti de l'IA/ML sur de grands ensembles de données.</p></div>
+            <p>Robert est chercheur postdoctoral ERC dans le laboratoire d’Anil Seth à l’Université du Sussex et au Sussex Centre for Consciousness Science. Ses recherches portent sur les notions formalisées d’émergence et la neurophénoménologie computationnelle. Il utilise des formalismes hybrides de codage prédictif et d’inférence active pour modéliser les propriétés phénoménales de l’expérience et les valider expérimentalement, en vue de l’élaboration d’un nouveau paradigme méthodologique, Phenomenomics, destiné à caractériser les mondes intérieurs des observateurs humains et, à terme, de tous les autres observateurs, notamment en exploitant l’IA et l’apprentissage automatique sur des jeux de données à grande échelle.</p>
+<p>Avant de rejoindre le Sussex, il a été postdoctorant Fulbright à NYU sous la direction de David Chalmers, postdoctorant de la Tatiana Foundation dans le laboratoire de Georg Northoff, et a travaillé dans le laboratoire de Giulio Tononi sur la conscience, à l’intersection de la philosophie, des neurosciences et de la modélisation computationnelle. Il est également chercheur affilié au Wolfram Institute.</p></div>
           </article><article class="article-block has-figure" id="chair-will-yun-farmbrough">
             <img class="article-figure" src="../../../assets/img/tnb/will-yun-farmbrough.jpg" alt="Yun-Farmbrough" width="600" height="600" loading="lazy" decoding="async">
             <div class="article-figure-body"><h2>Fauteuil – Will Yun-Farmbrough</h2>
-            <p>Will est un doctorant au Centre de Sussex pour la science de la conscience, supervisé par Anil Seth et Chris Buckley. Sa recherche étudie comment la phénoménologie perceptive chez les sujets humains peut contraindre et informer les modèles de codage prédictif des traitements cortico-visuels — les fondements algorithmiques de la façon dont notre monde nous apparaît.</p></div>
+            <p>Will est doctorant au Sussex Centre for Consciousness Science, sous la direction d’Anil Seth et de Chris Buckley. Ses recherches étudient comment la phénoménologie perceptive chez des sujets humains peut contraindre et éclairer les modèles de codage prédictif du traitement cortical — les fondements algorithmiques de la façon dont le monde nous apparaît.</p>
+<p>Il s’intéresse également aux approches du méta-problème de la conscience fondées sur le traitement prédictif et cherche à comprendre comment les intuitions relatives à l’expérience consciente et aux qualia pourraient émerger naturellement dans certaines hiérarchies de modèles génératifs. Il aime le surf, les plantes d’intérieur et le zen.</p></div>
           </article><article class="article-block has-figure" id="chair-jonathan-ehrenreich-laursen">
             <img class="article-figure" src="../../../assets/img/tnb/jonathan-ehrenreich-laursen.jpg" alt="Jonathan Ehrenreich Laursen" width="429" height="600" loading="lazy" decoding="async">
             <div class="article-figure-body"><h2>Chaise – Jonathan Ehrenreich Laursen</h2>
-            <p>Jonathan est un étudiant diplômé de troisième cycle en Systèmes Neuronaux et Computation à l'ETH Zürich et à l'Université de Zurich, où il travaille au développement de logiciels de modélisation cognitive en Julia. Il s'intéresse à l'utilisation d'outils computationnels pour comprendre les troubles psychiatriques et la manière dont ils pourraient être pertinents pour la pratique clinique.</p></div>
+            <p>Jonathan est étudiant en master en Neural Systems and Computation à l'ETH Zürich et à l'University of Zürich, où il travaille au développement de logiciels de modélisation cognitive en Julia. Il s'intéresse à l'utilisation d'outils informatiques pour comprendre les troubles psychiatriques et à la manière dont ces outils pourraient devenir utiles à la pratique clinique.</p>
+<p>En dehors de ses études, il lit avec passion des ouvrages d'histoire et de philosophie et aime passer du temps en plein air.</p></div>
           </article><article class="article-block has-figure" id="chair-samuel-william-nehrer">
             <img class="article-figure" src="../../../assets/img/tnb/samuel-nehrer.jpg" alt="Samuel William Nehrer" width="550" height="600" loading="lazy" decoding="async">
             <div class="article-figure-body"><h2>Chaise – Samuel William Nehrer</h2>
-            <p>Samuel est un étudiant diplômé de master à l’Institut de Neuroinformations, un institut conjoint de l’ETH Zürich et de l’Université de Zurich. Il a complété ses études de premier cycle en sciences cognitives à l’Université d’Aarhus, où il a commencé à développer des implémentations Julia de modèles d’inférence active pour la modélisation cognitive.</p></div>
+            <p>Samuel est étudiant en master à l’Institute of Neuroinformatics, un institut commun à l’ETH Zürich et à l’Université de Zürich. Il a achevé ses études de premier cycle en sciences cognitives à l’Université d’Aarhus, où il a commencé à développer des implémentations en Julia de modèles d’inférence active pour la modélisation cognitive.</p>
+<p>Il s’intéresse à l’association de la modélisation computationnelle du comportement humain et de l’imagerie cérébrale pour étudier la manière dont les psychédéliques modulent l’inférence hiérarchique, la flexibilité cognitive et la mise à jour des croyances au niveau algorithmique, ainsi que la manière dont les calculs qui en résultent sont mis en œuvre dans les réseaux cérébraux. Il est également passionné d’aviation et aime réfléchir aux questions fondamentales de la physique et de la philosophie de l’esprit, ainsi qu’explorer les montagnes suisses à pied ou à vélo.</p></div>
           </article><article class="article-block" id="work-in-progress">
             <h2>En cours de réalisation</h2>
             <p>Le groupe compile un référentiel complet de ressources d'Active Inference – supports introductifs, articles de recherche et tutoriels, tous catégorisés pour une navigation facile. Il prévoit également des sympôses de recherche conjointes avec d’autres communautés de recherche afin de renforcer l’interaction et la collaboration intercommunautaires.</p>
@@ -312,9 +322,9 @@
         <p>Un cadre pour comprendre la perception, l'action, l'apprentissage, la cognition et les systèmes adaptatifs.</p>
       </a></div>
   </section>
-  <nav class="pager page-pager" aria-label="pages adjacentes">
+  <nav class="pager page-pager" aria-label="Pages adjacentes à Theoretical Neurobiology Group">
     <a href="../rxinfer/">Précédent : RxInfer.jl Learning and Development Group</a>
-    <a href="../active-inference-social-sciences/">Prochainement : Active Inference for Social Sciences</a>
+    <a href="../active-inference-social-sciences/">Suivant : Active Inference for Social Sciences</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -328,7 +338,7 @@
       <a href="../../programs/">Programmes</a>
       <a href="../../directory/">Répertoire</a>
       <a href="../../resources/">Ressources</a>
-      <a href="../../knowledge/">Carte Open Source</a>
+      <a href="../../knowledge/">Open Source Map</a>
       <a href="../../get-involved/">Impliquez-vous</a>
       <a href="../../search/">Recherche</a>
       <a href="../../sitemap/">Plan du site</a>

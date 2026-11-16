@@ -94,9 +94,9 @@
           <span>Ressources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Carte Open Source</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Open Source Map</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
       </div></nav>
-    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour «{q}" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
+    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour « {q} »" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
       <input type="search" id="site-search-input" placeholder="Rechercher l'Institut…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Rechercher sur le site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
@@ -108,13 +108,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Écoutez cette page" title="Écoutez cette page" data-tts-label-idle="Écoutez cette page" data-tts-label-active="Arrêtez de lire cette page." data-tts-title-idle="Écoutez cette page" data-tts-title-active="Arrêtez de lire"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choisir la couleur de mise en évidence" title="Choisir la couleur de mise en évidence"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur mise en évidence" hidden>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur de mise en évidence" hidden>
         <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Mise en évidence rouge (par défaut)" title="Rouge"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amor éclair" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Vert mis en évidence" title="Vert"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight» → «Souligner en teal" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Haut de page bleu" title="Bleu"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Mise en évidence ambrée" title="Ambre"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Mise en évidence verte" title="Vert"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Mise en évidence en bleu sarcelle" title="Bleu sarcelle"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Mise en évidence bleue" title="Bleu"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Mise en évidence violette" title="Violet"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Mise en évidence magenta" title="Magenta"></button>
       </div>
     </div>
@@ -142,7 +142,7 @@
         <a href="#what-the-preparation-form-is">Quelle est la forme de préparation ?</a><a href="#why-submit-a-preparation">Pourquoi soumettre une préparation</a><a href="#how-to-submit">Comment soumettre</a><a href="#preparation-and-the-project-lifecycle">Préparation et le cycle de vie du projet</a><a href="#more-on-preparation">Plus d’informations sur la préparation</a>
         <a href="#next-actions">Meilleures prochaines étapes</a>
         <a href="#key-surfaces">Surfaces clés</a>
-        <a href="../knowledge/">Carte Open Source</a>
+        <a href="../knowledge/">Open Source Map</a>
         <a href="#resources">Ressources associées</a>
         <a href="#official-pages">Pages officielles</a>
 
@@ -156,7 +156,8 @@
     <div class="article-stack">
       <article class="article-block" id="what-the-preparation-form-is">
             <h2>Quelle est la forme de préparation ?</h2>
-            <p>Le formulaire de préparation est une brève description toujours ouverte de ce que vous êtes en train de préparer — un projet, une étude ou une ligne de travail que vous souhaitez commencer. Il s'agit de la partie « Préparer » du système Prepare-and-Measure de l'Institut: la préparation décrit ce que quelqu'un est en train de faire, et le formulaire de mesure signale par la suite lorsque les objectifs sont atteints.</p>
+            <p>Le formulaire de préparation permet de soumettre à tout moment une brève description de ce que vous vous préparez à faire — un projet, une étude ou un axe de travail que vous souhaitez commencer. Il constitue le volet « Préparer » du système « Préparer et mesurer » de l’Institut: la préparation décrit ce qu’une personne se propose de faire, et le formulaire de mesure rend compte ultérieurement des résultats lorsque les objectifs sont atteints.</p>
+<p>Toute personne peut soumettre une préparation, que vous souhaitiez simplement informer l’Institut de ce sur quoi vous travaillez ou obtenir son soutien formel pour ce travail.</p>
             <div class="link-chips"><a href="../measure/"><span>Project Measurement</span></a></div>
           </article><article class="article-block" id="why-submit-a-preparation">
             <h2>Pourquoi soumettre une préparation</h2>
@@ -298,9 +299,9 @@
         <p>Rejoignez les canaux publics, participez aux activités, contribuez aux projets ou soutenez l'Institut.</p>
       </a></div>
   </section>
-  <nav class="pager page-pager" aria-label="pages adjacentes">
+  <nav class="pager page-pager" aria-label="Pages adjacentes à Project Preparation">
     <a href="../measure/">Précédent : Project Measurement</a>
-    <a href="../active-inference/linguistics/">Prochainement : Active Inference and Linguistics</a>
+    <a href="../active-inference/linguistics/">Suivant : Active Inference and Linguistics</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -314,7 +315,7 @@
       <a href="../programs/">Programmes</a>
       <a href="../directory/">Répertoire</a>
       <a href="../resources/">Ressources</a>
-      <a href="../knowledge/">Carte Open Source</a>
+      <a href="../knowledge/">Open Source Map</a>
       <a href="../get-involved/">Impliquez-vous</a>
       <a href="../search/">Recherche</a>
       <a href="../sitemap/">Plan du site</a>

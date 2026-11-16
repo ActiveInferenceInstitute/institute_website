@@ -94,9 +94,9 @@
           <span>Ressources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Carte Open Source</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Open Source Map</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
       </div></nav>
-    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour «{q}" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
+    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour « {q} »" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
       <input type="search" id="site-search-input" placeholder="Rechercher l'Institut…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Rechercher sur le site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
@@ -108,13 +108,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Écoutez cette page" title="Écoutez cette page" data-tts-label-idle="Écoutez cette page" data-tts-label-active="Arrêtez de lire cette page." data-tts-title-idle="Écoutez cette page" data-tts-title-active="Arrêtez de lire"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choisir la couleur de mise en évidence" title="Choisir la couleur de mise en évidence"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur mise en évidence" hidden>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur de mise en évidence" hidden>
         <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Mise en évidence rouge (par défaut)" title="Rouge"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amor éclair" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Vert mis en évidence" title="Vert"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight» → «Souligner en teal" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Haut de page bleu" title="Bleu"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Mise en évidence ambrée" title="Ambre"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Mise en évidence verte" title="Vert"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Mise en évidence en bleu sarcelle" title="Bleu sarcelle"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Mise en évidence bleue" title="Bleu"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Mise en évidence violette" title="Violet"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Mise en évidence magenta" title="Magenta"></button>
       </div>
     </div>
@@ -139,7 +139,8 @@
     <div class="article-stack">
       <article class="article-block" id="this-week-on-the-calendar">
             <h2>Cette semaine dans l'agenda</h2>
-            <p>Le calendrier public est la source unique de ce qui se passe cette semaine. Les événements à venir sont répertoriés du plus récent au plus ancien, de sorte que les sessions en cours cette semaine se trouvent en haut de la liste, et vous pouvez utiliser la fonction de recherche sur la page du calendrier et les filtres « à venir�» et « passé » pour restreindre votre recherche à une session ou un type d’événement particulier.</p>
+            <p>Le calendrier public est la source unique pour savoir ce qui se passe cette semaine. Les événements à venir sont classés du plus proche au plus éloigné dans le temps: les séances de cette semaine figurent donc en tête de liste. Vous pouvez utiliser la recherche intégrée à la page du calendrier et le filtre « à venir / passé » pour cibler une séance ou un type d’événement particulier.</p>
+<p>Comme le calendrier est généré à partir du flux d’événements en direct de l’Institut, il reste à jour lorsque des séances sont ajoutées ou modifiées.</p>
             <div class="link-chips"><a href="../calendar/"><span>Open the calendar</span></a></div>
           </article><article class="article-block" id="the-institute-s-weekly-rhythm">
             <h2>Le rythme hebdomadaire de l’Institut.</h2>
@@ -147,7 +148,8 @@
             <div class="link-chips"><a href="../activities/"><span>Activities</span></a></div>
           </article><article class="article-block" id="join-a-session">
             <h2>Rejoignez une séance</h2>
-            <p>La plupart des sessions sont ouvertes et rejoindre une session est la première étape la plus facile pour découvrir le travail de l’Institut. Trouvez une session dans l’agenda, puis utilisez la page « Devenir membre » pour en savoir plus sur la façon de participer et de vous connecter à la communauté.</p>
+            <p>La plupart des séances sont ouvertes, et participer à l'une d'elles est le moyen le plus simple de faire un premier pas dans les travaux de l'Institut. Choisissez une séance dans le calendrier, puis consultez la page « Participer » pour savoir comment y prendre part et entrer en contact avec la communauté.</p>
+<p>Vous découvrez Active Inference? Les ressources d'apprentissage constituent un bon point de départ pour vous familiariser avec le sujet avant de participer.</p>
             <div class="link-chips"><a href="../get-involved/"><span>Get involved</span></a><a href="../learning/"><span>Learning</span></a></div>
           </article><article class="article-block" id="full-materials">
             <h2>Matériel complet</h2>
@@ -234,9 +236,9 @@
         <p>Groupes de travail communautaires ouverts, régis par une charte, pour la comparaison, l’évaluation et le développement des champs d’application en Active Inference.</p>
       </a></div>
   </section>
-  <nav class="pager page-pager" aria-label="pages adjacentes">
+  <nav class="pager page-pager" aria-label="Pages adjacentes à This Week">
     <a href="../projects/myth-of-objectivity/">Précédent : Myth of Objectivity Hypothesis</a>
-    <a href="../years/2025/">Prochainement : 2025</a>
+    <a href="../years/2025/">Suivant : 2025</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -250,7 +252,7 @@
       <a href="../programs/">Programmes</a>
       <a href="../directory/">Répertoire</a>
       <a href="../resources/">Ressources</a>
-      <a href="../knowledge/">Carte Open Source</a>
+      <a href="../knowledge/">Open Source Map</a>
       <a href="../get-involved/">Impliquez-vous</a>
       <a href="../search/">Recherche</a>
       <a href="../sitemap/">Plan du site</a>

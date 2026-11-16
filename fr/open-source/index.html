@@ -94,9 +94,9 @@
           <span>Ressources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Carte Open Source</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Open Source Map</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
       </div></nav>
-    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour «{q}" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
+    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour « {q} »" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
       <input type="search" id="site-search-input" placeholder="Rechercher l'Institut…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Rechercher sur le site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
@@ -108,13 +108,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Écoutez cette page" title="Écoutez cette page" data-tts-label-idle="Écoutez cette page" data-tts-label-active="Arrêtez de lire cette page." data-tts-title-idle="Écoutez cette page" data-tts-title-active="Arrêtez de lire"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choisir la couleur de mise en évidence" title="Choisir la couleur de mise en évidence"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur mise en évidence" hidden>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur de mise en évidence" hidden>
         <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Mise en évidence rouge (par défaut)" title="Rouge"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amor éclair" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Vert mis en évidence" title="Vert"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight» → «Souligner en teal" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Haut de page bleu" title="Bleu"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Mise en évidence ambrée" title="Ambre"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Mise en évidence verte" title="Vert"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Mise en évidence en bleu sarcelle" title="Bleu sarcelle"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Mise en évidence bleue" title="Bleu"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Mise en évidence violette" title="Violet"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Mise en évidence magenta" title="Magenta"></button>
       </div>
     </div>
@@ -143,10 +143,12 @@
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener noreferrer"><span>GitHub organization</span><em>Projects</em></a></div>
           </article><article class="article-block" id="what-the-license-requires">
             <h2>Ce que l'autorisation exige</h2>
-            <p>Attribution (BY): il faut accorder le crédit à l’auteur(s) et, lorsqu’il est connu, à l’Institut en tant qu’entité hébergeant ou publiant. NonCommercial (NC): seul un usage non commercial est autorisé — un usage non principalement destiné ou dirigé vers un avantage commercial ou une compensation financière.</p>
+            <p>Attribution (BY): le ou les créateurs de l’œuvre doivent être crédités, ainsi que, lorsque cette information est connue, l’Institut en tant qu’entité d’hébergement ou de publication. NonCommercial (NC): seul un usage non commercial est autorisé — un usage qui ne vise pas principalement un avantage commercial ou une compensation financière.</p>
+<p>ShareAlike (SA): les adaptations doivent être partagées selon les mêmes conditions de licence, sauf disposition contraire précisée et acceptée par les créateurs.</p>
           </article><article class="article-block" id="open-source-repositories">
             <h2>Dépôts Open Source</h2>
-            <p>L'institut publie des logiciels sur des dépôts hébergés dans l'organisation GitHub. Ceux-ci comprennent Biofirm (Active Inference agents PyMDP pour la modélisation des biorégions), GEN24 (expériences d'IA générative sous <a href="../projects/active-blockference/">Active Blockference</a>), ActiveInferAnts (Active Inference simulations d'antennes), Journal-Utilities et ActiveInferenceJournal (supportant le <a href="../projects/active-inference-journal/">Active Inference Journal</a>), ActiveInferenceCategoryTheory (curriculum de théorie des catégories), ActiveBlockference (intégrant Active Inference avec cadCAD), Active_Inference_Ontology et AEOS (instantanés d'ontologie), GeneralizedNotationNotation, le dépôt du manuel Parr et al. 2022 Active Inference, Symposium (méthodes pour le <a href="../projects/symposium/">Applied Active Inference Symposium</a>), et CEREBRUM.</p>
+            <p>L’Institut publie des logiciels dans des dépôts hébergés au sein de l’organisation <a href="../about/">Active Inference Institute</a> sur GitHub. Ceux-ci comprennent Biofirm (agents PyMDP d’Active Inference pour la modélisation biorégionale), GEN24 (expériences d’IA générative dans le cadre d’<a href="../projects/active-blockference/">Active Blockference</a>), ActiveInferAnts (simulations de fourmis utilisant Active Inference), Journal-Utilities et ActiveInferenceJournal (en soutien à l’<a href="../projects/active-inference-journal/">Active Inference Journal</a>), ActiveInferenceCategoryTheory (programme de formation à la théorie des catégories), ActiveBlockference (intégrant Active Inference à cadCAD), Active_Inference_Ontology et AEOS (instantanés d’ontologie), GeneralizedNotationNotation, le dépôt du manuel Active Inference de Parr et al. 2022, Symposium (méthodes pour l’<a href="../projects/symposium/">Applied Active Inference Symposium</a>) et CEREBRUM.</p>
+<p>Chaque dépôt définit sa propre licence, et la plupart diffèrent de la licence CC BY-NC-SA 4.0 appliquée par défaut par l’Institut: GeneralizedNotationNotation reprend les conditions CC BY-NC-SA 4.0 par défaut; Biofirm, GEN24, ActiveBlockference et Symposium sont sous licence MIT; ActiveInferAnts et CEREBRUM sont sous licence CC BY-NC-ND 4.0, qui n’autorise ni les œuvres dérivées ni les adaptations; ActiveInferenceJournal, Active_Inference_Ontology et le dépôt du manuel Active Inference de Parr et al. 2022 sont sous licence CC BY 4.0, sans restriction NonCommercial ou ShareAlike; Journal-Utilities, ActiveInferenceCategoryTheory et AEOS sont placés dans le domaine public au titre de CC0 1.0. Vérifiez toujours le fichier LICENSE propre à un dépôt avant toute réutilisation.</p>
             <div class="link-chips"><a href="https://github.com/ActiveInferenceInstitute/Biofirm" target="_blank" rel="noopener noreferrer"><span>Biofirm repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Active_InferAnts" target="_blank" rel="noopener noreferrer"><span>ActiveInferAnts repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/GEN24" target="_blank" rel="noopener noreferrer"><span>GEN24 repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Journal_Utilities" target="_blank" rel="noopener noreferrer"><span>Journal-Utilities repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal" target="_blank" rel="noopener noreferrer"><span>ActiveInferenceJournal repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveInferenceCategoryTheory" target="_blank" rel="noopener noreferrer"><span>ActiveInferenceCategoryTheory repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/ActiveBlockference" target="_blank" rel="noopener noreferrer"><span>ActiveBlockference repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Active_Inference_Ontology" target="_blank" rel="noopener noreferrer"><span>Active_Inference_Ontology repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/AEOS" target="_blank" rel="noopener noreferrer"><span>AEOS repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Generalized_Notation_Notation" target="_blank" rel="noopener noreferrer"><span>GeneralizedNotationNotation repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Parr_et_al_2022_ActInf_Textbook" target="_blank" rel="noopener noreferrer"><span>Parr_et_al_2022_ActInf_Textbook repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/Symposium" target="_blank" rel="noopener noreferrer"><span>Symposium repository</span><em>Repository</em></a><a href="https://github.com/ActiveInferenceInstitute/CEREBRUM" target="_blank" rel="noopener noreferrer"><span>CEREBRUM repository</span><em>Repository</em></a></div>
           </article><article class="article-block" id="contributing">
             <h2>Contribuer</h2>
@@ -319,9 +321,9 @@
         <p>Rejoignez les canaux publics, participez aux activités, contribuez aux projets ou soutenez l'Institut.</p>
       </a></div>
   </section>
-  <nav class="pager page-pager" aria-label="pages adjacentes">
+  <nav class="pager page-pager" aria-label="Pages adjacentes à Open Source">
     <a href="../reinference/">Précédent : ReInference Unit</a>
-    <a href="../projects/active-blockference/">Prochainement : Active Blockference</a>
+    <a href="../projects/active-blockference/">Suivant : Active Blockference</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -335,7 +337,7 @@
       <a href="../programs/">Programmes</a>
       <a href="../directory/">Répertoire</a>
       <a href="../resources/">Ressources</a>
-      <a href="../knowledge/">Carte Open Source</a>
+      <a href="../knowledge/">Open Source Map</a>
       <a href="../get-involved/">Impliquez-vous</a>
       <a href="../search/">Recherche</a>
       <a href="../sitemap/">Plan du site</a>

@@ -94,9 +94,9 @@
           <span>Ressources</span>
           <span aria-hidden="true">+</span>
         </button>
-        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Carte Open Source</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
+        <div class="nav-menu" id="nav-menu-4-resources"><a href="../search/">Recherche</a><a href="../resources/">Répertoire des ressources</a><a href="../directory/">Index mondial</a><a href="../knowledge/">Open Source Map</a><a href="../instituteos/#public-export-gate">Portée publique d'exportation</a><a href="../directory/#official-pages">Pages Officielles</a><a href="../resources/#research">Références de recherche</a><a href="../#audience-pathways">Chemins de l'audience</a></div>
       </div></nav>
-    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour «{q}" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
+    <div class="site-search" role="search" aria-label="Recherche sur le site" data-msg-no-matches="Aucune correspondance n'a été trouvée." data-msg-see-all="Voir tous les résultats pour « {q} »" data-msg-one-result="Un résultat trouvé." data-msg-n-results="{n} résultats trouvés.">
       <input type="search" id="site-search-input" placeholder="Rechercher l'Institut…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-label="Rechercher sur le site" aria-controls="site-search-results" aria-expanded="false">
       <div id="site-search-results" class="site-search-results" role="listbox" aria-label="Résultats de recherche" hidden></div>
       <p id="site-search-status" class="sr-only" aria-live="polite"></p>
@@ -108,13 +108,13 @@
     <button type="button" id="tts-toggle" class="tts-toggle" hidden aria-pressed="false" aria-label="Écoutez cette page" title="Écoutez cette page" data-tts-label-idle="Écoutez cette page" data-tts-label-active="Arrêtez de lire cette page." data-tts-title-idle="Écoutez cette page" data-tts-title-active="Arrêtez de lire"><span class="tts-toggle-icon" aria-hidden="true">🔊</span></button>
     <div class="accent-control">
       <button type="button" id="accent-toggle" class="accent-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu" aria-label="Choisir la couleur de mise en évidence" title="Choisir la couleur de mise en évidence"><span class="accent-toggle-dot" aria-hidden="true"></span></button>
-      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur mise en évidence" hidden>
+      <div id="accent-menu" class="accent-menu" role="group" aria-label="Couleur de mise en évidence" hidden>
         <button type="button" class="accent-swatch" data-accent="red" aria-pressed="true" aria-label="Mise en évidence rouge (par défaut)" title="Rouge"></button>
-        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Amor éclair" title="Amber"></button>
-        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Vert mis en évidence" title="Vert"></button>
-        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Teal highlight» → «Souligner en teal" title="Teal"></button>
-        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Haut de page bleu" title="Bleu"></button>
-        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Violet highlight" title="Violet"></button>
+        <button type="button" class="accent-swatch" data-accent="amber" aria-pressed="false" aria-label="Mise en évidence ambrée" title="Ambre"></button>
+        <button type="button" class="accent-swatch" data-accent="green" aria-pressed="false" aria-label="Mise en évidence verte" title="Vert"></button>
+        <button type="button" class="accent-swatch" data-accent="teal" aria-pressed="false" aria-label="Mise en évidence en bleu sarcelle" title="Bleu sarcelle"></button>
+        <button type="button" class="accent-swatch" data-accent="blue" aria-pressed="false" aria-label="Mise en évidence bleue" title="Bleu"></button>
+        <button type="button" class="accent-swatch" data-accent="violet" aria-pressed="false" aria-label="Mise en évidence violette" title="Violet"></button>
         <button type="button" class="accent-swatch" data-accent="magenta" aria-pressed="false" aria-label="Mise en évidence magenta" title="Magenta"></button>
       </div>
     </div>
@@ -142,7 +142,7 @@
         <a href="#what-we-do">Ce que nous faisons</a><a href="#history">Histoire</a><a href="#mission-vision-values-and-principles">Mission, Vision, Valeurs et Principes</a><a href="#institute-structure">Structure de l'Institut</a><a href="#institute-programs">Programmes de l'Institut</a><a href="#open-science-and-the-ecosystem">Science ouverte et l'écosystème</a>
         <a href="#next-actions">Meilleures prochaines étapes</a>
         <a href="#key-surfaces">Surfaces clés</a>
-        <a href="../knowledge/">Carte Open Source</a>
+        <a href="../knowledge/">Open Source Map</a>
         <a href="#resources">Ressources associées</a>
         <a href="#official-pages">Pages officielles</a>
         <a href="#repositories">Répositoires</a>
@@ -156,19 +156,25 @@
     <div class="article-stack">
       <article class="article-block" id="what-we-do">
             <h2>Ce que nous faisons</h2>
-            <p>Le <a href="./">Active Inference Institute</a> identifie, établit, structure et soutient la mise en œuvre durable de: les services d'éducation et de recherche; les possibilités de participation, de communication, d'avis et de gouvernance au sein de l'Institut et de l'Écosystème Active Inference; les protocoles de publication et de licence qui établissent une utilisation ouverte, équitable et efficace de la diffusion des produits de la communauté; et les services de soutien à l'écosystème, y compris les communications, les programmes éducatifs et les projets collaboratifs.</p>
+            <p>L’<a href="./">Active Inference Institute</a> identifie, met en place, structure et soutient la mise en œuvre durable de services d’enseignement et de recherche; de possibilités de participation, de communication, de conseil et de gouvernance au sein de l’Institut et de l’écosystème Active Inference; de protocoles de publication et de licence établissant des modalités de diffusion open source, d’usage loyal (fair use) et de diffusion efficace des productions de la communauté; et de services de soutien à l’écosystème, notamment les communications, les programmes éducatifs et les projets collaboratifs.</p>
+<p>Nous accueillons les programmes et les projets de l’Institut, donnons de la visibilité aux projets de l’écosystème et assurons la gestion responsable des communs informationnels du domaine d’Active Inference.</p>
             <div class="link-chips"><a href="../ecosystem/"><span>Ecosystem shortlink</span><em>Research</em></a><a href="https://discord.activeinference.institute" target="_blank" rel="noopener noreferrer"><span>Discord invite</span><em>Community</em></a><a href="../programs/"><span>Programs</span></a><a href="../projects/"><span>Projects</span></a><a href="../activities/"><span>Activities</span></a></div>
           </article><article class="article-block" id="history">
             <h2>Histoire</h2>
-            <p>L’institut remonte à une réunion d’équipe de co-fondateurs en 2020 autour d’un intérêt partagé pour Active Inference. Un « Active Inference Lab » (ActInfLab) a été formé à partir de ces discussions et a commencé ses activités en 2021 en tant que communauté volontaire dédiée à rendre Active Inference plus accessible, rigoureux et applicable.</p>
+            <p>L’Institut trouve ses origines dans une réunion de l’équipe des cofondateurs en 2020, autour d’un intérêt commun pour Active Inference. Un « Active Inference Lab » (ActInfLab) est né de ces discussions et a commencé ses activités en 2021, sous la forme d’une communauté animée par des bénévoles et dédiée à rendre Active Inference plus accessible, plus rigoureuse et plus applicable.</p>
+<p>Au milieu de l’année 2022, ActInfLab a franchi une étape de développement en devenant « The <a href="./">Active Inference Institute</a> », en s’enregistrant comme organisation à but non lucratif dans le Delaware, aux États-Unis, et en officialisant sa gouvernance avec un conseil d’administration, des responsables et un conseil consultatif scientifique. En 2024, l’Institut a obtenu sa reconnaissance officielle en tant qu’organisation à but non lucratif 501(c)(3), grâce au soutien pro bono du cabinet d’avocats Fried Frank.</p>
+<p>Consultez la page Historique pour le récit complet, année par année, notamment le <a href="../projects/textbook-group/">Textbook Group</a>, la série <a href="../projects/symposium/">Applied Active Inference Symposium</a> et le document évolutif « Institute and Ecosystem ».</p>
             <div class="link-chips"><a href="../history/"><span>History</span></a><a href="../history/"><span>History</span><em>Institute</em></a><a href="/fr/projects/textbook-group/"><span>Textbook Group shortlink</span><em>Learning</em></a><a href="/fr/projects/symposium/"><span>Applied Active Inference Symposium</span><em>Activities</em></a><a href="../video/"><span>Videos and podcasts shortlink</span><em>Media</em></a><a href="../weekly/"><span>Weekly updates</span><em>Community</em></a></div>
           </article><article class="article-block" id="mission-vision-values-and-principles">
             <h2>Mission, Vision, Valeurs et Principes</h2>
-            <p>Notre vision est celle d'un monde où l'inférence active, un cadre de comportement adaptatif fondé sur des principes premiers, est connue, enseignée et appliquée dans tous les domaines de la science, de l'ingénierie et de la vie quotidienne. Notre mission est de traduire la science de la manière dont les systèmes naturels s'adaptent et s'auto-organisent, connue sous le nom d'inférence active, en outils, ressources et expériences éducatives pratiques qui permettent aux individus, aux communautés et aux technologies d'améliorer la prise de décision et de réduire l'incertitude.</p>
+            <p>Notre vision est celle d'un monde où l'inférence active — un cadre du comportement adaptatif fondé sur des principes premiers — est connue, enseignée et appliquée dans les sciences, l'ingénierie et la vie quotidienne. Notre mission est de transformer la science de l'adaptation et de l'auto-organisation des systèmes naturels, appelée inférence active, en outils pratiques, en ressources et en expériences pédagogiques qui donnent aux personnes, aux communautés et aux technologies les moyens d'améliorer la prise de décision et de réduire l'incertitude.</p>
+<p>Nos valeurs et principes comprennent Active Inference et l'exploration, l'intégrité, la modélisation générative à l'échelle de l'Institut et de l'Écosystème, le comportement anticipatoire, le développement continu et l'engagement participatif. Nous pratiquons la science ouverte: rendre la recherche reproductible et facile à explorer, publier sous des licences ouvertes et assurer la gestion responsable d'infrastructures partagées.</p>
+<p>La diversité des parcours, des disciplines et des niveaux de familiarité est une caractéristique de la communauté, et non une contrainte.</p>
             <div class="link-chips"><a href="../get-involved/"><span>Welcome shortlink</span><em>Institute</em></a><a href="../strategy/"><span>Strategy shortlink</span><em>Institute</em></a><a href="https://activeinference.org/" target="_blank" rel="noopener noreferrer"><span>ActiveInference.org landing page</span><em>Institute</em></a></div>
           </article><article class="article-block" id="institute-structure">
             <h2>Structure de l'Institut</h2>
-            <p>L’institut est gouverné par un conseil d’administration, avec les opérations quotidiennes assurées par des responsables et les fonctions consultatives scientifiques par le conseil scientifique. Deux unités organisationnelles mettent en œuvre les programmes de l’institut: l’unité <a href="../eduactive/">EduActive</a> pour l’éducation et l’unité <a href="../reinference/">ReInference</a> pour la recherche, chacune étant dirigée par des facilitateurs.</p>
+            <p>L’Institut est gouverné par un conseil d’administration; les opérations quotidiennes sont dirigées par des responsables et les fonctions de conseil scientifique sont assurées par le conseil consultatif scientifique. Deux unités organisationnelles mettent en œuvre les programmes de l’Institut: l’unité <a href="../eduactive/">EduActive</a> pour l’éducation et l’unité <a href="../reinference/">ReInference</a> pour la recherche, chacune dirigée par des facilitateurs.</p>
+<p>Les projets, les bénévoles, les apprenants et les stagiaires s’inscrivent dans cette structure et sont reliés à l’écosystème plus large d’Active Inference.</p>
             <div class="link-chips"><a href="../structure/"><span>View full structure and roles</span></a><a href="../structure/board-of-directors/"><span>Board of Directors</span></a><a href="../structure/officers/"><span>Officers</span></a><a href="../structure/scientific-advisory-board/"><span>Scientific Advisory Board</span></a><a href="../eduactive/"><span>EduActive</span></a><a href="../reinference/"><span>ReInference</span></a></div>
           </article><article class="article-block" id="institute-programs">
             <h2>Programmes de l'Institut</h2>
@@ -964,9 +970,9 @@
         <p>Rejoignez les canaux publics, participez aux activités, contribuez aux projets ou soutenez l'Institut.</p>
       </a></div>
   </section>
-  <nav class="pager page-pager" aria-label="pages adjacentes">
+  <nav class="pager page-pager" aria-label="Pages adjacentes à About the Institute">
     <span></span>
-    <a href="../active-inference/">Prochainement : Active Inference</a>
+    <a href="../active-inference/">Suivant : Active Inference</a>
   </nav>
   </main>
   <footer class="site-footer">
@@ -980,7 +986,7 @@
       <a href="../programs/">Programmes</a>
       <a href="../directory/">Répertoire</a>
       <a href="../resources/">Ressources</a>
-      <a href="../knowledge/">Carte Open Source</a>
+      <a href="../knowledge/">Open Source Map</a>
       <a href="../get-involved/">Impliquez-vous</a>
       <a href="../search/">Recherche</a>
       <a href="../sitemap/">Plan du site</a>
