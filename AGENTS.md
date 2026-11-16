@@ -36,7 +36,7 @@ measured wall times live in generated [gate measurements](docs/GATE_MEASUREMENTS
 | `npm run build` | `node src/build.mjs` — render all public HTML + crawler files |
 | `npm run check` | `check:syntax` followed by the `check:*` offline sub-gates below |
 | `npm run check:browser` | Real Chrome calendar regression in all locales, including the original runtime-error negative control; requires `CHROME_BIN` |
-| `npm run check:browser:all` | Sequential calendar, interaction/contrast, newsletter and project catalog browser checks; isolated evidence outside the public checkout |
+| `npm run check:browser:all` | Sequential calendar, interaction/contrast, governance, newsletter and project catalog browser checks; isolated evidence outside the public checkout |
 | `npm run i18n:extract` | `I18N_EXTRACT=1 node src/build.mjs` — extract translatable strings |
 | `npm run i18n:translate` | `node scripts/i18n_translate.mjs` — offline translation (Ollama/hosted API) |
 | `npm run i18n:check-terms` | `node scripts/i18n_check_terminology.mjs` — terminology QA report over the committed catalogs (`--fix` re-translates findings offline) |

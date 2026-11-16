@@ -4965,5 +4965,6 @@
   "Current public snapshot": "Aktueller öffentlicher Datenstand",
   "{artifacts} artifacts, {records} manifest records": "{artifacts} Artefakte, {records} Manifest-Datensätze",
   "Gate version {version}; source fingerprint {fingerprint}; generated {date}.": "Version der Prüfschranke {version}; Quellfingerabdruck {fingerprint}; erstellt am {date}.",
-  "Directory rows": "Verzeichniszeilen"
+  "Directory rows": "Verzeichniszeilen",
+  "No upcoming events are published right now. Subscribe above to be notified when new ones are added.": "Derzeit sind keine bevorstehenden Veranstaltungen veröffentlicht. Abonnieren Sie oben den Kalender, um benachrichtigt zu werden, wenn neue Veranstaltungen hinzukommen."
 }

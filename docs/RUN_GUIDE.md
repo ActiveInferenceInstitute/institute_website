@@ -19,7 +19,7 @@ CI calls the same arms; package commands remain the implementation authority.
 | `./run.sh docs` | Markdown links, flat-index coverage and generated measurement freshness | Git, Python, Node |
 | `./run.sh gnn` | Pinned parser, syntax and type conformance | Isolated parser environment; see below |
 | `./run.sh build` | Static generation (`npm run build`) | Node |
-| `./run.sh browser` | Calendar, newsletter, quick interaction, and project catalog checks | Build and real `CHROME_BIN` |
+| `./run.sh browser` | Calendar, interaction, governance, newsletter, and project catalog checks | Build and real `CHROME_BIN` |
 
 The default is a focused smoke check, not release acceptance. `full` keeps the
 existing offline contract. Python discovery already covers the indexability and

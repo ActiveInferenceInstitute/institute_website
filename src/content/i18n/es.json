@@ -4965,5 +4965,6 @@
   "Current public snapshot": "Instantánea pública actual",
   "{artifacts} artifacts, {records} manifest records": "{artifacts} artefactos, {records} registros del manifiesto",
   "Gate version {version}; source fingerprint {fingerprint}; generated {date}.": "Versión del control: {version}; huella de la fuente: {fingerprint}; generado el {date}.",
-  "Directory rows": "Filas del directorio"
+  "Directory rows": "Filas del directorio",
+  "No upcoming events are published right now. Subscribe above to be notified when new ones are added.": "En este momento no hay próximos eventos publicados. Suscríbete arriba para recibir un aviso cuando se añadan nuevos eventos."
 }

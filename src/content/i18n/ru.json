@@ -4966,5 +4966,6 @@
   "Current public snapshot": "Текущий общедоступный снимок",
   "{artifacts} artifacts, {records} manifest records": "{artifacts} артефактов, {records} записей манифеста",
   "Gate version {version}; source fingerprint {fingerprint}; generated {date}.": "Версия контрольного шлюза: {version}; цифровой отпечаток источника: {fingerprint}; дата формирования: {date}.",
-  "Directory rows": "Строки каталога"
+  "Directory rows": "Строки каталога",
+  "No upcoming events are published right now. Subscribe above to be notified when new ones are added.": "Сейчас предстоящие мероприятия не опубликованы. Подпишитесь выше, чтобы получать уведомления о новых мероприятиях."
 }

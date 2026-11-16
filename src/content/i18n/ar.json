@@ -4966,5 +4966,6 @@
   "Current public snapshot": "اللقطة العامة الحالية",
   "{artifacts} artifacts, {records} manifest records": "المخرجات: {artifacts}، وسجلات البيان: {records}",
   "Gate version {version}; source fingerprint {fingerprint}; generated {date}.": "إصدار البوابة: {version}؛ بصمة المصدر: {fingerprint}؛ تاريخ التوليد: {date}.",
-  "Directory rows": "صفوف الدليل"
+  "Directory rows": "صفوف الدليل",
+  "No upcoming events are published right now. Subscribe above to be notified when new ones are added.": "لا توجد حاليًا فعاليات قادمة منشورة. اشترك أعلاه لتصلك إشعارات عند إضافة فعاليات جديدة."
 }

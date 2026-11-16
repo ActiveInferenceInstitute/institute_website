@@ -4966,5 +4966,6 @@
   "Current public snapshot": "現在の公開スナップショット",
   "{artifacts} artifacts, {records} manifest records": "{artifacts}件の成果物、{records}件のマニフェストレコード",
   "Gate version {version}; source fingerprint {fingerprint}; generated {date}.": "ゲートのバージョン：{version}、ソースのフィンガープリント：{fingerprint}、生成日：{date}。",
-  "Directory rows": "ディレクトリのデータ行"
+  "Directory rows": "ディレクトリのデータ行",
+  "No upcoming events are published right now. Subscribe above to be notified when new ones are added.": "現在、公開されている今後のイベントはありません。上のリンクから購読すると、新しいイベントが追加された際に通知を受け取れます。"
 }

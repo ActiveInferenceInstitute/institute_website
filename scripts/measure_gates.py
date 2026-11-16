@@ -64,8 +64,8 @@ def render(data: dict) -> str:
         lines.append("| " + " | ".join(row) + " |")
     lines.extend(["", "## Scope", "", "`fast` selects the existing i18n helper tests. `full` retains the offline checks;",
                   "indexability regression modules run once via Python discovery, not again in `check:indexability`.",
-                  "Lint/docs are independently runnable and included in full. Browser runs calendar and newsletter checks,",
-                  "quick interactions, and project catalog checks; a first-step failure prevents later steps from running.",
+                  "Lint/docs are independently runnable and included in full. Browser runs calendar, interactions,",
+                  "governance, newsletter and project catalog checks; a first-step failure prevents later steps from running.",
                   "There is no repository type-checker or manuscript directory; no type or manuscript arm is invented.", "",
                   "Before: the complete build/full/browser sequence ran in every CI matrix entry.",
                   "After: one build-and-check job owns that sequence; compatibility jobs run lint/fast only.",
