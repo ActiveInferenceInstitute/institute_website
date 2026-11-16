@@ -96,11 +96,12 @@ checker independently recomputes it, including Unicode path ordering. Export
 timestamps remain reproducible; no build clock is fabricated as page `lastmod`.
 
 `data/public-html-files.json` records the generated HTML and retained demos.
-[Public artifact staging](../scripts/stage_public_assets.py) accepts only that
-inventory, public assets and explicit crawler/data outputs. It refuses stale
-source identity, unsafe paths, symlinks, source-tree output locations and an
-existing destination. Source, documentation, audit evidence and credentials
-are not deployment artifacts.
+[Public artifact staging](../scripts/stage_public_assets.py) includes that
+inventory, public assets, explicit crawler outputs and the verified public
+export manifest with every payload. It refuses stale source identity, unsafe
+paths, symlinks, source-tree output locations and an existing destination.
+Unlisted source, documentation, audit evidence and credentials stay outside
+the artifact.
 
 The [manual Pages workflow](../.github/workflows/pages-manual.yml) is a prepared
 owned-workflow option. It does not run on pushes. It builds and checks source,
@@ -118,6 +119,7 @@ npm run check
 CHROME_BIN=/path/to/chrome npm run check:browser
 CHROME_BIN=/path/to/chrome WEBSITE_AUDIT_OUTPUT=/private/evidence npm run check:audit-browser
 python3 scripts/stage_public_assets.py --output /new/public-artifact
+python3 scripts/check_live_export.py --commit <40-character-sha> > /private/evidence/live-export.json
 ```
 
 The browser check verifies actual viewport dimensions, URL-tail redirects,

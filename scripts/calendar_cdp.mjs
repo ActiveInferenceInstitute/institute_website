@@ -1,4 +1,4 @@
-export async function readCalendarReceipt(child, url) {
+export async function readCalendarReceipt(child, url, { timeZone } = {}) {
   let nextId = 0;
   let buffer = Buffer.alloc(0);
   const pending = new Map();
@@ -35,8 +35,12 @@ export async function readCalendarReceipt(child, url) {
     pending.set(id, { accept, reject });
     write({ id, method, params, ...(sessionId ? { sessionId } : {}) });
   });
-  const { targetId } = await send("Target.createTarget", { url });
+  const { targetId } = await send("Target.createTarget", { url: timeZone ? "about:blank" : url });
   const { sessionId } = await send("Target.attachToTarget", { targetId, flatten: true });
+  if (timeZone) {
+    await send("Emulation.setTimezoneOverride", { timezoneId: timeZone }, sessionId);
+    await send("Page.navigate", { url }, sessionId);
+  }
   let receipt;
   while (!receipt) {
     const result = await send("Runtime.evaluate", {

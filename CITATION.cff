@@ -11,8 +11,8 @@ license: CC-BY-4.0
 url: https://github.com/ActiveInferenceInstitute/institute_website
 repository-code: https://github.com/ActiveInferenceInstitute/institute_website
 repository-artifact: https://activeinference.institute/
-version: "4.0.0"
-date-released: "2026-07-01"
+version: "4.0.3"
+date-released: "2026-11-06"
 keywords:
   - active inference
   - website

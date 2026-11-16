@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # input/gnn_files/basics/static_perception.md. Pin changes require reviewing
 # and recording the new exemplar digest before offline verification is allowed.
 EXEMPLAR_SHA256 = {
-    "8f293d9ba810e6eda5c09842d9c7ed9ffa5f92c1":
+    "75c834bd8519dc7b5adc4d24f16bf393cfd1ecdf":
         "1ddd0fbde8155e2083d586a368503278373f26f6aae11dd4a2b4adfdf5ea7b8c",
 }
 

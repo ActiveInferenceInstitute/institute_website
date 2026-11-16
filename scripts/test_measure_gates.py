@@ -29,7 +29,10 @@ class GnnExemplarNoteTests(unittest.TestCase):
         self.assertNotIn(BLANKET_OFFLINE_CLAIM, document)
         for phase, note in zip(("before", "after"), measure_gates.exemplar_notes(data)):
             self.assertIn(note, document)
-            if "--exemplar" not in data[phase]["gnn"]["command"].split():
+            result = data.get(phase, {}).get("gnn")
+            if result is None:
+                self.assertIn("was not measured", note)
+            elif "--exemplar" not in result["command"].split():
                 self.assertIn("fetches the pinned exemplar itself", note)
 
 

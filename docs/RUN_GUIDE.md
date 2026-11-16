@@ -40,8 +40,8 @@ separate: `npm run check:sources`.
 ## GNN pin and local environment
 
 The canonical [pin](../.github/gnn-pin.json) uses schema `gnn-importer-pin/v1`:
-`ActiveInferenceInstitute/Generalized_Notation_Notation`, tag `v5.0.3`, revision
-`8f293d9ba810e6eda5c09842d9c7ed9ffa5f92c1`. The
+`ActiveInferenceInstitute/Generalized_Notation_Notation`, tag `v5.1.0`, revision
+`75c834bd8519dc7b5adc4d24f16bf393cfd1ecdf`. The
 [`.github/GNN.md` pointer](../.github/GNN.md) records exactly what is parsed.
 The job key is `gnn-conformance`; its display name is `gnn conformance (pinned)`.
 

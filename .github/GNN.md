@@ -4,8 +4,8 @@ The [`gnn-conformance`](workflows/ci.yml) job has display name
 `gnn conformance (pinned)`. It calls `./run.sh gnn`, implemented by
 [`scripts/check_gnn_conformance.py`](../scripts/check_gnn_conformance.py).
 The canonical [`gnn-pin.json`](gnn-pin.json) has schema `gnn-importer-pin/v1`
-and pins `ActiveInferenceInstitute/Generalized_Notation_Notation` at `v5.0.3`
-(`8f293d9ba810e6eda5c09842d9c7ed9ffa5f92c1`).
+and pins `ActiveInferenceInstitute/Generalized_Notation_Notation` at `v5.1.0`
+(`75c834bd8519dc7b5adc4d24f16bf393cfd1ecdf`).
 
 The job verifies the pin and installed parser, parses every `*.gnn.md` sketch
 in the repository, and type-checks them. When the repository has no sketch yet,

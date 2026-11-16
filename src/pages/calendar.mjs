@@ -177,6 +177,31 @@ function icsDownloadLink(event) {
   return `<p class="event-ics"><a href="${uri}" download="${escapeHtml(eventIcsFilename(event))}">📅 Add to calendar (.ics)</a></p>`;
 }
 
+// Timed events stay upcoming through their published end, using the start if
+// no valid end is available. Date-only events end at local midnight after
+// their last day, with the iCal end date already exclusive.
+function eventCutoff(event) {
+  const start = String(event.start);
+  if (event.allDay || start.length === 10) {
+    const day = start.slice(0, 10);
+    const midnight = Date.parse(`${day}T00:00:00Z`);
+    if (!Number.isFinite(midnight)) return "";
+    const end = String(event.end || "");
+    if (/^\d{4}-\d{2}-\d{2}$/.test(end) && end > day) return end;
+    return new Date(midnight + 86_400_000).toISOString().slice(0, 10);
+  }
+  const instant = (value) => {
+    const iso = String(value || "");
+    if (!iso.includes("T")) return NaN;
+    if (/(?:Z|[+-]\d{2}:?\d{2})$/i.test(iso)) return Date.parse(iso);
+    return Date.parse(floatToUtc(event, iso) || `${iso}Z`);
+  };
+  const startsAt = instant(start);
+  const endsAt = instant(event.end);
+  if (!Number.isFinite(startsAt)) return "";
+  return String(endsAt > startsAt ? endsAt : startsAt);
+}
+
 function eventCard(event, kind) {
   const title = escapeHtml(event.title || "Untitled event");
   const when = escapeHtml(formatEventDate(event));
@@ -196,19 +221,20 @@ function eventCard(event, kind) {
     .toLowerCase()
     .replace(/\s+/g, " ")
     .trim();
-  return `<li class="event-row${cancelled ? " is-cancelled" : ""}" data-calendar-row data-calendar-kind="${kind}" data-calendar-search="${escapeHtml(blob)}">
+  return `<li class="event-row${cancelled ? " is-cancelled" : ""}" data-calendar-row data-calendar-kind="${kind}" data-calendar-cutoff="${eventCutoff(event)}" data-calendar-search="${escapeHtml(blob)}">
     <div class="event-when"><time datetime="${escapeHtml(String(event.start || ""))}">${when}</time>${statusTag}</div>
     <div class="event-body"><h3>${title}</h3>${link}${cancelled ? "" : icsDownloadLink(event)}</div>
   </li>`;
 }
 
-export function calendarPage() {
+export function calendarPage({
+  calendar = siteData.instituteos.calendar || { records: [] },
+  exportedAt = EXPORTED_AT,
+} = {}) {
   const currentDir = urlDirForSlug("calendar");
-  const calendar = siteData.instituteos.calendar || { records: [], calendarName: "", icsUrl: "", embedUrl: "" };
   const events = (calendar.records || []).filter((event) => event.start);
-  // ISO date strings sort and compare lexically; use the stable export date as
-  // "now" so the build stays byte-stable (the site never reads a live clock).
-  const reference = (EXPORTED_AT || "").slice(0, 10) || "0000-00-00";
+  // The static split is anchored to the export date for no-script visitors.
+  const reference = (exportedAt || "").slice(0, 10) || "0000-00-00";
   const upcoming = events.filter((event) => String(event.start).slice(0, 10) >= reference);
   const past = events.filter((event) => String(event.start).slice(0, 10) < reference).reverse();
   const calName = escapeHtml(calendar.calendarName || "Active Inference Institute");
@@ -232,41 +258,25 @@ export function calendarPage() {
     );
   }
 
-  // Two labelled lists rather than one 307-row stream. Upcoming and past were
-  // previously distinguished only by a data attribute and a JS filter, so with
-  // scripting unavailable — or before the script runs — a reader met 281 past
-  // events mixed into 26 upcoming ones with nothing marking which was which.
-  // The rows keep their data-calendar-kind attributes, so the existing filter and
-  // search still work across both lists unchanged.
-  const dateRange = (list) => {
-    if (!list.length) {
-      return "";
-    }
-    const first = formatEventDate(list[0]);
-    const last = formatEventDate(list[list.length - 1]);
-    return first === last ? first : `${first} — ${last}`;
+  const upcomingLabel = tr("Upcoming ({n})");
+  const pastLabel = tr("Past ({n})");
+  const group = (rows, kind, id, eyebrow, label) => {
+    const first = rows.length ? formatEventDate(rows[0]) : "";
+    const last = rows.length ? formatEventDate(rows.at(-1)) : "";
+    const range = first === last ? first : `${first} — ${last}`;
+    return `<div data-calendar-group="${kind}"${rows.length ? "" : " hidden"}>
+      <div class="section-heading">
+        <p class="eyebrow">${escapeHtml(tr(eyebrow))}</p>
+        <h2 data-calendar-total="${escapeHtml(label)}">${escapeHtml(label.replace("{n}", rows.length))}</h2>
+        <p data-calendar-range${range ? "" : " hidden"}>${escapeHtml(range)}</p>
+      </div>
+      <ul class="event-list" id="${id}">${rows.map((event) => eventCard(event, kind)).join("")}</ul>
+    </div>`;
   };
-  const eventList = (rows, id) => `<ul class="event-list" id="${id}">${rows.join("")}</ul>`;
-  // Wrapped so the kind filter can hide a whole block: selecting "Past" used to
-  // leave the "26 upcoming events" heading standing above an empty list.
-  const upcomingBlock = upcoming.length
-    ? `<div data-calendar-group>${sectionHeading({
-        eyebrow: "Upcoming",
-        title: tr("Upcoming ({n})").replace("{n}", upcoming.length),
-        text: dateRange(upcoming),
-      })}
-    ${eventList(upcoming.map((event) => eventCard(event, "upcoming")), "calendar-list")}</div>`
-    : `<p>${escapeHtml(tr("No upcoming events are published right now. Subscribe above to be notified when new ones are added."))}</p>`;
-  const pastBlock = past.length
-    ? `<div data-calendar-group>${sectionHeading({
-        eyebrow: "Archive",
-        title: tr("Past ({n})").replace("{n}", past.length),
-        text: dateRange(past),
-      })}
-    ${eventList(past.map((event) => eventCard(event, "past")), "calendar-list-past")}</div>`
-    : "";
   const list = events.length
-    ? `${upcomingBlock}${pastBlock}`
+    ? `${group(upcoming, "upcoming", "calendar-list", "Upcoming", upcomingLabel)}
+       <p data-calendar-empty${upcoming.length ? " hidden" : ""}>${escapeHtml(tr("No upcoming events are published right now. Subscribe above to be notified when new ones are added."))}</p>
+       ${group(past, "past", "calendar-list-past", "Archive", pastLabel)}`
     : `<p>${escapeHtml(tr("No events are currently published. Subscribe above to be notified when new events are added."))}</p>`;
 
   const shownCount = tr("Events shown: {n}");
@@ -275,7 +285,7 @@ export function calendarPage() {
   // so a reader deserves to know which date that was rather than trusting a list
   // that may have aged since publication.
   const snapshotNote = reference !== "0000-00-00"
-    ? `<p class="result-count">${escapeHtml(tr("Upcoming and past are split at the last calendar refresh, {date}.").replace("{date}", reference))}</p>`
+    ? `<p class="result-count" data-calendar-snapshot>${escapeHtml(tr("Upcoming and past are split at the last calendar refresh, {date}.").replace("{date}", reference))}</p>`
     : "";
 
   const filterBar = events.length
@@ -287,8 +297,8 @@ export function calendarPage() {
         <label>
           <span>${escapeHtml(tr("Show"))}</span>
           <select id="calendar-kind">
-            <option value="upcoming">${escapeHtml(tr("Upcoming ({n})").replace("{n}", upcoming.length))}</option>
-            <option value="past">${escapeHtml(tr("Past ({n})").replace("{n}", past.length))}</option>
+            <option value="upcoming" data-calendar-total="${escapeHtml(upcomingLabel)}">${escapeHtml(upcomingLabel.replace("{n}", upcoming.length))}</option>
+            <option value="past" data-calendar-total="${escapeHtml(pastLabel)}">${escapeHtml(pastLabel.replace("{n}", past.length))}</option>
             <option value="all">${escapeHtml(tr("All events ({n})").replace("{n}", events.length))}</option>
           </select>
         </label>

@@ -351,9 +351,15 @@ function governanceRosterSection(slug, currentDir = "") {
   // instead of promising a link next to every name.
   const linked = members.filter((person) => person.website && isVerifiedExternalUrl(person.website)).length;
   const linkNote = linked ? ` ${linked} link to their own public page.` : "";
+  const bylaws = slug === "board-of-directors" && (siteData.instituteos.policies.records || [])
+    .find((policy) => policy.id === "bylaws" && policy.status === "accepted");
+  const bylawsLink = bylaws
+    ? `<p class="section-link"><a href="${hrefForSlug("knowledge", currentDir, "policy-bylaws")}">${escapeHtml(bylaws.title)}</a></p>`
+    : "";
+
   return `<section class="content-band" id="current-members">
     ${sectionHeading({ eyebrow: "Members", title: config.title, text: `${members.length} current ${members.length === 1 ? "member" : "members"}, each linked to the public directory.${linkNote}` })}
-    <ul class="roster-grid">${cards}</ul>
+    <ul class="roster-grid">${cards}</ul>${bylawsLink ? `\n    ${bylawsLink}` : ""}
   </section>`;
 }
 

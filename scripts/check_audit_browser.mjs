@@ -27,7 +27,13 @@ const controlsOnly = process.argv.includes("--controls")||Boolean(simulationOnly
 const zoomOnly = process.argv.includes("--zoom");
 const tabletOnly = process.argv.includes("--tablet");
 const archiveOnly = process.argv.includes("--archive");
-const focused = quick || controlsOnly || zoomOnly || tabletOnly || archiveOnly;
+const governanceOnly = process.argv.includes("--governance");
+const focused = quick || controlsOnly || zoomOnly || tabletOnly || archiveOnly || governanceOnly;
+const boardNames = [
+  "Alexander Sabine", "Alianna J. Maren", "Ana Magdalena Hurtado", "Ann Stapleton",
+  "Austin Cook", "Daniel Friedman", "Edward Ober", "Ellynne Dec", "V. Bleu Knight", "Vladimir Baulin",
+];
+const boardPath = "/structure/board-of-directors/";
 const mime = { ".html": "text/html", ".js": "application/javascript", ".css": "text/css", ".woff2": "font/woff2", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".json": "application/json" };
 let fontDelay = 0, blockRedirect = false;
 const server = createServer(async (req, res) => {
@@ -226,6 +232,36 @@ async function browse(path, width, extra = {}) {
       const shot = await command("Page.captureScreenshot", { format: "png", captureBeyondViewport: false });
       await writeFile(resolve(output, extra.screenshot || path.split('/').at(-1)+`-${width}.png`), Buffer.from(shot.data, "base64"));
     }
+    if (extra.governance) {
+      assert.match(state.title, /Board of Directors/);
+      const activeBoard = await evaluate(`[...document.querySelectorAll('#current-members .roster-member > a:first-child')].map(link=>link.textContent.trim())`);
+      assert.deepEqual(activeBoard, boardNames, "Board roster contains missing, former, or extra directors");
+      const bylawsUrl = await evaluate(`new URL(document.querySelector('#current-members a[href$="#policy-bylaws"]').href).pathname`);
+      assert.equal(bylawsUrl, "/knowledge/");
+      await evaluate(`document.querySelector('#current-members a[href$="#policy-bylaws"]').focus()`);
+      assert.equal(await evaluate("document.activeElement.hash"), "#policy-bylaws");
+      await command("Input.dispatchKeyEvent", { type: "keyDown", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13 });
+      await command("Input.dispatchKeyEvent", { type: "keyUp", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13 });
+      for (let attempt = 0; attempt < 100; attempt += 1) {
+        if (await evaluate('location.hash === "#policy-bylaws" && document.readyState === "complete"')) break;
+        await pause(50);
+      }
+      const accepted = await evaluate(`(() => {
+        const row = document.querySelector('#policy-bylaws');
+        const policies = [...document.querySelectorAll('[data-knowledge-kind="policies"]')];
+        return { path: location.pathname, fragment: location.hash, title: row?.querySelector('th')?.textContent.trim(),
+          version: row?.cells[3]?.textContent.trim(),
+          allAccepted: policies.length > 0 && policies.every(policy => policy.querySelector('.ds-status-accepted')),
+          unsafeLink: [...(row?.querySelectorAll('a') || [])].some(link => new URL(link.href).origin !== location.origin || link.hasAttribute('download')) };
+      })()`);
+      assert.equal(accepted.path, "/knowledge/");
+      assert.equal(accepted.fragment, "#policy-bylaws");
+      assert.match(accepted.title, /^Bylaws of Active Inference Institute/);
+      assert.equal(accepted.version, "1.1");
+      assert.equal(accepted.allAccepted, true, "Draft or private policy appeared in the public table");
+      assert.equal(accepted.unsafeLink, false, "Policy metadata unexpectedly offers a private or unreviewed file");
+      state.governance = { directors: activeBoard.length, ...accepted };
+    }
     state.errors = events.filter(e=>e.method === "Runtime.exceptionThrown").map(e=>e.params.exceptionDetails);
     state.consoleErrors=events.filter(e=>e.method==='Runtime.consoleAPICalled'&&e.params.type==='error').map(e=>e.params.args.map(a=>a.value||a.description).join(' '));
     assert.deepEqual(state.errors, [], `Browser runtime errors: ${path}`);
@@ -236,6 +272,12 @@ async function browse(path, width, extra = {}) {
 }
 try {
   if (quick) await browse("/",1440,{interactions:true});
+  if (governanceOnly) {
+    for (const width of [390, 1440]) {
+      await browse(boardPath, width, { governance: true, keyboard: true,
+        screenshot: `board-${width}.png`, screenshotSelector: "#current-members" });
+    }
+  }
   if (archiveOnly) {
     for (const [path, screenshot] of [["/newsletter/", "archive-en-390.png"], ["/ar/newsletter/", "archive-ar-390.png"]]) {
       await browse(path+"?year=2026&type=newsletter&keep=1#newsletter-archive",390,{newsletter:true,screenshot,screenshotSelector:"#newsletter-controls"});
@@ -280,7 +322,7 @@ try {
     assert.equal(simulations.length,12);
     for (const path of simulations) for (const width of [390,1440]) await browse(path,width,{exercise:true});
   }
-  await writeFile(resolve(output,"browser-receipts.json"),JSON.stringify({baseline,scope:archiveOnly?"Newsletter filters, URL state, year summary and no-JS rendering":tabletOnly?"Measured 768 px English and Arabic responsive navigation":zoomOnly?"Measured 200/400% pinch scale and desktop reflow-equivalent widths; not desktop browser UI zoom":controlsOnly?"Targeted real-browser control groups":quick?"Targeted real-browser disclosure/contrast/audio acceptance":"Local real Chrome; six controlled cold font stress runs; no Google indexing or field performance claim",receipts},null,2));
+  await writeFile(resolve(output,"browser-receipts.json"),JSON.stringify({baseline,scope:governanceOnly?"Board roster, keyboard and accepted public Bylaws":archiveOnly?"Newsletter filters, URL state, year summary and no-JS rendering":tabletOnly?"Measured 768 px English and Arabic responsive navigation":zoomOnly?"Measured 200/400% pinch scale and desktop reflow-equivalent widths; not desktop browser UI zoom":controlsOnly?"Targeted real-browser control groups":quick?"Targeted real-browser disclosure/contrast/audio acceptance":"Local real Chrome; six controlled cold font stress runs; no Google indexing or field performance claim",receipts},null,2));
   console.log(`Verified ${receipts.length} real-browser scenarios; evidence ${output}`);
 } catch(error) {
   await writeFile(resolve(output,"browser-partial.json"),JSON.stringify({error:error.message,receipts},null,2));

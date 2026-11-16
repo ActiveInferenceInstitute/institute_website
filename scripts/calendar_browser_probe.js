@@ -28,6 +28,29 @@ document.addEventListener("DOMContentLoaded", () => {
       require(!calendarErrors.length, calendarErrors.join("; "));
       checks.push(`${label}:${expected.length}`);
     };
+    const clock = new URL(location.href).searchParams.get("clock");
+    if (clock) {
+      const group = (type) => document.querySelector(`[data-calendar-group="${type}"]`);
+      const titles = (type) => [...group(type).querySelectorAll("li h3")].map((row) => row.textContent);
+      const changes = ["All-day meeting", "Floating event"];
+      const remaining = ["Three-day meeting", "Cancelled evening event"];
+      const upcoming = clock === "before" ? [changes[0], remaining[0], changes[1], remaining[1]] : remaining;
+      const past = clock === "before" ? ["Historical event"] : [changes[1], changes[0], "Historical event"];
+      const actualUpcoming = titles("upcoming");
+      require(actualUpcoming.join("|") === upcoming.join("|"),
+        `${clock}: expected upcoming ${JSON.stringify(upcoming)}, got ${JSON.stringify(actualUpcoming)}`);
+      const actualPast = titles("past");
+      require(actualPast.join("|") === past.join("|"),
+        `${clock}: expected past ${JSON.stringify(past)}, got ${JSON.stringify(actualPast)}`);
+      for (const [type, count] of [["upcoming", upcoming.length], ["past", past.length]]) {
+        const labels = [group(type).querySelector("h2"), kind.querySelector(`[value="${type}"]`)];
+        require(labels.every((label) => label.textContent === label.dataset.calendarTotal.replace("{n}", count)), `Stale ${type} label`);
+      }
+      require(document.querySelector("[data-calendar-snapshot]").hidden, "Snapshot notice still describes the live filters");
+      const cancelled = rows.find((row) => row.classList.contains("is-cancelled"));
+      require(cancelled && !cancelled.querySelector("[download]"), "Cancelled event offers a calendar download");
+      checks.push(`fixed-clock:${clock}`);
+    }
     check("initial", rows.filter((row) => row.dataset.calendarKind === "upcoming"));
     for (const value of ["past", "all", "upcoming"]) {
       kind.value = value;

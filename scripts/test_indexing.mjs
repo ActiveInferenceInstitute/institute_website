@@ -153,10 +153,11 @@ test("calendar count label is translated and shared by static markup and runtime
       assert.ok(count[1].includes("{n}"), code);
       assert.ok(!count[2].includes("{n}"), code);
       assert.ok(count[2].startsWith(count[1].split("{n}")[0]), code);
-      const options = [...html.matchAll(/<option value="(?:upcoming|past)">([^<]+)<\/option>/g)];
+      const options = [...html.matchAll(/<option value="(?:upcoming|past)" data-calendar-total="([^"]+)">([^<]+)<\/option>/g)];
       assert.equal(options.length, 2, code);
-      for (const option of options) {
-        assert.ok(html.includes(`<h2>${option[1]}</h2>`), `${code}: heading matches translated filter`);
+      for (const [, label, displayed] of options) {
+        assert.ok(label.includes("{n}"), code);
+        assert.ok(html.includes(`<h2 data-calendar-total="${label}">${displayed}</h2>`), `${code}: heading matches translated filter`);
       }
     }
   } finally {

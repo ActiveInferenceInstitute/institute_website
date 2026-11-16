@@ -1,609 +1,72 @@
 # Website roadmap & coordination
 
-Forward-looking work for the Active Inference Institute website. Shipped history
-lives in [`CHANGELOG.md`](CHANGELOG.md); this file tracks what's planned and in
-progress. The site is a static, dependency-free build (`node src/build.mjs`) with a
-strict Content Security Policy, gated by `npm run check`.
+Open work reviewed against `main` at `ae74478729` on 2026-11-15.
+See [CHANGELOG.md](CHANGELOG.md) for shipped work and [the previous
+roadmap](https://github.com/ActiveInferenceInstitute/institute_website/blob/ae74478729ee9f61695002e09b29f20a53a5c0d6/TODO.md)
+for the dated review history. Run local checks using [the run guide](docs/RUN_GUIDE.md).
 
-Last reviewed: 2026-11-12 (`origin/main` `aa443d193f`; see the gate, pin and
-release truth pass below).
+## Major
 
-## Backlog / ideas
+- [ ] **Complete the indexing and forwarding follow-up.** Establish current
+  coverage for the legacy 404 cohort and validate the sitemap in Search Console.
+  All 50 supplied historical examples now reach their expected redirect
+  stubs. The larger 163-URL cohort still needs current property evidence.
+  The site owner supplies Search Console readback. The domain administrator
+  reviews alias-domain HTTP forwards and robots-blocked external destinations.
+  Accept when the priority cohorts have verified status, canonical targets and
+  an owner disposition for unresolved URLs. Observe live redirects and crawl
+  results before changing routes or resubmitting the sitemap.
+  See [indexing follow-up](docs/INDEXING_FOLLOWUP.md) and
+  [migration and redirects](docs/MIGRATION_AND_REDIRECTS.md).
 
-## Gate, pin and release truth pass — 2026-11-12
+## Medium
 
-- [x] ✓ Composable gate entry point: `run.sh` exposes seven arms (`lint`, `fast`,
-      `full`, `docs`, `gnn`, `build`, `browser`) over `scripts/gates.mjs`, and
-      `npm run check` is 18 sub-checks in `package.json`. The docs arm is
-      `./run.sh docs` → `npm run check:md-links`; it printed
-      `Checked 63 Markdown files (534 relative links); no broken links.` and
-      `Gate measurements and documentation index are current.` (#17, `45275640bf`).
-- [x] ✓ Canonical GNN importer pin: `.github/gnn-pin.json` declares schema
-      `gnn-importer-pin/v1` for tag `v5.0.3` at
-      `8f293d9ba810e6eda5c09842d9c7ed9ffa5f92c1`. GNN's own reader accepts it —
-      `PYTHONPATH=<gnn>/src python3 -m gnn.importers check --repo .` returns
-      `"ok": true`, normalizes this file's `revision` key to `commit`, and reports
-      only the expected `spec-absent` warning (no `*.gnn.md` here). (#16,
-      `4562781fc2`).
-- [x] ✓ Live Symposium and home page: the 6th Symposium page with final program
-      and book (#18, `922dd559de`), its translation into all 11 locales (#19,
-      `5cf4e170e3`), and the home-page pathway change (#20, `aa443d193f`).
-- [x] ✓ `.aii` sidecar validates:
-      `python -m aii_platform.aii_sidecar validate .` → `OK: .`.
-- [x] ✓ Checked for a `pymdp` / `inferactively-pymdp` dependency: none exists.
-      `package.json` declares no `dependencies` and no `devDependencies`, and the
-      build is a static Node script, so no 1.0.5 pin applies.
-- [ ] Raise the GNN pin from `v5.0.3` to `v5.1.0`
-      (`75c834bd8519dc7b5adc4d24f16bf393cfd1ecdf`), the importer release already
-      pinned by ActInf_RxInfer, ActiveBlockference, active_inference_power and
-      pymdp. Three files carry the revision: `.github/gnn-pin.json` (`tag`,
-      `revision`, `recorded`), `.github/GNN.md:7-8`, and `docs/RUN_GUIDE.md:42-44`.
-      `scripts/check_gnn_conformance.py` needs no new exemplar digest: the
-      reviewed `input/gnn_files/basics/static_perception.md` is byte-identical at
-      both revisions (sha256 `1ddd0fbde8155e2083d586a368503278373f26f6aae11dd4a2b4adfdf5ea7b8c`),
-      so the single `EXEMPLAR_SHA256` row still matches. Verify with
-      `./run.sh gnn` (downloads) or
-      `python3 scripts/check_gnn_conformance.py --exemplar <path>` (offline).
-      Owner: repository maintainer; no external blocker.
-- [ ] `CHANGELOG.md` has no entry for #18, #19 or #20 — none of the three merge
-      commits touches the file, and `## Unreleased` still holds six entries that
-      predate them. Add the three under `## Unreleased` before the next cut.
-      Owner: whoever cuts the next release; writing it is a docs obligation of
-      these merges, not a code change.
-- [ ] Release tags lag `CHANGELOG.md`: `package.json` and `version.json` say
-      4.0.4, and the changelog lists v4.0.1 and v4.0.4, but
-      `git ls-remote --tags` stops at `v4.0.3` and GitHub Releases stop at
-      `v2.4.0`. Cut or backfill `v4.0.1` and `v4.0.4` after the Unreleased
-      entries land. Owner: maintainer; this is a user decision because it
-      changes the live `version.json`.
+- [ ] **Repair existing translations.** Re-extract the current source keys,
+  use the locale audit's 38 missing keys per locale, and review multiline
+  paragraph preservation, numeric labels and accent-swatch accessibility
+  names in all 11 catalogs. Review proposed changes
+  with source and locale evidence. Inventory obsolete keys (including
+  `Repositories (52)`) before any pruning. Accept with catalog checks and
+  rendered desktop/mobile language controls. See
+  [internationalization](INTERNATIONALIZATION.md).
+- [ ] **Reconcile release metadata after maintainer approval.** Identify the
+  exact source for the missing historical tags and the next version. The
+  historical 4.0.1 candidate has inconsistent package and lock versions.
+  The live 4.0.4 release at `ae74478729` has consistent version metadata. Review
+  the annotated tags, GitHub release records, package/lockfile versions,
+  `version.json` and `CITATION.cff` together. Accept when each new tag
+  resolves to its qualified commit and the live version matches the release.
+  See [RELEASING.md](RELEASING.md).
+- [ ] **Resolve upstream public-content gaps.** Obtain approved destinations
+  for archived dead hosts and former document hubs, replace the concluded Symposium's
+  presenter call with an approved recap or next-cycle interest link and
+  confirm sponsorship copy, repair or rephrase the two newsletter “here” calls to
+  action (August and November 2025), and register eligible communications
+  through the source owner. Accept with reviewed public copy, sanctioned
+  export, passing link and feed checks, and no draft material in output.
+  Owner: communications and source owners. See
+  [content authoring](docs/CONTENT_AUTHORING.md) and [GATING.md](GATING.md).
 
-## Translation completion follow-ups — 2026-10-13
+## Minor
 
-- [x] Add an explicit strict translation mode that rejects request failures,
-      truncated completions, empty/degenerate output and unchanged English
-      before saving a locale. Verify real HTTP failure fixtures and a successful
-      translated response while preserving the existing catalog bytes on failure.
-- [x] Copy the existing locale-default models into an isolated external-volume
-      cache, verify manifest/blob hashes and use a separately owned runtime.
-- [x] Fill the 39 missing source keys in each locale, preserve existing entries,
-      review new translations and validate regenerated pages before publication.
-      All 429 additions have been checked against the English source. Repair
-      incomplete/mixed-language drafts, governance wording, lists, contact tags
-      and dates; retain the machine-translation provenance notices.
-- [x] Translate shared hero actions before escaping their labels. A browser check
-      exposed three English working-group actions; the shared fix adds 72 source
-      keys to extraction and 71 missing catalog entries per locale. All 1,210
-      new entries preserve earlier values, with all 3,768 extracted keys present.
-      Keep proper names, publication titles and native cognates unchanged where
-      appropriate. Check actual action rendering and extraction in all locales.
-- [x] Prune already-excluded tooling directories before validator traversal.
-      Preserve retained fixtures and public-file coverage; prove inventory
-      equality on real files/symlinks and rejection of unreadable public paths.
-- [ ] Review older multiline translations separately: a source-paragraph scan
-      found 135 pre-existing entries per catalog with fewer paragraph breaks.
-      The multiline pipeline fix prevents first-line truncation in future runs;
-      refreshing older translations needs a separate review of content fidelity.
+- [ ] **Remove remaining reference drift during the next related docs edit.**
+  Check the root docs map against [docs/README.md](docs/README.md) when adding a
+  root guide. Use [the run guide](docs/RUN_GUIDE.md) for the runtime matrix.
+  Accept with `./run.sh docs`.
+- [ ] **Document the forwarding evidence consistently.** At the next
+  [redirect guide](docs/MIGRATION_AND_REDIRECTS.md) revision, review whether
+  the historical resolved workspace URL is still needed in the explanation.
+  Keep the verified chain understandable and the rendered site free of the URL.
+- [ ] **Review duplicated external-anchor validation when the policy changes.**
+  Share only the behavior that is meant to be common between
+  [site validation](scripts/check_site_contract.py) and
+  [security validation](scripts/check_static_security.py). Accept with the
+  existing negative controls and the same independent gate coverage.
 
-## Profile HTTPS and German UI follow-ups — 2026-10-13
+## Deferred
 
-- [x] Reproduce the missed `www.adeelrazi.org`, `sandeepramesh.com` and
-      `www.alvaradolab.com` HTTPS variants. Verify their HTTPS endpoints, update
-      the registered URLs and preserve historical URLs as aliases. Keep renderer
-      and Python validation policy aligned, preserve paths/query/fragments and
-      retain HTTP for the unverified-subdomain and bayeslanguage controls.
-      Acceptance: all 13 gates and 90 tests pass with external Python, and all
-      248 source checks pass. Exactly 96 HTTP anchors change across 12 SAB pages;
-      all other rendered bytes and upstream public payloads are preserved.
-- [x] Correct German footer accessibility label, search placeholder punctuation
-      and participation-label capitalization, then rebuild the locale pages.
-      Acceptance: all 13 gates and 90 tests pass. All 937 changed German pages
-      match exactly the three catalog substitutions; other rendered bytes are
-      preserved. Desktop and 390 px mobile browser checks confirm the labels,
-      menu/dropdown expansion and absence of horizontal overflow.
-- [x] Run local Python 3.14.7 from GitVault: verify both interpreter prefixes
-      resolve on the external volume and bind gate commands to that interpreter.
-- [x] Fill the 39 missing extracted keys in each of the 11 catalogs using an
-      isolated external-volume model cache and source-based corrections.
-      Verify the existing models against their manifests, preserve earlier
-      catalog values and keep the existing provider services and owners intact.
-
-## GitVault follow-ups — 2026-10-13
-
-- [x] Replace the CI action implementations that GitHub now forces from Node 20
-      to Node 24 with verified Node 24 releases, pinned by immutable commit SHA.
-      Pin Ubuntu 24.04 to avoid an unreviewed `ubuntu-latest` operating-system
-      transition. Keep the website's Node 20/22 matrix and disable unused npm
-      caching explicitly.
-- [x] Replace the retired Mick Thacker profile (HTTP 404) with the owner-approved
-      RCSI School of Physiotherapy staff page (HTTP 200). Normalize historical
-      roster URLs through the live-source registry, preserving upstream payloads.
-      Local build and all 13 gates pass (58 export/indexing/process tests plus
-      31 i18n tests); the new regression fails before the fix and passes after.
-      Exactly 24 anchors change across 12 locale pages, with all other rendered
-      bytes preserved. Browser inspection confirms both historical cohort links.
-      All 248 live sources pass with 2 workers and 30-second timeouts after an
-      initial strategy 503 and two GitHub transport timeouts cleared on retry;
-      no unrelated source status was changed to accommodate those failures.
-- [x] Locate the organization-owned InstituteOS checkout on GitVault and validate
-      registry/export parity and design-system CSS/fonts with explicit source-root
-      overrides. Both freshness checks pass; no public payload resync is needed.
-
-CI acceptance requires `actionlint`, local build/check, and both Node jobs passing
-the real Chrome regression and committed-output parity on the pinned runner.
-Local acceptance passed: build, all 13 offline gates (57 export/indexing/process
-tests plus 31 i18n tests), source-present export/design-system freshness, and
-`actionlint`. An empty action revision was rejected as a negative control.
-The rebuilt public files are byte-identical to the committed output.
-
-## Calendar and roadmap follow-ups — 2026-10-13
-
-- [x] Reproduce the live calendar `ReferenceError: scope is not defined` and
-      replace the broken count update with a shared, count-neutral label.
-- [x] Translate `Events shown: {n}` in all 11 catalogs; use the same pattern
-      for static markup and runtime updates across all 12 locales.
-- [x] Add localized renderer assertions and a separate real-Chrome regression
-      command covering initial/upcoming/past/all, zero/one results, search reset
-      and group visibility. Restore the original error as a negative control.
-      CI runs the browser command on Node 20 and 22.
-- [x] Reconcile implemented knowledge anchors, video descriptions, language
-      semantics and Open Graph exclusions; document all 13 offline sub-gates.
-- [x] Finish local acceptance: all 13 offline sub-gates pass, including 57
-      export/indexing/process and 31 i18n tests. Chrome passes 84 scenarios in all 12
-      locales and rejects the original runtime-error control. Temporary-volume
-      ENOSPC was resolved with GitVault fixtures; failed fixtures were preserved.
-- [x] Browser process follow-up: reproduce Chrome returning exit 0 after its
-      timeout; use Chrome's protocol pipe to read the DOM receipt and close the
-      browser explicitly, rejecting killed/signalled or incomplete processes.
-      Add real subprocess controls for timeout with a zero-exit SIGTERM handler,
-      ordinary success, nonzero exit, missing executable and signal termination.
-      Browser receipts record exit status, termination flag and elapsed time.
-      Fourteen process/protocol controls cover fragmented UTF-8 messages,
-      delayed receipts, malformed data, protocol/evaluation errors and early exit.
-
-After publication, verify both Node CI jobs and deployed bytes using the
-deployment workflow in AGENTS.md. External-source reachability remains separate:
-
-- [x] **Existing live-source failures (2026-10-13).** The default 248-source
-      probe failed on the RCSI profile for `person-mick-thacker` (redirect to
-      `people.rcsi.com/michaelthacker`, HTTP 404) and 17 HTTP 0 transport failures.
-      A retry with 4 workers and 20-second source timeouts still failed on that
-      profile and 16 HTTP 0 results (15 Zenodo requests plus `person-mlflumic`).
-      A direct Zenodo retry confirmed curl exit 28 after its 20-second timeout.
-      Resolve the profile with an approved public destination and re-check host
-      reachability; do not change the gate or mark timed-out sources unreachable
-      solely from these probes. The committed source registry was preserved.
-      Follow-up: transport failures cleared on the fresh GitVault probe. The
-      owner approved the official RCSI staff page to replace the retired profile;
-      its verified destination is now registered and historical links normalize
-      to it at render time.
-
-## DNS / HTTPS / indexing follow-ups — 2026-10-12
-
-The administrator enabled HTTPS, added apex AAAA records and updated domain
-verification on 2026-10-12. Search Console's 2026-10-08 report listed 171 legacy
-404 URLs. These observations predate this repository change and do not prove
-recrawl or production acceptance.
-
-- [x] Build static redirect stubs from the shared taxonomy, preserve real routes,
-      and gate every destination plus the generated 404 fallback map.
-- [x] Use root simulation links in every locale; emit localized filename stubs
-      and include simulation landing pages in the internal-link gate.
-- [x] Render recorded on-site shortlinks and www self-links as internal clean URLs.
-      Preserve REQUIRED_SOURCE_IDS; registrar aliases remain in the source registry.
-- [x] Render dead measure/onboard/octopus links as plain text (owner decision).
-      Reject insecure or unknown Institute subdomain anchors in the security gate.
-- [x] Pin 33 forwarding subdomains landing on 30 paths in inbound-forwards.json;
-      generate the on-site documentation table and check real self-canonicals.
-- [x] Normalize Institute and six verified profile links to HTTPS at render time;
-      preserve upstream export bytes and provenance. Keep bayeslanguage.org on HTTP.
-- [x] Keep deterministic export-date lastmod on every sitemap URL; exclude search
-      and HTML sitemap, including hreflang. All five priority hubs are already
-      linked from global navigation. Retain the single sitemap at this size.
-- [x] Canonicalize untranslated newsletter/video detail variants to English and
-      remove their hreflang clusters (owner decision). Localized navigation remains.
-- [x] Record current hosting/DNS state and replace retired workflow-doc pointers;
-      require HTTPS baseUrl and matching CNAME. Treat bare GMT/UTC as zero ICS offset.
-- [x] Verify final generated-output parity on Node 20.20.2 and 22.23.3: 11286 site
-      files have identical aggregate SHA-256 16b3b212b7b775bfc73f9700f7fcd7daf00c3431d4a9bf29c46b96c0ae09fc8a.
-- [x] Confirm deployed stubs: `/officers/` and `/ru/simulations/Ink.html`
-      returned HTTP 200 and matched committed bytes after the 4f339c0e deployment;
-      both Node CI jobs and Pages succeeded. Search Console recrawl is separate.
-- [ ] Owner: confirm Search Console recrawl and validate the legacy 404 fixes.
-- [ ] Administrator: repoint alias-domain HTTP forwards and robots-blocked external
-      forwards; validate Search Console fixes and resubmit the sitemap after deploy.
-- [ ] Content owner: select replacements for archived dead-host links, confirm the
-      Symposium's Adventure-space sponsorship copy and restore former Coda-hub routes
-      with approved public destinations. Upstream archive corrections remain separate.
-
-## Other backlog
-
-- [x] **Accent text contrast (F19, resolved 2026-10-26).** Reproduced the
-      previously reported low text contrast and added site-only foreground roles.
-      Real Chromium measurements cover seven palettes in both themes on selected
-      solid surfaces: all 42 normal and 42 primary-hover readings exceed 4.5:1.
-      Restoring white text on the original bright button fills produces six
-      failures. The canonical design-system export remains byte-identical.
-      [WCAG non-text contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html)
-      requires 3:1 for necessary component/state indicators; ordinary text uses
-      [4.5:1](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
-      The earlier blanket 4.5:1 requirement for non-text controls was incorrect.
-      These scoped text checks do not establish whole-site accessibility or
-      certify every component/state indicator.
-- [ ] **Newsletter archive dead "here" CTA (F24-adjacent, 2026-09-27).** The
-      2025-august / 2025-november newsletter snapshots contain "here"
-      call-to-action text whose target lived in the private archive snapshot;
-      fixing it requires an upstream content decision (refresh the snapshot
-      via the sanctioned export or edit copy). Not code-doable in this repo.
-- [x] **Calendar event-count plural edge (2026-09-27).** Resolved 2026-10-13
-      with a translated count-neutral label, shared static/runtime pattern and
-      real-browser checks at zero/one/many. Counts describe both past and
-      upcoming filters and searches, without a fixed "upcoming" qualifier.
-- [x] **i18n catalog backlog (2026-07-20) — DONE 2026-08-02.** The extract now
-      collects 3,418 strings (long-form knowledge/course prose entered the
-      catalog with the strategy-map wiring and content growth); the offline
-      `npm run i18n:translate` pass (local Ollama; incremental/resumable) filled
-      **100%** of every locale — all 11 catalogs sit at 3,534 entries
-      (es/fr/de/pt/it/ru/hi/ar via gemma3:4b, zh/ja/ko via qwen2.5:3b). See the
-      CHANGELOG "Unreleased" translation entry. The TERMINOLOGY QA pass —
-      **DONE 2026-09-24**: `scripts/i18n_check_terminology.mjs`
-      (`npm run i18n:check-terms`, classification tests under `check:i18n`)
-      sweeps all 11 catalogs against the `KEEP_VERBATIM` glossary plus
-      "Markov Blanket", with established per-locale renderings recognized for
-      the three concept terms. First-run report (against the uncommitted
-      2026-09-07 re-translate
-      catalog state sitting in the worktree): 5,624 findings across 4,871
-      entries — 2,711 omitted (concept term lost or garbled, e.g. ko "인퍼
-      encing", ja "アクティブインフェリエンス", es "razonamiento activo" for
-      "active inference") and 2,913 verbatim-missing (brand/program terms
-      rendered natively, e.g. "Instituto de Inferencia Activa"). Against the
-      committed HEAD catalogs the same sweep reports 4,959 findings (2,242
-      omitted / 2,717 verbatim-missing). **Resolved 2026-09-27:** the
-      uncommitted re-translate was discarded, and all 11 catalogs were
-      refilled from scratch to 4,743 entries (commit `4e8905483a`); the
-      residual 573 gate-failing entries remain the accepted threshold.
-      `--fix` re-translates flagged entries through the masked pipeline and is
-      incremental/resumable; a later offline window completed the full refill
-      (see the Resolved note above), closing this item.
-
-### From the 2026-06 deep review (see [`INDEX.md`](INDEX.md), [`GATING.md`](GATING.md))
-
-- [x] **Gating coverage (P0) — DONE, and now unconditional (2026-07-05).** The
-      producer-2 slices (`*_graph`, `domain_projects`, `narratives_public`,
-      `communications_public`, `newsletter`, plus `programs`, `citations`,
-      `calendar`, `videos`; `strategies_public` retired 2026-08, unrendered
-      since the strategy-map removal) are run through
-      `validate_public_prose_payload` in `check_committed_public_payloads`
-      (enforced by `check:instituteos`) — a prose-tuned gate (blocks real emails,
-      `coda.io`, `/users/`, phones, and unambiguous private keys; tolerates
-      `slack`/`discord`/`linkedin`/`workspace` tokens that legitimately appear in
-      public prose). A 2026-07-05 audit found this only ran when the private
-      `instituteos` checkout could **not** be resolved — dead code in the normal
-      monorepo dev layout — fixed to run unconditionally. See [`GATING.md`](GATING.md).
-- [x] **Content-safety scan widened (2026-07-05) — DONE.** `check:site` scanned
-      only 5 of 17 committed `src/content/instituteos/*.json` files; now scans
-      all of them dynamically.
-- [x] **RESOLVED (2026-07-05): governance-surface content flagged by the widened
-      scan.** Confirmed with the Institute: entity/role *names* ("Board of
-      Directors", "Officers", "Scientific Advisory Board") are public; process/
-      workflow *mechanics* are not. `processes.json` (the one file with actual
-      step-by-step governance-process descriptions) and every renderer that
-      consumed it (Open Source Map "Processes" table + search index + counts)
-      were removed entirely. "workspace" was a false-positive (common word) and
-      is no longer blocked. `npm run check:site` passes. See [`GATING.md`](GATING.md) item 3.
-- [x] **PII scan added to `check:security` (2026-07-05) — DONE.** GATING.md
-      claimed rendered-HTML PII scanning that didn't exist in code; added a real
-      email/phone scan over rendered text + `mailto:` targets, with a
-      `VETTED_PUBLIC_EMAILS` allowlist for two confirmed-legitimate public
-      contacts found during testing.
-- [x] **Release hygiene (P1) — DONE.** Git tags `v2.5.0` … `v4.0.0` all now
-      exist and `CHANGELOG.md` lists them as released (tags/version backfilled to
-      match). The baseUrl/domain cutover shipped via `v3.0.0` with public URLs
-      preserved through redirects.
-- [x] `strategies_public.json` has **no consumer** in the repo — either wire it
-      into a page/feed or remove it from `src/content/instituteos/`.
-      **Done 2026-07-20:** wired as the `#strategy-map` section on `/strategy/`
-      (`strategyMapSection()` in `src/render/feature-sections.mjs`) — department
-      cards with grouped revenue streams, loaded via `siteData.instituteos.strategies`.
-      **Later retired 2026-08:** the strategy-map section was removed
-      (e53b9c97f1) and `strategies_public.json` deleted (6b9fb01802) — it is no
-      longer part of the export set.
-- [x] `src/content/live-sources.json` commits resolved `coda.io` `finalUrl`
-      values (verification metadata, not rendered). **Done 2026-07-20:** `finalUrl`
-      dropped from the committed file; `check_live_sources.py` resolves redirects at
-      check time and errors on any committed `finalUrl` (`--write` strips it).
-      `check:sources` remains deliberately outside the offline `npm run check` chain.
-- [x] Add a **markdown link gate** (resolve relative links in `*.md`/`AGENTS.md`,
-      fail on missing targets) wired into `npm run check` — **done 2026-07-20:**
-      `scripts/check_markdown_links.py` (`check:md-links`) is in the default chain
-      and the `py_compile` list.
-- [x] **`repositories.json` inline `url`/`docsUrl` dedup (2026-07-20) — DONE.**
-      Records now resolve through `live-sources.json` by `sourceId`/`docsSourceId`
-      (parent-repo consumer check: zero readers of the inline fields); a
-      `check:site` arm fails loudly if a future GitHub-API refresh reintroduces
-      inline URLs.
-- [x] **Mobile enhancement (2026-07-20) — DONE.** CSP-safe hamburger/disclosure
-      toggle: `#nav-toggle` button in the header (`src/render/layout.mjs`,
-      `tr("Menu")`-labeled, `aria-expanded`/`aria-controls="site-nav"`), click +
-      Escape wiring in `site.js` (no inline handlers), collapse styles in
-      `styles.css`. Progressive enhancement: `site.js` stamps `data-nav-js` on
-      the header — without JS the toggle stays hidden and the nav renders
-      expanded, so navigation stays reachable. Under 720px the header now wraps
-      into ~3 compact rows (brand+hamburger / search / control buttons) instead
-      of stacking ~11; `@media(pointer:coarse)` adds ≥44px touch targets for
-      header controls, nav/lang menus, tag chips, and footer links. (The
-      601–960px detached-dropdown bug was already fixed in
-      `assets/css/styles.css`.)
-
-### Earlier backlog
-
-- [ ] Per-page `lastmod` in `sitemap.xml` from content provenance — **deferred**:
-      there is no per-page timestamp source today (`data/export-manifest.json`
-      records per-file hashes, not page mtimes), and deriving it from git history
-      would break the build's determinism. The optional `lastmod` is now omitted
-      rather than presenting a shared export date as per-page modification
-      evidence. Revisit when per-page provenance lands in the export manifest.
-- [x] Taxonomy-driven redirect generator + a `check:redirects` gate — **done**:
-      shipped as part of the Axis-B migration of the 16 "Active Inference and X"
-      domain pages from `/active-inference-and-<x>/` to `/active-inference/<x>/`
-      across all 12 locales. Implemented differently than originally envisioned:
-      rather than a codegen script emitting static per-locale entries, the
-      redirect logic itself is rule-driven — a small locale-aware
-      `PREFIX_REDIRECTS` array in `assets/js/redirects.js` covers the whole
-      routing-family rename in one entry, with no per-locale generation needed.
-      `scripts/check_redirects.py` (wired into `npm run check:redirects`, part of
-      `npm run check`) validates the `MAP`/`PREFIX_REDIRECTS` entries against
-      `src/url-taxonomy.json` and the build output. See
-      [`docs/SLUG_AND_URL_TAXONOMY.md` § Two independent axes](docs/SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url).
-- [ ] Extract the shared external-anchor validation (`VETTED_ANCHOR_HOST_SUFFIXES`,
-      `vetted_anchor_host()`) into `scripts/validation_utils.py`, imported by both
-      `check_static_security.py` and `check_site_contract.py` — **deferred (low
-      value)**: the current duplication is intentional defense-in-depth for the
-      security gate; only refactor if both gates keep passing identically.
-
-## Docs review — 2026-08-02 mega-deep documentation pass
-
-> **Last reviewed:** 2026-08-02 (HEAD 563b38d03). Severity: **Minor** = typo /
-> formatting / broken table / stale single reference; **Medium** = stale section
-> rewrite, doc restructure, added missing guide, public-repo hygiene; **Major** =
-> large doc-system overhaul / cross-cutting refactor. Completed items carry a ✓
-> and the commit that shipped them; the open list at the bottom is deferred.
-
-### Minor
-
-- [x] **Fix `||`-prefixed table rows in `scripts/AGENTS.md`** (lines 25–29: the
-      `sync:instituteos`/`i18n:extract`/`i18n:translate`/`sync:transcripts`/
-      `check:transcripts` rows render as literal text, breaking the npm-script
-      table) and add the missing `check:projects` / `check:catalog` rows. ✓ (86e23f5d4)
-- [x] **Strip trailing whitespace** in `docs/ARCHITECTURE.md:73`,
-      `docs/CONTENT_AUTHORING.md` (119, 125, 139, 148, 151, 154, 157), and
-      `docs/DESIGN_SYSTEM.md` (84, 123, 140, 144, 305, 316, 331). ✓ (86e23f5d4)
-- [x] **INDEX.md stale `Plans/` row** — the directory does not exist; remove the
-      row (or mark it absent) so the top-level map only lists real entries. ✓ (86e23f5d4)
-- [x] **INDEX.md output-dir list incomplete** — add `bibliography/`,
-      `communications/`, `newsletter/`, `open-source/` to the "all other tracked
-      root dirs" row. ✓ (86e23f5d4)
-- [x] **RELEASING.md stale line reference** — `src/build.mjs:103-113` no longer
-      points at the `version.json` writer (it moved to ~140-143); drop the exact
-      line numbers so the reference cannot drift again. ✓ (feb0f61a6)
-- [x] **docs/ARCHITECTURE.md `_strings.json` path** — `content/i18n/_strings.json`
-      reads as root-relative in the "Root Singletons" list; clarify to
-      `src/content/i18n/_strings.json`. ✓ (feb0f61a6)
-- [x] **docs/INTERNATIONALIZATION.md file-reference row** — `url-taxonomy.json`
-      is described as "Program subpage routing rules" only; it now carries the
-      full routing table (`programSubpageSlugs`, `orgPageSlugs`, `yearPageSlugs`,
-      `routing.rules`). ✓ (feb0f61a6)
-
-### Medium
-
-- [x] **Remove private monorepo path references (public-repo hygiene)** —
-      `repos/institute_website` appears in `docs/GETTING_STARTED.md:19`,
-      `docs/README.md:4`, `.claude/skills/institute-website/SKILL.md:4,16`; and
-      `../../library/design-system` / `../../repos/institute_website` appear in
-      `docs/GATES_AND_VALIDATION.md` (149, 162, 170, 172, 183, 185) plus the
-      error hint in `scripts/check_design_system_export.mjs:171`. Rewrite to
-      neutral, standalone-checkout phrasing (`INSTITUTEOS_DS_ROOT`). ✓ (f5d834dd0)
-- [x] **docs/TROUBLESHOOTING.md "Huge diff after a build" is stale** — it claims
-      the footer build-stamp changes on every rebuild; the build is
-      byte-deterministic (verified: two rebuilds, zero modified files). Rewrite
-      the section to explain what a large diff actually signals. ✓ (feb0f61a6)
-- [x] **docs/INTERNATIONALIZATION.md stale language-switcher markup** — the
-      sample still shows `role="menu"`/`role="menuitem"` (removed in 563b38d03);
-      the build now emits `<nav class="lang-menu" aria-label="Language">` with
-      plain links. Also fixes a `</a>`→`</details>` typo in the sample. ✓ (feb0f61a6)
-- [x] **docs/SLUG_AND_URL_TAXONOMY.md "Adding a New URL/Route Pattern"** — steps
-      2–3 still instruct hardcoded `if/else` edits to `baseDirForSlug()`,
-      contradicting the v4.0.0 data-driven rule table documented in the same
-      file (lines 55–70, 119–127). Rewrite for the JSON-rule workflow. ✓ (feb0f61a6)
-- [x] **Add CITATION.cff** — public research-org repo with no citation file;
-      ground it in the real LICENSE (CC-BY-4.0), repository URL, and current
-      version (4.0.0). ✓ (8fcd8c3b0)
-- [x] **Add SECURITY.md** — point at the existing RFC 9116
-      `.well-known/security.txt` (vetted public contact
-      `blanket@activeinference.institute` from `site.json`). ✓ (8fcd8c3b0)
-- [x] **Declare the license in package metadata** — `package.json` (and
-      `package-lock.json` root entry) lack `license`; add `"CC-BY-4.0"` to match
-      `LICENSE` and `.aii/config.yaml`. ✓ (8fcd8c3b0)
-- [x] **README has no License section** — add a short one referencing `LICENSE`
-      and the new `CITATION.cff`. ✓ (8fcd8c3b0)
-
-### Major
-
-- [ ] **Unified docs index refresh** — `docs/README.md` is the hub but the root
-      `INDEX.md` doc map and `docs/README.md` list root longform docs
-      independently; a small cross-check pass keeps them in sync. **Deferred:**
-      low marginal value — both are currently accurate and the per-folder
-      `AGENTS.md` precedence is well documented; revisit only when a new root
-      doc is added. Since #17 the docs arm covers the `docs/` half only:
-      `scripts/measure_gates.py` `check_index` proves
-      `docs/documentation-index.md` links every `docs/*.md`, and
-      `check_markdown_links.py` resolves all 534 relative links across 63 files;
-      the `INDEX.md` ↔ `docs/README.md` overlap is still unchecked by any gate.
-- [ ] **Line-number references in docs drift** — `SLUG_AND_URL_TAXONOMY.md` and
-      `RELEASING.md` cite exact source line numbers (`src/data.mjs:45-58`, …)
-      that will rot. **Deferred:** mechanically removing them all is churn with
-      no gate impact; the stale one in RELEASING.md was fixed this pass and the
-      taxonomy doc's refs were spot-verified accurate. Ten such references remain
-      in `docs/SLUG_AND_URL_TAXONOMY.md` (`src/url-taxonomy.mjs`, `src/build.mjs`,
-      `src/pages/ecosystem.mjs`, `src/render/urls.mjs`, `src/data.mjs`).
-
-### Follow-up — completed audit batch findings (deleg_aca05bf9)
-
-Second wave of verified findings from the two completed audit subagents
-(implemented 2026-08-02, commits 93d3289ba + b14832dbc):
-
-- [x] **RunGates.md: "52 repositories" → 35** (the gate enforces 35 per
-      `check_site_contract.py`); add the missing `check:redirects` /
-      `check:projects` / `check:catalog` rows to the gate table. ✓ (93d3289ba;
-      count updated again 2026-08-30 when the roster moved to 35)
-- [x] **EditRedirects.md: document `PREFIX_REDIRECTS`/`SET_REDIRECTS`** — "all
-      redirects live in the MAP object" was outdated. ✓ (93d3289ba)
-- [x] **ci.yml: "no lockfile is committed" comment was false** (package-lock.json
-      is tracked); reword. ✓ (93d3289ba)
-- [x] **Unregistered `official-participation` sourceId in templates** —
-      `src/content/pages/AGENTS.md`, `_TEMPLATES.md`, `AddProject.md` used a
-      sourceId absent from `live-sources.json`; swap to registered
-      `aicacp-project-doc`. ✓ (93d3289ba)
-- [x] **`participate/` folder listing wrong** — `learning` lives there,
-      `measure` is in `institute/`. ✓ (93d3289ba)
-- [x] **src/AGENTS.md**: add `newsletter` to standalone renderers + `pages/`
-      map. ✓ (93d3289ba)
-- [x] **src/render/AGENTS.md**: add `autolink`/`domains`/`graphs`/
-      `video-table` module rows. ✓ (93d3289ba)
-- [x] **assets/AGENTS.md**: add `video-table.js` row + `books/`/`newsletters/`/
-      `tnb/` img dirs. ✓ (93d3289ba)
-- [x] **docs/README.md `src/pages/` renderer list**: drop `knowledge` (it is a
-      render module, not a page renderer) and add the real modules. ✓ (93d3289ba)
-- [x] **GATES_AND_VALIDATION.md impossible failure example** — the
-      "README.md contains visible Coda/workspace wording" message can never
-      fire on a `.md` file (wording scan is `.html`-only); show a generated
-      HTML file instead. ✓ (93d3289ba)
-- [x] **AGENTS.md migration parenthetical in past tense** (cutover is
-      complete). ✓ (b14832dbc)
-- [x] **README stale client-side sentence + incomplete scripts/ tree**. ✓ (b14832dbc)
-- [x] **INDEX.md `version.json` shape** — add `exported_at`; note `built_at`
-      mirrors the export timestamp and `commit` is always null. ✓ (b14832dbc)
-- [x] **DESIGN_SYSTEM.md regenerate wording** — the gate reports staleness; it
-      does not regenerate. ✓ (b14832dbc)
-- [x] **RELEASING.md Unreleased rule vs reality** — soften to "accumulates on
-      main; emptied when a release is cut". ✓ (b14832dbc)
-- [x] **Missing CHANGELOG Unreleased entries** for the video detail pages,
-      bibliography/citations, and VideoObject thumbnailUrl commits. ✓ (b14832dbc)
-- [x] **Add CODE_OF_CONDUCT.md** (adapted from Contributor Covenant 2.1) and
-      link from CONTRIBUTING/README/INDEX. ✓ (b14832dbc)
-
-### Open / deferred (from the audits)
-
-- [ ] **Stale i18n catalog key `Repositories (52)`** in all 11 locale catalogs
-      (`ar`, `de`, `es`, `fr`, `hi`, `it`, `ja`, `ko`, `pt`, `ru`, `zh`). The live
-      source string in `src/content/i18n/_strings.json` is `Repositories (35)`,
-      and `scripts/check_site_contract.py:651` enforces 35 repositories, so the 52
-      keys are dead. Each catalog also carries 1,125–1,126 keys absent from
-      `_strings.json` (4,886–4,887 entries against 3,802 extracted). Deferred:
-      translation data, not docs — needs an `npm run i18n:extract` +
-      re-translate sweep, plus a decision on pruning retired keys.
-- [ ] **README ↔ AGENTS.md contract duplication** (Design Contract /
-      Operating Contract lists). Deferred: both are accurate today and the
-      split is intentional (human overview vs agent contract).
-- [ ] **`docs/MIGRATION_AND_REDIRECTS.md` literal `https://coda.io` URL** (line
-      278, § *Externally-blocked forwards (SEO trap)*) — it documents a verified
-      redirect chain, not something the site renders. No gate scans `docs/*.md` for
-      Coda URLs: `scripts/check_site_contract.py:640` scans `src/content/*.json`,
-      `scripts/check_static_security.py` scans rendered anchors, and
-      `check_no_public_coda_links` scans generated HTML plus `assets/css/styles.css`.
-      So it is inert today, but any widening of that scan flags it. Owner: docs
-      maintainer; either keep it as evidence or restate the chain without the
-      literal URL.
-
-### Open / deferred (original)
-
-- [x] **docs/ folder audit coverage** — the subagent interrupted by a provider
-      billing error had its coverage completed first-hand in the 2026-08-02 pass,
-      and `./run.sh docs` now re-verifies the set on every run (63 Markdown files,
-      534 relative links, `docs/documentation-index.md` complete). Nothing remains
-      open here.
-- [x] **Terminology QA on machine-translated catalogs** — shipped as
-      `scripts/i18n_check_terminology.mjs` (see the i18n backlog item above for
-      the first-run counts). The deferred remainder is the `--fix`
-      re-translation run, blocked on Ollama capacity this sweep.
-- [ ] **Per-page `lastmod` in sitemap.xml** — existing deferred item; unchanged.
-
-## Agent-ergonomics documentation pass — 2026-08-31
-
-- [x] **Root AGENTS.md orientation ladder** — added a 30-second orientation
-      (repo model, deploy = Pages from `main`, generated HTML committed), a
-      verbatim `package.json` command cheat sheet, and an offline gate table
-      with observed cold-start runtimes and known-noise flags.
-- [x] **Verified doc drift fixed** — `scripts/AGENTS.md` npm table gained the
-      missing `check:i18n`/`check:standalone` rows and the `npm run check`
-      chain listing matches `package.json`; `docs/GATES_AND_VALIDATION.md`:
-      9 → 11 sub-checks, 7 → 8 required JSON files (matches
-      `REQUIRED_PUBLIC_JSON_FILES`), "currently 37" → 35 repositories (matches
-      `check_site_contract.py`), example failure message corrected, gate chain
-      diagram extended with `check:i18n`/`check:standalone`, record-counts
-      section rewritten (counts are derived; only the 35-repository count is
-      hardcoded).
-- [x] **REVIEW_LOG_2026-08-02.md archived** to
-      [docs/archive/REVIEW_LOG_2026-08-02.md](docs/archive/REVIEW_LOG_2026-08-02.md)
-      with a pointer stub at the root — the pass is complete and its findings
-      live in the CHANGELOG entry and this file's 2026-08-02 section.
-- [x] **CHANGELOG.md duplicate `## Unreleased` header** removed.
-
-## Cross-repo deep review pass — 2026-09-04
-
-Adversarially verified review of the site, its gates, and the private export
-pipeline. Fixed the same day (see the matching `CHANGELOG.md` Unreleased
-entry): gate strengthening (SVG scans, manifest sha/record_count verification,
-canonical + sitemap set-equality, PII scope, srcset links), private-infra
-leak removal in `live-sources.json`, producer-1 gate hardening (phone scan,
-producer-2 payload coverage, URL-safe sanitization, visible drop warnings),
-`/search/` noindex, newsletter-inclusive feeds with `lastBuildDate`, `tr()`
-coverage on the four programmatic pages, deterministic video ordering,
-nav-dedupe, null-safe site.js/redirects.js, icon purpose split, security.txt
-fallback. Open items below are verified but deliberately deferred.
-
-- [x] **search-data.js knowledge row anchors** — already implemented;
-      confirmed 2026-10-13 that all 148 built knowledge search results carry
-      fragments matching IDs in `knowledge/index.html`.
-- [x] **New `tr()` string coverage** — refreshed extraction on 2026-10-13:
-      all 3,768 extracted keys are present in every locale. Add 110 entries per
-      locale, including the newly extracted hero actions, and preserve existing
-      values. The German footer label, search punctuation and participation
-      casing were corrected earlier that day.
-- [ ] **Existing UI translation review** — number formatting, accent-swatch
-      accessibility labels and gate-metric copy still need semantic review.
-      Catalog coverage does not certify earlier translations; the 135 older
-      multiline entries are tracked in the translation follow-ups above.
-- [x] **Video page meta descriptions** — already use the structured
-      title/series/date summary in `src/pages/video-detail.mjs` rather than ASR
-      openings; reconciled 2026-10-13.
-- [x] **Language switcher `aria-current="page"`** — already implemented;
-      confirmed in built Italian archive and sitemap pages on 2026-10-13.
-- [x] **Open Graph locale alternates** — already follow hreflang eligibility;
-      confirmed zero alternates on built Italian sitemap and untranslated
-      newsletter detail pages on 2026-10-13.
-- [ ] **Newsletter archive dead "here" call-to-action** in two archived
-      issues (2025-august, 2025-november) — the sentence survives without its
-      Substack inline link; fix belongs in the private archive snapshot, then
-      re-export (content decision).
-- [ ] **Feed freshness** now partly fixed (newsletters included), but the
-      communications registry itself has no approved records after 2026-03-04;
-      registering/approving the missing quarterly reports and weekly
-      announcements is an Institute content decision, not a code change.
-
-
-## Conventions
-
-- Edit `src/content/*` and `src/build.mjs`; never hand-edit generated `*.html`.
-- Keep the CSP intact (`script-src 'self'`, `connect-src 'none'`): all JS is
-  self-hosted, data is embedded at build time (no runtime fetch).
-- Run `npm run check` before every change; it gates URLs, links, structured data,
-  version consistency, and static security.
-- Bump `package.json` (SemVer), add a `CHANGELOG.md` entry, and tag releases.
-- Regenerate brand icons/cards with `scripts/generate-icons.sh`.
-
-## Shipped
-
-See [`CHANGELOG.md`](CHANGELOG.md) — recent: clean section-based URLs (v2.0),
-SEO/structured data (v2.1), feeds + installable PWA + `security.txt` (v2.2),
-brand icon + social card + global search (v2.3), localized `<head>` + full
-11-locale translation coverage + VideoObject thumbnails (v4.0.0 + Unreleased).
+- **Per-page sitemap `lastmod`.** Wait for independent per-page source
+  provenance. Require stable bytes across two builds and a test that a change
+  to one page updates only its date.
+- **README and AGENTS overlap.** Revisit alongside a shared contract change.
+  Keep the human overview and operator instructions consistent.

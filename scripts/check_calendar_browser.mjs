@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { calendarPage } from "../src/pages/calendar.mjs";
 import { runBrowserProcess } from "./browser_process.mjs";
 import { readCalendarReceipt } from "./calendar_cdp.mjs";
 import { createServer } from "node:http";
@@ -18,12 +19,33 @@ const fixedCount = 'calendarCount.textContent = countMsg(calendarCount, "data-ms
 assert.ok(currentScript.includes(fixedCount), "Negative control must target the actual calendar update");
 const brokenScript = currentScript.replace(fixedCount,
   'calendarCount.textContent = countMsg(calendarCount, "data-msg-count-events", "{n} {label} shown", visible, visible === 1 ? scope : `${scope}s`);');
+const clocks = {
+  before: Date.UTC(2026, 10, 15, 23, 59),
+  after: Date.UTC(2026, 10, 16, 0, 1),
+};
+const fixture = calendarPage({
+  exportedAt: "2026-11-14T00:00:00Z",
+  calendar: { records: [
+    { title: "Historical event", start: "2026-11-13T09:00:00Z" },
+    { title: "All-day meeting", allDay: true, start: "2026-11-15" },
+    { title: "Three-day meeting", allDay: true, start: "2026-11-15", end: "2026-11-17" },
+    // EST is UTC-5 on this date. The event ends exactly at midnight UTC.
+    { title: "Floating event", start: "2026-11-15T18:00:00", end: "2026-11-15T19:00:00", timeZone: "America/New_York" },
+    { title: "Cancelled evening event", status: "CANCELLED", start: "2026-11-15T19:30:00-05:00" },
+  ] },
+});
 let negativeControl = false;
 const types = { ".html": "text/html", ".js": "application/javascript", ".css": "text/css", ".svg": "image/svg+xml" };
 const server = createServer(async (request, response) => {
   response.setHeader("Cache-Control", "no-store");
   try {
     const url = new URL(request.url, "http://localhost");
+    const clock = url.searchParams.get("clock");
+    if (url.pathname === "/__calendar_clock.js" && Object.hasOwn(clocks, clock)) {
+      response.writeHead(200, { "Content-Type": "application/javascript" });
+      response.end(`Date.now = () => ${clocks[clock]};`);
+      return;
+    }
     if (url.pathname === "/__calendar_probe.js") {
       response.writeHead(200, { "Content-Type": "application/javascript" });
       response.end(probe);
@@ -38,7 +60,10 @@ const server = createServer(async (request, response) => {
     }
     let body = await readFile(file);
     if (file.endsWith("calendar/index.html")) {
-      body = body.toString().replace("</head>", '<script src="/__calendar_probe.js"></script></head>');
+      const fixedClock = url.pathname === "/calendar/" && Object.hasOwn(clocks, clock);
+      const source = fixedClock ? fixture : body.toString();
+      const preload = fixedClock ? `<script src="/__calendar_clock.js?clock=${clock}"></script>` : "";
+      body = source.replace("</head>", `${preload}<script src="/__calendar_probe.js"></script></head>`);
     } else if (file === join(root, "assets/js/site.js") && negativeControl) {
       body = brokenScript;
     }
@@ -52,12 +77,12 @@ const server = createServer(async (request, response) => {
 await new Promise((accept) => server.listen(0, "127.0.0.1", accept));
 const origin = `http://127.0.0.1:${server.address().port}`;
 const receipts = [];
-async function browse(path) {
+async function browse(path, options) {
   const args = ["--headless=new", "--disable-gpu", "--no-first-run", "--no-default-browser-check", "--disable-background-networking",
     `--user-data-dir=${profile}`, "--remote-debugging-pipe", "--no-startup-window"];
   if (process.env.CHROME_NO_SANDBOX === "1") args.unshift("--no-sandbox");
   const processResult = await runBrowserProcess(chrome, args, 45000,
-    (child) => readCalendarReceipt(child, origin + path));
+    (child) => readCalendarReceipt(child, origin + path, options));
   const receipt = processResult.result;
   assert.ok(["passed", "failed"].includes(receipt?.status), `Browser produced no calendar receipt at ${path}`);
   return { path, status: receipt.status, exitCode: processResult.exitCode, killed: processResult.killed,
@@ -78,7 +103,13 @@ try {
     assert.equal(receipt.locale, code);
     console.log(`${code}: ${receipt.checks.join(", ")}`);
   }
-  console.log("Calendar browser regression passed in all locales; original ReferenceError rejected.");
+  for (const clock of Object.keys(clocks)) {
+    const receipt = await browse(`/calendar/?clock=${clock}`, { timeZone: "UTC" });
+    receipts.push(receipt);
+    assert.equal(receipt.status, "passed", JSON.stringify(receipt));
+    assert.ok(receipt.checks.includes(`fixed-clock:${clock}`), JSON.stringify(receipt));
+  }
+  console.log("Calendar browser regression passed in all locales and both fixed clocks; original ReferenceError rejected.");
 } finally {
   await writeFile(join(profile, "receipts.json"), JSON.stringify(receipts, null, 2) + "\n");
   console.log(`Browser receipts: ${join(profile, "receipts.json")}`);

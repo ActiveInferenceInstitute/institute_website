@@ -80,6 +80,23 @@ numbers and explicit phone/tel contexts are blocked; unlabeled numeric
 identifiers are not classified as phone numbers solely by length.
 Denylist matching cannot infer the meaning of arbitrary innocuously named prose.
 
+The [Pages artifact stager](scripts/stage_public_assets.py) includes every
+manifested export at its declared path. It verifies hashes and privacy on the
+bytes it stages. Unlisted source files stay outside the artifact.
+
+## Live release readback
+
+Use the exact reviewed Git commit after a site deployment:
+
+```bash
+python3 scripts/check_live_export.py --commit <40-character-sha> > /path/to/live-export.json
+```
+
+The checker reads the version, manifest, Board page and payload hashes from
+Git. It compares the version and manifest before and after the bounded public
+HTTPS read. The JSON receipt records the SHA and expected file hashes. A stale
+version, missing path, changed bytes or incomplete read exits nonzero.
+
 ## Research identity and links
 
 Citation metadata comes from the canonical bibliography. Paper links reference

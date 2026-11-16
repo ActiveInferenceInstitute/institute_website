@@ -5,6 +5,21 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- Stage each reviewed public export payload with an exact hash and restrict
+  staged source paths to the declared manifest contract.
+- Add bounded, credential-free live readback for the website version, Board
+  page and all declared export files.
+- Qualify the GNN importer at v5.1.0 against the pinned exemplar.
+- Update interactive calendar filtering from the visitor's clock while
+  retaining the deterministic static snapshot. Link the Board page to the
+  adopted Bylaws record and add desktop and mobile governance checks.
+- Report missing locale keys and multiline drift without writing translations.
+- Publish the final 6th Symposium program and book, translate the page into
+  all 11 supported locales, and update the home-page pathway after the call
+  for presentations closed (#18, #19, #20).
+- Bind the website build identity to the reviewed public export manifest and
+  declared inputs. At `ae74478729`, the live version, all 44 manifest files,
+  and the Board route matched the reviewed commit.
 - Add composable local/CI gate arms, keeping the default on existing fast tests.
 - Run expensive build/full/browser checks once; reuse the same checks before the separate manual deployment.
 - Extract pinned GNN conformance into the shared local/CI command and document its canonical pin schema.

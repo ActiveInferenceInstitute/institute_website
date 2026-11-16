@@ -31,7 +31,11 @@ def exemplar_notes(data: dict) -> list[str]:
     """Say, per recorded arm, what its command does with the pinned exemplar."""
     notes = []
     for phase in ("before", "after"):
-        command = data.get(phase, {}).get("gnn", {}).get("command", "")
+        result = data.get(phase, {}).get("gnn")
+        if result is None:
+            notes.append(f"The GNN {phase} arm was not measured.")
+            continue
+        command = result.get("command", "")
         handling = ("receives pre-fetched exemplar bytes (`--exemplar`), so its time excludes that download"
                     if "--exemplar" in command.split()
                     else "fetches the pinned exemplar itself, so its time includes that download")

@@ -179,7 +179,7 @@ export function localeOutputPathForSlug(slug, code = activeLocale()) {
 
 ### Locale Prefix System
 
-The `localePrefix()` function in `src/url-taxonomy.mjs:27–29` applies the locale code as a path segment:
+The `localePrefix()` function in `src/url-taxonomy.mjs` applies the locale code as a path segment:
 
 ```javascript
 export function localePrefix(code = activeLocale()) {
@@ -208,7 +208,7 @@ export function localePrefix(code = activeLocale()) {
 
 ### Build Locale Loop
 
-In `src/build.mjs:50–56`:
+In `src/build.mjs`:
 
 ```javascript
 for (const locale of LOCALES) {
@@ -268,7 +268,7 @@ No runtime translation occurs (CSP forbids network fetch). All locales are fully
 
 ### Route Renderer Registry
 
-In `src/build.mjs:30–41`, the `slugRenderers` array lists every routable page:
+In `src/build.mjs`, the `slugRenderers` array lists every routable page:
 
 ```javascript
 const slugRenderers = [
@@ -299,7 +299,7 @@ Some pages are not loaded from `siteData.pages` but generated programmatically:
 
 ### Ecosystem Domain Pages
 
-Generated dynamically by `ecosystemDomainPages()` in `src/pages/ecosystem.mjs:54–102`:
+Generated dynamically by `ecosystemDomainPages()` in `src/pages/ecosystem.mjs`:
 
 - One page per domain in `siteData.instituteos.domainProjects.domains`
 - Slugs: `ecosystem/<domain.slug>` (e.g., `ecosystem/ai-and-ecology`)
@@ -357,7 +357,7 @@ Examples from `/projects/affordances/index.html` (currentDir = `"projects/afford
 
 ### Asset Prefix Computation
 
-The `relPrefix(currentDir)` function in `src/render/urls.mjs:71–77` computes the number of `../` hops to the repo root:
+The `relPrefix(currentDir)` function in `src/render/urls.mjs` computes the number of `../` hops to the repo root:
 
 ```javascript
 export function relPrefix(currentDir = "") {
@@ -468,10 +468,10 @@ This runs `scripts/check_site_contract.py`, which validates that:
 **Answer: The slug field is the sole source of truth.** The source file's path (e.g., `institute/about.json` vs. `about.json`) is **irrelevant** to the output URL.
 
 Evidence:
-- `src/data.mjs:45–58`: The `walkPageJson()` function recursively loads all `.json` files from `src/content/pages/` without regard to folder nesting. The loaded page object is a plain JS object with a `slug` field.
-- `src/data.mjs:61–63`: Pages are sorted only by `order` and `slug`, not by file path.
-- `src/url-taxonomy.mjs:33–47`: The `baseDirForSlug()` function reads only the slug string, never the file path.
-- `src/build.mjs:32`: The build loops over `siteData.pages`, extracting `page.slug` and ignoring file location entirely.
+- `src/data.mjs`: The `walkPageJson()` function recursively loads all `.json` files from `src/content/pages/` without regard to folder nesting. The loaded page object is a plain JS object with a `slug` field.
+- `src/data.mjs`: Pages are sorted only by `order` and `slug`, not by file path.
+- `src/url-taxonomy.mjs`: The `baseDirForSlug()` function reads only the slug string, never the file path.
+- `src/build.mjs`: The build loops over `siteData.pages`, extracting `page.slug` and ignoring file location entirely.
 
 ### Q: Can source page files be moved between folders under `src/content/pages/` WITHOUT changing URLs?
 
@@ -493,7 +493,7 @@ To route under `/domains/`:
 
 **Option 1: Rename the slug prefix**
 
-In `src/pages/ecosystem.mjs:62`, change:
+In `src/pages/ecosystem.mjs`, change:
 
 ```javascript
 const routedSlug = `ecosystem/${domain.slug}`;

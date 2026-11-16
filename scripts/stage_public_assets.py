@@ -13,7 +13,9 @@ import re
 import shutil
 from pathlib import Path
 
+from check_export_manifest import MANIFEST_PATH, check_export_manifest
 from source_identity import website_source_fingerprint
+from sync_instituteos_public_data import PRODUCER2_PUBLIC_JSON_FILES, validate_public_prose_payload
 
 
 def stage(root: Path, destination: Path, *, commit: str | None = None, run_url: str | None = None) -> int:
@@ -29,10 +31,23 @@ def stage(root: Path, destination: Path, *, commit: str | None = None, run_url: 
     version = json.loads((root / "version.json").read_text())
     if version.get("website_source_fingerprint") != website_source_fingerprint(root):
         raise ValueError("Stale website build; rebuild and check before staging")
+    export_files: dict[str, bytes] = {}
+    errors = check_export_manifest(root, PRODUCER2_PUBLIC_JSON_FILES, export_files=export_files)
+    if errors:
+        raise ValueError("\n".join(errors))
+    manifest = json.loads(export_files[MANIFEST_PATH])
+    if version.get("source_fingerprint") != manifest["source_fingerprint"]:
+        raise ValueError("Stale version export fingerprint; rebuild before staging")
+    for name, content in export_files.items():
+        if name != MANIFEST_PATH and name.endswith(".json"):
+            try:
+                validate_public_prose_payload(json.loads(content), Path(name).name)
+            except ValueError:
+                raise ValueError(f"{name} failed public-safety validation") from None
     names = json.loads((root / "data/public-html-files.json").read_text())
     if not isinstance(names, list) or not names or len(set(names)) != len(names):
         raise ValueError("Public HTML inventory must be a nonempty unique list")
-    files = set()
+    files = {Path(name) for name in export_files}
     for name in names:
         path = Path(name)
         if path.is_absolute() or ".." in path.parts or path.suffix != ".html" or path.parts[0] in {"src", "scripts", "docs", "edge"}:
@@ -46,19 +61,23 @@ def stage(root: Path, destination: Path, *, commit: str | None = None, run_url: 
             raise ValueError("Public deployment assets cannot contain symlinks")
         if path.is_file() and path.suffix in allowed_assets:
             files.add(path.relative_to(root))
-    for name in ["robots.txt", "sitemap.xml", "feed.xml", "feed.json", "manifest.webmanifest", "version.json", ".nojekyll", "CNAME", ".well-known/security.txt", "data/projects.json", "data/export-manifest.json", "data/redirects.json", "data/public-html-files.json"]:
+    for name in ["robots.txt", "sitemap.xml", "feed.xml", "feed.json", "manifest.webmanifest", "version.json", ".nojekyll", "CNAME", ".well-known/security.txt", "data/redirects.json", "data/public-html-files.json"]:
         path = root / name
         if not path.is_file():
             raise FileNotFoundError(f"Missing built public artifact: {name}")
         files.add(Path(name))
     # Validate the entire selection before any writes.
-    if any((root / relative).is_symlink() for relative in files):
+    if any((root / path).is_symlink() for relative in files for path in (relative, *relative.parents)):
         raise ValueError("Public deployment files cannot be symlinks")
     destination.mkdir(parents=True)
     for relative in sorted(files):
         target = destination / relative
         target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(root / relative, target)
+        content = export_files.get(relative.as_posix())
+        if content is None:
+            shutil.copyfile(root / relative, target)
+        else:
+            target.write_bytes(content)
     if commit is not None:
         (destination / "deployment.json").write_text(json.dumps({"commit": commit, "workflow_run": run_url, "website_source_fingerprint": version["website_source_fingerprint"], "source_export_fingerprint": version.get("source_fingerprint")}, indent=2) + "\n")
     return len(files)

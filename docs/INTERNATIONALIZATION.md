@@ -4,6 +4,12 @@
 
 # Internationalization & Locales
 
+Run `npm run i18n:audit` after extracting source keys to count missing, empty,
+and obsolete keys, placeholder mismatches, and changed paragraph counts.
+Use `npm run i18n:audit -- --json` to review the source keys per locale.
+Findings are review inputs. The audit writes no translations.
+
+
 ## Overview
 
 The institute_website is a fully multilingual static site built at compile time. English is the canonical source; every other language is pre-rendered at build time into its own URL subtree (`/<code>/…`), with a language switcher on every page. This design ensures:

@@ -11,6 +11,7 @@ from typing import Final
 
 ROOT_KEYS: Final = {"files", "gate_version", "generated_at", "source_fingerprint"}
 ENTRY_KEYS: Final = {"name", "output_path", "record_count", "sha256", "target"}
+MANIFEST_PATH: Final = "data/export-manifest.json"
 RASTER_HEADERS: Final = {
     ".png": (b"\x89PNG\r\n\x1a\n",),
     ".webp": (b"RIFF",),
@@ -27,15 +28,41 @@ TARGETS: Final = {
 }
 
 
-def check_export_manifest(root: Path, content_names: tuple[str, ...]) -> list[str]:
+def manifest_output_path(entry: dict, content_names: tuple[str, ...]) -> PurePosixPath | None:
+    """Recognize one file in the public export namespace."""
+    output = entry["output_path"]
+    target = entry["target"]
+    path = PurePosixPath(output)
+    directory = TARGETS.get(target)
+    expected_name = f"newsletter-media/{path.name}" if target == "newsletter_assets" else path.name
+    if (
+        directory is None
+        or str(path.parent) != directory
+        or str(path) != output
+        or any(ord(character) < 32 or ord(character) == 127 for character in output)
+        or "\\" in output
+        or entry["name"] != expected_name
+        or path.suffix not in (RASTER_SUFFIXES if target == "newsletter_assets" else {".json"})
+        or (target == "content" and path.name not in content_names)
+        or (target == "data" and path.name != "projects.json")
+    ):
+        return None
+    return path
+
+
+def check_export_manifest(
+    root: Path, content_names: tuple[str, ...], *, export_files: dict[str, bytes] | None = None,
+) -> list[str]:
     """Return errors for incomplete, unsafe, or byte-inconsistent public exports."""
     root = root.resolve()
     errors: list[str] = []
-    manifest_path = root / "data/export-manifest.json"
-    if manifest_path.is_symlink():
+    checked_files = {} if export_files is not None else None
+    manifest_path = root / MANIFEST_PATH
+    if manifest_path.is_symlink() or manifest_path.parent.is_symlink():
         return ["export manifest must not be a symlink"]
     try:
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest_bytes = manifest_path.read_bytes()
+        manifest = json.loads(manifest_bytes.decode("utf-8"))
     except (OSError, ValueError) as exc:
         return [f"export manifest could not be read: {exc}"]
     if not isinstance(manifest, dict) or set(manifest) != ROOT_KEYS:
@@ -84,15 +111,8 @@ def check_export_manifest(root: Path, content_names: tuple[str, ...]) -> list[st
             continue
         output = entry["output_path"]
         target = entry["target"]
-        path = PurePosixPath(output)
-        directory = TARGETS.get(target)
-        expected_name = f"newsletter-media/{path.name}" if target == "newsletter_assets" else path.name
-        valid_path = directory is not None and str(path.parent) == directory and str(path) == output
-        valid_path = valid_path and "\\" not in output and entry["name"] == expected_name
-        valid_path = valid_path and path.suffix in (RASTER_SUFFIXES if target == "newsletter_assets" else {".json"})
-        valid_path = valid_path and (target != "content" or path.name in content_names)
-        valid_path = valid_path and (target != "data" or path.name == "projects.json")
-        if not valid_path:
+        path = manifest_output_path(entry, content_names)
+        if path is None:
             errors.append("export manifest contains an unapproved output path or name")
             continue
         if output in seen:
@@ -111,6 +131,8 @@ def check_export_manifest(root: Path, content_names: tuple[str, ...]) -> list[st
         digests.append(entry["sha256"])
         try:
             content = destination.read_bytes()
+            if checked_files is not None:
+                checked_files[output] = content
             if hashlib.sha256(content).hexdigest() != entry["sha256"]:
                 errors.append(f"export manifest sha256 mismatch: {output}")
             if target != "newsletter_assets":
@@ -141,4 +163,8 @@ def check_export_manifest(root: Path, content_names: tuple[str, ...]) -> list[st
     if manifest["source_fingerprint"] != fingerprint:
         errors.append("export manifest source_fingerprint does not match artifact inventory")
     errors.extend(f"export manifest missing required output: {path}" for path in sorted(required - seen))
+    if not errors and checked_files is not None:
+        checked_files[MANIFEST_PATH] = manifest_bytes
+        assert export_files is not None
+        export_files.update(checked_files)
     return errors

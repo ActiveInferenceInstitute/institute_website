@@ -300,6 +300,47 @@ const calendarKind = document.querySelector("#calendar-kind");
 const calendarCount = document.querySelector("#calendar-count");
 const calendarRows = [...document.querySelectorAll("[data-calendar-row]")];
 
+function reclassifyCalendarRows() {
+  if (!calendarRows.length) return;
+
+  const upcoming = document.querySelector('[data-calendar-group="upcoming"]');
+  const past = document.querySelector('[data-calendar-group="past"]');
+  const upcomingList = upcoming.querySelector(".event-list");
+  const pastList = past.querySelector(".event-list");
+  // The snapshot orders upcoming oldest-first and the archive newest-first.
+  const chronological = [...[...pastList.children].reverse(), ...upcomingList.children];
+  const now = new Date(Date.now());
+  const today = [now.getFullYear(), now.getMonth() + 1, now.getDate()]
+    .map((part, index) => String(part).padStart(index === 0 ? 4 : 2, "0")).join("-");
+  const groups = { upcoming: [], past: [] };
+  for (const row of chronological) {
+    const cutoff = row.dataset.calendarCutoff;
+    if (cutoff) {
+      const isPast = cutoff.includes("-") && cutoff.length === 10 ? today >= cutoff : now.getTime() >= Number(cutoff);
+      row.dataset.calendarKind = isPast ? "past" : "upcoming";
+    }
+    groups[row.dataset.calendarKind].push(row);
+  }
+  groups.past.reverse();
+
+  for (const [kind, group, list] of [["upcoming", upcoming, upcomingList], ["past", past, pastList]]) {
+    const rows = groups[kind];
+    if (rows.length !== list.children.length || rows.some((row, index) => row !== list.children[index])) {
+      list.replaceChildren(...rows);
+    }
+    for (const label of [group.querySelector("[data-calendar-total]"), calendarKind.querySelector(`[value="${kind}"]`)]) {
+      label.textContent = label.dataset.calendarTotal.replace("{n}", rows.length);
+    }
+    const range = group.querySelector("[data-calendar-range]");
+    const first = rows[0]?.querySelector("time").textContent || "";
+    const last = rows.at(-1)?.querySelector("time").textContent || "";
+    range.textContent = first === last ? first : `${first} — ${last}`;
+    range.hidden = !first;
+  }
+  const snapshot = document.querySelector("[data-calendar-snapshot]");
+  if (snapshot) snapshot.hidden = true;
+}
+
 function updateCalendarFilters() {
   if (!calendarRows.length) {
     return;
@@ -324,8 +365,11 @@ function updateCalendarFilters() {
   // so choosing "Past" cannot leave an "upcoming events" heading over nothing.
   for (const group of document.querySelectorAll("[data-calendar-group]")) {
     const rows = [...group.querySelectorAll("[data-calendar-row]")];
-    group.hidden = rows.length > 0 && rows.every((row) => row.hidden);
+    group.hidden = rows.every((row) => row.hidden);
   }
+
+  const emptyUpcoming = document.querySelector("[data-calendar-empty]");
+  if (emptyUpcoming) emptyUpcoming.hidden = Boolean(query || kind !== "upcoming" || visible);
 
   if (calendarCount) {
     calendarCount.textContent = countMsg(calendarCount, "data-msg-count-events", "Events shown: {n}", visible);
@@ -340,6 +384,7 @@ calendarKind?.addEventListener("change", updateCalendarFilters);
 updateResourceFilters();
 sortRepositories();
 updateKnowledgeFilters();
+reclassifyCalendarRows();
 updateCalendarFilters();
 
 // Activities page — filter the searchable "active projects" table.
