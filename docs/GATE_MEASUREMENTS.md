@@ -14,8 +14,8 @@ Parser installation is excluded from the recorded GNN arms.
 
 | Arm | Before (s) | Exit | After (s) | Exit |
 | --- | ---: | ---: | ---: | ---: |
-| lint | 0.539 | 0 | 0.716 | 0 |
-| fast | 17.481 | 0 | 3.074 | 0 |
+| lint | 0.539 | 0 | 0.578 | 0 |
+| fast | 17.481 | 0 | 3.028 | 0 |
 | full | 607.560 | 1 | not measured | — |
 | docs | 1.218 | 0 | not measured | — |
 | gnn | 5.663 | 0 | not measured | — |

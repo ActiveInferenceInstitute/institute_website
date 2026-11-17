@@ -39,16 +39,16 @@
       "command": "npm run check"
     }
   },
-  "refreshed_at": "2026-11-17T01:50:50.634832+00:00",
-  "command_source_sha256": "ee23e140ea108ad40db06a4e21848f3f3bdcc5a28da9b2cb1b48ede6e2dc6206",
+  "refreshed_at": "2026-11-17T02:10:22.166793+00:00",
+  "command_source_sha256": "8cba6adbacfcc5acbf952df9ff0cfce75066dd08070e2dd14c3a81d30587cafe",
   "after": {
     "lint": {
-      "seconds": 0.716,
+      "seconds": 0.578,
       "exit_code": 0,
       "command": "./run.sh lint"
     },
     "fast": {
-      "seconds": 3.074,
+      "seconds": 3.028,
       "exit_code": 0,
       "command": "./run.sh fast"
     }
