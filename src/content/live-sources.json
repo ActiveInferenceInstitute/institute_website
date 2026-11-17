@@ -2726,6 +2726,86 @@
       "statusCode": 200,
       "ok": true,
       "checkedAt": "2026-11-12T12:51:37Z"
+    },
+    {
+      "id": "cear-lab",
+      "label": "CEAR Lab",
+      "category": "Projects",
+      "url": "https://hjpae.github.io/cear/",
+      "sourceBasis": "Official website of Hongju Pae’s Computational Emergent Alignment Research Lab.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-17T01:08:52Z"
+    },
+    {
+      "id": "cear-prospectus-2027",
+      "label": "CEAR Lab Research Prospectus (2027, PDF)",
+      "category": "Research",
+      "url": "https://hjpae.github.io/cear/cear_es_v2027.pdf",
+      "sourceBasis": "Current research prospectus linked from CEAR Lab’s public program overview.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-17T01:08:52Z"
+    },
+    {
+      "id": "cear-reflective-analysis",
+      "label": "Reflective Analysis on Empirical Theories in Consciousness",
+      "category": "Research",
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1571098/full",
+      "sourceBasis": "Publisher’s record for Hongju Pae’s 2025 Frontiers in Psychology paper.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-17T01:08:52Z"
+    },
+    {
+      "id": "cear-minimal-perspective",
+      "label": "Minimal Computational Preconditions for Subjective Perspective in Artificial Agents",
+      "category": "Research",
+      "url": "https://ojs.aaai.org/index.php/AAAI-SS/article/view/42559",
+      "sourceBasis": "AAAI’s proceedings record for the Phase 1 study.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-17T01:08:52Z"
+    },
+    {
+      "id": "cear-perceptual-reorganization",
+      "label": "Same World, Differently Given: History-Dependent Perceptual Reorganization in Artificial Agents",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2604.04637v2",
+      "sourceBasis": "Author’s revised Phase 2A preprint, listed in the current CEAR Lab prospectus.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-17T01:08:52Z"
+    },
+    {
+      "id": "cear-conative-attunement",
+      "label": "Body-Grounded Perspective Formation and Conative Attunement in Artificial Agents",
+      "category": "Research",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-032-39953-3_17",
+      "sourceBasis": "Publisher’s proceedings record for the Phase 2B study.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-17T01:08:52Z"
+    },
+    {
+      "id": "cear-causal-emergence",
+      "label": "Perspective Latents as an Architectural Condition for Causal Emergence in Active Inference Agents",
+      "category": "Research",
+      "url": "https://arxiv.org/abs/2607.20708",
+      "sourceBasis": "Author’s preprint for CEAR Lab’s causal measurement work.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-17T01:08:52Z"
+    },
+    {
+      "id": "cear-structural-condition",
+      "label": "Perspective as a Missing Structural Condition for Subjectivity in Active Inference Systems",
+      "category": "Research",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-032-33195-3_11",
+      "sourceBasis": "Publisher’s proceedings record for Hongju Pae’s work on subjectivity.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-17T01:08:52Z"
     }
   ]
 }

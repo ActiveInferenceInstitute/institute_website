@@ -55,7 +55,14 @@ export function fellowsSection(currentDir = "") {
     return "";
   }
   const columns = [
-    { label: tr("Fellow"), render: (item) => escapeHtml(sanitizePublicProse(item.name)) },
+    { label: tr("Fellow"), render: (item) => {
+      const name = escapeHtml(sanitizePublicProse(item.name));
+      if (!item.projectSlug) return name;
+      const projectHref = escapeHtml(hrefForSlug(item.projectSlug, currentDir));
+      const focus = escapeHtml(sanitizePublicProse(item.focus));
+      const label = focus ? ` aria-label="${name} — ${focus}"` : "";
+      return `<a href="${projectHref}"${label}>${name}</a>`;
+    } },
     { label: tr("Position"), render: (item) => escapeHtml(sanitizePublicProse(item.position)) },
     { label: tr("Fellow since"), render: (item) => escapeHtml(item.start || "—") },
     { label: tr("Focus"), render: (item) => escapeHtml(sanitizePublicProse(item.focus)) || "—" },

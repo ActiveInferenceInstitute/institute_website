@@ -1901,7 +1901,7 @@
     {
       "id": "perspective-architectures-for-coherent-and-attuned-artificial-agency",
       "title": "Perspective Architectures for Coherent and Attuned Artificial Agency",
-      "description": "A three-phase research project led by Hongju Pae that grounds AI alignment in internalist dynamics rather than external objectives. Phase 1 implements a latent perspective manifold as an internal control geometry modeling attentional bias, affective stance, and interpretive mode. Phase 2 examines how affective coherence and integrative capacity emerge as dynamical consequences of internal organization. Phase 3 extends to multi-agent settings to study alignment as social attunement through shared interpretive legibility. The work provides a substrate for studying how agents develop stable self-organization and mutual intelligibility without externally imposed goals.",
+      "description": "Hongju Pae’s CEAR Lab research program models perspective as a slow, history-bearing latent state in artificial agents. Phase 1 established the minimal architecture. Phase 2 tested history-dependent perceptual reorganization and body-grounded perspective formation. Phase 3 studies longitudinal human–AI interaction and embodied multi-agent coordination, with parallel work on causal measurement and computational phenomenology.",
       "version": "0.1",
       "status": "active",
       "category": "research",
@@ -1918,7 +1918,7 @@
         "generative-architecture",
         "social-attunement"
       ],
-      "summary": "Formalize a minimal computational architecture that models internal coherence dynamics for AI alignment through latent generative perspective structures.",
+      "summary": "Test how an artificial agent’s accumulated perspective shapes perception, action, and social attunement.",
       "website_slug": "project-perspective-architectures",
       "links": {
         "cear-lab": "https://hjpae.github.io/cear/",
