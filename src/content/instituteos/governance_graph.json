@@ -1005,11 +1005,6 @@
       "relation": "approver"
     },
     {
-      "source": "entity:daniel-friedman",
-      "target": "policy:bylaws",
-      "relation": "accountable"
-    },
-    {
       "source": "entity:active-inference-institute",
       "target": "policy:bylaws",
       "relation": "subject"
