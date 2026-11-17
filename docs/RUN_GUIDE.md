@@ -89,8 +89,8 @@ reusable CI workflow with artifact staging enabled. Its separate `deploy` job
 needs the entire reusable check workflow, is main-only and owns Pages/OIDC
 permissions. Checks never deploy. No workflow dispatch or hosting cutover is
 part of this change: branch publishing remains the documented current mode.
-Actions is billing-locked; local runs are the acceptance evidence, not a claim of
-hosted success.
+Use the pull request’s workflow runs to verify hosted checks for the exact commit.
+Local gate receipts record the corresponding local results.
 
 ## Reproducible measurement document
 

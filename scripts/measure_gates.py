@@ -69,7 +69,7 @@ def render(data: dict) -> str:
                   "There is no repository type-checker or manuscript directory; no type or manuscript arm is invented.", "",
                   "Before: the complete build/full/browser sequence ran in every CI matrix entry.",
                   "After: one build-and-check job owns that sequence; compatibility jobs run lint/fast only.",
-                  "This removes duplicated work but does not establish a measured CI speedup. Hosted Actions is billing-locked.", "",
+                  "Timing observations measure individual gate runs. The pull request records the hosted checks for its exact commit.", "",
                   "## Verification boundary", "", "A nonzero exit is not a passing gate. Consult the PR for the exact failing command and reason.",
                   "Local timings are not hosted CI, deployment or publication proof.", ""])
     return "\n".join(lines)
