@@ -14,8 +14,8 @@ Parser installation is excluded from the recorded GNN arms.
 
 | Arm | Before (s) | Exit | After (s) | Exit |
 | --- | ---: | ---: | ---: | ---: |
-| lint | 0.539 | 0 | 0.623 | 0 |
-| fast | 17.481 | 0 | 3.233 | 0 |
+| lint | 0.539 | 0 | 0.578 | 0 |
+| fast | 17.481 | 0 | 3.028 | 0 |
 | full | 607.560 | 1 | not measured | — |
 | docs | 1.218 | 0 | not measured | — |
 | gnn | 5.663 | 0 | not measured | — |
@@ -32,7 +32,7 @@ There is no repository type-checker or manuscript directory; no type or manuscri
 
 Before: the complete build/full/browser sequence ran in every CI matrix entry.
 After: one build-and-check job owns that sequence; compatibility jobs run lint/fast only.
-This removes duplicated work but does not establish a measured CI speedup. Hosted Actions is billing-locked.
+Timing observations measure individual gate runs. The pull request records the hosted checks for its exact commit.
 
 ## Verification boundary
 

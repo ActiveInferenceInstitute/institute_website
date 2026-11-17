@@ -69,6 +69,19 @@ test("the current advisory roster accepts the public canonical label only", () =
   assert.ok(!html.includes("Unmapped Advisor Person"));
 });
 
+test("the fellowship section links explicitly associated projects within the active locale", () => {
+  const focus = "Perspective Architectures for Coherent and Attuned Artificial Agency";
+  siteData.instituteos.fellows.fellows = [
+    { id: "linked-fellow", name: "Linked Fellow", status: "current", focus, projectSlug: "project-perspective-architectures" },
+    { id: "plain-fellow", name: "Plain Fellow", status: "current", focus },
+  ];
+  setActiveLocale("es");
+  const html = fellowsSection("es/programs/fellowship");
+  assert.ok(html.includes(`<a href="../../projects/perspective-architectures/" aria-label="Linked Fellow — ${focus}">Linked Fellow</a>`));
+  assert.equal(html.match(/href=/g).length, 1);
+  assert.ok(html.includes(`<td>${focus}</td>`));
+});
+
 test("the fellowship section keeps current and past appointment history separate", () => {
   siteData.instituteos.fellows.fellows = [
     { id: "current-fellow", name: "Current Appointment Person", status: "current", position: "Research Fellow" },

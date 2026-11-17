@@ -1,9 +1,9 @@
 {
   "site_version": "4.0.4",
-  "built_at": "2026-11-06T10:22:15.612632+00:00",
-  "exported_at": "2026-11-06T10:22:15.612632+00:00",
-  "source_fingerprint": "715706fdd018",
-  "website_source_fingerprint": "4fbd0e154203e79aee2edd22f35222177d43b047994a26c69cbf56cf23c89bb1",
+  "built_at": "2026-11-17T01:42:22.337603+00:00",
+  "exported_at": "2026-11-17T01:42:22.337603+00:00",
+  "source_fingerprint": "e83343bd2640",
+  "website_source_fingerprint": "3d15a9cea59fbbea3c4c67e7e4c4dd6290b1571f1d7d2682a1f21103abf512d9",
   "pages": 902,
   "commit": null
 }

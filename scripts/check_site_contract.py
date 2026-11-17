@@ -290,7 +290,6 @@ OBSOLETE_PATHS = [
     "scripts/extract_pdf.py",
 ]
 OBSOLETE_TEXT_PATTERNS = [
-    r"\bPDF\b",
     r"AII\.pdf",
     r"Source Atlas",
     r"Source Manifest",
@@ -1553,9 +1552,6 @@ def check_external_anchors(root: Path, errors: list[str]) -> None:
 
 def check_stale_references(root: Path, errors: list[str]) -> None:
     for path in generated_public_files(root):
-        # Bibliography pages legitimately reference .pdf file paths in GitHub URLs
-        if "bibliography" in str(path.relative_to(root)).lower():
-            continue
         text = path.read_text(encoding="utf-8", errors="ignore")
         lower = text.lower()
         for pattern in OLD_THEME_PATTERNS:

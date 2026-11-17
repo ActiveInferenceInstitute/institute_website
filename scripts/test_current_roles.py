@@ -166,6 +166,35 @@ class CurrentMembershipProjectionTests(unittest.TestCase):
             {"current-appointment": "current", "past-appointment": "past"},
         )
 
+    def test_fellowship_projects_resolve_only_to_an_owned_public_project(self):
+        person = self.person(fellowship={"focus": "Published focus", "project_id": "sample-project-id"})
+        project = {
+            "id": "sample-project-id",
+            "owner_entity_id": person["id"],
+            "visibility": "public",
+            "website_slug": "project-sample",
+            "contacts": [{"email": "private@example.test"}],
+        }
+
+        def project_fellowship(projects):
+            return sanitize_fellows({"entities": [person]}, {"projects": projects})["fellows"][0]
+
+        record = project_fellowship([project])
+        self.assertEqual(record["focus"], "Published focus")
+        self.assertEqual(record["projectSlug"], "project-sample")
+        self.assertNotIn("sample-project-id", json.dumps(record))
+        self.assertNotIn("private@example.test", json.dumps(record))
+        for candidates in (
+            [],
+            [project, project],
+            [{**project, "owner_entity_id": "other-owner"}],
+            [{**project, "visibility": "private"}],
+            [{**project, "website_slug": "https://example.test/project/"}],
+        ):
+            with self.subTest(candidate_count=len(candidates)):
+                with self.assertRaisesRegex(ValueError, "fellowship .* (reference|public project)"):
+                    project_fellowship(candidates)
+
     def test_projection_keeps_the_registry_and_unrelated_organization_data_intact(self):
         source = {"entities": [
             self.person(roles=["Internal Chair"], institute_roles=["Officer"]),

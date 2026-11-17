@@ -334,7 +334,9 @@ def record_public_unsafe_reason(record: dict[str, Any]) -> str | None:
     return None
 
 
-def sanitize_fellows(entities_data: dict[str, Any]) -> dict[str, Any]:
+def sanitize_fellows(
+    entities_data: dict[str, Any], projects_data: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """Project Research Fellow appointments into the public fellows roster.
 
     Fellows are a **published program roster**, not a CRM slice: the Institute
@@ -346,9 +348,15 @@ def sanitize_fellows(entities_data: dict[str, Any]) -> dict[str, Any]:
     that withholds directory contacts from the governance tables must stay exactly
     as strict as it is, and a published fellowship is not a governance role.
 
+    An explicitly linked project is resolved by ID within the project registry.
+    Only the page slug of a public project owned by the fellow may cross the
+    boundary. Records without a project reference continue to show their focus
+    as text.
+
     Sort order is start date (newest appointment first), then name, so the roster
     is deterministic across runs.
     """
+    projects = (projects_data or {}).get("projects", [])
     fellows = []
     for entity in entities_data.get("entities", []):
         if entity.get("entity_type") != "person" or entity.get("role_placeholder"):
@@ -366,6 +374,21 @@ def sanitize_fellows(entities_data: dict[str, Any]) -> dict[str, Any]:
             "focus": public_text(fellowship.get("focus")),
             "overview": public_text(fellowship.get("overview")),
         }
+        if "project_id" in fellowship:
+            project_id = fellowship["project_id"]
+            matches = [project for project in projects if project.get("id") == project_id]
+            if not isinstance(project_id, str) or not project_id or len(matches) != 1:
+                raise ValueError(f"fellowship {record['id']!r} must reference one registered project")
+            (project,) = matches
+            slug = project.get("website_slug")
+            if (
+                project.get("visibility") != "public"
+                or project.get("owner_entity_id") != record["id"]
+                or not isinstance(slug, str)
+                or re.fullmatch(r"project-[a-z0-9]+(?:-[a-z0-9]+)*", slug) is None
+            ):
+                raise ValueError(f"fellowship {record['id']!r} needs a public project page owned by the fellow")
+            record["projectSlug"] = slug
         if (reason := record_public_unsafe_reason(record)) is None:
             fellows.append(record)
         else:
@@ -769,6 +792,8 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
             raise SystemExit(f"required InstituteOS registry not found: {required_path}")
 
     entities_data = load_json(entities_path)
+    projects_path = registries_dir / "projects.json"
+    projects_data = load_json(projects_path) if projects_path.is_file() else None
     policies_data = load_json(policies_path)
     sab_cohorts_data = load_json(sab_cohorts_path)
 
@@ -777,7 +802,7 @@ def build_results(instituteos_root: Path) -> list[SyncResult]:
         "ideas.json": sanitize_ideas(tech_tree_data),
         "ontology.json": sanitize_ontology(tech_tree_data),
         "entities.json": sanitize_entities(entities_data),
-        "fellows.json": sanitize_fellows(entities_data),
+        "fellows.json": sanitize_fellows(entities_data, projects_data),
         "sab_cohorts.json": sanitize_sab_cohorts(sab_cohorts_data),
         "policies.json": sanitize_policies(policies_data),
     }

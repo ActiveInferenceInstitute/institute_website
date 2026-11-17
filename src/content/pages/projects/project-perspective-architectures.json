@@ -1,81 +1,114 @@
 {
   "slug": "project-perspective-architectures",
   "title": "Perspective Architectures for Coherent and Attuned Artificial Agency",
-  "subtitle": "An 18-month research roadmap developing computational architectures of perspective, coherence, and social attunement in artificial agents.",
+  "subtitle": "Hongju Pae’s research on how artificial agents form perspectives, change through experience, and understand one another.",
   "audience": "AI alignment researchers, Active Inference practitioners, and machine consciousness researchers interested in internalist approaches to artificial agency.",
-  "lede": "Perspective Architectures for Coherent and Attuned Artificial Agency is an 18-month Institute research project led by Research Fellow Hongju Pae through CEAR Lab (Computational Emergent Alignment Research Lab). The project develops a computational account of how an artificial agent might form a stable internal perspective, sustain coherent affect, and become mutually interpretable with other agents, proposed as a complement to AI alignment approaches built on externally specified objectives and reward functions.",
+  "lede": "Hongju Pae leads this research through the Computational Emergent Alignment Research (CEAR) Lab as an Institute Research Fellow. The 2027 research prospectus, updated November 12, 2026, covers the results from the first two phases and an 18-month roadmap for Phase 3.",
   "primaryActions": [
     {
-      "label": "Fellows pathway",
-      "sourceId": "shortlink-fellows"
+      "label": "Read the 2027 prospectus (PDF)",
+      "sourceId": "cear-prospectus-2027"
     },
     {
-      "label": "Email the project",
-      "href": "mailto:blanket@activeinference.institute"
+      "sourceId": "cear-lab"
+    },
+    {
+      "label": "Research Fellows",
+      "href": "/programs/fellowship/#current-fellows"
     }
   ],
   "sections": [
     {
-      "heading": "Overview",
-      "body": "The project's central hypothesis is that an agent's perspective, its characteristic way of interpreting its environment, can be modeled as a latent generative structure within its internal dynamics, rather than adjusted through parameter tuning or externally specified objectives. Working from this hypothesis, the roadmap runs across three six-month phases: a single-agent orientation layer, followed by affective and integrative dynamics, followed by multi-agent social attunement.\n\nThe project's full research roadmap and technical documentation are hosted through CEAR Lab (hjpae.github.io/cear/).",
-      "links": []
+      "heading": "The research question",
+      "body": "How can an artificial agent develop a persistent way of interpreting its environment? CEAR Lab proposes a slow latent state that accumulates the effects of experience and shapes what the agent sees as salient. The program tests how that state influences perception, action, and whether agents can understand one another over time.",
+      "links": [
+        {
+          "sourceId": "cear-reflective-analysis"
+        }
+      ]
     },
     {
-      "heading": "Phase 1: Perspective Architecture (Months 1-6)",
-      "body": "Phase 1 implements a latent orientation manifold, a small set of variables spanning attentional bias, affective stance, interpretive mode, and ambiguity-resolution style, that shapes how an agent perceives, infers, and acts without encoding explicit goals or utilities. Findings from this phase are reported in the preprint 'Minimal Computational Preconditions for Subjective Perspective in Artificial Agents' (arXiv:2602.02902), which was submitted to and presented at the AAAI 2026 Spring Symposium on Machine Consciousness on April 8, 2026.",
-      "links": []
+      "heading": "Phase 1 · Subjective perspective",
+      "body": "The first study tested a minimal architecture in which a perspective state changes more slowly than action selection. When the environment changed, the agent’s behavior could adapt quickly while the latent state retained a measurable trace of the conditions the agent had experienced. This made it possible to test the role of perspective by intervening on the latent state.",
+      "links": [
+        {
+          "sourceId": "cear-minimal-perspective"
+        }
+      ]
     },
     {
-      "heading": "Phase 2: Affective Coherence and Integrative Capacity (Months 7-12)",
-      "body": "Phase 2 examines how affective coherence and integrative capacity, the ability to sustain internal organization while holding or negotiating between partially incompatible interpretations, arise as dynamical consequences of the Phase 1 architecture. Work from this phase is directed toward preprints for the 2026 Artificial Life Conference and Simulation of Adaptive Behavior 2026.",
-      "links": []
+      "heading": "Phase 2 · Perception and embodiment",
+      "body": "# Project 2A · Perceptual reorganization\nThe perspective state fed back into perception. Agents could encode the same observation differently depending on their histories, and the system could regulate how readily it revised that state.\n\n# Project 2B · Body-grounded perspective\nThe model introduced an internal viability signal and connected bodily tendencies to readiness to act. The experiments distinguished how a history of bodily perturbations shaped the perspective state from how bodily tendencies influenced action.",
+      "links": [
+        {
+          "sourceId": "cear-perceptual-reorganization"
+        },
+        {
+          "sourceId": "cear-conative-attunement"
+        }
+      ]
     },
     {
-      "heading": "Phase 3: Social Resonance (Months 13-18)",
-      "body": "Phase 3 extends the architecture to multi-agent settings, studying when and how agents become mutually interpretable without a shared objective or explicit communication channel. A related preprint, 'Empathy Modeling in Active Inference Agents for Perspective-Taking and Alignment' (arXiv:2602.20936), co-authored by Hongju Pae with Mahault Albarracin, Anna Mikeda, Alejandro Jimenez Rodriguez, Sanjeev Namjoshi, Dalton Sakthivadivel, Harshil Shah, and Philip Wilson, reports related work on perspective-taking and empathy modeling in Active Inference agents.",
-      "links": []
+      "heading": "Phase 3 · Social attunement",
+      "body": "# Project 3A · Longitudinal human–AI interaction\nThis project tests whether a language-model agent can maintain a stable, revisable understanding of a human partner over time. The experiments compare the perspective architecture with retrieval-only memory and profile-based baselines.\n\n# Project 3B · Embodied multi-agent systems\nThis project tests whether agents with distinct histories can learn about each other and coordinate under partial observability. The program also develops measurements of causal organization and refines its account of perspective through computational phenomenology.",
+      "links": [
+        {
+          "sourceId": "cear-causal-emergence"
+        }
+      ]
+    },
+    {
+      "heading": "The 18-month roadmap",
+      "body": "- **Months 1–3** establish feasibility, build prototypes for Projects 3A and 3B, and design ways to measure the effects of changing the perspective state.\n- **Months 4–9** run controlled experiments in longitudinal dialogue and embodied interaction.\n- **Months 10–18** extend the approaches that show reproducible effects to longer interactions and larger agent groups.",
+      "links": [
+        {
+          "sourceId": "cear-prospectus-2027"
+        }
+      ]
     },
     {
       "heading": "Research Fellow",
-      "body": "Hongju Pae (ORCID 0000-0002-5174-8858) joined the Institute as a Research Fellow in November 2025 and leads the project through CEAR Lab, the Computational Emergent Alignment Research Lab. Pae's work integrates the Active Inference framework with phenomenological approaches to identify computable markers of perspective and coherence in artificial systems.",
-      "links": []
-    },
-    {
-      "heading": "Participate",
-      "body": "Researchers interested in AI alignment, Active Inference, and computational models of agency and coherence are welcome to follow the project's progress and reach out through the Institute's community channels.",
+      "body": "Hongju Pae joined the Institute as a Research Fellow in November 2025. They bring together phenomenology, Active Inference, and embodied cognition to develop testable models of subjective perspective.",
       "links": [
         {
-          "sourceId": "discord"
+          "label": "Hongju Pae on the Fellowship roster",
+          "href": "/programs/fellowship/#current-fellows"
+        },
+        {
+          "sourceId": "cear-structural-condition"
+        }
+      ]
+    },
+    {
+      "heading": "Follow the research",
+      "body": "CEAR Lab maintains the project’s publications, recorded talks, and code repositories.",
+      "links": [
+        {
+          "sourceId": "cear-lab"
+        },
+        {
+          "label": "Email the Institute about this project",
+          "href": "mailto:blanket@activeinference.institute"
         }
       ]
     }
   ],
-  "cards": [
-    {
-      "title": "18-month roadmap",
-      "text": "Three six-month phases moving from single-agent perspective to multi-agent social attunement.",
-      "links": []
-    },
-    {
-      "title": "Two arXiv preprints",
-      "text": "Findings on subjective perspective and on empathy modeling in Active Inference agents.",
-      "links": []
-    },
-    {
-      "title": "AAAI 2026 Spring Symposium",
-      "text": "Phase 1 findings presented at the Symposium on Machine Consciousness, April 8, 2026.",
-      "links": []
-    }
-  ],
+  "cards": [],
   "order": 87,
   "relatedSlugs": [
+    "fellowship",
     "reinference",
-    "projects",
-    "active-inference"
+    "projects"
   ],
   "externalSourceIds": [
-    "shortlink-fellows",
-    "discord"
+    "cear-lab",
+    "cear-prospectus-2027",
+    "cear-reflective-analysis",
+    "cear-minimal-perspective",
+    "cear-perceptual-reorganization",
+    "cear-conative-attunement",
+    "cear-causal-emergence",
+    "cear-structural-condition"
   ],
   "resourceGroups": [
     "projects",

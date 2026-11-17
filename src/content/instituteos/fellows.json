@@ -36,8 +36,9 @@
       "id": "hongju-pae",
       "name": "Hongju Pae",
       "orcid": "0000-0002-5174-8858",
-      "overview": "Develops computational and theoretical frameworks for modeling how artificial agents form perspective, maintain coherent affect, and achieve developmental alignment, integrating Active Inference with phenomenological insights. Builds simulation prototypes toward testable architectures of sentience for safe, ecologically grounded machine minds.",
+      "overview": "I develop computational and theoretical frameworks for modeling how artificial agents form perspective, maintain coherent affect, and achieve developmental alignment. My work integrates the Active Inference framework with phenomenological insights to identify computable markers of subjective experience and to distinguish proto-conscious agency from general intelligence. I build simulation prototypes and mathematical models to explore how first-person perspective and internal alignment may emerge without external reward shaping. My goal is to establish testable architectures of sentience that support safe and ecologically grounded machine minds.",
       "position": "Research Fellow",
+      "projectSlug": "project-perspective-architectures",
       "start": "11/2025",
       "status": "current"
     },
