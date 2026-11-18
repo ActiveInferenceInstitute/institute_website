@@ -674,88 +674,8 @@
           "role": "approver"
         },
         {
-          "policyId": "code-of-conduct",
-          "role": "accountable"
-        },
-        {
-          "policyId": "corporate-governance",
-          "role": "responsible"
-        },
-        {
-          "policyId": "financial-controls",
-          "role": "responsible"
-        },
-        {
-          "policyId": "investment-policy",
-          "role": "accountable"
-        },
-        {
-          "policyId": "budgeting-forecasting",
-          "role": "responsible"
-        },
-        {
-          "policyId": "anti-fraud",
-          "role": "accountable"
-        },
-        {
-          "policyId": "financial-controls",
-          "role": "accountable"
-        },
-        {
-          "policyId": "budgeting-forecasting",
-          "role": "accountable"
-        },
-        {
-          "policyId": "investment-policy",
-          "role": "responsible"
-        },
-        {
-          "policyId": "conflict-of-interest",
-          "role": "subject"
-        },
-        {
-          "policyId": "whistleblower",
-          "role": "informed"
-        },
-        {
           "policyId": "ai-instructions",
           "role": "author"
-        },
-        {
-          "policyId": "bylaws",
-          "role": "accountable"
-        },
-        {
-          "policyId": "procurement",
-          "role": "accountable"
-        },
-        {
-          "policyId": "ai-instructions",
-          "role": "accountable"
-        },
-        {
-          "policyId": "litigation-hold",
-          "role": "responsible"
-        },
-        {
-          "policyId": "environmental-sustainability",
-          "role": "accountable"
-        },
-        {
-          "policyId": "corporate-social-responsibility",
-          "role": "accountable"
-        },
-        {
-          "policyId": "expense-reimbursement",
-          "role": "accountable"
-        },
-        {
-          "policyId": "expense-reimbursement",
-          "role": "responsible"
-        },
-        {
-          "policyId": "anti-bribery-corruption",
-          "role": "accountable"
         }
       ],
       "roles": [
