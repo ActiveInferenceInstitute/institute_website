@@ -1,62 +1,67 @@
 {
   "slug": "project-theoretical-neurobiology",
   "title": "Theoretical Neurobiology Group",
-  "subtitle": "Supporting theoretical neurobiology conversations and model development within the Active Inference community.",
-  "audience": "Neuroscientists, biologists, and theoreticians interested in theoretical approaches to neural systems through Active Inference.",
-  "lede": "The Theoretical Neurobiology (TNB) Group has fostered interdisciplinary research and collaboration for decades. Its mission is to advance the understanding and application of active inference — the theoretical framework developed by Prof. Karl Friston — through regular online meetings featuring presentations and discussions that may include empirical data and analysis, simulations, and mathematical development. The group welcomes contributions from neuroscience, mathematics, machine learning, psychology, philosophy, medicine, and biology.",
+  "subtitle": "Weekly research seminars on active inference and the free energy principle.",
+  "audience": "Researchers and learners in neuroscience, mathematics, machine learning, psychology, philosophy, medicine, and biology.",
+  "lede": "Founded by Prof. Karl Friston, the Theoretical Neurobiology (TNB) Group advances research on active inference and the free energy principle through interdisciplinary talks and discussion.",
   "primaryActions": [
-    {
-      "label": "TNB recordings",
-      "sourceId": "tnb-youtube"
-    },
     {
       "label": "Join the mailing list",
       "href": "mailto:theoreticalneurobiology@gmail.com"
+    },
+    {
+      "label": "Browse TNB recordings",
+      "sourceId": "tnb-youtube"
     }
   ],
   "sections": [
     {
       "heading": "Objective",
-      "body": "The TNB Group has been fostering interdisciplinary research and collaboration for decades. Its mission is to advance the understanding and application of active inference, the theoretical framework developed by Prof.\n\nKarl Friston. This is achieved through regular online meetings featuring presentations and discussions, which may include empirical data and its analysis, simulations, and mathematical development.\n\nThe group welcomes contributions and perspectives from diverse fields, including neuroscience, mathematics, machine learning, psychology, philosophy, medicine, and biology.",
-      "links": []
-    },
-    {
-      "heading": "Recordings",
-      "body": "Recordings of past meetings, organised by research area, can be found on the TNB YouTube channel. The group is gradually adding more videos from its archive alongside recently recorded sessions.",
+      "body": "The group has fostered interdisciplinary collaboration for decades. Its meetings bring together empirical data and analysis, simulations, and mathematical work on active inference and the free energy principle.",
       "links": [
         {
-          "sourceId": "tnb-youtube"
+          "label": "Explore active inference",
+          "href": "/active-inference/"
         }
       ]
     },
     {
       "heading": "Meeting Details",
-      "body": "Meetings run on Mondays and Tuesdays at 2:30 pm UK time, lasting about two hours: roughly a 40-minute presentation, 40 minutes of Q&A, and 40 minutes of discussion and feedback with Prof. Friston.\n\nThey are held weekly on Zoom, and the meeting link is sent via the mailing list — email theoreticalneurobiology@gmail.com to join.",
-      "links": [
-        {
-          "label": "Email the TNB Group",
-          "href": "mailto:theoreticalneurobiology@gmail.com"
-        }
-      ]
+      "body": "Meetings take place every Tuesday at 2:30 pm UK time on Zoom and last about two hours. A typical session includes a 40-minute presentation, 40 minutes of questions and answers, and 40 minutes of discussion and feedback with Prof. Friston.",
+      "links": []
     },
     {
       "heading": "How to Participate",
-      "body": "Meetings are open to researchers, students, and professionals worldwide. With no membership fees, the group provides a relaxed, no-pressure environment for engagement — whether through active participation or as an observer — and you are welcome to join any session that interests you.\n\nTo join the mailing list for updates on upcoming presentations, active inference events, or job opportunities, or to request to present your work, email theoreticalneurobiology@gmail.com. Please note that presentation slots typically book two to three months in advance.",
+      "body": "To join the mailing list and receive the Zoom link, email the group with a brief introduction. Include what you work on and how you are connected to the field. The group welcomes contributions from a wide range of disciplines.",
       "links": [
         {
-          "label": "Email the TNB Group",
+          "label": "Join the mailing list",
+          "href": "mailto:theoreticalneurobiology@gmail.com"
+        },
+        {
+          "label": "Ask about presenting",
           "href": "mailto:theoreticalneurobiology@gmail.com"
         }
       ]
     },
     {
-      "heading": "Chair — Riddhi J. Pitliya, PhD",
-      "body": "Riddhi's research focuses on active inference, human cognition, and multi-agent systems. She completed her PhD at the University of Oxford, where she investigated how individuals infer causal structure and agency in multi-agent environments, particularly across the depression spectrum — finding that depressive symptoms are linked to reduced sensitivity to inhibitory causal relations, reduced perceptions of agency, and a tendency to engage in frequent but less goal-directed actions when learning about causal structures.\n\nShe now works at VERSES in the Intelligent Systems Lab, developing computational models of theory of mind that leverage active inference to facilitate collaboration and competition among multiple agents.",
+      "heading": "Recordings",
+      "body": "The TNB YouTube playlists organise past meetings by research area.",
+      "links": [
+        {
+          "label": "Browse TNB recordings",
+          "sourceId": "tnb-youtube"
+        }
+      ]
+    },
+    {
+      "heading": "Chair — Samuel William Nehrer",
+      "body": "Samuel is a Master's student at the Institute of Neuroinformatics, a joint institute of ETH Zürich and the University of Zürich. He completed his undergraduate studies in Cognitive Science at Aarhus University, where he began developing Julia implementations of active inference models for cognitive modelling.\n\nHe is interested in combining computational modelling of human behaviour with brain imaging to address how psychedelics modulate hierarchical inference, cognitive flexibility, and belief updating at the algorithmic level, and how the ensuing computations are implemented in brain networks. He is also an aviation enthusiast and enjoys thinking about fundamental questions in physics and the philosophy of mind, as well as exploring the Swiss mountains on foot or by bike.",
       "image": {
-        "src": "assets/img/tnb/riddhi-pitliya.jpg",
-        "alt": "Riddhi J. Pitliya",
-        "width": 600,
-        "height": 588
+        "src": "assets/img/tnb/samuel-nehrer.jpg",
+        "alt": "Samuel William Nehrer",
+        "width": 550,
+        "height": 600
       },
       "links": []
     },
@@ -69,7 +74,17 @@
         "width": 600,
         "height": 600
       },
-      "links": []
+      "links": [
+        {
+          "sourceId": "tnb-action-models"
+        },
+        {
+          "sourceId": "tnb-hierarchical-gaussian-filter"
+        },
+        {
+          "sourceId": "tnb-active-inference-julia"
+        }
+      ]
     },
     {
       "heading": "Chair — Robert Chis-Ciure, PhD",
@@ -80,7 +95,17 @@
         "width": 600,
         "height": 589
       },
-      "links": []
+      "links": [
+        {
+          "sourceId": "tnb-sussex-consciousness"
+        },
+        {
+          "sourceId": "tnb-perception-census"
+        },
+        {
+          "sourceId": "tnb-wolfram-institute"
+        }
+      ]
     },
     {
       "heading": "Chair — Will Yun-Farmbrough",
@@ -105,26 +130,26 @@
       "links": []
     },
     {
-      "heading": "Chair — Samuel William Nehrer",
-      "body": "Samuel is a Master's student at the Institute of Neuroinformatics, a joint institute of ETH Zürich and the University of Zürich. He completed his undergraduate studies in Cognitive Science at Aarhus University, where he began developing Julia implementations of active inference models for cognitive modelling.\n\nHe is interested in combining computational modelling of human behaviour with brain imaging to address how psychedelics modulate hierarchical inference, cognitive flexibility, and belief updating at the algorithmic level, and how the ensuing computations are implemented in brain networks. He is also an aviation enthusiast and enjoys thinking about fundamental questions in physics and the philosophy of mind, as well as exploring the Swiss mountains on foot or by bike.",
+      "heading": "Chair — Dominik Firisz",
+      "body": "Dominik studies cognitive science at Aarhus University in Denmark and is completing a thesis in computational psychiatry at the Translational Neuromodeling Unit in Zürich. He plans to spend his final semester at Waseda University in Tokyo studying mathematical approaches to the neural and computational mechanisms of psychiatric conditions.\n\nHis research interests include combining neuroimaging and computational modelling to study psychopathology. Outside his studies, he enjoys philosophy of mind, science fiction, thrillers, and challenging video games.",
       "image": {
-        "src": "assets/img/tnb/samuel-nehrer.jpg",
-        "alt": "Samuel William Nehrer",
-        "width": 550,
+        "src": "assets/img/tnb/dominik-firisz.jpg",
+        "alt": "Dominik Firisz",
+        "width": 486,
         "height": 600
       },
       "links": []
     },
     {
       "heading": "Work in Progress",
-      "body": "The group is compiling a comprehensive Repository of Active Inference Resources — introductory materials, research papers, and tutorials, all categorised for easy navigation. It is also planning Joint Research Symposia with other research communities to strengthen cross-community interaction and collaboration.",
+      "body": "The group is compiling an active inference resource collection with introductory material, research papers, and tutorials. It is also planning joint research symposia with other communities to build cross-disciplinary collaboration.",
       "links": []
     }
   ],
   "cards": [
     {
       "title": "Weekly meetings",
-      "text": "Mondays and Tuesdays, 2:30 pm UK time on Zoom — presentation, Q&A, and discussion with Prof. Friston.",
+      "text": "Tuesdays at 2:30 pm UK time on Zoom.",
       "links": [
         {
           "label": "Join the mailing list",
@@ -133,18 +158,14 @@
       ]
     },
     {
-      "title": "TNB YouTube channel",
-      "text": "Recordings of past meetings, organised by research area, with archive videos added over time.",
+      "title": "TNB YouTube playlists",
+      "text": "Browse past talks by research area.",
       "links": [
         {
+          "label": "Browse TNB recordings",
           "sourceId": "tnb-youtube"
         }
       ]
-    },
-    {
-      "title": "Present your work",
-      "text": "Open to researchers, students, and professionals worldwide. Presentation slots book two to three months ahead.",
-      "links": []
     }
   ],
   "order": 31,
@@ -155,6 +176,12 @@
   ],
   "externalSourceIds": [
     "tnb-youtube",
+    "tnb-action-models",
+    "tnb-hierarchical-gaussian-filter",
+    "tnb-active-inference-julia",
+    "tnb-sussex-consciousness",
+    "tnb-perception-census",
+    "tnb-wolfram-institute",
     "youtube",
     "discord"
   ],
