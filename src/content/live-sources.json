@@ -2539,13 +2539,76 @@
     },
     {
       "id": "tnb-youtube",
-      "label": "TNB YouTube channel",
+      "label": "TNB YouTube playlists",
       "category": "Research",
-      "url": "https://www.youtube.com/@theoreticalneurobiology",
-      "sourceBasis": "Public Theoretical Neurobiology Group YouTube channel with recordings of past meetings.",
+      "url": "https://www.youtube.com/@theoreticalneurobiology/playlists",
+      "sourceBasis": "Public meeting recordings organized by research area, as listed by the Theoretical Neurobiology Group.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-11-02T16:46:09Z"
+      "checkedAt": "2026-11-20T21:49:23Z",
+      "previousUrls": [
+        "https://www.youtube.com/@theoreticalneurobiology"
+      ]
+    },
+    {
+      "id": "tnb-action-models",
+      "label": "ActionModels.jl",
+      "category": "Repository",
+      "url": "https://github.com/ComputationalPsychiatry/ActionModels.jl",
+      "sourceBasis": "Public Julia package linked from Peter Thestrup Waade’s group profile.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-20T21:49:23Z"
+    },
+    {
+      "id": "tnb-hierarchical-gaussian-filter",
+      "label": "HierarchicalGaussianFiltering.jl",
+      "category": "Repository",
+      "url": "https://github.com/ComputationalPsychiatry/HierarchicalGaussianFiltering.jl",
+      "sourceBasis": "Public Julia package linked from Peter Thestrup Waade’s group profile.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-20T21:49:23Z"
+    },
+    {
+      "id": "tnb-active-inference-julia",
+      "label": "ActiveInference.jl",
+      "category": "Repository",
+      "url": "https://github.com/ilabcode/ActiveInference.jl",
+      "sourceBasis": "Public Julia package linked from Peter Thestrup Waade’s group profile.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-20T21:49:23Z"
+    },
+    {
+      "id": "tnb-sussex-consciousness",
+      "label": "Sussex Centre for Consciousness Science",
+      "category": "Research",
+      "url": "https://www.sussex.ac.uk/research/centres/sussex-centre-for-consciousness-science/",
+      "sourceBasis": "Public research centre linked from Robert Chis-Ciure’s group profile.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-20T21:49:23Z"
+    },
+    {
+      "id": "tnb-perception-census",
+      "label": "The Perception Census",
+      "category": "Research",
+      "url": "https://perceptioncensus.dreamachine.world",
+      "sourceBasis": "Public research dataset project linked from Robert Chis-Ciure’s group profile.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-20T21:49:23Z"
+    },
+    {
+      "id": "tnb-wolfram-institute",
+      "label": "Wolfram Institute researchers",
+      "category": "Research",
+      "url": "https://wolframinstitute.org/people",
+      "sourceBasis": "Public researcher directory linked from Robert Chis-Ciure’s group profile.",
+      "statusCode": 200,
+      "ok": true,
+      "checkedAt": "2026-11-20T21:49:23Z"
     },
     {
       "id": "video",
