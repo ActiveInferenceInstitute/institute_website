@@ -42,12 +42,23 @@ and the measurement producer. No separate Python/JavaScript type checker exists.
 | `npm run i18n:translate` | [`i18n_translate.mjs`](i18n_translate.mjs) |
 | `npm run i18n:check-terms` | [`i18n_check_terminology.mjs`](i18n_check_terminology.mjs) — terminology QA report over the committed catalogs (`--fix` re-translates findings offline) |
 | `npm run sync:transcripts` | [`sync_video_transcripts.py`](sync_video_transcripts.py) — syncs video transcript excerpts from ActiveInferenceJournal |
-| `npm run check:transcripts` | `sync_video_transcripts.py --check` — validates transcript records |
+| `npm run check:transcripts` | `sync_video_transcripts.py --check` — validates published transcript records and their provenance |
 | `npm run check:i18n` | `node --test scripts/test_i18n_translate.mjs scripts/test_i18n_terminology.mjs` — translation-helper logic (masking, degeneration guard) + terminology-QA classification rules |
 | `npm run check:standalone` | [`check_standalone_payloads.py`](check_standalone_payloads.py) — exercises the CI-only (no-InstituteOS-root) fallback branch of the sync `--check` |
 
 `npm run check` is the offline gate (Python + Node, no network). Run it before
 committing any content or build change.
+
+## Journal transcript projection
+
+`npm run check:transcripts` verifies each published transcript record against
+the website video registry without opening another checkout. Use
+`npm run check:transcripts -- --journal-root /path/to/ActiveInferenceJournal`
+to compare those records with a selected Journal's current public index and
+transcripts. Review any drift before using `npm run sync:transcripts` with the
+same source. The projector joins by valid YouTube video ID, prefers the
+canonical item over duplicate index rows, and uses only transcripts declared
+in that item.
 
 ## The check gates
 
