@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-"""Sync video transcript data from ActiveInferenceJournal into the website repo.
+"""Project public Journal transcript excerpts into the website video records.
 
-Reads the Journal INDEX.json and per-item metadata/transcripts, cross-references
-against the website's videos.json by YouTube video ID, and writes per-video
-transcript excerpt files under src/content/video-transcripts/.
-
-Usage:
-  python scripts/sync_video_transcripts.py                  # sync from auto-detected journal
-  python scripts/sync_video_transcripts.py --journal-root /path/to/journal
-  python scripts/sync_video_transcripts.py --check           # validate, don't write
+Use --check for a checkout-independent record check. Add --journal-root (or
+JOURNAL_ROOT) to compare against a fresh projection of that Journal checkout.
+The command writes only when run without --check.
 """
 
 from __future__ import annotations
@@ -16,278 +11,344 @@ from __future__ import annotations
 import argparse
 import json
 import os
+from pathlib import Path
 import re
 import sys
-from pathlib import Path
-from urllib.parse import urlparse, parse_qs
+from tempfile import NamedTemporaryFile
+from urllib.parse import parse_qs, quote, unquote, urlsplit
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-VIDEOS_JSON = PROJECT_ROOT / "src" / "content" / "instituteos" / "videos.json"
-TRANSCRIPTS_OUT = PROJECT_ROOT / "src" / "content" / "video-transcripts"
-
-# Maximum transcript excerpt length in characters (~first 500 words)
+VIDEOS_JSON = PROJECT_ROOT / "src/content/instituteos/videos.json"
+TRANSCRIPTS_OUT = PROJECT_ROOT / "src/content/video-transcripts"
 MAX_EXCERPT_CHARS = 4000
-
-
-def _resolve_journal_root() -> Path:
-    """Locate the ActiveInferenceJournal checkout."""
-    env = os.environ.get("JOURNAL_ROOT")
-    if env:
-        return Path(env)
-    for candidate in (
-        PROJECT_ROOT.parent / "ActiveInferenceJournal",
-        PROJECT_ROOT.parents[1] / "ActiveInferenceJournal",
-        Path.home() / "Documents" / "GitHub" / "projects" / "working" / "ActiveInferenceJournal",
-    ):
-        if (candidate / "INDEX.json").is_file():
-            return candidate
-    return PROJECT_ROOT.parent / "ActiveInferenceJournal"
+JOURNAL_DATA_DIR = "data/video/activeinferenceinstitute"
+JOURNAL_BLOB_BASE = (
+    "https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/blob/main/"
+)
+YOUTUBE_ID = re.compile(r"[A-Za-z0-9_-]{11}")
+VIDEO_RECORD_ID = re.compile(r"[A-Za-z0-9_-]+")
+YOUTUBE_HOSTS = {"www.youtube.com", "youtube.com", "m.youtube.com"}
 
 
 def extract_youtube_id(url: str) -> str | None:
-    """Extract a YouTube video ID from a URL."""
-    if not url:
+    """Extract a single video ID from a supported YouTube URL."""
+    if not isinstance(url, str):
         return None
-    # youtube.com/live/<id>, youtube.com/watch?v=<id>, youtu.be/<id>
-    parsed = urlparse(url)
-    if parsed.hostname and ("youtube.com" in parsed.hostname or "youtu.be" in parsed.hostname):
-        if "youtu.be" in parsed.hostname:
-            return parsed.path.lstrip("/")
-        if "/live/" in parsed.path:
-            return parsed.path.split("/live/")[-1].split("?")[0]
-        qs = parse_qs(parsed.query)
-        return qs.get("v", [None])[0]
-    return None
+    try:
+        parsed = urlsplit(url)
+    except ValueError:
+        return None
+    if (
+        parsed.scheme not in {"https", "http"}
+        or parsed.netloc.lower() != parsed.hostname
+    ):
+        return None
+
+    parts = parsed.path.removeprefix("/").removesuffix("/").split("/")
+    if parsed.hostname == "youtu.be" and len(parts) == 1:
+        candidate = parts[0]
+    elif (
+        parsed.hostname in YOUTUBE_HOSTS
+        and len(parts) == 2
+        and parts[0] in {"live", "shorts", "embed"}
+    ):
+        candidate = parts[1]
+    elif parsed.hostname in YOUTUBE_HOSTS and parts == ["watch"]:
+        ids = parse_qs(parsed.query).get("v", [])
+        candidate = ids[0] if len(ids) == 1 else ""
+    else:
+        return None
+    return candidate if YOUTUBE_ID.fullmatch(candidate) else None
 
 
-def load_journal_index(journal_root: Path) -> dict[str, dict]:
-    """Load the Journal INDEX.json and build a YouTube video ID → item lookup."""
-    index_path = journal_root / "INDEX.json"
-    if not index_path.is_file():
-        print(f"Error: Journal INDEX.json not found at {index_path}", file=sys.stderr)
-        sys.exit(1)
-    data = json.loads(index_path.read_text(encoding="utf-8"))
-    by_youtube_id = {}
-    for item in data.get("items", []):
-        for part_id in item.get("parts", []):
-            by_youtube_id[part_id] = item
-    return by_youtube_id
+def public_item_path(path: object) -> bool:
+    return (
+        isinstance(path, str)
+        and path.startswith(JOURNAL_DATA_DIR + "/")
+        and "\\" not in path
+        and not any(part in {"", ".", ".."} for part in path.split("/"))
+        and not any(ord(char) < 32 or ord(char) == 127 for char in path)
+    )
+
+
+def source_file(root: Path, relative: str) -> Path:
+    path = root / relative
+    if path.resolve() != path or (path.exists() and not path.is_file()):
+        raise ValueError(f"Invalid public Journal source path: {relative}")
+    return path
+
+
+def load_videos() -> dict[str, dict]:
+    payload = json.loads(VIDEOS_JSON.read_text(encoding="utf-8"))
+    videos = payload.get("videos") if isinstance(payload, dict) else None
+    if not isinstance(videos, list) or not videos:
+        raise ValueError("Video registry has no records")
+    records = {}
+    for video in videos:
+        key = video.get("id") if isinstance(video, dict) else None
+        if (
+            not isinstance(key, str)
+            or not VIDEO_RECORD_ID.fullmatch(key)
+            or key in records
+        ):
+            raise ValueError(
+                "Video registry contains a malformed or repeated record ID"
+            )
+        records[key] = video
+    return records
+
+
+def load_journal_index(root: Path) -> dict[str, dict]:
+    data = json.loads(source_file(root, "INDEX.json").read_text(encoding="utf-8"))
+    items = data.get("items") if isinstance(data, dict) else None
+    if not isinstance(items, list) or not items:
+        raise ValueError("Journal INDEX.json has no public items")
+    videos: dict[str, dict] = {}
+    for item in items:
+        path = item.get("path") if isinstance(item, dict) else None
+        parts = item.get("parts") if isinstance(item, dict) else None
+        if not public_item_path(path) or not isinstance(parts, list):
+            raise ValueError("Journal INDEX.json has an invalid public item")
+        for video_id in parts:
+            if not isinstance(video_id, str) or not YOUTUBE_ID.fullmatch(video_id):
+                raise ValueError("Journal INDEX.json contains an invalid video ID")
+            previous = videos.get(video_id)
+            if previous is None or (
+                previous.get("duplicate_of") and not item.get("duplicate_of")
+            ):
+                videos[video_id] = item
+            elif previous["path"] != path and not (
+                previous.get("duplicate_of") or item.get("duplicate_of")
+            ):
+                raise ValueError(
+                    f"Multiple canonical Journal items for video {video_id}"
+                )
+    if not videos:
+        raise ValueError("Journal INDEX.json contains no indexed video IDs")
+    return videos
 
 
 def sanitize_public_text(text: str) -> str:
-    """Sanitize text for public-safety: replace internal-platform tokens."""
-    text = re.sub(r'\bcoda\b', 'the platform', text, flags=re.IGNORECASE)
+    """Keep the existing public text projection used in video detail pages."""
+    text = re.sub(r"\bcoda\b", "the platform", text, flags=re.IGNORECASE)
     text = text.replace("workspace", "work space")
     text = text.replace("Workspace", "Work space")
-    text = re.sub(r'\bPDF\b', 'document', text)
-    text = re.sub(r'\bpdf\b', 'document', text)
-    text = re.sub(r'\bAII\.pdf\b', 'document', text, flags=re.IGNORECASE)
-    text = re.sub(r'\bSource Atlas\b', 'source index', text)
-    text = re.sub(r'\bSource Manifest\b', 'source listing', text)
-    text = re.sub(r'\bsource-page\b', 'source reference', text)
-    text = re.sub(r'\bpdf-pages\b', 'document sections', text)
-    text = re.sub(r'\batlas/\b', 'index/', text)
-    text = re.sub(r'\bPages\s+(\d)', r'sections \1', text)
+    text = re.sub(r"\bPDF\b", "document", text)
+    text = re.sub(r"\bpdf\b", "document", text)
+    text = re.sub(r"\bAII\.pdf\b", "document", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bSource Atlas\b", "source index", text)
+    text = re.sub(r"\bSource Manifest\b", "source listing", text)
+    text = re.sub(r"\bsource-page\b", "source reference", text)
+    text = re.sub(r"\bpdf-pages\b", "document sections", text)
+    text = re.sub(r"\batlas/\b", "index/", text)
+    text = re.sub(r"\bPages\s+(\d)", r"sections \1", text)
     return text
 
 
 def excerpt_from_transcript(text: str, max_chars: int = MAX_EXCERPT_CHARS) -> str:
-    """Extract a clean excerpt from a transcript, sanitized for public safety."""
-    # Skip markdown headers (## <video_id>)
-    lines = text.strip().split("\n")
-    content_lines = []
-    for line in lines:
-        if line.startswith("## "):
-            continue
-        if line.strip():
-            content_lines.append(line.strip())
-    excerpt = " ".join(content_lines)
-    if len(excerpt) > max_chars:
-        excerpt = excerpt[:max_chars].rsplit(" ", 1)[0] + "…"
-
-    # Public-safety sanitization: replace internal-platform tokens that appear
-    # in natural speech.
-    excerpt = sanitize_public_text(excerpt)
-    return excerpt
+    content = " ".join(
+        line.strip()
+        for line in text.splitlines()
+        if line.strip() and not line.startswith("## ")
+    )
+    if len(content) > max_chars:
+        content = content[:max_chars].rsplit(" ", 1)[0] + "…"
+    return sanitize_public_text(content)
 
 
-def sync_transcripts(journal_root: Path, check_only: bool = False) -> int:
-    """Sync transcript data. Returns count of videos processed."""
-    # Load website videos
-    if not VIDEOS_JSON.is_file():
-        print(f"Error: videos.json not found at {VIDEOS_JSON}", file=sys.stderr)
+def project_record(
+    video: dict, journal_root: Path, journal_index: dict[str, dict]
+) -> dict:
+    """Keep registry metadata and enrich it from the matched, indexed item."""
+    youtube_url = video.get("youtubeUrl", "")
+    youtube_id = extract_youtube_id(youtube_url)
+    record = {
+        "id": video["id"],
+        "title": video.get("title", ""),
+        "series": video.get("series", ""),
+        "number": video.get("number", ""),
+        "date": video.get("date", ""),
+        "youtubeUrl": youtube_url,
+        "youtubeId": youtube_id or "",
+        "guests": [guest.get("name", "") for guest in video.get("guests", [])],
+        "types": video.get("types", []),
+        "keywords": video.get("keywords", []),
+        "ontologyTerms": video.get("ontologyTerms", []),
+        "summary": video.get("summary", ""),
+        "hasTimestamps": video.get("hasTimestamps", False),
+        "hasTranscript": False,
+        "transcriptExcerpt": "",
+        "transcriptSource": "",
+        "paperTitle": "",
+        "githubUrl": video.get("githubUrl", ""),
+    }
+    item = journal_index.get(youtube_id)
+    if item is None:
+        return record
+
+    item_path = item["path"]
+    metadata_path = source_file(journal_root, f"{item_path}/metadata.json")
+    if metadata_path.is_file():
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        if not isinstance(metadata, dict):
+            raise ValueError(f"Invalid public Journal metadata: {item_path}")
+        record["paperTitle"] = sanitize_public_text(metadata.get("paper_title") or "")
+        record["githubUrl"] = record["githubUrl"] or metadata.get("github") or ""
+        if metadata.get("sessions"):
+            record["hasTimestamps"] = True
+    if item.get("has_transcript") is True:
+        relative = f"{item_path}/transcript.txt"
+        transcript = source_file(journal_root, relative).read_text(encoding="utf-8")
+        record["transcriptExcerpt"] = excerpt_from_transcript(transcript)
+        record["hasTranscript"] = True
+        record["transcriptSource"] = JOURNAL_BLOB_BASE + quote(relative)
+    return record
+
+
+def read_output() -> dict[str, Path]:
+    if TRANSCRIPTS_OUT.resolve() != TRANSCRIPTS_OUT or (
+        TRANSCRIPTS_OUT.exists() and not TRANSCRIPTS_OUT.is_dir()
+    ):
+        raise ValueError("The transcript record directory must be a regular directory")
+    records = {}
+    for entry in TRANSCRIPTS_OUT.glob("*.json"):
+        if (
+            entry.is_symlink()
+            or not entry.is_file()
+            or not VIDEO_RECORD_ID.fullmatch(entry.stem)
+        ):
+            raise ValueError(f"Unexpected transcript record: {entry.name}")
+        records[entry.stem] = entry
+    return records
+
+
+def validate_record(record: dict, video: dict) -> bool:
+    """Validate shipped records even when the upstream checkout is absent."""
+    if any(
+        record.get(key) != video.get(key, "")
+        for key in ("id", "title", "series", "number", "date", "youtubeUrl")
+    ):
+        return False
+    youtube_id = extract_youtube_id(video.get("youtubeUrl", ""))
+    if youtube_id and record.get("youtubeId") != youtube_id:
+        return False
+    source = record.get("transcriptSource")
+    excerpt = record.get("transcriptExcerpt")
+    if not isinstance(source, str) or not isinstance(excerpt, str):
+        return False
+    if record.get("hasTranscript") is False:
+        return not source and not excerpt
+    if (
+        not youtube_id
+        or record.get("hasTranscript") is not True
+        or not source.startswith(JOURNAL_BLOB_BASE)
+    ):
+        return False
+    relative = unquote(source.removeprefix(JOURNAL_BLOB_BASE))
+    item_path, _, filename = relative.rpartition("/")
+    parsed = urlsplit(source)
+    return (
+        not parsed.query
+        and not parsed.fragment
+        and filename == "transcript.txt"
+        and public_item_path(item_path)
+    )
+
+
+def check_transcripts(
+    videos: dict[str, dict], projected: dict[str, dict] | None
+) -> int:
+    files = read_output()
+    if not files and not TRANSCRIPTS_OUT.exists() and projected is None:
+        print("No transcript records are present.")
         return 0
-    videos_data = json.loads(VIDEOS_JSON.read_text(encoding="utf-8"))
-    videos = videos_data.get("videos", [])
-
-    # Load journal index
-    journal_index = load_journal_index(journal_root)
-
-    # Create output directory
-    if not check_only:
-        TRANSCRIPTS_OUT.mkdir(parents=True, exist_ok=True)
-
-    count = 0
-    with_transcript = 0
-    errors = []
-
-    for video in videos:
-        video_id = video.get("id")
-        if not video_id:
-            continue
-        youtube_url = video.get("youtubeUrl", "")
-        yt_id = extract_youtube_id(youtube_url)
-
-        # Build the output record
-        record = {
-            "id": video_id,
-            "title": video.get("title", ""),
-            "series": video.get("series", ""),
-            "number": video.get("number", ""),
-            "date": video.get("date", ""),
-            "youtubeUrl": youtube_url,
-            "youtubeId": yt_id or "",
-            "guests": [g.get("name", "") for g in video.get("guests", [])],
-            "types": video.get("types", []),
-            "keywords": video.get("keywords", []),
-            "ontologyTerms": video.get("ontologyTerms", []),
-            "summary": video.get("summary", ""),
-            "hasTimestamps": video.get("hasTimestamps", False),
-            "hasTranscript": False,
-            "transcriptExcerpt": "",
-            "transcriptSource": "",
-            "paperTitle": "",
-            "githubUrl": video.get("githubUrl", ""),
-        }
-
-        # Try to find journal data
-        if yt_id and yt_id in journal_index:
-            journal_item = journal_index[yt_id]
-            item_path = journal_root / journal_item["path"]
-
-            # Try to load metadata.json
-            meta_path = item_path / "metadata.json"
-            if meta_path.is_file():
-                try:
-                    meta = json.loads(meta_path.read_text(encoding="utf-8"))
-                    record["paperTitle"] = sanitize_public_text(meta.get("paper_title", ""))
-                    # Use githubUrl from metadata if not already set
-                    if not record["githubUrl"]:
-                        record["githubUrl"] = meta.get("github", "")
-                    # Merge sessions/timestamps if available
-                    if meta.get("sessions"):
-                        record["hasTimestamps"] = True
-                        # Include session topics (just titles, no timestamps for page size)
-                except json.JSONDecodeError:
-                    pass
-
-            # Try to load transcript
-            transcript_path = item_path / "transcript.txt"
-            if transcript_path.is_file():
-                try:
-                    full_text = transcript_path.read_text(encoding="utf-8")
-                    record["hasTranscript"] = True
-                    record["transcriptExcerpt"] = excerpt_from_transcript(full_text)
-                    record["transcriptSource"] = (
-                        f"https://github.com/ActiveInferenceInstitute/ActiveInferenceJournal/"
-                        f"blob/main/{journal_item['path']}/transcript.txt"
-                    )
-                    with_transcript += 1
-                except Exception as e:
-                    errors.append(f"  {video_id}: failed to read transcript: {e}")
-
-        if not check_only:
-            out_path = TRANSCRIPTS_OUT / f"{video_id}.json"
-            out_path.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
-        count += 1
-
-    if errors:
-        print("\nErrors:")
-        for err in errors:
-            print(err, file=sys.stderr)
-
-    print(f"Processed {count} videos ({with_transcript} with transcripts)")
-    if check_only:
-        print("Check-only mode: no files written.")
-    else:
-        print(f"Wrote {count} transcript records to {TRANSCRIPTS_OUT}/")
-        # Clean up stale records (video IDs that no longer exist in videos.json)
-        valid_ids = {v.get("id") for v in videos if v.get("id")}
-        for existing in TRANSCRIPTS_OUT.glob("*.json"):
-            if existing.stem not in valid_ids:
-                existing.unlink()
-                print(f"  Removed stale record: {existing.name}")
-
-    return count
-
-
-def check_transcripts() -> int:
-    """Validate existing transcript files against videos.json. Returns non-zero on issues."""
-    if not VIDEOS_JSON.is_file():
-        print(f"Error: videos.json not found at {VIDEOS_JSON}", file=sys.stderr)
+    actual = {
+        key: json.loads(path.read_text(encoding="utf-8")) for key, path in files.items()
+    }
+    issues = set(videos) ^ set(actual)
+    for key in set(videos) & set(actual):
+        if not isinstance(actual[key], dict) or not validate_record(
+            actual[key], videos[key]
+        ):
+            issues.add(key)
+        elif projected is not None and actual[key] != projected[key]:
+            issues.add(key)
+    if issues:
+        print(
+            f"Invalid, missing, stale, or outdated transcript records: {len(issues)}",
+            file=sys.stderr,
+        )
+        for key in sorted(issues)[:10]:
+            print(f"  {key}", file=sys.stderr)
         return 1
-    videos_data = json.loads(VIDEOS_JSON.read_text(encoding="utf-8"))
-    videos = videos_data.get("videos", [])
-
-    issues = 0
-    valid_ids = {v.get("id") for v in videos if v.get("id")}
-    existing_ids = set()
-
-    # Check that every video has a transcript record
-    if TRANSCRIPTS_OUT.is_dir():
-        existing_ids = {p.stem for p in TRANSCRIPTS_OUT.glob("*.json")}
-        missing = valid_ids - existing_ids
-        stale = existing_ids - valid_ids
-
-        if missing:
-            print(f"  Missing transcript records: {len(missing)}")
-            for mid in sorted(missing)[:5]:
-                print(f"    - {mid}")
-            if len(missing) > 5:
-                print(f"    ... and {len(missing) - 5} more")
-            # Not an error — transcripts are optional enrichment, not a required gate
-            # issues += 1  # Uncomment if transcripts become required
-
-        if stale:
-            print(f"  Stale transcript records (not in videos.json): {len(stale)}")
-            for sid in sorted(stale)[:5]:
-                print(f"    - {sid}")
-            if len(stale) > 5:
-                print(f"    ... and {len(stale) - 5} more")
-            issues += 1
-    else:
-        print("  No transcript directory found (run sync first)")
-
-    if issues == 0:
-        print(f"  Transcript records OK: {len(existing_ids) if TRANSCRIPTS_OUT.is_dir() else 0} records match videos.json")
-    return 0 if issues == 0 else 1
-
-
-def main():
-    parser = argparse.ArgumentParser(description="Sync video transcript data from ActiveInferenceJournal")
-    parser.add_argument(
-        "--journal-root",
-        type=Path,
-        default=None,
-        help="Path to ActiveInferenceJournal checkout (default: auto-detect)",
+    unsupported = sum(
+        bool(video.get("youtubeUrl")) and not extract_youtube_id(video["youtubeUrl"])
+        for video in videos.values()
     )
+    if unsupported:
+        print(f"Registry records with unsupported YouTube URLs: {unsupported}")
+    print(f"Transcript record check passed for {len(actual)} videos.")
+    return 0
+
+
+def write_transcripts(records: dict[str, dict]) -> None:
+    existing = read_output()
+    TRANSCRIPTS_OUT.mkdir(parents=True, exist_ok=True)
+    for key, record in records.items():
+        content = json.dumps(record, indent=2, ensure_ascii=False) + "\n"
+        path = TRANSCRIPTS_OUT / f"{key}.json"
+        if key in existing and path.read_text(encoding="utf-8") == content:
+            continue
+        with NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            dir=TRANSCRIPTS_OUT,
+            prefix=".project-",
+            delete=False,
+        ) as stream:
+            temp_path = Path(stream.name)
+            try:
+                stream.write(content)
+                stream.flush()
+                os.chmod(temp_path, 0o644)
+                temp_path.replace(path)
+            finally:
+                temp_path.unlink(missing_ok=True)
+    for key in set(existing) - set(records):
+        existing[key].unlink()
+    count = sum(record["hasTranscript"] for record in records.values())
+    print(f"Projected {len(records)} public video records ({count} with transcripts).")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--check",
-        action="store_true",
-        help="Check only: validate existing transcript records, don't write",
+        "--journal-root", type=Path, help="Select the ActiveInferenceJournal checkout"
     )
+    parser.add_argument("--check", action="store_true", help="Validate without writing")
     args = parser.parse_args()
+    journal_root = args.journal_root or os.environ.get("JOURNAL_ROOT")
 
-    journal_root = args.journal_root or _resolve_journal_root()
-
-    if args.check:
-        sys.exit(check_transcripts())
-
-    count = sync_transcripts(journal_root, check_only=False)
-    if count == 0:
-        sys.exit(1)
+    try:
+        videos = load_videos()
+        if args.check and not journal_root:
+            return check_transcripts(videos, None)
+        root = Path(
+            journal_root or PROJECT_ROOT.parent / "ActiveInferenceJournal"
+        ).resolve(strict=True)
+        index = load_journal_index(root)
+        projected = {
+            key: project_record(video, root, index) for key, video in videos.items()
+        }
+        if args.check:
+            return check_transcripts(videos, projected)
+        write_transcripts(projected)
+    except (OSError, ValueError) as error:
+        print(f"Video transcript projection failed: {error}", file=sys.stderr)
+        return 1
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
