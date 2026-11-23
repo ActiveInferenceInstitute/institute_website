@@ -2291,7 +2291,7 @@
     {
       "id": "symposium",
       "title": "Applied Active Inference Symposium",
-      "description": "The Applied Active Inference Symposium is the Institute's flagship annual event bringing together researchers, educators, practitioners, and community members applying Active Inference across scientific and practical domains. The event features talks, panels, workshops, and community sessions, with full recordings made publicly available after each edition. The 6th Applied Active Inference Symposium takes place in 2026 as a joint project between the EduActive and ReInference units.",
+      "description": "The Applied Active Inference Symposium is the Institute's flagship annual event bringing together researchers, educators, practitioners, and community members applying Active Inference across scientific and practical domains. The event features talks, panels, workshops, and community sessions, with recordings made publicly available after each edition. The 6th Symposium was held on 12–13 November 2026 as a joint project of the EduActive and ReInference units. Its final presenter program and both recordings are available.",
       "version": "0.1",
       "status": "active",
       "category": "research",
@@ -2311,14 +2311,18 @@
         "robotics",
         "symposium"
       ],
-      "summary": "The Applied Active Inference Symposium is a yearly event that convenes the global Active Inference community. It has run five times from 2021 through 2025, with the sixth symposium in 2026. The Symposium features research presentations, discussions, and collaborative sessions spanning computational neuroscience, AI, ecology, economics, health, and other domains.",
+      "summary": "The annual online Symposium shares applied Active Inference research and practice. The 6th edition was held on 12–13 November 2026. Read the final presenter program (v3.4.0) on Zenodo and watch both recordings.",
       "website_slug": "project-symposium",
       "links": {
         "symposium_website": "https://symposium.activeinference.institute/",
         "zenodo_transcript": "https://zenodo.org/records/5797072",
-        "youtube_channel": "https://youtube.com/c/ActiveInference",
+        "youtube_channel": "https://www.youtube.com/@ActiveInference",
+        "2026_presenter_program": "https://doi.org/10.5281/zenodo.24409077",
+        "2026_recording_day_1": "https://www.youtube.com/watch?v=-v4IaFY9MZI",
+        "2026_recording_day_2": "https://www.youtube.com/watch?v=ccze9ay8D0o",
+        "2026_github_release": "https://github.com/ActiveInferenceInstitute/Symposium/releases/tag/v3.4.0",
         "website": "project-symposium.html",
-        "symposium_page": "https://www.activeinference.institute/symposium",
+        "symposium_page": "https://activeinference.institute/projects/symposium/",
         "symposium_shortlink": "https://symposium.activeinference.institute/",
         "github_repository": "https://github.com/ActiveInferenceInstitute/Symposium"
       },
