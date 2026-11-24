@@ -5,6 +5,7 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+- Link the final 2026 Symposium book and recordings from the public site.
 - Stage each reviewed public export payload with an exact hash and restrict
   staged source paths to the declared manifest contract.
 - Add bounded, credential-free live readback for the website version, Board

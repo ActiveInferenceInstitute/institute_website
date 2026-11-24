@@ -256,19 +256,18 @@
       "promoted": true
     },
     {
-      "sourceId": "symposium-2026-register",
-      "title": "Register for the 2026 Symposium",
+      "sourceId": "symposium-2026-presenter-program",
+      "title": "2026 Presenter Program",
       "type": "official",
       "group": "Activities",
       "category": "community",
       "audience": "newcomer",
       "tags": [
         "symposium",
-        "registration",
-        "free",
-        "online"
+        "abstracts",
+        "zenodo"
       ],
-      "summary": "Free online participant registration for the 6th Applied Active Inference Symposium.",
+      "summary": "The final book of abstracts is available on Zenodo as a PDF and an editable Word document.",
       "relatedSlugs": [
         "project-symposium",
         "activities",

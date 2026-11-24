@@ -2752,7 +2752,7 @@
     },
     {
       "id": "symposium-2026-livestream-day1",
-      "label": "2026 Symposium Day 1 livestream",
+      "label": "Day 1 recording",
       "category": "Symposium",
       "url": "https://www.youtube.com/watch?v=-v4IaFY9MZI",
       "sourceBasis": "Public Institute YouTube livestream for Day 1 (12 November 2026), listed in the approved 2026 public program.",
@@ -2762,7 +2762,7 @@
     },
     {
       "id": "symposium-2026-livestream-day2",
-      "label": "2026 Symposium Day 2 livestream",
+      "label": "Day 2 recording",
       "category": "Symposium",
       "url": "https://www.youtube.com/watch?v=ccze9ay8D0o",
       "sourceBasis": "Public Institute YouTube livestream for Day 2 (13 November 2026), listed in the approved 2026 public program.",
@@ -2782,13 +2782,36 @@
     },
     {
       "id": "symposium-2026-presenter-program",
-      "label": "2026 Presenter Program (book of abstracts), version 3.3.0",
+      "label": "2026 Presenter Program",
       "category": "Symposium",
-      "url": "https://zenodo.org/records/24161029",
-      "sourceBasis": "Public Zenodo record, DOI 10.5281/zenodo.24161029: final-lineup book of abstracts for the 6th Symposium, in printable and editable formats.",
+      "url": "https://zenodo.org/records/24409077",
+      "sourceBasis": "Zenodo version record 10.5281/zenodo.24409077, published November 21, 2026. The record lists the PDF, DOCX and release checksums.",
       "statusCode": 200,
       "ok": true,
-      "checkedAt": "2026-11-12T12:51:37Z"
+      "checkedAt": "2026-11-22T20:57:41Z",
+      "previousUrls": [
+        "https://zenodo.org/records/24161029"
+      ]
+    },
+    {
+      "id": "symposium-2026-presenter-program-pdf",
+      "label": "Download the program (PDF)",
+      "category": "Symposium",
+      "url": "https://zenodo.org/records/24409077/files/Active-Inference-Symposium-2026-Presenter-Program-v3.4.0.pdf?download=1",
+      "sourceBasis": "Public PDF file from Zenodo record 24409077. Verified with an HTTP byte-range request.",
+      "statusCode": 206,
+      "ok": true,
+      "checkedAt": "2026-11-22T20:57:41Z"
+    },
+    {
+      "id": "symposium-2026-presenter-program-docx",
+      "label": "Download the program (Word)",
+      "category": "Symposium",
+      "url": "https://zenodo.org/records/24409077/files/Active-Inference-Symposium-2026-Presenter-Program-v3.4.0.docx?download=1",
+      "sourceBasis": "Public DOCX file from Zenodo record 24409077. Verified with an HTTP byte-range request.",
+      "statusCode": 206,
+      "ok": true,
+      "checkedAt": "2026-11-22T20:57:41Z"
     },
     {
       "id": "cear-lab",

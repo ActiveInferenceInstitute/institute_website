@@ -231,7 +231,7 @@ REQUIRED_SOURCE_IDS = {
     "official-measure",
     "official-projects-shortlink",
     "official-symposium-shortlink",
-    "symposium-2026-register",
+    "symposium-2026-presenter-program",
     "official-textbook-group-shortlink",
     "official-volunteer",
     "shortlink-2025",
@@ -832,8 +832,10 @@ def check_content_model(root: Path, errors: list[str]) -> None:
                 errors.append(f"{slug}: references missing live source id: {source_id}")
         if slug == "project-symposium":
             action_ids = {action.get("sourceId") for action in page.get("primaryActions", [])}
-            if "symposium-2026-register" not in action_ids:
-                errors.append("project-symposium must expose the 2026 participant registration action")
+            if "symposium-2026-presenter-program" not in action_ids:
+                errors.append("project-symposium must expose the published 2026 Presenter Program")
+            if {"symposium-2026-register", "symposium-2026-submit"} & set(collect_source_ids(page)):
+                errors.append("project-symposium must keep closed 2026 intake forms out of the public page")
 
     data = instituteos_data(root)
     # The public "projects" feed is the promoted subset of repositories.json
