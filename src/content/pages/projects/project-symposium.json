@@ -3,31 +3,26 @@
   "title": "Applied Active Inference Symposium",
   "subtitle": "An annual gathering of Active Inference researchers, practitioners, and contributors from around the world.",
   "audience": "Researchers, practitioners, speakers, sponsors, and participants interested in the annual Symposium.",
-  "lede": "The Applied Active Inference Symposium is a yearly online event that convenes the global Active Inference community. It has run five times from 2021 through 2025, and the 6th Symposium is taking place online on 12–13 November 2026. Each edition features research presentations, panels, workshops, and collaborative sessions spanning computational neuroscience, AI, robotics, ecology, economics, health, education, and other domains, with full recordings and proceedings published openly afterward.",
+  "lede": "The Applied Active Inference Symposium is a yearly online gathering of the global Active Inference community. The 6th Applied Active Inference Symposium took place online on 12–13 November 2026. Explore the program, read the book of abstracts, and watch the recordings from both days.",
   "primaryActions": [
     {
-      "label": "Watch the Day 1 livestream",
-      "sourceId": "symposium-2026-livestream-day1"
+      "sourceId": "symposium-2026-presenter-program",
+      "label": "Read the 2026 Presenter Program"
     },
     {
-      "label": "Watch the Day 2 livestream",
-      "sourceId": "symposium-2026-livestream-day2"
+      "sourceId": "symposium-2026-presenter-program-pdf"
     },
     {
-      "label": "Explore the 2026 program",
-      "sourceId": "symposium-2026-program-explorer"
+      "sourceId": "symposium-2026-program-explorer",
+      "label": "Explore the 2026 program"
     },
     {
-      "label": "Read the 2026 Presenter Program",
-      "sourceId": "symposium-2026-presenter-program"
+      "sourceId": "symposium-2026-livestream-day1",
+      "label": "Day 1 recording"
     },
     {
-      "label": "Register as a participant (free, online)",
-      "sourceId": "symposium-2026-register"
-    },
-    {
-      "label": "Email the organizers",
-      "href": "mailto:blanket@activeinference.institute"
+      "sourceId": "symposium-2026-livestream-day2",
+      "label": "Day 2 recording"
     }
   ],
   "sections": [
@@ -141,25 +136,27 @@
     },
     {
       "heading": "6th Symposium (2026)",
-      "body": "The 6th Applied Active Inference Symposium is taking place online on 12–13 November 2026. As with previous editions, the keynote address and panel feature Karl Friston, and the program explores the applications and frontiers of Active Inference.\n\nThe final program has 55 contributions: 37 pre-recorded talks, 14 livestreamed panels and group sessions, 3 interactive workshops, and the keynote and panel, across 19 scheduled sessions. The Day 1 livestream opens at 12:00 UTC, with the Karl Friston keynote and panel at 13:00 UTC; the Day 2 livestream opens at 11:00 UTC. Session times are listed in UTC in the program explorer.\n\nAll abstracts are collected in the 2026 Presenter Program, a book of abstracts published openly on Zenodo (version 3.3.0, DOI 10.5281/zenodo.24161029) in printable and editable formats. The Symposium is online with no financial barrier to participation; recordings remain on the Institute YouTube channel afterward.",
+      "body": "The 6th Applied Active Inference Symposium took place online on 12–13 November 2026. Karl Friston joined the keynote and panel.\n\nThe final program lists 55 contributions across 19 scheduled sessions, with 53 supplied abstracts and two pending abstracts. The program explorer lists sessions in UTC.\n\nThe final 2026 Presenter Program (v3.4.0) was published on November 21, 2026. The final book of abstracts is available on Zenodo as a PDF and an editable Word document. DOI 10.5281/zenodo.24409077.",
       "links": [
         {
-          "sourceId": "symposium-2026-livestream-day1",
-          "label": "Day 1 livestream (12 November)"
+          "sourceId": "symposium-2026-presenter-program"
         },
         {
-          "sourceId": "symposium-2026-livestream-day2",
-          "label": "Day 2 livestream (13 November)"
+          "sourceId": "symposium-2026-presenter-program-pdf"
+        },
+        {
+          "sourceId": "symposium-2026-presenter-program-docx"
         },
         {
           "sourceId": "symposium-2026-program-explorer"
         },
         {
-          "sourceId": "symposium-2026-presenter-program"
+          "sourceId": "symposium-2026-livestream-day1",
+          "label": "Day 1 recording"
         },
         {
-          "sourceId": "symposium-2026-register",
-          "label": "Register as a participant (free, online)"
+          "sourceId": "symposium-2026-livestream-day2",
+          "label": "Day 2 recording"
         },
         {
           "label": "Working Groups Charter Development Session",
@@ -169,23 +166,19 @@
     },
     {
       "heading": "Presentations and Lightning Talks",
-      "body": "The call for presentations and workshops for the 6th Symposium closed on 31 October 2026. Contributions were invited across four themes: mission-critical applications of Active Inference across domains; open science and tool development; learning and education; and Active Inference at Play. The final program includes the pre-recorded talks for which a video was submitted, livestreamed panels and discussions, and workshops.\n\nRegistered participants can still offer a lightning talk: a recorded video of under three minutes, played during the Symposium. Indicate this on the free participant registration form.",
+      "body": "The call for presentations and workshops for the 6th Symposium closed on 31 October 2026. Contributions were invited across four themes: mission-critical applications of Active Inference across domains; open science and tool development; learning and education; and Active Inference at Play. The final program includes the pre-recorded talks for which a video was submitted, livestreamed panels and discussions, and workshops.",
       "links": [
-        {
-          "sourceId": "symposium-2026-register",
-          "label": "Register and offer a lightning talk"
-        },
         {
           "sourceId": "symposium-2026-program-explorer"
         },
         {
-          "sourceId": "official-symposium-shortlink"
+          "sourceId": "symposium-2026-presenter-program"
         }
       ]
     },
     {
       "heading": "Sponsorship",
-      "body": "Sponsoring the Applied Active Inference Symposium supports open-source scientific innovation, global open-science collaboration through a 501(c)(3) non-profit, broad interdisciplinary impact, and visibility to talent and partners at the frontier of AI and cognitive science. Sponsorship is offered across three escalating levels: Level 1 lists sponsors in the program and materials and acknowledges them in livestreams; Level 2 adds a logo in the Adventure space, a short pre-recorded video on the livestream, and introductions to presenters, co-organizers, fellows, officers, and advisors; Level 3 adds consideration of a session, speaker, or theme in the program, an arranged private session, and an optional custom hand-drawn Active Inference artwork.\n\nOrganizations can contribute financially, offer in-kind support, or provide additional resources such as presenters and materials. Email blanket@activeinference.institute with any inquiries; more sponsorship detail for 2026 is coming soon.",
+      "body": "Sponsoring the Applied Active Inference Symposium supports open-source scientific innovation, global open-science collaboration through a 501(c)(3) non-profit, broad interdisciplinary impact, and visibility to talent and partners at the frontier of AI and cognitive science. Sponsorship is offered across three escalating levels: Level 1 lists sponsors in the program and materials and acknowledges them in livestreams; Level 2 adds a logo in the Adventure space, a short pre-recorded video on the livestream, and introductions to presenters, co-organizers, fellows, officers, and advisors; Level 3 adds consideration of a session, speaker, or theme in the program, an arranged private session, and an optional custom hand-drawn Active Inference artwork.\n\nOrganizations can contribute financially, offer in-kind support, or provide additional resources such as presenters and materials. Email blanket@activeinference.institute with any inquiries about future Symposium editions.",
       "links": [
         {
           "href": "mailto:blanket@activeinference.institute",
@@ -218,33 +211,30 @@
     },
     {
       "title": "6th Symposium · 12–13 Nov 2026",
-      "text": "Online now: keynote and panel with Karl Friston, 55 contributions across two days of livestreams.",
+      "text": "Watch both days of the 2026 Symposium.",
       "links": [
         {
           "sourceId": "symposium-2026-livestream-day1",
-          "label": "Day 1 livestream"
+          "label": "Day 1 recording"
         },
         {
           "sourceId": "symposium-2026-livestream-day2",
-          "label": "Day 2 livestream"
+          "label": "Day 2 recording"
         }
       ]
     },
     {
       "title": "2026 Presenter Program",
-      "text": "Book of abstracts for the final 2026 lineup, version 3.3.0, open on Zenodo.",
+      "text": "The final book of abstracts is available on Zenodo as a PDF and an editable Word document.",
       "links": [
         {
           "sourceId": "symposium-2026-presenter-program"
-        }
-      ]
-    },
-    {
-      "title": "Register to participate",
-      "text": "Join the 6th Symposium online at no cost. Registration is open to participants.",
-      "links": [
+        },
         {
-          "sourceId": "symposium-2026-register"
+          "sourceId": "symposium-2026-presenter-program-pdf"
+        },
+        {
+          "sourceId": "symposium-2026-presenter-program-docx"
         }
       ]
     },
@@ -269,8 +259,6 @@
   ],
   "externalSourceIds": [
     "official-symposium-shortlink",
-    "symposium-2026-submit",
-    "symposium-2026-register",
     "symposium-2021-transcript",
     "symposium-2022-transcript",
     "symposium-2022-program",
@@ -284,7 +272,9 @@
     "symposium-2026-livestream-day1",
     "symposium-2026-livestream-day2",
     "symposium-2026-program-explorer",
-    "symposium-2026-presenter-program"
+    "symposium-2026-presenter-program",
+    "symposium-2026-presenter-program-pdf",
+    "symposium-2026-presenter-program-docx"
   ],
   "resourceGroups": [
     "projects",

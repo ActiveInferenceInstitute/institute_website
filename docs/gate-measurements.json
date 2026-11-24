@@ -39,8 +39,8 @@
       "command": "npm run check"
     }
   },
-  "refreshed_at": "2026-11-21T00:59:25.782367+00:00",
-  "command_source_sha256": "e7e85fc551807e4e89d62b3c152b39c4d4979ab82a42a19d5fbbe59e1e96ef11",
+  "refreshed_at": "2026-11-24T18:44:41.262143+00:00",
+  "command_source_sha256": "5f219b57bcfc0f2fd0654eb02d07402b49ba0ee405a1f798db9e8165bc50e689",
   "after": {
     "lint": {
       "seconds": 0.578,

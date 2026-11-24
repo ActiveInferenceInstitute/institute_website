@@ -3,7 +3,7 @@
   "title": "Working Groups",
   "subtitle": "Open, chartered community working groups for comparison, assessment, and domain development in Active Inference.",
   "audience": "Implementers, domain practitioners, researchers, and community members who want to shape the Working Groups.",
-  "lede": "The Active Inference Institute proposes a system of open community working groups: one Field Working Group for field-level comparison and a shared assessment method, and domain working groups that pair active-inference experts with domain practitioners. The draft Charter and Operating Procedures are open for public review on GitHub now. The groups are proposed for founding at the Charter Development Session of the 6th Applied Active Inference Symposium, held online on 12–13 November 2026.",
+  "lede": "The Active Inference Institute proposes a system of open community working groups: one Field Working Group for field-level comparison and a shared assessment method, and domain working groups that pair active-inference experts with domain practitioners. The draft Charter and Operating Procedures are open for public review on GitHub now. The founding proposal was scheduled for discussion at the Charter Development Session of the 6th Applied Active Inference Symposium, held online on 12–13 November 2026.",
   "primaryActions": [
     {
       "label": "Read the position paper",
@@ -14,8 +14,8 @@
       "sourceId": "working-groups-charter"
     },
     {
-      "label": "Register for the Symposium (free, online)",
-      "sourceId": "symposium-2026-register"
+      "label": "Explore the 2026 program",
+      "sourceId": "symposium-2026-program-explorer"
     }
   ],
   "sections": [
@@ -64,9 +64,6 @@
         {
           "label": "Applied Active Inference Symposium",
           "href": "/projects/symposium/"
-        },
-        {
-          "sourceId": "symposium-2026-register"
         }
       ]
     },
@@ -97,14 +94,11 @@
     },
     {
       "heading": "How to Participate",
-      "body": "- **Attend the Charter Development Session.** It is open to all registered Symposium participants, with remote participation and remote access to all substantive votes. Attending carries no obligation to join a working group.\n- **Review and comment on GitHub.** Open an issue in the Working_Groups repository naming the document and section, your concern, and the change that would resolve it.\n- **Comment by email.** Write to blanket@activeinference.institute with the subject line [WORKING GROUPS].\n- **Express interest in a group.** Open an issue naming the Field Working Group or a domain, and the role you could fill: active-inference expert, domain practitioner, or implementation maintainer or user.\n\nMembership is open to any individual with relevant expertise or substantive interest, including critics of Active Inference and domain practitioners who are not proponents of the framework. It requires no fee and no Institute membership. Active members are expected to attend four quarterly meetings of about ninety minutes and to contribute to at least one year-one product. All meetings are remote.",
+      "body": "- **Review and comment on GitHub.** Open an issue in the Working_Groups repository naming the document and section, your concern, and the change that would resolve it.\n- **Comment by email.** Write to blanket@activeinference.institute with the subject line [WORKING GROUPS].\n- **Express interest in a group.** Open an issue naming the Field Working Group or a domain, and the role you could fill: active-inference expert, domain practitioner, or implementation maintainer or user.\n\nMembership is open to any individual with relevant expertise or substantive interest, including critics of Active Inference and domain practitioners who are not proponents of the framework. It requires no fee and no Institute membership. Active members are expected to attend four quarterly meetings of about ninety minutes and to contribute to at least one year-one product. All meetings are remote.",
       "links": [
         {
           "label": "Open an issue",
           "sourceId": "working-groups-issues"
-        },
-        {
-          "sourceId": "symposium-2026-register"
         },
         {
           "label": "Email the organizers",
@@ -145,9 +139,6 @@
         {
           "label": "Symposium",
           "href": "/projects/symposium/"
-        },
-        {
-          "sourceId": "symposium-2026-register"
         }
       ]
     }
@@ -191,11 +182,11 @@
   "externalSourceIds": [
     "working-groups-position-paper",
     "working-groups-charter",
-    "symposium-2026-register",
     "working-groups-repo",
     "working-groups-operating-procedures",
     "working-groups-predecessor-documents",
-    "working-groups-issues"
+    "working-groups-issues",
+    "symposium-2026-program-explorer"
   ],
   "resourceGroups": [
     "participation",

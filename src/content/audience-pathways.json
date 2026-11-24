@@ -144,12 +144,19 @@
     {
       "id": "symposium",
       "label": "Symposium participant",
-      "summary": "Register for the online Symposium, watch the livestreams, or offer a lightning talk.",
+      "summary": "Explore the program, read the book of abstracts, and watch the recordings from both days.",
       "primaryHref": "/projects/symposium/",
       "links": [
         {
-          "label": "Symposium registration",
-          "sourceId": "symposium-2026-register"
+          "sourceId": "symposium-2026-presenter-program"
+        },
+        {
+          "sourceId": "symposium-2026-livestream-day1",
+          "label": "Day 1 recording"
+        },
+        {
+          "sourceId": "symposium-2026-livestream-day2",
+          "label": "Day 2 recording"
         }
       ]
     },
