@@ -16,7 +16,7 @@ for the dated review history. Run local checks using [the run guide](docs/RUN_GU
   Accept when the priority cohorts have verified status, canonical targets and
   an owner disposition for unresolved URLs. Observe live redirects and crawl
   results before changing routes or resubmitting the sitemap.
-  See [indexing follow-up](docs/INDEXING_FOLLOWUP.md) and
+  See [indexing follow-up](docs/operations/INDEXING_FOLLOWUP.md) and
   [migration and redirects](docs/MIGRATION_AND_REDIRECTS.md).
 
 ## Medium
@@ -45,7 +45,7 @@ for the dated review history. Run local checks using [the run guide](docs/RUN_GU
   through the source owner. Accept with reviewed public copy, sanctioned
   export, passing link and feed checks, and no draft material in output.
   Owner: communications and source owners. See
-  [content authoring](docs/CONTENT_AUTHORING.md) and [GATING.md](GATING.md).
+  [content authoring](docs/authoring/CONTENT_AUTHORING.md) and [GATING.md](GATING.md).
 
 ## Minor
 

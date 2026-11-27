@@ -1,9 +1,9 @@
-> Part of the `institute_website` documentation set — see [README.md](README.md).
+> Part of the `institute_website` documentation set — see [README.md](../README.md).
 
 # Getting Started
 
 A quickstart for contributors. For the conceptual model read
-[ARCHITECTURE.md](ARCHITECTURE.md); for the editing rules read
+[ARCHITECTURE.md](../architecture/ARCHITECTURE.md); for the editing rules read
 [CONTENT_AUTHORING.md](CONTENT_AUTHORING.md).
 
 ## Prerequisites
@@ -41,7 +41,7 @@ python3 -m http.server 8000
    `assets/`, then rebuild. Never hand-edit `*/index.html`.
 2. **External links must be registered** in `src/content/live-sources.json` and
    referenced by `sourceId` — never a raw `href` on a content page. See
-   [STATIC security & link contract in GATES_AND_VALIDATION.md](GATES_AND_VALIDATION.md).
+   [STATIC security & link contract in GATES_AND_VALIDATION.md](../operations/GATES_AND_VALIDATION.md).
 3. **Each content page needs** `primaryActions` (non-empty), `externalSourceIds`, and at
    least one primaryAction backed by a registered `sourceId`.
 4. **Strict CSP:** no inline `<script>`/`<style>`, no `iframe`/`object`/`embed`/`form`,
@@ -59,6 +59,6 @@ npm run build && npm run check
 git add -A && git commit -m "feat: <describe change>"
 ```
 
-If `npm run check` fails, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md). For task-specific
+If `npm run check` fails, see [TROUBLESHOOTING.md](../operations/TROUBLESHOOTING.md). For task-specific
 runbooks (add a page, add a project, register a link, add a locale, edit redirects), use
 the `.claude/skills/institute-website/Workflows/` guides.

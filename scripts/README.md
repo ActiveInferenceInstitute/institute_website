@@ -48,7 +48,7 @@ The enforced contract and full command table for this folder are in
 ```
 
 Gate reference with failure messages and fixes:
-[`../docs/GATES_AND_VALIDATION.md`](../docs/GATES_AND_VALIDATION.md).
+[`../docs/operations/GATES_AND_VALIDATION.md`](../docs/operations/GATES_AND_VALIDATION.md).
 
 Shared dispatch: [`gates.mjs`](gates.mjs). Pinned conformance:
 [`check_gnn_conformance.py`](check_gnn_conformance.py). Measurement producer/check:

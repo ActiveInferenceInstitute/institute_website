@@ -1,4 +1,4 @@
-> Part of the `institute_website` documentation set — see [README.md](README.md).
+> Part of the `institute_website` documentation set — see [README.md](../README.md).
 > Curated conceptual view; the authoritative per-folder contracts live in each
 > folder's `AGENTS.md`. The `docs/` folder is **not** built into the site.
 
@@ -75,7 +75,7 @@ any other slug         → <slug>/               (/<slug>/index.html)
 
 Folder grouping is **organizational only** — the build walks the tree recursively
 and ignores folder nesting (see
-[SLUG_AND_URL_TAXONOMY.md § Two independent axes](SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url)).
+[SLUG_AND_URL_TAXONOMY.md § Two independent axes](../architecture/SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url)).
 Current groupings:
 
 | Folder | Contains |
@@ -99,7 +99,7 @@ Per-folder counts drift as pages are added — for a live count, run
 The shared registries under `src/content/*.json` (site identity, navigation,
 live-sources allowlist, resources, repositories, audience pathways, ontology
 terms, ...) and the sync-generated `src/content/instituteos/*.json` public data
-are documented separately in [REGISTRIES.md](REGISTRIES.md) -- they are loaded
+are documented separately in [REGISTRIES.md](../architecture/REGISTRIES.md) -- they are loaded
 once per build and referenced from many pages, unlike the per-page JSON
 described above.
 
@@ -184,7 +184,7 @@ import('./src/data.mjs').then(({ siteData }) => {
 open sitemap/index.html   # after npm run build
 ```
 
-See [SLUG_AND_URL_TAXONOMY.md](SLUG_AND_URL_TAXONOMY.md) for how each slug shape
+See [SLUG_AND_URL_TAXONOMY.md](../architecture/SLUG_AND_URL_TAXONOMY.md) for how each slug shape
 (`project-*`, program-subpage slugs, everything else) maps to its output directory.
 
 ---

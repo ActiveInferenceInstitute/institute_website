@@ -1,4 +1,4 @@
-> Part of the `institute_website` documentation set — see [README.md](README.md).
+> Part of the `institute_website` documentation set — see [README.md](../README.md).
 > Curated conceptual view; the authoritative per-folder contracts live in each
 > folder's `AGENTS.md`. The `docs/` folder is **not** built into the site.
 
@@ -380,7 +380,7 @@ npm run check:catalog       # /projects/ index links every public project page
 ```
 
 Full gate-by-gate reference, including which checks require a network
-connection: [`GATES_AND_VALIDATION.md`](GATES_AND_VALIDATION.md).
+connection: [`GATES_AND_VALIDATION.md`](../operations/GATES_AND_VALIDATION.md).
 
 ---
 
@@ -410,7 +410,7 @@ If the upstream design system adds new tokens or changes:
 
 ## Version & Provenance
 
-- **Current Version:** v4.0.0 (from `package.json`; re-check at each release per [`../RELEASING.md`](../RELEASING.md))
+- **Current Version:** v4.0.0 (from `package.json`; re-check at each release per [`../RELEASING.md`](../../RELEASING.md))
 - **Export Fingerprint:** Recorded in `data/export-manifest.json` (public data snapshot)
 - **Deploy:** Committed to `main` and served by GitHub Pages from the repo root
 - **Design-System Source:** Upstream `@instituteos/design-system` (byte-pinned via `check:design-system`)
@@ -421,10 +421,10 @@ All generated artifacts (HTML, `robots.txt`, `sitemap.xml`, social cards, search
 
 ## Further Reading
 
-- **Architecture & Build:** [ARCHITECTURE.md](ARCHITECTURE.md), [`../src/AGENTS.md`](../src/AGENTS.md)
-- **Root narrative summary:** [`../DESIGN_SYSTEM.md`](../DESIGN_SYSTEM.md) — the canonical CSS-layering/fallback-contract narrative; this file is the fuller conceptual guide
-- **Design Tokens Source:** [`../assets/css/instituteos-ds.css`](../assets/css/instituteos-ds.css) (generated, do not hand-edit)
-- **Content Authoring:** [CONTENT_AUTHORING.md](CONTENT_AUTHORING.md), [`../src/content/pages/AGENTS.md`](../src/content/pages/AGENTS.md), [`../src/content/pages/_TEMPLATES.md`](../src/content/pages/_TEMPLATES.md)
+- **Architecture & Build:** [ARCHITECTURE.md](../architecture/ARCHITECTURE.md), [`../src/AGENTS.md`](../../src/AGENTS.md)
+- **Root narrative summary:** [`../DESIGN_SYSTEM.md`](../../DESIGN_SYSTEM.md) — the canonical CSS-layering/fallback-contract narrative; this file is the fuller conceptual guide
+- **Design Tokens Source:** [`../assets/css/instituteos-ds.css`](../../assets/css/instituteos-ds.css) (generated, do not hand-edit)
+- **Content Authoring:** [CONTENT_AUTHORING.md](CONTENT_AUTHORING.md), [`../src/content/pages/AGENTS.md`](../../src/content/pages/AGENTS.md), [`../src/content/pages/_TEMPLATES.md`](../../src/content/pages/_TEMPLATES.md)
 - **Internationalization:** [INTERNATIONALIZATION.md](INTERNATIONALIZATION.md)
-- **Deployment & Gates:** [GATES_AND_VALIDATION.md](GATES_AND_VALIDATION.md), [`../AGENTS.md`](../AGENTS.md), [`../scripts/AGENTS.md`](../scripts/AGENTS.md)
+- **Deployment & Gates:** [GATES_AND_VALIDATION.md](../operations/GATES_AND_VALIDATION.md), [`../AGENTS.md`](../../AGENTS.md), [`../scripts/AGENTS.md`](../../scripts/AGENTS.md)
 - **Agent Skill:** `.claude/skills/institute-website/SKILL.md`

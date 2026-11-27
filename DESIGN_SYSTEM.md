@@ -4,7 +4,7 @@
 > ([`assets/AGENTS.md`](assets/AGENTS.md), [`src/render/AGENTS.md`](src/render/AGENTS.md))
 > — that is what `npm run check:design-system` validates. The full conceptual
 > guide (tokens, components, accessibility checklist) is
-> [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md). This root file is the canonical
+> [`docs/authoring/DESIGN_SYSTEM.md`](docs/authoring/DESIGN_SYSTEM.md). This root file is the canonical
 > narrative summary of the CSS-layering and token-fallback invariant below.
 
 The site's visual language is driven by a small token contract so the brand

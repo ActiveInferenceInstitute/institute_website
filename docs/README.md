@@ -9,7 +9,7 @@ This `docs/` folder is the **conceptual / navigation view**. The authoritative,
 enforced contracts live in each folder's `AGENTS.md` — this set cross-references them
 rather than duplicating them. `docs/` is **not** built into the published site.
 
-See the [indexing and accessibility follow-up](INDEXING_FOLLOWUP.md) for current redirect, metadata, font and deployment-custody behavior.
+See the [indexing and accessibility follow-up](operations/INDEXING_FOLLOWUP.md) for current redirect, metadata, font and deployment-custody behavior.
 
 Full inventory: [documentation-index.md](documentation-index.md). Gate commands
 and CI ownership: [RUN_GUIDE.md](RUN_GUIDE.md). Measured local observations live
@@ -19,17 +19,17 @@ only in the generated [GATE_MEASUREMENTS.md](GATE_MEASUREMENTS.md).
 
 | If you want to… | Read |
 | --- | --- |
-| Get the site building locally | [GETTING_STARTED.md](GETTING_STARTED.md) |
-| Understand how the build works | [ARCHITECTURE.md](ARCHITECTURE.md) |
-| Know how a page becomes a URL (**load-bearing**) | [SLUG_AND_URL_TAXONOMY.md](SLUG_AND_URL_TAXONOMY.md) |
-| Add or edit a content page | [CONTENT_AUTHORING.md](CONTENT_AUTHORING.md) |
-| Add or update a language | [INTERNATIONALIZATION.md](INTERNATIONALIZATION.md) |
-| Pass `npm run check` | [GATES_AND_VALIDATION.md](GATES_AND_VALIDATION.md) |
-| Use the design system / tokens | [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) |
+| Get the site building locally | [GETTING_STARTED.md](authoring/GETTING_STARTED.md) |
+| Understand how the build works | [ARCHITECTURE.md](architecture/ARCHITECTURE.md) |
+| Know how a page becomes a URL (**load-bearing**) | [SLUG_AND_URL_TAXONOMY.md](architecture/SLUG_AND_URL_TAXONOMY.md) |
+| Add or edit a content page | [CONTENT_AUTHORING.md](authoring/CONTENT_AUTHORING.md) |
+| Add or update a language | [INTERNATIONALIZATION.md](authoring/INTERNATIONALIZATION.md) |
+| Pass `npm run check` | [GATES_AND_VALIDATION.md](operations/GATES_AND_VALIDATION.md) |
+| Use the design system / tokens | [DESIGN_SYSTEM.md](authoring/DESIGN_SYSTEM.md) |
 | Change a URL or legacy redirect | [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md) |
-| Look up a top-level registry schema (`site.json`, `live-sources.json`, …) | [REGISTRIES.md](REGISTRIES.md) |
-| Fix a cryptic build/gate error | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
-| Reorganize source folders vs. change a public URL | [SLUG_AND_URL_TAXONOMY.md § Two independent axes](SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url) |
+| Look up a top-level registry schema (`site.json`, `live-sources.json`, …) | [REGISTRIES.md](architecture/REGISTRIES.md) |
+| Fix a cryptic build/gate error | [TROUBLESHOOTING.md](operations/TROUBLESHOOTING.md) |
+| Reorganize source folders vs. change a public URL | [SLUG_AND_URL_TAXONOMY.md § Two independent axes](architecture/SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url) |
 
 ## The one rule that explains everything
 
@@ -38,7 +38,7 @@ only in the generated [GATE_MEASUREMENTS.md](GATE_MEASUREMENTS.md).
 > output folders (`/about/`, `/de/`, `/active-inference/robotics/`) **are** the
 > public URLs.
 
-See [SLUG_AND_URL_TAXONOMY.md](SLUG_AND_URL_TAXONOMY.md) for the full mechanism. The
+See [SLUG_AND_URL_TAXONOMY.md](architecture/SLUG_AND_URL_TAXONOMY.md) for the full mechanism. The
 practical consequence: **regrouping source folders is free; changing output URLs is a
 breaking change** that needs redirects (see
 [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md)).
@@ -76,8 +76,18 @@ npm run i18n:translate   # update locale catalogs (offline engine)
 ```
 
 For the 2026-10-25 SEO repair, measured URL dispositions, optional HTTP 308 boundary,
-and deferred authenticated checks, read [Indexing repair and browser-agent handoff](INDEXING_REPAIR_2026-10-25.md).
+and deferred authenticated checks, read [Indexing repair and browser-agent handoff](operations/INDEXING_REPAIR_2026-10-25.md).
 
 ## Archive
 
 - [Review log 2026-08-02](archive/REVIEW_LOG_2026-08-02.md) — historical docs/gates review, kept for provenance only.
+
+## Research manuscript
+
+- [Stable URLs in a Multilingual Static Research Website](manuscript/README.md) — paper source and reproducible PDF build.
+
+## Documentation areas
+
+- [Build and content architecture](architecture/README.md)
+- [Content and presentation](authoring/README.md)
+- [Validation and migration](operations/README.md)

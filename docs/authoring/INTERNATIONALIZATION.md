@@ -1,4 +1,4 @@
-> Part of the `institute_website` documentation set — see [README.md](README.md).
+> Part of the `institute_website` documentation set — see [README.md](../README.md).
 > Curated conceptual view; the authoritative per-folder contracts live in each
 > folder's `AGENTS.md`. The `docs/` folder is **not** built into the site.
 
@@ -449,9 +449,9 @@ On every page, a CSP-safe `<details>`-based language switcher in the header (pur
 <details class="lang-switcher">
   <summary>🌐 EN</summary>
   <nav class="lang-menu" aria-label="Language">
-    <a hreflang="en" lang="en" href="./" aria-current="true">English</a>
-    <a hreflang="es" lang="es" href="../es/about/">Español</a>
-    <a hreflang="fr" lang="fr" href="../fr/about/">Français</a>
+    <a hreflang="en" lang="en" href="../" aria-current="true">English</a>
+    <a hreflang="es" lang="es" href="../../es/about/">Español</a>
+    <a hreflang="fr" lang="fr" href="../../fr/about/">Français</a>
     …
   </nav>
 </details>
@@ -592,21 +592,21 @@ A locale with `"dir": "rtl"` (currently only Arabic) renders `<html lang="ar" di
 - **Machine-translated locales** are flagged on-page with a link to the English original. Set `"machine": false` per locale after human review.
 - **Search** uses a single English index (`assets/js/search-data.js`). Localized search is a future enhancement.
 - **Coverage** varies: highest on the home page, curated content pages, and global chrome (nav, footer, buttons, breadcrumbs). Some specialized pages (directory, knowledge, resources tables) still contain English strings not yet wrapped in `tr()`; they fall back gracefully and can be wrapped incrementally.
-- **Narrative registry bands are English-only by design, not staleness.** `narrativeSection()` in [`src/render/narrative.mjs`](../src/render/narrative.mjs) — used for `id="about-narratives"` on About, `id="structure-narratives"` on Structure, and `id="ecosystem-narratives"` on Ecosystem (see [`src/render/feature-sections.mjs`](../src/render/feature-sections.mjs)) — renders each narrative entry's title and body straight from `narrativesForTarget()` through `sanitizePublicProse()`/`renderNarrativeBody()` only; neither ever calls `tr()`. So headings like "Directions for the Institute," "Focus Areas for the Institute," "Communications," and "Newsletter," plus markdown sub-headings inside the bodies, are unconditionally English in every locale. This is unlike the coverage gaps above (which are wrap-it-when-you-get-to-it backlog): the narrative registry's prose is long-form, sourced from the Coda/narratives pipeline, and machine-translating it is a deliberate scope decision, not yet made. Extracting and translating it is possible (wrap `entry.title` / the rendered body in `tr()`), but is out of scope until that decision is made.
+- **Narrative registry bands are English-only by design, not staleness.** `narrativeSection()` in [`src/render/narrative.mjs`](../../src/render/narrative.mjs) — used for `id="about-narratives"` on About, `id="structure-narratives"` on Structure, and `id="ecosystem-narratives"` on Ecosystem (see [`src/render/feature-sections.mjs`](../../src/render/feature-sections.mjs)) — renders each narrative entry's title and body straight from `narrativesForTarget()` through `sanitizePublicProse()`/`renderNarrativeBody()` only; neither ever calls `tr()`. So headings like "Directions for the Institute," "Focus Areas for the Institute," "Communications," and "Newsletter," plus markdown sub-headings inside the bodies, are unconditionally English in every locale. This is unlike the coverage gaps above (which are wrap-it-when-you-get-to-it backlog): the narrative registry's prose is long-form, sourced from the Coda/narratives pipeline, and machine-translating it is a deliberate scope decision, not yet made. Extracting and translating it is possible (wrap `entry.title` / the rendered body in `tr()`), but is out of scope until that decision is made.
 - **All gates pass** with the full multilingual output: `npm run check` (links, site contract, design system, security).
 
 ## File Reference
 
 | Path | Role |
 | --- | --- |
-| [`src/i18n/locales.json`](../src/i18n/locales.json) | Locale registry (code, name, native name, dir, machine flag) |
-| [`src/i18n/index.mjs`](../src/i18n/index.mjs) | `tr()` function, active-locale context, catalog loading, extraction |
-| [`src/content/i18n/_strings.json`](../src/content/i18n/_strings.json) | Extracted English source strings (translator's work list) |
-| [`src/content/i18n/<code>.json`](../src/content/i18n/) | Committed translation catalogs (e.g., `es.json`, `de.json`) |
-| [`src/url-taxonomy.mjs`](../src/url-taxonomy.mjs) | Locale-aware routing (single point: `urlDirForSlug()`) |
-| [`src/url-taxonomy.json`](../src/url-taxonomy.json) | Routing rule table: `programSubpageSlugs`/`orgPageSlugs`/`yearPageSlugs` slug sets + `routing.rules` (`prefix`/`set` rules) |
-| [`src/build.mjs`](../src/build.mjs) | Build loop: renders every routed page once per locale |
-| [`src/render/layout.mjs`](../src/render/layout.mjs) | Page chrome: `<html lang dir>`, `hreflang` alternates, language switcher, MT notice |
-| [`scripts/i18n_translate.mjs`](../scripts/i18n_translate.mjs) | Offline translator (Ollama or hosted API) |
-| [`scripts/i18n_check_terminology.mjs`](../scripts/i18n_check_terminology.mjs) | Terminology QA sweep over the catalogs (`i18n:check-terms`) |
-| [`scripts/check_site_contract.py`](../scripts/check_site_contract.py) | Locale-aware contract checker (reads `locales.json`) |
+| [`src/i18n/locales.json`](../../src/i18n/locales.json) | Locale registry (code, name, native name, dir, machine flag) |
+| [`src/i18n/index.mjs`](../../src/i18n/index.mjs) | `tr()` function, active-locale context, catalog loading, extraction |
+| [`src/content/i18n/_strings.json`](../../src/content/i18n/_strings.json) | Extracted English source strings (translator's work list) |
+| [`src/content/i18n/<code>.json`](../../src/content/i18n/) | Committed translation catalogs (e.g., `es.json`, `de.json`) |
+| [`src/url-taxonomy.mjs`](../../src/url-taxonomy.mjs) | Locale-aware routing (single point: `urlDirForSlug()`) |
+| [`src/url-taxonomy.json`](../../src/url-taxonomy.json) | Routing rule table: `programSubpageSlugs`/`orgPageSlugs`/`yearPageSlugs` slug sets + `routing.rules` (`prefix`/`set` rules) |
+| [`src/build.mjs`](../../src/build.mjs) | Build loop: renders every routed page once per locale |
+| [`src/render/layout.mjs`](../../src/render/layout.mjs) | Page chrome: `<html lang dir>`, `hreflang` alternates, language switcher, MT notice |
+| [`scripts/i18n_translate.mjs`](../../scripts/i18n_translate.mjs) | Offline translator (Ollama or hosted API) |
+| [`scripts/i18n_check_terminology.mjs`](../../scripts/i18n_check_terminology.mjs) | Terminology QA sweep over the catalogs (`i18n:check-terms`) |
+| [`scripts/check_site_contract.py`](../../scripts/check_site_contract.py) | Locale-aware contract checker (reads `locales.json`) |

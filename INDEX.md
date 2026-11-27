@@ -2,7 +2,7 @@
 
 Static, zero-runtime-dependency site for the Active Inference Institute. `node src/build.mjs` renders JSON content into clean-URL HTML that is **committed at the repo root** and served by GitHub Pages. CI fails if committed HTML != `build(source)`.
 
-> **Load-bearing invariant:** a page's output URL derives from its `slug`, **not** its source file path. Never hand-edit built `*.html` — edit `src/` and rebuild. See [docs/SLUG_AND_URL_TAXONOMY.md](docs/SLUG_AND_URL_TAXONOMY.md).
+> **Load-bearing invariant:** a page's output URL derives from its `slug`, **not** its source file path. Never hand-edit built `*.html` — edit `src/` and rebuild. See [docs/architecture/SLUG_AND_URL_TAXONOMY.md](docs/architecture/SLUG_AND_URL_TAXONOMY.md).
 
 ## Top-level map
 
@@ -40,7 +40,7 @@ generates the 404 fallback script. On-site registrar forwards are pinned in
 `check:instituteos`, `check:export`, `check:design-system`, `check:site`,
 `check:feeds`, `check:security`, `check:redirects`, `check:indexability`,
 `check:projects`, `check:catalog`, `check:i18n`, and `check:standalone`. See
-[the gate reference](docs/GATES_AND_VALIDATION.md) for contracts and failures.
+[the gate reference](docs/operations/GATES_AND_VALIDATION.md) for contracts and failures.
 `./run.sh browser` runs the original calendar/newsletter/quick-interaction
 sequence once in CI. Compatibility jobs run lint/fast rather than repeating the
 full build and browser work. See [the run guide](docs/RUN_GUIDE.md).

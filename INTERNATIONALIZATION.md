@@ -1,6 +1,6 @@
 # Internationalization (i18n)
 
-> **Canonical guide:** [`docs/INTERNATIONALIZATION.md`](docs/INTERNATIONALIZATION.md)
+> **Canonical guide:** [`docs/authoring/INTERNATIONALIZATION.md`](docs/authoring/INTERNATIONALIZATION.md)
 > (the full conceptual + operational reference — locale registry, `tr()`, build
 > loop, translate-CLI runbook, add-a-locale steps, RTL). This root file is a short
 > orientation stub.
@@ -31,4 +31,4 @@ npm run i18n:translate -- --all         # translate every non-default locale
 
 Full options (hosted-API providers, per-locale model defaults, add-a-locale,
 writing translatable strings, RTL): see
-[`docs/INTERNATIONALIZATION.md`](docs/INTERNATIONALIZATION.md).
+[`docs/authoring/INTERNATIONALIZATION.md`](docs/authoring/INTERNATIONALIZATION.md).

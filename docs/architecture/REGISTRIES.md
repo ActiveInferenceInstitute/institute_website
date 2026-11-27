@@ -1,12 +1,12 @@
-> Part of the `institute_website` documentation set — see [README.md](README.md).
+> Part of the `institute_website` documentation set — see [README.md](../README.md).
 > Curated conceptual view; the authoritative per-folder contracts live in each
-> folder's `AGENTS.md` (see [`src/content/AGENTS.md`](../src/content/AGENTS.md)).
+> folder's `AGENTS.md` (see [`src/content/AGENTS.md`](../../src/content/AGENTS.md)).
 > The `docs/` folder is **not** built into the site.
 
 # Top-Level Content Registries
 
 Page JSON under `src/content/pages/` is per-page content (see
-[CONTENT_AUTHORING.md](CONTENT_AUTHORING.md)). Everything else under
+[CONTENT_AUTHORING.md](../authoring/CONTENT_AUTHORING.md)). Everything else under
 `src/content/*.json` is a **registry** — a single shared file loaded once at build
 time and referenced from many pages and special surfaces (nav, footer, resources
 directory, directory page, home page). This is the schema reference for those
@@ -36,7 +36,7 @@ registries.
     - `statusCode`, `ok` (reachability)
     - `checkedAt` (last verification timestamp)
     - `sourceBasis` (how it was verified)
-- **Rule**: **All external links MUST use sourceId**, verified here before publication. Full workflow: [GATES_AND_VALIDATION.md § Live Sources & External Links](GATES_AND_VALIDATION.md#live-sources--external-links-the-full-workflow).
+- **Rule**: **All external links MUST use sourceId**, verified here before publication. Full workflow: [GATES_AND_VALIDATION.md § Live Sources & External Links](../operations/GATES_AND_VALIDATION.md#live-sources--external-links-the-full-workflow).
 
 ## `official-pages.json`
 - **Purpose**: Official Institute website pages and branded shortlinks
@@ -69,7 +69,7 @@ registries.
   - `language`, `stars`, `updatedAt`, `archived`
   - `projectFamily`, `repoType`, `docsUrl`, `docsSourceId`
   - `priority`, `promoted`
-- **Used by**: Resources page, projects listing. `check:site` asserts an exact count — see [GATES_AND_VALIDATION.md § 4b](GATES_AND_VALIDATION.md#4b-content-model).
+- **Used by**: Resources page, projects listing. `check:site` asserts an exact count — see [GATES_AND_VALIDATION.md § 4b](../operations/GATES_AND_VALIDATION.md#4b-content-model).
 
 ## `social.json`
 - **Purpose**: Ordered social channel shortcuts
@@ -139,7 +139,7 @@ npm run build
 > *names* remain public via `entities.json`). `communications.json` was
 > removed 2026-07-14 — it was a byte-identical duplicate of the producer-2
 > `communications_public.json`, which is the file `src/data.mjs` actually
-> reads. See [`src/content/instituteos/README.md`](../src/content/instituteos/README.md)
+> reads. See [`src/content/instituteos/README.md`](../../src/content/instituteos/README.md)
 > and `GATING.md`.
 
 **Invariants:**
@@ -150,4 +150,4 @@ npm run build
 - All others use top-level `records` array
 
 Full sync/check contract and failure-mode reference:
-[GATES_AND_VALIDATION.md § Gate 2](GATES_AND_VALIDATION.md#gate-2-instituteos-public-data-sync-checkinstituteos).
+[GATES_AND_VALIDATION.md § Gate 2](../operations/GATES_AND_VALIDATION.md#gate-2-instituteos-public-data-sync-checkinstituteos).

@@ -20,7 +20,7 @@ These are the dynamic, list-driven pages of the site.
 ## Rules
 
 - A page's output URL derives from its **slug**, never this file's path (see
-  [`../../docs/SLUG_AND_URL_TAXONOMY.md`](../../docs/SLUG_AND_URL_TAXONOMY.md)).
+  [`../../docs/architecture/SLUG_AND_URL_TAXONOMY.md`](../../docs/architecture/SLUG_AND_URL_TAXONOMY.md)).
 - Resolve external links by `sourceId` through `live-sources.json` — never
   hardcode URLs (see the external-anchor gate in
   [`../content/AGENTS.md`](../content/AGENTS.md)).

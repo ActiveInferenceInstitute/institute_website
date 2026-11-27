@@ -1,4 +1,4 @@
-> Part of the `institute_website` documentation set — see [README.md](README.md).
+> Part of the `institute_website` documentation set — see [README.md](../README.md).
 > Curated conceptual view; the authoritative per-folder contracts live in each
 > folder's `AGENTS.md`. The `docs/` folder is **not** built into the site.
 
@@ -11,7 +11,7 @@ Every refactoring decision on this site turns on one split, so it comes first:
 | Axis | What it controls | Where it lives | Cost of change |
 | --- | --- | --- | --- |
 | **A — Source organization** | How maintainers group `.json` page sources for navigation | `src/content/pages/**` subfolders | **Free, reversible, invisible to the public.** The build walks the tree recursively and discards file path (see `walkPageJson()` in `src/data.mjs`). |
-| **B — Output-URL taxonomy** | The public clean-URL path of every page | `src/url-taxonomy.mjs`/`.json` (`baseDirForSlug`, `localePrefix`) + slugs + `src/pages/ecosystem.mjs` | **Breaking.** Old URLs 404 without a redirect entry; touches the sitemap, canonicals, hreflang alternates, and (given the Squarespace → GitHub Pages cutover) live SEO equity. See [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md). |
+| **B — Output-URL taxonomy** | The public clean-URL path of every page | `src/url-taxonomy.mjs`/`.json` (`baseDirForSlug`, `localePrefix`) + slugs + `src/pages/ecosystem.mjs` | **Breaking.** Old URLs 404 without a redirect entry; touches the sitemap, canonicals, hreflang alternates, and (given the Squarespace → GitHub Pages cutover) live SEO equity. See [MIGRATION_AND_REDIRECTS.md](../MIGRATION_AND_REDIRECTS.md). |
 
 **Governance rule:** folder placement under `src/content/pages/` is maintainer-facing
 only; the slug is identity. Axis A refactors are encouraged and need no approval.
@@ -29,7 +29,7 @@ prefixes:
    hub; the slug prefix `active-inference-and-` is stripped by a `prefix` routing
    rule — see the worked example below). **This was an Axis-B migration, shipped
    in v3.0.0** (moved off the original flat `/active-inference-and-<domain>/`
-   scheme; see [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md)).
+   scheme; see [MIGRATION_AND_REDIRECTS.md](../MIGRATION_AND_REDIRECTS.md)).
 2. **Programmatically generated ecosystem domain pages** — emitted by
    `src/pages/ecosystem.mjs` as `ecosystem/<domain.slug>`, routing to
    `/ecosystem/<domain>/`. A `/domains/<domain>/` rename for this family remains
@@ -554,11 +554,11 @@ in sync automatically — the entire point of the data-driven routing table.
 
 **Full checklist actually followed** (for the next Axis-B rename):
 1. Add the routing rule to `src/url-taxonomy.json` (as above). No `.mjs`/`.py` code changes needed for a plain prefix rename.
-2. Add a locale-aware entry to `PREFIX_REDIRECTS` in `assets/js/redirects.js` — `{ "from": "active-inference-and-", "to": "active-inference/" }` — so old URLs 404-then-redirect across all 12 locales (one entry covers every locale; see [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md)).
+2. Add a locale-aware entry to `PREFIX_REDIRECTS` in `assets/js/redirects.js` — `{ "from": "active-inference-and-", "to": "active-inference/" }` — so old URLs 404-then-redirect across all 12 locales (one entry covers every locale; see [MIGRATION_AND_REDIRECTS.md](../MIGRATION_AND_REDIRECTS.md)).
 3. `npm run build` — this is **purely additive**; it writes the new `active-inference/<domain>/` directories but does **not** delete the old flat ones.
 4. `git rm -r` every stale pre-migration output directory by hand (16 domains × 12 locales = 192 directories here) — skipping this step means GitHub Pages keeps serving the old page directly instead of 404ing, so the redirect script never fires.
 5. `npm run check` — including the new `check:redirects` gate (`scripts/check_redirects.py`), which fails if a `PREFIX_REDIRECTS` entry has no matching `url-taxonomy.json` rule, a computed redirect target has no built file, or a stale pre-migration directory is still present.
-6. Bump `package.json` to a **major** version per [`../RELEASING.md`](../RELEASING.md)'s SemVer policy (URL-taxonomy change) and add a `CHANGELOG.md` entry.
+6. Bump `package.json` to a **major** version per [`../RELEASING.md`](../../RELEASING.md)'s SemVer policy (URL-taxonomy change) and add a `CHANGELOG.md` entry.
 
 **What did *not* need to change:** page `slug` fields (identity is unchanged —
 only the *derived* output directory moved), `relatedSlugs` values (they store
@@ -621,4 +621,4 @@ But this cascades to many places:
 - `scripts/check_site_contract.py` — URL/slug contract validation (shares `url-taxonomy.json` with the JS build)
 - `scripts/check_redirects.py` — validates `assets/js/redirects.js` stays consistent with `url-taxonomy.json` and the build output
 - `src/build.mjs` — Full build entry point with all renderer assembly
-- [MIGRATION_AND_REDIRECTS.md](MIGRATION_AND_REDIRECTS.md) — redirect mechanism and the full legacy-URL table
+- [MIGRATION_AND_REDIRECTS.md](../MIGRATION_AND_REDIRECTS.md) — redirect mechanism and the full legacy-URL table

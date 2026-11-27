@@ -16,7 +16,7 @@ but cannot recover the request's dynamic query/fragment. If the script fails to
 load, the visible continuation link remains available. These are HTTP 200 HTML
 stubs on GitHub Pages, not permanent server redirects.
 
-The [optional Workers adapter](../edge/README.md) supplies a concrete HTTP 308
+The [optional Workers adapter](../../edge/README.md) supplies a concrete HTTP 308
 deployment option using the same generated map and a Static Assets origin.
 It is unbound. A provider/zone and apex/www binding migration requires separate
 authorization. Keep independent subdomain forwards outside that boundary, retain
@@ -96,14 +96,14 @@ checker independently recomputes it, including Unicode path ordering. Export
 timestamps remain reproducible; no build clock is fabricated as page `lastmod`.
 
 `data/public-html-files.json` records the generated HTML and retained demos.
-[Public artifact staging](../scripts/stage_public_assets.py) includes that
+[Public artifact staging](../../scripts/stage_public_assets.py) includes that
 inventory, public assets, explicit crawler outputs and the verified public
 export manifest with every payload. It refuses stale source identity, unsafe
 paths, symlinks, source-tree output locations and an existing destination.
 Unlisted source, documentation, audit evidence and credentials stay outside
 the artifact.
 
-The [manual Pages workflow](../.github/workflows/pages-manual.yml) is a prepared
+The [manual Pages workflow](../../.github/workflows/pages-manual.yml) is a prepared
 owned-workflow option. It does not run on pushes. It builds and checks source,
 requires unchanged committed output, stages a public artifact and writes
 `deployment.json` containing the actual workflow commit/run and source

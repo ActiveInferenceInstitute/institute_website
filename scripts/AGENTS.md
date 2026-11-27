@@ -204,4 +204,4 @@ they are not part of `npm run check`. Project page JSON is maintained source.
 - `stage_public_assets.py --output NEW_DIRECTORY`: stage the public HTML inventory, validated export manifest and its complete payload, and explicit public assets.
 - `check_live_export.py --commit FULL_SHA`: compare the public version, manifest, payloads and Board route against a reviewed Git commit; the bounded HTTPS read emits a JSON receipt.
 - `source_identity.py` independently checks the website source fingerprint against the JavaScript build.
-- Keep raw browser/GSC/provider evidence outside this public checkout. See [the current follow-up](../docs/INDEXING_FOLLOWUP.md).
+- Keep raw browser/GSC/provider evidence outside this public checkout. See [the current follow-up](../docs/operations/INDEXING_FOLLOWUP.md).
