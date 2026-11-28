@@ -20,4 +20,4 @@ and restores the prior apex/www records; retain the GitHub Pages site and the
 current registrar forwarding inventory throughout migration.
 
 See [routing operations](../docs/MIGRATION_AND_REDIRECTS.md) and the
-[follow-up report](../docs/INDEXING_FOLLOWUP.md).
+[follow-up report](../docs/operations/INDEXING_FOLLOWUP.md).

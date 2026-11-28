@@ -43,9 +43,9 @@ Pages cannot execute configurable HTTP path redirects. Its generated legacy
 stubs are HTTP 200 HTML redirects, not 301/308. This limitation is not represented
 as a completed server-side repair.
 
-[`src/http-redirects.mjs`](../src/http-redirects.mjs) supplies a tested,
+[`src/http-redirects.mjs`](../../src/http-redirects.mjs) supplies a tested,
 Fetch-compatible HTTP 308 handler for integration ahead of Pages. Construct it
-with the generated [`data/redirects.json`](../data/redirects.json) and the
+with the generated [`data/redirects.json`](../../data/redirects.json) and the
 canonical origin. Invoke the resulting function with the incoming `Request`;
 serve the existing origin when it returns `null`. It resolves known legacy paths
 before host/scheme normalization, preserves queries, rejects unsafe maps and

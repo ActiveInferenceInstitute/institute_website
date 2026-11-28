@@ -48,7 +48,7 @@ Localized simulation filenames also get stubs pointing to the root demo files.
 Real routes take precedence over aliases. The build validates every destination
 and refuses to overwrite an existing non-stub page. It writes the inventory to
 `data/redirects.json` and generates `assets/js/redirects.js` from the same source
-plus `src/redirect-runtime.js`. The same script loads synchronously in alias stubs to preserve query strings and fragments, and deferred in `404.html` for unmatched legacy spelling/case/suffix variants. Unknown paths remain 404s. See [follow-up behavior and hosting options](INDEXING_FOLLOWUP.md).
+plus `src/redirect-runtime.js`. The same script loads synchronously in alias stubs to preserve query strings and fragments, and deferred in `404.html` for unmatched legacy spelling/case/suffix variants. Unknown paths remain 404s. See [follow-up behavior and hosting options](operations/INDEXING_FOLLOWUP.md).
 
 `check:redirects` independently enumerates the source paths, verifies every stub
 and destination, compares the browser map to the taxonomy, and pins the inbound
@@ -137,12 +137,12 @@ already exist at `/ecosystem/<name>/`. A `/domains/<name>/` scheme would have
 put two differently-authored pages about "robotics" at confusingly similar
 paths. Nesting under the existing `/active-inference/` hub page instead avoids
 any collision and reads correctly: these pages *are* "Active Inference and X."
-See [SLUG_AND_URL_TAXONOMY.md § Two independent axes](SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url).
+See [SLUG_AND_URL_TAXONOMY.md § Two independent axes](architecture/SLUG_AND_URL_TAXONOMY.md#two-independent-axes-source-organization-vs-output-url).
 
 **Follow-up (after an authorized release):** re-submit the sitemap and validate
 only the genuinely repaired issues. A same-domain path migration does not need
 Search Console's change-of-address tool. See the measured
-[indexing repair and browser-agent handoff](INDEXING_REPAIR_2026-10-25.md).
+[indexing repair and browser-agent handoff](operations/INDEXING_REPAIR_2026-10-25.md).
 
 ### Structural Renames (`SET_REDIRECTS` in assets/js/redirects.js)
 

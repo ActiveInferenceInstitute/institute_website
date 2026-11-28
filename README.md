@@ -303,3 +303,7 @@ InstituteOS metadata (`aii-sidecar/v1`): category, maturity, ecosystem relations
 key artifacts, provenance, and portable tasks. It is read by
 [InstituteOS](https://github.com/ActiveInferenceInstitute/InstituteOS) tooling and
 does not affect the project's build or runtime.
+
+## Methods manuscript
+
+[Stable URLs in a Multilingual Static Research Website](docs/manuscript/README.md) includes the paper source and reproducible PDF build.

@@ -1,0 +1,34 @@
+{
+  "paper": {
+    "title": "Stable URLs in a Multilingual Static Research Website",
+    "subtitle": "A source review of the Active Inference Institute site build"
+  },
+  "authors": [
+    {
+      "name": "Active Inference Institute"
+    }
+  ],
+  "publication": {
+    "repository_url": "https://github.com/ActiveInferenceInstitute/institute_website",
+    "release_status": "unreleased"
+  },
+  "metadata": {
+    "language": "en",
+    "license": "CC-BY-4.0"
+  },
+  "keywords": [
+    "static publishing",
+    "internationalization",
+    "information architecture"
+  ],
+  "manuscript_dir": "docs/manuscript",
+  "render": {
+    "formats": {
+      "pdf": true,
+      "html": false,
+      "slides": false,
+      "docx": false,
+      "epub": false
+    }
+  }
+}

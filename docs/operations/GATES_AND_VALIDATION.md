@@ -1,4 +1,4 @@
-> Part of the `institute_website` documentation set — see [README.md](README.md).
+> Part of the `institute_website` documentation set — see [README.md](../README.md).
 > Curated conceptual view; the authoritative per-folder contracts live in each
 > folder's `AGENTS.md`. The `docs/` folder is **not** built into the site.
 
@@ -10,8 +10,8 @@ This document is a complete reference for all gates and guards enforcing the sta
 
 ## Quick Start: Running the Gates
 
-The composable entry point is [`../run.sh`](../run.sh); see
-[RUN_GUIDE.md](RUN_GUIDE.md) for arms, shared CI commands, GNN setup, deployment
+The composable entry point is [`../run.sh`](../../run.sh); see
+[RUN_GUIDE.md](../RUN_GUIDE.md) for arms, shared CI commands, GNN setup, deployment
 separation and measurement refresh. `./run.sh` defaults to the existing fast
 i18n selection. `./run.sh full` delegates to the complete `npm run check`.
 The Markdown arm also checks the generated measurements and flat docs index.
@@ -390,7 +390,7 @@ Site contract check failed:
 - instituteos/index.html missing interface ids ['export-snapshot']
 - instituteos/index.html does not surface export gate version
 - instituteos/index.html missing manifest artifact name projects.json
-- index.html missing InstituteOS interface homepage snippet 'href="instituteos/#export-snapshot"'
+- index.html missing InstituteOS interface homepage snippet 'href="../instituteos#export-snapshot"'
 ```
 
 **Fix:**
@@ -713,7 +713,7 @@ Google Calendar URLs and other resources with `@` characters are `%40`-encoded i
 **To fix a failure:**
 1. Missing/wrong `website_slug` on a real project: set `library/registries/projects.json`'s `website_slug` field for that project id to match the page's `slug` (convention: `project-<id>`, but not required — some pages use a shorter slug), then re-run `instituteos export-website --only projects` from the InstituteOS root to regenerate `data/projects.json`.
 2. New backend project that's legitimately data-only (no page needed): add its id to `NO_PAGE_EXPECTED` in `check_project_discoverability.py` with a reason.
-3. New backend project that *should* get a page: author `src/content/pages/projects/project-<slug>.json` (see `docs/CONTENT_AUTHORING.md`), then set `website_slug` per (1).
+3. New backend project that *should* get a page: author `src/content/pages/projects/project-<slug>.json` (see `docs/authoring/CONTENT_AUTHORING.md`), then set `website_slug` per (1).
 
 ---
 

@@ -68,7 +68,7 @@ generated separately, not maintained in this table):
 | `check:standalone` | Public-payload verification without an upstream checkout |
 
 Full gate reference with failure messages and fixes:
-[docs/GATES_AND_VALIDATION.md](docs/GATES_AND_VALIDATION.md). Gating contract
+[docs/operations/GATES_AND_VALIDATION.md](docs/operations/GATES_AND_VALIDATION.md). Gating contract
 for public data: [GATING.md](GATING.md). Deep docs are pointed at below and are
 not duplicated here.
 

@@ -1,4 +1,4 @@
-> Part of the `institute_website` documentation set — see [README.md](README.md).
+> Part of the `institute_website` documentation set — see [README.md](../README.md).
 > Curated conceptual view; the authoritative per-folder contracts live in each
 > folder's `AGENTS.md`. The `docs/` folder is **not** built into the site.
 

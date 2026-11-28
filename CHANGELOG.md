@@ -92,7 +92,7 @@ This project follows [Semantic Versioning](https://semver.org/).
   align two verified source records and retain historical aliases. Update six
   public profile URL values without changing cohort membership or private
   registries. Source-bound freshness and producer-2 privacy validation pass.
-- **Indexing and route recovery (2026-10-25, prepared for review).** Expand legacy aliases across locales; preserve explicit language and shared asset URLs; restrict 404 recovery to known destinations. Declare English archive bodies, restore newsletter collection sitemap alternates, and omit unevidenced per-page modification dates. Add a generated-output indexability gate, bounded live HTTP inventory tooling, and an optional 308 handler for a separately authorized HTTP boundary. No production or Search Console change is made by this patch. See [the measured handoff](docs/INDEXING_REPAIR_2026-10-25.md).
+- **Indexing and route recovery (2026-10-25, prepared for review).** Expand legacy aliases across locales; preserve explicit language and shared asset URLs; restrict 404 recovery to known destinations. Declare English archive bodies, restore newsletter collection sitemap alternates, and omit unevidenced per-page modification dates. Add a generated-output indexability gate, bounded live HTTP inventory tooling, and an optional 308 handler for a separately authorized HTTP boundary. No production or Search Console change is made by this patch. See [the measured handoff](docs/operations/INDEXING_REPAIR_2026-10-25.md).
 
 - **Validator traversal (2026-10-13).** Skip already-excluded tooling trees
   before descending, preserving the existing HTML and simulation coverage.
@@ -200,7 +200,7 @@ This project follows [Semantic Versioning](https://semver.org/).
   candidates (`entryPasses`: protected-term verbatim + degeneration guard) are written, and
   every reduction is re-measured by the sweep's own post-write classification. The residual
   573 `omitted`/`verbatim-missing` entries failed the gate across all three passes and are
-  accepted as the documented threshold (see `docs/GATES_AND_VALIDATION.md` Gate 8); fixes
+  accepted as the documented threshold (see `docs/operations/GATES_AND_VALIDATION.md` Gate 8); fixes
   land opportunistically in future catalog passes. Catalog commits: `fe8ba82011`, `74d7af7603`.
 - **i18n terminology QA sweep (2026-09-24).** New
   `scripts/i18n_check_terminology.mjs` (`npm run i18n:check-terms`; unit tests
@@ -261,7 +261,7 @@ This project follows [Semantic Versioning](https://semver.org/).
   model, canonical `package.json` command cheat sheet, and an offline gate
   table with observed runtimes and known-noise flags. Verified drift fixed:
   `scripts/AGENTS.md` npm table now includes `check:i18n`/`check:standalone`
-  and matches the `check` chain; `docs/GATES_AND_VALIDATION.md` corrected
+  and matches the `check` chain; `docs/operations/GATES_AND_VALIDATION.md` corrected
   (11 sub-checks, 8 required JSON files, 35 repositories, derived record
   counts, complete gate-chain diagram). The completed 2026-08-02 review log
   moved to `docs/archive/REVIEW_LOG_2026-08-02.md` (pointer stub at root).
@@ -555,7 +555,7 @@ the same topic names as bare slugs (`economics`, `education`, `neuroscience`,
 would have put two differently-authored pages about the same topic at
 confusingly similar paths; nesting under the existing `/active-inference/`
 hub page avoids the collision entirely. See
-[`docs/SLUG_AND_URL_TAXONOMY.md`](docs/SLUG_AND_URL_TAXONOMY.md) and
+[`docs/architecture/SLUG_AND_URL_TAXONOMY.md`](docs/architecture/SLUG_AND_URL_TAXONOMY.md) and
 [`docs/MIGRATION_AND_REDIRECTS.md`](docs/MIGRATION_AND_REDIRECTS.md).
 
 ## v2.8.0 — 2026-07-01
